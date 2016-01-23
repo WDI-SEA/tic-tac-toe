@@ -1,0 +1,32 @@
+body {
+	font-family: Helvetica;
+	background-color: steelblue;
+
+}
+header {
+	margin-top: 30px;
+	margin-left: 515px;
+	margin-bottom: 10px;
+	font-size: 32px;
+	color: midnightblue;
+
+
+}
+/**/
+button{
+	display: inline;
+	margin: 10px;
+	border: 2px solid midnightblue;
+	outline: 2px solid palevioletred;
+	outline-offset: -7.5px;
+
+	padding: 15px;
+	height: 60px;
+	width: 60px;
+	background-color: lightblue;
+	border-radius: 15px;
+}
+#board {
+	margin-left: 500px;
+
+}
