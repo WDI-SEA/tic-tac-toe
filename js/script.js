@@ -9,10 +9,20 @@ var middleRightTile = document.getElementById("middleRight");
 var bottomLeftTile = document.getElementById("bottomLeft");
 var bottomCenterTile = document.getElementById("bottomCenter");
 var bottomRightTile = document.getElementById("bottomRight");
+var restart = document.getElementById("startOver");
 var clickCount = 0;
 
 var hello = function() {
 	console.log("hello there");
+}
+
+var winner = function() {
+	if ((topLeftTile.className === topCenterTile.className === topRightTile.className) && (topLeftTile.className != "blank")) {
+		// alert(topLeftTile.innerHTML + " is the Winner!");
+		console.log("win");
+	} else {
+		console.log("nope");
+	}
 }
 
 //Add Event Listeners
@@ -150,6 +160,20 @@ bottomRightTile.addEventListener("click", function() {
 		alert("That tile is already taken, please select another");
 	}
 })
+
+//Add "Start Over" button
+
+restart.addEventListener("click", function() {
+	clickCount = 0;
+	for (var i = 0; i < allDivs.length; i++) {
+		allDivs[i].className = "blank";
+		allDivs[i].innerHTML = "";
+	}
+})
+
+//Declare winner or tie
+
+
 
 
 
