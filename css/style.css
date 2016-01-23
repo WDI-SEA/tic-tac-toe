@@ -1,0 +1,30 @@
+body {
+	text-align: center;
+}
+
+div {
+	border: 2px solid black;
+	border-radius: 5px;
+	height: 100px;
+	width: 100px;
+	margin: 10px;
+}
+
+div.topRow {
+	display: inline-block;
+}
+
+div.middleRow {
+	display: inline-block;
+}
+
+div.bottomRow {
+	display: inline-block;
+}
+
+@media screen and (max-width: 1200px;) {
+	div {
+		height: 50px;
+		width: 50px;
+	}
+}
