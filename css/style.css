@@ -10,16 +10,19 @@ div {
 	margin: 10px;
 }
 
-div.topRow {
+div {
 	display: inline-block;
+	font-size: 3em;
+	margin: auto;
+	overflow: hidden;
 }
 
-div.middleRow {
-	display: inline-block;
+.red {
+	background-color: red;
 }
 
-div.bottomRow {
-	display: inline-block;
+.green {
+	background-color: green;
 }
 
 @media screen and (max-width: 1200px;) {
