@@ -1,0 +1,21 @@
+body {
+	text-align: center;
+
+}
+
+div {
+	width: 650px;
+	height: 214px;
+	margin: auto;
+	}
+
+span{
+	display: inline-block;
+	width: 200px;
+	height: 200px;
+	background-color: salmon;
+	border: 2px solid black;
+	margin: 2px;
+	border-radius: 10px;
+	overflow: auto;
+}
