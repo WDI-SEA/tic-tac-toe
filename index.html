@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tic Tac Toe</title>
+	<link href='https://fonts.googleapis.com/css?family=Noto+Sans:400,700,700italic' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+</head>
+<body>
+	<div id="header">
+		<h1>Tic Tac Toe!</h1>
+		<h2>Play if you dare.</h2>
+	</div>
+
+	<div id="game-board">
+		<div id="row-1">
+			<div class="play-square" id="cell-1">
+			</div>
+			<div class="play-square" id="cell-2">
+			</div>
+			<div class="play-square" id="cell-3">
+			</div>
+		</div>
+		<div id="row-2">
+			<div class="play-square" id="cell-4">
+			</div>
+			<div class="play-square" id="cell-5">
+			</div>
+			<div class="play-square" id="cell-6">
+			</div>
+		</div>
+		<div id="row-3">
+			<div class="play-square" id="cell-7">
+			</div>
+			<div class="play-square" id="cell-8">
+			</div>
+			<div class="play-square" id="cell-9">
+			</div>
+		</div>
+	</div>
+
+	<div id="footer">
+		<button id="clearButton">Clear!</button>
+	</div>
+	<script src="js/script.js"></script>
+</body>
+</html>
+
+<!-- why do div boxes collapse when placed inline? this is fixed with inline-block, but still...?
+     why do the boxes change possitions when p-tags and text are placed in them?
+     getElementsByClassName("whatever").addEventListener() isn't valid? What's up with that?
+     I made a function for each cell id, but there must be a more efficient way
+     onclick="clickedBox(this.id)"
+     -->
