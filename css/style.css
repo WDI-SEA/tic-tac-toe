@@ -1,21 +1,30 @@
 body {
 	text-align: center;
+	background-color: black;
+	color: white;
 }
 
 div {
-	border: 2px solid black;
 	border-radius: 5px;
 	height: 100px;
 	width: 100px;
 	margin: 10px;
-}
-
-div {
 	display: inline-block;
 	font-size: 3em;
 	margin: auto;
 	overflow: hidden;
+	padding: 5px;
+	background-color: #0d0d0d;
+	padding: 5px;
 }
+
+ button {
+ 	font-size: 3em;
+ 	margin-top: 15px;
+ 	background-color: gray;
+ 	border-radius: 2px;
+ 	border: none;
+ }
 
 .red {
 	background-color: red;
@@ -24,6 +33,28 @@ div {
 .green {
 	background-color: green;
 }
+
+#topLeft {
+	border-right: 3px solid gray;
+	border-bottom: 3px solid gray;
+}
+
+#topRight {
+	border-left: 3px solid gray;
+	border-bottom: 3px solid gray;
+}
+
+#bottomLeft {
+	border-top: 3px solid gray;
+	border-right: 3px solid gray;
+}
+
+#bottomRight {
+	border-top: 3px solid gray;
+	border-left: 3px solid gray;
+}
+
+
 
 @media screen and (max-width: 1200px;) {
 	div {

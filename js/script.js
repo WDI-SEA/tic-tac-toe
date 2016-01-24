@@ -17,11 +17,46 @@ var hello = function() {
 }
 
 var winner = function() {
-	if ((topLeftTile.className === topCenterTile.className === topRightTile.className) && (topLeftTile.className != "blank")) {
-		// alert(topLeftTile.innerHTML + " is the Winner!");
-		console.log("win");
-	} else {
-		console.log("nope");
+	if (topLeftTile.className !== "blank") {
+		if (
+			(
+				(topLeftTile.className === topCenterTile.className) && (topCenterTile.className === topRightTile.className)
+			) || (
+				(topLeftTile.className === middleLeftTile.className) && (middleLeftTile.className === bottomLeftTile.className)
+			) || (
+				(topLeftTile.className === middleCenterTile.className) && (middleCenterTile.className === bottomRightTile.className)
+			) 
+		) {
+			alert(topLeftTile.innerHTML + " is the winner!");
+		}
+	} else if (topRightTile.className !== "blank") {
+		if (
+			(
+				(topRightTile.className === middleRightTile.className) && (middleRightTile.className === bottomRightTile.className)
+			) || (	
+				(topRightTile.className === middleCenterTile.className) && (middleCenterTile.className === bottomLeftTile.className)
+			)
+		) {
+			alert(topRightTile.innerHTML + " is the winner!");
+		}	
+	} else if (middleCenterTile.className !== "blank") {
+		if (
+			(
+				(middleLeftTile.className === middleCenterTile.className) && (middleCenterTile.className === middleRightTile.className)
+			) || (
+				(topCenterTile.className === middleCenterTile.className) && (middleCenterTile.className === bottomCenterTile.className)
+			) 
+		) {
+		alert(middleCenterTile.innerHTML + " is the winner!")
+		}
+	} else if (bottomLeftTile.className !== "blank") {
+		if (
+			(bottomLeftTile.className === bottomCenterTile.className) && (bottomCenterTile.className === bottomRightTile.className)
+		) {
+			alert(bottomLeftTile.innerHTML + " is the Winner!");
+		}
+	} else if (clickCount === 9) {
+		alert("It's a tie!");
 	}
 }
 
@@ -39,6 +74,7 @@ topLeftTile.addEventListener("click", function() {
 	} else {
 		alert("That tile is already taken, please select another");
 	}
+	winner();
 })
 
 topCenterTile.addEventListener("click", function() {
@@ -54,6 +90,7 @@ topCenterTile.addEventListener("click", function() {
 	} else {
 		alert("That tile is already taken, please select another");
 	}
+	winner();
 })
 
 topRightTile.addEventListener("click", function() {
@@ -69,6 +106,7 @@ topRightTile.addEventListener("click", function() {
 	} else {
 		alert("That tile is already taken, please select another");
 	}
+	winner();
 })
 
 middleLeftTile.addEventListener("click", function() {
@@ -84,6 +122,7 @@ middleLeftTile.addEventListener("click", function() {
 	} else {
 		alert("That tile is already taken, please select another");
 	}
+	winner();
 })
 
 middleCenterTile.addEventListener("click", function() {
@@ -99,6 +138,7 @@ middleCenterTile.addEventListener("click", function() {
 	} else {
 		alert("That tile is already taken, please select another");
 	}
+	winner();
 })
 
 middleRightTile.addEventListener("click", function() {
@@ -114,6 +154,7 @@ middleRightTile.addEventListener("click", function() {
 	} else {
 		alert("That tile is already taken, please select another");
 	}
+	winner();
 })
 
 bottomLeftTile.addEventListener("click", function() {
@@ -129,6 +170,7 @@ bottomLeftTile.addEventListener("click", function() {
 	} else {
 		alert("That tile is already taken, please select another");
 	}
+	winner();
 })
 
 bottomCenterTile.addEventListener("click", function() {
@@ -144,6 +186,7 @@ bottomCenterTile.addEventListener("click", function() {
 	} else {
 		alert("That tile is already taken, please select another");
 	}
+	winner();
 })
 
 bottomRightTile.addEventListener("click", function() {
@@ -159,6 +202,7 @@ bottomRightTile.addEventListener("click", function() {
 	} else {
 		alert("That tile is already taken, please select another");
 	}
+	winner();
 })
 
 //Add "Start Over" button
@@ -175,17 +219,20 @@ restart.addEventListener("click", function() {
 
 
 
-
-
-/*var counter = function() {
-	var numClicks = 0;
-	for (var i = 0; i < allDivs.length; i++) {
-		allDivs[i].addEventListener("click", function() {
-			numClicks += 1;
-			console.log(numClicks);
-			return numClicks;
-		});
-	}
-}
-
-counter();*/
+/*
+for (var i = 0; i < allDivs.length; i++) {
+	allDivs[i].addEventListener("click", function() {
+		if (allDivs[i].className === "blank") {
+			clickCount += 1;
+			if (clickCount % 2) {
+				allDivs[i].className = "red";
+				allDivs[i].innerHTML = "X";
+			} else {
+				allDivs[i].className = "green";
+				allDivs[i].innerHTML = "O";
+			}
+		} else {
+			alert("That tile is already taken, please select another");
+		}
+	})
+}*/
