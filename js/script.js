@@ -2,8 +2,9 @@
 
 var allBoxes = document.getElementsByClassName('play-square');
 var isPlayerOne = true;  // this will determine which player is playing
-var singlePlayerMode = false  // this determines if o's are placed by computer
-var gameOver = false // this will stop the computer from taking any more turns when the game ends.
+var singlePlayerMode = false; // this determines if o's are placed by computer
+var gameOver = false; // this will stop the computer from taking any more turns when the game ends.
+var turns = 0;
 
 var getRandomNumber = function(){         // the first two functions are for AI in single-player
 	return Math.floor(Math.random() * 9);
@@ -14,19 +15,24 @@ var computerMove = function() {
 	if (singlePlayerMode && !gameOver){
 		do {
 			x = getRandomNumber();
-		} while (allBoxes[x].className.indexOf("cell") !== -1)
+		} while (allBoxes[x].className.indexOf("cell") !== -1);
 		allBoxes[x].className += " o-cell";
 		isPlayerOne = true;
+		turns++;
 	}
 }
 
 var checkForWinner = function(){   // the following functions check to see if anyone has won
 	if (isWinner('x')){
-		document.getElementById('winner-name').innerHTML = "The Winner is X!"
+		document.getElementById('winner-name').innerHTML = "The Winner is X!";
 		gameOver = true;
 	}
 	if (isWinner('o')){
-		document.getElementById('winner-name').innerHTML = "The Winner is O!"
+		document.getElementById('winner-name').innerHTML = "The Winner is O!";
+		gameOver = true;
+	}
+	if (turns >= 9){
+		document.getElementById('winner-name').innerHTML = "NOBODY WINS!";
 		gameOver = true;
 	}
 }
@@ -77,11 +83,13 @@ var changeBox = function(cell) {     // this assigns a square to x or o
 			cell.className += " x-cell";  //gives the square P1 color
 			//cell.innerHTML = "<p>X<p>";   //gives the square an X
 			isPlayerOne = false;          //makes it P2's turn
+			turns++;
 			computerMove();				//prompts computer to take its turn (sigle-player only!)
 		} else {
 			cell.className += " o-cell";
 			//cell.innerHTML = "<p>O<p>";
 			isPlayerOne = true;	
+			turns++;
 		}
 	}
 	checkForWinner();
@@ -95,6 +103,7 @@ var clearBoard = function(){  //function for the clear button
 		allBoxes[i].innerHTML = ''; //clears all text from boxes
 		isPlayerOne = true;         //makes it player one's turn
 		turnCheck();
+		turns = 0;
 		gameOver = false;
 		document.getElementById('winner-name').innerHTML = "Who will survive?";
 	}
