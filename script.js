@@ -1,4 +1,6 @@
 var round = 0;
+var board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
+
 var clickedBox = function (element){
 	var turn = "";
 	if ((element.classList.contains('blue') === false)&& 
@@ -13,78 +15,103 @@ var clickedBox = function (element){
 			element.classList.add("yellow");
 		}
 		element.innerHTML = turn;
-		winner()
-	}	
+		buildArray(element);
+		winner2();
+}		
 };
-var winner = function (){
+var buildArray = function (element){
+	if (element === document.getElementById("1")){
+		if (document.getElementById("1").innerHTML === "X"){
+			board[0][0] = 5;
+		} else if (document.getElementById("1").innerHTML === "O"){
+			board[0][0] = 3;
+		}
+	}
+	if (element === document.getElementById("2")){
+		if (document.getElementById("2").innerHTML === "X"){
+			board[0][1] = 5;
+		} else if (document.getElementById("2").innerHTML === "O"){
+			board[0][1] = 3;
+		}
+	}
+	if (element === document.getElementById("3")){
+		if (document.getElementById("3").innerHTML === "X"){
+			board[0][2] = 5;
+		} else if (document.getElementById("3").innerHTML === "O"){
+			board[0][2] = 3;
+		}
+	}	
+	if (element === document.getElementById("4")){
+		if (document.getElementById("4").innerHTML === "X"){
+			board[1][0] = 5;
+		} else if (document.getElementById("4").innerHTML === "O"){
+			board[1][0] = 3;
+		}
+	}
+	if (element === document.getElementById("5")){
+		if (document.getElementById("5").innerHTML === "X"){
+			board[1][1] = 5;
+		} else if (document.getElementById("5").innerHTML === "O"){
+			board[1][1] = 3;
+		}
+	}
+	if (element === document.getElementById("6")){
+		if (document.getElementById("6").innerHTML === "X"){
+			board[1][2] = 5;
+		} else if (document.getElementById("6").innerHTML === "O"){
+			board[1][2] = 3;
+		}
+	}
+	if (element === document.getElementById("7")){
+		if (document.getElementById("7").innerHTML === "X"){
+			board[2][0] = 5;
+		} else if (document.getElementById("7").innerHTML === "O"){
+			board[2][0] = 3;
+		}
+	}
+	if (element === document.getElementById("8")){
+		if (document.getElementById("8").innerHTML === "X"){
+			board[2][1] = 5;
+		} else if (document.getElementById("8").innerHTML === "O"){
+			board[2][1] = 3;
+		}
+	}
+	if (element === document.getElementById("9")){
+		if (document.getElementById("9").innerHTML === "X"){
+			board[2][2] = 5;
+		} else if (document.getElementById("9").innerHTML === "O"){
+			board[2][2] = 3;
+		}
+	}
+	return board;
+};
 
-	if ((document.getElementById("1").innerHTML === "X")
-		&& (document.getElementById("2").innerHTML === "X")
-		&& (document.getElementById("3").innerHTML === "X")) {
+var winner2 = function (){
+	//X win
+	if (((board[0][0] + board[0][1] + board[0][2]) === 15) ||
+		((board[1][0] + board[1][1] + board[1][2]) === 15) ||
+		((board[2][0] + board[2][1] + board[2][2]) === 15) ||
+		((board[0][0] + board[1][0] + board[2][0]) === 15) ||
+		((board[0][1] + board[1][1] + board[2][1]) === 15) ||
+		((board[0][2] + board[1][2] + board[2][2]) === 15) ||
+		((board[0][0] + board[1][1] + board[2][2]) === 15) ||
+		((board[0][2] + board[1][1] + board[2][0]) === 15)){
 		document.getElementById("winner").innerHTML = "X is the Winner!";
-	} else if ((document.getElementById("1").innerHTML === "O")
-		&& (document.getElementById("2").innerHTML === "O")
-		&& (document.getElementById("3").innerHTML === "O")) {
-		document.getElementById("winner").innerHTML = "O is the Winner!";
-	} else if ((document.getElementById("4").innerHTML === "O")
-		&& (document.getElementById("5").innerHTML === "O")
-		&& (document.getElementById("6").innerHTML === "O")) {
-		document.getElementById("winner").innerHTML = "O is the Winner!";
-	} else if ((document.getElementById("4").innerHTML === "X")
-		&& (document.getElementById("5").innerHTML === "X")
-		&& (document.getElementById("6").innerHTML === "X")) {
-		document.getElementById("winner").innerHTML = "X is the Winner!";
-	}else if ((document.getElementById("7").innerHTML === "X")
-		&& (document.getElementById("8").innerHTML === "X")
-		&& (document.getElementById("9").innerHTML === "X")) {
-		document.getElementById("winner").innerHTML = "X is the Winner!";
-	}else if ((document.getElementById("7").innerHTML === "O")
-		&& (document.getElementById("8").innerHTML === "O")
-		&& (document.getElementById("9").innerHTML === "O")) {
-		document.getElementById("winner").innerHTML = "O is the Winner!";
-	}else if ((document.getElementById("1").innerHTML === "X")
-		&& (document.getElementById("4").innerHTML === "X")
-		&& (document.getElementById("7").innerHTML === "X")) {
-		document.getElementById("winner").innerHTML = "X is the Winner!";
-	}else if ((document.getElementById("1").innerHTML === "O")
-		&& (document.getElementById("4").innerHTML === "O")
-		&& (document.getElementById("7").innerHTML === "O")) {
-		document.getElementById("winner").innerHTML = "O is the Winner!";
-	}else if ((document.getElementById("2").innerHTML === "X")
-		&& (document.getElementById("5").innerHTML === "X")
-		&& (document.getElementById("8").innerHTML === "X")) {
-		document.getElementById("winner").innerHTML = "X is the Winner!";
-	}else if ((document.getElementById("2").innerHTML === "O")
-		&& (document.getElementById("5").innerHTML === "O")
-		&& (document.getElementById("8").innerHTML === "O")) {
-		document.getElementById("winner").innerHTML = "O is the Winner!";
-	}else if ((document.getElementById("3").innerHTML === "X")
-		&& (document.getElementById("6").innerHTML === "X")
-		&& (document.getElementById("9").innerHTML === "X")) {
-		document.getElementById("winner").innerHTML = "X is the Winner!";
-	}else if ((document.getElementById("3").innerHTML === "O")
-		&& (document.getElementById("6").innerHTML === "O")
-		&& (document.getElementById("9").innerHTML === "O")) {
-		document.getElementById("winner").innerHTML = "O is the Winner!";
-	}else if ((document.getElementById("1").innerHTML === "X")
-		&& (document.getElementById("5").innerHTML === "X")
-		&& (document.getElementById("9").innerHTML === "X")) {
-		document.getElementById("winner").innerHTML = "X is the Winner!";
-	}else if ((document.getElementById("1").innerHTML === "O")
-		&& (document.getElementById("5").innerHTML === "O")
-		&& (document.getElementById("9").innerHTML === "O")) {
-		document.getElementById("winner").innerHTML = "O is the Winner!";
-	}else if ((document.getElementById("3").innerHTML === "X")
-		&& (document.getElementById("5").innerHTML === "X")
-		&& (document.getElementById("7").innerHTML === "X")) {
-		document.getElementById("winner").innerHTML = "X is the Winner!";
-	}else if ((document.getElementById("3").innerHTML === "O")
-		&& (document.getElementById("5").innerHTML === "O")
-		&& (document.getElementById("7").innerHTML === "O")) {
+	// O win
+	} else if (((board[0][0] + board[0][1] + board[0][2]) === 9) ||
+			((board[1][0] + board[1][1] + board[1][2]) === 9) ||
+			((board[2][0] + board[2][1] + board[2][2]) === 9) ||
+			((board[0][0] + board[1][0] + board[2][0]) === 9) ||
+			((board[0][1] + board[1][1] + board[2][1]) === 9) ||
+			((board[0][2] + board[1][2] + board[2][2]) === 9) ||
+			((board[0][0] + board[1][1] + board[2][2]) === 9) ||
+			((board[0][2] + board[1][1] + board[2][0]) === 9)){
 		document.getElementById("winner").innerHTML = "O is the Winner!";
 	}
-
+	
+	return (board);
 };
+
 
 
 var idOne = document.getElementById("1");
@@ -97,6 +124,7 @@ var idSeven = document.getElementById("7");
 var idEight = document.getElementById("8");
 var idNine = document.getElementById("9");
 
+
 idOne.addEventListener("click", function (){clickedBox(idOne);});
 idTwo.addEventListener("click", function (){clickedBox(idTwo);})
 idThree.addEventListener("click", function (){clickedBox(idThree);});
@@ -108,7 +136,8 @@ idEight.addEventListener("click", function (){clickedBox(idEight);});
 idNine.addEventListener("click", function (){clickedBox(idNine);});
 
 document.getElementById("clear").addEventListener("click", function() {
-	var count = 0;
+	round = 0;
+	board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
 	document.getElementById('winner').innerHTML = '';
 	var clicked = document.querySelectorAll('span');
 	for (var i = 0; i < clicked.length; i++){
@@ -116,6 +145,13 @@ document.getElementById("clear").addEventListener("click", function() {
 		clicked[i].classList.remove('blue');
 		clicked[i].classList.remove('yellow');
 	}
-
 });
+
+
+
+
+
+
+
+
 
