@@ -35,3 +35,9 @@ button {
 	height: 25px;
 	margin: 25px;
 }
+#winner {
+	width: 600px;
+	font-size: 50px;
+	font-weight: bold;
+	color: red;
+}
