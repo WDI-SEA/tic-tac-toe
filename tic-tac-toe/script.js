@@ -4,13 +4,14 @@ var board = document.getElementById("board");
 
 console.log(board);
 
-var gameboard = document.getElementsByTagName("button");
-console.log(gameboard);
-// gameboard.addEventListener("click", function(userClick) {
-// 	// for (var i = 0; i < gameboard.length; i++) 
+var buttons = document.getElementsByTagName("button");
+console.log(buttons);
+
+// buttons.addEventListener("click", function(userClick) {
+// 	// for (var i = 0; i < buttons.length; i++) 
 // 	userClick.preventDefault();
-	var input = gameboard.value;
-	console.log(input);
+	var input = buttons.value;
+//	console.log(input);
 
 	// body...
 //})
@@ -24,78 +25,106 @@ var buttonSix = document.getElementById("six");
 var buttonSeven = document.getElementById("seven");
 var buttonEight = document.getElementById("eight");
 var buttonNine = document.getElementById("nine");
-// console.log(buttonOne);
+var resetButton = document.getElementById("clear");
+
 var counter = 0;
+// var clickButton = function(click) {
+// 	for (var i = 0; i < buttons.length; i++) 
+// 		counter ++;
+// 	}
+	// body...
+
+// VVV unsuccessful attempt at reset button below  VVV
+//  resetButton.addEventListener("click", function() {
+// 	document.getElementById("resetbutton").value = null;
+// });
 
 buttonOne.addEventListener("click", function(click) {
-	for (var i = 0; i < gameboard.length; i++) 
-		if (i % 2 == 0) {
-			buttonOne.innerHTML = "X";
-		} else {buttonOne.innerHTML = "O"}
+	// for (var i = 0; i < buttons.length; i++) 
+	counter ++;
+	click.preventDefault();
+		if (counter % 2 == 0) {
+			buttonOne.innerHTML = "O";
+		} else {buttonOne.innerHTML = "X"}
 		
 	});
-	console.log(counter);
 
 console.log("You clicked");
 
 buttonTwo.addEventListener("click", function(click) {
-	for (var i = 0; i < gameboard.length; i++) 
-		if (i % 2 == 0) {
-			buttonTwo.innerHTML = "X";
-		} else {buttonTwo.innerHTML = "O"}
+//	for (var i = 0; i < buttons.length; i++) 
+	counter	++;
+	click.preventDefault();
+		if (counter % 2 == 0) {
+			buttonTwo.innerHTML = "O";
+		} else {buttonTwo.innerHTML = "X"}
 		
 	});
 
 buttonThree.addEventListener("click", function(click) {
-	for (var i = 0; i < gameboard.length; i++) 
-		if (i % 2 == 0) {
-			buttonThree.innerHTML = "X";
-		} else {buttonThree.innerHTML = "O"}
+//	for (var i = 0; i < buttons.length; i++) 
+		counter	++;
+		click.preventDefault();
+		if (counter % 2 == 0) {
+			buttonThree.innerHTML = "O";
+		} else {buttonThree.innerHTML = "X"}
 		
 	});
 
 buttonFour.addEventListener("click", function(click) {
-	for (var i = 0; i < gameboard.length; i++) 
-		if (i % 2 == 0) {
-			buttonFour.innerHTML = "X";
-		} else {buttonFour.innerHTML = "O"}
+//	for (var i = 0; i < buttons.length; i++) 
+		counter	++;
+		click.preventDefault();
+		if (counter % 2 == 0) {
+			buttonFour.innerHTML = "O";
+		} else {buttonFour.innerHTML = "X"}
 		
 	});
 
 buttonFive.addEventListener("click", function(click) {
-	for (var i = 0; i < gameboard.length; i++) 
-		if (i % 2 == 0) {
-			buttonFive.innerHTML = "X";
-		} else {buttonFive.innerHTML = "O"}
+//	for (var i = 0; i < buttons.length; i++) 
+		counter	++;
+		click.preventDefault();
+		if (counter % 2 == 0) {
+			buttonFive.innerHTML = "O";
+		} else {buttonFive.innerHTML = "X"}
 		
 	});
 
 buttonSix.addEventListener("click", function(click) {
-	for (var i = 0; i < gameboard.length; i++) 
-		if (i % 2 == 0) {
-			buttonSix.innerHTML = "X";
-		} else {buttonSix.innerHTML = "O"}
+//	for (var i = 0; i < buttons.length; i++) 
+		counter	++;
+		click.preventDefault();
+		if (counter % 2 == 0) {
+			buttonSix.innerHTML = "O";
+		} else {buttonSix.innerHTML = "X"}
 		
 	});
 
 buttonSeven.addEventListener("click", function(click) {
-	for (var i = 0; i < gameboard.length; i++) 
-		if (i % 2 == 0) {
-			buttonSeven.innerHTML = "X";
-		} else {buttonSeven.innerHTML = "O"}
+//	for (var i = 0; i < buttons.length; i++) 
+		counter	++;
+		click.preventDefault();
+		if (counter % 2 == 0) {
+			buttonSeven.innerHTML = "O";
+		} else {buttonSeven.innerHTML = "X"}
 		
 	});
 buttonEight.addEventListener("click", function(click) {
-	for (var i = 0; i < gameboard.length; i++) 
-		if (i % 2 == 0) {
-			buttonEight.innerHTML = "X";
-		} else {buttonEight.innerHTML = "O"}
+//	for (var i = 0; i < buttons.length; i++) 
+		counter	++;
+		click.preventDefault();
+		if (counter % 2 == 0) {
+			buttonEight.innerHTML = "O";
+		} else {buttonEight.innerHTML = "X"}
 		
 	});
 buttonNine.addEventListener("click", function(click) {
-	for (var i = 0; i < gameboard.length; i++) 
-		if (i % 2 == 0) {
-			buttonNine.innerHTML = "X";
-		} else {buttonNine.innerHTML = "O"}
+//	for (var i = 0; i < buttons.length; i++) 
+		counter	++;
+		click.preventDefault();
+		if (counter % 2 == 0) {
+			buttonNine.innerHTML = "O";
+		} else {buttonNine.innerHTML = "X"}
 		
 	});
