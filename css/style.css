@@ -14,9 +14,30 @@ h1 {
 	margin: 15px 400px 10px;
 }
 
+
 h2 {
 	margin: 10px;
-	font-size: 20px
+	font-size: 20px;
+	display: inline;
+}
+
+span {
+	font-weight: bold;
+}
+
+.active-turn {
+
+	background-color: #b1b300;
+	padding: 5px;
+	border-radius: 50%;
+}
+
+#x-span {
+	color: #e60000;
+}
+
+#o-span {
+	color: #00802b;
 }
 
 #game-board {
@@ -32,6 +53,7 @@ h2 {
 	margin: 25px;
 	display: inline-block;
 	background-color: #b3d1ff;
+	border-radius: 15px
 }
 
 
@@ -69,8 +91,26 @@ h2 {
 	text-align: center;
 }
 
+.footer-element {
+	display: inline;
+}
+
 button {
 	padding: 15px;
 	border-radius: 5px;
 	font-weight: bold;
 }
+
+#winner-name {
+	background-color: #b3ffff;
+	font-weight: bold;
+	padding: 5px 6px 11px;
+	font-size: 22px;
+}
+
+
+
+
+
+
+

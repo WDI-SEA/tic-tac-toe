@@ -9,7 +9,11 @@
 <body>
 	<div id="header">
 		<h1>Tic Tac Toe!</h1>
-		<h2>Play if you dare.</h2>
+		<div id="sub-header">
+			<span id="x-span">X</span>
+			<h2>Play if you dare.</h2>
+			<span id="o-span">O</span>
+		</div>
 	</div>
 
 	<div id="game-board">
@@ -40,7 +44,9 @@
 	</div>
 
 	<div id="footer">
-		<button id="clearButton">Clear!</button>
+		<button id="clear-button" class="footer-element">Clear!</button>
+		<p id="winner-name" class="footer-element">Who will survive?</p>
+		<button id="single-player" class="footer-element">Vs. Comp</button>
 	</div>
 	<script src="js/script.js"></script>
 </body>
@@ -49,6 +55,5 @@
 <!-- why do div boxes collapse when placed inline? this is fixed with inline-block, but still...?
      why do the boxes change possitions when p-tags and text are placed in them?
      getElementsByClassName("whatever").addEventListener() isn't valid? What's up with that?
-     I made a function for each cell id, but there must be a more efficient way
-     onclick="clickedBox(this.id)"
+     I made an event listener for each cell id, but there must be a more efficient way, right?
      -->
