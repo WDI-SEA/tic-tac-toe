@@ -1,20 +1,19 @@
 var round = 0;
 var clickedBox = function (element){
 	var turn = "";
-	if (round % 2 === 0){
-		turn = "X";
-		round++;
+	if ((element.classList.contains('blue') === false)&& 
+		(element.classList.contains('yellow') === false)){
+		if (round % 2 === 0){
+			turn = "X";
+			element.classList.add("blue");
+			round++;
 		} else {
-		turn = "O";
-		round++;
-	}
-	if (element.classList.contains('clicked') === false){
-		console.log("working." + element.clicked);
+			turn = "O";
+			round++;
+			element.classList.add("yellow");
+		}
 		element.innerHTML = turn;
-		element.classList.add("clicked");
-		console.log(element.classList.contains('clicked'));
-
-}
+	}	
 };
 
 
@@ -38,4 +37,14 @@ idSeven.addEventListener("click", function (){clickedBox(idSeven);});
 idEight.addEventListener("click", function (){clickedBox(idEight);});
 idNine.addEventListener("click", function (){clickedBox(idNine);});
 
+document.getElementById("clear").addEventListener("click", function() {
+	var count = 0;
+	var clicked = document.querySelectorAll('span');
+	for (var i = 0; i < clicked.length; i++){
+		clicked[i].innerHTML = ' ';
+		clicked[i].classList.remove('blue');
+		clicked[i].classList.remove('yellow');
+	}
+
+});
 

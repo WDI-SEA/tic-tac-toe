@@ -4,18 +4,34 @@ body {
 }
 
 div {
-	width: 650px;
-	height: 214px;
+	width: 350px;
+	height: 114px;
 	margin: auto;
 	}
 
 span{
 	display: inline-block;
-	width: 200px;
-	height: 200px;
-	background-color: salmon;
+	width: 100px;
+	height: 100px;
+	background-color: mediumturquoise;
 	border: 2px solid black;
 	margin: 2px;
 	border-radius: 10px;
 	overflow: auto;
+	font-size: 85px;
+	font-weight: bold;
+
+}
+
+.blue{
+	background-color: dodgerblue;
+}
+
+.yellow{
+	background-color: gold;
+}
+button {
+	width: 75px;
+	height: 25px;
+	margin: 25px;
 }
