@@ -3,13 +3,15 @@
 var allBoxes = document.getElementsByClassName('play-square');
 var isPlayerOne = true;  // this will determine which player is playing
 var singlePlayerMode = false  // this determines if o's are placed by computer
+var gameOver = false // this will stop the computer from taking any more turns when the game ends.
 
 var getRandomNumber = function(){         // the first two functions are for AI in single-player
 	return Math.floor(Math.random() * 9);
 }
 
 var computerMove = function() {
-	if (singlePlayerMode){
+	checkForWinner();
+	if (singlePlayerMode && !gameOver){
 		do {
 			x = getRandomNumber();
 		} while (allBoxes[x].className.indexOf("cell") !== -1)
@@ -21,9 +23,11 @@ var computerMove = function() {
 var checkForWinner = function(){   // the following functions check to see if anyone has won
 	if (isWinner('x')){
 		document.getElementById('winner-name').innerHTML = "The Winner is X!"
+		gameOver = true;
 	}
 	if (isWinner('o')){
 		document.getElementById('winner-name').innerHTML = "The Winner is O!"
+		gameOver = true;
 	}
 }
 
@@ -85,13 +89,13 @@ var changeBox = function(cell) {     // this assigns a square to x or o
 }
 
 
-
 var clearBoard = function(){  //function for the clear button
 	for(var i in allBoxes){
 		allBoxes[i].className = 'play-square'; //clears all x && o-cell classes from boxes
 		allBoxes[i].innerHTML = ''; //clears all text from boxes
 		isPlayerOne = true;         //makes it player one's turn
 		turnCheck();
+		gameOver = false;
 		document.getElementById('winner-name').innerHTML = "Who will survive?";
 	}
 }
