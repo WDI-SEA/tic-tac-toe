@@ -26,15 +26,14 @@ var checkForWinner = function(){   // the following functions check to see if an
 	if (isWinner('x')){
 		document.getElementById('winner-name').innerHTML = "The Winner is X!";
 		gameOver = true;
-	}
-	if (isWinner('o')){
+	} else if (isWinner('o')){
 		document.getElementById('winner-name').innerHTML = "The Winner is O!";
 		gameOver = true;
-	}
-	if (turns >= 9){
+	} else if (turns >= 9){
 		document.getElementById('winner-name').innerHTML = "NOBODY WINS!";
 		gameOver = true;
 	}
+	
 }
 
 var isWinner = function(player){
@@ -78,11 +77,12 @@ var turnCheck = function(){   // this function changes the position of the turn 
 }
 
 var changeBox = function(cell) {     // this assigns a square to x or o
-	if (cell.className.indexOf("cell") === -1) {  // this line prevents overwriting played squares
+	if (!gameOver && cell.className.indexOf("cell") === -1) {  // this line prevents overwriting played squares
 		if (isPlayerOne){
 			cell.className += " x-cell";  //gives the square P1 color
 			//cell.innerHTML = "<p>X<p>";   //gives the square an X
 			isPlayerOne = false;          //makes it P2's turn
+			checkForWinner();
 			turns++;
 			computerMove();				//prompts computer to take its turn (sigle-player only!)
 		} else {
@@ -92,7 +92,7 @@ var changeBox = function(cell) {     // this assigns a square to x or o
 			turns++;
 		}
 	}
-	checkForWinner();
+	
 	turnCheck();
 }
 
@@ -113,6 +113,10 @@ var modeTogle = function(){
 	if(!singlePlayerMode){
 		document.getElementById('single-player').innerHTML = "2p Mode";
 		singlePlayerMode = true;
+		if(!isPlayerOne){
+			computerMove();
+			turnCheck();
+		}
 	} else if (singlePlayerMode){
 		document.getElementById('single-player').innerHTML = "Vs. Comp";
 		singlePlayerMode = false;
