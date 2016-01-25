@@ -1,0 +1,34 @@
+h1 {
+	text-align: center;
+	font-family: Georgia;
+	color: black;
+}
+
+table {
+	float:right;
+	border: 2px solid black;
+	margin-right: 250px;
+}
+
+#board {
+	margin-left: 250px;
+	float: left;
+}
+.cell {
+	height: 200px;
+	width: 200px;
+	border: 1px solid black;
+
+}
+
+.column {
+	display:inline-block;
+}
+
+.x {
+	background-color: powderblue;
+	}
+
+.o {
+	background-color: gray;
+}
