@@ -1,244 +1,54 @@
 var squareArray = [];
-squareArray[0] = document.getElementById('box1');
-squareArray[1] = document.getElementById('box2');
-squareArray[2] = document.getElementById('box3');
-squareArray[3] = document.getElementById('box4');
-squareArray[4] = document.getElementById('box5');
-squareArray[5] = document.getElementById('box6');
-squareArray[6] = document.getElementById('box7');
-squareArray[7] = document.getElementById('box8');
-squareArray[8] = document.getElementById('box9');
+for (var i = 0; i <= 8; i++){
+	squareArray[i] = document.getElementById('box' + i);
+}
 
-var emptyInnerHtml = document.getElementById('box1').innerHTML;
-
+var emptyInnerHtml = '<h2><strong> </strong></h2>';
 var xOrO = true;
 var moves = 0;
+var square;
 
-squareArray[0].addEventListener('click', function(e){
-	e.preventDefault();
-		
-	if (squareArray[0].innerHTML === emptyInnerHtml){
+var addListener = function(square){
+	square.addEventListener('click', function(e){
+		e.preventDefault();
+		if (square.innerHTML === emptyInnerHtml){
 			
 			if (xOrO === true){
-				squareArray[0].innerHTML = '<h2><strong>X</strong></h2>';
+				square.innerHTML = '<h2><strong>X</strong></h2>';
 				xOrO = false;	
 				moves++;
+				square.className += ' xColor';
 			}
 			else if(xOrO === false){
-				squareArray[0].innerHTML = '<h2><strong>O</strong></h2>';
+				square.innerHTML = '<h2><strong>O</strong></h2>';
 				xOrO = true;
 				moves++;
+				square.className += ' oColor';
 			}
-	}
-	else if (moves === 9){
-		window.alert("Game Over! no more moves.");
-	}
-	else {
-		window.alert("Please choose an empty space :D");
-	}
-	
-});
+			 
+		}
+		else if (moves === 9){
+			window.alert('Game Over! no more moves.');
+		}
+		else {
+			window.alert('Please choose an empty space :D');
+		}
+	});
+};
 
-squareArray[1].addEventListener('click', function(e){
+for (var i = 0; i <= 8; i++){
+	square = squareArray[i];
+	addListener(square);
+
+}
+
+
+document.getElementById('reset').addEventListener('click', function(e){
 	e.preventDefault();
-		
-	if (squareArray[1].innerHTML === emptyInnerHtml){
-			
-			if (xOrO === true){
-				squareArray[1].innerHTML = '<h2><strong>X</strong></h2>';
-				xOrO = false;	
-				moves++;
-			}
-			else if(xOrO === false){
-				squareArray[1].innerHTML = '<h2><strong>O</strong></h2>';
-				xOrO = true;
-				moves++;
-			}
+	for (item in squareArray) {
+		squareArray[item].className = 'theBoard';
+		squareArray[item].innerHTML = '<h2><strong> </strong></h2>';
+		xOrO = true;
 	}
-	else if (moves === 9){
-		window.alert("Game Over! no more moves.");
-	}
-	else {
-		window.alert("Please choose an empty space :D");
-	}
-	
 });
 
-squareArray[2].addEventListener('click', function(e){
-	e.preventDefault();
-		
-	if (squareArray[2].innerHTML === emptyInnerHtml){
-			
-			if (xOrO === true){
-				squareArray[2].innerHTML = '<h2><strong>X</strong></h2>';
-				xOrO = false;	
-				moves++;
-			}
-			else if(xOrO === false){
-				squareArray[2].innerHTML = '<h2><strong>O</strong></h2>';
-				xOrO = true;
-				moves++;
-			}
-	}
-	else if (moves === 9){
-		window.alert("Game Over! no more moves.");
-	}
-	else {
-		window.alert("Please choose an empty space :D");
-	}
-	
-});
-
-squareArray[3].addEventListener('click', function(e){
-	e.preventDefault();
-		
-	if (squareArray[3].innerHTML === emptyInnerHtml){
-			
-			if (xOrO === true){
-				squareArray[3].innerHTML = '<h2><strong>X</strong></h2>';
-				xOrO = false;	
-				moves++;
-			}
-			else if(xOrO === false){
-				squareArray[3].innerHTML = '<h2><strong>O</strong></h2>';
-				xOrO = true;
-				moves++;
-			}
-	}
-	else if (moves === 9){
-		window.alert("Game Over! no more moves.");
-	}
-	else {
-		window.alert("Please choose an empty space :D");
-	}
-	
-});
-
-squareArray[4].addEventListener('click', function(e){
-	e.preventDefault();
-		
-	if (squareArray[4].innerHTML === emptyInnerHtml){
-			
-			if (xOrO === true){
-				squareArray[4].innerHTML = '<h2><strong>X</strong></h2>';
-				xOrO = false;	
-				moves++;
-			}
-			else if(xOrO === false){
-				squareArray[4].innerHTML = '<h2><strong>O</strong></h2>';
-				xOrO = true;
-				moves++;
-			}
-	}
-	else if (moves === 9){
-		window.alert("Game Over! no more moves.");
-	}
-	else {
-		window.alert("Please choose an empty space :D");
-	}
-	
-});
-
-squareArray[5].addEventListener('click', function(e){
-	e.preventDefault();
-		
-	if (squareArray[5].innerHTML === emptyInnerHtml){
-			
-			if (xOrO === true){
-				squareArray[5].innerHTML = '<h2><strong>X</strong></h2>';
-				xOrO = false;	
-				moves++;
-			}
-			else if(xOrO === false){
-				squareArray[5].innerHTML = '<h2><strong>O</strong></h2>';
-				xOrO = true;
-				moves++;
-			}
-	}
-	else if (moves === 9){
-		window.alert("Game Over! no more moves.");
-	}
-	else {
-		window.alert("Please choose an empty space :D");
-	}
-	
-});
-
-squareArray[6].addEventListener('click', function(e){
-	e.preventDefault();
-		
-	if (squareArray[6].innerHTML === emptyInnerHtml){
-			
-			if (xOrO === true){
-				squareArray[6].innerHTML = '<h2><strong>X</strong></h2>';
-				xOrO = false;	
-				moves++;
-			}
-			else if(xOrO === false){
-				squareArray[6].innerHTML = '<h2><strong>O</strong></h2>';
-				xOrO = true;
-				moves++;
-			}
-	}
-	else if (moves === 9){
-		window.alert("Game Over! no more moves.");
-	}
-	else {
-		window.alert("Please choose an empty space :D");
-	}
-	
-});
-
-squareArray[7].addEventListener('click', function(e){
-	e.preventDefault();
-		
-	if (squareArray[7].innerHTML === emptyInnerHtml){
-			
-			if (xOrO === true){
-				squareArray[7].innerHTML = '<h2><strong>X</strong></h2>';
-				xOrO = false;	
-				moves++;
-			}
-			else if(xOrO === false){
-				squareArray[7].innerHTML = '<h2><strong>O</strong></h2>';
-				xOrO = true;
-				moves++;
-			}
-	}
-	else if (moves === 9){
-		window.alert("Game Over! no more moves.");
-	}
-	else {
-		window.alert("Please choose an empty space :D");
-	}
-	
-});
-
-squareArray[8].addEventListener('click', function(e){
-	e.preventDefault();
-		
-	if (squareArray[8].innerHTML === emptyInnerHtml){
-			
-			if (xOrO === true){
-				squareArray[8].innerHTML = '<h2><strong>X</strong></h2>';
-				xOrO = false;	
-				moves++;
-			}
-			else if(xOrO === false){
-				squareArray[8].innerHTML = '<h2><strong>O</strong></h2>';
-				xOrO = true;
-				moves++;
-			}
-	}
-	else if (moves === 9){
-		window.alert("Game Over! no more moves.");
-	}
-	else {
-		window.alert("Please choose an empty space :D");
-	}
-	
-});
-
-	
-
-	
