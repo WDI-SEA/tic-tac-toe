@@ -1,0 +1,101 @@
+/*
+Project Name: TIC-TAC-TOE
+Author: Jonathan Andrew
+Developer @GA in Seattle
+*/
+
+
+/******************************************
+/* SETUP
+/*******************************************/
+
+
+#test {
+  height: 500px;
+}
+/* Box Model Hack */
+* {
+     -moz-box-sizing: border-box; /* Firexfox */
+     -webkit-box-sizing: border-box; /* Safari/Chrome/iOS/Android */
+     box-sizing: border-box; /* IE */
+}
+
+/* Clear fix hack */
+.clearfix:after {
+     content: ".";
+     display: block;
+     clear: both;
+     visibility: hidden;
+     line-height: 0;
+     height: 0;
+}
+
+.clear {
+  clear: both;
+}
+
+.alignright {
+  float: right;
+  padding: 0 0 10px 10px; /* note the padding around a right floated image */
+}
+
+.alignleft {
+  float: left;
+  padding: 0 10px 10px 0; /* note the padding around a left floated image */
+}
+
+.hide {
+  display: none;
+}
+
+
+
+
+/******************************************
+/* BASE STYLES
+/*******************************************/
+body{
+	color: #ffffff;
+	background-color: #000000;
+}
+
+#container{
+	width: 610px;
+	margin-left: 36%;
+	background-color: #ffffff;
+
+}
+
+.box{
+	font-size: 5em;
+	text-align: center;
+	max-width: 100px;
+	max-height: 100px;
+	padding: 100px 100px;
+	border: 2px solid #000000;
+	float: left;
+}
+
+
+.title{
+	font-size: 2em;
+	text-decoration: underline;
+	text-align: center;
+}
+
+#clear{
+	margin-left: 47.5%;
+	text-align: center;
+	font-size: 2em;
+	margin-top: 5%;
+}
+
+.blue{
+	background-color: #002244;
+}
+
+.red{
+	background-color: "red";
+}
+
+
