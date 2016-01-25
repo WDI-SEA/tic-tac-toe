@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tic-Tac-Toe</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+	<h1>Tic-Tac-Toe</h1>
+	<h2 id="winner"> </h2>
+	<h3 id="whosTurn">Turn: Player 1</h3>
+	<table class="layout">
+		<tr class="rowOne">
+			<td>
+				<button type="button" class="button" onclick="pickSpace(this)"/>
+			</td>
+
+			<td>
+				<button type="button" class="button" onclick="pickSpace(this)"/>
+			</td>
+
+			<td>
+				<button type="button" class="button" onclick="pickSpace(this)"/>
+			</td>
+		</tr>
+
+		<tr class="rowTwo">
+			<td>
+				<button type="button" class="button" onclick="pickSpace(this)"/>
+			</td>
+
+			<td>
+				<button type="button" class="button" onclick="pickSpace(this)"/>
+			</td>
+
+			<td>
+				<button type="button" class="button" onclick="pickSpace(this)"/>
+			</td>
+		</tr>
+
+		<tr class="rowThree">
+			<td>
+				<button type="button" class="button" onclick="pickSpace(this)"/>
+			</td>
+
+			<td>
+				<button type="button" class="button" onclick="pickSpace(this)"/>
+			</td>
+			
+			<td>
+				<button type="button" class="button" onclick="pickSpace(this)"/>
+			</td>
+		</tr>
+	</table>
+	<input type="reset" id="resetBoard" onclick="clearBoard()"/>
+</body>
+<script type="text/javascript" src="js/main.js"></script>
+</html>

@@ -1,0 +1,73 @@
+/*************************
+PAGE LAYOUT & COLORS
+**************************/
+
+body {
+	text-align: center;
+}
+
+table {
+	vertical-align: center;
+	margin: auto;
+}
+
+
+
+/*************************
+TABLE
+**************************/
+
+table {
+	width: 500px;
+	height: 500px;
+}
+
+td {
+	border: 1px solid black;
+}
+
+tr.rowOne, tr.rowTwo {
+	border-bottom: 1px solid black;
+}
+
+tr.rowTwo, tr.rowThree {
+	border-top: 1px solid black;
+}
+
+button {
+	height: 165px;
+	width: 165px;
+	font-size: -webkit-xxx-large;
+}
+
+
+
+/*************************
+PLAYER X & O
+**************************/
+
+.playerX {
+	background-color: #5AED43;
+	color: #F4407D;
+}
+
+.playerO {
+	background-color: #39DADA;
+	color: #FFED43;
+}
+
+
+
+/*************************
+RESET BUTTON
+**************************/
+
+#resetBoard {
+	height: 50px;
+	width: 100px;
+	font-size: 20px;
+}
+
+input {
+	margin: 10px;
+}
