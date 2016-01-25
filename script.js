@@ -18,13 +18,15 @@ var clickCell = function() {
 		
 		if (playerOne === true) {
 			document.getElementsByClassName("cell").className += " x"; //asigns value of x (powderblue)
-			document.getElementsByClassName.className += " playedSquare"; //makes it so a square cannot be changed 
+			document.getElementsByClassName.("cell").className += " playedSquare"; //makes it so a square cannot be changed 
+			document.getElementsByClassName("cell").innerHTML = "X"; //assigns value of x (with text)
 			PlayerOne = false;
 		}
 
 		else {
 			document.getElementsByClassName("cell").className += " o"; //assigns value of o (gray)
-			document.getElementsByClassName.className += " playedSquare"; //makes it so a square can't be played again
+			document.getElementsByClassName("cell").className += " playedSquare"; //makes it so a square can't be played again
+			document.getElementsByClassName("cell").innerHTML = "o" //assigns value of o (with text)
 			playerOne= true;
 		}
 	}
