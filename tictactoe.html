@@ -1,25 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Tic Tac Toe</title>
+	<title>Play Tic Tac Toe</title>
 	<link rel="stylesheet" type="text/css" href="tictactoe.css">
 </head>
 <body>
-	<h1>Play Tic Tac Toe</h1>
-	<div class="grid">
-		<form>
-			<input type="button" id="cell1" />
-			<input type="button" id="cell2" />
-			<input type="button" id="cell3" />
-			<input type="button" id="cell4" />
-			<input type="button" id="cell5" />
-			<input type="button" id="cell6" />
-			<input type="button" id="cell7" />
-			<input type="button" id="cell8" />
-			<input type="button" id="cell9" />
-			<div><button id="reset">Reset</button></div>
-		</form>
+<h1>Play Tic Tac Toe</h1>
+<div id="grid">
+	<div class= "row" id="row1">
+		<div class="tile" id="tile1"></div>
+		<div class="tile" id="tile2"></div>
+		<div class="tile" id="tile3"></div>
 	</div>
-	<script type="text/javascript" src="tictactoe.js"></script>
+	<div class= "row" id="row2">
+		<div class="tile" id="tile4"></div>
+		<div class="tile" id="tile5"></div>
+		<div class="tile" id="tile6"></div>
+	</div>
+	<div class= "row" id="row3">
+		<div class="tile" id="tile7"></div>
+		<div class="tile" id="tile8"></div>
+		<div class="tile" id="tile9"></div>
+	</div>	
+</div>
+<div id="button">
+<button type="button" id="reset">Reset</button>
+</div>
+
+<script type="text/javascript" src="tictactoe.js"></script>
 </body>
 </html>

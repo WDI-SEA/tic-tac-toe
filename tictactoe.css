@@ -1,24 +1,19 @@
-input {
-	width: 120px;
-	height: 120px;
-	border: 2px solid green;
-	background-color: white;
-	font-size: 50px;
-}
-
-.grid {
+#grid {
 	width: 400px;
 	height: 400px;
-	position: absolute;
+	font-size: 70px;
 }
 
+.row {
+	height: 100px;
+	width: 400px;
+	margin: 0;
+}
 
-button {
-	width: 150px;
-	height: 30px;
-	border: 2px solid green;
-	color: white;
-	font-size: 16px;
-	background-color: green;
-	margin-top: 20px;
+.tile {
+	width: 100px;
+	height: 100px;
+	background-color: #eeeeee;
+	display: inline-block;
+	text-align: center;
 }
