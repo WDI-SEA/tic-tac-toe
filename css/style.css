@@ -1,7 +1,7 @@
 #title {
 	float: left;
 	position: absolute;
-	left: 185px;
+	left: 50px;
 	color: black;
 }
 
@@ -32,6 +32,23 @@ h2 {
 	top: -25px;
 	left: 35px;
 	font-size: 50px;
+}
+
+h3 {
+	float: left;
+	position: relative;
+	font-size: 20px;
+	top: -18px;
+	left: 20px;
+}
+
+#turn {
+	position: absolute; 
+	border: 5px solid black; 
+	width: 200px;
+	height: 25px;
+	top: 30px;
+	left: 450px;
 }
 
 #box0 {
