@@ -2,8 +2,7 @@ var board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
 var round = 0;
 var computerplay = false;
 
-<<<<<<< HEAD
-=======
+
 var clickedBox = function (element){
 	var turn = "";
 	if ((element.classList.contains('blue') === false)&& 
@@ -33,7 +32,6 @@ var clickedBox = function (element){
 
 };
 
->>>>>>> fbe62400735b737d2e4ba604e0d71203dd788828
 var computerturn = function(){
 	if (round === 1){
 		x =compWin();
@@ -65,12 +63,7 @@ var computerturn = function(){
 			}
 			winner2();	
 		} else if ((round === 7) && (!((document.getElementById("winner").innerHTML === "X is the Winner!"))) &&
-<<<<<<< HEAD
 		(!(document.getElementById("winner").innerHTML === "O is the Winner!"))){
-=======
-(!(document.getElementById("winner").innerHTML === "O is the Winner!"))){
->>>>>>> fbe62400735b737d2e4ba604e0d71203dd788828
-			x =compWin();
 			if (x === false){
 				y = blockMove();
 				if (y === false){
@@ -79,10 +72,7 @@ var computerturn = function(){
 		}
 	}
 			winner2();
-<<<<<<< HEAD
-			console.log("board is in comp " + board);
-=======
->>>>>>> fbe62400735b737d2e4ba604e0d71203dd788828
+
 };
 
 var buildArray = function (element){
@@ -332,7 +322,7 @@ var compWin = function(){
 		return false;
 	}
 };
-<<<<<<< HEAD
+
 
 var blockMove = function () {
 	// across
@@ -560,7 +550,7 @@ var clickedBox = function (element){
 		document.getElementById("winner").innerHTML = "TIE GAME!"
 	}
 	console.log("board is " + board);
-=======
+
 
 var blockMove = function () {
 	// across
@@ -705,7 +695,7 @@ var blockMove = function () {
 	} else {
 		return false;
 	}
->>>>>>> fbe62400735b737d2e4ba604e0d71203dd788828
+
 };
 
 var compMove = function (){
@@ -730,6 +720,7 @@ var compMove = function (){
 		round++;
 		buildArray(idSeven);
 	}
+}
 };
 var idOne = document.getElementById("1");
 var idTwo = document.getElementById("2");
@@ -755,21 +746,17 @@ idNine.addEventListener("click", function (){clickedBox(idNine);});
 
 document.getElementById("computer").addEventListener("click", function(){
 	computerplay = true;
-<<<<<<< HEAD
-});a
 
-=======
+
+
 });
->>>>>>> fbe62400735b737d2e4ba604e0d71203dd788828
+
 
 document.getElementById("clear").addEventListener("click", function() {
 	round = 0;
 	board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
 	computerplay = false;
-<<<<<<< HEAD
-=======
 	turn = '';
->>>>>>> fbe62400735b737d2e4ba604e0d71203dd788828
 	document.getElementById('winner').innerHTML = '';
 	var clicked = document.querySelectorAll('span');
 	for (var i = 0; i < clicked.length; i++){
@@ -778,13 +765,4 @@ document.getElementById("clear").addEventListener("click", function() {
 		clicked[i].classList.remove('yellow');
 	}
 });
-<<<<<<< HEAD
-=======
-	
 
-
-
-
-
-
->>>>>>> fbe62400735b737d2e4ba604e0d71203dd788828

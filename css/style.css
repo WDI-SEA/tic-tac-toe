@@ -35,18 +35,18 @@ span{
 .yellow{
 	background-color: gold;
 }
-<<<<<<< HEAD
+
 button {
 	width: 100px;
 	height: 25px;
 	margin: 10px;
 	background-color: lightskyblue;
-=======
+
 #clear {
 	width: 100px;
 	height: 25px;
 	margin: 10px;
->>>>>>> fbe62400735b737d2e4ba604e0d71203dd788828
+
 }
 #winner {
 	width: 600px;
@@ -56,7 +56,7 @@ button {
 }
 
 #computer {
-	width: 1o0px;
+	width: 100px;
 	height: 25px;
 	margin: 10px;
 }
