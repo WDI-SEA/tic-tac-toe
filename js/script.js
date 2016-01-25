@@ -1,5 +1,5 @@
 
-//creates empty array of 9 elements based on the amount of divs on the page
+//creates an array of 9 elements based on the amount of divs on the page
 var boardSpace = document.getElementsByClassName("boardSpace");
 
 //starts off with playing X starting the game
@@ -15,6 +15,12 @@ document.getElementById('exit').addEventListener("click", function(){
 var selectedArrayX = [];
 var selectedArrayO = [];
 
+//populates the selected array to empty values so they can be assigned
+for(var i = 0; i < boardSpace.length; i++){
+	selectedArrayX[i] = "";
+	selectedArrayO[i] = "";
+}
+
 //reset function used in new game button to reset game
 var reset = function(){
 	for(var i = 0; i < boardSpace.length; i++){
@@ -23,12 +29,6 @@ var reset = function(){
 	}
 	document.getElementById('winner').innerHTML= "<div id ='exit' class='x'></div>";
 	whichPlayer = 'x';
-}
-
-//populates the selected array to empty values so they can be assigned
-for(var i = 0; i < boardSpace.length; i++){
-	selectedArrayX[i] = "";
-	selectedArrayO[i] = "";
 }
 
 //array of winning arrays
