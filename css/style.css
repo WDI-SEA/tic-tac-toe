@@ -30,14 +30,20 @@ span{
 .yellow{
 	background-color: gold;
 }
-button {
-	width: 75px;
+#clear {
+	width: 100px;
 	height: 25px;
-	margin: 25px;
+	margin: 10px;
 }
 #winner {
 	width: 600px;
 	font-size: 50px;
 	font-weight: bold;
 	color: red;
+}
+
+#computer {
+	width: 1o0px;
+	height: 25px;
+	margin: 10px;
 }
