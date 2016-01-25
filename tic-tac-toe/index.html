@@ -11,23 +11,26 @@
 
 <form id="resetbutton">
 	<div class="game" id="board">	
-		<button id="one"></button>		
-		<button id="two"></button>
-		<button id="three"></button>
+		<button onclick="this.setAttribute('disabled', 'disabled')" class="grid" id="one"></button>		
+		<button onclick="this.setAttribute('disabled', 'disabled')" class="grid" id="two"></button>
+		<button onclick="this.setAttribute('disabled', 'disabled')" class="grid" id="three"></button>
 <br>
-		<button id="four"></button>		
-		<button id="five"></button>
-		<button id="six"></button>
+		<button onclick="this.setAttribute('disabled', 'disabled')" class="grid" id="four"></button>		
+		<button onclick="this.setAttribute('disabled', 'disabled')" class="grid" id="five"></button>
+		<button class="grid" id="six"></button>
 <br>		
-		<button id="seven"></button>		
-		<button id="eight"></button>
-		<button id="nine"></button>
+		<button onclick="this.setAttribute('disabled', 'disabled')" class="grid" id="seven"></button>		
+		<button onclick="this.setAttribute('disabled', 'disabled')" class="grid" id="eight"></button>
+		<button onclick="this.setAttribute('disabled', 'disabled')" class="grid" id="nine"></button>
+
+
 		
 
 	</div> 
 </form>
 <div style="text-align:center">
-	<input type="reset" id="clear" value="Reset"></input>
+<!-- 	<input type="reset" id="clear" value="Reset"></input> -->
+	<input type="button" value="Reset" id="clear" onClick="window.location.reload()"></input>
 </div>
 <footer></footer>
 </body>

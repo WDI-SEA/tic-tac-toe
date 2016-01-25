@@ -12,11 +12,11 @@ header {
 	/*border: 2px solid magenta;*/
 }
 
-.game button{
+.grid 	{
 	display: inline;
 	margin: 10px;
 	border: 2px solid midnightblue;
-	outline: 2px solid palevioletred;
+	outline: 2px solid mediumvioletred;
 	outline-offset: -7.5px;
 	font-family: verdana;
 	color: darkslateblue;
