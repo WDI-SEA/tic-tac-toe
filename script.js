@@ -547,6 +547,7 @@ document.getElementById("computer").addEventListener("click", function(){
 	computerplay = true;
 });
 
+
 document.getElementById("clear").addEventListener("click", function() {
 	round = 0;
 	board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
