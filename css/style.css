@@ -17,6 +17,7 @@ h1 {
 	float: left;
 	position: relative;
 	display: inline-block;
+	margin-left: 38%;
 }
 
 input{
@@ -28,6 +29,7 @@ input{
 	float: left;
 	display: inline-block;
 	margin: 0 auto;
+	color: #1CC720;
 }
 
 #btNew{
@@ -35,7 +37,7 @@ input{
 	height: 80px;
 	border: 1px solid black;
 	font-size: 60px;
-	background: #237A2E;
+	background: #103815;
 	color: #1459C0;
 	position: inherit;
 	border: 1px solid grey;
