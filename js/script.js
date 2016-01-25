@@ -29,6 +29,7 @@ var reset = function(){
 	}
 	document.getElementById('winner').innerHTML= "<div id ='exit' class='x'></div>";
 	whichPlayer = 'x';
+	isWinner = false;
 }
 
 //array of winning arrays
@@ -71,8 +72,7 @@ document.getElementById('button').addEventListener("click", function(){
 for(var i = 0; i < boardSpace.length; i++){
 	boardSpace[i].addEventListener("click", function(){
 	 if(isWinner){
-	 		
-	 }else{
+	 	}else{
 	 	if(whichPlayer === 'x'){
 		  if(this.getAttribute("class").indexOf("true") === -1){
 		  	this.className += (" x true");
