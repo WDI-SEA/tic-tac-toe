@@ -1,0 +1,19 @@
+#grid {
+	width: 400px;
+	height: 400px;
+	font-size: 70px;
+}
+
+.row {
+	height: 100px;
+	width: 400px;
+	margin: 0;
+}
+
+.tile {
+	width: 100px;
+	height: 100px;
+	background-color: #eeeeee;
+	display: inline-block;
+	text-align: center;
+}

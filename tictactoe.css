@@ -1,0 +1,24 @@
+input {
+	width: 120px;
+	height: 120px;
+	border: 2px solid green;
+	background-color: white;
+	font-size: 50px;
+}
+
+.grid {
+	width: 400px;
+	height: 400px;
+	position: absolute;
+}
+
+
+button {
+	width: 150px;
+	height: 30px;
+	border: 2px solid green;
+	color: white;
+	font-size: 16px;
+	background-color: green;
+	margin-top: 20px;
+}
