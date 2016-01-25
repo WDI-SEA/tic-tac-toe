@@ -1,4 +1,4 @@
-//Declare Variable
+//Declare Variables
 var allDivs = document.getElementsByTagName("div");
 var topLeftTile = document.getElementById("topLeft");
 var topCenterTile = document.getElementById("topCenter");
@@ -11,9 +11,17 @@ var bottomCenterTile = document.getElementById("bottomCenter");
 var bottomRightTile = document.getElementById("bottomRight");
 var restart = document.getElementById("startOver");
 var clickCount = 0;
-
-var hello = function() {
-	console.log("hello there");
+var reload = function() {
+	document.getElementById("startOver").addEventListener("click", function() {
+			location.reload();
+	})		
+}
+var whichTurn = function() {
+	if (clickCount % 2 === 0) {
+		document.getElementsByTagName("span")[0].innerHTML = "X";
+	} else {
+		document.getElementsByTagName("span")[0].innerHTML = "O";
+	}
 }
 
 //Declare functions to determine winner
@@ -28,6 +36,11 @@ var winnerTopLeft = function() {
 		) 
 	) {
 		alert(topLeftTile.innerHTML + " is the winner!");
+		document.getElementsByTagName("body")[0].innerHTML = ("<h1>" + topLeftTile.innerHTML + " wins!</h1><br /><button id='startOver'>Start Over</button>");
+		reload();
+	} else if (clickCount === 9) {
+		alert("It's a tie!  Try again.");
+		location.reload();
 	}
 }
 
@@ -40,6 +53,11 @@ var winnerTopCenter = function() {
 		) 
 	) {
 		alert(topCenterTile.innerHTML + " is the winner!");
+		document.getElementsByTagName("body")[0].innerHTML = ("<h1>" + topCenterTile.innerHTML + " wins!</h1><br /><button id='startOver'>Start Over</button>");
+		reload();
+	} else if (clickCount === 9) {
+		alert("It's a tie!  Try again.");
+		location.reload();
 	}
 }
 
@@ -54,6 +72,11 @@ var winnerTopRight = function() {
 		)
 	) {
 		alert(topRightTile.innerHTML + " is the winner!");
+		document.getElementsByTagName("body")[0].innerHTML = ("<h1>" + topRightTile.innerHTML + " wins!</h1><br /><button id='startOver'>Start Over</button>");
+		reload();
+	} else if (clickCount === 9) {
+		alert("It's a tie!  Try again.");
+		location.reload();
 	}
 }
 
@@ -66,6 +89,11 @@ var winnerMiddleLeft = function() {
 		)
 	) {
 		alert(middleLeftTile.innerHTML + " is the winner!");
+		document.getElementsByTagName("body")[0].innerHTML = ("<h1>" + middleLeftTile.innerHTML + " wins!</h1><br /><button id='startOver'>Start Over</button>");
+		reload();
+	} else if (clickCount === 9) {
+		alert("It's a tie!  Try again.");
+		location.reload();
 	}
 }
 
@@ -82,6 +110,11 @@ var winnerMiddleCenter = function() {
 		)
 	) {
 		alert(middleCenterTile.innerHTML + " is the winner!");
+		document.getElementsByTagName("body")[0].innerHTML = ("<h1>" + middleCenterTile.innerHTML + " wins!</h1><br /><button id='startOver'>Start Over</button>");
+		reload();
+	} else if (clickCount === 9) {
+		alert("It's a tie!  Try again.");
+		location.reload();
 	}
 }
 
@@ -94,6 +127,11 @@ var winnerMiddleRight = function() {
 		)
 	) {
 		alert(middleRightTile.innerHTML + " is the winner!");
+		document.getElementsByTagName("body")[0].innerHTML = ("<h1>" + middleRightTile.innerHTML + " wins!</h1><br /><button id='startOver'>Start Over</button>");
+		reload();
+	} else if (clickCount === 9) {
+		alert("It's a tie!  Try again.");
+		location.reload();
 	}
 }
 
@@ -108,6 +146,11 @@ var winnerBottomLeft = function() {
 		)
 	) {
 		alert(bottomLeftTile.innerHTML + " is the winner!");
+		document.getElementsByTagName("body")[0].innerHTML = ("<h1>" + bottomLeftTile.innerHTML + " wins!</h1><br /><button id='startOver'>Start Over</button>");
+		reload();
+	} else if (clickCount === 9) {
+		alert("It's a tie!  Try again.");
+		location.reload();
 	}
 }
 
@@ -120,6 +163,11 @@ var winnerBottomCenter = function() {
 		)
 	) {
 		alert(bottomCenterTile.innerHTML + " is the winner!");
+		document.getElementsByTagName("body")[0].innerHTML = ("<h1>" + bottomCenterTile.innerHTML + " wins!</h1><br /><button id='startOver'>Start Over</button>");
+		reload();
+	} else if (clickCount === 9) {
+		alert("It's a tie!  Try again.");
+		location.reload();
 	}
 }
 
@@ -134,12 +182,15 @@ var winnerBottomRight = function() {
 		)
 	) {
 		alert(bottomRightTile.innerHTML + " is the winner!");
+		document.getElementsByTagName("body")[0].innerHTML = ("<h1>" + bottomRightTile.innerHTML + " wins!</h1><br /><button id='startOver'>Start Over</button>");
+		reload();
+	} else if (clickCount === 9) {
+		alert("It's a tie!  Try again.");
+		location.reload();
 	}
 }
 
-
-
-//Add Event Listeners
+//Add Event Listeners to assign X/O and check for winner on each click
 topLeftTile.addEventListener("click", function() {
 	if (topLeftTile.className === "blank") {
 		clickCount += 1;
@@ -150,6 +201,7 @@ topLeftTile.addEventListener("click", function() {
 			topLeftTile.className = "O";
 			topLeftTile.innerHTML = "O";
 		}
+		whichTurn();
 	} else {
 		alert("That tile is already taken, please select another");
 	}
@@ -166,6 +218,7 @@ topCenterTile.addEventListener("click", function() {
 			topCenterTile.className = "O";
 			topCenterTile.innerHTML = "O";
 		}
+		whichTurn();
 	} else {
 		alert("That tile is already taken, please select another");
 	}
@@ -182,6 +235,7 @@ topRightTile.addEventListener("click", function() {
 			topRightTile.className = "O";
 			topRightTile.innerHTML = "O";
 		}
+		whichTurn();
 	} else {
 		alert("That tile is already taken, please select another");
 	}
@@ -198,6 +252,7 @@ middleLeftTile.addEventListener("click", function() {
 			middleLeftTile.className = "O";
 			middleLeftTile.innerHTML = "O";
 		}
+		whichTurn();
 	} else {
 		alert("That tile is already taken, please select another");
 	}
@@ -214,6 +269,7 @@ middleCenterTile.addEventListener("click", function() {
 			middleCenterTile.className = "O";
 			middleCenterTile.innerHTML = "O";
 		}
+		whichTurn();
 	} else {
 		alert("That tile is already taken, please select another");
 	}
@@ -230,6 +286,7 @@ middleRightTile.addEventListener("click", function() {
 			middleRightTile.className = "O";
 			middleRightTile.innerHTML = "O";
 		}
+		whichTurn();
 	} else {
 		alert("That tile is already taken, please select another");
 	}
@@ -246,6 +303,7 @@ bottomLeftTile.addEventListener("click", function() {
 			bottomLeftTile.className = "O";
 			bottomLeftTile.innerHTML = "O";
 		}
+		whichTurn();
 	} else {
 		alert("That tile is already taken, please select another");
 	}
@@ -262,6 +320,7 @@ bottomCenterTile.addEventListener("click", function() {
 			bottomCenterTile.className = "O";
 			bottomCenterTile.innerHTML = "O";
 		}
+		whichTurn();
 	} else {
 		alert("That tile is already taken, please select another");
 	}
@@ -278,13 +337,14 @@ bottomRightTile.addEventListener("click", function() {
 			bottomRightTile.className = "O";
 			bottomRightTile.innerHTML = "O";
 		}
+		whichTurn();
 	} else {
 		alert("That tile is already taken, please select another");
 	}
 	winnerBottomRight();
 })
 
-//Add "Start Over" button
+//Make "Start Over" button clear the board
 
 restart.addEventListener("click", function() {
 	clickCount = 0;
@@ -294,69 +354,16 @@ restart.addEventListener("click", function() {
 	}
 })
 
-//Declare winner or tie
-
-
-
-/*
-for (var i = 0; i < allDivs.length; i++) {
-	allDivs[i].addEventListener("click", function() {
-		if (allDivs[i].className === "blank") {
+//Make computer play
+/*var computerMove = function() {
+	var computerChoice = Math.random();
+	if (computerChoice < 0.1) {
+		if (topLeftTile.className !== "blank") {
 			clickCount += 1;
-			if (clickCount % 2) {
-				allDivs[i].className = "red";
-				allDivs[i].innerHTML = "X";
-			} else {
-				allDivs[i].className = "green";
-				allDivs[i].innerHTML = "O";
-			}
+			topLeftTile.className = "O";
 		} else {
-			alert("That tile is already taken, please select another");
+			;
 		}
-	})
-}*/
-
-
-/*var winner = function() {
-	if (topLeftTile.className !== "blank") {
-		if (
-			(
-				(topLeftTile.className === topCenterTile.className) && (topCenterTile.className === topRightTile.className)
-			) || (
-				(topLeftTile.className === middleLeftTile.className) && (middleLeftTile.className === bottomLeftTile.className)
-			) || (
-				(topLeftTile.className === middleCenterTile.className) && (middleCenterTile.className === bottomRightTile.className)
-			) 
-		) {
-			alert(topLeftTile.innerHTML + " is the winner!");
-		}
-	} else if (topRightTile.className !== "blank") {
-		if (
-			(
-				(topRightTile.className === middleRightTile.className) && (middleRightTile.className === bottomRightTile.className)
-			) || (	
-				(topRightTile.className === middleCenterTile.className) && (middleCenterTile.className === bottomLeftTile.className)
-			)
-		) {
-			alert(topRightTile.innerHTML + " is the winner!");
-		}	
-	} else if (middleCenterTile.className !== "blank") {
-		if (
-			(
-				(middleLeftTile.className === middleCenterTile.className) && (middleCenterTile.className === middleRightTile.className)
-			) || (
-				(topCenterTile.className === middleCenterTile.className) && (middleCenterTile.className === bottomCenterTile.className)
-			) 
-		) {
-		alert(middleCenterTile.innerHTML + " is the winner!")
-		}
-	} else if (bottomLeftTile.className !== "blank") {
-		if (
-			(bottomLeftTile.className === bottomCenterTile.className) && (bottomCenterTile.className === bottomRightTile.className)
-		) {
-			alert(bottomLeftTile.innerHTML + " is the Winner!");
-		}
-	} else if (clickCount === 9) {
-		alert("It's a tie!");
 	}
 }*/
+
