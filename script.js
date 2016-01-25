@@ -43,6 +43,7 @@ var computerturn = function(){
 		}
 	}
 			winner2();
+			console.log("board is in comp " + board);
 };
 
 var buildArray = function (element){
@@ -353,10 +354,10 @@ var blockMove = function () {
 			round++;
 			buildArray(idOne);
 		} else if (board[1][0] === 0){
-			idTwo.classList.add("yellow");
-			idTwo.innerHTML = "O";
+			idFour.classList.add("yellow");
+			idFour.innerHTML = "O";
 			round++;
-			buildArray(idTwo);
+			buildArray(idFour);
 		} else if (board[2][0] === 0){
 			idSeven.classList.add("yellow");
 			idSeven.innerHTML = "O";
@@ -410,10 +411,10 @@ var blockMove = function () {
 			round++;
 			buildArray(idTwo);
 		} else if (board[2][2] === 0){
-			idSeven.classList.add("yellow");
-			idSeven.innerHTML = "O";
+			idNine.classList.add("yellow");
+			idNine.innerHTML = "O";
 			round++;
-			buildArray(idSeven);
+			buildArray(idNine);
 		}
 	}else if ((board[0][2] + board[1][1] + board[2][0]) === 10){
 		if (board[0][2] === 0){
@@ -458,7 +459,33 @@ var compMove = function (){
 		idSeven.innerHTML = "O";
 		round++;
 		buildArray(idSeven);
+	} else if (board[1][0] === 0){
+		idFour.classList.add("yellow");
+		idFour.innerHTML = "O";
+		round++;
+		buildArray(idFour);
+	} else if (board[0][0] === 0){
+		idOne.classList.add("yellow");
+		idOne.innerHTML = "O";
+		round++;
+		buildArray(idOne);
+	}else if (board[1][2] === 0){
+		idSix.classList.add("yellow");
+		idSix.innerHTML = "O";
+		round++;
+		buildArray(idSix);
+	}else if (board[2][1] === 0){
+		idEight.classList.add("yellow");
+		idEight.innerHTML = "O";
+		round++;
+		buildArray(idEight);
+	}else if (board[0][1] === 0){
+		idTwo.classList.add("yellow");
+		idTwo.innerHTML = "O";
+		round++;
+		buildArray(idTwo);
 	}
+
 };
 
 var clickedBox = function (element){
@@ -487,6 +514,11 @@ var clickedBox = function (element){
 			} 
 		}
 	}
+	if ((round === 9) && ((document.getElementById("winner").innerHTML === "O is the Winner!")||
+		(document.getElementById("winner").innerHTML = "X is the Winner!"))) {
+		document.getElementById("winner").innerHTML = "TIE GAME!"
+	}
+	console.log("board is " + board);
 };
 
 var idOne = document.getElementById("1");
