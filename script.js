@@ -1,5 +1,6 @@
-var round = 0;
 var board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
+var round = 0;
+var computerplay = false;
 
 var clickedBox = function (element){
 	var turn = "";
@@ -7,18 +8,72 @@ var clickedBox = function (element){
 		(element.classList.contains('yellow') === false)){
 		if (round % 2 === 0){
 			turn = "X";
-			element.classList.add("blue");
 			round++;
-		} else {
+			element.classList.add("blue");
+					element.innerHTML = turn;
+			buildArray(element);
+			winner2();
+			if (computerplay === true){
+				computerturn();	
+		}else {
 			turn = "O";
 			round++;
 			element.classList.add("yellow");
+			element.innerHTML = turn;
+			buildArray(element);
+			winner2();
+			if (computerplay === true){
+				computerturn();	
+			} 
 		}
-		element.innerHTML = turn;
-		buildArray(element);
-		winner2();
-}		
+	}
+}
+
 };
+
+var computerturn = function(){
+	if (round === 1){
+		x =compWin();
+		if (x === false){
+			y = blockMove();
+			if (y === false){
+				compMove();
+				}
+			}
+			winner2();
+		}else if ((round === 3) && (!((document.getElementById("winner").innerHTML === "X is the Winner!"))) &&
+		(!(document.getElementById("winner").innerHTML === "O is the Winner!"))){
+			x =compWin();
+			if (x === false){
+				y = blockMove();
+				if (y === false){
+					compMove();
+				}
+			}
+			winner2();
+		} else if ((round === 5) && (!((document.getElementById("winner").innerHTML === "X is the Winner!"))) &&
+		(!(document.getElementById("winner").innerHTML === "O is the Winner!"))){
+			x =compWin();
+			if (x === false){
+				y = blockMove();
+				if (y === false){
+					compMove();
+				}
+			}
+			winner2();	
+		} else if ((round === 7) && (!((document.getElementById("winner").innerHTML === "X is the Winner!"))) &&
+(!(document.getElementById("winner").innerHTML === "O is the Winner!"))){
+			x =compWin();
+			if (x === false){
+				y = blockMove();
+				if (y === false){
+					compMove();
+			}		
+		}
+	}
+			winner2();
+};
+
 var buildArray = function (element){
 	if (element === document.getElementById("1")){
 		if (document.getElementById("1").innerHTML === "X"){
@@ -83,6 +138,7 @@ var buildArray = function (element){
 			board[2][2] = 3;
 		}
 	}
+	console.log("board is " + board);
 	return board;
 };
 
@@ -112,8 +168,328 @@ var winner2 = function (){
 	return (board);
 };
 
+var compWin = function(){
+	// across
+	if ((board[0][0] + board[0][1] + board[0][2]) === 6){
+		if (board[0][0] === 0){
+			idOne.classList.add("yellow");
+			idOne.innerHTML = "O";
+			round++;
+			buildArray(idOne);
+			
+		} else if (board[0][1] === 0){
+			idTwo.classList.add("yellow");
+			idTwo.innerHTML = "O";
+			round++;
+			buildArray(idTwo);
+			
+		} else if (board[0][2] === 0){
+			idThree.classList.add("yellow");
+			idThree.innerHTML = "O";
+			round++;
+			buildArray(idThree);
+		
+		}
+	} else if ((board[1][0] + board[1][1] + board[1][2]) === 6){
+		if (board[1][0] === 0){
+			idFour.classList.add("yellow");	
+			idFour.innerHTML = "O";
+			round++;
+			buildArray(idFour);
+			
+		} else if (board[1][1] === 0){
+			idFive.classList.add("yellow");
+			idFive.innerHTML = "O";
+			round++;
+			buildArray(idFive);
+			
+		} else if (board[1][2] === 0){
+			idSix.classList.add("yellow");
+			idSix.innerHTML = "O";
+			round++;
+			buildArray(idSix);
+			
+		}
+	} else if ((board[2][0] + board[2][1] + board[2][2]) === 6){
+		if (board[2][0] === 0){
+			idSeven.classList.add("yellow");
+			idSeven.innerHTML = "O";
+			round++;
+			buildArray(idSeven);
+			
+		} else if (board[2][1] === 0){
+			idEight.classList.add("yellow");
+			idEight.innerHTML = "O";
+			round++;
+			buildArray(idEight);
+			
+		} else if (board[2][2] === 0){
+			idNine.classList.add("yellow");
+			idNine.innerHTML = "O";
+			round++;
+			buildArray(idNine);
+			
+		}
+	//down
+	} else if ((board[0][0] + board[1][0] + board[2][0]) === 6){
+		if (board[0][0] === 0){
+			idOne.classList.add("yellow");
+			idOne.innerHTML = "O";
+			round++;
+			buildArray(idOne);
+		} else if (board[1][0] === 0){
+			idTwo.classList.add("yellow");
+			idTwo.innerHTML = "O";
+			round++;
+			buildArray(idTwo);
+		} else if (board[2][0] === 0){
+			idSeven.classList.add("yellow");
+			idseven.innerHTML = "O";
+			round++;
+			buildArray(idSeven);
+		}
+	}else if ((board[0][1] + board[1][1] + board[2][1]) === 6){
+		if (board[0][1] === 0){
+			idTwo.classList.add("yellow");
+			idTwo.innerHTML = "O";
+			round++;
+			buildArray(idTwo);
+		} else if (board[1][1] === 0){
+			idFive.classList.add("yellow");
+			idFive.innerHTML = "O";
+			round++;
+			buildArray(idFive);
+		} else if (board[2][1] === 0){
+			idEight.classList.add("yellow");
+			idEight.innerHTML = "O";
+			round++;
+			buildArray(idEight);
+		}
+	}else if ((board[0][2] + board[1][2] + board[2][2]) === 6){
+		if (board[0][2] === 0){
+			idThree.classList.add("yellow");
+			idThree.innerHTML = "O";
+			round++;
+			buildArray(idThree);
+		} else if (board[1][2] === 0){
+			idSix.classList.add("yellow");
+			idSix.innerHTML = "O";
+			round++;
+			buildArray(idSix);
+		} else if (board[2][2] === 0){
+			idNine.classList.add("yellow");
+			idNine.innerHTML = "O";
+			round++;
+			buildArray(idNine);
+		}
+	//diagonal
+	}else if ((board[0][0] + board[1][1] + board[2][2]) === 6){
+		if (board[0][0] === 0){
+			idOne.classList.add("yellow");
+			idOne.innerHTML = "O";
+			round++;
+			buildArray(idOne);
+		} else if (board[1][1] === 0){
+			idTwo.classList.add("yellow");
+			idTwo.innerHTML = "O";
+			round++;
+			buildArray(idTwo);
+		} else if (board[2][2] === 0){
+			idSeven.classList.add("yellow");
+			idSeven.innerHTML = "O";
+			round++;
+			buildArray(idSeven);
+		}
+	}else if ((board[0][2] + board[1][1] + board[2][0]) === 6){
+		if (board[0][2] === 0){
+			idThree.classList.add("yellow");
+			idThree.innerHTML = "O";
+			round++;
+			buildArray(idThree);
+		} else if (board[1][1] === 0){
+			idTwo.classList.add("yellow");
+			idTwo.innerHTML = "O";
+			round++;
+			buildArray(idtwo);
+		} else if (board[2][0] === 0){
+			idSeven.classList.add("yellow");
+			idSeven.innerHTML = "O";
+			round++;
+			buildArray(idSeven);
+		}
+	} else {
+		return false;
+	}
+};
 
+var blockMove = function () {
+	// across
+	if ((board[0][0] + board[0][1] + board[0][2]) === 10){
+		if (board[0][0] === 0){
+			idOne.classList.add("yellow");
+			idOne.innerHTML = "O";
+			round++;
+			buildArray(idOne);
+		} else if (board[0][1] === 0){
+			idTwo.classList.add("yellow");
+			idTwo.innerHTML = "O";
+			round++;
+			buildArray(idTwo);
+		} else if (board[0][2] === 0){
+			idThree.classList.add("yellow");
+			idThree.innerHTML = "O";
+			round++;
+			buildArray(idThree);
+		}
+	} else if ((board[1][0] + board[1][1] + board[1][2]) === 10){
+		if (board[1][0] === 0){
+			idFour.classList.add("yellow");
+			idFour.innerHTML = "O";
+			round++;
+			buildArray(idFour);
+		} else if (board[1][1] === 0){
+			idFive.classList.add("yellow");
+			idFive.innerHTML = "O";
+			round++;
+			buildArray(idFive);
+		} else if (board[1][2] === 0){
+			idSix.classList.add("yellow");
+			idSix.innerHTML = "O";
+			round++;
+			buildArray(idSix);
+		}
+	} else if ((board[2][0] + board[2][1] + board[2][2]) === 10){
+		if (board[2][0] === 0){
+			idSeven.classList.add("yellow");
+			idseven.innerHTML = "O";
+			round++;
+			buildArray(idSeven);
+		} else if (board[2][1] === 0){
+			idEight.classList.add("yellow");
+			idEight.innerHTML = "O";
+			round++;
+			buildArray(idEight);
+		} else if (board[2][2] === 0){
+			idNine.classList.add("yellow");
+			idNine.innerHTML = "O";
+			round++;
+			buildArray(idNine);
+		}
+	//down
+	} else if ((board[0][0] + board[1][0] + board[2][0]) === 10){
+		if (board[0][0] === 0){
+			idOne.classList.add("yellow");
+			idOne.innerHTML = "O";
+			round++;
+			buildArray(idOne);
+		} else if (board[1][0] === 0){
+			idTwo.classList.add("yellow");
+			idTwo.innerHTML = "O";
+			round++;
+			buildArray(idTwo);
+		} else if (board[2][0] === 0){
+			idSeven.classList.add("yellow");
+			idSeven.innerHTML = "O";
+			round++;
+			buildArray(idSeven);
+		}
+	}else if ((board[0][1] + board[1][1] + board[2][1]) === 10){
+		if (board[0][1] === 0){
+			idTwo.classList.add("yellow");
+			idTwo.innerHTML = "O";
+			round++;
+			buildArray(idTwo);
+		} else if (board[1][1] === 0){
+			idFive.classList.add("yellow");
+			idFive.innerHTML = "O";
+			round++;
+			buildArray(idFive);
+		} else if (board[2][1] === 0){
+			idEight.classList.add("yellow");
+			idEight.innerHTML = "O";
+			round++;
+			buildArray(idEight);
+		}
+	}else if ((board[0][2] + board[1][2] + board[2][2]) === 10){
+		if (board[0][2] === 0){
+			idThree.classList.add("yellow");
+			idThree.innerHTML = "O";
+			round++;
+			buildArray(idThree);
+		} else if (board[1][2] === 0){
+			idSix.classList.add("yellow");
+			idSix.innerHTML = "O";
+			round++;
+			buildArray(idSix);
+		} else if (board[2][2] === 0){
+			idNine.classList.add("yellow");
+			idNine.innerHTML = "O";
+			round++;
+			buildArray(idNine);
+		}
+	//diagonal
+	}else if ((board[0][0] + board[1][1] + board[2][2]) === 10){
+		if (board[0][0] === 0){
+			idOne.classList.add("yellow");
+			idOne.innerHTML = "O";
+			round++;
+			buildArray(idOne);
+		} else if (board[1][1] === 0){
+			idTwo.classList.add("yellow");
+			idTwo.innerHTML = "O";
+			round++;
+			buildArray(idTwo);
+		} else if (board[2][2] === 0){
+			idSeven.classList.add("yellow");
+			idSeven.innerHTML = "O";
+			round++;
+			buildArray(idSeven);
+		}
+	}else if ((board[0][2] + board[1][1] + board[2][0]) === 10){
+		if (board[0][2] === 0){
+			idThree.classList.add("yellow");
+			idThree.innerHTML = "O";
+			round++;
+			buildArray(idThree);
+		} else if (board[1][1] === 0){
+			idTwo.classList.add("yellow");
+			idTwo.innerHTML = "O";
+			round++;
+			buildArray(idTwo);
+		} else if (board[2][0] === 0){
+			idSeven.classList.add("yellow");
+			idSeven.innerHTML = "O";
+			round++;
+			buildArray(idSeven);
+		}
+	} else {
+		return false;
+	}
+};
 
+var compMove = function (){
+	if (board[1][1] === 0){
+		idFive.classList.add("yellow");
+		idFive.innerHTML = "O";
+		round++;
+		buildArray(idFive);
+	} else if (board[0][2] === 0){
+		idThree.classList.add("yellow");
+		idThree.innerHTML = "O";
+		round++;
+		buildArray(idThree);
+	}else if (board[2][2] === 0){
+		idNine.classList.add("yellow");
+		idNine.innerHTML = "O";
+		round++;
+		buildArray(idNine);
+	}else if (board[2][0] === 0){
+		idSeven.classList.add("yellow");
+		idSeven.innerHTML = "O";
+		round++;
+		buildArray(idSeven);
+	}
+};
 var idOne = document.getElementById("1");
 var idTwo = document.getElementById("2");
 var idThree = document.getElementById("3");
@@ -123,7 +499,7 @@ var idSix = document.getElementById("6");
 var idSeven = document.getElementById("7");
 var idEight = document.getElementById("8");
 var idNine = document.getElementById("9");
-
+var idTen = document.getElementById("winner");
 
 idOne.addEventListener("click", function (){clickedBox(idOne);});
 idTwo.addEventListener("click", function (){clickedBox(idTwo);})
@@ -135,9 +511,15 @@ idSeven.addEventListener("click", function (){clickedBox(idSeven);});
 idEight.addEventListener("click", function (){clickedBox(idEight);});
 idNine.addEventListener("click", function (){clickedBox(idNine);});
 
+
+document.getElementById("computer").addEventListener("click", function(){
+	computerplay = true;
+});
+
 document.getElementById("clear").addEventListener("click", function() {
 	round = 0;
 	board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
+	computerplay = false;
 	document.getElementById('winner').innerHTML = '';
 	var clicked = document.querySelectorAll('span');
 	for (var i = 0; i < clicked.length; i++){
@@ -146,12 +528,4 @@ document.getElementById("clear").addEventListener("click", function() {
 		clicked[i].classList.remove('yellow');
 	}
 });
-
-
-
-
-
-
-
-
-
+	
