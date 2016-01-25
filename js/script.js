@@ -4,7 +4,7 @@ var boardSpace = document.getElementsByClassName("boardSpace");
 
 //starts off with playing X starting the game
 var whichPlayer = 'x';
-
+var isWinner = false;
 
 //listens for click on X div to close alert windows
 document.getElementById('exit').addEventListener("click", function(){
@@ -44,11 +44,13 @@ var getWinner = function(boardArray){
 			if(selectedArrayX[winningA] === 1 && selectedArrayX[winningB] === 1 & selectedArrayX[winningC] === 1){
 				document.getElementById('winner').innerHTML += "<h1>X wins!";
 				document.getElementById('winner').style.display = 'inline';
+				isWinner = true;
 				console.log("X wins");
 			}else if(selectedArrayO[winningA] === 1 && selectedArrayO[winningB] === 1 & selectedArrayO[winningC] === 1){
 				document.getElementById('winner').innerHTML += "<h1>O wins!";
 				document.getElementById('winner').style.display = 'inline';
 				console.log("O wins");
+				isWinner = true;
 				}
 			}
 		}
@@ -68,7 +70,10 @@ document.getElementById('button').addEventListener("click", function(){
 //adds event listeners on all of the divs to make the listen for action
 for(var i = 0; i < boardSpace.length; i++){
 	boardSpace[i].addEventListener("click", function(){
-	 if(whichPlayer === 'x'){
+	 if(isWinner){
+	 		
+	 }else{
+	 	if(whichPlayer === 'x'){
 		  if(this.getAttribute("class").indexOf("true") === -1){
 		  	this.className += (" x true");
 		  	selectedArrayX[this.getAttribute("id")] = 1;
@@ -93,6 +98,7 @@ for(var i = 0; i < boardSpace.length; i++){
 		  	document.getElementById('exit').style.display = 'inline';
 		  }
 		}
+	 }
 	})
 }
 
