@@ -1,0 +1,47 @@
+body {
+	font-family: 'Open Sans', sans-serif;
+	margin: 0px;
+	background: 0px;
+	text-align: center;
+	background-color: #333D46;
+}
+
+h1 {
+	color: #1459C0
+}
+
+#board{
+	width: 350x;
+	height: 350px;
+	margin: 0 auto;
+	float: left;
+	position: relative;
+	display: inline-block;
+	margin-left: 37%;
+}
+
+input{
+	width: 100px;
+	height: 100px;
+	border: 1px solid black;
+	font-size: 60px;
+	background: #13347A;
+	float: left;
+	display: inline-block;
+	margin: 5px 5px auto;
+	color: #1CC720;
+	border-radius: 25px;
+}
+
+#btNew{
+	width: 310px;
+	height: 80px;
+	border: 1px solid black;
+	font-size: 60px;
+	background: #103815;
+	color: #1459C0;
+	position: inherit;
+	float: left;
+	margin-top: 15px;
+	margin-right: -50px;
+}
