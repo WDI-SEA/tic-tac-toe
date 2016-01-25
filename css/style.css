@@ -11,13 +11,13 @@ h1 {
 }
 
 #board{
-	width: 300px;
-	height: 300px;
+	width: 350x;
+	height: 350px;
 	margin: 0 auto;
 	float: left;
 	position: relative;
 	display: inline-block;
-	margin-left: 38%;
+	margin-left: 37%;
 }
 
 input{
@@ -28,8 +28,9 @@ input{
 	background: #13347A;
 	float: left;
 	display: inline-block;
-	margin: 0 auto;
+	margin: 5px 5px auto;
 	color: #1CC720;
+	border-radius: 25px;
 }
 
 #btNew{
@@ -40,7 +41,6 @@ input{
 	background: #103815;
 	color: #1459C0;
 	position: inherit;
-	border: 1px solid grey;
 	float: left;
 	margin-top: 15px;
 	margin-right: -50px;
