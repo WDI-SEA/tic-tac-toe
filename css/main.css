@@ -1,0 +1,89 @@
+.sq {
+	background-color: #81DAF5;
+
+	
+	
+}
+.sqb{
+background-color: #0101DF;
+
+}
+
+.sqg{
+	background-color: #00FF00;
+
+}
+span div {
+	display: inline-block;
+	height: 100px;
+	width: 100px;
+	margin-right: -5px;
+	margin-bottom: -5px;
+	font-size: 4em;
+	text-align: center;
+
+}
+
+
+span {
+	position: relative;
+	display: block;
+}
+
+#clearB {
+	margin-top: 10px;
+}
+
+#one {
+	border-width: 0px 5px 5px 0px;
+	border-style: solid;
+	border-color: black;
+}
+
+#two {
+	border-width: 0px 5px 5px 5px;
+	border-style: solid;
+	border-color: black;
+}
+
+#three {
+	border-width: 0px 0px 5px 5px;
+	border-style: solid;
+	border-color: black;
+}
+
+#four {
+	border-width: 5px 5px 5px 0px;
+	border-style: solid;
+	border-color: black;
+}
+
+#five {
+	border-width: 5px 5px 5px 5px;
+	border-style: solid;
+	border-color: black;
+}
+
+#six {
+	border-width: 5px 0px 5px 5px;
+	border-style: solid;
+	border-color: black;
+}
+
+#seven {
+	border-width: 5px 5px 0px 0px;
+	border-style: solid;
+	border-color: black;
+}
+
+#eight {
+	border-width: 5px 5px 0px 5px;
+	border-style: solid;
+	border-color: black;
+}
+
+#nine {
+	border-width: 5px 0px 0px 5px;
+	border-style: solid;
+	border-color: black;
+}
