@@ -2,35 +2,6 @@ var board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
 var round = 0;
 var computerplay = false;
 
-var clickedBox = function (element){
-	var turn = "";
-	if ((element.classList.contains('blue') === false)&& 
-		(element.classList.contains('yellow') === false)){
-		if (round % 2 === 0){
-			turn = "X";
-			round++;
-			element.classList.add("blue");
-					element.innerHTML = turn;
-			buildArray(element);
-			winner2();
-			if (computerplay === true){
-				computerturn();	
-		}else {
-			turn = "O";
-			round++;
-			element.classList.add("yellow");
-			element.innerHTML = turn;
-			buildArray(element);
-			winner2();
-			if (computerplay === true){
-				computerturn();	
-			} 
-		}
-	}
-}
-
-};
-
 var computerturn = function(){
 	if (round === 1){
 		x =compWin();
@@ -62,7 +33,7 @@ var computerturn = function(){
 			}
 			winner2();	
 		} else if ((round === 7) && (!((document.getElementById("winner").innerHTML === "X is the Winner!"))) &&
-(!(document.getElementById("winner").innerHTML === "O is the Winner!"))){
+		(!(document.getElementById("winner").innerHTML === "O is the Winner!"))){
 			x =compWin();
 			if (x === false){
 				y = blockMove();
@@ -138,7 +109,6 @@ var buildArray = function (element){
 			board[2][2] = 3;
 		}
 	}
-	console.log("board is " + board);
 	return board;
 };
 
@@ -490,6 +460,35 @@ var compMove = function (){
 		buildArray(idSeven);
 	}
 };
+
+var clickedBox = function (element){
+	var turn = "";
+	if ((element.classList.contains('blue') === false)&& 
+		(element.classList.contains('yellow') === false)){
+		if (round % 2 === 0){
+			turn = "X";
+			round++;
+			element.classList.add("blue");
+			element.innerHTML = turn;
+			buildArray(element);
+			winner2();
+			if (computerplay === true){
+				computerturn();	
+			}
+		}else {
+			turn = "O";
+			round++;
+			element.classList.add("yellow");
+			element.innerHTML = turn;
+			buildArray(element);
+			winner2();
+			if (computerplay === true){
+				computerturn();	
+			} 
+		}
+	}
+};
+
 var idOne = document.getElementById("1");
 var idTwo = document.getElementById("2");
 var idThree = document.getElementById("3");
@@ -528,4 +527,3 @@ document.getElementById("clear").addEventListener("click", function() {
 		clicked[i].classList.remove('yellow');
 	}
 });
-	
