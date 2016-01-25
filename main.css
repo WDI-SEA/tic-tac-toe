@@ -1,0 +1,135 @@
+@import url(https://fonts.googleapis.com/css?family=Lobster);
+
+html {
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	background-image: url("http://bestfriendsforfrosting.com/wp-content/uploads/2015/07/pastel-donuts.jpg");
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	
+}
+
+p {
+	font-family: 'Lobster', cursive;
+	font-size: 80px;
+	text-align: center;
+	color: white;
+	margin-bottom: 20px;
+	padding: 50px;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+div#gameboard {
+	margin: 0 auto;
+	height: 320px;
+	width: 320px;
+	background-color: transparent;
+	
+}
+div {
+	height: 100px;
+	width: 100px;
+	background-color: pink;
+	overflow: hidden;
+	
+
+}
+
+div#one {
+	display: inline-block;
+	
+
+
+}
+	
+div#two {
+	display: inline-block;
+
+	
+}
+
+div#three {
+	display: inline-block;
+
+}
+
+div#four {
+	display: inline-block;
+	
+	
+}
+
+div#five {
+	display: inline-block;
+	
+}
+
+div#six {
+	display: inline-block;
+	
+}
+
+div#seven {
+	display: inline-block;
+	
+	
+
+}
+
+div#eight {
+	display: inline-block;
+	
+}
+
+div#nine {
+	display: inline-block;
+	
+}
+
+#button {
+	width: 100px;
+	height: 60px;
+	font-family: 'Lobster', cursive;
+	font-size: 40px;
+	border: 2px solid pink;
+	background-color:white;
+	display: block;
+	margin-left: 620px;
+	margin-top: 25px;
+	
+
+	
+}
+
+#layer {
+	background-color: rgba(0, 0, 0, 0.4);
+	height: 100%;
+	width: 100%;
+	margin: 0 auto;
+	padding: 0;
+}
+
+.tile.odd {
+	background-color: #cea7c0;
+
+}
+
+.tile.even {
+	background-color:  #add7c9;
+
+}
+
+.tile {
+	font-family: 'Lobster', cursive;
+	font-size: 70px;
+	text-align: center;
+	color: white;
+
+}
+
+
