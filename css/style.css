@@ -1,6 +1,11 @@
 body {
 	text-align: center;
+	font-family: 'Maven Pro', sans-serif;
+}
 
+h1 {
+	font-size: 40px;
+	font-weight: bold;
 }
 
 div {
@@ -18,7 +23,7 @@ span{
 	margin: 2px;
 	border-radius: 10px;
 	overflow: auto;
-	font-size: 85px;
+	font-size: 80px;
 	font-weight: bold;
 
 }
@@ -34,6 +39,7 @@ button {
 	width: 100px;
 	height: 25px;
 	margin: 10px;
+	background-color: lightskyblue;
 }
 #winner {
 	width: 600px;
