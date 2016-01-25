@@ -35,15 +35,28 @@ span{
 .yellow{
 	background-color: gold;
 }
+<<<<<<< HEAD
 button {
 	width: 100px;
 	height: 25px;
 	margin: 10px;
 	background-color: lightskyblue;
+=======
+#clear {
+	width: 100px;
+	height: 25px;
+	margin: 10px;
+>>>>>>> fbe62400735b737d2e4ba604e0d71203dd788828
 }
 #winner {
 	width: 600px;
 	font-size: 50px;
 	font-weight: bold;
 	color: red;
+}
+
+#computer {
+	width: 1o0px;
+	height: 25px;
+	margin: 10px;
 }

@@ -2,6 +2,38 @@ var board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
 var round = 0;
 var computerplay = false;
 
+<<<<<<< HEAD
+=======
+var clickedBox = function (element){
+	var turn = "";
+	if ((element.classList.contains('blue') === false)&& 
+		(element.classList.contains('yellow') === false)){
+		if (round % 2 === 0){
+			turn = "X";
+			round++;
+			element.classList.add("blue");
+					element.innerHTML = turn;
+			buildArray(element);
+			winner2();
+			if (computerplay === true){
+				computerturn();	
+		}else {
+			turn = "O";
+			round++;
+			element.classList.add("yellow");
+			element.innerHTML = turn;
+			buildArray(element);
+			winner2();
+			if (computerplay === true){
+				computerturn();	
+			} 
+		}
+	}
+}
+
+};
+
+>>>>>>> fbe62400735b737d2e4ba604e0d71203dd788828
 var computerturn = function(){
 	if (round === 1){
 		x =compWin();
@@ -33,7 +65,11 @@ var computerturn = function(){
 			}
 			winner2();	
 		} else if ((round === 7) && (!((document.getElementById("winner").innerHTML === "X is the Winner!"))) &&
+<<<<<<< HEAD
 		(!(document.getElementById("winner").innerHTML === "O is the Winner!"))){
+=======
+(!(document.getElementById("winner").innerHTML === "O is the Winner!"))){
+>>>>>>> fbe62400735b737d2e4ba604e0d71203dd788828
 			x =compWin();
 			if (x === false){
 				y = blockMove();
@@ -43,7 +79,10 @@ var computerturn = function(){
 		}
 	}
 			winner2();
+<<<<<<< HEAD
 			console.log("board is in comp " + board);
+=======
+>>>>>>> fbe62400735b737d2e4ba604e0d71203dd788828
 };
 
 var buildArray = function (element){
@@ -110,6 +149,7 @@ var buildArray = function (element){
 			board[2][2] = 3;
 		}
 	}
+	console.log("board is " + board);
 	return board;
 };
 
@@ -292,6 +332,7 @@ var compWin = function(){
 		return false;
 	}
 };
+<<<<<<< HEAD
 
 var blockMove = function () {
 	// across
@@ -519,8 +560,177 @@ var clickedBox = function (element){
 		document.getElementById("winner").innerHTML = "TIE GAME!"
 	}
 	console.log("board is " + board);
+=======
+
+var blockMove = function () {
+	// across
+	if ((board[0][0] + board[0][1] + board[0][2]) === 10){
+		if (board[0][0] === 0){
+			idOne.classList.add("yellow");
+			idOne.innerHTML = "O";
+			round++;
+			buildArray(idOne);
+		} else if (board[0][1] === 0){
+			idTwo.classList.add("yellow");
+			idTwo.innerHTML = "O";
+			round++;
+			buildArray(idTwo);
+		} else if (board[0][2] === 0){
+			idThree.classList.add("yellow");
+			idThree.innerHTML = "O";
+			round++;
+			buildArray(idThree);
+		}
+	} else if ((board[1][0] + board[1][1] + board[1][2]) === 10){
+		if (board[1][0] === 0){
+			idFour.classList.add("yellow");
+			idFour.innerHTML = "O";
+			round++;
+			buildArray(idFour);
+		} else if (board[1][1] === 0){
+			idFive.classList.add("yellow");
+			idFive.innerHTML = "O";
+			round++;
+			buildArray(idFive);
+		} else if (board[1][2] === 0){
+			idSix.classList.add("yellow");
+			idSix.innerHTML = "O";
+			round++;
+			buildArray(idSix);
+		}
+	} else if ((board[2][0] + board[2][1] + board[2][2]) === 10){
+		if (board[2][0] === 0){
+			idSeven.classList.add("yellow");
+			idseven.innerHTML = "O";
+			round++;
+			buildArray(idSeven);
+		} else if (board[2][1] === 0){
+			idEight.classList.add("yellow");
+			idEight.innerHTML = "O";
+			round++;
+			buildArray(idEight);
+		} else if (board[2][2] === 0){
+			idNine.classList.add("yellow");
+			idNine.innerHTML = "O";
+			round++;
+			buildArray(idNine);
+		}
+	//down
+	} else if ((board[0][0] + board[1][0] + board[2][0]) === 10){
+		if (board[0][0] === 0){
+			idOne.classList.add("yellow");
+			idOne.innerHTML = "O";
+			round++;
+			buildArray(idOne);
+		} else if (board[1][0] === 0){
+			idTwo.classList.add("yellow");
+			idTwo.innerHTML = "O";
+			round++;
+			buildArray(idTwo);
+		} else if (board[2][0] === 0){
+			idSeven.classList.add("yellow");
+			idSeven.innerHTML = "O";
+			round++;
+			buildArray(idSeven);
+		}
+	}else if ((board[0][1] + board[1][1] + board[2][1]) === 10){
+		if (board[0][1] === 0){
+			idTwo.classList.add("yellow");
+			idTwo.innerHTML = "O";
+			round++;
+			buildArray(idTwo);
+		} else if (board[1][1] === 0){
+			idFive.classList.add("yellow");
+			idFive.innerHTML = "O";
+			round++;
+			buildArray(idFive);
+		} else if (board[2][1] === 0){
+			idEight.classList.add("yellow");
+			idEight.innerHTML = "O";
+			round++;
+			buildArray(idEight);
+		}
+	}else if ((board[0][2] + board[1][2] + board[2][2]) === 10){
+		if (board[0][2] === 0){
+			idThree.classList.add("yellow");
+			idThree.innerHTML = "O";
+			round++;
+			buildArray(idThree);
+		} else if (board[1][2] === 0){
+			idSix.classList.add("yellow");
+			idSix.innerHTML = "O";
+			round++;
+			buildArray(idSix);
+		} else if (board[2][2] === 0){
+			idNine.classList.add("yellow");
+			idNine.innerHTML = "O";
+			round++;
+			buildArray(idNine);
+		}
+	//diagonal
+	}else if ((board[0][0] + board[1][1] + board[2][2]) === 10){
+		if (board[0][0] === 0){
+			idOne.classList.add("yellow");
+			idOne.innerHTML = "O";
+			round++;
+			buildArray(idOne);
+		} else if (board[1][1] === 0){
+			idTwo.classList.add("yellow");
+			idTwo.innerHTML = "O";
+			round++;
+			buildArray(idTwo);
+		} else if (board[2][2] === 0){
+			idSeven.classList.add("yellow");
+			idSeven.innerHTML = "O";
+			round++;
+			buildArray(idSeven);
+		}
+	}else if ((board[0][2] + board[1][1] + board[2][0]) === 10){
+		if (board[0][2] === 0){
+			idThree.classList.add("yellow");
+			idThree.innerHTML = "O";
+			round++;
+			buildArray(idThree);
+		} else if (board[1][1] === 0){
+			idTwo.classList.add("yellow");
+			idTwo.innerHTML = "O";
+			round++;
+			buildArray(idTwo);
+		} else if (board[2][0] === 0){
+			idSeven.classList.add("yellow");
+			idSeven.innerHTML = "O";
+			round++;
+			buildArray(idSeven);
+		}
+	} else {
+		return false;
+	}
+>>>>>>> fbe62400735b737d2e4ba604e0d71203dd788828
 };
 
+var compMove = function (){
+	if (board[1][1] === 0){
+		idFive.classList.add("yellow");
+		idFive.innerHTML = "O";
+		round++;
+		buildArray(idFive);
+	} else if (board[0][2] === 0){
+		idThree.classList.add("yellow");
+		idThree.innerHTML = "O";
+		round++;
+		buildArray(idThree);
+	}else if (board[2][2] === 0){
+		idNine.classList.add("yellow");
+		idNine.innerHTML = "O";
+		round++;
+		buildArray(idNine);
+	}else if (board[2][0] === 0){
+		idSeven.classList.add("yellow");
+		idSeven.innerHTML = "O";
+		round++;
+		buildArray(idSeven);
+	}
+};
 var idOne = document.getElementById("1");
 var idTwo = document.getElementById("2");
 var idThree = document.getElementById("3");
@@ -545,13 +755,21 @@ idNine.addEventListener("click", function (){clickedBox(idNine);});
 
 document.getElementById("computer").addEventListener("click", function(){
 	computerplay = true;
+<<<<<<< HEAD
 });a
 
+=======
+});
+>>>>>>> fbe62400735b737d2e4ba604e0d71203dd788828
 
 document.getElementById("clear").addEventListener("click", function() {
 	round = 0;
 	board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
 	computerplay = false;
+<<<<<<< HEAD
+=======
+	turn = '';
+>>>>>>> fbe62400735b737d2e4ba604e0d71203dd788828
 	document.getElementById('winner').innerHTML = '';
 	var clicked = document.querySelectorAll('span');
 	for (var i = 0; i < clicked.length; i++){
@@ -560,3 +778,13 @@ document.getElementById("clear").addEventListener("click", function() {
 		clicked[i].classList.remove('yellow');
 	}
 });
+<<<<<<< HEAD
+=======
+	
+
+
+
+
+
+
+>>>>>>> fbe62400735b737d2e4ba604e0d71203dd788828
