@@ -1,0 +1,55 @@
+body {
+	text-align: center;
+	font-family: sans-serif;
+    font-color: black;
+
+}
+
+
+
+#game {
+    height: 400px;
+    width: 350px;
+    background-color:none;
+    overflow: hidden;
+     margin-left: auto;
+    margin-right: auto;
+}
+
+
+.board {
+  width: 350px;
+    height: 345px;
+    background-color:none;
+    border-spacing:0;
+   
+    
+    
+}
+
+.row {
+	display: table-row;
+    height: 100px;
+    width: 120px;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 40pt;
+    text-transform: uppercase;
+    color: #000000;
+    margin-top: 5px;
+}	
+
+#a, #b, #c, #d, #e, #f, #g, #h, #i {
+
+    display: table-cell;
+    height: 100px;
+    width: 110px;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 40pt;
+    border-collapse: collapse;
+    border: 2px solid #000000;
+    padding: 3px 10px;
+    text-transform: uppercase;
+    color: #999999;
+}
