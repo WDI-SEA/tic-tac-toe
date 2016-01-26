@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tic Tac Toe</title>
+<link rel="stylesheet" type="text/css" href="style.css"></head>
+<body>
+<h1>Tic Tac Toe</h1>
+<div id="description"> <p>By Audrey Andoy</p>
+<p>Click a space below to begin playing! Have fun :) </p>
+</div>
+<div id="game">
+<div class="board">
+    <div class="row">
+        <div id ="a" class="space" value = " " onclick="javascript:this.style.background = '#93335d'; clickSpace('a')"></div>
+        <div id="b" class="space" value = " " onclick=" javascript:this.style.background = '#93335d'; clickSpace('b')"></div>
+        <div id="c" class="space" value = " " onclick=" javascript:this.style.background = '#93335d'; clickSpace('c');"></div>
+    </div>
+    <div class="row">
+        <div id="d" class="space" value = " " onclick=" javascript:this.style.background = '#93335d'; clickSpace('d')"></div>
+        <div id="e" class="space" value = " " onclick=" javascript:this.style.background = '#93335d'; clickSpace('e')"></div>
+        <div id="f" class="space" value = " " onclick=" javascript:this.style.background = '#93335d'; clickSpace('f')"></div>
+    </div>
+    <div class="row">
+        <div id="g" class="space" value = " "onclick=" javascript:this.style.background = '#93335d'; clickSpace('g')"></div>
+        <div id="h" class="space" value = " "onclick=" javascript:this.style.background = '#93335d'; clickSpace('h')"></div>
+        <div id="i" class="space" value = " " onclick=" javascript:this.style.background = '#93335d'; clickSpace('i')"></div>
+</div>
+</div>
+
+
+    <br>
+   
+    <div class="center button">
+        <button id="restart" onClick="reset()">New game</button>
+    </div>
+
+	<script type="text/javascript" src="tictactoe.js"></script>
+
+
+</body>
+</html>
