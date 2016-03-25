@@ -1,0 +1,36 @@
+body {
+	background-color: #D5DAE7;
+	text-align: center;
+	font-family: helvetica;
+}
+
+div {
+	border-radius: 5px;
+}
+.row {
+	float: left;
+	display: inline-block;
+	clear: both;
+	margin: 5px 0px;
+}
+.square {
+	display: inline-block;
+	margin: 0px 5px;
+	height: 150px;
+	width: 150px;
+	background-color: #C2BDB9;
+}
+#container {
+	font-size: 28px;
+	margin-top: 0px;
+	display: inline-block;
+}
+#container h1 {
+	margin: 10px 0px;
+}
+#gameBoard {
+	display: inline-block;
+	margin: 0 auto;
+	background-color: #A5A5A5;
+	padding: 5px;
+}
