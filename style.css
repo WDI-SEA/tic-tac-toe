@@ -7,6 +7,9 @@ body {
 div {
 	border-radius: 5px;
 }
+h3 {
+	display: inline-block;
+}
 .row {
 	float: left;
 	display: inline-block;
@@ -14,11 +17,24 @@ div {
 	margin: 5px 0px;
 }
 .square {
+	float: left;
 	display: inline-block;
 	margin: 0px 5px;
 	height: 150px;
 	width: 150px;
+}
+.gray {
 	background-color: #C2BDB9;
+}
+.hover-gray {
+	background-color: #7D7E82;
+}
+.played {
+	display: inline-block;
+	font-size: 135px;
+}
+.hidden {
+	visibility: hidden;
 }
 #container {
 	font-size: 28px;
@@ -28,9 +44,17 @@ div {
 #container h1 {
 	margin: 10px 0px;
 }
+#container h3 {
+	margin: 5px 0px;
+}
 #gameBoard {
 	display: inline-block;
 	margin: 0 auto;
 	background-color: #A5A5A5;
 	padding: 5px;
 }
+.red {
+	background-color: red;
+}
+
+
