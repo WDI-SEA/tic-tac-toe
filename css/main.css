@@ -1,0 +1,25 @@
+.box {
+  width: 75px;
+  height: 75px;
+  margin: 0 auto;
+  background-color: green;
+  padding: 20px;
+}
+
+.row1 {
+  float: left;
+}
+
+.row2 {
+  align: center;
+}
+
+.row3 {
+  float: right;
+}
+
+#boxes {
+  margin: 0 auto;
+  height: 900px;
+  width: 900px;
+}
