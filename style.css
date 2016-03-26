@@ -1,0 +1,84 @@
+body {
+    background: #1c5380;
+}
+
+#container {
+    margin: 0 auto;
+    width: 500px;
+    height: 1000px;
+    background: linear-gradient(#aab, #fff 8%);
+    border-radius: 10px;
+    padding: 40px;
+    margin-top: 30px;
+
+}
+
+.board-square {
+    height: 150px;
+    width: 150px;
+    /*border: solid black;*/
+    float: left;
+}
+
+#top-left {
+    border-top: solid black;
+    border-right: solid black;
+    border-bottom: solid black;
+    border-left: solid black;
+}
+
+#top-mid {
+    border-top: solid black;
+    border-right: solid black;
+    border-bottom: solid black;
+    border-left: solid black;
+}
+
+#top-right {
+    border-top: solid black;
+    border-right: solid black;
+    border-bottom: solid black;
+    border-left: solid black;
+}
+
+#mid-left {
+    border-top: solid black;
+    border-right: solid black;
+    border-bottom: solid black;
+    border-left: solid black;
+}
+
+#mid-mid {
+    border-top: solid black;
+    border-right: solid black;
+    border-bottom: solid black;
+    border-left: solid black;
+}
+
+#mid-right {
+    border-top: solid black;
+    border-right: solid black;
+    border-bottom: solid black;
+    border-left: solid black;
+}
+
+#bottom-left {
+    border-top: solid black;
+    border-right: solid black;
+    border-bottom: solid black;
+    border-left: solid black;
+}
+
+#bottom-mid {
+    border-top: solid black;
+    border-right: solid black;
+    border-bottom: solid black;
+    border-left: solid black;
+}
+
+#bottom-right {
+    border-top: solid black;
+    border-right: solid black;
+    border-bottom: solid black;
+    border-left: solid black;
+}
