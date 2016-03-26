@@ -1,0 +1,79 @@
+body {
+	/*margin:100px;*/
+	background-color: grey;
+	margin: 100px, 100px;
+}
+
+#game_grid {
+	width:972px;
+	height:972px;
+	position:relative;
+	margin-left: auto;
+	margin-right:auto;
+}
+
+.box{
+	display:inline-block;
+	border-style: solid;
+	border-width: 5px;
+	width: 31%;
+	height:31%;
+}
+
+#box_1 {
+	
+	border-color: black;
+	background-color: blue;
+	display:inline-block;
+	
+}
+
+#box_2 {
+	border-color: black;
+	background-color: purple;
+}
+
+#box_3 {
+	border-color: black;
+		background-color: green;
+}
+
+#box_4 {
+	border-color: black;
+	background-color: fuchsia;
+}
+
+#box_5 {
+	border-color: black;
+	background-color: white;
+	
+}
+
+#box_6 {
+	border-color: black;
+	background-color: yellow;
+}
+
+#box_7 {
+	border-color: black;
+	background-color: red;
+}
+
+#box_8 {
+	border-color: black;
+	background-color: aqua;
+}
+
+#box_9 {
+	border-color: black;
+	background-color: orange;
+}
+#Clear{
+	width:300px;
+	font-size: 20px;
+	position:relative;
+	top:30px;
+	right:300px;
+	left:300px;
+	float:both;
+}
