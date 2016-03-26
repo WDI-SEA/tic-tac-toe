@@ -2,9 +2,14 @@ body {
     background: #1c5380;
 }
 
+h1 {
+    text-align: center;
+    color: #888;
+}
+
 #container {
     margin: 0 auto;
-    width: 500px;
+    width: 470px;
     height: 1000px;
     background: linear-gradient(#aab, #fff 8%);
     border-radius: 10px;
@@ -16,27 +21,21 @@ body {
 .board-square {
     height: 150px;
     width: 150px;
-    /*border: solid black;*/
     float: left;
 }
 
 #top-left {
-    border-top: solid black;
     border-right: solid black;
     border-bottom: solid black;
-    border-left: solid black;
 }
 
 #top-mid {
-    border-top: solid black;
     border-right: solid black;
     border-bottom: solid black;
     border-left: solid black;
 }
 
 #top-right {
-    border-top: solid black;
-    border-right: solid black;
     border-bottom: solid black;
     border-left: solid black;
 }
@@ -45,7 +44,6 @@ body {
     border-top: solid black;
     border-right: solid black;
     border-bottom: solid black;
-    border-left: solid black;
 }
 
 #mid-mid {
@@ -57,7 +55,6 @@ body {
 
 #mid-right {
     border-top: solid black;
-    border-right: solid black;
     border-bottom: solid black;
     border-left: solid black;
 }
@@ -65,20 +62,15 @@ body {
 #bottom-left {
     border-top: solid black;
     border-right: solid black;
-    border-bottom: solid black;
-    border-left: solid black;
 }
 
 #bottom-mid {
     border-top: solid black;
     border-right: solid black;
-    border-bottom: solid black;
     border-left: solid black;
 }
 
 #bottom-right {
     border-top: solid black;
-    border-right: solid black;
-    border-bottom: solid black;
     border-left: solid black;
 }
