@@ -36,6 +36,17 @@ h1 {
     margin: 10px auto;
 }
 
+#clear-button {
+    display: block;
+    margin: 30px auto;
+    background: green;
+    height: 40px;
+    width: 80px;
+    border-radius: 6px;
+    color: white;
+    font-size: 18px;
+}
+
 #top-left {
     border-right: solid black;
     border-bottom: solid black;
