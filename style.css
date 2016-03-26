@@ -9,7 +9,7 @@ h1 {
 
 #container {
     margin: 0 auto;
-    width: 470px;
+    max-width: 600px;
     height: 1000px;
     background: linear-gradient(#aab, #fff 8%);
     border-radius: 10px;
@@ -18,10 +18,22 @@ h1 {
 
 }
 
-.board-square {
+#board-container {
+    height: 470px;
+    width: 470px;
+    margin: 0 auto;
+}
+
+.board-squares {
     height: 150px;
     width: 150px;
     float: left;
+}
+
+.x-o-markers {
+    height: 130px;
+    display: block;
+    margin: 10px auto;
 }
 
 #top-left {

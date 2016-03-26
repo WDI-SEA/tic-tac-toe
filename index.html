@@ -7,15 +7,17 @@
 <body>
     <div id="container">    
         <h1>Let's play some Tic Tac Toe!</h1>
-        <div class="board-square" id="top-left"></div>
-        <div class="board-square" id="top-mid"></div>
-        <div class="board-square" id="top-right"></div>
-        <div class="board-square" id="mid-left"></div>
-        <div class="board-square" id="mid-mid"></div>
-        <div class="board-square" id="mid-right"></div>
-        <div class="board-square" id="bottom-left"></div>
-        <div class="board-square" id="bottom-mid"></div>
-        <div class="board-square" id="bottom-right"></div>
+        <div id="board-container">
+            <div class="board-squares" id="top-left"></div>
+            <div class="board-squares" id="top-mid"></div>
+            <div class="board-squares" id="top-right"><img class="x-o-markers" src="o.png" alt="o"></div>
+            <div class="board-squares" id="mid-left"><img class="x-o-markers" src="x.png" alt="x"></div>
+            <div class="board-squares" id="mid-mid"></div>
+            <div class="board-squares" id="mid-right"></div>
+            <div class="board-squares" id="bottom-left"></div>
+            <div class="board-squares" id="bottom-mid"></div>
+            <div class="board-squares" id="bottom-right"></div>
+        </div>
     </div>
     <script type="text/javascript" src="script.js"></script>
 </body>
