@@ -1,0 +1,46 @@
+.divClass_row {
+	background-color: red;
+
+	height: 200px;
+	width: 700px;
+
+	float: left;
+}
+
+.divClass_square {
+	background-color: green;
+	border: 3px solid black;
+
+	height: 200px;
+	width: 200px;
+
+	float: left;
+
+	font-size: 180px;
+	text-align: center;
+}
+
+#div_game_board {
+	background-color: blue;
+
+	height: 700px;
+	width: 700px;
+
+	float: left;
+}
+
+#div_right {
+	background-color: orange;
+
+	height: 700px;
+	width: 200px;
+
+	float: left;
+}
+
+#div_reset {
+	background-color: green;
+
+	height: 100px;
+	width: 200px;
+}
