@@ -9,10 +9,12 @@ html, body{
   width: 165px;
   height: 165px;
   margin: 0 auto;
-  background-color: green;
+  background-color: #d2ffe9;
   border: 1px solid red;
   margin: 20px;
- 
+  border-radius: 25px;
+/*  animation: fadein 2s;
+for fade in*/
 }
 
 .row {
@@ -21,7 +23,7 @@ html, body{
     float: left;
 }
 
-#boxes {
+#container {
   margin: 0 auto;
   height: 600px;
   width: 600px;
@@ -34,3 +36,9 @@ html, body{
 #button {
   align: center;
 }
+
+/*@keyframes fadein {
+  from { opacity: 0;   }
+  to { opacity: 1;   }
+}*/
+/*for fade in*/
