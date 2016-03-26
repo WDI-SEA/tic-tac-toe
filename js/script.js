@@ -9,7 +9,7 @@
 
 var debug = true;
 
-var clickCounter;
+var clickCounter = 0;
 
 //here down: to DRY
 var firstInput = document.getElementById("first");
@@ -23,50 +23,60 @@ var eighthInput = document.getElementById("eighth");
 var ninthInput = document.getElementById("ninth");
 
 var click1 = firstInput.addEventListener('click', function() { 
+  clickCounter++;
   console.log("click!");
     }, false);
 
 var click2 = secondInput.addEventListener('click', function() { 
+  clickCounter++;
   console.log("click2!");
     }, false);
 
 var click3 = thirdInput.addEventListener('click', function() { 
+  clickCounter++;
   console.log("click3!");
     }, false);
 
 var click4 = fourthInput.addEventListener('click', function() { 
+  clickCounter++;
   console.log("click4!");
     }, false);
 
 var click5 = fifthInput.addEventListener('click', function() { 
+  clickCounter++;
   console.log("click5!");
     }, false);
 
 var click6 = sixthInput.addEventListener('click', function() { 
+  clickCounter++;
   console.log("click6!");
     }, false);
 
 var click7 = seventhInput.addEventListener('click', function() { 
+  clickCounter++;
   console.log("click7!");
     }, false);
 
 var click8 = eighthInput.addEventListener('click', function() { 
+  clickCounter++;
   console.log("click8!");
     }, false);
 
 var click9 = ninthInput.addEventListener('click', function() { 
+  clickCounter++;
   console.log("click9!");
     }, false);
 
-
-
 //from josh's temp converter code!
 
-var yellowOrBlue = function(click) {
-  var blue;
-  var yellow;
-
+var yellowOrBlue = function(blue, yellow) {
   if (debug)
     {console.log("yellowOrBlue");
+  }
+
+  if(clickCounter % 2 === 0) {
+    document.body.style.background = #D2FFFF;
+  } else {
+    document.body.style.backgournd = #ffffd2;
   }
 }
