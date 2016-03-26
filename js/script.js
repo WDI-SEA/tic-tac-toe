@@ -6,30 +6,67 @@
   // if (document.querySelectorAll('div').length >= iterations) {
   //   return;
   //   }
+
+var debug = true;
+
 var clickCounter;
 
-var firstBoxInput = document.getElementById("firstBox");
-var secondBoxInput = document.getElementById("secondBox");
-var thirdBoxInput = document.getElementById("thirdBox");
-var fourthBoxInput = document.getElementById("fourthBox");
-var fifthBoxInput = document.getElementById("fifthBox");
-var sixthBoxInput = document.getElementById("sixthBox");
-var seventhBoxInput = document.getElementById("seventhBox");
-var eighthBoxInput = document.getElementById("eighthBox");
-var ninthBoxInput = document.getElementById("ninthBox");
+//here down: to DRY
+var firstInput = document.getElementById("first");
+var secondInput = document.getElementById("second");
+var thirdInput = document.getElementById("third");
+var fourthInput = document.getElementById("fourth");
+var fifthInput = document.getElementById("fifth");
+var sixthInput = document.getElementById("sixth");
+var seventhInput = document.getElementById("seventh");
+var eighthInput = document.getElementById("eighth");
+var ninthInput = document.getElementById("ninth");
 
-// function blue() {
-//   document.body.style.backgroundColor = #D2FFFF
-// };
-
-firstBoxInput.addEventListener('click', function() { 
+var click1 = firstInput.addEventListener('click', function() { 
   console.log("click!");
-  //console clicks back!
     }, false);
 
-secondBoxInput.addEventListener('click', function() { 
+var click2 = secondInput.addEventListener('click', function() { 
   console.log("click2!");
-  //console doesn't click back!
     }, false);
 
-//anywhosier, this isn't changing the background color... yet!
+var click3 = thirdInput.addEventListener('click', function() { 
+  console.log("click3!");
+    }, false);
+
+var click4 = fourthInput.addEventListener('click', function() { 
+  console.log("click4!");
+    }, false);
+
+var click5 = fifthInput.addEventListener('click', function() { 
+  console.log("click5!");
+    }, false);
+
+var click6 = sixthInput.addEventListener('click', function() { 
+  console.log("click6!");
+    }, false);
+
+var click7 = seventhInput.addEventListener('click', function() { 
+  console.log("click7!");
+    }, false);
+
+var click8 = eighthInput.addEventListener('click', function() { 
+  console.log("click8!");
+    }, false);
+
+var click9 = ninthInput.addEventListener('click', function() { 
+  console.log("click9!");
+    }, false);
+
+
+
+//from josh's temp converter code!
+
+var yellowOrBlue = function(click) {
+  var blue;
+  var yellow;
+
+  if (debug)
+    {console.log("yellowOrBlue");
+  }
+}

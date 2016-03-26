@@ -1,4 +1,5 @@
-html, body{
+html, 
+body{
   width:100%;
   height:100%;
   margin: 0 auto;
@@ -33,8 +34,9 @@ for fade in*/
   margin-top: 10%;
 }
 
+h1,
 #button {
-  align: center;
+  margin: 0 auto;
 }
 
 /*@keyframes fadein {
