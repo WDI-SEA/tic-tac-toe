@@ -21,7 +21,7 @@ button {
 	background-color: lightgrey;
 	position:relative;
 	border: 5px solid grey;
-	border-radius: 10px;
+	border-radius: 100px;
 	margin-top: 20px;
 	margin-left: 200px;
 	font-family: Helvetica;
@@ -30,67 +30,3 @@ button {
 	padding: 10px 15px 10px 15px;
 }
 
-/*
-table {
-	table-layout: inline-block;
-	border: solid 1px white;
-	width: 480px;
-	height: 480px;
-	margin: 10px;
-	position:absolute;
-	}*/
-
-}
- .row1 {
-
-
- }
-
- .row2 {
-
- }
-
- .row3 {
-
- }
-
-/*width: 25px;
-	height: 25px;
-	display: inline-block;
-	float: center;
-	margin: 5px;*/
-
-
-
-/*
-div {
-	background-color: white;
-	border: solid 1px white;
-	width: 498px;
-	height: 20px;
-	padding: 0px;
-
-}*/
-
-/*
-p {
-	font-family: Helvetica;
-	font-style: 
-	font-size: 12px;
-	text-align: center;
-	margin: 2px;
-
-}*/
-
-
-
-
-/*div {
-	margin: 0 auto;
-	height: 100px;
-	width: 100px;
-	margin-top: 70px;
-
-
-}
-*/
