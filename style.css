@@ -1,13 +1,23 @@
 body {
-	background-color: lightgrey;
-	border: solid 3px black;
-	width: 500px; 
-	height: 500px;
+	background-color: black;
+	border: solid 3px white;
+	width: 480px; 
+	height: 480px;
 	margin:auto;
 	margin-top: 90px;
 	padding: 0px;
 	}
 
+div {
+	background-color: white;
+	border: solid 1px black;
+	width: 160px;
+	height: 160px;
+	margin: auto;
+	float: left;
+}
+
+/*
 table {
 	table-layout: inline-block;
 	border: solid 1px white;
@@ -15,7 +25,7 @@ table {
 	height: 480px;
 	margin: 10px;
 	position:absolute;
-	}
+	}*/
 
 }
  .row1 {
