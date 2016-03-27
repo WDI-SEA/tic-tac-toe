@@ -11,10 +11,11 @@ body{
   height: 165px;
   margin: 0 auto;
   background-color: #d2ffe9;
-/*  border: 1px solid red;
-*/
+  border: 1px solid red;
   margin: 20px;
   border-radius: 25px;
+  font-family: helvetica;
+  font-size: 32px;
 /*  animation: fadein 2s;
 for fade in*/
 }
