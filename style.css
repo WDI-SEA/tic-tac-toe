@@ -1,8 +1,8 @@
 body {
 	background-color: black;
 	border: solid 3px white;
-	width: 480px; 
-	height: 480px;
+	width: 486px; 
+	height: 486px;
 	margin:auto;
 	margin-top: 90px;
 	padding: 0px;
@@ -14,7 +14,7 @@ div {
 	width: 160px;
 	height: 160px;
 	margin: auto;
-	float: left;
+	float: right;
 }
 
 /*
