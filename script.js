@@ -16,7 +16,6 @@ var displayLarge = document.getElementById("div_large");
 
 //Create Reset Button
 var reset = function(){
-	console.log("Reset clicked!");
 
 	xTurn = true;
 	gameOver = false;
@@ -37,11 +36,7 @@ resetButton.addEventListener("click", reset);
 
 //What happens when you click
 var handleClick = function(arrayAddress){
-	console.log("xTurn = " + xTurn)
-	console.log("arrayAddress clicked = " + arrayAddress);
-	console.log("divArray[arrayAddress].innerHTML = " + divArray[arrayAddress].innerHTML);
 	if (divArray[arrayAddress].innerHTML === "X" || divArray[arrayAddress].innerHTML === "O" || gameOver){
-		console.log("Cannot click");
 	} else {
 		if (xTurn){
 			divArray[arrayAddress].innerHTML = "X";
@@ -59,7 +54,6 @@ var handleClick = function(arrayAddress){
 
 //Go between X and O
 var changeTurn = function(){
-	console.log("changing turn")
 	if (xTurn) {
 		xTurn = false;
 		displayLarge.innerHTML = "O";
@@ -73,21 +67,13 @@ var changeTurn = function(){
 var checkWin = function(){
 	// check row
 	for (var i = 0; i < 7; i += 3){
-		console.log("Running check row");
-		console.log(divArray[i].innerHTML);
-		console.log(divArray[i + 1].innerHTML);
-		console.log(divArray[i + 2].innerHTML);
 
 		//check if the row is not full
 		if (divArray[i].innerHTML === "" || divArray[i + 1].innerHTML === "" || divArray[i + 2].innerHTML === ""){
-			console.log(i + " is not a complete row");
 		}
 
 		//check if the row is a match
 		else if (divArray[i].innerHTML === divArray[i + 1].innerHTML && divArray[i].innerHTML === divArray[i + 2].innerHTML){
-			console.log("This value of i made a match = " + i);
-			console.log("It's suppose to display this = " + divArray[i].innerHTML);
-
 			//shows you the winner!
 			displaySmall.innerHTML = "The Winner Is:";
 			displaySmall.style.color = winColor;
@@ -104,20 +90,13 @@ var checkWin = function(){
 
 	//check column
 	for (var i = 0; i < 3; i++){
-		console.log("Running check column");
-		console.log(divArray[i].innerHTML);
-		console.log(divArray[i + 3].innerHTML);
-		console.log(divArray[i + 6].innerHTML);
 
 		//check if the column is not full
 		if (divArray[i].innerHTML === "" || divArray[i + 3].innerHTML === "" || divArray[i + 6].innerHTML === ""){
-			console.log(i + "is not a complete column")
 		}
 
 		//check if the column is a match
 		else if (divArray[i].innerHTML === divArray[i + 3].innerHTML && divArray[i].innerHTML === divArray[i + 6].innerHTML){
-			console.log("This value of i made a match = " + i);
-			console.log("It's suppose to display this = " + divArray[i].innerHTML);
 
 			//shows you the winner!
 			displaySmall.innerHTML = "The Winner Is:";
@@ -136,7 +115,6 @@ var checkWin = function(){
 
 	//check diagonals
 	if (divArray[4].innerHTML != ""){
-		console.log("diagonal is not empty!");
 		if (divArray[4].innerHTML === divArray[0].innerHTML && divArray[4].innerHTML === divArray[8].innerHTML){
 
 			//shows you the winner!
@@ -188,11 +166,6 @@ var checkTie = function(){
 }
 
 //Add event listeners to the array of squares
-// for (var i = 0; i < 9; i++){
-// 	divArray[i].addEventListener("click", function(i){
-// 		handleClick(i);
-// 	})
-// }
 
 divArray[0].addEventListener("click", function(){
 	handleClick(0);
