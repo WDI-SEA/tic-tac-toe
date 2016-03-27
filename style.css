@@ -28,6 +28,9 @@ h1 {
 	float: right;
 	position: relative;
 	background-color: white;
+	font-size: 90px;
+	font-family: 'Alfa Slab One', cursive;;
+	text-align: center;
 /*	display: block;*/
 }
 
@@ -72,10 +75,19 @@ clear {
 
 button {
 	float: right;
+	display: inline;
 	margin-top: 465px;
 	margin-bottom: 0;
-	margin-left: 530px;
+/*	margin-left: 530px;*/
 	position: absolute;
+}
+
+#start {
+	margin-left: 445px;
+}
+
+#reset {
+	margin-left: 610px;
 }
 
 
