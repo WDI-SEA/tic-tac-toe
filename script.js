@@ -13,61 +13,92 @@ var seven = document.getElementById('seven');
 var eight = document.getElementById('eight');
 var nine = document.getElementById('nine');
 
-
-
-
-
+var turns = 0;
 
 letsPlay.addEventListener('click', function(e) {
-	console.log('We playing');
+	console.log('We playin');
 	one.addEventListener ('click', function(e) {
-		one.innerHTML = 'X';
-	})
+		if (turns % 2 === 0) {
+			one.innerHTML = 'X';
+			turns++;
+		} else {
+			one.innerHTML = "O";
+			turns++;
+		}
+	});
 	two.addEventListener ('click', function(e) {
-		two.innerHTML = 'O';
-	})
+		if (turns % 2 === 0) {
+			two.innerHTML = 'X';
+			turns++;
+		} else {
+			two.innerHTML = "O";
+			turns++;
+		}
+	});
+	three.addEventListener ('click', function(e) {
+		if (turns % 2 === 0) {
+			three.innerHTML = 'X';
+			turns++;
+		} else {
+			three.innerHTML = "O";
+			turns++;
+		}
+	});
+	four.addEventListener ('click', function(e) {
+		if (turns % 2 === 0) {
+			four.innerHTML = 'X';
+			turns++;
+		} else {
+			four.innerHTML = "O";
+			turns++;
+		}
+	});
+	five.addEventListener ('click', function(e) {
+		if (turns % 2 === 0) {
+			five.innerHTML = 'X';
+			turns++;
+		} else {
+			five.innerHTML = "O";
+			turns++;
+		}
+	});
+	six.addEventListener ('click', function(e) {
+		if (turns % 2 === 0) {
+			six.innerHTML = 'X';
+			turns++;
+		} else {
+			six.innerHTML = "O";
+			turns++;
+		}
+	});
+	seven.addEventListener ('click', function(e) {
+		if (turns % 2 === 0) {
+			seven.innerHTML = 'X';
+			turns++;
+		} else {
+			seven.innerHTML = "O";
+			turns++;
+		}
+	});
+	eight.addEventListener ('click', function(e) {
+		if (turns % 2 === 0) {
+			eight.innerHTML = 'X';
+			turns++;
+		} else {
+			eight.innerHTML = "O";
+			turns++;
+		}
+	});
+	nine.addEventListener ('click', function(e) {
+		if (turns % 2 === 0) {
+			nine.innerHTML = 'X';
+			turns++;
+		} else {
+			nine.innerHTML = "O";
+			turns++;
+		}
+	});
 });
-	// var xTally = 0;
-	// var oTally = 0;
-	// // var i;
-	// // var j;
-	// for (i = 0; i <= 5; i += 2) {
-	// 	if (one.addEventListener('click', function(e) {
-	// 		return one.innerHTML = 'X';
-	// 		xTally++;
-	// 	})) else if (two.addEventListener('click', function(e) {
-	// 		two.innerHTML = "X";
-	// 		xTally++;
-	// 	})) else if (three.addEventListener('click', function(e) {
-	// 		three.innerHTML = "X";
-	// 		xTally++;
-	// 	})) else if (four.addEventListener('click', function(e) {
-	// 		four.innerHTML = "X";
-	// 		xTally++;
-	// 	})) else if (five.addEventListener('click', function(e) {
-	// 		five.innerHTML = "X";
-	// 		xTally++;
-	// 	})) else if (six.addEventListener('click', function(e) {
-	// 		six.innerHTML = "X";
-	// 		xTally++;
-	// 	})) else if (seven.addEventListener('click', function(e) {
-	// 		seven.innerHTML = "X";
-	// 		xTally++;
-	// 	})) else if (eight.addEventListener('click', function(e) {
-	// 		eight.innerHTML = "X";
-	// 		xTally++;
-	// 	})) else if (nine.addEventListener('click', function(e) {
-	// 		nine.innerHTML = "X";
-	// 		xTally++;
-	// 	}));
-
-	// for (j = 1; j <= 5; j += 2) {
-		
-	// 	var.innerHTML = 'O';
-	// 	oTally++;
-	// }
-// })
-
 
 
 
@@ -84,5 +115,7 @@ startOver.addEventListener('click', function(e) {
 	eight.innerHTML = '';
 	nine.innerHTML = '';
 })
+
+// 
 
 
