@@ -71,7 +71,7 @@ var checkWin = function(){
 		console.log(divArray[i + 2].innerHTML);
 
 		//check if the row is not full
-		if(divArray[i].innerHTML === "" || divArray[i + 1].innerHTML === "" || divArray[i + 2].innerHTML === ""){
+		if (divArray[i].innerHTML === "" || divArray[i + 1].innerHTML === "" || divArray[i + 2].innerHTML === ""){
 			console.log(i + " is not a complete row");
 		}
 
@@ -93,7 +93,7 @@ var checkWin = function(){
 		console.log(divArray[i + 6].innerHTML);
 
 		//check if the column is not full
-		if(divArray[i].innerHTML === "" || divArray[i + 3].innerHTML === "" || divArray[i + 6].innerHTML === ""){
+		if (divArray[i].innerHTML === "" || divArray[i + 3].innerHTML === "" || divArray[i + 6].innerHTML === ""){
 			console.log(i + "is not a complete column")
 		}
 
@@ -108,7 +108,19 @@ var checkWin = function(){
 
 	}
 
-
+	//check diagonals
+	if (divArray[4].innerHTML != ""){
+		console.log("diagonal is not empty!");
+		if (divArray[4].innerHTML === divArray[0].innerHTML && divArray[4].innerHTML === divArray[8].innerHTML){
+			displaySmall.innerHTML = "The Winner Is:";
+			displayLarge.innerHTML = divArray[4].innerHTML;
+			return;
+		} else if (divArray[4].innerHTML === divArray[2].innerHTML && divArray[4].innerHTML === divArray[6].innerHTML){
+			displaySmall.innerHTML = "The Winner Is:";
+			displayLarge.innerHTML = divArray[4].innerHTML;
+			return;
+		}
+	}
 
 }
 
