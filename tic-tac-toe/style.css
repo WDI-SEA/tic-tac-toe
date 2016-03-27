@@ -1,7 +1,6 @@
 body {
   font-family: Helvetica;
 
-
 }
 
 
@@ -20,12 +19,29 @@ h1 {
 
 }
 
+#board-container {
+  width: 30%;
+  height: 30%;
+  border: 6px solid red;
+  float: left;
+  margin: 50 0 0 485;
+}
+
 #board {
   width: 30%;
   height: 30%;
-  border: 1px solid black;
+  border: 2px solid green;
   float: left;
-  margin: 50 0 0 485;
+  margin: -293 0 0 492;
+  
 
+}
+
+
+td {
+  position: relative;
+  border: 2px solid pink;
+  text-align: center;
+  margin: 
 
 }
