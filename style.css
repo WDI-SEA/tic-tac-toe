@@ -26,9 +26,19 @@ body {
   margin: 0 auto;
 }
 
-.square-start {
+.square {
   float: left;
   width: 150px;
   height: 150px;
   border: 2px solid black;
+  font-size: 140px;
+  text-align: center;
+}
+
+.blue-box {
+  background-color: blue;
+}
+
+.red-box {
+  background-color: red;
 }
