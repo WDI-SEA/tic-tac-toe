@@ -12,6 +12,7 @@ var box = document.getElementsByClassName("box");
 var consoleLogs = function() {
   clickCounter++;
   console.log("click");
+  isEven();
 }
 
 for (var i = 0; i < box.length; i++) {
@@ -28,31 +29,37 @@ function isEven(clickCounter) {
 
 if (isEven === true) {
   this.document.getinnerHTML === x;
+  classYellow;
 } else {
   this.document.innerHTML === o;
+  classBlue;
 }
  
 //add class to display separate colors
 
-//this grabs id first
-
-document.addEventListener('click', function(e) {
+//first grabs id
+//blue
+var classBlue = document.addEventListener('click', function(e) {
   var id= e.target.id;
-  var myMinty=" minty"; 
   var d;
   d=document.getElementById(id);
-  d.className=d.minty.replace(minty,""); 
-  d.className = d.blue + blue; 
+  d.className += " blue"; 
+  d.innerHTML += "X";
 });
 
-// snippet of code detailing how to add class
-// var myClassName=" className"; //must keep a space before class name
-// d.className=d.className.replace(myClassName,""); // first remove the class name if that already exists
-// d.className = d.className + myClassName; // adding new class name
+//yellow
 
-
+var classYellow = document.addEventListener('click', function(e) {
+  var id= e.target.id;
+  var d;
+  d=document.getElementById(id);
+  d.className += " yellow"; 
+  d.innerHTML += "O";
+});
 
 //cell not able to be replayed
+//Something something (null || clikced)
+
 
 //reset button
 
