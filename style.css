@@ -8,20 +8,28 @@ body {
 	padding: 0px;
 	}
 
-.gameboard {
+table {
+	table-layout: inline-block;
 	border: solid 1px white;
 	width: 480px;
 	height: 480px;
-	margin:5px;
-	float: center;
-
-
-
-
-
+	margin: 10px;
+	position:absolute;
+	}
 
 }
+ .row1 {
 
+
+ }
+
+ .row2 {
+
+ }
+
+ .row3 {
+
+ }
 
 /*width: 25px;
 	height: 25px;
