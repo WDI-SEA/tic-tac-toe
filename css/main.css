@@ -11,14 +11,23 @@ body{
   height: 165px;
   margin: 0 auto;
   background-color: #d2ffe9;
-  border: 1px solid red;
+/*  border: 1px solid red;
+*/
   margin: 20px;
   border-radius: 25px;
 /*  animation: fadein 2s;
 for fade in*/
 }
 
-.row {
+.blue {
+  background-color: #D2FFFF;
+}
+
+.yellow {
+  background-color: #ffffd2;
+}
+
+.col {
     width: 33%;
     height: 33%;    
     float: left;
