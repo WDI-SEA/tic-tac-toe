@@ -1,0 +1,31 @@
+body {
+  font-family: Helvetica;
+
+
+}
+
+
+h1 {
+  text-align: center;
+  margin: 40 10 10 325;
+
+}
+
+
+
+#container {
+  width: 960px;
+  height: 960px;
+  position: relative;
+
+}
+
+#board {
+  width: 30%;
+  height: 30%;
+  border: 1px solid black;
+  float: left;
+  margin: 50 0 0 485;
+
+
+}
