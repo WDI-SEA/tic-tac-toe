@@ -1,5 +1,13 @@
+body {
+	background-color: gray;
+	text-align: center;
+	color: white;
+	font-family: 'Gochi Hand', cursive;
+}
+
+
 .divClass_row {
-	background-color: red;
+	background-color: gray;
 
 	height: 200px;
 	width: 700px;
@@ -8,8 +16,8 @@
 }
 
 .divClass_square {
-	background-color: green;
-	border: 3px solid black;
+	background-color: gray;
+	border: 3px solid white;
 
 	height: 200px;
 	width: 200px;
@@ -17,30 +25,45 @@
 	float: left;
 
 	font-size: 180px;
-	text-align: center;
 }
 
 #div_game_board {
-	background-color: blue;
+	background-color: gray;
 
 	height: 700px;
-	width: 700px;
+	width: 630px;
 
 	float: left;
 }
 
 #div_right {
-	background-color: orange;
+	background-color: gray;
 
 	height: 700px;
-	width: 200px;
+	width: 300px;
 
 	float: left;
 }
 
-#div_reset {
-	background-color: green;
+#div_label {
+	padding-top: 120px;
+	font-size: 50px;
+}
 
-	height: 100px;
+#div_small {
+	font-size: 20px;
+}
+
+#div_large {
+	font-size: 180px;
+}
+
+#div_reset {
+	font-size: 30px;
+	background-color: gray;
+	border: 3px dashed white;
+	height: 70px;
 	width: 200px;
+	margin-left: 50px;
+	padding-top: 30px;
 }
