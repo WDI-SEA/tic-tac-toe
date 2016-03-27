@@ -1,7 +1,8 @@
 //Instantiate Global Variables
 var divArray = [];
 var xTurn = true;
-var countToTie = 0;
+var winColor = "yellow";
+var gameOver = false;
 
 //Populate Array of squares
 for (var i = 0; i < 3; i++){
@@ -18,10 +19,15 @@ var reset = function(){
 	console.log("Reset clicked!");
 
 	xTurn = true;
+	gameOver = false;
+	displaySmall.innerHTML = "Current Player:";
+	displaySmall.style.color = "white";
 	displayLarge.innerHTML = "X";
+	displayLarge.style.color = "white";
 
 	for (var i = 0; i < 9; i++){
 		divArray[i].innerHTML = "";
+		divArray[i].style.color = "white";
 	}
 }
 reset(); // seems I need to clear white space...
@@ -34,17 +40,19 @@ var handleClick = function(arrayAddress){
 	console.log("xTurn = " + xTurn)
 	console.log("arrayAddress clicked = " + arrayAddress);
 	console.log("divArray[arrayAddress].innerHTML = " + divArray[arrayAddress].innerHTML);
-	if (divArray[arrayAddress].innerHTML === "X" || divArray[arrayAddress].innerHTML === "O"){
-		console.log("Pick a different square!");
+	if (divArray[arrayAddress].innerHTML === "X" || divArray[arrayAddress].innerHTML === "O" || gameOver){
+		console.log("Cannot click");
 	} else {
 		if (xTurn){
 			divArray[arrayAddress].innerHTML = "X";
 			changeTurn();
 			checkWin();
+			checkTie();
 		} else {
 			divArray[arrayAddress].innerHTML = "O";
 			changeTurn();
 			checkWin();
+			checkTie();
 		}
 	}
 }
@@ -79,8 +87,17 @@ var checkWin = function(){
 		else if (divArray[i].innerHTML === divArray[i + 1].innerHTML && divArray[i].innerHTML === divArray[i + 2].innerHTML){
 			console.log("This value of i made a match = " + i);
 			console.log("It's suppose to display this = " + divArray[i].innerHTML);
+
+			//shows you the winner!
 			displaySmall.innerHTML = "The Winner Is:";
+			displaySmall.style.color = winColor;
 			displayLarge.innerHTML = divArray[i].innerHTML;
+			displayLarge.style.color = winColor;
+
+			divArray[i].style.color = winColor;
+			divArray[i + 1].style.color = winColor;
+			divArray[i + 2].style.color = winColor;
+			gameOver = true;
 			return;
 		}
 	}
@@ -101,9 +118,18 @@ var checkWin = function(){
 		else if (divArray[i].innerHTML === divArray[i + 3].innerHTML && divArray[i].innerHTML === divArray[i + 6].innerHTML){
 			console.log("This value of i made a match = " + i);
 			console.log("It's suppose to display this = " + divArray[i].innerHTML);
+
+			//shows you the winner!
 			displaySmall.innerHTML = "The Winner Is:";
+			displaySmall.style.color = winColor;
 			displayLarge.innerHTML = divArray[i].innerHTML;
-			return;						
+			displayLarge.style.color = winColor;
+
+			divArray[i].style.color = winColor;
+			divArray[i + 3].style.color = winColor;
+			divArray[i + 6].style.color = winColor;
+			gameOver = true;
+			return;					
 		}
 
 	}
@@ -112,19 +138,54 @@ var checkWin = function(){
 	if (divArray[4].innerHTML != ""){
 		console.log("diagonal is not empty!");
 		if (divArray[4].innerHTML === divArray[0].innerHTML && divArray[4].innerHTML === divArray[8].innerHTML){
+
+			//shows you the winner!
 			displaySmall.innerHTML = "The Winner Is:";
+			displaySmall.style.color = winColor;
 			displayLarge.innerHTML = divArray[4].innerHTML;
-			return;
+			displayLarge.style.color = winColor;
+
+			divArray[0].style.color = winColor;
+			divArray[4].style.color = winColor;
+			divArray[8].style.color = winColor;
+			gameOver = true;
+			return;	
+
 		} else if (divArray[4].innerHTML === divArray[2].innerHTML && divArray[4].innerHTML === divArray[6].innerHTML){
+
+			//shows you the winner!
 			displaySmall.innerHTML = "The Winner Is:";
+			displaySmall.style.color = winColor;
 			displayLarge.innerHTML = divArray[4].innerHTML;
+			displayLarge.style.color = winColor;
+
+			divArray[2].style.color = winColor;
+			divArray[4].style.color = winColor;
+			divArray[6].style.color = winColor;	
+			gameOver = true;		
 			return;
 		}
 	}
 
 }
+// checkTie
+var checkTie = function(){
+	for (var i = 0; i < 9; i++){
+		if (divArray[i].innerHTML === "" || gameOver){
+			return;
+		}
+	}
+	displaySmall.innerHTML = "We have a";
+	displaySmall.style.color = "orange";
+	displayLarge.innerHTML = "Tie";
+	displayLarge.style.color = "orange";
 
+	for (var i = 0; i < 9; i++){
+		divArray[i].style.color = "orange";
+	}
 
+	gameOver = true;
+}
 
 //Add event listeners to the array of squares
 // for (var i = 0; i < 9; i++){
