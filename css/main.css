@@ -1,7 +1,11 @@
 body {
 	/*margin:100px;*/
-	background-color: grey;
+	background-image:url("../images/paper.jpg");
 	margin: 100px, 100px;
+}
+
+h1{
+	text-align: center;
 }
 
 #game_grid {
@@ -18,14 +22,13 @@ body {
 	border-width: 5px;
 	width: 31%;
 	height:31%;
+	background-repeat:no-repeat;
+	background-position: center;
 }
 
-#box_1 {
-	
+#box_1{
 	border-color: black;
 	background-color: blue;
-	display:inline-block;
-	
 }
 
 #box_2 {
