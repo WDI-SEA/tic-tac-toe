@@ -24,53 +24,45 @@ h1{
 	height:31%;
 	background-repeat:no-repeat;
 	background-position: center;
+	background-image:url("../images/paper.jpg");
 }
 
 #box_1{
 	border-color: black;
-	background-color: blue;
 }
 
 #box_2 {
 	border-color: black;
-	background-color: purple;
 }
 
 #box_3 {
 	border-color: black;
-		background-color: green;
 }
 
 #box_4 {
 	border-color: black;
-	background-color: fuchsia;
 }
 
 #box_5 {
 	border-color: black;
-	background-color: white;
-	
 }
 
 #box_6 {
 	border-color: black;
-	background-color: yellow;
 }
 
 #box_7 {
 	border-color: black;
-	background-color: red;
 }
 
 #box_8 {
 	border-color: black;
-	background-color: aqua;
 }
 
 #box_9 {
 	border-color: black;
-	background-color: orange;
 }
+
 #Clear{
 	width:300px;
 	font-size: 20px;
