@@ -24,6 +24,8 @@ var reset = function(){
 		divArray[i].innerHTML = "";
 	}
 }
+reset(); // seems I need to clear white space...
+
 var resetButton = document.getElementById("div_reset");
 resetButton.addEventListener("click", reset);
 
@@ -61,25 +63,54 @@ var changeTurn = function(){
 }
 
 var checkWin = function(){
-	// // check row
-	// for(var i = 0; i < 3; i += 3){
-	// 	console.log("Running check row");
-	// 	console.log(divArray[i].innerHTML);
-	// 	console.log(divArray[i + 1].innerHTML);
-	// 	console.log(divArray[i + 2].innerHTML);
-	// 	if(divArray[i].innerHTML == "" || divArray[i + 1].innerHTML == "" || divArray[i + 2].innerHTML == ""){
-	// 		console.log(i + " is not a complete row");
-	// 	} else if (divArray[i].innerHTML == divArray[i + 1].innerHTML && divArray[i].innerHTML == divArray[i + 2].innerHTML){
-	// 		console.log("This value of i made a match = " + i);
-	// 		console.log("It's suppose to display this = " + divArray[i].innerHTML);
-	// 		displaySmall.innerHTML = "The Winner Is:";
-	// 		displayLarge.innerHTML - divArray[i].innerHTML;
-	// 	}
-	// }
+	// check row
+	for (var i = 0; i < 7; i += 3){
+		console.log("Running check row");
+		console.log(divArray[i].innerHTML);
+		console.log(divArray[i + 1].innerHTML);
+		console.log(divArray[i + 2].innerHTML);
+
+		//check if the row is not full
+		if(divArray[i].innerHTML === "" || divArray[i + 1].innerHTML === "" || divArray[i + 2].innerHTML === ""){
+			console.log(i + " is not a complete row");
+		}
+
+		//check if the row is a match
+		else if (divArray[i].innerHTML === divArray[i + 1].innerHTML && divArray[i].innerHTML === divArray[i + 2].innerHTML){
+			console.log("This value of i made a match = " + i);
+			console.log("It's suppose to display this = " + divArray[i].innerHTML);
+			displaySmall.innerHTML = "The Winner Is:";
+			displayLarge.innerHTML = divArray[i].innerHTML;
+			return;
+		}
+	}
+
+	//check column
+	for (var i = 0; i < 3; i++){
+		console.log("Running check column");
+		console.log(divArray[i].innerHTML);
+		console.log(divArray[i + 3].innerHTML);
+		console.log(divArray[i + 6].innerHTML);
+
+		//check if the column is not full
+		if(divArray[i].innerHTML === "" || divArray[i + 3].innerHTML === "" || divArray[i + 6].innerHTML === ""){
+			console.log(i + "is not a complete column")
+		}
+
+		//check if the column is a match
+		else if (divArray[i].innerHTML === divArray[i + 3].innerHTML && divArray[i].innerHTML === divArray[i + 6].innerHTML){
+			console.log("This value of i made a match = " + i);
+			console.log("It's suppose to display this = " + divArray[i].innerHTML);
+			displaySmall.innerHTML = "The Winner Is:";
+			displayLarge.innerHTML = divArray[i].innerHTML;
+			return;						
+		}
+
+	}
+
+
 
 }
-
-
 
 
 
