@@ -6,42 +6,61 @@ body {
 
 h1 {
   text-align: center;
-  margin: 40 10 10 325;
+  border: 0;
+ 
+
+}
+
+.align {
+  margin-right: auto;
+  margin-left: auto;
 
 }
 
 
-
-#container {
+/*#container {
   width: 960px;
   height: 960px;
   position: relative;
 
-}
+}*/
 
 #board-container {
   width: 30%;
   height: 30%;
-  border: 6px solid red;
-  float: left;
-  margin: 50 0 0 485;
+  /*border: 6px solid black;*/
+/*  float: left;
+  margin: 50 0 0 485;*/
+  overflow: hidden;
 }
 
 #board {
-  width: 30%;
-  height: 30%;
-  border: 2px solid green;
-  float: left;
-  margin: -293 0 0 492;
-  
+  width: 300px;
+  height: 300px;
+  border-spacing: 0px;
+  margin-left: -2px;
+  margin-right: -2px;
 
+  
 }
 
 
 td {
-  position: relative;
-  border: 2px solid pink;
-  text-align: center;
-  margin: 
+    height: 100px;
+    width: 100px;
+    background-color: yellow;
+    border: 2px solid black;
+    border-collapse: collapse;
+    text-align: center;
+    font-family: monospace;
+    font-size: 40;
+    text-transform: uppercase;
+    color: aqua;
 
 }
+
+
+
+
+
+
