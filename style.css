@@ -43,6 +43,9 @@ h3 {
 .red {
 	background-color: red;
 }
+.blue {
+	background-color: blue !important;
+}
 .played {
 	display: inline-block;
 	font-size: 135px;
