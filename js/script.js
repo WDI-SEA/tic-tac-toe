@@ -112,7 +112,7 @@ function clearBoxes() {
   }
 }
 
-//getWinner function half works: still working on teaching it a cat's game
+// getWinner function half works: still working on teaching it a cat's game
 function getWinner() {
   if(firstInput.innerHTML === "X" && secondInput.innerHTML === "X" && thirdInput.innerHTML === "X" ||
     fourthInput.innerHTML === "X" && fifthInput.innerHTML === "X" && sixthInput.innerHTML === "X" ||
@@ -132,7 +132,13 @@ function getWinner() {
     firstInput.innerHTML === "O" && fifthInput.innerHTML === "O" && ninthInput.innerHTML === "O" ||
     thirdInput.innerHTML === "O" && fifthInput.innerHTML === "O" && seventhInput.innerHTML === "O") {
     alert("Winner is O!");
-  } else { console.log("no winner!")
-}
+  } else if (
+    firstInput.innerHTML != "" && secondInput.innerHTML != "" && thirdInput.innerHTML != "" && 
+    fourth.innerHTML != "" && fifthInput.innerHTML != "" && sixthInput.innerHTML != "" && 
+    seventhInput.innerHTML != "" && eighthInput.innerHTML != "" && ninthInput.innerHTML != "")
+   {
+    alert("Cat's game!");
+  } else { return;
+  }
 }
 
