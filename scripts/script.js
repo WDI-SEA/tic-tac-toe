@@ -62,12 +62,10 @@ var winOX = function(){
      //  box6.innerHTML==="X"&&box7.innerHTML==="X"&&box8.innerHTML==="X"||
     // alert("X wins");
 }
-
-
 var reseT = function(){
   for (var i=0;i<9; i++){
     board[i].innerHTML = "";
   }
 }
 var button = document.getElementById("clear");
-  button.addEventListener("click", reseT());
+  button.addEventListener("click", reseT);
