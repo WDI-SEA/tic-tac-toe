@@ -101,9 +101,9 @@ h1 {
   text-align: center;
 }
 
-.square:active {
+/*.square:active {
   background-color: white;
-}
+}*/
 
 .blue-box {
   background-color: rgba(9, 30, 163, 0.4);

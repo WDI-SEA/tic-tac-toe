@@ -27,7 +27,7 @@ document.getElementById('clear').addEventListener('click', function(event) {
 // Started Computer Move
 
 function enableComputer(f) { 
-    if (document.getElementById('playervscpu').checked === true){
+    if (document.getElementById('playervscpu').checked){
       return computerMove;
 }   else {
       return null;
@@ -37,7 +37,7 @@ function enableComputer(f) {
 function computerMove(randomIndex){
 do {
   var randomIndex = Math.floor(Math.random() * (8)) + 1;
-    if (result[randomIndex] = ''){
+    if (!result[randomIndex]){
       board[randomIndex].textContent = 'O';
       result[randomIndex] = 'O';
       return true;
@@ -51,7 +51,7 @@ while (result[randomIndex] != '');
 // Function to Stop Game when there is a winner
 function running(win) {
   var win = getWinner(result);
-  if (win == true) {
+  if (win) {
     keepPlaying = false;
     document.getElementById('whose-turn').textContent = 'We have a winner!';
     console.log('operation should stop');
@@ -78,12 +78,10 @@ function countItemsTruthy(result) {
 function tieGame(tieCount) {
   var tieCount = countItemsTruthy(result);
   var isWinner = getWinner(result);
-  if (tieCount === 9 && isWinner != true) {
+  if (tieCount === 9 && !isWinner) {
     document.getElementById('whose-turn').textContent = 'Tie game!';
     return true
-  } else {
-    return false
-  }
+  } 
 }
 
 // Function to alternate X and O
@@ -176,7 +174,7 @@ var twoPlayer = function(i) {
   var currentBox = board[i];
   var currentResult = result[i];
   currentBox.addEventListener("click", function(event) {
-    if (currentBox.innerText == false && keepPlaying == true) {
+    if (!currentBox.innerText && keepPlaying) {
       currentBox.innerText = whoseTurn(countItemsTruthy);
       makeCellColorful(i);
       result.splice(i, 1, currentBox.innerText);
