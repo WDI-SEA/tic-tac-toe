@@ -1,8 +1,8 @@
 #container {
 	width: 900px;
-	margin-top: 300px;
+	margin-top: 0px;
 	margin-bottom: 300px;
-	margin-left: 300px;
+	margin-left: 245px;
 	margin-right: 200px;
 	text-align: center;
 	padding: 10px;
@@ -38,9 +38,10 @@ td {
 	background-color: grey;
 }
 
-body{
-	background-color: grey;
+body {
+	background-image: url(tic-tac-toe-wallpaper.jpeg);
 }
+
 
 
 
