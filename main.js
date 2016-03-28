@@ -2,6 +2,8 @@
 var counter = true;
 var buttons = [];
 var buttonText = [];
+var buttonClicked = [];
+var colors = [];
 
 //counter to toggle turn
   function toggleTurn() {
@@ -12,6 +14,11 @@ var buttonText = [];
     }
   }
 
+//set all indexes in var buttonClicked to false to start game
+for(var i = 1; i <= 9; i++) {
+  buttonClicked.push(false);
+}
+//console.log(buttonClicked);
 //store id's position1 - position9  in var 'buttons'
 for(var i = 1; i <= 9; i++) {
   buttons.push('position'+i);
@@ -22,21 +29,38 @@ for(var i = 1; i <= 9; i++) {
   buttonText.push('pos'+i+'Text');
 }
 
+for(var i = 1; i <= 9; i++) {
+  colors.push('color'+i);
+}
+
+console.log(colors);
+
 //add click functionality to each button
 for (var i = 0; i < buttons.length; i++) {
     var gameButtons = buttons[i];
     var displayText = buttonText[i];
+    var buttonWasClicked = buttonClicked[i];
     document.getElementById(gameButtons).addEventListener("click", function(event){
-    if (counter === true) {
+    if (counter === true && buttonWasClicked === false ) {
     event.target.innerHTML="X";
-    } else {
+    buttonClicked[i] = true;
+    } else if (counter === false && buttonWasClicked === false) {
     event.target.innerHTML="O";
+    buttonClicked[i] = true;
     }
     toggleTurn();
   })
 }
 
+//add color to buttons
+for (var i = 0; i < buttons.length; i++) {
+  var gameButtons = buttons[i];
+  var colorToButton = colors[i];
+  document.getElementById(gameButtons).addEventListener("click", function(event){
+    event.target.classList.add(colorToButton);
+  })
+}
+
 //Clear button
-document.getElementById('clear').addEventListener("click", function(){
-  return buttons = '';
-})
+var allDivs = document.querySelectorAll("div");
+//console.log(allDivs);

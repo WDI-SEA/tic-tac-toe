@@ -61,12 +61,48 @@ color: white;
   padding: 0% 40%;
 }
 
+.color1 {
+  background-color: red;
+}
+
+.color2 {
+  background-color: purple;
+}
+
+.color3 {
+  background-color: black;
+}
+
+.color4 {
+  background-color: yellow;
+}
+
+.color5 {
+  background-color: orange;
+}
+
+.color6 {
+  background-color: grey;
+}
+
+.color7 {
+  background-color: white;
+}
+
+.color8 {
+  background-color: green;
+}
+
+.color9{
+  background-color: #46e7de;
+}
+
 
 /*
 TODO (in order of importance):
-- Reconfigure counter variable so that it is out of the global scope
-- Make JS more DRY
+- Reconfigure counter variable so that it is out of the global scope - disscussed this with the TA
+- Make JS more DRY - Done
+- Animated each div with a CSS class
 - Make the JS know when someone has won, and display text to page
-- Animated CSS
 - Make the page responsive
 */
