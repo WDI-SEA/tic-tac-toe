@@ -1,0 +1,35 @@
+<html>
+
+<head>
+
+    <script type="text/javascript">
+    
+        function whataboutbob( elementid )
+        {
+            tictacbox = document.getElementById( elementid );
+
+            //alert( tictacbox.innerHTML );
+
+            if ( 'X' == tictacbox.innerHTML )
+            {
+                tictacbox.innerHTML = 'O';
+            }
+            else
+            {
+                tictacbox.innerHTML = 'X';
+            }
+        }
+
+    </script>
+
+</head>
+
+<!-- body onload="whataboutbob( 'bob' )" -->
+<body>
+
+    <div id="bob" onclick="whataboutbob( 'bob' )"> X </div>
+    <div id="bill" onclick="whataboutbob( 'bill' )"> X </div>
+
+</body>
+
+</html>

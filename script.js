@@ -15,6 +15,28 @@ var logXOrO = function() {
 	};
 
 
+var playerXWins;
+var playerOWins;
+
+var top = [ 1,2,3 ];
+var middle = [ 4,5,6 ];
+var bottom = [ 7,8,9 ];
+
+var left =[ 1.4.7];
+var middle = [ 2,5,8 ];
+var right = [ 3,6,9 ];
+
+var diagonalLeft = [ 1,5,9 ] 
+var diagonalRight =[ 3,5,7 ]
+
+
+var playerXWins = function( ) {
+	if (top || middle || bottom || left || ight || diagonalLeft ||  diagonalRight === "X")
+		console.log = "playerXWins" {
+			else  console.log = "playerOWins"
+		}
+};	
+
 
 
 
