@@ -3,12 +3,17 @@ var divArray = [];
 var xTurn = true;
 var winColor = "yellow";
 var gameOver = false;
-var userComputer = false;
+var useComputer = false;
 
 //Computer Moves
 var computerMove = function() {
+	if (gameOver){
+		return;
+	}
+
 	var squareIndex = -1;
 	while (squareIndex === -1 || divArray[squareIndex].innerHTML === "X" || divArray[squareIndex].innerHTML === "O"){
+		console.log("squareIndex = " + squareIndex);
 		squareIndex = Math.floor(Math.random() * 9);
 	}
 	divArray[squareIndex].innerHTML = "O";
@@ -17,6 +22,14 @@ var computerMove = function() {
 	checkWin();
 	checkTie();
 }
+
+//Change to allow computer moves
+var computerSwitch = document.getElementsByName("computerSwitch")[0];
+computerSwitch.addEventListener("change", function(){
+	useComputer = !useComputer;
+	reset();
+	console.log("changed ai");
+})
 
 //Populate Array of squares
 for (var i = 0; i < 3; i++){
@@ -61,9 +74,9 @@ var handleClick = function(arrayAddress){
 		checkWin();
 		checkTie();
 
-		if (useComputer){
-			computerMove();
-		}
+		if(useComputer){
+		computerMove();
+	}
 	}
 }
 

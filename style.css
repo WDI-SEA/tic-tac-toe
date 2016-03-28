@@ -46,7 +46,7 @@ body {
 }
 
 #div_label {
-	padding-top: 70px;
+	padding-top: 50px;
 	font-size: 50px;
 }
 
@@ -66,4 +66,10 @@ body {
 	width: 200px;
 	margin-left: 50px;
 	padding-top: 30px;
+}
+
+#div_computer {
+	font-size: 25px;
+	border: 3px dashed white;
+	margin-top: 20px;
 }
