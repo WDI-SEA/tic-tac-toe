@@ -7,17 +7,8 @@ var result = ['', '', '',
 
 var board = document.querySelectorAll("div.square");
 var keepPlaying = true;
+var randomIndex = Math.floor(Math.random() * (8)) + 1;
 
-function countItemsTruthy(result) {
-  var count = 0;
-  for (i = 0; result.length >= i; i++) {
-    if (result[i] === 'X' || result[i] === 'O') {
-      count++;
-    }
-  }
-  return count;
-  console.log(count);
-};
 
 //Reset button
 
@@ -32,17 +23,71 @@ document.getElementById('clear').addEventListener('click', function(event) {
   }
 });
 
-// Function to Stop Game when there is a winner
 
-function running(win){
-var win = getWinner(result);
-  if (win == true){
+// Started Computer Move
+
+// function enableComputer(f) { 
+//     if (document.getElementById('playervscpu').checked === true){
+//       return computerMove;
+// }   else {
+//       return null;
+// }
+// }
+
+// function computerMove(randomIndex){
+// do {
+//     if (result[randomIndex] = ''){
+//       board[randomIndex].textContent = 'O';
+//       result[randomIndex] = 'O';
+//       return true;
+// }}
+// while (result[randomIndex] != '');
+// }
+
+
+
+
+// Function to Stop Game when there is a winner
+function running(win) {
+  var win = getWinner(result);
+  if (win == true) {
     keepPlaying = false;
     document.getElementById('whose-turn').textContent = 'We have a winner!';
     console.log('operation should stop');
   } else {
     console.log('keep playing...')
     keepPlaying = true;
+  }
+}
+
+
+
+function countItemsTruthy(result) {
+  var count = 0;
+  for (i = 0; result.length >= i; i++) {
+    if (result[i] === 'X' || result[i] === 'O') {
+      count++;
+    }
+  }
+  return count;
+  console.log(count);
+};
+
+
+function tieGame(tieCount) {
+  var tieCount = countItemsTruthy(result);
+  var isWinner = getWinner(result);
+  if (tieCount === 9 && isWinner != true) {
+    console.log(tieCount);
+    console.log(isWinner);
+    console.log('tie game');
+    document.getElementById('whose-turn').textContent = 'Tie game!';
+    return true
+  } else {
+    console.log('not a tie');
+    console.log(tieCount);
+    console.log(isWinner);
+    return false
   }
 }
 
@@ -116,7 +161,10 @@ function getWinner(result){
   }
 }
 
+
+
 // Function to make cells change color when each player moves 
+
 function makeCellColorful(i) {
   if (document.getElementsByClassName('square')[i].innerText == 'X'){
     board[i].className += ' blue-box';
@@ -127,7 +175,9 @@ function makeCellColorful(i) {
   }
 }
 
-var doTheThing = function(i) {
+// Two player game click event
+
+var twoPlayer = function(i) {
   var currentBox = board[i];
   var currentResult = result[i];
   currentBox.addEventListener("click", function(event) {
@@ -137,13 +187,14 @@ var doTheThing = function(i) {
       result.splice(i, 1, currentBox.innerText);
       getWinner(result);
       running(getWinner);
+      tieGame();
       console.log(result);
     }
   })
 }
 
 for (var i = 0; i < board.length; i++) {
-  doTheThing(i);
+  twoPlayer(i);
 }
     
 
