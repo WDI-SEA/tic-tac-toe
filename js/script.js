@@ -1,14 +1,7 @@
-//click different squares
-//track moves
-
-
 //functions at top
 //make a game loop that holds ALL OTHER FUNCTIONS
 
-
 var clickCounter = 0;
-var turn;
-
 
 //from Emilie tying everything together
 // function gameLoop(e){
@@ -16,8 +9,7 @@ var turn;
 //   isEven(e);
 // }
 
-
-//all dis for functional code 
+//all this for functional code (not DRY)
 var firstInput = document.getElementById("first");
 var secondInput = document.getElementById("second");
 var thirdInput = document.getElementById("third");
@@ -76,16 +68,18 @@ function isEmpty(e) {
 }
 
 //mark boxes alternate X & O
-
-//dis checks for turn
 function isEven(e) {
   clickCounter++;
   if (clickCounter % 2 === 0) {
     classYellow(e);
-    // getWinner();
+    getWinner();
+    d=document.getElementById("message");
+    d.innerHTML = "Player X's Turn!";
   } else {
   classBlue(e);  
-  // getWinner(); 
+  getWinner();
+  d=document.getElementById("message");
+  d.innerHTML = "Player O's Turn!"; 
   }
 } 
 
@@ -118,29 +112,27 @@ function clearBoxes() {
   }
 }
 
-
-// function getWinner() {
-//   if(firstInput === "X" && secondInput === "X" && thirdInput === "X" ||
-//     fourthInput === "X" && fifthInput === "X" && sixthInput === "X" ||
-//     seventhInput === "X" && eighthInput === "X" && ninthInput === "X" ||
-//     firstInput === "X" && fourthInput === "X" && seventhInput === "X" ||
-//     secondInput ==="X" && fifthInput === "X" && eighthInput === "X" ||
-//     thirdInput === "X" && sixthInput === "X" && ninthInput === "X" ||
-//     firstInput === "X" && fifthInput === "X" && ninthInput === "X" ||
-//     thirdInput === "X" && fifthInput === "X" && seventhInput === "X" ||) {
-//     alert("Winner is X!");
-//   } else if(firstInput === "O" && secondInput === "O" && thirdInput === "O" ||
-//     fourthInput === "O" && fifthInput === "O" && sixthInput === "O" ||
-//     seventhInput === "O" && eighthInput === "O" && ninthInput === "O" ||
-//     firstInput === "O" && fourthInput === "O" && seventhInput === "O" ||
-//     secondInput ==="O" && fifthInput === "O" && eighthInput === "O" ||
-//     thirdInput === "O" && sixthInput === "O" && ninthInput === "O" ||
-//     firstInput === "O" && fifthInput === "O" && ninthInput === "O" ||
-//     thirdInput === "O" && fifthInput === "O" && seventhInput === "O" ||) {
-//     alert("Winner is O!");
-//   } else {
-//     alert("Cat's game");
-//   }
-// }
-
+//getWinner function half works: still working on teaching it a cat's game
+function getWinner() {
+  if(firstInput.innerHTML === "X" && secondInput.innerHTML === "X" && thirdInput.innerHTML === "X" ||
+    fourthInput.innerHTML === "X" && fifthInput.innerHTML === "X" && sixthInput.innerHTML === "X" ||
+    seventhInput.innerHTML === "X" && eighthInput.innerHTML === "X" && ninthInput.innerHTML === "X" ||
+    firstInput.innerHTML === "X" && fourthInput.innerHTML === "X" && seventhInput.innerHTML === "X" ||
+    secondInput.innerHTML ==="X" && fifthInput.innerHTML === "X" && eighthInput.innerHTML === "X" ||
+    thirdInput.innerHTML === "X" && sixthInput.innerHTML === "X" && ninthInput.innerHTML === "X" ||
+    firstInput.innerHTML === "X" && fifthInput.innerHTML === "X" && ninthInput.innerHTML === "X" ||
+    thirdInput.innerHTML === "X" && fifthInput.innerHTML === "X" && seventhInput.innerHTML === "X") {
+    alert("Winner is X!");
+  } else if (firstInput.innerHTML === "O" && secondInput.innerHTML === "O" && thirdInput.innerHTML === "O" ||
+    fourthInput.innerHTML === "O" && fifthInput.innerHTML === "O" && sixthInput.innerHTML === "O" ||
+    seventhInput.innerHTML === "O" && eighthInput.innerHTML === "O" && ninthInput.innerHTML === "O" ||
+    firstInput.innerHTML === "O" && fourthInput.innerHTML === "O" && seventhInput.innerHTML === "O" ||
+    secondInput.innerHTML ==="O" && fifthInput.innerHTML === "O" && eighthInput.innerHTML === "O" ||
+    thirdInput.innerHTML === "O" && sixthInput.innerHTML === "O" && ninthInput.innerHTML === "O" ||
+    firstInput.innerHTML === "O" && fifthInput.innerHTML === "O" && ninthInput.innerHTML === "O" ||
+    thirdInput.innerHTML === "O" && fifthInput.innerHTML === "O" && seventhInput.innerHTML === "O") {
+    alert("Winner is O!");
+  } else { console.log("no winner!")
+}
+}
 

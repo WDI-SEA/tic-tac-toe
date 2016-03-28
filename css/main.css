@@ -1,12 +1,9 @@
-/* center the text
-*/
-
-
 .center {
-  text-align:center;
-  margin:auto;
+  text-align: center;
+  margin: auto;
 }
 
+/*makes boxes pretty*/
 .box {
   width: 165px;
   height: 165px;
@@ -22,6 +19,7 @@
   text-align: center;
 }
 
+/*changes bgs*/
 .blue {
   background-color: #D2FFFF;
 }
@@ -30,15 +28,25 @@
   background-color: #ffffd2;
 }
 
+/*keeps game board same size - not mobile friendly but eh*/
 #container {
   margin: 0 auto;
   max-height: 600px;
   max-width: 600px;
 }
 
+/*lets the pretty pretty message display on whose turn it is*/
+#message{
+  font-family: helvetica, serif;
+  font-size: 32px;
+  text-align: center;
+  margin: auto;
+  color: #b3b3b3;
+}
 
+/*for fade in*/
 @keyframes fadein {
   from { opacity: 0;   }
   to { opacity: 1;   }
 }
-/*for fade in*/
+
