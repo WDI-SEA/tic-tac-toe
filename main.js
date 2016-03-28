@@ -1,4 +1,6 @@
 var board = ['Cell 1', 'Cell 2', 'Cell 3', 'Cell 4', 'Cell 5', 'Cell 6', 'Cell 7', 'Cell 8', 'Cell 9'];
+var x = "X";
+var o = "O";
 document.getElementById('Cell1').addEventListener('click', function(event){
 	event.target.innerHTML = "X";
 })
@@ -26,9 +28,7 @@ document.getElementById('Cell8').addEventListener('click', function(event){
 document.getElementById('Cell9').addEventListener('click', function(event){
 	event.target.innerHTML = "X";
 })
-document.getElementById('Cell1').addEventListener('click', function(event){
-	event.target.innerHTML = "O";
-})
+
 
 
 
