@@ -26,6 +26,9 @@ document.getElementById('Cell8').addEventListener('click', function(event){
 document.getElementById('Cell9').addEventListener('click', function(event){
 	event.target.innerHTML = "X";
 })
+document.getElementById('Cell1').addEventListener('click', function(event){
+	event.target.innerHTML = "O";
+})
 
 
 
