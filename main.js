@@ -1,8 +1,6 @@
 /*
 Current Issues:
 - Clear button does not clear divs
-- The add color to buttons function seems to only add the last class to the divs clicked,
-looks like a possible scope issue.
 - buttons are able to be toggled between X and O after being clicked.
 
 Awesome positive - I was able to reduce my code for each button to one function.
