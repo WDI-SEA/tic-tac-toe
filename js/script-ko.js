@@ -18,7 +18,6 @@ function nextMove(box) {
 		setMessage(document.winner+ " 이겨습니다.");
 	} else if(box.innerText == "") {
 		box.innerText=document.turn;
-		// addClass();
 		switchTurn();
 	} else {
 		setMessage("다른 박스 선택해주세요!");

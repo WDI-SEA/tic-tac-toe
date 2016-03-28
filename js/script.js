@@ -18,7 +18,6 @@ function nextMove(box) {
 		setMessage(document.winner+ " already won the game.");
 	} else if(box.innerText == "") {
 		box.innerText=document.turn;
-		// addClass();
 		switchTurn();
 	} else {
 		setMessage("That box is already taken!");
