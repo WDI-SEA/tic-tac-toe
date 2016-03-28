@@ -1,0 +1,72 @@
+
+@import url(https://fonts.googleapis.com/css?family=Londrina+Shadow);
+
+body {
+  /* Fallback Style */
+  background-color: darkblue;
+  background: -webkit-linear-gradient(darkblue, yellow);
+}
+
+/* Title Styles */
+.header {
+text-align: center;
+color: white;
+}
+
+.header-h1 {
+  font-size: 100px;
+  font-family: Londrina Shadow;
+  height: 5%;
+}
+
+/* Board Styles */
+.board {
+  background-color: transparent;
+  height: 75%;
+  width: 50%;
+  display: block;
+  margin: auto;
+  margin-top: 10%;
+}
+
+.board-position {
+  /*at smaller screen, you will need to reduce the padding to make it more responsive*/
+  padding:1%;
+  display: block;
+  height: 30%;
+  width: 30%;
+  background-color: darkblue;
+  border:solid white;
+  float: left;
+  margin: 0 auto;
+  font-family: Londrina Shadow;
+  font-size: 50px;
+  display: inline-block;
+  text-align: center;
+  color: white;
+  /*padding: 0% 40%;*/
+}
+
+.board-position:hover {
+  border-radius: 40px;
+  animation: 1s ease-in-out;
+}
+
+.board-position-h2 {
+  font-family: Londrina Shadow;
+  font-size: 50px;
+  display: inline-block;
+  text-align: center;
+  color: white;
+  padding: 0% 40%;
+}
+
+
+/*
+TODO (in order of importance):
+- Reconfigure counter variable so that it is out of the global scope
+- Make JS more DRY
+- Make the JS know when someone has won, and display text to page
+- Animated CSS
+- Make the page responsive
+*/
