@@ -6,36 +6,36 @@ function startGame() {
 	if(Math.random() < 0.5) {
 		document.turn = "O";
 	} document.winner=null;
-	setMessage(document.turn+ " gets to start.");
+	setMessage(document.turn+ " 시작합니다.");
 }
 
 function setMessage(msg) {
 	document.getElementById("message").innerText=msg;
-}
+}어
 
 function nextMove(box) {
 	if(document.winner != null) {
-		setMessage(document.winner+ " already won the game.");
+		setMessage(document.winner+ " 이겨습니다.");
 	} else if(box.innerText == "") {
 		box.innerText=document.turn;
 		// addClass();
 		switchTurn();
 	} else {
-		setMessage("That box is already taken!");
+		setMessage("다른 박스 선택해주세요!");
 	}
 
 }
 
 function switchTurn() {
 	if(checkWinner(document.turn)) {
-		setMessage("Congratulations, "+document.turn+"! You are the winner!");
+		setMessage(document.turn+" 이겨습니다!");
 		document.winner = document.turn
 	} else if(document.turn == "X") {
 		document.turn = "O";
-		setMessage("It's "+document.turn+"'s turn!");
+		setMessage(document.turn+" 차례 입니다.");
 	} else {
 		document.turn = "X";
-		setMessage("It's "+document.turn+"'s turn!");
+		setMessage(document.turn+" 차례 입니다.");
 	}
 }
 
