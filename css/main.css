@@ -1,3 +1,7 @@
+/* center the text
+*/
+
+
 html, 
 body{
   width:100%;
@@ -11,14 +15,13 @@ body{
   height: 165px;
   margin: 0 auto;
   background-color: #d2ffe9;
-  border: 1px solid red;
   margin: 20px;
   border-radius: 25px;
   font-family: helvetica;
   font-size: 32px;
-/*  animation: fadein 2s;
-for fade in*/
-}
+  animation: fadein 2s;
+/*for fade in
+*/}
 
 .blue {
   background-color: #D2FFFF;
@@ -26,6 +29,10 @@ for fade in*/
 
 .yellow {
   background-color: #ffffd2;
+}
+
+.minty {
+  background-color: #d2ffe9;
 }
 
 .col {
@@ -49,8 +56,8 @@ h1,
   margin: 0 auto;
 }
 
-/*@keyframes fadein {
+@keyframes fadein {
   from { opacity: 0;   }
   to { opacity: 1;   }
-}*/
+}
 /*for fade in*/
