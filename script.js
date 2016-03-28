@@ -7,7 +7,7 @@ var result = ['', '', '',
 
 var board = document.querySelectorAll("div.square");
 var keepPlaying = true;
-var randomIndex = Math.floor(Math.random() * (8)) + 1;
+
 
 
 //Reset button
@@ -26,23 +26,24 @@ document.getElementById('clear').addEventListener('click', function(event) {
 
 // Started Computer Move
 
-// function enableComputer(f) { 
-//     if (document.getElementById('playervscpu').checked === true){
-//       return computerMove;
-// }   else {
-//       return null;
-// }
-// }
+function enableComputer(f) { 
+    if (document.getElementById('playervscpu').checked === true){
+      return computerMove;
+}   else {
+      return null;
+}
+}
 
-// function computerMove(randomIndex){
-// do {
-//     if (result[randomIndex] = ''){
-//       board[randomIndex].textContent = 'O';
-//       result[randomIndex] = 'O';
-//       return true;
-// }}
-// while (result[randomIndex] != '');
-// }
+function computerMove(randomIndex){
+do {
+  var randomIndex = Math.floor(Math.random() * (8)) + 1;
+    if (result[randomIndex] = ''){
+      board[randomIndex].textContent = 'O';
+      result[randomIndex] = 'O';
+      return true;
+}}
+while (result[randomIndex] != '');
+}
 
 
 
@@ -78,15 +79,9 @@ function tieGame(tieCount) {
   var tieCount = countItemsTruthy(result);
   var isWinner = getWinner(result);
   if (tieCount === 9 && isWinner != true) {
-    console.log(tieCount);
-    console.log(isWinner);
-    console.log('tie game');
     document.getElementById('whose-turn').textContent = 'Tie game!';
     return true
   } else {
-    console.log('not a tie');
-    console.log(tieCount);
-    console.log(isWinner);
     return false
   }
 }
