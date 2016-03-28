@@ -101,9 +101,9 @@ h1 {
   text-align: center;
 }
 
-.square:hover {
+/*.square:hover {
   background-color: rgba(0, 0, 0, 0.1);
-}
+}*/
 
 .square:active {
   background-color: white;
