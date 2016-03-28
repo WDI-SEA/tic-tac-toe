@@ -1,3 +1,15 @@
+/*
+Current Issues:
+- Clear button does not clear divs
+- The add color to buttons function seems to only add the last class to the divs clicked,
+looks like a possible scope issue.
+- buttons are able to be toggled between X and O after being clicked.
+
+Awesome positive - I was able to reduce my code for each button to one function.
+I did not see the GA repo until I was already 4 hours into one that I created, so this one
+picks up in the middle. Original repo is at: https://github.com/pacalabre/tic_tac_toe
+*/
+
 
 var counter = true;
 var buttons = [];
@@ -43,12 +55,11 @@ for (var i = 0; i < buttons.length; i++) {
     document.getElementById(gameButtons).addEventListener("click", function(event){
     if (counter === true && buttonWasClicked === false ) {
     event.target.innerHTML="X";
-    buttonClicked[i] = true;
     } else if (counter === false && buttonWasClicked === false) {
     event.target.innerHTML="O";
-    buttonClicked[i] = true;
     }
     toggleTurn();
+    //buttonWasClicked = true;
   })
 }
 
@@ -58,9 +69,15 @@ for (var i = 0; i < buttons.length; i++) {
   var colorToButton = colors[i];
   document.getElementById(gameButtons).addEventListener("click", function(event){
     event.target.classList.add(colorToButton);
+    console.log(gameButtons);
   })
+  console.log(gameButtons);
 }
 
 //Clear button
+document.getElementById('clear').addEventListener("click", function(event){
 var allDivs = document.querySelectorAll("div");
+event.allDivs.innerHTML= '';
+})
+
 //console.log(allDivs);
