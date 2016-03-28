@@ -5,33 +5,32 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
-<h1>that ancient war of yellow v blue</h1>
-  <button type="reset" id="button" onClick="clearBoxes()">clear board</button>
-
-
-<div id="container">
-
-  <div class ="col">
-    <div class="box" class="minty" id="first"></div>
-    <div class="box" class="minty" id="second"></div>
-    <div class="box" class="minty" id="third"></div>
-  </div>
-
-  <div class ="col">
-    <div class="box" class="minty" id="fourth"></div>
-    <div class="box" class="minty" id="fifth"></div>
-    <div class="box" class="minty" id="sixth"></div>
-  </div>
-
-  <div class ="col">
-    <div class="box" class="minty" id="seventh"></div>
-    <div class="box" class="minty" id="eighth"></div>
-    <div class="box" class="minty" id="ninth"></div>
-  </div>
-
-
+<div class="center">
+  <h1>that ancient war of yellow v blue</h1>
 </div>
 
+
+<table id="container" style="width:100%">
+  <tr class ="col">
+    <td><div class="box" class="minty" id="first"></div></td>
+    <td><div class="box" class="minty" id="second"></div></td> 
+    <td><div class="box" class="minty" id="third"></div></td>
+  </tr>
+  <tr class ="col">
+    <td> <div class="box" class="minty" id="fourth"></div></td>
+    <td> <div class="box" class="minty" id="fifth"></div></td> 
+    <td> <div class="box" class="minty" id="sixth"></div></td>
+  </tr>
+   <tr class ="col">
+    <td><div class="box" class="minty" id="seventh"></div></td>
+    <td><div class="box" class="minty" id="eighth"></div></td> 
+    <td><div class="box" class="minty" id="ninth"></div></td>
+  </tr>
+</table>
+
+<div class="center">
+  <button type="reset" id="button" onClick="clearBoxes()">clear board</button>
+</div>
 
   <script src="js/script.js"></script>
 

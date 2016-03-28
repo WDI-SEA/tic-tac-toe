@@ -82,10 +82,10 @@ function isEven(e) {
   clickCounter++;
   if (clickCounter % 2 === 0) {
     classYellow(e);
-    getWinner();
+    // getWinner();
   } else {
   classBlue(e);  
-  getWinner(); 
+  // getWinner(); 
   }
 } 
 

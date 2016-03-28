@@ -2,26 +2,25 @@
 */
 
 
-html, 
-body{
-  width:100%;
-  height:100%;
-  margin: 0 auto;
-
+.center {
+  text-align:center;
+  margin:auto;
 }
 
 .box {
   width: 165px;
   height: 165px;
   margin: 0 auto;
-  background-color: #d2ffe9;
   margin: 20px;
   border-radius: 25px;
   font-family: helvetica;
-  font-size: 32px;
+  font-size: 150px;
   animation: fadein 2s;
-/*for fade in
-*/}
+  color: white;
+  text-shadow: -1px 0 #b3b3b3, 0 1px #b3b3b3, 1px 0 #b3b3b3, 0 -1px #b3b3b3;
+  background-color: #d2ffe9;
+  text-align: center;
+}
 
 .blue {
   background-color: #D2FFFF;
@@ -31,30 +30,12 @@ body{
   background-color: #ffffd2;
 }
 
-.minty {
-  background-color: #d2ffe9;
-}
-
-.col {
-    width: 33%;
-    height: 33%;    
-    float: left;
-}
-
 #container {
   margin: 0 auto;
-  height: 600px;
-  width: 600px;
-  border: 1px solid black;
-  float: left;
-  display:block;
-  margin-top: 10%;
+  max-height: 600px;
+  max-width: 600px;
 }
 
-h1,
-#button {
-  margin: 0 auto;
-}
 
 @keyframes fadein {
   from { opacity: 0;   }
