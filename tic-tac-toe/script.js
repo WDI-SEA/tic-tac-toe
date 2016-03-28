@@ -1,145 +1,120 @@
-var turn = 'X';
-function next() {
-    turn = turn === 'X' ? 'O' : 'X';
-}
-function play() {
-    if (this.innerHTML === '') {
-        this.innerHTML = turn;
-        checkForWinner();
-        next();
-    }
-}
-
-var squares = document.getElementById("board").getElementsByTagName("td");
-for (var i in squares) {
-   squares[i].onclick = play;
-}
-
-function checkForWinner(){
-
-    /* Rows */
-
-    if(document.getElementById("s1").innerHTML == 'X' && document.getElementById("s2").innerHTML == 'X' && document.getElementById("s3").innerHTML == 'X'){
-        alert("X WINS!");
-        var p = document.querySelectorAll('td');
-        document.getElementById("playerOneScore").textContent;
-        p++;
-       
-    }
-
-     if(document.getElementById("s1").innerHTML == 'O' && document.getElementById("s2").innerHTML == 'O' && document.getElementById("s3").innerHTML == 'O'){
-        alert("O WINS!");
-    }
-
-      if(document.getElementById("s4").innerHTML == 'X' && document.getElementById("s5").innerHTML == 'X' && document.getElementById("s6").innerHTML == 'X'){
-        alert("X WINS!");
-    }
-
-     if(document.getElementById("s4").innerHTML == 'O' && document.getElementById("s5").innerHTML == 'O' && document.getElementById("s6").innerHTML == 'O'){
-        alert("O WINS!");
-    }
+/*  Element Styling   */
 
 
-      if(document.getElementById("s7").innerHTML == 'X' && document.getElementById("s8").innerHTML == 'X' && document.getElementById("s9").innerHTML == 'X'){
-        alert("X WINS!");
-    }
-
-     if(document.getElementById("s7").innerHTML == 'O' && document.getElementById("s8").innerHTML == 'O' && document.getElementById("s9").innerHTML == 'O'){
-        alert("O WINS!");
-    }
-
-
-    /* Colummns */
-
-    if(document.getElementById("s1").innerHTML == 'X' && document.getElementById("s4").innerHTML == 'X' && document.getElementById("s7").innerHTML == 'X'){
-        alert("X WINS!");
-    }
-
-     if(document.getElementById("s1").innerHTML == 'O' && document.getElementById("s4").innerHTML == 'O' && document.getElementById("s7").innerHTML == 'O'){
-        alert("O WINS!");
-    }
-
-      if(document.getElementById("s2").innerHTML == 'X' && document.getElementById("s5").innerHTML == 'X' && document.getElementById("s8").innerHTML == 'X'){
-        alert("X WINS!");
-    }
-
-     if(document.getElementById("s2").innerHTML == 'O' && document.getElementById("s5").innerHTML == 'O' && document.getElementById("s8").innerHTML == 'O'){
-        alert("O WINS!");
-    }
-
-
-      if(document.getElementById("s3").innerHTML == 'X' && document.getElementById("s6").innerHTML == 'X' && document.getElementById("s9").innerHTML == 'X'){
-        alert("X WINS!");
-    }
-
-     if(document.getElementById("s3").innerHTML == 'O' && document.getElementById("s6").innerHTML == 'O' && document.getElementById("s9").innerHTML == 'O'){
-        alert("O WINS!");
-    }
-
-    /* Diagonals */
-
-      if(document.getElementById("s1").innerHTML == 'X' && document.getElementById("s5").innerHTML == 'X' && document.getElementById("s9").innerHTML == 'X'){
-        alert("X WINS!");
-    }
-
-     if(document.getElementById("s3").innerHTML == 'O' && document.getElementById("s5").innerHTML == 'O' && document.getElementById("s7").innerHTML == 'O'){
-        alert("O WINS!");
-    }
-
-          if(document.getElementById("s1").innerHTML == 'O' && document.getElementById("s5").innerHTML == 'O' && document.getElementById("s9").innerHTML == 'O'){
-        alert("X WINS!");
-        // var p = Integer.parseInt(document.getElementById("playerOneScore").textContent());
-        // p++;
-    }
-
-     if(document.getElementById("s3").innerHTML == 'X' && document.getElementById("s5").innerHTML == 'X' && document.getElementById("s7").innerHTML == 'X'){
-        alert("O WINS!");
-    }
-
-/* Restart the game */
-    document.getElementById("restart").onclick = function() {
-        for (var i in squares) {
-           squares[i].innerHTML = '';
-        }
-    }
+body {
+  font-family: Helvetica;
+  background-color: black;
 
 }
 
 
+h1 {
+  text-align: center;
+  border: 0;
+  padding-bottom: 10px;
+  color: white;
+ 
+
+}
+
+.align {
+  margin-right: auto;
+  margin-left: auto;
+
+}
 
 
+/* Board Styling */
 
 
+#board-container {
+  width: 600px;
+  overflow: hidden;
+}
+
+#board {
+  width: 355px;
+  height: 355px;
+  border-spacing: 0px;
+  margin-left: -2px;
+  margin-top: -2px;
+  margin-bottom: 15px;
+}
 
 
+td {
+    height: 100px;
+    width: 100px;
+    background-color: violet;
+    border-left: 2px solid black;
+    border-bottom: 2px solid black;
+    border-collapse: collapse;
+    text-align: center;
+    font-family: monospace;
+    font-size: 40px;
+    text-transform: uppercase;
+    color: aqua;
+
+}
+
+tr {
+  border-bottom: 0;
+
+}
+
+#board tr:last-child td{
+    border-bottom: none;
+}
 
 
+/* Button & Dropdown Styling */
+
+.button {
+  margin-left:auto;
+  margin-right:auto;
+  text-align:center;
+
+}
+
+#restart {
+  font-size: 12pt;
+  color: white;
+  background-color: lightslategrey;
+  padding: 5px 15px 5px 15px;
+
+}
+
+label {
+  font-family: Helvetica;
+  font-size: 15px;
+  color: white;
+
+}
+
+select {
+  margin: 10px 10px 10px 5px;
+
+}
+
+/* Scoreboard */
+
+#score-board {
+  width: 200px;
+  float: right;
+  margin: -5px;
 
 
+}
 
+#score-board td {
+  color: white;
+  font-size: 20px;
+  border-bottom: 1px solid black;
+  background-color: grey;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#score-board tr:last-child td{
+    border-bottom: none;
+    border-top: none;
+}
 
