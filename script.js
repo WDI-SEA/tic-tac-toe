@@ -1,6 +1,11 @@
 // Display elements
 var squares = document.getElementsByClassName('board-squares');
-var button = document.getElementById('clear-button');
+var onePlayerButton = document.getElementById('one-player-button');
+var twoPlayerButton = document.getElementById('two-player-button');
+var clearButton = document.getElementById('clear-button');
+var overlay = document.getElementById('overlay');
+var startMessage = document.getElementById('message');
+
 var image = {
     'x': 'x.png',
     'o': 'o.png'
@@ -31,9 +36,8 @@ var isSquareEmpty = function(square) {
         if (board[square] === null) {
             return true;
         }
-    } else {
-        return false;
     }
+    return false;
 }
 
 var getAiMove = function() {
@@ -45,19 +49,31 @@ var getAiMove = function() {
 }
 
 var updateGameState = function(squareChosen) {
-    board[squareChosen] = curPlayer;
-    turnCount++;
-    winner = getWinner(board); 
-    if (winner) {
-        alert(winner.toUpperCase() + ' wins!');
-    } else if (turnCount === 9) {
-        alert("Tie!");
-    }
-    curPlayer = (curPlayer !== 'x') ? 'x' : 'o';
-    // Do AI turn
-    if (players === 1 && curPlayer === 'o') {
-        updateGameState(getAiMove);
-    }
+        board[squareChosen] = curPlayer;
+        turnCount++;
+        winner = getWinner(board); 
+        if (winner) {
+            document.getElementById(squareChosen).innerHTML = 
+            '<img class="x-o-markers" src="' + image[curPlayer] + '" alt="o">';
+            alert(winner.toUpperCase() + ' wins!');
+            return;
+        } else if (turnCount === 9) {
+            document.getElementById(squareChosen).innerHTML = 
+            '<img class="x-o-markers" src="' + image[curPlayer] + '" alt="o">';
+            alert("Tie!");
+            return;
+        }
+        document.getElementById(squareChosen).innerHTML = 
+            '<img class="x-o-markers" src="' + image[curPlayer] + '" alt="o">';
+
+        // Get ready for next turn    
+        curPlayer = (curPlayer !== 'x') ? 'x' : 'o';
+        // Do AI turn
+        if (players === 1 && curPlayer === 'o' && turnCount < 9) {
+            setTimeout(function() {
+                updateGameState(getAiMove());
+            }, 500);
+        }
 }
 
 var getWinner = function(board) {
@@ -118,22 +134,33 @@ var clear = function() {
         squares[i].classList.remove('red-background', 'blue-background');
         squares[i].innerHTML = '';
     }
+    overlay.classList.remove('hidden');
+    startMessage.classList.remove('hidden');
 }    
 
+// 1-Player button
+onePlayerButton.addEventListener('click', function(e) {
+    players = 1;
+    overlay.classList.add('hidden');
+    startMessage.classList.add('hidden');
+});
+
+// 2-Player button
+twoPlayerButton.addEventListener('click', function(e) {
+    players = 2;
+    overlay.classList.add('hidden');
+    startMessage.classList.add('hidden');
+});
+
+
 // Clear button
-button.addEventListener('click', clear);
+clearButton.addEventListener('click', clear);
 
 // Turn logic.  Excecuts on square-click.
 for (var i = 0; i < squares.length; i++) {
     squares[i].addEventListener('click', function(e) {
         if (!winner && turnCount < 9 && isSquareEmpty(e.target.id)) {
-            e.target.classList.add(
-                curPlayer === 'x' ? 'red-background' : 'blue-background');
-            e.target.innerHTML = '<img class="x-o-markers" src="' +
-                image[curPlayer] + '" alt="o">';
             updateGameState(e.target.id);
-            // console.log(e, e.target.id);
         }
-
     });
 }
