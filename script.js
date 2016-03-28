@@ -194,6 +194,12 @@ var twoPlayer = function(i) {
 }
 
 for (var i = 0; i < board.length; i++) {
+  board[i].addEventListener('mouseover', function(e) {
+    e.target.classList.add('hover-square');
+  });
+  board[i].addEventListener('mouseout', function(e) {
+    e.target.classList.remove('hover-square');
+  })
   twoPlayer(i);
 }
     
