@@ -1,0 +1,20 @@
+body {
+	margin-left: 34%;
+}
+.box {
+	height: 100px;
+	width: 100px;
+	text-align: center;
+	font-size: 24px;
+	font-weight: bold;
+	font-family: Verdana;
+	color: crimson;
+}
+
+table {
+	border: solid black;
+}
+button {
+	margin-top: 1%;
+	margin-left: 17%;
+}
