@@ -112,7 +112,7 @@ function clearBoxes() {
   }
 }
 
-// getWinner function half works: still working on teaching it a cat's game
+// getWinner function works
 function getWinner() {
   if(firstInput.innerHTML === "X" && secondInput.innerHTML === "X" && thirdInput.innerHTML === "X" ||
     fourthInput.innerHTML === "X" && fifthInput.innerHTML === "X" && sixthInput.innerHTML === "X" ||
@@ -122,7 +122,8 @@ function getWinner() {
     thirdInput.innerHTML === "X" && sixthInput.innerHTML === "X" && ninthInput.innerHTML === "X" ||
     firstInput.innerHTML === "X" && fifthInput.innerHTML === "X" && ninthInput.innerHTML === "X" ||
     thirdInput.innerHTML === "X" && fifthInput.innerHTML === "X" && seventhInput.innerHTML === "X") {
-    alert("Winner is X!");
+   d=document.getElementById("message");
+    d.innerHTML = "Player X wins!"; 
   } else if (firstInput.innerHTML === "O" && secondInput.innerHTML === "O" && thirdInput.innerHTML === "O" ||
     fourthInput.innerHTML === "O" && fifthInput.innerHTML === "O" && sixthInput.innerHTML === "O" ||
     seventhInput.innerHTML === "O" && eighthInput.innerHTML === "O" && ninthInput.innerHTML === "O" ||
@@ -131,7 +132,8 @@ function getWinner() {
     thirdInput.innerHTML === "O" && sixthInput.innerHTML === "O" && ninthInput.innerHTML === "O" ||
     firstInput.innerHTML === "O" && fifthInput.innerHTML === "O" && ninthInput.innerHTML === "O" ||
     thirdInput.innerHTML === "O" && fifthInput.innerHTML === "O" && seventhInput.innerHTML === "O") {
-    alert("Winner is O!");
+    d=document.getElementById("message");
+    d.innerHTML = "Player O wins!"; 
   } else if (
     firstInput.innerHTML != "" && secondInput.innerHTML != "" && thirdInput.innerHTML != "" && 
     fourth.innerHTML != "" && fifthInput.innerHTML != "" && sixthInput.innerHTML != "" && 
@@ -141,4 +143,6 @@ function getWinner() {
   } else { return;
   }
 }
+
+//AI code
 
