@@ -53,9 +53,8 @@ function runTurn(e){
 		e.target.innerHTML = 'O';
 		count++;
 		findWinner();
-		
 	}
-}
+} 
 
 
 
@@ -79,9 +78,9 @@ function findWinner(e) {
 		box3.innerHTML === 'X' && box6.innerHTML=== 'X' && box9.innerHTML === 'X') {
 
 		winner = 'X';
-		console.log('X wins');
+		console.log('Player 1 wins');
 		//console.log(winner);
-		alert('X wins')
+		alert('Player 1 wins')
 		resetValues();
 	} else if(box1.innerHTML === 'O' && box2.innerHTML=== 'O' && box3.innerHTML === 'O' ||
 		box4.innerHTML === 'O' && box5.innerHTML=== 'O' && box6.innerHTML === 'O' ||
@@ -93,9 +92,9 @@ function findWinner(e) {
 		box3.innerHTML === 'O' && box6.innerHTML=== 'O' && box9.innerHTML === 'O') {
 
 		winner = 'O';
-		console.log('O wins');
+		console.log('Player 2 wins');
 		//console.log(winner);
-		alert('O wins');
+		alert('Player 2 wins');
 		resetValues();
 	} else {
 		//console.log(box1, box2, box3, box4, box5, box6, box7, box8, box9);
@@ -125,16 +124,22 @@ function resetValues () {
 	if(winner === 'X') {
 		count = 0;
 		winnerScoreX++;
-		console.log('X has won : ' + winnerScoreX);
-		console.log('O has won : ' + winnerScoreO);
-	} else if(winner === 'O') {
+		console.log('Player 1 has won : ' + winnerScoreX);
+		console.log('Player 2 has won : ' + winnerScoreO);
+		document.getElementById('score').innerHTML = 'Player 1:  ' + winnerScoreX  + ' Player 2:  ' + winnerScoreO;
+		} else if(winner === 'O') {
 		count = 0;
 		winnerScoreO++;
-		console.log('O has won : ' + winnerScoreO);
-		console.log('X has won : ' + winnerScoreX);
-		
+		console.log('Player 2 has won : ' + winnerScoreO);
+		console.log('Player 1 has won : ' + winnerScoreX);
+		document.getElementById('score').innerHTML = 'Player 1:  ' + winnerScoreX + ' Player 2:  ' + winnerScoreO;	
 	} 
 }
+
+// function screenScore (winnerScoreX, winnerScoreO) {
+// 	document.getElementById('score').innerHTML = 'SCORE | Player X: ' + winnerScoreX + ' Player O: ' + winnerScoreO;
+// }
+
 
 document.getElementById('reset').addEventListener('click', resetValues);
 

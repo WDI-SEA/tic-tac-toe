@@ -2,9 +2,7 @@
 
 body {
 	background-color: pink ;
-
 }
-
 
 h1 {
 	text-align: center;
@@ -32,6 +30,7 @@ div {
 	margin: 0 auto;
 	text-align: center;
 	width: 75%;
+	overflow: auto;
 }
 
 button {
@@ -40,6 +39,15 @@ button {
 	width: 100px;
 	color: red;
 	margin-top: 5%;
+}
+
+#rules {
+	width: 50%;
+	text-align: center;
+}
+
+#scoreBox {
+	width: 50%;
 }
 
 .toe {
