@@ -7,8 +7,9 @@ var image = {
 }
 
 // Game logic elements
+var players = 2;
 var turnCount = 0;
-var curPlayer = 'x';
+var curPlayer = 'x'; // X is always human player, O is always AI
 var winner = null;
 var board = {
     'top-left'    : null,
@@ -22,12 +23,12 @@ var board = {
     'bottom-right': null,
 }
 
-var isSquareEmpty = function(squareClicked) {
+var isSquareEmpty = function(square) {
     // First check if element clicked was actually a board square 
     // (could be img w/i square)
-    if (squareClicked in board) {
+    if (square in board) {
         // Now check to see if the square is empty
-        if (board[squareClicked] === null) {
+        if (board[square] === null) {
             return true;
         }
     } else {
@@ -35,15 +36,27 @@ var isSquareEmpty = function(squareClicked) {
     }
 }
 
-var updateGameState = function(squareClicked) {
-    board[squareClicked] = curPlayer;
-    curPlayer = (curPlayer !== 'x') ? 'x' : 'o';
+var getAiMove = function() {
+    var aiSquare = Object.keys(board)[Math.floor(Math.random() * 9)];
+    while (isSquareEmpty(aiSquare) === false) {
+        aiSquare = Object.keys(board)[Math.floor(Math.random() * 9)];
+    }
+    return aiSquare;
+}
+
+var updateGameState = function(squareChosen) {
+    board[squareChosen] = curPlayer;
     turnCount++;
     winner = getWinner(board); 
     if (winner) {
         alert(winner.toUpperCase() + ' wins!');
     } else if (turnCount === 9) {
         alert("Tie!");
+    }
+    curPlayer = (curPlayer !== 'x') ? 'x' : 'o';
+    // Do AI turn
+    if (players === 1 && curPlayer === 'o') {
+        updateGameState(getAiMove);
     }
 }
 
@@ -102,6 +115,7 @@ var clear = function() {
 
     // Clear the screen
     for (var i = 0; i < squares.length; i++) {
+        squares[i].classList.remove('red-background', 'blue-background');
         squares[i].innerHTML = '';
     }
 }    
@@ -113,10 +127,12 @@ button.addEventListener('click', clear);
 for (var i = 0; i < squares.length; i++) {
     squares[i].addEventListener('click', function(e) {
         if (!winner && turnCount < 9 && isSquareEmpty(e.target.id)) {
+            e.target.classList.add(
+                curPlayer === 'x' ? 'red-background' : 'blue-background');
             e.target.innerHTML = '<img class="x-o-markers" src="' +
                 image[curPlayer] + '" alt="o">';
             updateGameState(e.target.id);
-            console.log(e, e.target.id);
+            // console.log(e, e.target.id);
         }
 
     });
