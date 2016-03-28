@@ -1,0 +1,68 @@
+
+
+body {
+	background-color: pink ;
+
+}
+
+
+h1 {
+	text-align: center;
+	margin: 0 auto;
+	color: rgb(144, 237, 235);
+	margin-top: 5%;
+}
+
+h2 {
+	text-align: center;
+	margin: 0 auto;
+	color: gray;
+	margin-bottom: 5%;
+}
+
+form {
+	margin: 0 auto;
+	width: 50%;
+	height: 50%;
+	border: 1px rgb(144, 237, 235) solid;
+	border-radius: 15px;
+}
+
+div {
+	margin: 0 auto;
+	text-align: center;
+	width: 75%;
+}
+
+button {
+	margin: 0 auto;
+	height: 75px;
+	width: 100px;
+	color: red;
+	margin-top: 5%;
+}
+
+.toe {
+	height: 100px;
+	width: 100px;
+	border: 1px solid;
+	display: inline-block;
+}
+
+.toe:hover {
+	background-color: rgb(246, 247, 230);
+	background-size: 100px;
+}
+
+.X {
+	background-color: rgb(6, 180, 211);
+}
+
+.O {
+	background-color: rgb(221, 28, 28);
+}
+
+
+
+
+
