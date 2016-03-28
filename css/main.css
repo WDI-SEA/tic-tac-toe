@@ -36,6 +36,7 @@
 }
 
 /*lets the pretty pretty message display on whose turn it is*/
+h1,
 #message{
   font-family: helvetica, serif;
   font-size: 32px;

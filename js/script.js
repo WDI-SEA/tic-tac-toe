@@ -63,7 +63,7 @@ function isEmpty(e) {
   if (isEmpty === true) {
     isEven(e); 
   } else {
-    console.log("clicked box already d00d");
+    return;
   }
 }
 
