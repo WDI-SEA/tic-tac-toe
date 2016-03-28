@@ -30,7 +30,7 @@ var colors = [];
 for(var i = 1; i <= 9; i++) {
   buttonClicked.push(false);
 }
-//console.log(buttonClicked);
+
 //store id's position1 - position9  in var 'buttons'
 for(var i = 1; i <= 9; i++) {
   buttons.push('position'+i);
@@ -55,8 +55,10 @@ for (var i = 0; i < buttons.length; i++) {
     document.getElementById(gameButtons).addEventListener("click", function(event){
     if (counter === true && buttonWasClicked === false ) {
     event.target.innerHTML="X";
+    buttonClicked[i] = true;
     } else if (counter === false && buttonWasClicked === false) {
     event.target.innerHTML="O";
+    buttonClicked[i] = true;
     }
     toggleTurn();
     //buttonWasClicked = true;
@@ -66,18 +68,29 @@ for (var i = 0; i < buttons.length; i++) {
 //add color to buttons
 for (var i = 0; i < buttons.length; i++) {
   var gameButtons = buttons[i];
-  var colorToButton = colors[i];
+  var color1 = colors[5];
+  var color2 = colors[8];
   document.getElementById(gameButtons).addEventListener("click", function(event){
-    event.target.classList.add(colorToButton);
-    console.log(gameButtons);
-  })
-  console.log(gameButtons);
+    if (counter === true ) {
+        event.target.classList.add(color1);
+        } else if (counter === false) {
+        event.target.classList.add(color2);
+        }
+    })
 }
+
+//   console.log(colorToButton);
+//   document.getElementById(gameButtons).addEventListener("click", function(event){
+//     event.target.classList.add(colorToButton);
+//     console.log(gameButtons);
+//   })
+//   console.log(gameButtons);
+// }
 
 //Clear button
 document.getElementById('clear').addEventListener("click", function(event){
 var allDivs = document.querySelectorAll("div");
-event.allDivs.innerHTML= '';
+allDivs.innerHTML= '';
 })
 
 //console.log(allDivs);
