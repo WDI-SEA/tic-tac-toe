@@ -3,6 +3,20 @@ var divArray = [];
 var xTurn = true;
 var winColor = "yellow";
 var gameOver = false;
+var userComputer = false;
+
+//Computer Moves
+var computerMove = function() {
+	var squareIndex = -1;
+	while (squareIndex === -1 || divArray[squareIndex].innerHTML === "X" || divArray[squareIndex].innerHTML === "O"){
+		squareIndex = Math.floor(Math.random() * 9);
+	}
+	divArray[squareIndex].innerHTML = "O";
+
+	changeTurn();
+	checkWin();
+	checkTie();
+}
 
 //Populate Array of squares
 for (var i = 0; i < 3; i++){
@@ -40,14 +54,15 @@ var handleClick = function(arrayAddress){
 	} else {
 		if (xTurn){
 			divArray[arrayAddress].innerHTML = "X";
-			changeTurn();
-			checkWin();
-			checkTie();
 		} else {
 			divArray[arrayAddress].innerHTML = "O";
-			changeTurn();
-			checkWin();
-			checkTie();
+		}
+		changeTurn();
+		checkWin();
+		checkTie();
+
+		if (useComputer){
+			computerMove();
 		}
 	}
 }
