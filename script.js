@@ -7,7 +7,7 @@ var result = ['', '', '',
 
 var board = document.querySelectorAll("div.square");
 var keepPlaying = true;
-
+var randomIndex = Math.floor(Math.random() * 9);
 
 
 //Reset button
@@ -36,10 +36,11 @@ function enableComputer(f) {
 
 function computerMove(randomIndex){
 do {
-  var randomIndex = Math.floor(Math.random() * (8)) + 1;
+  var randomIndex = Math.floor(Math.random() * 9);
     if (!result[randomIndex]){
       board[randomIndex].textContent = 'O';
       result[randomIndex] = 'O';
+      console.log('loop');
       return true;
 }}
 while (result[randomIndex] != '');
@@ -66,7 +67,7 @@ function running(win) {
 function countItemsTruthy(result) {
   var count = 0;
   for (i = 0; result.length >= i; i++) {
-    if (result[i] === 'X' || result[i] === 'O') {
+    if (result[i]) {
       count++;
     }
   }
