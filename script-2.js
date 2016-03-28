@@ -79,6 +79,7 @@ function findWinner(e) {
 
 		winner = 'X';
 		console.log('Player 1 wins');
+		winnerScoreX++;
 		//console.log(winner);
 		alert('Player 1 wins')
 		resetValues();
@@ -93,6 +94,7 @@ function findWinner(e) {
 
 		winner = 'O';
 		console.log('Player 2 wins');
+		winnerScoreO++;
 		//console.log(winner);
 		alert('Player 2 wins');
 		resetValues();
@@ -123,13 +125,13 @@ function resetValues () {
 
 	if(winner === 'X') {
 		count = 0;
-		winnerScoreX++;
+		
 		console.log('Player 1 has won : ' + winnerScoreX);
 		console.log('Player 2 has won : ' + winnerScoreO);
 		document.getElementById('score').innerHTML = 'Player 1:  ' + winnerScoreX  + ' Player 2:  ' + winnerScoreO;
 		} else if(winner === 'O') {
 		count = 0;
-		winnerScoreO++;
+		
 		console.log('Player 2 has won : ' + winnerScoreO);
 		console.log('Player 1 has won : ' + winnerScoreX);
 		document.getElementById('score').innerHTML = 'Player 1:  ' + winnerScoreX + ' Player 2:  ' + winnerScoreO;	
