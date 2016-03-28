@@ -1,3 +1,4 @@
+//*** Variables ***
 var container = document.getElementById('container');
 var squares = document.querySelectorAll('.square')
 var curPlayer = document.querySelector('#player');
@@ -15,10 +16,17 @@ var win = [	['sq1', 'sq2', 'sq3'],
 			['sq2', 'sq5', 'sq8'],
 			['sq3', 'sq6', 'sq9'] ]
 
-var setTurn = function(x) {
+//*** Functions ***
+var setTurn = function() {
 	if (gameOver === 0) {
-		turn = x;
-	    curPlayer.innerHTML = x;
+		if (turn === 'X') {
+			turn = 'O';
+	    	curPlayer.innerHTML = 'O';
+		} else {
+			turn = 'X';
+	    	curPlayer.innerHTML = 'X';
+		};
+		
 	};
 };
 
@@ -34,38 +42,45 @@ var checkForWin = function(player) {
 	for (var i = 0; i < playedSquares.length; i++) {
 		sq = playedSquares[i];
 		playedObject[sq.id] = sq.innerHTML;
-		// console.log(playedObject[sq.id].innerHTML);
-		// console.log(playedObject);
 	};
-	for (var i = 0; i < win.length; i++) {
-		// console.log(playedObject[win[i][0]] + "," + turn);
-		console.log(playedObject[win[i][0]]);	
+	for (var i = 0; i < win.length; i++) {	
 		if (playedObject[win[i][0]] === player 
 			&& playedObject[win[i][1]] === player 
 			&& playedObject[win[i][2]] === player) {
 				gameOver = 1;
-				document.getElementById(win[i][0]).classList.add('blue');
-				document.getElementById(win[i][1]).classList.add('blue');
-				document.getElementById(win[i][2]).classList.add('blue');
-				turnText.innerHTML = player;
-				curPlayer.innerHTML = "&#160; is the winner!!";
+			for (var j = 0; j <= 2; j++) {
+				document.getElementById(win[i][j]).classList.add('blue');
 			};
+			turnText.innerHTML = player;
+			curPlayer.innerHTML = "&#160; is the winner!!";
+		} else if (playedSquares.length === 9) {
+			console.log(playedSquares);
+			for (var i = 0; i < squares.length; i++) {
+				squares[i].classList.add('red');
+			};
+			turnText.innerHTML = "It's a draw!";
+			curPlayer.innerHTML = "";
+			gameOver = 1;
+		};
 	};
 };
 
-reset.addEventListener('click', function(e) {
+var resetGame = function() {
 	for (var i = 0; i < squares.length; i++) {
 		squares[i].innerHTML = '';
 	};
-	setTurn('X');
+	gameOver = 0;
+	setTurn();
 	turnText.innerHTML = "It's your turn,&#160;";
 	curPlayer.innerHTML = turn;
 	var blue = document.querySelectorAll('.blue');
-	for (var j = 0; j < blue.length; j++) {
-		blue[j].classList.remove('blue');
+	for (var i = 0; i < squares.length; i++) {
+		squares[i].classList.remove('blue', 'red', 'played');
 	};
-	gameOver = 0;
-});
+};
+
+//*** Event Listeners ***
+reset.addEventListener('click', resetGame);
 
 for (var i = 0; i < squares.length; i++) {
 	 squares[i].addEventListener('mouseover', function(e) {
@@ -76,7 +91,6 @@ for (var i = 0; i < squares.length; i++) {
     })
     squares[i].addEventListener('click', function(e) {
     	if (gameOver === 0) {
-	    	// console.log(e.target.innerHTML);
 	    	if (e.target.innerHTML === '') {
 	    		e.target.innerHTML = turn;
 	    		e.target.classList.add('played');
