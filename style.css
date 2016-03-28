@@ -21,24 +21,88 @@ body {
 
 }
 
+h1 {
+  text-align: center;
+  font-size: 60px;
+  font-family: Arial;
+}
+
+@keyframes fadein {
+  from {opacity: 0;}
+  to { opacity: 1; }
+}
+
 #container {
+  position: relative;
   width: 470px;
   margin: 0 auto;
+}
+
+#spacer {
+  width: 100%;
+  height: 60px;
+  padding-top: 45px;
+}
+
+#whose-turn {
+  width: 100%;
+  height: 60px;
+  font-size: 40px;
+  padding-top: 45px;
+  text-align: center;
+}
+
+#big-box {
+  background: url('bgwood.jpg');
+  background-size: contain;
+  width: 468px;
+  height: 468px;
+  padding: 0px;
+  border: 4px solid black;
+  border-radius: 8px;
 }
 
 .square {
   float: left;
   width: 150px;
   height: 150px;
-  border: 2px solid black;
+  border: 3px solid black;
   font-size: 140px;
   text-align: center;
 }
 
-.blue-box {
-  background-color: blue;
+.square:hover {
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
-.red-box {
+.blue-box {
+  background-color: rgba(9, 30, 163, 0.4);
+}
+
+.yellow-box {
+  background-color: rgba(178, 186, 27, 0.4);
+}
+
+.winner-box {
   background-color: red;
+  animation: fadein 2s;
+}
+
+.button {
+  float: none;
+  position: absolute;
+  top: 690px;
+  left: 155px;
+  background: linear-gradient(#666666, #000000);
+  display: inline-block;
+  color: #ffffff;
+  text-align: center;
+  font-family: Arial;
+  font-size: 30px;
+  font-weight: bold; 
+  width: 156px;
+  height: 60px;
+  border: 3px solid #111111;
+  border-radius: 6px;
+  margin: 5px;
 }
