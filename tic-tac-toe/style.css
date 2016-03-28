@@ -3,6 +3,7 @@
 
 body {
   font-family: Helvetica;
+  background-color: black;
 
 }
 
@@ -10,6 +11,8 @@ body {
 h1 {
   text-align: center;
   border: 0;
+  padding-bottom: 10px;
+  color: white;
  
 
 }
@@ -25,7 +28,7 @@ h1 {
 
 
 #board-container {
-  width: 350px;
+  width: 600px;
   overflow: hidden;
 }
 
@@ -42,7 +45,7 @@ h1 {
 td {
     height: 100px;
     width: 100px;
-    background-color: yellow;
+    background-color: violet;
     border-left: 2px solid black;
     border-bottom: 2px solid black;
     border-collapse: collapse;
@@ -58,18 +61,6 @@ tr {
   border-bottom: 0;
 
 }
-
-.x {
-    width: 100%;
-    height: 100%;
-    background-color: blue;
-}
-.o {
-    width: 100%;
-    height: 100%;
-    background-color: red;
-}
-
 
 #board tr:last-child td{
     border-bottom: none;
@@ -87,8 +78,8 @@ tr {
 
 #restart {
   font-size: 12pt;
-  color: #00000;
-  background-color: coral;
+  color: white;
+  background-color: lightslategrey;
   padding: 5px 15px 5px 15px;
 
 }
@@ -96,6 +87,7 @@ tr {
 label {
   font-family: Helvetica;
   font-size: 15px;
+  color: white;
 
 }
 
@@ -103,5 +95,26 @@ select {
   margin: 10 10 10 5;
 
 }
+
+/* Scoreboard */
+
+#score-board {
+  width: 200px;
+  float: right;
+  margin: -5;
+
+
+}
+
+#score-board td {
+  color: white;
+  font-size: 20px;
+  border-: 1px solid black;
+  background-color: grey;
+}
+
+#score-board tr:last-child td{
+    border-bottom: none;
+    border-top: none;
 
 

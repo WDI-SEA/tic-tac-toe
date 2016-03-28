@@ -14,39 +14,38 @@ var squares = document.getElementById("board").getElementsByTagName("td");
 for (var i in squares) {
    squares[i].onclick = play;
 }
-document.getElementById("restart").onclick = function() {
-    for (var i in squares) {
-       squares[i].innerHTML = '';
-    }
-}
 
 function checkForWinner(){
 
     /* Rows */
 
     if(document.getElementById("s1").innerHTML == 'X' && document.getElementById("s2").innerHTML == 'X' && document.getElementById("s3").innerHTML == 'X'){
-        alert("X WINS YO!!!");
+        alert("X WINS!");
+        var p = document.querySelectorAll('td');
+        document.getElementById("playerOneScore").textContent;
+        p++;
+       
     }
 
      if(document.getElementById("s1").innerHTML == 'O' && document.getElementById("s2").innerHTML == 'O' && document.getElementById("s3").innerHTML == 'O'){
-        alert("O WINS YO!!!");
+        alert("O WINS!");
     }
 
       if(document.getElementById("s4").innerHTML == 'X' && document.getElementById("s5").innerHTML == 'X' && document.getElementById("s6").innerHTML == 'X'){
-        alert("X WINS YO!!!");
+        alert("X WINS!");
     }
 
      if(document.getElementById("s4").innerHTML == 'O' && document.getElementById("s5").innerHTML == 'O' && document.getElementById("s6").innerHTML == 'O'){
-        alert("O WINS YO!!!");
+        alert("O WINS!");
     }
 
 
       if(document.getElementById("s7").innerHTML == 'X' && document.getElementById("s8").innerHTML == 'X' && document.getElementById("s9").innerHTML == 'X'){
-        alert("X WINS YO!!!");
+        alert("X WINS YO!");
     }
 
      if(document.getElementById("s7").innerHTML == 'O' && document.getElementById("s8").innerHTML == 'O' && document.getElementById("s9").innerHTML == 'O'){
-        alert("O WINS YO!!!");
+        alert("O WINS YO!");
     }
 
 
@@ -89,10 +88,19 @@ function checkForWinner(){
 
           if(document.getElementById("s1").innerHTML == 'O' && document.getElementById("s5").innerHTML == 'O' && document.getElementById("s9").innerHTML == 'O'){
         alert("X WINS YO!!!");
+        // var p = Integer.parseInt(document.getElementById("playerOneScore").textContent());
+        // p++;
     }
 
      if(document.getElementById("s3").innerHTML == 'X' && document.getElementById("s5").innerHTML == 'X' && document.getElementById("s7").innerHTML == 'X'){
         alert("O WINS YO!!!");
+    }
+
+/* Restart the game */
+    document.getElementById("restart").onclick = function() {
+        for (var i in squares) {
+           squares[i].innerHTML = '';
+        }
     }
 
 }
