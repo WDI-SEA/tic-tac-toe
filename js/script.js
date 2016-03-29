@@ -20,41 +20,23 @@ var seventhInput = document.getElementById("seventh");
 var eighthInput = document.getElementById("eighth");
 var ninthInput = document.getElementById("ninth");
 
-var click1 = firstInput.addEventListener('click', function(e) { 
-  isEmpty(e);
-  }, false);
+var click1 = firstInput.addEventListener('click', isEmpty, false);
 
-var click2 = secondInput.addEventListener('click', function(e) { 
-  isEmpty(e);
-  }, false);
+var click2 = secondInput.addEventListener('click', isEmpty, false);
 
-var click3 = thirdInput.addEventListener('click', function(e) { 
-  isEmpty(e);
-    }, false);
+var click3 = thirdInput.addEventListener('click', isEmpty, false);
 
-var click4 = fourthInput.addEventListener('click', function(e) { 
-  isEmpty(e);
-    }, false);
+var click4 = fourthInput.addEventListener('click', isEmpty, false);
 
-var click5 = fifthInput.addEventListener('click', function(e) { 
-  isEmpty(e);
-    }, false);
+var click5 = fifthInput.addEventListener('click', isEmpty, false);
 
-var click6 = sixthInput.addEventListener('click', function(e) { 
-  isEmpty(e);
-    }, false);
+var click6 = sixthInput.addEventListener('click', isEmpty, false);
 
-var click7 = seventhInput.addEventListener('click', function(e) { 
-  isEmpty(e);
-    }, false);
+var click7 = seventhInput.addEventListener('click', isEmpty, false);
 
-var click8 = eighthInput.addEventListener('click', function(e) { 
-  isEmpty(e);
-    }, false);
+var click8 = eighthInput.addEventListener('click', isEmpty, false);
 
-var click9 = ninthInput.addEventListener('click', function(e) { 
-  isEmpty(e);
-    }, false);
+var click9 = ninthInput.addEventListener('click', isEmpty, false);
 
 
 //click only once 
@@ -75,11 +57,12 @@ function isEven(e) {
     getWinner();
     d=document.getElementById("message");
     d.innerHTML = "Player X's Turn!";
+    
   } else {
-  classBlue(e);  
-  getWinner();
-  d=document.getElementById("message");
-  d.innerHTML = "Player O's Turn!"; 
+    classBlue(e);  
+    getWinner();
+    d=document.getElementById("message");
+    d.innerHTML = "Player O's Turn!"; 
   }
 } 
 
@@ -122,8 +105,8 @@ function getWinner() {
     thirdInput.innerHTML === "X" && sixthInput.innerHTML === "X" && ninthInput.innerHTML === "X" ||
     firstInput.innerHTML === "X" && fifthInput.innerHTML === "X" && ninthInput.innerHTML === "X" ||
     thirdInput.innerHTML === "X" && fifthInput.innerHTML === "X" && seventhInput.innerHTML === "X") {
-   d=document.getElementById("message");
-    d.innerHTML = "Player X wins!"; 
+      d=document.getElementById("message");
+      d.innerHTML = "Player X wins!"; 
   } else if (firstInput.innerHTML === "O" && secondInput.innerHTML === "O" && thirdInput.innerHTML === "O" ||
     fourthInput.innerHTML === "O" && fifthInput.innerHTML === "O" && sixthInput.innerHTML === "O" ||
     seventhInput.innerHTML === "O" && eighthInput.innerHTML === "O" && ninthInput.innerHTML === "O" ||
@@ -132,15 +115,15 @@ function getWinner() {
     thirdInput.innerHTML === "O" && sixthInput.innerHTML === "O" && ninthInput.innerHTML === "O" ||
     firstInput.innerHTML === "O" && fifthInput.innerHTML === "O" && ninthInput.innerHTML === "O" ||
     thirdInput.innerHTML === "O" && fifthInput.innerHTML === "O" && seventhInput.innerHTML === "O") {
-    d=document.getElementById("message");
-    d.innerHTML = "Player O wins!"; 
+      d=document.getElementById("message");
+      d.innerHTML = "Player O wins!"; 
   } else if (
     firstInput.innerHTML != "" && secondInput.innerHTML != "" && thirdInput.innerHTML != "" && 
     fourth.innerHTML != "" && fifthInput.innerHTML != "" && sixthInput.innerHTML != "" && 
     seventhInput.innerHTML != "" && eighthInput.innerHTML != "" && ninthInput.innerHTML != "")
    {
     alert("Cat's game!");
-  } else { return;
+  } else { console.log("no winner yet");
   }
 }
 
