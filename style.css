@@ -19,7 +19,7 @@ input,select{vertical-align:middle}
 
 
 body {
-
+  background-color: #efefef;
 }
 
 h1 {
@@ -108,11 +108,11 @@ h1 {
 }*/
 
 .blue-box {
-  background-color: rgba(9, 30, 163, 0.4);
+  background-color: rgba(26, 85, 213, 0.7);
 }
 
 .yellow-box {
-  background-color: rgba(178, 186, 27, 0.4);
+  background-color: rgba(130, 164, 236, 0.4);
 }
 
 .winner-box {
