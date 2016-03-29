@@ -17,6 +17,7 @@ hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padd
 input,select{vertical-align:middle}
 
 
+
 body {
 
 }
@@ -39,7 +40,7 @@ h1 {
 
 #container {
   position: relative;
-  width: 470px;
+  width: 800px;
   margin: 0 auto;
 }
 
@@ -60,6 +61,7 @@ h1 {
 #big-box {
   background: url('bgwood.jpg');
   background-size: contain;
+  margin: 0 auto;
   width: 468px;
   height: 468px;
   padding: 0px;
