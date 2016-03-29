@@ -11,7 +11,6 @@ var randomIndex = Math.floor(Math.random() * 9);
 //Reset button
 
 document.getElementById('clear').addEventListener('click', function (event) {
-
   document.getElementById('whose-turn').textContent = 'X goes first...';
   keepPlaying = true;
   for (var i = 0; i < board.length; i++) {
@@ -20,17 +19,6 @@ document.getElementById('clear').addEventListener('click', function (event) {
     result.splice(i, 1, '');
   }
 });
-
-
-// Started Computer Move
-
-
-// if (document.getElementById('playervscpu').checked){
-//     forLoopOnePlayer;
-//   } else {
-//     forLoopTwoPlayer;
-//   }
-
 
 
 function computerMove(randomIndex) {
@@ -174,80 +162,6 @@ function makeCellColorful(i) {
   }
 }
 
-// Two player game click event
-
-
-
-
-
-//       for (var i = 0; i < board.length; i++) {
-//   board[i].addEventListener('mouseover', function(e) {
-//     e.target.classList.add('hover-square');
-//   });
-//   board[i].addEventListener('mouseout', function(e) {
-//     e.target.classList.remove('hover-square');
-//   })
-//   onePlayer(i);
-// }
-
-
-// document.getElementById('twoplayer').addEventListener("click", function(event) {
-// forLoop();
-// console.log('click');
-// });
-
-// document.getElementById('playervscpu').addEventListener("click", function(event) {
-// forLoop();
-// console.log('click');
-// });
-
-
-// for (var i = 0; i < board.length; i++) {
-//   console.log(document.getElementById('playervscpu').checked);
-//   board[i].addEventListener('mouseover', function(e) {
-//     e.target.classList.add('hover-square');
-//   });
-//   board[i].addEventListener('mouseout', function(e) {
-//     e.target.classList.remove('hover-square');
-//   })
-//   if (document.getElementById('playervscpu').checked){
-//     onePlayer(i);
-//   } else {
-//     twoPlayer(i);
-// }
-// }
-
-// var forLoopOnePlayer = function(){
-// for (var i = 0; i < board.length; i++) {
-//   console.log(document.getElementById('playervscpu').checked);
-//   board[i].addEventListener('mouseover', function(e) {
-//     e.target.classList.add('hover-square');
-//   });
-//   board[i].addEventListener('mouseout', function(e) {
-//     e.target.classList.remove('hover-square');
-//   })
-//   onePlayer(i);
-// }
-// }
-
-// var onePlayer = function(i) {
-//   var currentBox = board[i];
-//   var currentResult = result[i];
-//   currentBox.addEventListener("click", function(event) {
-//     if (!currentBox.innerText && keepPlaying) {
-//       currentBox.innerText = whoseTurn(countItemsTruthy);
-//       makeCellColorful(i);
-//       result.splice(i, 1, currentBox.innerText);
-//       getWinner(result);
-//       running(getWinner);
-//       tieGame();
-//       computerMove(randomIndex)
-//       console.log('one player');
-//       console.log(result);
-//     }
-//   })
-// }
-
 var doTheThing = function (i) {
   var currentBox = board[i];
   var currentResult = result[i];
@@ -281,8 +195,3 @@ for (var i = 0; i < board.length; i++) {
   })
   doTheThing(i);
 }
-
-
-
-
-// if (document.getElementById('playervscpu').checked){
