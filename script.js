@@ -4,6 +4,7 @@ var xTurn = true;
 var winColor = "yellow";
 var gameOver = false;
 var useComputer = false;
+var killClick = false;
 
 //Computer Moves
 var computerMove = function() {
@@ -11,16 +12,22 @@ var computerMove = function() {
 		return;
 	}
 
-	var squareIndex = -1;
-	while (squareIndex === -1 || divArray[squareIndex].innerHTML === "X" || divArray[squareIndex].innerHTML === "O"){
-		console.log("squareIndex = " + squareIndex);
-		squareIndex = Math.floor(Math.random() * 9);
+	if (takeTheMiddle()){
+		return;
 	}
-	divArray[squareIndex].innerHTML = "O";
 
-	changeTurn();
-	checkWin();
-	checkTie();
+	if (makeMatch()){
+		return;
+	}
+
+	if (blockMatch()){
+		return;
+	}
+
+	if (doRandom()){
+		return;
+	}
+	return
 }
 
 //Change to allow computer moves
@@ -46,6 +53,7 @@ var reset = function(){
 
 	xTurn = true;
 	gameOver = false;
+	killClick = false;
 	displaySmall.innerHTML = "Current Player:";
 	displaySmall.style.color = "white";
 	displayLarge.innerHTML = "X";
@@ -63,7 +71,8 @@ resetButton.addEventListener("click", reset);
 
 //What happens when you click
 var handleClick = function(arrayAddress){
-	if (divArray[arrayAddress].innerHTML === "X" || divArray[arrayAddress].innerHTML === "O" || gameOver){
+	if (divArray[arrayAddress].innerHTML === "X" || divArray[arrayAddress].innerHTML === "O" || gameOver || killClick){
+		return;
 	} else {
 		if (xTurn){
 			divArray[arrayAddress].innerHTML = "X";
@@ -75,8 +84,9 @@ var handleClick = function(arrayAddress){
 		checkTie();
 
 		if(useComputer){
-		computerMove();
-	}
+			killClick = true;
+			setTimeout(computerMove,1000);
+		}
 	}
 }
 
@@ -231,5 +241,217 @@ divArray[8].addEventListener("click", function(){
 	handleClick(8);
 })
 
+var wait = function(){
+	console.log("waiting");
+}
 
+var takeTheMiddle = function(){
+	if (divArray[4].innerHTML === ""){
+		console.log("Taking the middle!");
+		divArray[4].innerHTML = "O";
+		killClick = false;
+		changeTurn();
+		checkWin();
+		checkTie();
+		return true;
+	}
+	return false;
+}
 
+var blockMatch = function(){
+	var hasMatch = false;
+	var isFilled = false;
+	for(var i = 0; i < 7; i += 3){
+		hasMatch = checkForTwo(i, i + 1, i + 2, "X");
+		isFilled = isFull(i, i + 1, i + 2); 
+		if (hasMatch && !isFilled){
+			console.log("Found a match at row " + i);
+			if (divArray[i].innerHTML === ""){
+				divArray[i].innerHTML = "O";
+			} else if (divArray[i + 1].innerHTML === ""){
+				divArray[i + 1].innerHTML = "O";
+			} else {
+				divArray[i + 2].innerHTML = "O";
+			}
+			killClick = false;
+			changeTurn();
+			checkWin();
+			checkTie();
+			return true;
+		}
+	}
+	hasMatch = false;
+	isFilled = false;
+	for(var i = 0; i < 3; i++){
+		hasMatch = checkForTwo(i, i + 3, i + 6, "X");
+		isFilled = isFull(i, i + 3, i + 6); 
+		if (hasMatch && !isFilled){
+			console.log("Found a match at column " + i);
+			if (divArray[i].innerHTML === ""){
+				divArray[i].innerHTML = "O";
+			} else if (divArray[i + 3].innerHTML === ""){
+				divArray[i + 3].innerHTML = "O";
+			} else {
+				divArray[i + 6].innerHTML = "O";
+			}
+			killClick = false;
+			changeTurn();
+			checkWin();
+			checkTie();
+			return true;
+		}
+	}
+	hasMatch = false;
+	isFilled = false;
+	hasMatch = checkForTwo(0,4,8, "X");
+	isFilled = isFull(0, 4, 8); 
+	if (hasMatch && !isFilled){
+		console.log("Found a match at diagonal 1");
+		if (divArray[0].innerHTML === ""){
+			divArray[0].innerHTML = "O";
+		} else if (divArray[4].innerHTML === ""){
+			divArray[4].innerHTML = "O";
+		} else {
+			divArray[8].innerHTML = "O";
+		}
+		killClick = false;
+		changeTurn();
+		checkWin();
+		checkTie();
+		return true;
+	}
+	hasMatch = checkForTwo(2,4,6, "X");
+	isFilled = isFull(2, 4, 6); 
+	if (hasMatch && !isFilled){
+		console.log("Found a match at diagonal 2");
+		if (divArray[2].innerHTML === ""){
+			divArray[2].innerHTML = "O";
+		} else if (divArray[4].innerHTML === ""){
+			divArray[4].innerHTML = "O";
+		} else {
+			divArray[6].innerHTML = "O";
+		}
+		killClick = false;
+		changeTurn();
+		checkWin();
+		checkTie();
+		return true;
+	}	
+	return false;
+}
+
+var makeMatch = function() {
+	var hasMatch = false;
+	var isFilled = false;
+	for(var i = 0; i < 7; i += 3){
+		hasMatch = checkForTwo(i, i + 1, i + 2, "O");
+		isFilled = isFull(i, i + 1, i + 2); 
+		if (hasMatch && !isFilled){
+			console.log("Found a match at row " + i);
+			if (divArray[i].innerHTML === ""){
+				divArray[i].innerHTML = "O";
+			} else if (divArray[i + 1].innerHTML === ""){
+				divArray[i + 1].innerHTML = "O";
+			} else {
+				divArray[i + 2].innerHTML = "O";
+			}
+			killClick = false;
+			changeTurn();
+			checkWin();
+			checkTie();
+			return true;
+		}
+	}
+	hasMatch = false;
+	isFilled = false;
+	for(var i = 0; i < 3; i++){
+		hasMatch = checkForTwo(i, i + 3, i + 6, "O");
+		isFilled = isFull(i, i + 3, i + 6); 
+		if (hasMatch && !isFilled){
+			console.log("Found a match at column " + i);
+			if (divArray[i].innerHTML === ""){
+				divArray[i].innerHTML = "O";
+			} else if (divArray[i + 3].innerHTML === ""){
+				divArray[i + 3].innerHTML = "O";
+			} else {
+				divArray[i + 6].innerHTML = "O";
+			}
+			killClick = false;
+			changeTurn();
+			checkWin();
+			checkTie();
+			return true;
+		}
+	}
+	hasMatch = false;
+	isFilled = false;
+	hasMatch = checkForTwo(0,4,8, "O");
+	isFilled = isFull(0, 4, 8); 
+	if (hasMatch && !isFilled){
+		console.log("Found a match at diagonal 1");
+		if (divArray[0].innerHTML === ""){
+			divArray[0].innerHTML = "O";
+		} else if (divArray[4].innerHTML === ""){
+			divArray[4].innerHTML = "O";
+		} else {
+			divArray[8].innerHTML = "O";
+		}
+		killClick = false;
+		changeTurn();
+		checkWin();
+		checkTie();
+		return true;
+	}
+	hasMatch = checkForTwo(2,4,6, "O");
+	isFilled = isFull(2, 4, 6); 
+	if (hasMatch && !isFilled){
+		console.log("Found a match at diagonal 2");
+		if (divArray[2].innerHTML === ""){
+			divArray[2].innerHTML = "O";
+		} else if (divArray[4].innerHTML === ""){
+			divArray[4].innerHTML = "O";
+		} else {
+			divArray[6].innerHTML = "O";
+		}
+		killClick = false;
+		changeTurn();
+		checkWin();
+		checkTie();
+		return true;
+	}	
+	return false;
+}
+
+var checkForTwo = function(a,b,c, str) {
+	if(divArray[a].innerHTML === str && divArray[b].innerHTML === str){
+		return true;
+	} else if (divArray[a].innerHTML === str && divArray[c].innerHTML === str){
+		return true;
+	} else if (divArray[b].innerHTML === str && divArray[c].innerHTML === str){
+		return true;
+	} else {
+		return false;
+	}
+}
+
+var doRandom = function(){
+	var squareIndex = -1;
+	while (squareIndex === -1 || divArray[squareIndex].innerHTML === "X" || divArray[squareIndex].innerHTML === "O"){
+		console.log("squareIndex = " + squareIndex);
+		squareIndex = Math.floor(Math.random() * 9);
+	}
+	divArray[squareIndex].innerHTML = "O";
+
+	killClick = false;
+	changeTurn();
+	checkWin();
+	checkTie();
+	return true;
+}
+
+var isFull = function(a,b,c){
+	if(divArray[a].innerHTML === "" || divArray[b].innerHTML === "" || divArray[c].innerHTML === ""){
+		return false;
+	}
+	return true;
+}
