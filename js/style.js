@@ -33,6 +33,7 @@ var clearGame = function (){
 	document.getElementById('box_9').style.backgroundImage="";
 
 }
+
 document.getElementById("box_1").addEventListener("click", function() {playMove1()});
 document.getElementById("box_2").addEventListener("click", function() {playMove2()});
 document.getElementById("box_3").addEventListener("click", function() {playMove3()});
