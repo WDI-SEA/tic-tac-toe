@@ -6,7 +6,7 @@ var clearButton = document.getElementById('reset_button');
 for (var i = 0; i <cells.length; i++) {
   cells[i].addEventListener("mouseover", function(e) {
     console.log(e.target.style.backgroundColor);
-    if (e.target.style.backgroundColor === "") {
+    if (e.target.style.backgroundColor === "white") {
       e.target.style = "background-color: red";
     }
   });
@@ -15,7 +15,7 @@ for (var i = 0; i <cells.length; i++) {
 for (var i = 0; i <cells.length; i++) {
   cells[i].addEventListener("mouseout", function(e) {
     if (e.target.style.backgroundColor === "red") {
-      e.target.style = "background-color: ";
+      e.target.style = "background-color: white";
     }
   });
 }
