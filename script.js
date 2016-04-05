@@ -147,7 +147,7 @@ onePlayerButton.addEventListener('click', function(e) {
 
 // 2-Player button
 twoPlayerButton.addEventListener('click', function(e) {
-    players = 2;
+    players = 2; 
     overlay.classList.add('hidden');
     startMessage.classList.add('hidden');
 });
