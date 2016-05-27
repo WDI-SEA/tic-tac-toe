@@ -1,0 +1,40 @@
+.square{
+    width:100px;
+    height:100px;
+    border-radius: 1px;
+    border-style: solid;
+    text-align: center;
+    font-size: 350%;
+    text-shadow:
+   -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+     1px 1px 0 #000;
+     -webkit-text-stroke: 1px black;
+    /* background-color: white;*/
+}
+
+#tic-tac-toe {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+}
+
+#game-table {
+  margin: 0 auto;
+  margin-top: 200px;
+}
+
+#reset_button {
+  background-color: blue;
+  outline-color: purple;
+  padding: 10px 30px 10px 30px;
+  margin-left: 493px;
+  margin-top: 5px;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+/*.clearfix {
+  overflow: auto;
+}*/
