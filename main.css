@@ -1,0 +1,47 @@
+#container {
+	width: 900px;
+	margin-top: 0px;
+	margin-bottom: 300px;
+	margin-left: 245px;
+	margin-right: 200px;
+	text-align: center;
+	padding: 10px;
+	background-color: black;
+}
+
+#header {
+	outline-style: solid;
+	outline-color: black 1px;
+	color: green;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	background-color: white;
+}
+
+#table {
+	outline-style: solid;
+	outline-color: black 1px;
+	margin: 5px;
+	background-color: green;
+	text-align: center;
+}
+
+
+table { 
+	margin: 0 auto;
+	padding: 100px;
+}
+
+td {
+	border: 1px solid black;
+	padding: 50px;
+	background-color: grey;
+}
+
+body {
+	background-image: url(tic-tac-toe-wallpaper.jpeg);
+}
+
+
+
+
