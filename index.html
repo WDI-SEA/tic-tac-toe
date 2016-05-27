@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>TicTacToe</title>
+	   <link rel="stylesheet" href="css/style.css">
+	   <a href="index-ko.html">Korean/한국어</a>
+	   <meta charset="utf-8" />
+	</head>
+	<body onload="startGame();">
+		<h1>2 Player Tic Tac Toe</h1>
+		<div id="message">default</div>
+	       	<table border="1">
+	           	<tr>
+	               <td id="b1" class="box" onclick="nextMove(this);"></td>
+	               <td id="b2" class="box" onclick="nextMove(this);"></td>
+	              	<td id="b3" class="box" onclick="nextMove(this);"></td>
+	            </tr>
+	           	<tr>
+	               <td id="b4" class="box" onclick="nextMove(this);"></td>
+	               <td id="b5" class="box" onclick="nextMove(this);"></td>
+	              	<td id="b6" class="box" onclick="nextMove(this);"></td>
+	            </tr>
+	           	<tr>
+	               <td id="b7" class="box" onclick="nextMove(this);"></td>
+	               <td id="b8" class="box" onclick="nextMove(this);"></td>
+	              	<td id="b9" class="box" onclick="nextMove(this);"></td>
+	            </tr>
+	       	</table>
+	        <button onclick="startGame()">Clear</button> 
+	<script type="text/javascript" src="js/script.js"></script>
+	</body>
+</html>

@@ -1,0 +1,30 @@
+a {
+	float: right;
+	font-size: 14px;
+	margin-right: 10%;
+	margin-top: 2%;
+}
+body {
+	margin-left: 34%;
+	background-color: silver;
+}
+.box {
+	height: 100px;
+	width: 100px;
+	text-align: center;
+	font-size: 24px;
+	font-weight: bold;
+	font-family: Verdana;
+}
+
+table {
+	border: solid black;
+	color: crimson;
+}
+button {
+	margin-top: 1%;
+	margin-left: 17%;
+}
+.XX {
+	color: gold;
+}
