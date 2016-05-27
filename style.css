@@ -1,0 +1,40 @@
+body {
+	background-color: black;
+	border: solid 3px white;
+	width: 486px; 
+	height: 486px;
+	margin:auto;
+	margin-top: 90px;
+	padding: 0px;
+	}
+
+div {
+	background-color: white;
+	border: solid 1px black;
+	width: 160px;
+	height: 160px;
+	margin: auto;
+	float: right;
+}
+
+button {
+	background-color: lightgrey;
+	position:relative;
+	border: 5px solid grey;
+	border-radius: 100px;
+	margin-top: 20px;
+	margin-left: 200px;
+	font-family: Helvetica;
+	font-size: 18px;
+	color: black;
+	padding: 10px 15px 10px 15px;
+}
+
+/*#playerMove {
+	font-family: Helvetica;
+	font-size: 30px;
+	color: black;*/
+
+
+}
+
