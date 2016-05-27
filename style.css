@@ -1,0 +1,136 @@
+body {
+    background: #1c5380;
+}
+
+h1 {
+    text-align: center;
+    color: #888;
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    opacity: 0.8;
+    z-index: 100;
+}
+
+#message {
+    height: 300px;
+    width: 450px;
+    position: fixed;
+    top: calc(50% - 125px);
+    left: calc(50% - 200px);
+    background-color: white;
+    border: 3px solid black;
+    padding: 30px;
+    opacity: 1.0;
+    box-sizing: border-box;
+    z-index: 101;
+}
+
+.hidden {
+    display: none;
+}
+
+#container {
+    margin: 0 auto;
+    max-width: 600px;
+    height: 1000px;
+    background: linear-gradient(#aab, #fff 8%);
+    border-radius: 10px;
+    padding: 40px;
+    margin-top: 30px;
+
+}
+
+#board-container {
+    height: 470px;
+    width: 470px;
+    margin: 0 auto;
+}
+
+.board-squares {
+    height: 150px;
+    width: 150px;
+    float: left;
+}
+
+.x-o-markers {
+    height: 130px;
+    display: block;
+    margin: 10px auto;
+}
+
+.blue-background {
+    background: linear-gradient(rgba(0,0,255,.2), #fff 80%);
+}
+
+.red-background {
+    background: linear-gradient(rgba(255,0,0,.2), #fff 80%);
+}
+
+#clear-button {
+    display: block;
+    margin: 30px auto;
+    background: green;
+    height: 60px;
+    width: 140px;
+    border-radius: 6px;
+    color: white;
+    font-size: 20px;
+}
+
+#top-left {
+    border-right: solid black;
+    border-bottom: solid black;
+}
+
+#top-mid {
+    border-right: solid black;
+    border-bottom: solid black;
+    border-left: solid black;
+}
+
+#top-right {
+    border-bottom: solid black;
+    border-left: solid black;
+}
+
+#mid-left {
+    border-top: solid black;
+    border-right: solid black;
+    border-bottom: solid black;
+}
+
+#mid-mid {
+    border-top: solid black;
+    border-right: solid black;
+    border-bottom: solid black;
+    border-left: solid black;
+}
+
+#mid-right {
+    border-top: solid black;
+    border-bottom: solid black;
+    border-left: solid black;
+}
+
+#bottom-left {
+    border-top: solid black;
+    border-right: solid black;
+}
+
+#bottom-mid {
+    border-top: solid black;
+    border-right: solid black;
+    border-left: solid black;
+}
+
+#bottom-right {
+    border-top: solid black;
+    border-left: solid black;
+}
