@@ -1,0 +1,53 @@
+.center {
+  text-align: center;
+  margin: auto;
+}
+
+/*makes boxes pretty*/
+.box {
+  width: 165px;
+  height: 165px;
+  margin: 0 auto;
+  margin: 20px;
+  border-radius: 25px;
+  font-family: helvetica;
+  font-size: 150px;
+  animation: fadein 2s;
+  color: white;
+  text-shadow: -1px 0 #b3b3b3, 0 1px #b3b3b3, 1px 0 #b3b3b3, 0 -1px #b3b3b3;
+  background-color: #d2ffe9;
+  text-align: center;
+}
+
+/*changes bgs*/
+.blue {
+  background-color: #D2FFFF;
+}
+
+.yellow {
+  background-color: #ffffd2;
+}
+
+/*keeps game board same size - not mobile friendly but eh*/
+#container {
+  margin: 0 auto;
+  max-height: 600px;
+  max-width: 600px;
+}
+
+/*lets the pretty pretty message display on whose turn it is*/
+h1,
+#message{
+  font-family: helvetica, serif;
+  font-size: 32px;
+  text-align: center;
+  margin: auto;
+  color: #b3b3b3;
+}
+
+/*for fade in*/
+@keyframes fadein {
+  from { opacity: 0;   }
+  to { opacity: 1;   }
+}
+
