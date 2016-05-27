@@ -20,10 +20,9 @@ We will be making a Tic Tac Toe game using all of these concepts.
   * `npm run lint:js` - lint JS
   * `npm run deploy` - deploy your app to Github Pages
 * Before you even start working with JavaScript, construct the gameboard. The gameboard page should include the 3x3 grid (of divs), and at minimum a reset button. Using `id` and `class` on clickable elements will help you wire this up in JavaScript afterwards.
-* The Javascript portion will be next
-  * Locate the element first to use it within your app. Think about using `getElementById`, `getElementsByClassName`, `querySelector`, or `querySelectorAll` to locate your target elements. Try this in your browser console to make sure your selection works.
-  * After finding the elements, start writing logic to use an event listener for `click` against those elements.
-  * You will also need a variable to keep track of moves. As this will be used to indicate whether or not to draw an `X` or an `O`
+* The JavaScript portion will be next
+  * Select elements and attach functions via event listeners
+  * You will also need a variable to keep track of moves. This will be used to indicate whether or not to draw an `X` or an `O`
 
 ##Requirements
 * A user should be able to click on different squares to make a move.
