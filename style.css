@@ -1,0 +1,74 @@
+body {
+	background-color: #D5DAE7;
+	text-align: center;
+	font-family: helvetica;
+}
+
+div {
+	border-radius: 5px;
+}
+h3 {
+	display: inline;
+}
+.row {
+	float: left;
+	display: inline-block;
+	clear: both;
+	margin: 5px 0px;
+}
+.square {
+	float: left;
+	display: inline-block;
+	margin: 0px 5px;
+	height: 150px;
+	width: 150px;
+}
+.btn {
+	margin-top: 5px;
+	color: white;
+	background-color: #E02A2A;
+	width: 100px;
+	height: 40px;
+	border-radius: 5px;
+}
+.btn:hover {
+	background-color: #FF5C5C;
+}
+.gray {
+	background-color: #C2BDB9;
+}
+.hover-gray {
+	background-color: #7D7E82;
+}
+.red {
+	background-color: red;
+}
+.blue {
+	background-color: blue !important;
+}
+.played {
+	display: inline-block;
+	font-size: 135px;
+}
+.hidden {
+	visibility: hidden;
+}
+#container {
+	font-size: 28px;
+	margin-top: 0px;
+	display: inline-block;
+}
+	#container h1 {
+		margin: 10px 0px;
+	}
+	#container h3 {
+		margin: 5px 0px;
+	}
+#gameBoard {
+	display: inline-block;
+	margin: 0 auto;
+	background-color: #A5A5A5;
+	padding: 5px;
+}
+
+
