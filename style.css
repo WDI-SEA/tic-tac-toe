@@ -1,0 +1,75 @@
+body {
+	background-color: gray;
+	text-align: center;
+	color: white;
+	font-family: 'Gochi Hand', cursive;
+}
+
+
+.divClass_row {
+	background-color: gray;
+
+	height: 175px;
+	width: 560px;
+
+	float: left;
+}
+
+.divClass_square {
+	background-color: gray;
+	border: 3px solid white;
+
+	height: 175px;
+	width: 175px;
+
+	float: left;
+
+	font-size: 180px;
+}
+
+#div_game_board {
+	background-color: gray;
+
+	height: 700px;
+	width: 600px;
+
+	float: left;
+}
+
+#div_right {
+	background-color: gray;
+
+	height: 500px;
+	width: 300px;
+
+	float: left;
+}
+
+#div_label {
+	padding-top: 50px;
+	font-size: 50px;
+}
+
+#div_small {
+	font-size: 20px;
+}
+
+#div_large {
+	font-size: 180px;
+}
+
+#div_reset {
+	font-size: 30px;
+	background-color: gray;
+	border: 3px dashed white;
+	height: 70px;
+	width: 200px;
+	margin-left: 50px;
+	padding-top: 30px;
+}
+
+#div_computer {
+	font-size: 25px;
+	border: 3px dashed white;
+	margin-top: 20px;
+}
