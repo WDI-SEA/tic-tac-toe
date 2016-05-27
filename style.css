@@ -1,0 +1,94 @@
+body {
+	background-color: purple;
+}
+
+h1 {
+	margin: 0 auto;
+	font-family: 'Alfa Slab One', cursive;
+	color: white;
+	font-size: 50px;
+	margin-left: 400px;
+	padding: 10px;
+}
+
+/*.board{
+	margin-right: 150px;
+	margin-left: 150px;
+	height: 400px;
+	width: 400px;
+	border: 1px solid black;
+}*/
+
+.squares {
+	margin: 0 auto;
+	/*margin-right: 500px;*/
+	height: 125px;
+	width: 125px;
+	border: 15px solid black;
+	float: right;
+	position: relative;
+	background-color: white;
+	font-size: 90px;
+	font-family: 'Alfa Slab One', cursive;;
+	text-align: center;
+/*	display: block;*/
+}
+
+#rowOne {
+	margin: 0 auto;
+	float: right;
+	margin-left: 325px;
+	display: block;
+	position: absolute;
+	/*max-width: 500px;*/
+}
+
+.clear {
+	clear: both;
+}
+
+#rowTwo {
+	margin: 0 auto;
+	float: right;
+	margin-left: 325px;
+	margin-top: 150px;
+	display: block;
+	position: absolute;
+}
+
+clear {
+	clear: both;
+}
+
+#rowThree {
+	margin: 0 auto;
+	float: right;
+	margin-left: 325px;
+	margin-top: 300px;
+	display: block;
+	position: absolute;
+}
+
+clear {
+	clear: both;
+}
+
+button {
+	float: right;
+	display: inline;
+	margin-top: 465px;
+	margin-bottom: 0;
+/*	margin-left: 530px;*/
+	position: absolute;
+}
+
+#start {
+	margin-left: 445px;
+}
+
+#reset {
+	margin-left: 610px;
+}
+
+
+
