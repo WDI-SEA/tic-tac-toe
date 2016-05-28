@@ -1,3 +1,14 @@
 h1 {
   color: purple;
 }
+
+.cells {
+  border: 1px solid purple;
+  height: 100px;
+  width: 100px;
+}
+
+.column {
+  float: left;
+}
+
