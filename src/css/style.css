@@ -2,10 +2,26 @@ h1 {
   color: purple;
 }
 
+.inactive {
+  background-color: lightgrey;
+}
+.highlightorange {
+  background-color: orange;
+  color: purple;
+}
+
+.highlightpurple {
+  background-color: purple;
+  color: ornage;
+}
+
 .cells {
   border: 1px solid purple;
   height: 100px;
   width: 100px;
+  font-size: 75px;
+  text-align: center;
+  line-height: 100px;
 }
 
 .column {
