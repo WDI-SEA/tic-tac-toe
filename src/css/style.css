@@ -39,3 +39,36 @@ h1 {
 .o {
   color: blue;
 }
+
+.option-box {
+  border: 1px solid black;
+  text-align: center;
+  margin: 10px auto;
+  font-size: 16pt;
+  font-family: sans-serif;
+  line-height: 50px;
+  height: 50px;
+}
+
+input[type=radio] {
+  /*vertical-align   : middle;*/
+  position: relative;
+  top: -3px;
+  size: 10px;
+  margin-right: 10px;
+}
+
+button {
+  margin-right: 10px;
+  height: 30px;
+  width: 100px;
+  border-radius: 10px;
+  background-color: white;
+  border: 1px solid black;
+  position: relative;
+  top: -3px;
+}
+
+.selected {
+  background-color: lightblue;
+}
