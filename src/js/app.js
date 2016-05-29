@@ -25,15 +25,14 @@ document.addEventListener('DOMContentLoaded', function() {
     if (count % 2 === 0) {
       square.classList.add('o');
       square.textContent = 'O';
-      count = count + 1;
-      square.removeEventListener('click', move);
     }
     else {
       square.classList.add('x');
       square.textContent = 'X';
-      count = count + 1;
-      square.removeEventListener('click', move);
     }
+
+    count = count + 1;
+    square.removeEventListener('click', move);
   };
 
   for (var i = 0; i < array.length; i++) {
