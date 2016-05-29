@@ -43,6 +43,16 @@ function offMouse(cell) {
   event.path[1].childNodes[1].style.backgroundColor = "white";
 }
 
+
+
+
+
+
+
+
+
+
+
 // ============== Main ================== //
 
 var turn = 0;
@@ -54,51 +64,71 @@ var board = [
 
 function clicked(cell) {
   var path = cell.path[1];
-  // var thisCell = board[getCoor(path.id,1)][getCoor(path.id,2)];
-  // var thisCell = board[Math.floor((path.id) / 3)][(path.id) % 3];
-  // var thisCell = getCell(path.id);
-  console.log(Math.floor((path.id) / 3), (path.id) % 3);
-  console.log(getCell(path.id));
-
+  // If cell is empty...
   if (getCell(path.id) == null) {
-    var symbol = getSymbol();
-    board[Math.floor((path.id) / 3)][(path.id) % 3] = symbol;
-
-    // color symbol before placing it
-    if (symbol == "X") {
-      path.classList.add("x");
-    } else {
-      path.classList.add("o");
-    }
-
-    // Place symbol
-    path.childNodes[1].textContent = symbol;
-    turn ++;
-
-    // If in single player... play computer
+    playMove(0, path);
+    // If in single player, play computer
     if (mode == 0) {
       computerPlay();
-      turn ++;
     }
   }
 }
 
 
-function getSymbol() {
-  if (mode == 1) {
-    if ((turn % 2) == 0) {
-      return "X";
-    } else {
-      return "O";
-    }
+// ======================================= //
+
+function getCell(num) {
+  return board[Math.floor(num / 3)][num % 3];
+}
+
+function getSymbol(player=0) {
+  if (mode == 1 && (turn % 2) == 1) {
+    return "O";
+  }
+  else if (mode == 0 && player == 1) {
+    return "O";
   }
   return "X";
 }
 
-function computerPlay() {
-  console.log(Math.floor(Math.random()*9));
+function randomCell() {
+  return Math.floor(Math.random()*9)
 }
 
-function getCell(num) {
-  return board[Math.floor(num / 3)][num % 3];
+function computerPlay() {
+  while (turn < 9) {
+    rand = randomCell();
+    if (getCell(rand) == null) {
+      // place symbol
+      playMove(1,null, rand);
+      break;
+    }
+  }
+
+}
+
+function playMove(player, htmlpath, computerCell=null) {
+  // If the computer is playing, it neds to pass in the cell number
+  // so that a html path can be generated
+  if (htmlpath === null) {
+    htmlpath = document.getElementById(computerCell);
+    console.log(htmlpath);
+  }
+
+  // Get Symbol and set it to the database's board
+  var symbol = getSymbol(player);
+  board[Math.floor((htmlpath.id) / 3)][(htmlpath.id) % 3] = symbol; // getSymbol() = symbol ?? Doesn't work
+
+  // color symbol before placing it
+  if (symbol == "X") {
+    htmlpath.classList.add("x");
+  }
+  else {
+    htmlpath.classList.add("o");
+  }
+
+  // Place symbol on html
+  htmlpath.childNodes[1].textContent = symbol;
+  turn ++;
+
 }
