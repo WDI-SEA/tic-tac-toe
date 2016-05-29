@@ -20,38 +20,38 @@ document.addEventListener('DOMContentLoaded', function() {
 
   var reset = document.getElementById('reset');
 
-
-
   function move(event) {
     var square = event.currentTarget;
-    if(count % 2 === 0) {
-    square.classList.add('o');
-    square.textContent = 'O';
-    count = count + 1;
-    console.log(count);
-    square.removeEventListener('click', move);
-  } else {
-    square.classList.add('x');
-    square.textContent = 'X';
-    count = count + 1;
-    console.log(count);
-    square.removeEventListener('click', move);
-  }
+
+    if (count % 2 === 0) {
+      square.classList.add('o');
+      square.textContent = 'O';
+      count = count + 1;
+      console.log(count);
+      square.removeEventListener('click', move);
+    }
+    else {
+      square.classList.add('x');
+      square.textContent = 'X';
+      count = count + 1;
+      console.log(count);
+      square.removeEventListener('click', move);
+    }
   };
 
-for (var i = 0; i < array.length; i++) {
-  array[i].addEventListener('click', move);
-};
-
-reset.addEventListener('click', function(event){
-  for (var i = 0; i < array.length; i++){
-    array[i].classList.remove('x');
-    array[i].classList.remove('o');
-    array[i].innerHTML = "&nbsp;";
-    count = 0;
+  for (var i = 0; i < array.length; i++) {
     array[i].addEventListener('click', move);
   };
-});
+
+  reset.addEventListener('click', function(event){
+    for (var i = 0; i < array.length; i++){
+      array[i].classList.remove('x');
+      array[i].classList.remove('o');
+      array[i].innerHTML = "&nbsp;";
+      count = 0;
+      array[i].addEventListener('click', move);
+    };
+  });
 
 });
 
