@@ -6,19 +6,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
   var count = 0;
 
-  var a = document.getElementById('a');
-  var b = document.getElementById('b');
-  var c = document.getElementById('c');
-  var d = document.getElementById('d');
-  var e = document.getElementById('e');
-  var f = document.getElementById('f');
-  var g = document.getElementById('g');
-  var h = document.getElementById('h');
-  var j = document.getElementById('j');
+  var array = [
+    document.getElementById('a'),
+    document.getElementById('b'),
+    document.getElementById('c'),
+    document.getElementById('d'),
+    document.getElementById('e'),
+    document.getElementById('f'),
+    document.getElementById('g'),
+    document.getElementById('h'),
+    document.getElementById('j')
+  ];
 
   var reset = document.getElementById('reset');
 
-  var array = [a, b, c, d, e, f, g, h, j];
+
 
   function move(event) {
     var square = event.currentTarget;
