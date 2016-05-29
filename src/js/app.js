@@ -1,11 +1,8 @@
-
 document.addEventListener('DOMContentLoaded', function() {
-
-  var container = document.getElementById('container');
 
   var count = 0;
 
-  var array = [
+  var squares = [
     document.getElementById('a'),
     document.getElementById('b'),
     document.getElementById('c'),
@@ -25,30 +22,27 @@ document.addEventListener('DOMContentLoaded', function() {
     if (count % 2 === 0) {
       square.classList.add('o');
       square.textContent = 'O';
-    }
-    else {
+    } else {
       square.classList.add('x');
       square.textContent = 'X';
     }
 
     count = count + 1;
     square.removeEventListener('click', move);
-  };
+  }
 
-  for (var i = 0; i < array.length; i++) {
-    array[i].addEventListener('click', move);
-  };
+  squares.forEach(function(square) {
+    square.addEventListener('click', move);
+  });
 
-  reset.addEventListener('click', function(event){
-    for (var i = 0; i < array.length; i++){
-      array[i].classList.remove('x');
-      array[i].classList.remove('o');
-      array[i].innerHTML = "&nbsp;";
+  reset.addEventListener('click', function() {
+    squares.forEach(function (square){
+      square.classList.remove('x');
+      square.classList.remove('o');
+      square.innerHTML = "&nbsp;";
+      square.addEventListener('click', move);
       count = 0;
-      array[i].addEventListener('click', move);
-    };
+    });
   });
 
 });
-
-//center board
