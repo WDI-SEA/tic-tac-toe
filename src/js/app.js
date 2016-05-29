@@ -1,6 +1,5 @@
 
 document.addEventListener('DOMContentLoaded', function() {
-  console.log('dom loaded');
 
   var container = document.getElementById('container');
 
@@ -27,14 +26,12 @@ document.addEventListener('DOMContentLoaded', function() {
       square.classList.add('o');
       square.textContent = 'O';
       count = count + 1;
-      console.log(count);
       square.removeEventListener('click', move);
     }
     else {
       square.classList.add('x');
       square.textContent = 'X';
       count = count + 1;
-      console.log(count);
       square.removeEventListener('click', move);
     }
   };
