@@ -1,3 +1,41 @@
 h1 {
   color: purple;
 }
+
+.main {
+  border: 1px solid red;
+}
+
+.container {
+  width: 610px;
+  height: 610px;
+  border: 1px solid red;
+  margin: 0 auto;
+}
+
+.generic {
+  border: 1px solid blue;
+  display: inline-block;
+  float: left;
+  width: 200px;
+  height: 200px;
+  margin: 0 0;
+}
+
+.xoro {
+  text-align: center;
+  line-height: 200px;
+  font-size: 120pt;
+  font-family: 'Permanent Marker', cursive;
+  border-radius: 20px;
+  border: 1px solid red;
+  height: 200px;
+}
+
+.x {
+  color: red;
+}
+
+.o {
+  color: blue;
+}
