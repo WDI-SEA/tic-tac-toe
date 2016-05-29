@@ -36,10 +36,10 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   reset.addEventListener('click', function() {
-    squares.forEach(function (square){
+    squares.forEach(function (square) {
       square.classList.remove('x');
       square.classList.remove('o');
-      square.innerHTML = "&nbsp;";
+      square.innerHTML = '&nbsp;';
       square.addEventListener('click', move);
       count = 0;
     });
