@@ -1,20 +1,46 @@
 h1 {
-  color: purple;
+  color: #323407;
+  text-align: center;
+  /*border: 1px solid red;*/
+  font-family: 'Lobster', cursive;
+  font-size: 38pt;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+body {
+  /*background-color: red;*/
+  background-image: url('../wall.png');
 }
 
 .main {
-  border: 1px solid red;
+  /*border: 1px solid red;*/
+  /*background-image: url('../frame.png');*/
+
 }
 
 .container {
+  width: 650px;
+  height: 650px;
+  border: 1px solid white;
+  margin: 0 auto;
+  background-image: url('../frame.png');
+  background-size: 650px 650px;
+  background-color: white;
+
+}
+
+.centerizer {
+  /*border: 1px solid purple;*/
   width: 610px;
   height: 610px;
-  border: 1px solid red;
   margin: 0 auto;
+  margin-top: 20px;
+
 }
 
 .generic {
-  border: 1px solid blue;
+  /*border: 1px solid blue;*/
   display: inline-block;
   float: left;
   width: 200px;
@@ -24,30 +50,37 @@ h1 {
 
 .xoro {
   text-align: center;
-  line-height: 200px;
+  line-height: 180px;
   font-size: 120pt;
   font-family: 'Permanent Marker', cursive;
   border-radius: 20px;
-  border: 1px solid red;
-  height: 200px;
+  /*border: 1px solid red;*/
+  height: 180px;
+  width: 180px;
+  margin: 10px 10px;
 }
 
 .x {
-  color: red;
+  color: #310C0C;
 }
 
 .o {
-  color: blue;
+  color: #0F0F2D;
 }
 
 .option-box {
-  border: 1px solid black;
+  /*border: 1px solid black;*/
   text-align: center;
   margin: 10px auto;
   font-size: 16pt;
   font-family: sans-serif;
   line-height: 50px;
   height: 50px;
+  /*width: 150px;*/
+  /*display: inline-block;*/
+  /*position: relative;*/
+  /*float: right;*/
+  /*top: 0;*/
 }
 
 input[type=radio] {

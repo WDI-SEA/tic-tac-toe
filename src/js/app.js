@@ -57,6 +57,7 @@ function offMouse(cell) {
 
 var turn = 0;
 var mode = 0;
+var lastMove = 0;
 var board = [
 [null,null,null],
 [null,null,null],
@@ -124,6 +125,7 @@ function playMove(player, htmlpath, computerCell=null) {
 
   // Get Symbol and set it to the database's board
   var symbol = getSymbol(player);
+  lastMove = htmlpath.id;
   board[Math.floor((htmlpath.id) / 3)][(htmlpath.id) % 3] = symbol; // getSymbol() = symbol ?? Doesn't work
 
   // color symbol before placing it
@@ -136,6 +138,9 @@ function playMove(player, htmlpath, computerCell=null) {
 
   // Place symbol on html
   htmlpath.childNodes[1].textContent = symbol;
+  if (turn > 2) {
+    win();
+  }
   turn ++;
   console.log("turn: " + turn);
 
@@ -144,18 +149,53 @@ function playMove(player, htmlpath, computerCell=null) {
 
 
 function computerPlay() {
+  // var move = getOpposite();
+  // if (getCell(move) !== null) {
+  //   console.log("Random Move");
+  //   randomPlay();
+  // } else {
+  //   console.log("opposite:", move);
+  //   playMove(1, null, move);
+  // }
+
   if (turn < 8) {
     console.log("Earlygame Random Move")
     randomPlay();
     return;
   }
 
-  // if (aiCalc() == 1) {
-  //   console.log("PERFORMING RANDOM MOVE")
-  //   randomPlay();
-  //   return;
-  // }
-
 }
 
+function win() {
+  for (var i=0; i<7; i++) {
+    if (get3(i) == "XXX") {
+      turn = 9;
+      window.alert("X Wins");
+    }
+    else if (get3(i) == "OOO") {
+      turn = 9;
+      window.alert("O Wins");
+    }
+  }
+}
 
+function get3(int) {
+  switch (int) {
+    case 0:
+      return board[0][0] + board[0][1] + board[0][2];
+    case 1:
+      return board[1][0] + board[1][1] + board[1][2];
+    case 2:
+      return board[2][0] + board[2][1] + board[2][2];
+    case 3:
+      return board[0][0] + board[1][0] + board[2][0];
+    case 4:
+      return board[0][1] + board[1][1] + board[2][1];
+    case 5:
+      return board[0][2] + board[1][2] + board[2][2];
+    case 6:
+      return board[0][0] + board[1][1] + board[2][2];
+    case 7:
+      return board[2][0] + board[1][1] + board[0][2];
+  }
+}
