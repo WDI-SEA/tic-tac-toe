@@ -113,24 +113,6 @@ function randomPlay() {
 
 // ==================================== //
 
-function computerPlay() {
-  if (turn < 3) {
-    console.log("Earlygame Random Move")
-    randomPlay();
-    return;
-  }
-  // if (aiCalc() == 1) {
-  //   console.log("PERFORMING RANDOM MOVE")
-  //   randomPlay();
-  //   return;
-  // }
-}
-
-
-
-
-
-
 
 function playMove(player, htmlpath, computerCell=null) {
   // If the computer is playing, it neds to pass in the cell number
@@ -158,3 +140,22 @@ function playMove(player, htmlpath, computerCell=null) {
   console.log("turn: " + turn);
 
 }
+
+
+
+function computerPlay() {
+  if (turn < 8) {
+    console.log("Earlygame Random Move")
+    randomPlay();
+    return;
+  }
+
+  // if (aiCalc() == 1) {
+  //   console.log("PERFORMING RANDOM MOVE")
+  //   randomPlay();
+  //   return;
+  // }
+
+}
+
+
