@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
 
   var gameBoard = [
-  [0,0,0],
-  [0,0,0],
-  [0,0,0]
+    [0,0,0],
+    [0,0,0],
+    [0,0,0]
   ];
 
 
@@ -22,149 +22,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // vars
   var messagebox = document.getElementById('messageBox');
+  var turn = 2;
 
-  var lookForNext = function (e) {
-    for(var rownum = 0; rownum < gameBoard.length; rownum++){
-      console.log("entered rown num loop " + rownum + " sweet ");
-      for(var cellnum = 0; cellnum < gameBoard[rownum].length; cellnum++){
-        console.log("entered column num loop " + cellnum + " sweet ");
-        if(gameBoard[rownum][cellnum] === 0){
-          console.log('look for next turned up a 0 at ' + gameBoard[rownum][cellnum] + " and replaced it with a 2");
-          gameBoard[rownum][cellnum] = 2;
-          // if(gameBoard)
-          // tleft.innerHTML = "<img src='../src/images/cointail.png'>";
-          // tleft.className = 'redBg';
-          console.log(JSON.stringify(gameBoard));
-          return gameBoard[rownum][cellnum];
-        }
-      }
-    }
-  };
-
-  var computerMove = function () {
-    move = Math.floor(Math.random()*9+1);
-    console.log(move);
-    switch(move) {
-      case 1:
-
-      if(gameBoard[0][0] === 0){
-        gameBoard[0][0] = 2;
-        console.log(JSON.stringify(gameBoard));
-        tleft.innerHTML = "<img src='../src/images/cointail.png'>";
-        tleft.className = 'redBg';
-      }else if(gameBoard[0][0] === (1 || 2)){
-        lookForNext();
-      }
-      break;
-
-      case 2:
-
-      if(gameBoard[0][1] === 0){
-        gameBoard[0][1] = 2;
-        console.log(JSON.stringify(gameBoard));
-        tmid.innerHTML = "<img src='../src/images/cointail.png'>";
-        tmid.className = 'redBg';
-
-      }else if(gameBoard[0][1] === (1 || 2)){
-        lookForNext();
-      }
-      break;
-
-      case 3:
-
-      if(gameBoard[0][2] === 0){
-        gameBoard[0][2] = 2;
-        console.log(JSON.stringify(gameBoard));
-        tright.innerHTML = "<img src='../src/images/cointail.png'>";
-        tright.className = 'redBg';
-
-      }else if(gameBoard[0][2] === (1 || 2)){
-        lookForNext();
-      }
-      break;
-
-      case 4:
-
-      if(gameBoard[1][0] === 0){
-        gameBoard[1][0] = 2;
-        console.log(JSON.stringify(gameBoard));
-        mleft.innerHTML = "<img src='../src/images/cointail.png'>";
-        mleft.className = 'redBg';
-
-      }else if(gameBoard[1][0] === (1 || 2)){
-        lookForNext();
-      }
-      break;
-
-      case 5:
-
-      if(gameBoard[1][1] === 0){
-        gameBoard[1][1] = 2;
-        console.log(JSON.stringify(gameBoard));
-        mmid.innerHTML = "<img src='../src/images/cointail.png'>";
-        mmid.className = 'redBg';
-
-      }else if(gameBoard[1][1] === (1 || 2)){
-        lookForNext();
-      }
-      break;
-
-      case 6:
-
-      if(gameBoard[1][2] === 0){
-        gameBoard[1][2] = 2;
-        console.log(JSON.stringify(gameBoard));
-        mright.innerHTML = "<img src='../src/images/cointail.png'>";
-        mright.className = 'redBg';
-
-      }else if(gameBoard[1][2] === (1 || 2)){
-        lookForNext();
-      }
-      break;
-
-      case 7:
-
-      if(gameBoard[2][0] === 0){
-        gameBoard[2][0] = 2;
-        console.log(JSON.stringify(gameBoard));
-        bleft.innerHTML = "<img src='../src/images/cointail.png'>";
-        bleft.className = 'redBg';
-
-      }else if(gameBoard[2][0] === (1 || 2)){
-        lookForNext();
-      }
-      break;
-
-      case 8:
-
-      if(gameBoard[2][1] === 0){
-        gameBoard[2][1] = 2;
-        console.log(JSON.stringify(gameBoard));
-        bmid.innerHTML = "<img src='../src/images/cointail.png'>";
-        bmid.className = 'redBg';
-
-      }else if(gameBoard[2][1] === (1 || 2)){
-        lookForNext();
-      }
-      break;
-
-      case 9:
-
-      if(gameBoard[2][2] === 0){
-        gameBoard[2][2] = 2;
-        console.log(JSON.stringify(gameBoard));
-        bright.innerHTML = "<img src='../src/images/cointail.png'>";
-        bright.className = 'redBg';
-
-      }else if(gameBoard[2][2] === (1 || 2)){
-        lookForNext();
-      }
-      break;
-
-      default:
-
-    }
-  };
 
 
   // lots of if statements checking board positions by accessing
@@ -252,109 +111,183 @@ document.addEventListener('DOMContentLoaded', function() {
 
   tleft.addEventListener('click', function() {
     if(gameBoard[0][0] === 0){
-
+      if(turn % 2 === 0){
         tleft.innerHTML = "<img src='images/coinhead.png'>";
         gameBoard[0][0] = 1;
+        console.log(gameBoard);
         tleft.className = 'blueBg';
-        computerMove();
+        console.log(tleft.className);
+        turn += 1;
         winState();
-
+      }else{
+        tleft.innerHTML = "<img src='images/cointail.png'>";
+        gameBoard[0][0] = 2;
+        tleft.className = 'redBg';
+        turn += 1;
+        winState();
+      }
     }
   });
 
   tmid.addEventListener('click', function() {
     if(gameBoard[0][1] === 0){
-
+      if(turn % 2 === 0){
         tmid.innerHTML = "<img src='images/coinhead.png'>";
         gameBoard[0][1] = 1;
         tmid.className = 'blueBg';
-        computerMove();
+        turn += 1;
         winState();
-
+      }else{
+        tmid.innerHTML = "<img src='images/cointail.png'>";
+        gameBoard[0][1] = 2;
+        tmid.className = 'redBg';
+        turn += 1;
+        winState();
+      }
     }
   });
 
   tright.addEventListener('click', function() {
     if(gameBoard[0][2] === 0){
-
+      if(turn % 2 === 0){
         tright.innerHTML = "<img src='images/coinhead.png'>";
         gameBoard[0][2] = 1;
         tright.className = 'blueBg';
-        computerMove();
+        turn += 1;
         winState();
-
+      }else{
+        tright.innerHTML = "<img src='images/cointail.png'>";
+        gameBoard[0][2] = 2;
+        tright.className = 'redBg';
+        turn += 1;
+        winState();
+      }
     }
   });
 
   mleft.addEventListener('click', function() {
     if(gameBoard[1][0] === 0){
-
+      if(turn % 2 === 0){
         mleft.innerHTML = "<img src='images/coinhead.png'>";
         gameBoard[1][0] = 1;
         mleft.className = 'blueBg';
-        computerMove();
+        turn += 1;
         winState();
-
+      }else{
+        mleft.innerHTML = "<img src='images/cointail.png'>";
+        gameBoard[1][0] = 2;
+        mleft.className = 'redBg';
+        turn += 1;
+        winState();
+      }
     }
   });
 
   mmid.addEventListener('click', function() {
     if(gameBoard[1][1] === 0){
-
+      if(turn % 2 === 0){
         mmid.innerHTML = "<img src='images/coinhead.png'>";
         gameBoard[1][1] = 1;
         mmid.className = 'blueBg';
-        computerMove();
+        turn += 1;
         winState();
-
+      }else{
+        mmid.innerHTML = "<img src='images/cointail.png'>";
+        gameBoard[1][1] = 2;
+        mmid.className = 'redBg';
+        turn += 1;
+        winState();
+      }
     }
   });
 
   mright.addEventListener('click', function() {
     if(gameBoard[1][2] === 0){
-
+      if(turn % 2 === 0){
         mright.innerHTML = "<img src='images/coinhead.png'>";
         gameBoard[1][2] = 1;
         mright.className = 'blueBg';
-        computerMove();
+        turn += 1;
         winState();
-
+      }else{
+        mright.innerHTML = "<img src='images/cointail.png'>";
+        gameBoard[1][2] = 2;
+        mright.className = 'redBg';
+        turn += 1;
+        winState();
+      }
     }
   });
 
   bleft.addEventListener('click', function() {
     if(gameBoard[2][0] === 0){
-
+      if(turn % 2 === 0){
         bleft.innerHTML = "<img src='images/coinhead.png'>";
         gameBoard[2][0] = 1;
         bleft.className = 'blueBg';
-        computerMove();
+        turn += 1;
         winState();
+      }else{
+        bleft.innerHTML = "<img src='images/cointail.png'>";
+        gameBoard[2][0] = 2;
+        bleft.className = 'redBg';
+        turn += 1;
+        winState();
+      }
+    }
+  });
 
+  bleft.addEventListener('click', function() {
+    if(gameBoard[2][0] === 0){
+      if(turn % 2 === 0){
+        bleft.innerHTML = "<img src='images/coinhead.png'>";
+        gameBoard[2][0] = 1;
+        bleft.className = 'blueBg';
+        turn += 1;
+        winState();
+      }else{
+        bleft.innerHTML = "<img src='images/cointail.png'>";
+        gameBoard[2][0] = 2;
+        bleft.className = 'redBg';
+        turn += 1;
+        winState();
+      }
     }
   });
 
   bmid.addEventListener('click', function() {
     if(gameBoard[2][1] === 0){
-
+      if(turn % 2 === 0){
         bmid.innerHTML = "<img src='images/coinhead.png'>";
         gameBoard[2][1] = 1;
         bmid.className = 'blueBg';
-        computerMove();
+        turn += 1;
         winState();
-
+      }else{
+        bmid.innerHTML = "<img src='images/cointail.png'>";
+        gameBoard[2][1] = 2;
+        bmid.className = 'redBg';
+        turn += 1;
+        winState();
+      }
     }
   });
 
   bright.addEventListener('click', function() {
     if(gameBoard[2][2] === 0){
-
+      if(turn % 2 === 0){
         bright.innerHTML = "<img src='images/coinhead.png'>";
         gameBoard[2][2] = 1;
         bright.className = 'blueBg';
-        computerMove();
+        turn += 1;
         winState();
-
+      }else{
+        bright.innerHTML = "<img src='images/cointail.png'>";
+        gameBoard[2][2] = 2;
+        bright.className = 'redBg';
+        turn += 1;
+        winState();
+      }
     }
   });
 

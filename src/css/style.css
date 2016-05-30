@@ -1,3 +1,39 @@
-h1 {
-  color: purple;
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+}
+
+.board > div > div {
+  width: 90px;
+  height: 90px;
+  display: inline-block;
+  border: 1px solid black;
+  vertical-align: top;
+}
+
+img {
+  width: 98%;
+  height: 98%;
+}
+
+#messageBox {
+  background-color: gray;
+  display: inline;
+  float: left;
+  width: 400px;
+  height: 120px;
+}
+
+#coinhead {
+  width: 100px;
+  height: 100px;
+  float: right;
+}
+
+.blueBg {
+  background-color: blue;
+}
+
+.redBg {
+  background-color: red;
 }
