@@ -29,69 +29,90 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var lookForNext = function() {
         for (var rownum = 0; rownum < gameBoard.length; rownum++) {
-          if(turn % 2 === 1){
+
             for (var cellnum = 0; cellnum < gameBoard[rownum].length; cellnum++) {
-                console.log("entered column num loop " + cellnum + " sweet ");
-                    console.log('look for next turned up a 0 at cellnum ' + gameBoard[rownum][cellnum] + " and replaced it with a 2");
+
+                if (turn % 2 === 1) {
                     if (gameBoard[rownum][cellnum] === gameBoard[0][0] && gameBoard[0][0] === 0) {
-                        gameBoard[0][0] = 2;
+                        console.log('look for next turned up a 0 at cellnum ' + gameBoard[rownum][cellnum] + " at rownum " + rownum + " and replaced it with a 2");
+
+
                         turn++;
                         tleft.className = 'redBg';
                         tleft.innerHTML = "<img src='images/cointail.png'>";
-                        break;
-                      // }
+                        return gameBoard[0][0] = 2;
+                        // }
                     } else if (gameBoard[rownum][cellnum] === gameBoard[0][1] && gameBoard[0][1] === 0) {
-                        gameBoard[0][1] = 2;
+                        console.log('look for next turned up a 0 at cellnum ' + gameBoard[rownum][cellnum] + " at rownum " + rownum + " and replaced it with a 2");
+
+
+
+
                         turn++;
                         tmid.className = 'redBg';
                         tmid.innerHTML = "<img src='images/cointail.png'>";
-                        break;
+                        return gameBoard[0][1] = 2;
                     } else if (gameBoard[rownum][cellnum] === gameBoard[0][2] && gameBoard[0][2] === 0) {
-                        gameBoard[0][2] = 2;
+                        console.log('look for next turned up a 0 at cellnum ' + gameBoard[rownum][cellnum] + " at rownum " + rownum + " and replaced it with a 2");
+
+
+
                         turn++;
                         tright.className = 'redBg';
                         tright.innerHTML = "<img src='images/cointail.png'>";
-                        break;
+                        return gameBoard[0][2] = 2;
                     } else if (gameBoard[rownum][cellnum] === gameBoard[1][0] && gameBoard[1][0] === 0) {
-                        gameBoard[1][0] = 2;
+                        console.log('look for next turned up a 0 at cellnum ' + gameBoard[rownum][cellnum] + " at rownum " + rownum + " and replaced it with a 2");
+
+
                         turn++;
                         mleft.className = 'redBg';
                         mleft.innerHTML = "<img src='images/cointail.png'>";
-                        break;
+                        return gameBoard[1][0] = 2;
                     } else if (gameBoard[rownum][cellnum] === gameBoard[1][1] && gameBoard[1][1] === 0) {
-                        gameBoard[1][1] = 2;
+                        console.log('look for next turned up a 0 at cellnum ' + gameBoard[rownum][cellnum] + " at rownum " + rownum + " and replaced it with a 2");
+
+
                         turn++;
                         mmid.className = 'redBg';
                         mmid.innerHTML = "<img src='images/cointail.png'>";
-                        break;
+                        return gameBoard[1][1] = 2;
                     } else if (gameBoard[rownum][cellnum] === gameBoard[1][2] && gameBoard[1][2] === 0) {
-                        gameBoard[1][2] = 2;
+                        console.log('look for next turned up a 0 at cellnum ' + gameBoard[rownum][cellnum] + " at rownum " + rownum + " and replaced it with a 2");
+
+
                         turn++;
                         mright.className = 'redBg';
                         mright.innerHTML = "<img src='images/cointail.png'>";
-                        break;
+                        return gameBoard[1][2] = 2;
                     } else if (gameBoard[rownum][cellnum] === gameBoard[2][0] && gameBoard[2][0] === 0) {
-                        gameBoard[2][0] = 2;
+                        console.log('look for next turned up a 0 at cellnum ' + gameBoard[rownum][cellnum] + " at rownum " + rownum + " and replaced it with a 2");
+
+
                         turn++;
                         bleft.className = 'redBg';
                         bleft.innerHTML = "<img src='images/cointail.png'>";
-                        break;
+                        return gameBoard[2][0] = 2;
                     } else if (gameBoard[rownum][cellnum] === gameBoard[2][1] && gameBoard[2][1] === 0) {
-                        gameBoard[2][1] = 2;
+                        console.log('look for next turned up a 0 at cellnum ' + gameBoard[rownum][cellnum] + " at rownum " + rownum + " and replaced it with a 2");
+
+
                         turn++;
                         bmid.className = 'redBg';
                         bmid.innerHTML = "<img src='images/cointail.png'>";
-                        break;
+                        return gameBoard[2][1] = 2;
                     } else if (gameBoard[rownum][cellnum] === gameBoard[2][2] && gameBoard[2][2] === 0) {
-                        gameBoard[2][2] = 2;
+                        console.log('look for next turned up a 0 at cellnum ' + gameBoard[rownum][cellnum] + " at rownum " + rownum + " and replaced it with a 2");
+
+
                         turn++;
                         bright.className = 'redBg';
                         bright.innerHTML = "<img src='images/cointail.png'>";
-                        break;
+                        return gameBoard[2][2] = 2;
                     }
                 }
                 break;
-          }
+            }
         }
     };
 
@@ -109,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     lookForNext();
                 }
                 break;
-              }
+        }
         switch (move) {
             case 2:
                 if (gameBoard[0][1] === 0) {
@@ -121,7 +142,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     lookForNext();
                 }
                 break;
-              }
+        }
         switch (move) {
             case 3:
                 if (gameBoard[0][2] === 0) {
@@ -133,7 +154,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     lookForNext();
                 }
                 break;
-              }
+        }
         switch (move) {
             case 4:
                 if (gameBoard[1][0] === 0) {
@@ -145,7 +166,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     lookForNext();
                 }
                 break;
-              }
+        }
         switch (move) {
             case 5:
                 if (gameBoard[1][1] === 0) {
@@ -157,7 +178,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     lookForNext();
                 }
                 break;
-              }
+        }
         switch (move) {
             case 6:
                 if (gameBoard[1][2] === 0) {
@@ -169,7 +190,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     lookForNext();
                 }
                 break;
-              }
+        }
         switch (move) {
             case 7:
                 if (gameBoard[2][0] === 0) {
@@ -181,7 +202,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     lookForNext();
                 }
                 break;
-              }
+        }
         switch (move) {
             case 8:
                 if (gameBoard[2][1] === 0) {
@@ -193,7 +214,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     lookForNext();
                 }
                 break;
-              }
+        }
         switch (move) {
             case 9:
                 if (gameBoard[2][2] === 0) {
@@ -204,7 +225,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 } else {
                     lookForNext();
                 }
-              }
+                break;
+        }
     };
 
 
@@ -282,118 +304,118 @@ document.addEventListener('DOMContentLoaded', function() {
 
     tleft.addEventListener('click', function() {
         if (gameBoard[0][0] === 0) {
-          // if (turn % 2 === 0){
+            // if (turn % 2 === 0){
             tleft.innerHTML = "<img src='images/coinhead.png'>";
             gameBoard[0][0] = 1;
             tleft.className = 'blueBg';
             turn++;
             computerMove();
             winState();
-          // }
+            // }
         }
     });
 
     tmid.addEventListener('click', function() {
         if (gameBoard[0][1] === 0) {
-          // if (turn % 2 === 0){
+            // if (turn % 2 === 0){
             tmid.innerHTML = "<img src='images/coinhead.png'>";
             gameBoard[0][1] = 1;
             tmid.className = 'blueBg';
             turn++;
             computerMove();
             winState();
-          // }
+            // }
         }
     });
 
     tright.addEventListener('click', function() {
         if (gameBoard[0][2] === 0) {
-          // if (turn % 2 === 0){
+            // if (turn % 2 === 0){
             tright.innerHTML = "<img src='images/coinhead.png'>";
             gameBoard[0][2] = 1;
             tright.className = 'blueBg';
             turn++;
             computerMove();
             winState();
-          // }
+            // }
         }
     });
 
     mleft.addEventListener('click', function() {
         if (gameBoard[1][0] === 0) {
-          // if (turn % 2 === 0){
+            // if (turn % 2 === 0){
             mleft.innerHTML = "<img src='images/coinhead.png'>";
             gameBoard[1][0] = 1;
             mleft.className = 'blueBg';
             turn++;
             computerMove();
             winState();
-          // }
+            // }
         }
     });
 
     mmid.addEventListener('click', function() {
         if (gameBoard[1][1] === 0) {
-          // if (turn % 2 === 0){
+            // if (turn % 2 === 0){
             mmid.innerHTML = "<img src='images/coinhead.png'>";
             gameBoard[1][1] = 1;
             mmid.className = 'blueBg';
-            turn ++;
+            turn++;
             computerMove();
             winState();
-          // }
+            // }
         }
     });
 
     mright.addEventListener('click', function() {
         if (gameBoard[1][2] === 0) {
-          // if (turn % 2 === 0){
+            // if (turn % 2 === 0){
             mright.innerHTML = "<img src='images/coinhead.png'>";
             gameBoard[1][2] = 1;
             mright.className = 'blueBg';
             turn++;
             computerMove();
             winState();
-          // }
+            // }
         }
     });
 
     bleft.addEventListener('click', function() {
         if (gameBoard[2][0] === 0) {
-          // if (turn % 2 === 0){
+            // if (turn % 2 === 0){
             bleft.innerHTML = "<img src='images/coinhead.png'>";
             gameBoard[2][0] = 1;
             bleft.className = 'blueBg';
             turn++;
             computerMove();
             winState();
-          // }
+            // }
         }
     });
 
     bmid.addEventListener('click', function() {
         if (gameBoard[2][1] === 0) {
-          // if (turn % 2 === 0){
+            // if (turn % 2 === 0){
             bmid.innerHTML = "<img src='images/coinhead.png'>";
             gameBoard[2][1] = 1;
             bmid.className = 'blueBg';
             turn++;
             computerMove();
             winState();
-          // }
+            // }
         }
     });
 
     bright.addEventListener('click', function() {
         if (gameBoard[2][2] === 0) {
-          // if (turn % 2 === 0){
+            // if (turn % 2 === 0){
             bright.innerHTML = "<img src='images/coinhead.png'>";
             gameBoard[2][2] = 1;
             bright.className = 'blueBg';
             turn++;
             computerMove();
             winState();
-          // }
+            // }
         }
     });
 
