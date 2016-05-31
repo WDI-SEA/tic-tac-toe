@@ -1,3 +1,77 @@
-h1 {
-  color: purple;
+
+.Square {
+  width:60px;
+  height: 60px;
+  text-align:center;
+  font-size: 30pt;
+  font-weight: bold;
+  font-family: Arial;
 }
+
+body {
+  text-align: center;
+}
+
+h1 {
+  color: blue;
+  font-size: 50px;
+}
+
+
+
+
+/*
+
+body{
+  background-color: #333;
+  color: white;
+}
+h1 {
+  text-align:center;
+  color: white;
+}
+
+.greenColor {
+  background-color: green;
+  font-color: white;
+}
+
+.redColor {
+  background-color: red;
+  font-color: white;
+}
+
+.Square {
+  width:60px;
+  height: 60px;
+  text-align:center;
+  font-size: 30pt;
+  font-weight: bold;
+  font-family: Arial;
+}
+
+table{
+  margin:50px auto;
+  border:10px solid red;
+}
+.btn{
+  margin:10px auto;
+}
+#user{
+  background-color: blue;
+  width:500px;
+  height:200px;
+  margin:20px auto;
+  border-radius:10px;
+}
+#x,#o{
+  font-size:3em;
+  padding:20px;
+  width:100px;
+  margin-top:50px;
+  margin-left:50px;
+  margin-right:50px;
+}
+
+
+*/
