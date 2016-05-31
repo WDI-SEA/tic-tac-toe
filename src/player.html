@@ -9,38 +9,47 @@
 </head>
 <body>
 
+  <div id="mainContainer">
 
-  <div class="board">
+    <div class="board">
 
-    <div class="rowone">
-      <div id="tleft"></div>
-      <div id="tmid"></div>
-      <div id="tright"></div>
+      <div class="rowone">
+        <div id="tleft"></div>
+        <div id="tmid"></div>
+        <div id="tright"></div>
+      </div>
+
+      <div class="rowtwo">
+        <div id="mleft"></div>
+        <div id="mmid"></div>
+        <div id="mright"></div>
+      </div>
+
+      <div class="rowthree">
+        <div id="bleft"></div>
+        <div id="bmid"></div>
+        <div id="bright"></div>
+      </div>
+
     </div>
 
-    <div class="rowtwo">
-      <div id="mleft"></div>
-      <div id="mmid"></div>
-      <div id="mright"></div>
+    <div id="lowerContainer">
+
+
+      <div id="innerLowerContainer">
+        <p>You're playing player vs player mode!
+        </p>
+        <form id="restartButton"><button>Start over!</button></form>
+        <a href="index.html">Change to Player VS Computer</a>
+      </div>
+
+      <div id="messageBox">
+
+      </div>
+
     </div>
-
-    <div class="rowthree">
-      <div id="bleft"></div>
-      <div id="bmid"></div>
-      <div id="bright"></div>
-    </div>
-
   </div>
 
-  <div>
-    <form><button>Start over!</button></form>
-    <a href="index.html">Player VS Computer</a>
-  </div>
-
-
-
-  <div id="messageBox">
-  </div>
   <script type="text/javascript" src="js/player.js"></script>
 
 </body>

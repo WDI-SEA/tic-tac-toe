@@ -24,6 +24,12 @@ document.addEventListener('DOMContentLoaded', function() {
   var messagebox = document.getElementById('messageBox');
   var turn = 2;
 
+  var winMessage = function() {
+    messagebox.style.zIndex = "100";
+    messagebox.style.opacity = "0.3";
+    messagebox.style.fontSize = "50px";
+  };
+
 
 
   // lots of if statements checking board positions by accessing
@@ -36,72 +42,88 @@ document.addEventListener('DOMContentLoaded', function() {
         // checking rows for a win
         if((gameBoard[0][0] === 1 && gameBoard[0][1] === 1 && gameBoard[0][2] === 1)){
           messagebox.innerHTML = "You win!";
+          winMessage();
           console.log(JSON.stringify(gameBoard));
         }
         else if((gameBoard[1][0] === 1 && gameBoard[1][1] === 1 && gameBoard[1][2] === 1)){
           messagebox.innerHTML = "You win!";
+          winMessage();
           console.log(JSON.stringify(gameBoard));
         }
         else if((gameBoard[2][0] === 1 && gameBoard[2][1] === 1 && gameBoard[2][2] === 1)){
           messagebox.innerHTML = "You win!";
+          winMessage();
           console.log(JSON.stringify(gameBoard));
         }
         // checking columns for a win
         else if((gameBoard[0][0] === 1 && gameBoard[1][0] === 1 && gameBoard[2][0] === 1)){
           messagebox.innerHTML = "You win!";
+          winMessage();
           console.log(JSON.stringify(gameBoard));
         }
         else if((gameBoard[0][1] === 1 && gameBoard[1][1] === 1 && gameBoard[2][1] === 1)){
           messagebox.innerHTML = "You win!";
+          winMessage();
           console.log(JSON.stringify(gameBoard));
         }
         else if((gameBoard[0][2] === 1 && gameBoard[1][2] === 1 && gameBoard[2][2] === 1)){
           messagebox.innerHTML = "You win!";
+          winMessage();
           console.log(JSON.stringify(gameBoard));
         }
         // checking diags for a win
         else if((gameBoard[0][0] === 1 && gameBoard[1][1] === 1 && gameBoard[2][2] === 1)){
           messagebox.innerHTML = "You win!";
+          winMessage();
           console.log(JSON.stringify(gameBoard));
         }
         else if((gameBoard[0][2] === 1 && gameBoard[1][1] === 1 && gameBoard[2][0] === 1)){
           messagebox.innerHTML = "You win!";
+          winMessage();
           console.log(JSON.stringify(gameBoard));
         }
         // other player win check
         // checking rows for a win
         else if((gameBoard[0][0] === 2 && gameBoard[0][1] === 2 && gameBoard[0][2] === 2)){
           messagebox.innerHTML = "The second player won!";
+          winMessage();
           console.log(JSON.stringify(gameBoard));
         }
         else if((gameBoard[1][0] === 2 && gameBoard[1][1] === 2 && gameBoard[1][2] === 2)){
           messagebox.innerHTML = "The second player won!";
+          winMessage();
           console.log(JSON.stringify(gameBoard));
         }
         else if((gameBoard[2][0] === 2 && gameBoard[2][1] === 2 && gameBoard[2][2] === 2)){
           messagebox.innerHTML = "The second player won!";
+          winMessage();
           console.log(JSON.stringify(gameBoard));
         }
         // checking columns for a win
         else if((gameBoard[0][0] === 2 && gameBoard[1][0] === 2 && gameBoard[2][0] === 2)){
           messagebox.innerHTML = "The second player won!";
+          winMessage();
           console.log(JSON.stringify(gameBoard));
         }
         else if((gameBoard[0][1] === 2 && gameBoard[1][1] === 2 && gameBoard[2][1] === 2)){
           messagebox.innerHTML = "The second player won!";
+          winMessage();
           console.log(JSON.stringify(gameBoard));
         }
         else if((gameBoard[2][0] === 2 && gameBoard[2][1] === 2 && gameBoard[2][2] === 2)){
           messagebox.innerHTML = "The second player won!";
+          winMessage();
           console.log(JSON.stringify(gameBoard));
         }
         // checking diags for a win
         else if((gameBoard[0][0] === 2 && gameBoard[1][1] === 2 && gameBoard[2][2] === 2)){
           messagebox.innerHTML = "The second player won!";
+          winMessage();
           console.log(JSON.stringify(gameBoard));
         }
         else if((gameBoard[0][2] === 2 && gameBoard[1][1] === 2 && gameBoard[2][0] === 2)){
           messagebox.innerHTML = "The second player won!";
+          winMessage();
           console.log(JSON.stringify(gameBoard));
         }
 
