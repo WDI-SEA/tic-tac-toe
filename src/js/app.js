@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         return gameBoard[2][2] = 2;
                     }
                 }
-                break;
+                // break;
             }
         }
     };
@@ -143,6 +143,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (gameBoard[0][0] === 0) {
                     console.log('move' + "1");
                     tleft.innerHTML = "<img src='images/cointail.png'>";
+                    console.log(turn + ' <-- before this turn');
                     turn++;
                     console.log(turn + ' <--this turn');
 
@@ -157,6 +158,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (gameBoard[0][1] === 0) {
                     console.log('move' + "2");
                     tmid.innerHTML = "<img src='images/cointail.png'>";
+                    console.log(turn + ' <-- before this turn');
                     turn++;
                     console.log(turn + ' <--this turn');
 
@@ -171,6 +173,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (gameBoard[0][2] === 0) {
                     console.log('move' + "3");
                     tright.innerHTML = "<img src='images/cointail.png'>";
+                    console.log(turn + ' <-- before this turn');
                     turn++;
                     console.log(turn + ' <--this turn');
 
@@ -185,6 +188,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (gameBoard[1][0] === 0) {
                     console.log('move' + "4");
                     mleft.innerHTML = "<img src='images/cointail.png'>";
+                    console.log(turn + ' <-- before this turn');
                     turn++;
                     console.log(turn + ' <--this turn');
 
@@ -199,6 +203,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (gameBoard[1][1] === 0) {
                     console.log('move' + "5");
                     mmid.innerHTML = "<img src='images/cointail.png'>";
+                    console.log(turn + ' <-- before this turn');
                     turn++;
                     console.log(turn + ' <--this turn');
 
@@ -213,6 +218,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (gameBoard[1][2] === 0) {
                     console.log('move' + "6");
                     mright.innerHTML = "<img src='images/cointail.png'>";
+                    console.log(turn + ' <-- before this turn');
                     turn++;
                     console.log(turn + ' <--this turn');
 
@@ -227,6 +233,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (gameBoard[2][0] === 0) {
                     console.log('move' + "7");
                     bleft.innerHTML = "<img src='images/cointail.png'>";
+                    console.log(turn + ' <-- before this turn');
                     turn++;
                     console.log(turn + ' <--this turn');
 
@@ -241,6 +248,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (gameBoard[2][1] === 0) {
                     console.log('move' + "8");
                     bmid.innerHTML = "<img src='images/cointail.png'>";
+                    console.log(turn + ' <-- before this turn');
                     turn++;
                     console.log(turn + ' <--this turn');
 
@@ -255,6 +263,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (gameBoard[2][2] === 0) {
                     console.log('move' + "9");
                     bright.innerHTML = "<img src='images/cointail.png'>";
+                    console.log(turn + ' <-- before this turn');
                     turn++;
                     console.log(turn + ' <--this turn');
 
