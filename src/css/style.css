@@ -1,3 +1,78 @@
 h1 {
   color: purple;
+  text-align: center;
 }
+
+body {
+  text-align: center;
+  font-size: 16px;
+  font-family: Helvetica, sans-serif;
+}
+
+.game {
+  margin-left: auto;
+  margin-right: auto;
+  width: 551px;
+}
+
+.row {
+
+}
+
+.row > div {
+height: 175px;
+width: 175px;
+text-align: center;
+font-size: 120px;
+border: 2px solid black;
+border-radius: 10%;
+float: left;
+}
+
+#row1 {
+float: left;
+}
+
+#row2 {
+float: left;
+}
+
+.boxbgblue {
+  background-color: blue;
+}
+
+.boxbgred {
+  background-color: red;
+}
+
+#player1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#player2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#resetbtn {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+.player1turn {
+  background-color: blue;
+  color: white;
+  font-weight: 400;
+
+}
+
+.player2turn {
+  background-color: red;
+  color: white;
+  font-weight: 400;
+
+}
+
