@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // vars
     var messagebox = document.getElementById('messageBox');
     var turn = 2;
+    console.log(turn + ' <--this turn');
 
 
 
@@ -38,6 +39,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
                         turn++;
+                        console.log(turn + ' <--this turn');
+
                         tleft.className = 'redBg';
                         tleft.innerHTML = "<img src='images/cointail.png'>";
                         return gameBoard[0][0] = 2;
@@ -49,6 +52,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
                         turn++;
+                        console.log(turn + ' <--this turn');
+
                         tmid.className = 'redBg';
                         tmid.innerHTML = "<img src='images/cointail.png'>";
                         return gameBoard[0][1] = 2;
@@ -58,6 +63,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
                         turn++;
+                        console.log(turn + ' <--this turn');
+
                         tright.className = 'redBg';
                         tright.innerHTML = "<img src='images/cointail.png'>";
                         return gameBoard[0][2] = 2;
@@ -66,6 +73,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
                         turn++;
+                        console.log(turn + ' <--this turn');
+
                         mleft.className = 'redBg';
                         mleft.innerHTML = "<img src='images/cointail.png'>";
                         return gameBoard[1][0] = 2;
@@ -74,6 +83,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
                         turn++;
+                        console.log(turn + ' <--this turn');
+
                         mmid.className = 'redBg';
                         mmid.innerHTML = "<img src='images/cointail.png'>";
                         return gameBoard[1][1] = 2;
@@ -82,6 +93,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
                         turn++;
+                        console.log(turn + ' <--this turn');
+
                         mright.className = 'redBg';
                         mright.innerHTML = "<img src='images/cointail.png'>";
                         return gameBoard[1][2] = 2;
@@ -90,6 +103,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
                         turn++;
+                        console.log(turn + ' <--this turn');
+
                         bleft.className = 'redBg';
                         bleft.innerHTML = "<img src='images/cointail.png'>";
                         return gameBoard[2][0] = 2;
@@ -98,6 +113,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
                         turn++;
+                        console.log(turn + ' <--this turn');
+
                         bmid.className = 'redBg';
                         bmid.innerHTML = "<img src='images/cointail.png'>";
                         return gameBoard[2][1] = 2;
@@ -106,6 +123,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
                         turn++;
+                        console.log(turn + ' <--this turn');
+
                         bright.className = 'redBg';
                         bright.innerHTML = "<img src='images/cointail.png'>";
                         return gameBoard[2][2] = 2;
@@ -122,111 +141,134 @@ document.addEventListener('DOMContentLoaded', function() {
         switch (move) {
             case 1:
                 if (gameBoard[0][0] === 0) {
+                    console.log('move' + "1");
                     tleft.innerHTML = "<img src='images/cointail.png'>";
-                    gameBoard[0][0] = 2;
                     turn++;
+                    console.log(turn + ' <--this turn');
+
                     tleft.className = 'redBg';
+                    gameBoard[0][0] = 2;
                 } else {
                     lookForNext();
                 }
                 break;
-        }
-        switch (move) {
+
             case 2:
                 if (gameBoard[0][1] === 0) {
+                    console.log('move' + "2");
                     tmid.innerHTML = "<img src='images/cointail.png'>";
-                    gameBoard[0][1] = 2;
                     turn++;
+                    console.log(turn + ' <--this turn');
+
                     tmid.className = 'redBg';
+                    gameBoard[0][1] = 2;
                 } else {
                     lookForNext();
                 }
                 break;
-        }
-        switch (move) {
+
             case 3:
                 if (gameBoard[0][2] === 0) {
+                    console.log('move' + "3");
                     tright.innerHTML = "<img src='images/cointail.png'>";
-                    gameBoard[0][2] = 2;
                     turn++;
+                    console.log(turn + ' <--this turn');
+
                     tright.className = 'redBg';
+                    gameBoard[0][2] = 2;
                 } else {
                     lookForNext();
                 }
                 break;
-        }
-        switch (move) {
+
             case 4:
                 if (gameBoard[1][0] === 0) {
+                    console.log('move' + "4");
                     mleft.innerHTML = "<img src='images/cointail.png'>";
-                    gameBoard[1][0] = 2;
                     turn++;
+                    console.log(turn + ' <--this turn');
+
                     mleft.className = 'redBg';
+                    gameBoard[1][0] = 2;
                 } else {
                     lookForNext();
                 }
                 break;
-        }
-        switch (move) {
+
             case 5:
                 if (gameBoard[1][1] === 0) {
+                    console.log('move' + "5");
                     mmid.innerHTML = "<img src='images/cointail.png'>";
-                    gameBoard[1][1] = 2;
                     turn++;
+                    console.log(turn + ' <--this turn');
+
                     mmid.className = 'redBg';
+                    gameBoard[1][1] = 2;
                 } else {
                     lookForNext();
                 }
                 break;
-        }
-        switch (move) {
+
             case 6:
                 if (gameBoard[1][2] === 0) {
+                    console.log('move' + "6");
                     mright.innerHTML = "<img src='images/cointail.png'>";
-                    gameBoard[1][2] = 2;
                     turn++;
+                    console.log(turn + ' <--this turn');
+
                     mright.className = 'redBg';
+                    gameBoard[1][2] = 2;
                 } else {
                     lookForNext();
                 }
                 break;
-        }
-        switch (move) {
+
             case 7:
                 if (gameBoard[2][0] === 0) {
+                    console.log('move' + "7");
                     bleft.innerHTML = "<img src='images/cointail.png'>";
-                    gameBoard[2][0] = 2;
                     turn++;
+                    console.log(turn + ' <--this turn');
+
                     bleft.className = 'redBg';
+                    gameBoard[2][0] = 2;
                 } else {
                     lookForNext();
                 }
                 break;
-        }
-        switch (move) {
+
             case 8:
                 if (gameBoard[2][1] === 0) {
+                    console.log('move' + "8");
                     bmid.innerHTML = "<img src='images/cointail.png'>";
-                    gameBoard[2][1] = 2;
                     turn++;
+                    console.log(turn + ' <--this turn');
+
                     bmid.className = 'redBg';
+                    gameBoard[2][1] = 2;
                 } else {
                     lookForNext();
                 }
                 break;
-        }
-        switch (move) {
+
             case 9:
                 if (gameBoard[2][2] === 0) {
+                    console.log('move' + "9");
                     bright.innerHTML = "<img src='images/cointail.png'>";
-                    gameBoard[2][2] = 2;
                     turn++;
+                    console.log(turn + ' <--this turn');
+
                     bright.className = 'redBg';
+                    gameBoard[2][2] = 2;
                 } else {
                     lookForNext();
                 }
                 break;
+                default:
+                    console.log('default switch');
+                    lookForNext();
         }
+
     };
 
 
