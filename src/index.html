@@ -1,14 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <title>Tic Tac Toe</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
-<body>
-  <h1>Hello Front-End</h1>
 
-  <script type="text/javascript" src="js/app.js"></script>
+
+<body onload= "startGame();">
+
+    <h1> Tic-Tac-Toe</h1>
+
+    <div id=message> placeholder for message </div>
+
+    <center><table border= "2" bgcolor= "#FFFFFF">
+        <tr>
+            <td id="s1" class= "Square" onclick="nextMove(this);"></td>
+            <td id="s2" class= "Square" onclick="nextMove(this);"></td>
+            <td id="s3" class= "Square" onclick="nextMove(this);"></td>
+        </tr>
+        <tr>
+            <td id="s4" class= "Square" onclick="nextMove(this);"></td>
+            <td id="s5" class= "Square" onclick="nextMove(this);"></td>
+            <td id="s6" class= "Square" onclick="nextMove(this);"></td>
+        </tr>
+        <tr>
+            <td id="s7" class= "Square" onclick="nextMove(this);"></td>
+            <td id="s8" class= "Square" onclick="nextMove(this);"></td>
+            <td id="s9" class= "Square" onclick="nextMove(this);"></td>
+        </tr>
+    </table>
+    </center>
+
+    <center>
+    <button type="button" onclick=startGame()> Reset New Game </button></center>
+    <center><p></p></center>
 </body>
+
+
+  <footer>
+  </footer>
+
 </html>
