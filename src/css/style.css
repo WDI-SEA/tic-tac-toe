@@ -49,3 +49,14 @@ select {
 .addRed {
   background-color: red;
 }
+
+#winBox {
+  margin: 10px auto auto auto;
+  border: 1px solid black;
+  /*display: inline-block;*/
+  width: 306px;
+  height: 100px;
+  background-color: #E6E6E6;
+  font-size: 20px;
+  text-align: center;
+}

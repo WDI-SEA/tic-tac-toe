@@ -10,6 +10,7 @@ var cellB3 = document.getElementById('cellB3');
 var cellC1 = document.getElementById('cellC1');
 var cellC2 = document.getElementById('cellC2');
 var cellC3 = document.getElementById('cellC3');
+var winBox = document.getElementById('winBox');
 
 var gameboard = [
 [0,0,0],
@@ -17,7 +18,45 @@ var gameboard = [
 [0,0,0]
 ];
 
-
+var gameWins = function() {
+  //check for 'X' wins
+  if (gameboard[0][0] === 1 && gameboard[0][1] === 1 && gameboard[0][2] === 1) {
+    window.alert("X Wins!");
+    winBox.innerHTML = "<X Wins!>";
+  } else if (gameboard[1][0] === 1 && gameboard[1][1] === 1 && gameboard[1][2] === 1) {
+    window.alert("X Wins!");
+  } else if (gameboard[2][0] === 1 && gameboard[2][1] === 1 && gameboard[2][2] === 1) {
+    window.alert("X Wins!");
+  } else if (gameboard[0][0] === 1 && gameboard[1][0] === 1 && gameboard[2][0] === 1) {
+    window.alert("X Wins!");
+  } else if (gameboard[0][1] === 1 && gameboard[1][1] === 1 && gameboard[2][1] === 1) {
+    window.alert("X Wins!");
+  } else if (gameboard[0][2] === 1 && gameboard[1][2] === 1 && gameboard[2][2] === 1) {
+    window.alert("X Wins!");
+  } else if (gameboard[0][0] === 1 && gameboard[1][1] === 1 && gameboard[2][2] === 1) {
+    window.alert("X Wins!");
+  } else if (gameboard[0][2] === 1 && gameboard[1][1] === 1 && gameboard[2][0] === 1) {
+    window.alert("X Wins!");
+    //Check for 'O' Wins
+  } else if (gameboard[0][0] === 2 && gameboard[0][1] === 2 && gameboard[0][2] === 2) {
+    window.alert("O Wins!");
+    winBox.innerHTML = "<O Wins!>";
+  } else if (gameboard[1][0] === 2 && gameboard[1][1] === 2 && gameboard[1][2] === 2) {
+    window.alert("O Wins!");
+  } else if (gameboard[2][0] === 2 && gameboard[2][1] === 2 && gameboard[2][2] === 2) {
+    window.alert("O Wins!");
+  } else if (gameboard[0][0] === 2 && gameboard[1][0] === 2 && gameboard[2][0] === 2) {
+    window.alert("O Wins!");
+  } else if (gameboard[0][1] === 2 && gameboard[1][1] === 2 && gameboard[2][1] === 2) {
+    window.alert("O Wins!");
+  } else if (gameboard[0][2] === 2 && gameboard[1][2] === 2 && gameboard[2][2] === 2) {
+    window.alert("O Wins!");
+  } else if (gameboard[0][0] === 2 && gameboard[1][1] === 2 && gameboard[2][2] === 2) {
+    window.alert("O Wins!");
+  } else if (gameboard[0][2] === 2 && gameboard[1][1] === 2 && gameboard[2][0] === 2) {
+    window.alert("O Wins!");
+  }
+}
 
 
 cellA1.addEventListener('click', function() {
@@ -27,11 +66,13 @@ if (gameboard[0][0] === 0) {
     gameboard[0][0] = 1;
     cellA1.className += " addBlue";
     console.log('successX');
+    gameWins();
     turn += 1;
   } else { cellA1.innerHTML = '<img src="http://www.partygoodsmalta.com/images/stories/virtuemart/product/resized/foil-balloon-40-inch-gold-letter-o_0x90.jpg">';
     cellA1.className = " addRed";
     console.log('successO');
     gameboard[0][0] = 2;
+    gameWins();
     turn += 1;
     }
   }
@@ -44,11 +85,13 @@ cellA2.addEventListener('click', function() {
     gameboard[0][1] = 1;
     cellA2.className = " addBlue";
     console.log('successX');
+    gameWins();
     turn += 1;
   } else { cellA2.innerHTML = '<img src="http://www.partygoodsmalta.com/images/stories/virtuemart/product/resized/foil-balloon-40-inch-gold-letter-o_0x90.jpg">';
     cellA2.className = " addRed";
     gameboard[0][1] = 2;
     console.log('successO');
+    gameWins();
     turn += 1;
   }
 }
@@ -60,11 +103,13 @@ if (gameboard[0][2] === 0) {
     cellA3.className = " addBlue";
     gameboard[0][2] = 1;
     console.log('successX');
+    gameWins();
     turn += 1;
   } else { cellA3.innerHTML = '<img src="http://www.partygoodsmalta.com/images/stories/virtuemart/product/resized/foil-balloon-40-inch-gold-letter-o_0x90.jpg">';
     cellA3.className = " addRed";
     gameboard[0][2] = 2;
     console.log('successO');
+    gameWins();
     turn += 1;
   }
 }
@@ -76,11 +121,13 @@ if (gameboard[1][0] === 0) {
     cellB1.className = " addBlue";
     gameboard[1][0] = 1;
     console.log('successX');
+    gameWins();
     turn += 1;
   } else { cellB1.innerHTML = '<img src="http://www.partygoodsmalta.com/images/stories/virtuemart/product/resized/foil-balloon-40-inch-gold-letter-o_0x90.jpg">';
     cellB1.className = " addRed";
     gameboard[1][0] = 2;
     console.log('successO');
+    gameWins();
     turn += 1;
   }
 }
@@ -92,11 +139,13 @@ if (gameboard[1][1] === 0) {
     cellB2.className = " addBlue";
     gameboard[1][1] = 1;
     console.log('successX');
+    gameWins();
     turn += 1;
   } else { cellB2.innerHTML = '<img src="http://www.partygoodsmalta.com/images/stories/virtuemart/product/resized/foil-balloon-40-inch-gold-letter-o_0x90.jpg">';
     cellB2.className = " addRed";
     gameboard[1][1] = 2;
     console.log('successO');
+    gameWins();
     turn += 1;
   }
 }
@@ -108,11 +157,13 @@ if (gameboard[1][2] === 0) {
     cellB3.className = " addBlue";
     gameboard[1][2] = 1;
     console.log('successX');
+    gameWins();
     turn += 1;
   } else { cellB3.innerHTML = '<img src="http://www.partygoodsmalta.com/images/stories/virtuemart/product/resized/foil-balloon-40-inch-gold-letter-o_0x90.jpg">';
     cellB3.className = " addRed";
     gameboard[1][2] = 2;
     console.log('successO');
+    gameWins();
     turn += 1;
   }
 }
@@ -124,11 +175,13 @@ if (gameboard[2][0] === 0) {
     cellC1.className = " addBlue";
     gameboard[2][0] = 1;
     console.log('successX');
+    gameWins();
     turn += 1;
   } else { cellC1.innerHTML = '<img src="http://www.partygoodsmalta.com/images/stories/virtuemart/product/resized/foil-balloon-40-inch-gold-letter-o_0x90.jpg">';
     cellC1.className = " addRed";
     gameboard[2][0] = 2;
     console.log('successO');
+    gameWins();
     turn += 1;
   }
 }
@@ -140,11 +193,13 @@ if (gameboard[2][1] === 0) {
     cellC2.className = " addBlue";
     gameboard[2][1] = 1;
     console.log('successX');
+    gameWins();
     turn += 1;
   } else { cellC2.innerHTML = '<img src="http://www.partygoodsmalta.com/images/stories/virtuemart/product/resized/foil-balloon-40-inch-gold-letter-o_0x90.jpg">';
     cellC2.className = " addRed";
     gameboard[2][1] = 2;
     console.log('successO');
+    gameWins();
     turn += 1;
   }
 }
@@ -156,11 +211,13 @@ if (gameboard[2][2] === 0) {
     cellC3.className = " addBlue";
     gameboard[2][2] = 1;
     console.log('successX');
+    gameWins();
     turn += 1;
   } else { cellC3.innerHTML = '<img src="http://www.partygoodsmalta.com/images/stories/virtuemart/product/resized/foil-balloon-40-inch-gold-letter-o_0x90.jpg">';
     cellC3.className = " addRed";
     gameboard[2][2] = 2;
     console.log('successO');
+    gameWins();
     turn += 1;
   }
 }
