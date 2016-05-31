@@ -1,3 +1,44 @@
+body {
+  background-color: #A5ACAF;
+}
+
 h1 {
-  color: purple;
+  color: #002244;
+}
+
+.board {
+    width: 300px;
+    height: 600px;
+}
+
+.board div {
+    width: 100px;
+    height: 100px;
+    outline: 1px solid;
+    float: left;
+    background-color: lightgrey;
+}
+
+.xButton {
+  margin-top: 0;
+}
+
+#directionsDiv {
+  height: 0px;
+  margin-bottom: 75px;
+}
+
+.cellDisplay {
+  font-size: 50px;
+  text-align: center;
+}
+
+#outputDiv {
+  margin-bottom: 5px;
+  font-size: 50px;
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% { opacity: 0.0; }
 }

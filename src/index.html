@@ -7,8 +7,60 @@
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-  <h1>Hello Front-End</h1>
+  <h1>Tic-Tac-Toe</h1>
 
-  <script type="text/javascript" src="app.js"></script>
+  <button type="reset" id="resetBtn">Reset Game</button>
+  <button id="randomBtn">Pick A Number</button>
+  <div id="directionsDiv">
+    <p>2 Player game <br>Pick a number<br>
+    The highest number is Player One
+  </div>
+  <div id="outputNum"></div>
+  <p id="outputWinner"></p>
+  <marquee id='outputDiv'></marquee>
+
+  <form>
+     <div class="board">
+       <div id="1"  class="cellDisplay">
+         <button type="button" id="xButton1">X</button>
+         <button type="button" id="oButton1">O</button>
+       </div>
+       <div id="2" class="cellDisplay">
+         <button type="button" id="xButton2">X</button>
+         <button type="button" id="oButton2">O</button>
+       </div>
+       <div id="3" class="cellDisplay">
+         <button type="button" id="xButton3">X</button>
+         <button type="button" id="oButton3">O</button>
+       </div>
+       <div id="4" class="cellDisplay">
+         <button type="button" id="xButton4">X</button>
+         <button type="button" id="oButton4">O</button>
+       </div>
+       <div id="5" class="cellDisplay">
+         <button type="button" id="xButton5">X</button>
+         <button type="button" id="oButton5">O</button>
+       </div>
+       <div id="6" class="cellDisplay">
+         <button type="button" id="xButton6">X</button>
+         <button type="button" id="oButton6">O</button>
+       </div>
+       <div id="7" class="cellDisplay">
+         <button type="button" id="xButton7">X</button>
+         <button type="button" id="oButton7">O</button>
+       </div>
+       <div id="8" class="cellDisplay">
+         <button type="button" id="xButton8">X</button>
+         <button type="button" id="oButton8">O</button>
+       </div>
+       <div id="9" class="cellDisplay">
+         <button type="button" id="xButton9">X</button>
+         <button type="button" id="oButton9">O</button>
+       </div>
+     </div>
+
+  </form>
+  <script type="text/javascript" src="js/app.js"></script>
+
 </body>
 </html>
