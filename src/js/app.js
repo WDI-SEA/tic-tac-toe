@@ -78,7 +78,7 @@ function processTurn(move) {
     } else {
       switchPlayer(); // switch currentPlayer
       // update msg
-      setMessage("Player " + currentPlayer + "\"s turn...");
+      setMessage("Player " + currentPlayer + "\'s turn...");
     }
     // increment turn counter at end of valid move
     turnCounter++;
@@ -143,6 +143,7 @@ function resetBoard() {
     cell.classList.remove("highlightO");
     cell.innerHTML = "";
     turnCounter = 0;
+    haveWinner = false;
   }
   setMessage("Player X Starts");
 }
