@@ -1,5 +1,3 @@
-console.log("Hello front end");
-
 // Variables
 var turnCounter = 1;
 var currentPlayer = "X";
@@ -142,7 +140,7 @@ function resetBoard() {
     cell.classList.remove("highlightX");
     cell.classList.remove("highlightO");
     cell.innerHTML = "";
-    turnCounter = 0;
+    turnCounter = 1;
     haveWinner = false;
   }
   setMessage("Player X Starts");
