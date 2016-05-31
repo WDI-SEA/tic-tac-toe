@@ -1,3 +1,26 @@
+body {
+  text-align: center;
+  font-family: arial;
+  background-color: grey;
+}
+
 h1 {
-  color: purple;
+  color: red;
+}
+
+div {
+  margin: 2px;
+  display: inline-block;
+  width: 10%;
+  height: 150px;
+  border: 1px black solid;
+  vertical-align: top;
+}
+
+.x {
+  background-color: green;
+}
+
+.o {
+  background-color: purple;
 }
