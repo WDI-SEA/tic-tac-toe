@@ -1,3 +1,47 @@
 h1 {
-  color: purple;
+  font-size: 50px;
+  color: blue;
+}
+
+div {
+  /*border: 1px solid red;*/
+  vertical-align: top;
+  margin: auto;
+  text-align: center;
+
+}
+
+footer {
+  text-align: center;
+}
+
+.cell {
+  width: 130px;
+  height: 130px;
+  display: inline-block;
+  text-align: center;
+}
+
+#north {
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
+  border-left: 2px solid black;
+}
+
+#east {
+  border-top: 2px solid black;
+  border-left: 2px solid black;
+  border-bottom: 2px solid black;
+}
+
+#west {
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  border-right: 2px solid black;
+}
+
+#south {
+  border-top: 2px solid black;
+  border-right: 2px solid black;
+  border-left: 2px solid black;
 }
