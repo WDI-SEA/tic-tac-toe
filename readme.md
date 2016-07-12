@@ -38,3 +38,9 @@ We will be making a Tic Tac Toe game using all of these concepts.
 * After the necessary moves have been played, stop game and alert the winner if one player ends up winning with three in a row.
   * Hint: Determine a set of winning combinations. Check those combinations on the board contents after every move.
 * Add a simple AI to support one player vs computer mode. Note that randomly selecting a space would count as "simple". Try that and iterate from there.
+
+---
+
+## Licensing
+1. All content is licensed under a CC-BY-NC-SA 4.0 license.
+2. All software code is licensed under GNU GPLv3. For commercial use or alternative licensing, please contact legal@ga.co.
