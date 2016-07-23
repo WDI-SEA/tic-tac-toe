@@ -1,6 +1,6 @@
 
 body{
-	background-color: blu;
+	background-color: gre;
 }
 
 h1 {
@@ -9,11 +9,14 @@ h1 {
 }
 #main-wrapper{
 	border: 2px solid green;
+	width: 800px;
+	height: 685px;
     text-align: center;
     margin: auto;
+    
    
 }
-.row1{
+.row-1{
 	border: 2px solid red;
 	width: 200px;
 	height: 200px;
@@ -22,7 +25,7 @@ h1 {
 	
 
 }
-.row2{
+.row-2{
 	border: 2px solid red;
 	width: 200px;
 	height: 200px;
@@ -31,12 +34,49 @@ h1 {
 	
 	
 }
-.row3{
+.row-3{
 	border: 2px solid red;
 	width: 200px;
 	height: 200px;
 	display: inline-block;
 	margin-top: 15px;
-	margin-bottom: 15px;
+	/*margin-bottom: 15px;*/
 	
 }	
+
+.reset-button{
+	position: relative;
+	left: 300px;
+	top: 50px;
+	
+}
+
+#btn{
+	font-size: 30px;
+	border-radius: 50%;
+	background-color: yellow;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
