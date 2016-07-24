@@ -1,3 +1,42 @@
 h1 {
-  color: purple;
+  color: #408FFF;
+  margin-left: 38%;
+  font-family: Arial;
+  font-size: 40px;
 }
+
+.box{
+	background-color: white;
+	width: 100px;
+    height: 100px;
+    outline: 1px solid;
+    float: left;
+    border-color: black;
+    font-size: 80px;
+    font-weight: bold;
+    text-align: center;
+    
+}
+
+.container{
+	margin-left: 33%;
+}
+
+div {
+    width: 300px;
+    height: 600px;
+}
+
+button {
+	margin: 10px 0 40px 40%;
+	height: 70px;
+	width: 100px;
+}
+
+.playerTurn{
+	margin-left: 38%;
+	color: #FF00A2;
+	font-size: 30px;
+}
+
+
