@@ -6,8 +6,36 @@
   <title>Hello Front-End</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
-<body>
-  <h1>Hello Front-End</h1>
+<body onload= "gameStart();">
+  <h1>T i c - T a c - T o e</h1>
+
+  <div id= "message">.</div>
+
+<br>
+
+<table>
+	<tr>
+		<td id= "b1" class="box" onclick="nextMove(this);"></td>
+		<td id= "b2" class="box" onclick="nextMove(this);"></td>
+		<td id= "b3" class="box" onclick="nextMove(this);"></td>
+	</tr>
+	<tr>
+		<td id= "b4" class="box" onclick="nextMove(this);"></td>
+		<td id= "b5" class="box" onclick="nextMove(this);"></td>
+		<td id= "b6" class="box" onclick="nextMove(this);"></td>
+	</tr>
+	<tr>
+		<td id= "b7" class="box" onclick="nextMove(this);"></td>
+		<td id= "b8" class="box" onclick="nextMove(this);"></td>
+		<td id= "b9" class="box" onclick="nextMove(this);"></td>
+	</tr>
+</table>
+
+<br>
+
+<input id= "resetButton" type="button" value="Reset Game" onclick="gameStart();">
+<br>
+<br>
 
   <script type="text/javascript" src="js/app.js"></script>
 </body>
