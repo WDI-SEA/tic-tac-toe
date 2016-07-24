@@ -1,3 +1,37 @@
 h1 {
-  color: purple;
+  color: #FF7260;
+  text-align: center;
+  text-decoration: underline;
+}
+table, tr, td {
+	border: 3px solid #9BD7D5;
+}
+tr, td {
+	font-family: impact;
+	font-size: 100px;
+	text-align: center;
+	width: 125px;
+	height: 125px;
+	background-color: #FFF5C3;
+}
+table {
+	width: 600px;
+	height: 600px;
+	margin: 0 auto;
+}
+body {
+	text-align: center;
+	font-family: impact;
+	font-size: 25px;
+	background-color: #505050;
+	color: orange;
+}
+#resetButton {
+	font-size: 50px;
+	height: 70px;
+	width: 350px;
+	color:white;
+	border: groove black 1px;
+	background-color: #FF7260;
+	border-radius: 90px;
 }
