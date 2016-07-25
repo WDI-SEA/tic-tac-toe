@@ -14,14 +14,7 @@ var currentPlayerx = '<img src="img/x.jpg" alt="x" />';
 
 var newGame = document.getElementById('btn');
 
-// var swish = winComb[0];
-// var swish = winComb[1];
-// var swish = winComb[2];
-// var swish = winComb[3];
-// var swish = winComb[4];
-// var swish = winComb[5];
-// var swish = winComb[6];
-// var swish = winComb[7];
+
 
 var winComb = [ ['top1', 'top2', 'top3'], 
                 ['middle1', 'middle2', 'middle3'], 
@@ -34,28 +27,32 @@ var winComb = [ ['top1', 'top2', 'top3'],
 
 
 
-function checkWinner(swish){
-    	for (var i = 0; i < winComb.length; i++){
-    		if (winComb[i] === winComb[0]){
-    			alert('sprocket wrench please!');
-    		} else if (winComb[i] === winComb[1]){
-    			alert('sprocket wrench please!');
-    		} else if (winComb[i] === winComb[2]){
-    			alert('sprocket wrench please!');
-    		} else if (winComb[i] === winComb[3]){
-    			alert('sprocket wrench please!');
-    		} else if (winComb[i] === winComb[4]){
-    			alert('sprocket wrench please!');
-    		} else if (winComb[i] === winComb[5]){
-    			alert('sprocket wrench please!');
-    		} else if (winComb[i] === winComb[6]){
-    			alert('sprocket wrench please!');
-    		} else if (winComb[i] === winComb[7]){
-    			alert('sprocket wrench please!');
-    		} 
-    	}	
-	checkWinner();
-};
+function checkWinner(){
+if(top1 && top2 && top3 === currentPlayer){
+    alert('sproket wrench please');
+}else if(middle1 && middle2 && middle3 === currentPlayer){
+	alert('sprocket wrench please');
+}else if(bottom1 && bottom3 && bottom3){
+	alert('sprocket wrench please');
+}else if(top1 && middle1 && bottom1 === currentPlayer){
+	alert('sprocket wrench please');
+}else if(top2 && middle2 && bottom2 === currentPlayer){
+	alert('sprocket wrench please');
+}else if(top3 && middle3 && bottom3 === currentPlayer){
+	alert('sprocket wrench please');
+}else if(top1 && middle2 && bottom3 === currentPlayer){
+	alert('sprocket wrench please');
+}else if(top3 && middle2 && bottom1 === currentPlayer){
+
+}else{
+	alert('tie');
+}
+
+
+
+
+checkWinner();
+ 
 
 top1.addEventListener('click', function() {
 	alert('current player is: ' + currentPlayer);
