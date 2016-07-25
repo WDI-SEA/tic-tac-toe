@@ -14,15 +14,15 @@ var currentPlayerx = '<img src="img/x.jpg" alt="x" />';
 
 var newGame = document.getElementById('btn');
 
-// var winner = winComb[0];
-// var winner = winComb[1];
-// var winner = winComb[2];
-// var winner = winComb[3];
-// var winner = winComb[4];
-// var winner = winComb[5];
-// var winner = winComb[6];
-// var winner = winComb[7];
-// var winner = [top1, top2, top3, middle1, middle2, middle3, bottom1, bottom2, bottom3];
+// var swish = winComb[0];
+// var swish = winComb[1];
+// var swish = winComb[2];
+// var swish = winComb[3];
+// var swish = winComb[4];
+// var swish = winComb[5];
+// var swish = winComb[6];
+// var swish = winComb[7];
+
 var winComb = [ ['top1', 'top2', 'top3'], 
                 ['middle1', 'middle2', 'middle3'], 
                 ['bottom1', 'bottom2', 'bottom3'],
@@ -34,11 +34,15 @@ var winComb = [ ['top1', 'top2', 'top3'],
 
 
 
-function checkWinner(turn){
+function checkWinner(swish){
     	for (var i = 0; i < winComb.length; i++){
     		if (winComb[i] === winComb[0]){
     			alert('sprocket wrench please!');
-    		}
+    		} if (winComb[i] === winComb[1]){
+    			alert('sprocket wrench please!');
+    		} if (winComb[i] === winComb[2]){
+    			alert('sprocket wrench please!');
+    		} 
     	}	
 	checkWinner();
 };
@@ -158,6 +162,7 @@ bottom3.addEventListener('click', function() {
 
 newGame.addEventListener('click', function() {
   alert('I know how to add an event listener');
-	                    location.reload();
+	   location.reload();
+
 });
 
