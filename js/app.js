@@ -38,9 +38,19 @@ function checkWinner(swish){
     	for (var i = 0; i < winComb.length; i++){
     		if (winComb[i] === winComb[0]){
     			alert('sprocket wrench please!');
-    		} if (winComb[i] === winComb[1]){
+    		} else if (winComb[i] === winComb[1]){
     			alert('sprocket wrench please!');
-    		} if (winComb[i] === winComb[2]){
+    		} else if (winComb[i] === winComb[2]){
+    			alert('sprocket wrench please!');
+    		} else if (winComb[i] === winComb[3]){
+    			alert('sprocket wrench please!');
+    		} else if (winComb[i] === winComb[4]){
+    			alert('sprocket wrench please!');
+    		} else if (winComb[i] === winComb[5]){
+    			alert('sprocket wrench please!');
+    		} else if (winComb[i] === winComb[6]){
+    			alert('sprocket wrench please!');
+    		} else if (winComb[i] === winComb[7]){
     			alert('sprocket wrench please!');
     		} 
     	}	
@@ -57,6 +67,7 @@ top1.addEventListener('click', function() {
 		top1.innerHTML = currentPlayero;
 		currentPlayer = 'x';
 	}
+	
 });
 
 
@@ -70,6 +81,7 @@ top2.addEventListener('click', function() {
 		top2.innerHTML = currentPlayero;
 		currentPlayer = 'x';
 	}
+	
 });
 
 top3.addEventListener('click', function() {
@@ -82,7 +94,7 @@ top3.addEventListener('click', function() {
 		top3.innerHTML = currentPlayero;
 		currentPlayer = 'x';
 	}
-	checkWinner();
+	
 });
 
 middle1.addEventListener('click', function() {
