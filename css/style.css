@@ -1,3 +1,86 @@
-h1 {
-  color: purple;
+h3 {
+	margin-left: 300px;
+}
+
+input {
+	background-color: red;
+}
+
+.left-top {
+	border: 2px solid black;
+	width: 150px;
+	height: 150px;
+	background-color: grey;
+}
+
+.left-center {
+	border: 2px solid black;
+	width: 150px;
+	height: 150px;
+	background-color: grey;
+}
+
+.left-bottom {
+	border: 2px solid black;
+	width: 150px;
+	height: 150px;
+	background-color: grey;
+}
+
+.middle-top {
+	border: 2px solid black;
+	width: 150px;
+	height: 150px;
+	background-color: grey;
+}
+
+.middle-center {
+	border: 2px solid black;
+	width: 150px;
+	height: 150px;
+	background-color: grey;
+}
+
+.middle-bottom {
+	border: 2px solid black;
+	width: 150px;
+	height: 150px;
+	background-color: grey;
+}
+
+.right-top {
+	border: 2px solid black;
+	width: 150px;
+	height: 150px;
+	background-color: grey;
+}
+
+.right-center {
+	border: 2px solid black;
+	width: 150px;
+	height: 150px;
+	background-color: grey;
+}
+
+.right-bottom {
+	border: 2px solid black;
+	width: 150px;
+	height: 150px;
+	background-color: grey;
+}
+
+.left {
+	display: inline-block;
+}
+
+.middle {
+	display: inline-block;
+}
+
+.right {
+	display: inline-block;
+}
+
+.container {
+	background-color: black;
 }
