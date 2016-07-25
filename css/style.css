@@ -7,7 +7,7 @@ h1 {
   color: purple;
   text-align: center;
 }
-#main-wrapper{
+.main-wrapper{
 	border: 2px solid green;
 	width: 800px;
 	height: 685px;

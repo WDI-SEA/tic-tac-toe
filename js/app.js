@@ -8,145 +8,156 @@ var bottom1 = document.getElementById('bottom-1');
 var bottom2 = document.getElementById('bottom-2');
 var bottom3 = document.getElementById('bottom-3');
 
-
-var currentPlayer = 'x'
-var currentPlayero = '<img src="img/o.jpg" alt="o" />'
-var currentPlayerx = '<img src="img/x.jpg" alt="x" />'
-// var board = [
-// [0, 0, 0], 
-// [0, 0, 0], 
-// [0, 0, 0]
-// ];
+var currentPlayer = 'x';
+var currentPlayero = '<img src="img/o.jpg" alt="o" />';
+var currentPlayerx = '<img src="img/x.jpg" alt="x" />';
 
 var newGame = document.getElementById('btn');
-// var board = ['top-1', 'top-2', 'top-3', 'middle-1', 'middle-2', 'middle-3', 'bottom-1', 'bottom-2', 'bottom-3'];
 
-top1.addEventListener('click', function(){
-	alert('current player is: ' + currentPlayer)
+// var winner = winComb[0];
+// var winner = winComb[1];
+// var winner = winComb[2];
+// var winner = winComb[3];
+// var winner = winComb[4];
+// var winner = winComb[5];
+// var winner = winComb[6];
+// var winner = winComb[7];
+// var winner = [top1, top2, top3, middle1, middle2, middle3, bottom1, bottom2, bottom3];
+var winComb = [ ['top1', 'top2', 'top3'], 
+                ['middle1', 'middle2', 'middle3'], 
+                ['bottom1', 'bottom2', 'bottom3'],
+        	    ['top1', 'middle1', 'bottom1'], 
+        	    ['top2', 'middle2', 'bottom2'], 
+        		['top3', 'middle3', 'bottom3'],
+        		['top1', 'middle2', 'bottom3'], 
+        		['top3', 'middle2', 'bottom1'] ];
+
+
+
+function checkWinner(turn){
+    	for (var i = 0; i < winComb.length; i++){
+    		if (winComb[i] === winComb[0]){
+    			alert('sprocket wrench please!');
+    		}
+    	}	
+	checkWinner();
+};
+
+top1.addEventListener('click', function() {
+	alert('current player is: ' + currentPlayer);
 
 	if (currentPlayer === 'x') {
 		top1.innerHTML = currentPlayerx;
-		currentPlayer = 'o'
+		currentPlayer = 'o';
 	} else if (currentPlayer === 'o') {
 		top1.innerHTML = currentPlayero;
 		currentPlayer = 'x';
 	}
-
 });
 
 
-top2.addEventListener('click', function(){
-	alert('current player is: ' + currentPlayer)
+top2.addEventListener('click', function() {
+	alert('current player is: ' + currentPlayer);
 
 	if (currentPlayer === 'x') {
 		top2.innerHTML = currentPlayerx;
-		currentPlayer = 'o'
+		currentPlayer = 'o';
 	} else if (currentPlayer === 'o') {
 		top2.innerHTML = currentPlayero;
 		currentPlayer = 'x';
 	}
-
 });
 
-top3.addEventListener('click', function(){
-	alert('current player is: ' + currentPlayer)
+top3.addEventListener('click', function() {
+	alert('current player is: ' + currentPlayer);
 
 	if (currentPlayer === 'x') {
 		top3.innerHTML = currentPlayerx;
-		currentPlayer = 'o'
+		currentPlayer = 'o';
 	} else if (currentPlayer === 'o') {
 		top3.innerHTML = currentPlayero;
 		currentPlayer = 'x';
 	}
-
+	checkWinner();
 });
 
-middle1.addEventListener('click', function(){
-	alert('current player is: ' + currentPlayer)
+middle1.addEventListener('click', function() {
+	alert('current player is: ' + currentPlayer);
 
 	if (currentPlayer === 'x') {
-		middle1.innerHTML = currentPlayerx;
-		currentPlayer = 'o'
+	    middle1.innerHTML = currentPlayerx;
+		currentPlayer = 'o';
 	} else if (currentPlayer === 'o') {
 		middle1.innerHTML = currentPlayero;
 		currentPlayer = 'x';
 	}
-
 });
 
-middle2.addEventListener('click', function(){
-	alert('current player is: ' + currentPlayer)
+middle2.addEventListener('click', function() {
+	alert('current player is: ' + currentPlayer);
 
 	if (currentPlayer === 'x') {
 		middle2.innerHTML = currentPlayerx;
-		currentPlayer = 'o'
+		currentPlayer = 'o';
 	} else if (currentPlayer === 'o') {
 		middle2.innerHTML = currentPlayero;
 		currentPlayer = 'x';
 	}
-
 });
 
-middle3.addEventListener('click', function(){
-	alert('current player is: ' + currentPlayer)
+middle3.addEventListener('click', function() {
+	alert('current player is: ' + currentPlayer);
 
 	if (currentPlayer === 'x') {
 		middle3.innerHTML = currentPlayerx;
-		currentPlayer = 'o'
+		currentPlayer = 'o';
 	} else if (currentPlayer === 'o') {
 		middle3.innerHTML = currentPlayero;
 		currentPlayer = 'x';
 	}
-
 });
 
-bottom1.addEventListener('click', function(){
-	alert('current player is: ' + currentPlayer)
+bottom1.addEventListener('click', function() {
+	alert('current player is: ' + currentPlayer);
 
 	if (currentPlayer === 'x') {
 		bottom1.innerHTML = currentPlayerx;
-		currentPlayer = 'o'
+		currentPlayer = 'o';
 	} else if (currentPlayer === 'o') {
 		bottom1.innerHTML = currentPlayero;
 		currentPlayer = 'x';
 	}
-
 });
 
-bottom2.addEventListener('click', function(){
-	alert('current player is: ' + currentPlayer)
+bottom2.addEventListener('click', function() {
+	alert('current player is: ' + currentPlayer);
 
 	if (currentPlayer === 'x') {
 		bottom2.innerHTML = currentPlayerx;
-		currentPlayer = 'o'
+		currentPlayer = 'o';
 	} else if (currentPlayer === 'o') {
 		bottom2.innerHTML = currentPlayero;
 		currentPlayer = 'x';
 	}
-
 });
 
-bottom3.addEventListener('click', function(){
-	alert('current player is: ' + currentPlayer)
+bottom3.addEventListener('click', function() {
+	alert('current player is: ' + currentPlayer);
 
 	if (currentPlayer === 'x') {
 		bottom3.innerHTML = currentPlayerx;
-		currentPlayer = 'o'
+		currentPlayer = 'o';
 	} else if (currentPlayer === 'o') {
 		bottom3.innerHTML = currentPlayero;
 		currentPlayer = 'x';
 	}
-
-});
-
-
-newGame.addEventListener('click', function(){
-	
 });
 
 
 
 
+newGame.addEventListener('click', function() {
+  alert('I know how to add an event listener');
+	                    location.reload();
+});
 
-    // document.getElementById("demo").innerHTML = "Hello World";
-// 
