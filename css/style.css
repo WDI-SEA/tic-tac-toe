@@ -1,3 +1,150 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/*
+  ========================================
+  Clearfix
+  ========================================
+*/
+
+.group:before,
+.group:after {
+  content: "";
+  display: table;
+}
+.group:after {
+  clear: both;
+}
+.group {
+  clear: both;
+  *zoom: 1;
+}
+/*
+  ========================================
+  Custom Styles
+  ========================================
+*/
+
+body {
+  background-color: #E5E5E5;
+  color: #888;
+  font-family: 'Catamaran', sans-serif;
+  font-weight: 400;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-family: sans-serif;
+}
+
 h1 {
-  color: purple;
+  color: #E3685B;
+  text-align: center;
+  font-size: 72px;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin: 30px;
+
+}
+#btn {
+  position: fixed;
+  margin: auto;
+  text-align: center;
+  bottom: -350px;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 300px;
+  height: 20px;
+  line-height: 20px;
+  background: #E7DCC7;
+  border: 2px solid #E3685B;
+  color: #E3685B;
+  font-weight: bolder;
+  cursor: pointer;
+}
+/*
+  ========================================
+  Board 
+  ========================================
+*/
+
+#container {
+  position: absolute;
+  margin: auto;
+  width: 300px;
+  height: 300px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.box {
+  width: 30%;
+  height: 30%;
+  background: #c6dddf;
+  float: left;
+  margin: 2px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 50px;
+  line-height: 95px;
+  border-radius: 10px;
+  border: 2px solid #fff;;
+  /*centering the text vertically*/
+}
+
+.box:hover,
+#btn:hover {
+  opacity: 0.9;
+}
+
+.box {
+  color: #60c5ba;
 }
