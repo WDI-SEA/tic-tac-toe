@@ -1,0 +1,82 @@
+
+body{
+	background-color: gre;
+}
+
+h1 {
+  color: purple;
+  text-align: center;
+}
+.main-wrapper{
+	border: 2px solid green;
+	width: 800px;
+	height: 685px;
+    text-align: center;
+    margin: auto;
+    
+   
+}
+.row-1{
+	border: 2px solid red;
+	width: 200px;
+	height: 200px;
+	display: inline-block;
+	margin-top: 15px;
+	
+
+}
+.row-2{
+	border: 2px solid red;
+	width: 200px;
+	height: 200px;
+	display: inline-block;
+	margin-top: 15px;
+	
+	
+}
+.row-3{
+	border: 2px solid red;
+	width: 200px;
+	height: 200px;
+	display: inline-block;
+	margin-top: 15px;
+	/*margin-bottom: 15px;*/
+	
+}	
+
+.reset-button{
+	position: relative;
+	left: 300px;
+	top: 50px;
+	
+}
+
+#btn{
+	font-size: 30px;
+	border-radius: 50%;
+	background-color: yellow;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

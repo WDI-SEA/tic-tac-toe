@@ -3,12 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
-  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <title>TIC TAC TOE</title>
+  <link rel="stylesheet" type="text/css" href="stylesheet/style.css">
 </head>
 <body>
-  <h1>Hello Front-End</h1>
+  <h1>TIC TAC TOE</h1>
 
-  <script type="text/javascript" src="js/app.js"></script>
+  
+  <input type='button' value='RESET' id='btn' click='newGame'>
+  
+	<article id='fx' class=main-wrapper>
+		<section class='#'>
+
+			<div id='top-1' class='row-1'></div>
+			<div id='top-2' class='row-1'></div>
+			<div id='top-3' class='row-1'></div>
+
+		</section>
+		<section class='#'>
+
+			<div id='middle-1' class='row-2'></div>
+			<div id='middle-2' class='row-2'></div>
+			<div id='middle-3' class='row-2'></div>
+
+		</section>
+		<section class='#'>
+
+			<div id='bottom-1' class='row-3'></div>
+			<div id='bottom-2' class='row-3'></div>
+			<div id='bottom-3' class='row-3'></div>
+
+		</section>
+	</article>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script type="text/javascript" src="javascript/app.js"></script>
 </body>
 </html>
