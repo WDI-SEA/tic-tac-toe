@@ -49,22 +49,29 @@ function assignPlayer(input) {
 
 var gameboard = {
 	row1: {
-		leftCell: {el: document.getElementById("js_1")},
-		centerCell: {el: document.getElementById("js_2")},
-		rightCell: {el: document.getElementById("js_3")}
+		leftCell: new Cell("js_1"),
+		centerCell: new Cell("js_2"),
+		rightCell: new Cell("js_3")
 	},
 	row2: {
-		leftCell: {el: document.getElementById("js_4")},
-		centerCell: {el: document.getElementById("js_5")},
-		rightCell: {el: document.getElementById("js_6")}
+		leftCell: new Cell("js_4"),
+		centerCell: new Cell("js_5"),
+		rightCell: new Cell("js_6")
 	},
 	row3: {
-		leftCell: {el: document.getElementById("js_7")},
-		centerCell: {el: document.getElementById("js_8")},
-		rightCell: {el: document.getElementById("js_9")}
+		leftCell: new Cell("js_7"),
+		centerCell: new Cell("js_8"),
+		rightCell: new Cell("js_9")
 	}
-}
+};
 
+function Cell(elName) {
+	this.el = document.getElementById(elName);
+}; 
+
+Cell.prototype = {
+
+};
 
 function playGame(){
 	initializeGame(playerTurn);
