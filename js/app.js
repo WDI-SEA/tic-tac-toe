@@ -47,6 +47,18 @@ function assignPlayer(input) {
 	playerTurn = player1;
 }
 
+function Cell(elName) {
+	this.el = document.getElementById(elName);
+	this.el.addEventListener("click", this.setToXorO.bind(this));
+}; 
+
+Cell.prototype = {
+	setToXorO: function(){
+		this.el.textContent = playerTurn;
+		this.clicked = true;
+	}
+};
+
 var gameboard = {
 	row1: {
 		leftCell: new Cell("js_1"),
@@ -65,34 +77,25 @@ var gameboard = {
 	}
 };
 
-function Cell(elName) {
-	this.el = document.getElementById(elName);
-}; 
-
-Cell.prototype = {
-
-};
-
 function playGame(){
-	initializeGame(playerTurn);
-
-
-}
-
-function initializeGame(player) {
-	for(var rowName in gameboard) {
-		var row = gameboard[rowName];
-		for(var cellName in row) {
-			var cell = row[cellName];
-			var cellEl = cell.el;
-			cellEl.addEventListener("click", function(event, once){
-				this.el.textContent = player;
-				this.clicked = true;
-			}.bind(cell));
-		};
-	};
+	// initializeGame(playerTurn);
 
 }
+
+// function initializeGame(player) {
+// 	for(var rowName in gameboard) {
+// 		var row = gameboard[rowName];
+// 		for(var cellName in row) {
+// 			var cell = row[cellName];
+// 			var cellEl = cell.el;
+// 			cellEl.addEventListener("click", function(){
+// 				this.el.textContent = player;
+// 				this.clicked = true;
+// 			}.bind(cell));
+// 		};
+// 	};
+
+// }
 
 
 
