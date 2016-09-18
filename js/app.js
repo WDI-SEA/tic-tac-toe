@@ -49,19 +49,19 @@ function assignPlayer(input) {
 
 var gameboard = {
 	row1: {
-		leftCell: document.getElementById("js_1"),
-		centerCell: document.getElementById("js_2"),
-		rightCell: document.getElementById("js_3")
+		leftCell: {el: document.getElementById("js_1")},
+		centerCell: {el: document.getElementById("js_2")},
+		rightCell: {el: document.getElementById("js_3")}
 	},
 	row2: {
-		leftCell: document.getElementById("js_4"),
-		centerCell: document.getElementById("js_5"),
-		rightCell: document.getElementById("js_6")
+		leftCell: {el: document.getElementById("js_4")},
+		centerCell: {el: document.getElementById("js_5")},
+		rightCell: {el: document.getElementById("js_6")}
 	},
 	row3: {
-		leftCell: document.getElementById("js_7"),
-		centerCell: document.getElementById("js_8"),
-		rightCell: document.getElementById("js_9")
+		leftCell: {el: document.getElementById("js_7")},
+		centerCell: {el: document.getElementById("js_8")},
+		rightCell: {el: document.getElementById("js_9")}
 	}
 }
 
@@ -77,9 +77,10 @@ function initializeGame(player) {
 		var row = gameboard[rowName];
 		for(var cellName in row) {
 			var cell = row[cellName];
-			// console.log(row + ", " + cell);
-			cell.addEventListener("click", function(event, once){
-				this.textContent = player;
+			var cellEl = cell.el;
+			cellEl.addEventListener("click", function(event, once){
+				this.el.textContent = player;
+				this.clicked = true;
 			}.bind(cell));
 		};
 	};
