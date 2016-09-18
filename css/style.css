@@ -20,7 +20,7 @@ h1 {
 	justify-content: center;
 }
 
-.choice_button {
+.button {
 	margin: 0 2px;
 	font-size: 45px;
 	border: 1px solid purple;
@@ -49,4 +49,10 @@ h1 {
 	border: 1px solid purple;
 	align-items: center;
   	justify-content: center;
+}
+
+.play_again {
+	margin-top: 10px;
+	width: 420px;
+	line-height: 62px;
 }

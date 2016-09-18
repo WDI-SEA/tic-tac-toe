@@ -4,35 +4,49 @@
 
  var xButton = document.getElementById("js_x");
  var oButton = document.getElementById("js_o");
+ var resetBoardButton = document.getElementById("js_play_again");
+ var currentGameBoard;
+
+ resetBoardButton.addEventListener("click", resetBoard);
+
+ function resetBoard() {
+ 	player1 = "";
+ 	player2 = "";
+ 	playerTurn = "";
+ 	xButton.style.backgroundColor= "";
+ 	oButton.style.backgroundColor= "";
+ 	currentGameBoard = new Gameboard;
+ };
 
  xButton.addEventListener("click", function(event, once) {
  	if (player1) {
  		return
  	} else {
- 		changeColor(event.currentTarget);
  		assignPlayer(event.currentTarget);
- 		playGame();
+ 		changeColor(event.currentTarget);
+ 		currentGameBoard = new Gameboard();
  	}
  });
+
  oButton.addEventListener("click", function(event, once) {
  	if (player2) {
  		return
  	} else {
- 		changeColor(event.currentTarget);
  		assignPlayer(event.currentTarget);
- 		playGame();
+ 		changeColor(event.currentTarget);
+ 		currentGameBoard = new Gameboard();
  	}
  });
 
- function changeColor(button){
- 	if (button == xButton) {
+ function changeColor(){
+ 	if (playerTurn == "X") {
  		xButton.style.backgroundColor = "purple";
  		oButton.style.backgroundColor = "";
- 	} else if (button === oButton) {
+ 	} else if (playerTurn === "O") {
  		oButton.style.backgroundColor = "purple";
  		xButton.style.backgroundColor = "";
  	}
- }
+ };
 
 function assignPlayer(input) {
 	if (input == xButton) {
@@ -47,55 +61,58 @@ function assignPlayer(input) {
 	playerTurn = player1;
 }
 
-function Cell(elName) {
-	this.el = document.getElementById(elName);
-	this.el.addEventListener("click", this.setToXorO.bind(this));
-}; 
 
-Cell.prototype = {
-	setToXorO: function(){
-		this.el.textContent = playerTurn;
-		this.clicked = true;
-	}
-};
-
-var gameboard = {
-	row1: {
+function Gameboard() {
+	this.row1 = {
 		leftCell: new Cell("js_1"),
 		centerCell: new Cell("js_2"),
 		rightCell: new Cell("js_3")
 	},
-	row2: {
+	this.row2 = {
 		leftCell: new Cell("js_4"),
 		centerCell: new Cell("js_5"),
 		rightCell: new Cell("js_6")
 	},
-	row3: {
+	this.row3 = {
 		leftCell: new Cell("js_7"),
 		centerCell: new Cell("js_8"),
 		rightCell: new Cell("js_9")
 	}
 };
 
-function playGame(){
-	// initializeGame(playerTurn);
+Gameboard.prototype = {
 
-}
+};
 
-// function initializeGame(player) {
-// 	for(var rowName in gameboard) {
-// 		var row = gameboard[rowName];
-// 		for(var cellName in row) {
-// 			var cell = row[cellName];
-// 			var cellEl = cell.el;
-// 			cellEl.addEventListener("click", function(){
-// 				this.el.textContent = player;
-// 				this.clicked = true;
-// 			}.bind(cell));
-// 		};
-// 	};
+function Cell(elName) {
+	this.el = document.getElementById(elName);
+	this.el.textContent = "";
+	this.el.addEventListener("click", this.setToXorO.bind(this));
+}; 
 
-// }
+Cell.prototype = {
+	switchPlayer: function() {
+		if (playerTurn == player1) {
+		playerTurn = player2;
+		} else if (playerTurn == player2){
+			playerTurn = player1;
+		}
+		setTimeout(changeColor, 500);
+	},
+	setToXorO: function() {
+		if (this.clicked){
+			return;
+		} else {
+			this.el.textContent = playerTurn;
+			this.clicked = playerTurn;
+			this.switchPlayer;
+			setTimeout(this.switchPlayer, 10);
+		}
+	},
+};
+
+
+
 
 
 
