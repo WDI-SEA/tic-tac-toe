@@ -1,3 +1,29 @@
+body {
+	text-align:center;
+}
+
 h1 {
   color: purple;
+}
+
+.box {
+	height: 150px;
+	width:150px;
+	background-color: #d9d9d9;
+	margin:15px;
+	float:left;
+}
+
+.clear {
+	clear:both;
+}
+
+.gameBoard {
+	width:556px;
+	margin:0 auto;
+}
+
+img {
+	width:100%;
+	height:100%;
 }
