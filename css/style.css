@@ -1,3 +1,90 @@
+
+
 h1 {
-  color: purple;
+    font-family: 'open sans', sans-serif;
+    font-size: 50px;
+    text-align: center;
+    margin: 25px 0 0 0;
+}
+
+.container {
+	width: 600;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.board {
+	width: auto;
+	margin: 0 auto;
+}
+
+.box {
+    width: 150px;
+    height: 150px;
+    background-color: #0490AA;
+    border-bottom: 2px solid #036E82;
+    display: inline-block;
+    font-size: 100px;
+    font-weight: 200;
+    font-family: 'helvetica neue', arial, sans-serif;
+    vertical-align: top;
+    margin: 0 -2px;
+    border-right: 2px solid #036E82;
+}
+
+.xo {
+	width: 100px;
+    vertical-align: middle;
+    padding-top: 6px;
+}
+
+.catsGame {
+    position: absolute;
+    top: 100px;
+    width: 500px;
+    right: 9%;
+}
+
+.messaging {
+    height: auto;
+    margin: 15px 0 25px 0;
+    font-size: 24px;
+    font-family: 'roboto', sans-serif;
+    color: #333;
+    position: relative;
+}
+
+.compBox {
+	background-color: #FF7C00;
+	/*border-bottom: 2px solid #C66100;
+	border-right: 2px solid #C66100;*/
+}
+
+.compWinningSquare {
+	background-color: #53D770;
+}
+
+.userWinningSquare {
+	background-color: #FFAFC2;
+}
+
+.userBox {
+	background-color: #00C92C;
+	/*border-bottom: 2px solid #00A023;
+	border-right: 2px solid #00A023;*/
+}
+
+.button {
+    background-color: #42B8DD;
+    color: white;
+    padding: 5px 30px;
+    font-size: 18px;
+    margin: 15px 2px;
+    cursor: pointer;
+    border: none;
+    border-bottom: 2px solid #0591C0;
+}
+
+.button:hover {
+	background-color: #0591C0;
 }
