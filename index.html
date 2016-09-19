@@ -1,14 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
-  <link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="style.css">
+  <title>Tic-Tac-Toe</title>
 </head>
-<body>
-  <h1>Hello Front-End</h1>
 
-  <script type="text/javascript" src="js/app.js"></script>
+<body class = "body">
+
+<div class = "container"></div>
+<h1 class = "title">Welcome to tic-tac-toe!</h1>
+
+  <div class = "allRows">
+    <div class = "div1 cell" id = "win1"></div>
+    <div class = "div2 cell" id = "win2"></div>
+    <div class = "div3 cell" id = "win3"></div>
+  </div>
+<div class = "clear"></div>
+
+  <div class = "allRows">
+    <div class = "div4 cell" id = "win4"></div>
+    <div class = "div5 cell" id = "win5"></div>
+    <div class = "div6 cell" id = "win6"></div>
+  </div>
+<div class = "clear"></div>
+
+  <div class = "allRows">
+    <div class = "div7 cell" id = "win7"></div>
+    <div class = "div8 cell" id = "win8"></div>
+    <div class = "div9 cell" id = "win9"></div>
+  </div>
+<div class = "clear"></div>
+
+<div class = "resDiv"><button class = "resetButton">RESET GAME</button></div>
+
+<div id = "gameOverMessage">Press Reset Game to play again.</div>
+
+<div id="boxModelExample"></div>
+<script type="text/javascript" src="script.js"></script>
+
 </body>
 </html>

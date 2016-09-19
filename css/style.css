@@ -1,3 +1,88 @@
-h1 {
-  color: purple;
+.body{
+  background-color: black;
+  font-family: sans-serif;
+}
+.container {
+  margin: 0 auto;
+  width: 1200px;
+  text-align: center;
+}
+.title {
+  text-align: center;
+  color: white;
+}
+.allRows {
+  margin: 0 auto;
+  width: 465px;
+}
+.cell {
+  float: left;
+  height: 150px;
+  width: 150px;
+  color: white;
+  text-align: center;
+  font-size: 135px;
+}
+.div1 {
+  border-bottom: 3px solid white;
+  border-right: 3px solid white;
+}
+.div2 {
+  border-left: 3px solid white;
+  border-bottom: 3px solid white;
+  border-right: 3px solid white;
+}
+.div3 {
+  border-bottom: 3px solid white;
+  border-left: 3px solid white;
+}
+.div4 {
+  border-top: 3px solid white;
+  border-bottom: 3px solid white;
+  border-right: 3px solid white;
+}
+.div5 {
+  border-left: 3px solid white;
+  border-bottom: 3px solid white;
+  border-right: 3px solid white;
+  border-top: 3px solid white;
+}
+.div6 {
+  border-left: 3px solid white;
+  border-bottom: 3px solid white;
+  border-top: 3px solid white;
+}
+.div7 {
+  border-right: 3px solid white;
+  border-top: 3px solid white;
+}
+.div8 {
+  border-left: 3px solid white;
+  border-top: 3px solid white;
+  border-right: 3px solid white;
+}
+.div9 {
+  border-left: 3px solid white;
+  border-top: 3px solid white;
+}
+.clear {
+  clear: both;
+}
+.resetButton {
+  width: 100px;
+  height: 25px;
+  background-color: white;
+  color: black;
+  border-color: none;
+  border-radius: 5px;
+}
+.resDiv{
+  margin: 25px auto;
+  width: 100px;
+}
+
+.gameOverMessage {
+  text-align: center;
+  color: white;
+  font-size: 25px;
 }
