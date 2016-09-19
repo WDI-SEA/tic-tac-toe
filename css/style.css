@@ -1,3 +1,36 @@
+body {
+	font-family: avenir, sans serif;
+}
+.container {
+	margin: 0 auto;
+	width: 480px;
+	text-align:center;
+	position:relative;
+}
+.board {
+	width:150px;
+	height:150px;
+	float:left;
+	background-color:#E0E0E0;
+	text-align:center;
+	line-height:1.7;
+	color:#212121;
+	font-size:68pt;
+	font-weight:medium;
+	margin:5px;
+}
+.clear {
+	clear:both;
+}
 h1 {
-  color: purple;
+	font-size:34pt;
+	height:30px;
+}
+.turn {
+	height:20px;
+	font-weight:bold;
+	font-size:18px;
+}
+#resetButton {
+	font-size:30px;
 }
