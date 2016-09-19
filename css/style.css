@@ -1,15 +1,18 @@
 body {
 	text-align:center;
+	background-color:#333333;
 }
 
 h1 {
-  color: purple;
+  color: #00e600;
+  font-size:3em;
+  margin-bottom: 0;
 }
 
 .box {
 	height: 150px;
 	width:150px;
-	background-color: #d9d9d9;
+	background-color: #b3b3b3;
 	margin:15px;
 	float:left;
 }
@@ -19,11 +22,30 @@ h1 {
 }
 
 .gameBoard {
-	width:556px;
+	max-width:565px;
+	min-width:560px;
 	margin:0 auto;
 }
 
 img {
 	width:100%;
 	height:100%;
+}
+
+.reset {
+	width:150px;
+	font-size:24px;
+	visibility: hidden;
+}
+
+button:hover {
+	background-color: #00e600;
+}
+
+.score {
+	color:white;
+	font-size:20px;
+	background-color: #b3b3b3;
+	width:150px;
+	margin:0 auto;
 }
