@@ -1,3 +1,64 @@
+body {
+	font-family: 'Quicksand', sans-serif;
+	width: 100%;
+}
+
 h1 {
   color: purple;
+  font-size: 64px;
+}
+
+h2 {
+	font-size: 24px;
+	text-align: center;
+	padding-top: 10px;
+}
+
+.title {
+	text-align: center;
+	line-height: 0;
+	padding: 20px 0;
+}
+
+.choice_wrapper {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.button {
+	margin: 0 2px;
+	font-size: 45px;
+	border: 1px solid purple;
+	text-align: center;
+	padding: 0 17px;
+
+}
+
+.game_board {
+	padding-top: 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.game_row {
+	display: flex;
+}
+
+.game_square {
+	font-size: 100px;
+	height: 150px;
+	width: 150px;
+	flex: 0 0 auto;
+	display: flex;
+	border: 1px solid purple;
+	align-items: center;
+  	justify-content: center;
+}
+
+.play_again {
+	margin-top: 10px;
+	width: 420px;
+	line-height: 62px;
 }
