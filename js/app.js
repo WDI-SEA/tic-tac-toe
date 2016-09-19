@@ -76,13 +76,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-	// COMPUTER TURN
+// COMPUTER TURN
 
 	var computerTurn = function() {
 		console.log('computer taking turn');
-
 		var compChoice = Math.floor((Math.random() * squaresInPlay.length - 1) + 1);
-
 		console.log('computer chooses: ' + compChoice);
 
 		if (squaresInPlay[compChoice] == 'first') {
@@ -154,31 +152,6 @@ document.addEventListener("DOMContentLoaded", function() {
 	}
 
 
-
-
-
-
-		// for (i = 0; i < 9; i++) {
-
-		// 	if (compChoice == squaresInPlay[i]) {
-		// 		console.log(i);
-		// 		squaresInPlay.splice(squaresInPlay.indexOf(i), 1);
-
-		// 		document.getElementsByClassName('box')[i].textContent = 'O';
-		// 		console.log(squaresInPlay);
-		// 	}
-		// 	else {
-		// 		console.log(i + '(number already selected');
-		// 	}
-		// }
-
-
-
-	// Matching Computer Choice to Array Value:
-
-	//if 
-
-
 	// USER TURN - CLICKING BOXES
 
 	box1.addEventListener('click', function() {
@@ -192,9 +165,9 @@ document.addEventListener("DOMContentLoaded", function() {
 			userSquares.push('first');
 			checkForWin();
 		}
-		// else if (squaresInPlay == 'gameOver') {
-		// 	messageBox.textContent = 'game over - no more moves';
-		// }
+		else if (squaresInPlay.length == 0) {
+			messageBox.textContent = 'game over - no more moves';
+		}
 		else {
 			messageBox.textContent = 'square already picked - try again';
 		}
@@ -211,9 +184,9 @@ document.addEventListener("DOMContentLoaded", function() {
 			userSquares.push('second');
 			checkForWin();
 		}
-		// else if (squaresInPlay == 'gameOver') {
-		// 	messageBox.textContent = 'game over - no more moves';
-		// }
+		else if (squaresInPlay.length == 0) {
+			messageBox.textContent = 'game over - no more moves';
+		}
 		else {
 			messageBox.textContent = 'square already picked - try again';
 		}
@@ -230,9 +203,9 @@ document.addEventListener("DOMContentLoaded", function() {
 			userSquares.push('third');
 			checkForWin();
 		}
-		// else if (squaresInPlay == 'gameOver') {
-		// 	messageBox.textContent = 'game over - no more moves';
-		// }
+		else if (squaresInPlay.length == 0) {
+			messageBox.textContent = 'game over - no more moves';
+		}
 		else {
 			messageBox.textContent = 'square already picked - try again';
 		}
@@ -249,9 +222,9 @@ document.addEventListener("DOMContentLoaded", function() {
 			userSquares.push('fourth');
 			checkForWin();
 		}
-		// else if (squaresInPlay == 'gameOver') {
-		// 	messageBox.textContent = 'game over - no more moves';
-		// }
+		else if (squaresInPlay.length == 0) {
+			messageBox.textContent = 'game over - no more moves';
+		}
 		else {
 			messageBox.textContent = 'square already picked - try again';
 		}
@@ -268,8 +241,9 @@ document.addEventListener("DOMContentLoaded", function() {
 			userSquares.push('fifth');
 			checkForWin();
 		}
-		// else if (squaresInPlay == 'gameOver') {
-		// 	messageBox.textContent = 'game over - no more moves';		}
+		else if (squaresInPlay.length == 0) {
+			messageBox.textContent = 'game over - no more moves';
+		}
 		else {
 			messageBox.textContent = 'square already picked - try again';
 		}
@@ -286,9 +260,9 @@ document.addEventListener("DOMContentLoaded", function() {
 			userSquares.push('sixth');
 			checkForWin();
 		}
-		// else if (squaresInPlay == 'gameOver') {
-		// 	messageBox.textContent = 'game over - no more moves';
-		// }
+		else if (squaresInPlay.length == 0) {
+			messageBox.textContent = 'game over - no more moves';
+		}
 		else {
 			messageBox.textContent = 'square already picked - try again';
 		}
@@ -305,9 +279,9 @@ document.addEventListener("DOMContentLoaded", function() {
 			userSquares.push('seventh');
 			checkForWin();
 		}
-		// else if (squaresInPlay == 'gameOver') {
-		// 	messageBox.textContent = 'game over - no more moves';
-		// }
+		else if (squaresInPlay.length == 0) {
+			messageBox.textContent = 'game over - no more moves';
+		}
 		else {
 			messageBox.textContent = 'square already picked - try again';
 		}
@@ -324,9 +298,9 @@ document.addEventListener("DOMContentLoaded", function() {
 			userSquares.push('eighth');
 			checkForWin();
 		}
-		// else if (squaresInPlay == 'gameOver') {
-		// 	messageBox.textContent = 'game over - no more moves';
-		// }
+		else if (squaresInPlay.length == 0) {
+			messageBox.textContent = 'game over - no more moves';
+		}
 		else {
 			messageBox.textContent = 'square already picked - try again';
 		}
@@ -343,32 +317,20 @@ document.addEventListener("DOMContentLoaded", function() {
 			userSquares.push('ninth');
 			checkForWin();
 		}
-		// else if (squaresInPlay == 'gameOver') {
-		// 	messageBox.textContent = 'game over - no more moves';
-		// }
+
+		else if (squaresInPlay.length == 0) {
+			messageBox.textContent = 'game over - no more moves';
+		}
+
 		else {
 			messageBox.textContent = 'square already picked - try again';
 		}
 	});
 
 
-	// Reset Board
+// RESET BOARD
 
 	resetButton.addEventListener('click', function() {
-		// can't get all boxes to work...
-		//document.querySelectorAll('.box').textContent = '';
-
-		//patch for now:
-
-		box1.textContent = '';
-		box2.textContent = '';
-		box3.textContent = '';
-		box4.textContent = '';
-		box5.textContent = '';
-		box6.textContent = '';
-		box7.textContent = '';
-		box8.textContent = '';
-		box9.textContent = '';
 
 		squaresInPlay = ['first', 
 						'second', 
@@ -386,16 +348,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
 		for (i = 0; i < boxes.length; i++) {
 			boxes[i].className = 'box';
+			boxes[i].innerHTML = '';
 		}
 
 		yourTurnNewGame();
 	});
 
 
-	// DISABLE BOARD AFTER WIN
+
+// DISABLE BOARD AFTER WIN
 
 	var disableBoard = function() {
-		squaresInPlay = 'gameOver';
+		squaresInPlay = [];
 	}
 
 
