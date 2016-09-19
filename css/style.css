@@ -1,3 +1,56 @@
+
+
+
+
+body {
+	background-color: beige;
+	
+	margin: 0 auto;
+	font-family: helvetica;
+	text-align: center;
+
+	}
+
 h1 {
-  color: purple;
+  font-size: 60px;
+  font-family: helvetica;
+}
+
+#messageBoard {
+	margin-bottom: 30px;
+}
+
+#gameBoard {
+	margin: 0 auto;
+	width: 400px;
+	height: 400px;
+	}
+
+.cell{
+	width: 120px;
+	height: 120px;
+	background-color: black;
+	outline: none;
+	border: none;
+	margin: 3px;
+	font-size: 100px;
+	color: white;
+}
+
+#cell1, #cell2, #cell3 {
+	float: left;
+}
+
+#cell4, #cell5, #cell6 {
+	float: left;
+}
+
+#cell7, #cell8, #cell9 {
+	float: left;
+}
+
+
+#reset {
+	margin-top: 20px;
+
 }
