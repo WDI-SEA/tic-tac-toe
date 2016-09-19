@@ -129,20 +129,53 @@ Cell.prototype = {
 		} else {
 			this.el.textContent = playerTurn;
 			this.whoClicked = playerTurn;
-			this.switchPlayer;
-			setTimeout(this.switchPlayer, 1);
+			if (this.isWinner("X")) {
+				setTimeout(function() {
+					window.alert("Player X is the winner!");
+					resetBoard();
+				}, 0);
+				
+			} else if(this.isWinner("O")) {
+				setTimeout(function() {
+					window.alert("Player O is the winner!");
+					resetBoard();
+				}, 0);
+			} else {
+				this.switchPlayer();
+			}
 		}
 	},
 	reset: function() {
 		this.el.textContent = "";
 		this.whoClicked = "";
+	},
+	isWinner: function(XorO) {
+		var board = gameboard.cells;
+		if(board.top.left.whoClicked == XorO && board.top.center.whoClicked == XorO && board.top.right.whoClicked == XorO) {
+			return true;
+		} else if(board.middle.left.whoClicked == XorO && board.middle.center.whoClicked == XorO && board.middle.right.whoClicked == XorO) {
+			return true;
+		} else if(board.bottom.left.whoClicked == XorO && board.bottom.center.whoClicked == XorO && board.bottom.right.whoClicked == XorO) {
+			return true;
+		} else if(board.top.left.whoClicked == XorO && board.middle.left.whoClicked == XorO && board.bottom.left.whoClicked == XorO) {
+			return true;
+		} else if(board.top.center.whoClicked == XorO && board.middle.center.whoClicked == XorO && board.bottom.center.whoClicked == XorO) {
+			return true;
+		} else if(board.top.right.whoClicked == XorO && board.middle.right.whoClicked == XorO && board.bottom.right.whoClicked == XorO) {
+			return true;
+		} else if(board.top.left.whoClicked == XorO && board.middle.center.whoClicked == XorO && board.bottom.right.whoClicked == XorO) {
+			return true;
+		} else if(board.top.right.whoClicked == XorO && board.middle.center.whoClicked == XorO && board.bottom.left.whoClicked == XorO) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 };
 
 // Calling Gameboard constructor.
 var gameboard = new Gameboard();
 gameboard.hideOrShowGameBoard("hide");
-
 
 
 
