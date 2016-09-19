@@ -1,3 +1,29 @@
 h1 {
-  color: purple;
+  color: red;
+}
+body {
+	background-color: black;
+	text-align: center;
+}
+table {
+	align-content: center;
+	justify-content: center;
+	margin: auto;
+}
+td {
+	height: 150px;
+	width: 150px;
+	background-color: white;
+	border: 2px solid black;
+	font-size: 125px;
+	
+}
+button {
+	background-color: blue;
+	color: red;
+	font-size: 50px;
+	text-align: center;
+	height:80px;
+	width: 150px;
+	margin: auto;
 }
