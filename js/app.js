@@ -1,31 +1,12 @@
+// Global variables.
 var player1;
 var player2;
 var playerTurn;
-
 var xButton = document.getElementById("js_x");
 var oButton = document.getElementById("js_o");
 var resetBoardButton = document.getElementById("js_play_again");
 
-resetBoardButton.addEventListener("click", resetBoard);
-
-function resetBoard() {
- 	player1 = "";
- 	player2 = "";
- 	playerTurn = "";
- 	xButton.style.backgroundColor= "";
- 	oButton.style.backgroundColor= "";
- 	xButton.style.color = "black";
- 	oButton.style.color = "black";
- 	for(var rowName in gameboard.cells) {
-		var row = gameboard.cells[rowName];
- 		for(var columnName in row){
- 			var cell = row[columnName];
- 			cell.reset();
- 		}
- 	}
- 	gameboard.hideOrShowGameBoard("hide");
-}
-
+// Adding event listeners to global variabls.
 xButton.addEventListener("click", function() {
  	if (player1) {
  		return;
@@ -46,7 +27,28 @@ oButton.addEventListener("click", function() {
  	}
 });
 
- function changeColor(){
+resetBoardButton.addEventListener("click", resetBoard);
+
+// Unique functions
+function resetBoard() {
+ 	player1 = "";
+ 	player2 = "";
+ 	playerTurn = "";
+ 	xButton.style.backgroundColor= "";
+ 	oButton.style.backgroundColor= "";
+ 	xButton.style.color = "black";
+ 	oButton.style.color = "black";
+ 	for(var rowName in gameboard.cells) {
+		var row = gameboard.cells[rowName];
+ 		for(var columnName in row){
+ 			var cell = row[columnName];
+ 			cell.reset();
+ 		}
+ 	}
+ 	gameboard.hideOrShowGameBoard("hide");
+}
+
+function changeColor() {
  	if (playerTurn == "X") {
  		xButton.style.backgroundColor = "purple";
  		xButton.style.color = "white";
@@ -73,7 +75,7 @@ function assignPlayer(input) {
 	playerTurn = player1;
 }
 
-
+// Constructors
 function Gameboard() {
 	this.cells = {
 		top: {
@@ -137,8 +139,10 @@ Cell.prototype = {
 	}
 };
 
+// Calling Gameboard constructor.
 var gameboard = new Gameboard();
 gameboard.hideOrShowGameBoard("hide");
+
 
 
 
