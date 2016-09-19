@@ -3,11 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <title>Tic Tac Toe</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
 </head>
 <body>
-  <h1>Hello Front-End</h1>
+
+	<div class = "container">
+
+	<h1><span style="color: #0490AA;">TIC</span> <span style="color: #FF7C00;">TAC</span> <span style="color: #00c92c;">TOE</h1>
+
+	<div class="messaging" id="messaging">
+	</div>
+
+		<div class = "board">
+			<div class = "row1">
+				<div class = "box" id="box1"></div>
+				<div class = "box" id="box2"></div>
+				<div class = "box" id="box3"></div>	
+			</div>
+
+			<div class = "row2">
+				<div class = "box" id="box4"></div>
+				<div class = "box" id="box5"></div>
+				<div class = "box" id="box6"></div>
+			</div>
+
+			<div class = "row3">
+				<div class = "box" id="box7"></div>
+				<div class = "box" id="box8"></div>
+				<div class = "box" id="box9"></div>
+			</div>
+		</div>
+
+		<input type="button" id="reset" value="Reset" class="button">
+
+	</div>
+
 
   <script type="text/javascript" src="js/app.js"></script>
 </body>
