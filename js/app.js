@@ -1,7 +1,6 @@
 //Set all boxes to null
-//Create event lsitner that responds to a box being clicked
+//Create event listner that responds to a box being clicked
 //create event for each box
-//
 
 var playerTurn = 0;
 var setBoxValue = {
@@ -20,7 +19,7 @@ var setBoxValue = {
 
 //This function will take an input telling it what box was click populate the function and output an x or o
 	function fillBox(element){
-		document.getElementById(element).addEventListener("click", function(e) {
+		document.getElementById(element).addEventListener("click", function() {
    
     		if(document.getElementById(element).textContent === ""){
     			if(playerTurn % 2 === 0){

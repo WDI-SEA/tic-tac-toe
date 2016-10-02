@@ -22,23 +22,35 @@ button {
 	background-color: black;
 	color: #0cf23e;
 	font-size: 24px;
- 	margin: 20px 0 400px 40%;
 	height: 70px;
 	width: 100px;
+}
+#wrapper{
+  margin: 0 auto;
 }
 .box{
 	background-color: black;
 	color: #0cf23e;
 	width: 100px;
-    height: 100px;
-    outline: 1px solid;
-    float: left;
-    border-color: black;
-    font-size: 80px;
-    font-weight: bold;
-    text-align: center;
+  height: 100px;
+  outline: 1px solid;
+  float: left;
+  border-color: black;
+  font-size: 80px;
+  font-weight: bold;
+  text-align: center;
 }
-.container{
-	margin: 0 auto;
-
+.buttonContainer{
+  display: inline-block;
+  text-align: center;
+  margin: 0 auto;
+  height: 125px;
 }
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+  }
