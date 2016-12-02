@@ -1,3 +1,89 @@
 h1 {
   color: purple;
 }
+
+h3 {
+  position: absolute;
+}
+
+body {
+  background-color: tan;
+  text-align: center;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.clearfix {
+  clear: both;
+}
+
+.board {
+  display: inline-block;
+}
+
+.scoreboard {
+  background-color: #decebe;
+  margin: 0 auto;
+  width: 100%;
+  height: 100px;
+  line-height: 100px;
+}
+
+.scorebkgd {
+  position: relative;
+  color: tan;
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+  font-weight: 900;
+  font-size: 60px;
+}
+
+.score {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  font-weight: normal;
+  font-size: 20px;
+  color: black;
+}
+
+#x-side {
+  float: left;
+}
+
+#message {
+  display: inline-block;
+  width: 100px;
+  line-height: 1em;
+  text-align: justify;
+}
+
+#o-side {
+  float: right;
+}
+
+.gameboard {
+  display: inline-block;
+  margin: 0 auto;
+  background-color: #decebe;
+  padding: 10px;
+}
+
+.row {
+}
+
+.square {
+  display: inline-block;
+  background-color: brown;
+  width: 100px;
+  height: 100px;
+}
+
+.square:hover {
+  background-color: crimson;
+}
+
+.square:active{
+  background-color: brown;
+}
