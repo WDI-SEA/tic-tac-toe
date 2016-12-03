@@ -1,3 +1,47 @@
-h1 {
-  color: purple;
+#wrapper {
+  margin: 0 auto;
+  width: 940px;
+}
+#board {
+  width: 650px;
+}
+
+.squares {
+  display: inline-block;
+  height: 200px;
+  width: 200px;
+}
+#tl {
+  border-right: 10px black solid;
+  border-bottom: 10px black solid;
+}
+#tm {
+  border-right: 10px black solid;
+  border-bottom: 10px black solid;
+}
+#tl {
+  border-right: 10px black solid;
+  border-bottom: 10px black solid;
+}
+#tm {
+  border-right: 10px black solid;
+  border-bottom: 10px black solid;
+}
+#ml {
+  border-right: 10px black solid;
+  border-bottom: 10px black solid;
+}
+#mm {
+  border-right: 10px black solid;
+  border-bottom: 10px black solid;
+}
+#tr {
+  border-bottom: 10px black solid;
+}
+#mr {
+  border-bottom: 10px black solid;
+}
+#bm {
+  border-left: 10px black solid;
+  border-right: 10px black solid;
 }
