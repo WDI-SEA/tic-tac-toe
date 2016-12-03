@@ -28,7 +28,7 @@ function displayO(thing) {
 
 }
 function displayX(thing) {
-    thing.style.background = "url(img/xmen_x.jpg) 0% 0% / cover";
+    thing.style.background = "url(img/x.png) 0% 0% / cover";
 
 }
 
