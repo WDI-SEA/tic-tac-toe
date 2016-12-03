@@ -12,6 +12,8 @@ function drawBoard(what, i){
     document.getElementById(what).addEventListener('click', setMove);
     document.getElementById(what).style.background = "";
     document.getElementById(what).setAttribute('value', i+1);
+    document.getElementById('turnX').style.visibility = "visible";
+    document.getElementById('turnO').style.visibility = "hidden";
     // picX = Math.floor(Math.random(pictureList.length)); //pick a picture at random
 }
 
@@ -28,6 +30,8 @@ function setMove(){
 
 function displayO(thing) {
     thing.style.background = "url(img/DC.png) 0% 0% / cover";
+    document.getElementById('turnX').style.visibility = "visible";
+    document.getElementById('turnO').style.visibility = "hidden";
     oMoves.push(thing.getAttribute('value'));
     if (oMoves.length > 2) {
       console.log('attmpting to run checkWinner for O');
@@ -35,15 +39,20 @@ function displayO(thing) {
         youWon("O");
       }
     }
-
 }
 function displayX(thing) {
     thing.style.background = "url(img/x.png) 0% 0% / cover";
     xMoves.push(thing.getAttribute('value'));
+    document.getElementById('turnO').style.visibility = "visible";
+    document.getElementById('turnX').style.visibility = "hidden";
     if (xMoves.length > 2) {
       console.log('attmpting to run checkWinner for X');
       if (checkWinner(xMoves)){
         youWon("X");
+      } else if (xMoves.length + oMoves.length == 9) {
+        document.getElementById('test').textContent = "STALEMATE, TRY AGAIN!";
+        document.getElementById('turnX').style.visibility = "hidden";
+        document.getElementById('turnO').style.visibility = "hidden";
       }
     }
 }
@@ -61,6 +70,8 @@ function youWon(team) {
     document.getElementById(what).removeEventListener('click', setMove);
   });
   document.getElementById('test').textContent = team +" IS THE VICTOR!!";
+  document.getElementById('turnX').style.visibility = "hidden";
+  document.getElementById('turnO').style.visibility = "hidden";
 }
 
 

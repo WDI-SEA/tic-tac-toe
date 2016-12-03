@@ -1,0 +1,631 @@
+    1  cd Desktop/GAWDI
+    2  ls
+    3  atom ~/.zshrc
+    4  cd Desktop/GAWDI
+    5  ls
+    6  cd Agentscreech.github.io
+    7  atom .
+    8  atom ~/.zshrc
+    9  cd Desktop/GAWDI
+   10  '/Applications/Postgres.app/Contents/Versions/9.6/bin'/psql -p5432
+   11  which sgers
+   12  atom ~/.zshrc
+   13  cd Desktop/GAWDI
+   14  which psql
+   15  cd Desktop/GAWDI
+   16  ssh -T git@github.com
+   17  ls -a ~/.ssh
+   18  mongod
+   19  clra
+   20  clear
+   21  cd Desktop/GAWDI
+   22  curl -I http://www.google.com
+   23  curl -v http://www.google.com
+   24  cler
+   25  clear
+   26  /
+   27  ls
+   28  cd
+   29  cd Do
+   30  cd Documents
+   31  cd ..
+   32  cd Dek
+   33  cd Desktop
+   34  ls
+   35  cd GAWDI
+   36  ls
+   37  cd Agentscreech.github.io
+   38  touch test.txt
+   39  rm test.txt
+   40  cd ~
+   41  ls
+   42  atom .bashprofile
+   43  atom .bash_profile
+   44  ls
+   45  cd Desktop
+   46  echo "what is this" > test.txt
+   47  cat test.txt
+   48  cd GAWDI
+   49  ls
+   50  git clone https://github.com/WDI-SEA/command-line-murder-mystery.git
+   51  ls
+   52  cd command-line-murder-mystery
+   53  ls
+   54  atom .
+   55  cd mystery
+   56  ls
+   57  open crimescene
+   58  cd.
+   59  cd ..
+   60  cat instructions
+   61  cd mystery
+   62  cat crimescene | grep CLUE > clues.txt
+   63  cat clues
+   64  cat clues.txt
+   65  ls
+   66  cat people
+   67  clear
+   68  ls
+   69  cat clues.txt
+   70  cd interviews
+   71  ls
+   72  cd..
+   73  cd ..
+   74  ls
+   75  cd streets
+   76  ls
+   77  cd ..
+   78  cat clues.txt
+   79  ls
+   80  cat people
+   81  cd .
+   82  ls
+   83  cat people | grep M possibleMales.txt
+   84  cat people | grep M > possibleMales.txt
+   85  cat possibleMales.txt
+   86  cat possibleMales.txt | grep " M " > possibleMales.txt
+   87  cat possibleMales.txt
+   88  lis
+   89  ls
+   90  cat people | grep  M  > possibleMales.txt
+   91  cat possibleMales.txt
+   92  ls
+   93  cat clues.txt
+   94  cd memberships
+   95  ls
+   96  cat crimescene | grep clue
+   97  cat crimescene | grep CLUE
+   98  cd ..
+   99  cat crimescene | grep CLUE
+  100  cat crimescene | grep clue
+  101  cat crimescene | grep CLUE
+  102  ls
+  103  cd interviews
+  104  ls
+  105  cat interview-999372
+  106  ls
+  107  cd ..
+  108  ls
+  109  cat clues.txt
+  110  cat people | grep Annabel
+  111  cat ./interviews grep | Fuglsang
+  112  cd interviews
+  113  grep Fuglsang
+  114  grep
+  115  grep Fuglsang ./*.*
+  116  grep Fuglsang ./*
+  117  grep Annabel ./*
+  118  grep Church  ./*
+  119  grep Sun  ./*
+  120  grep ATM  ./*
+  121  grep wallet  ./*
+  122  cd ..
+  123  ls
+  124  cat crimescene
+  125  ls
+  126  cat clues.txt
+  127  grep Annabel
+  128  grep Annabel ./*
+  129  cat vehicles | grep Annabel > suspectcars.txt
+  130  ls
+  131  cat suspectcars.txt
+  132  cat vehicles
+  133  ls
+  134  rm suspectcars.txt
+  135  cat
+  136  cat -h
+  137  cat vehicles | grep Annabel
+  138  cat vehicles | sort
+  139  cat vehicles
+  140  cat vehicles | grep -n Annabel
+  141  cat vehicles 23367
+  142  cat vehicles | tail -n +23367 | head -n 10
+  143  cat vehicles | tail -n +23360 | head -n 10
+  144  cat vehicles | tail -n +23364 | head -n 10
+  145  cat vehicles | tail -n +23364 | head -n 6
+  146  man grep
+  147  ls
+  148  grep Annabel
+  149  grep Annabel ./*
+  150  grep Annabel ./interviews/*
+  151  grep Annabel ./interviews/
+  152  grep Annabel ./interviews/*
+  153  grep Annabel ./interviews/.*
+  154  cd interviews
+  155  grep Annabel ./*
+  156  grep Annabel ../*
+  157  cd ..
+  158  ls 
+  159  cd memberships
+  160  grep -r Annabel
+  161  grep -r Annabel ./*
+  162  cat museum.txt
+  163  ls
+  164  cd ..
+  165  cat clues.txt
+  166  grep Annabel
+  167  grep Annabel ./*
+  168  grep -B 3
+  169  grep -B 3 -A 3 Annabel vehicles
+  170  people
+  171  ls
+  172  grep Annabel people
+  173  grep Annabel ./interviews/
+  174  grep Annabel ./interviews/*.*
+  175  grep Annabel ./interviews/*
+  176  cd interviews
+  177  grep Annabel ./*
+  178  ls
+  179  grep Suspect ./*
+  180  cat interview-999372
+  181  grep eat ./*
+  182  grep ATM ./*
+  183  grep suspect ./*
+  184  cat interview-9620713
+  185  cd..
+  186  cd ..
+  187  ls
+  188  grep CLUE ./*
+  189  grep Klein ./*
+  190  grep -A 3 -B 3 Klein ./*
+  191  ls
+  192  cd streets
+  193  ls
+  194  cat Abbot_Street
+  195  ls
+  196  cd ..
+  197  cat clues.txt
+  198  grep Annabel ./*
+  199  grep Fuglsang ./interviews/*
+  200  grep Sun ./interviews/*
+  201  grep Church ./interviews/*
+  202  grep -rl Waite
+  203  grep -rl Waite ./*
+  204  grep -A 3 -B 3 -rl Waite ./vehicles
+  205  grep -A 3 -B 3 Waite ./vehicle
+  206  grep -A 3 -B 3 Waite ./vehicles
+  207  cat clues.txt
+  208  cd interviews
+  209  grep -i suspect ./* 
+  210  grep -i witness ./* 
+  211  grep -i zealand ./* 
+  212  grep -i suspect ./* 
+  213  grep -i honda ./* 
+  214  grep Annabel ./people
+  215  grep Annabel ../people
+  216  ls
+  217  cd . 
+  218  cd ..
+  219  ls
+  220  rm possibleMales.txt 
+  221  ls streets
+  222  grep Annabel
+  223  grep Annabel ./*
+  224  grep Annabel ./streets/*
+  225  grep Hart ./streets/*
+  226  head -n 40 streets/Hart_Place | tail -n 1
+  227  cat ./interviews/interview-47246024
+  228  head -n 176 streets/Haley_Street | tail -n 1
+  229  cat ./interviews/interview-871877
+  230  grep -A 5 Church ./interviews/
+  231  grep -A 5 Church ./interviews
+  232  grep -A 5 Church ./interviews/*
+  233  grep L337 vehicles
+  234  grep -A 6 L337 vehicles
+  235  grep -A 6 L337 vehicles > suspectCars.txt
+  236  cat suspectCars.txt
+  237  cat suspectCars.txt grep -i blue > suspectCars.txt
+  238  cat suspectCars.txt | grep -i blue > suspectCars.txt
+  239  cat suspectCars.txt
+  240  grep -A 6 L337 vehicles > suspectCars.txt
+  241  cat suspectCars.txt
+  242  grep -A 3 -B 3 Blue suspectCars.txt > suspectCars.txt
+  243  cat suspectCars.txt
+  244  grep -A 6 L337 vehicles > suspectCars.txt
+  245  grep Bowers ./interviews/*
+  246  grep Maher ./interviews/*
+  247  grep Germuska ./interviews/*
+  248  grep Bowers ./interviews/*
+  249  grep Bowers -rl ./*
+  250  cd Desktop
+  251  cd GAWDI
+  252  cd command-line-murder-mystery
+  253  ls
+  254  cd mystery
+  255  ls
+  256  grep CLUE crimescene > clues.txt
+  257  cat clues.txt
+  258  grep Annabel ./interviews/*
+  259  grep Annabel -rl .?*
+  260  grep Annabel -rl ./*
+  261  grep Annabel -r ./*
+  262  grep -A 10 Church ./interviews/* 
+  263  grep -A 3 -B 3 -i blue honda vehicles
+  264  grep -A 3 -B 3 -i blue | honda vehicles
+  265  grep -A 3 -B 3 -i blue | grep -A 3 -B 3 -i honda vehicles
+  266  grep L337 vehicles
+  267  grep -A 3 -B 3 L337 vehicles
+  268  grep Germuska -rl ./*
+  269  grep Bowers -rl ./*
+  270  grep Maher -rl ./*
+  271  grep Maher -r ./interviews
+  272  echo "Jeremey Bowers" > solution.txt
+  273  cat solution.txt
+  274  history
+  275  history >> solution.txt
+  276  cat solution.txt
+  277  atom solution.txt
+  278  git status
+  279  git add -A
+  280  git status
+  281  git commit -m "narrowed down suspect"
+  282  git push origin master
+  283  cd ..
+  284  cd .. 
+  285  git clone https://github.com/Agentscreech/command-line-murder-mystery.git
+  286  cd command-line-murder-mystery
+  287  git status
+  288  git add -A
+  289  git commit -m "found suspect"
+  290  git orign push master
+  291  git origin push master
+  292  git push origin master
+  293  clear
+  294  sl
+  295  ls
+  296  cat instructions
+  297  cd mystery
+  298  ls
+  299  grep CLUE crimescene
+  300  grep CLUE crimescene > clues.txt
+  301  grep Annabel ./*
+  302  grep -r Annabel ./*
+  303  grep Sun ./interviews
+  304  grep Sun ./interviews/*
+  305  grep Church ./interviews/*
+  306  cat ./interviews/interview-699607
+  307  grep L337 vehicles
+  308  grep -A 3 -B 3 L337 vehicles
+  309  grep -A 4 -B 3 L337 vehicles
+  310  grep Bowers ./interviews/*
+  311  grep Maher ./interviews/*
+  312  grep -rl Bower ./*
+  313  cat clues.txt
+  314  History
+  315  history
+  316  history -h
+  317  man history
+  318  cat solution.txt
+  319  atom solution.txt
+  320  cd ..
+  321  git status
+  322  git add .
+  323  git commit -m "updated reasoning why suspect is guilty"
+  324  git push origin master
+  325  /
+  326  \ntelnet towel.blinkenlights.nl
+  327  cd Desktop/GAWDI
+  328  cd command-line-murder-mystery
+  329  cd mystery
+  330  grep Chruch ./*
+  331  grep Church ./*
+  332  grep Church -r ./*
+  333  cat ./interviews/interview-669607
+  334  cat ./interviews/interview-699607
+  335  git clone https://github.com/Agentscreech/css-airbnb.git
+  336  cd css-airbnb
+  337  ls
+  338  npm start
+  339  npm install
+  340  npm start
+  341  npm run lint:css
+  342  ls
+  343  cd css-airbnb
+  344  atom .
+  345  npm start
+  346  cd css-airbnb
+  347  gis
+  348  gs
+  349  gst
+  350  git add -A
+  351  ls
+  352  gst
+  353  git commit -m "added bonus content"
+  354  git push origin master
+  355  npm start
+  356  cd command-line-murder-mystery
+  357  ls
+  358  cd ..
+  359  cd css-airbnb
+  360  npm start
+  361  git clone https://github.com/Agentscreech/html_user_inputs.git
+  362  cd html_user_inputs
+  363  ls
+  364  cd ..
+  365  cd css-airbnb
+  366  git status
+  367  git add -A
+  368  git commit -m "initial solution done"
+  369  git push origin master
+  370  cd ..
+  371  cd html_user_inputs
+  372  atom .
+  373  open skeleton.html
+  374  gst
+  375  git add -a
+  376  git add -A
+  377  git commit -m "complete"
+  378  git push origin master
+  379  git add -a
+  380  git add -A
+  381  git commit -m "fixed indents"
+  382  git push origin master
+  383  git add -A
+  384  git commit -m "fixed lables"
+  385  git push origin master
+  386  cd ..
+  387  git clone https://github.com/Agentscreech/html_top_ten_movies_table.git
+  388  ls
+  389  cd html_top_ten_movies_table
+  390  ls
+  391  atom .
+  392  apm install atop-wrap-in-tag
+  393  atom .
+  394  git add -a
+  395  git add -A
+  396  git commit -m "finished"
+  397  git push
+  398  git clone https://github.com/Agentscreech/temperature-converter-dom.git
+  399  cd temperature-converter-dom
+  400  ls
+  401  atom .
+  402  cd ../css-airbnb
+  403  atom .
+  404  git add -A
+  405  git commit -m "changed title"
+  406  git push
+  407  cd ../temperature-converter-dom
+  408  open .
+  409  cd ..
+  410  git clone
+  411  git clone https://github.com/Agentscreech/css-positioning.git
+  412  atom .
+  413  cd css-positioning
+  414  atom .
+  415  cd ../temperature-converter-dom
+  416  ls
+  417  git add -A
+  418  git commit -m "inital commit of changes"
+  419  git push
+  420  cd ../css-positioning
+  421  ls
+  422  cd ../temperature-converter-dom
+  423  atom .
+  424  git add -A
+  425  git commit -m "finished draft"
+  426  git add
+  427  git push
+  428  cd ../css-positioning
+  429  npm start
+  430  npm install
+  431  npm start
+  432  cd css-airbnb
+  433  atom .
+  434  git add .
+  435  git commit -m "inital attempt"
+  436  cd ../css-positioning
+  437  git add .
+  438  git commit -m "initial attempt"
+  439  git push
+  440  cd ../temperature-converter-dom
+  441  ls
+  442  atom .
+  443  git add .
+  444  git commit -m "fixed bug on color background"
+  445  git push
+  446  git add .
+  447  git commit -m "added enter key functionallity"
+  448  git push
+  449  cd day3
+  450  ls
+  451  git status
+  452  cd ..
+  453  git status
+  454  ls -a
+  455  rm -r .git
+  456  ls
+  457  cd day2
+  458  ls
+  459  cd css-positioning
+  460  cd Day2
+  461  cd css-positioning/
+  462  atom .
+  463  git add .
+  464  git commit -m "fixed css path"
+  465  git add
+  466  git push
+  467  git add .
+  468  git commit -m "fixed login button css"
+  469  git push
+  470  git add .
+  471  git commit -m "fixed footer""\n
+  472  git commit -m "fixed footer"\n
+  473  git push
+  474  cd ../../Day3/temperature-converter-dom
+  475  atom .
+  476  git add .
+  477  git commit -m "added dynamic styling"
+  478  git push
+  479  cd.. 
+  480  cd ../..
+  481  mkdir Day4
+  482  cd Day$
+  483  cd Day4
+  484  git clone https://github.com/Agentscreech/sim-city-bomb-squad.git
+  485  atom .
+  486  cd sim-city-bomb-squad
+  487  atom .
+  488  cd ../../Day3/temperature-converter-dom
+  489  ato, .
+  490  atom .
+  491  cd ../../Day4/sim-city-bomb-squad
+  492  cd ../../Day2/css-positioning
+  493  atom .
+  494  git add .
+  495  git commit -m "changed css"
+  496  git push
+  497  cd ../../Day3/temperature-converter-dom
+  498  atom .
+  499  cd ..
+  500  git clone https://github.com/Agentscreech/js-control-flow.git
+  501  cd js-control-flow
+  502  atom .
+  503  git add .
+  504  git commit -m "done"
+  505  git push
+  506  cd ../..
+  507  cd ls
+  508  ls
+  509  cd Day3
+  510  ls
+  511  cd temperature-converter-dom
+  512  atom .
+  513  git add .
+  514  git commit -m "fixed bug when input is 0"
+  515  git push
+  516  cd ..
+  517  cd ../..
+  518  pushit.ssh
+  519  pushit.sh
+  520  sh pushit
+  521  sh pushit.sh
+  522  cd /usr/local/bin
+  523  ls
+  524  chmod +x pu.sh
+  525  cd ~
+  526  pu.sh
+  527  cd Desktop
+  528  cd GAWDI
+  529  cd day2
+  530  ls
+  531  atom .
+  532  cd ls
+  533  ls
+  534  cd html_user_inputs
+  535  ls
+  536  git status
+  537  pu.sh
+  538  ls
+  539  pu.sh
+  540  cd ../../Day3/temperature-converter-dom
+  541  atom .
+  542  cd ../../Day2/css-airbnb
+  543  atom .
+  544  cd ../../Day4/sim-city-bomb-squad
+  545  pu.sh
+  546  cd ../../Day3/temperature-converter-dom
+  547  atom .
+  548  cd ../../Day4/sim-city-bomb-squad
+  549  pu.sh
+  550  cd..
+  551  cd ..
+  552  git clone https://github.com/Agentscreech/iterators-reddit.git
+  553  ls
+  554  cd iterators-reddit
+  555  npm install
+  556  cd ../sim-city-bomb-squad
+  557  pu.sh
+  558  cd ../iterators-reddit
+  559  cd ../sim-city-bomb-squad
+  560  pu.sh
+  561  cd ../iterators-reddit
+  562  atom .
+  563  cd ..
+  564  git clone https://github.com/Agentscreech/js-clock-intervals.git
+  565  atom .
+  566  cd js-clock-intervals
+  567  atom .
+  568  pu.sh
+  569  cd ../..
+  570  ls
+  571  cd OneDrive
+  572  ls
+  573  cd pro
+  574  cd programming
+  575  ls
+  576  mkdir traviswalentin.com
+  577  ls
+  578  ls -la
+  579  rm -r .git
+  580  cd traviswalentin.com
+  581  git init
+  582  atom .
+  583  cd ../GAWDI/Day4/js-clock-intervals/atom .
+  584  ls
+  585  cd ../GAWDI/Day4/js-clock-intervals/
+  586  open index.html
+  587  pu.sh
+  588  cd..
+  589  cd ..
+  590  mkdir Day5
+  591  cd Day5
+  592  git clone https://github.com/Agentscreech/tic-tac-toe.git
+  593  cd tic-tac-toe
+  594  atom .
+  595  pu.sh
+  596  cd ../..
+  597  cd Day4
+  598  ls
+  599  cd sim-city-bomb-squad
+  600  atom .
+  601  cd Day5/tic-tac-toe
+  602  ls
+  603  git status
+  604  atom .
+  605  git compare
+  606  git --help
+  607  git diff
+  608  open index.html
+  609  cp *.* ../test
+  610  mkdir ../test cp *.* ../test
+  611  cd ..
+  612  ls
+  613  cd test
+  614  ls
+  615  cd ..
+  616  ls
+  617  man cp
+  618  cp -r tic-tac-toe/ test
+  619  ls test
+  620  ls -la test
+  621  rmdir cp
+  622  ls
+  623  cd tes
+  624  cd test
+  625  rmdir cp
+  626  ls
+  627  atom .
+  628  cd ../tic-tac-toe
+  629  atom .
+  630  git diff
+  631  pu.sh
