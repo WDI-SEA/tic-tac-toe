@@ -1,3 +1,139 @@
-h1 {
+#X {
+  background: url(img/xmen_x.jpg) !important;
+  background-size: cover !important;
+}
+#O {
+  background: url(img/DC.png) !important;
+  background-size: cover !important;
+}
+#test {
   color: purple;
+  text-align: center;
+}
+
+#board {
+  position: relative;
+  width: 700px;
+  margin: 0 auto;
+}
+#toprow {
+  display: inline-block;
+  height: 220px;
+  width: 100%;
+  text-align: center;
+}
+#midrow {
+  display: inline-block;
+  height: 220px;
+  width: 100%;
+  text-align: center;
+
+
+}
+#lowerrow {
+  display: inline-block;
+  height: 220px;
+  width: 100%;
+  text-align: center;
+
+}
+#topLeft {
+  height: 200px;
+  width: 200px;
+  border-color: black;
+  border-right: 5px solid;
+  border-bottom: 5px solid;
+  display: inline-block;
+
+
+}
+
+#topRight {
+  height: 200px;
+  width: 200px;
+  border-color: black;
+  border-bottom: 5px solid;
+  border-left: 5px solid;
+  display: inline-block;
+
+}
+
+#topMid {
+
+  height: 200px;
+  width: 200px;
+  border-right: 5px solid;
+  border-color: black;
+  border-bottom: 5px solid;
+  border-left: 5px solid;
+  display: inline-block;
+
+}
+
+#midLeft {
+
+  height: 200px;
+  width: 200px;
+  border-color: black;
+  border-top: 5px solid;
+  border-bottom: 5px solid;
+  border-right: 5px solid;
+  display: inline-block;
+
+}
+
+#middle {
+
+  height: 200px;
+  width: 200px;
+  border-color: black;
+  border: 5px solid;
+  display: inline-block;
+
+}
+
+#midRight {
+
+  height: 200px;
+  width: 200px;
+  border-color: black;
+  border-top: 5px solid;
+  border-bottom: 5px solid;
+  border-left: 5px solid;
+  display: inline-block;
+
+}
+
+#lowerLeft {
+
+  height: 200px;
+  width: 200px;
+  border-color: black;
+  border-top: 5px solid;
+  border-right: 5px solid;
+  display: inline-block;
+
+}
+
+#lowerMid {
+
+  height: 200px;
+  width: 200px;
+  border-color: black;
+  border-top: 5px solid;
+  border-left: 5px solid;
+  border-right: 5px solid;
+  display: inline-block;
+
+}
+
+#lowerRight {
+
+  height: 200px;
+  width: 200px;
+  border-color: black;
+  border-top: 5px solid;
+  border-left: 5px solid;
+  display: inline-block;
+
 }
