@@ -1,3 +1,17 @@
 h1 {
   color: purple;
 }
+
+.mainContainer {
+  width: 600px;
+  margin: 0 auto;
+  border: 10px solid red;
+}
+
+.cell {
+  border: 10px solid black;
+  height: 50px;
+  width: 150px;
+  display: inline-block;
+  position: relative;
+}
