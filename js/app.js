@@ -1,29 +1,38 @@
 console.log('Hello frontend');
 var whosTurn = "X";
+// var pictureList = ["img/xmen_x.jpg"];
+var boxes = ["topMid", "topRight", "topLeft", "midLeft", "middle", "midRight", "lowerLeft", "lowerMid", "lowerRight"];
 
-document.getElementById('topMid').addEventListener('click', setMove);
-document.getElementById('topLeft').addEventListener('click', setMove);
-document.getElementById('topRight').addEventListener('click', setMove);
-document.getElementById('midLeft').addEventListener('click', setMove);
-document.getElementById('middle').addEventListener('click', setMove);
-document.getElementById('midRight').addEventListener('click', setMove);
-document.getElementById('lowerLeft').addEventListener('click', setMove);
-document.getElementById('lowerRight').addEventListener('click', setMove);
-document.getElementById('lowerMid').addEventListener('click', setMove);
+document.addEventListener("DOMContentLoaded", function(){
+reset();
+});
+function drawBoard(what){
+    document.getElementById(what).addEventListener('click', setMove);
+    document.getElementById(what).style.background = "";
+    // picX = Math.floor(Math.random(pictureList.length)); //pick a picture at random
+}
 
 function setMove(){
+    this.removeEventListener('click', setMove);
     if (whosTurn == "X"){
         whosTurn = "O";
-        console.log("applying X to " + this.id);
-        this.style.background = "url(img/xmen_x.jpg)";
-        this.style.backgroundSize = "cover";
-        this.removeEventListener('click', setMove);
-
+        displayX(this);
     } else {
         whosTurn = "X";
-        console.log("applying O");
-        this.style.background = "url(img/DC.png)";
-        this.style.backgroundSize = "cover";
-        this.removeEventListener('click', setMove);
+        displayO(this);
     }
+}
+
+function displayO(thing) {
+    thing.style.background = "url(img/DC.png) 0% 0% / cover";
+
+}
+function displayX(thing) {
+    thing.style.background = "url(img/xmen_x.jpg) 0% 0% / cover";
+
+}
+
+function reset() {
+    boxes.forEach(drawBoard);
+
 }

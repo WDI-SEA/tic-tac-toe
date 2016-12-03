@@ -1,11 +1,4 @@
-#X {
-  background: url(img/xmen_x.jpg) !important;
-  background-size: cover !important;
-}
-#O {
-  background: url(img/DC.png) !important;
-  background-size: cover !important;
-}
+
 #test {
   color: purple;
   text-align: center;
@@ -44,6 +37,7 @@
   border-right: 5px solid;
   border-bottom: 5px solid;
   display: inline-block;
+  
 
 
 }
