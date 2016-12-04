@@ -1,6 +1,5 @@
 //Function to create game board
 
-//Click function to add X (turn)
 
 //Array to store position of Xs and Os
 
@@ -17,19 +16,20 @@
 
 document.addEventListener("DOMContentLoaded", function() {
 
-     //Setup gameBoard (visual)
-     var gameBoard = { 0: null,
-                       1: null,
-                       2: null,
-                       3: null,
-                       4: null,
-                       5: null,
-                       6: null,
-                       7: null,
-                       8: null};
+     //Setup game board object to log game state
+     function gameBoard() {
+          var gamePieces = document.getElementsByClassName("gamePiece");
+          var board = {};
+          for (var i = 0; i < gamePieces.length; i++) {
+               var position = gamePieces[i].dataset.position;
+               var content = gamePieces[i].dataset.content;
+               board[position] = content;
+          }
+          return board;
+     }
 
 
-     console.log(gameBoard);
+     // console.log(gameBoard);
 
      //keep track of whose turn it is
      //if turns = 9, tie game or win
@@ -47,13 +47,16 @@ document.addEventListener("DOMContentLoaded", function() {
      function addMarker(elem) {
                if (turn % 2 === 0) {
                     elem.innerHTML = '<img src="img/xmark.png">';
-                    
-               }else {
+                    elem.dataset.content = "X";
+               }
+               else {
                     elem.innerHTML = '<img src="img/omark.png">';
+
+                    elem.dataset.content = "O";
                }
                turn ++;
                console.log(turn);
-
+               console.log(gameBoard());
                elem.removeEventListener('cick', handleClick);
      }
 
