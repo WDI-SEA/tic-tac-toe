@@ -1,6 +1,5 @@
 //Function to create game board
 
-
 //Click function to add X (turn)
 
 //Array to store position of Xs and Os
@@ -19,40 +18,50 @@
 document.addEventListener("DOMContentLoaded", function() {
 
      //Setup gameBoard (visual)
-     var gameBoard = ["", "", "",
-                      "", "", "",
-                      "", "", ""];
+     var gameBoard = { 0: null,
+                       1: null,
+                       2: null,
+                       3: null,
+                       4: null,
+                       5: null,
+                       6: null,
+                       7: null,
+                       8: null};
+
+
      console.log(gameBoard);
 
      //keep track of whose turn it is
-     var turn = 0;
-     var exxes = 0;
-     var ohhs = 0;
-
      //if turns = 9, tie game or win
+     var turn = 0;
 
      //Select and assign click listener to board tiles
      var clickTile = document.getElementById("game");
      console.log(clickTile);
 
      for(var i = 0; i < clickTile.children.length; i++) {
-          clickTile.children[i].addEventListener("click", addMarker);
-
+          clickTile.children[i].addEventListener("click", handleClick);
      }
      // console.log(clickTile.children[1].textContent);
 
-     function addMarker() {
-          if (turn < 9) {
-          //Add check for win on 9th click
-               if (turn % 2 === 0 && this.childNodes.length === 0) {
-                    this.innerHTML = '<img src="img/xmark.png">';
-                    turn ++;
+     function addMarker(elem) {
+               if (turn % 2 === 0) {
+                    elem.innerHTML = '<img src="img/xmark.png">';
+                    
+               }else {
+                    elem.innerHTML = '<img src="img/omark.png">';
                }
-               else if (turn % 2 === 1 && this.childNodes.length === 0){
-                    this.innerHTML = '<img src="img/omark.png">';
-                    turn ++;
-               }
+               turn ++;
                console.log(turn);
+
+               elem.removeEventListener('cick', handleClick);
+     }
+
+     //Checks for empty cell and game turns < 9, executes add marker to .this on click
+     function handleClick() {
+          var isEmpty = this.childNodes.length === 0;
+          if (turn < 9 && isEmpty) {
+          addMarker(this);
           }
           else if (turn === 9) {
           console.log("game over bitch");
