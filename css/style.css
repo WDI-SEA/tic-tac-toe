@@ -1,3 +1,67 @@
-h1 {
-  color: purple;
+#container {
+  height: 800px;
+  width: 600px;
+  border: 1px solid black;
+  /*background-image: url("../images/wood.jpg");*/
+  background-size: cover;
+  margin: 0 auto;
 }
+
+#game {
+  background-color: #24e0ab;
+  height: 300px;
+  width: 300px;
+}
+
+/*.Grid {
+  display: flex;
+  margin: -1em 0 0 -1em;
+}
+
+.Grid-cell {
+  flex: 1;
+  border: solid black 1px;
+}
+
+.Grid--top {
+  align-items: flex-start;
+}*/
+
+ .gamePiece {
+   height: 100px;
+   width: 100px;
+   float: left;
+   text-align: center;
+ }
+
+ /*#topC {
+
+ }
+
+ #topR {
+
+ }
+
+ #midL {
+
+ }
+
+ #midC {
+
+ }
+
+ #midR {
+
+ }
+
+ #botL {
+
+ }
+
+ #botC {
+
+ }
+
+ #botR{
+
+ }*/
