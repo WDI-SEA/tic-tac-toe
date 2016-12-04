@@ -45,11 +45,11 @@ document.addEventListener("DOMContentLoaded", function() {
           if (turn < 9) {
           //Add check for win on 9th click
                if (turn % 2 === 0 && this.childNodes.length === 0) {
-                    this.innerHTML = "I'm Alive (X)";
+                    this.innerHTML = '<img src="img/xmark.png">';
                     turn ++;
                }
                else if (turn % 2 === 1 && this.childNodes.length === 0){
-                    this.innerHTML = "I'm Dead (O)";
+                    this.innerHTML = '<img src="img/omark.png">';
                     turn ++;
                }
                console.log(turn);

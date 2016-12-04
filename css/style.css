@@ -34,6 +34,15 @@
    text-align: center;
  }
 
+ .color:hover
+ {
+         background:#84f6ef
+ }
+
+img {
+  max-width: 250px;
+  max-height: 250px;
+}
  /*#topC {
 
  }
