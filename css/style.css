@@ -1,3 +1,71 @@
-h1 {
-  color: purple;
+body{
+  text-align: center;
+  /*font-family: 'Indie Flower', cursive;*/
+  font-family: 'Gloria Hallelujah', cursive;
+  /*font-family: 'Shadows Into Light', cursive;
+  font-family: 'Rock Salt', cursive;*/
+}
+
+#container{
+  width: 300px;
+  margin: 0 auto;
+  /*border: 3px solid black;*/
+}
+
+#nav{
+  height: 40px;
+  background-color: silver;
+}
+
+#score{
+  height: 40px;
+  background-color: grey;
+}
+
+#board{
+  /*background-color: rgb(238, 202, 108);*/
+  /*background-image: url("../img/paper.png");
+  opacity: 0.1;
+  background-size: cover;*/
+  overflow: hidden;
+}
+
+/*#tile0, #tile1, #tile2, #tile3, #tile4, #tile5{
+  border-bottom: 1px solid black;
+}
+
+#tile1, #tile4, #tile7, #tile2, #tile5, #tile8{
+  border-left: 1px solid black;
+}*/
+
+.row{
+  width: 100%;
+  height: 100px;
+}
+
+.tile{
+  border: 1px solid blue;
+  padding: 0px;
+  height: 98px;
+  width: 98px;
+  float: left;
+  line-height: 98px;
+  font-size: 70px;
+  z-index: +5;
+}
+
+#footer{
+  height: 40px;
+  line-height: 40px;
+  /*background-color: grey;*/
+  font-size: 35px;
+  color: blue;
+  text-shadow: 0 0 30px yellow;
+}
+
+.win{
+  /*color:rgb(31, 190, 224);*/
+  /*color: rgb(251, 249, 23);*/
+  color: blue;
+  text-shadow: 0 0 30px yellow;
 }
