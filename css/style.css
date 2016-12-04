@@ -1,17 +1,25 @@
 #container {
+  display: table-cell;
   height: 800px;
   width: 600px;
   border: 1px solid black;
   /*background-image: url("../images/wood.jpg");*/
   background-size: cover;
-  margin: 0 auto;
+  text-align: center;
+  vertical-align: middle;
 }
 
 #game {
+display: inline-block;
   background-color: #24e0ab;
   height: 300px;
   width: 300px;
+  margin: auto 0;
+  border: solid black 1px;
+  text-align: center;
 }
+
+
 
 /*.Grid {
   display: flex;
@@ -27,23 +35,30 @@
   align-items: flex-start;
 }*/
 
- .gamePiece {
-   height: 100px;
-   width: 100px;
-   float: left;
-   text-align: center;
- }
+.gamePiece {
+  height: 100px;
+  width: 100px;
+  float: left;
+  text-align: center;
+}
 
- .color:hover
- {
-         background:#84f6ef
- }
+.color:hover {
+  background: #84f6ef
+}
+
+.grow:hover {
+  -webkit-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  transform: scale(1.05);
+}
 
 img {
   max-width: 250px;
   max-height: 250px;
 }
- /*#topC {
+
+
+/*#topC {
 
  }
 
