@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log(turn);
         console.log(board);
         for(var i = 0; i < clickTile.children.length; i++) {
-            clickTile.children[i].tagName('img').remove();
+            clickTile.children[i].innerHTML = "";
         }
     }
 
