@@ -10,7 +10,9 @@ var count = 3;
 var turn = "x";
 
 function whosTurn() {
-  if (count % 2 === 0) {
+  if (count >= 11){
+    turn ="done";
+  } else if (count % 2 === 0) {
     turn = "x";
   } else if (count % 2 !== 0) {
     turn = "o";
@@ -24,9 +26,11 @@ function whosTurn() {
 function whoGoes(){
   var player = document.getElementById("player");
   if (turn =="x"){
-    player.textContent = "It is X's turn"
+    player.textContent = "It is X's turn";
   } else if (turn =="o") {
-    player.textContent = "It is O's turn"
+    player.textContent = "It is O's turn";
+  } else if (turn =="done") {
+    player.textContent = "Game over";
   }
 }
 
@@ -36,11 +40,11 @@ function whoGoes(){
 document.getElementById("tl").addEventListener("click", function() {
   console.log("tl");
   if (turn == "x") {
+    // this.removeEventListener("click", function(){});
     tl.classList.add("x");
-    this.removeEventListener("click", function(){});
   } else if (turn == "o") {
+    // this.removeEventListener("click", function(){});
     tl.classList.add("o");
-    this.removeEventListener("click", function(){});
   }
   whosTurn();
 });
