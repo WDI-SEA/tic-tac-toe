@@ -102,3 +102,12 @@ button{
   font-size: 16px;
   /*color: blue;*/
 }
+
+button:hover{
+  background-color: lightgreen;
+}
+
+/*add functionality for only if game is active*/
+/*.tile:hover{
+  background-color: lightgoldenrodyellow;
+}*/
