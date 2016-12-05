@@ -1,15 +1,4 @@
-//Function to create game board
-
-
-//Array to store position of Xs and Os
-
 //Logic to assess winner, 3 (vertical, horizontal, diagonal).
-
-//If winner, no more plays, perhaps refresh, or button to restart.
-
-//If Array[n] is X or O and no winner possible, tie.
-
-//Find a winner:
 // colum win: 0,3,6 | 1,4,7 | 2,5,8
 //row win: 0,1,2 | 3,4,5 | 6,7,8
 //diagonal win: 0,4,8 | 6,4, 2
@@ -75,11 +64,13 @@ document.addEventListener("DOMContentLoaded", function() {
     function clearStuff() {
         console.log("Im alive!");
         this.innerHTML = "Working?";
-        // board = {};
-        // turn = 0;
-        // for(var i = 0; i < clickTile.children.length; i++) {
-        //     clickTile.children[i].remove();
-        // }
+        board = {};
+        turn = 0;
+        console.log(turn);
+        console.log(board);
+        for(var i = 0; i < clickTile.children.length; i++) {
+            clickTile.children[i].tagName('img').remove();
+        }
     }
 
 });
