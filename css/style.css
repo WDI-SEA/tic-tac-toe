@@ -38,21 +38,24 @@ img {
 	max-height: 132px;
 }
 
-#turn-indicator {
+#controls {
 	position: absolute;
 	top: 25px;
 	right: 25px;
-	padding: 20px;
+}
+
+#turn-indicator {
 	background-color: #0e0c0f;
+	padding: 20px;
 	color: white;
 	text-align: center;
 	border: 5px solid #484443;
-	border-radius: 18px;
+	border-radius: 15px;
 	box-shadow: 0px 6px 4px rgba(0,0,0,.25);
 }
 
 #turn-indicator img {
-	max-height: 26px;
+	max-height: 30px;
 	margin-top: 5px;
 }
 
@@ -65,6 +68,7 @@ img {
 h4 {
 	font-family: 'Roboto Slab', serif;
 	font-weight: 700;
+	font-size: 15px;
 	letter-spacing: 1px;
 	padding: 0px 8px;
 	display: inline-block;
@@ -73,4 +77,30 @@ h4 {
 
 .inactive {
 	color: #3b3836;
+}
+
+button#reset {
+	width: 100%;
+	margin-top: 25px;
+	padding: 15px 20px;
+	background-color: #3b3836;
+	border: none;
+	border-bottom: 5px solid #0e0c0f;
+	border-radius: 12px;
+	box-shadow: 0px 4px 5px rgba(0,0,0,.3);
+	outline: none;
+
+	font-family: 'Roboto Slab', serif;
+	font-weight: 700;
+	font-size: 15px;
+	letter-spacing: 1px;
+	color: white;
+
+	transition-property: border-bottom, transform;
+	transition-duration: 250ms;
+}
+
+button#reset:hover {
+	transform: translate(0px, -3px);
+	border-bottom: 8px solid #0e0c0f;
 }
