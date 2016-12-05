@@ -1,5 +1,5 @@
 // js booted
-console.log('Hello frontend');
+console.log('JS booted');
 document.addEventListener('DOMContentLoaded', function() {
   console.log("DOM loaded");
   whoGoes();
