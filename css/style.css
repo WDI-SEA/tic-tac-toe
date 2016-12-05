@@ -40,12 +40,15 @@ img {
 
 #turn-indicator {
 	position: absolute;
-	top: 0;
-	right: 0;
+	top: 25px;
+	right: 25px;
 	padding: 20px;
 	background-color: #0e0c0f;
 	color: white;
 	text-align: center;
+	border: 5px solid #484443;
+	border-radius: 18px;
+	box-shadow: 0px 6px 4px rgba(0,0,0,.25);
 }
 
 #turn-indicator img {
@@ -56,12 +59,14 @@ img {
 #turn-indicator i {
 	display: block;
 	margin: 10px;
+	font-size: 20px;
 }
 
 h4 {
 	font-family: 'Roboto Slab', serif;
 	font-weight: 700;
-	padding: 0;
+	letter-spacing: 1px;
+	padding: 0px 8px;
 	display: inline-block;
 	margin: 0;
 }
