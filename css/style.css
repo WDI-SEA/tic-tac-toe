@@ -1,3 +1,133 @@
+nav {
+  background-color: #999348;
+  width: 1010px;
+}
+
+  nav a {
+    background-color: #203731;
+    color: #fff;
+    padding: 20px;
+    display: block;
+    float: right;
+    text-decoration: none;
+  }
+
+  a:hover {
+    background-color: #FFB612;
+  }
+
+.clearfix:after {
+      visibility: hidden;
+      display: block;
+      font-size: 0;
+      content: " ";
+      clear: both;
+      height: 0;
+}
+
 h1 {
-  color: purple;
+  color: #203731;
+  font-family: 'Finger Paint', cursive;
+  font-size: 44pt;
+  line-height: 45pt;
+  padding: 0;
+  margin: 5px;
+}
+
+#container {
+  width: 1000px;
+  height: 650px;
+  border: solid #203731 5px;
+  text-align: center;
+  position: relative;
+}
+
+#gameboard {
+  width: 500px;
+  height: 500px;
+  /*border: solid green 5px;*/
+  text-align: center;
+  margin: 75px auto;
+  background-color: #FFB612;
+  position: relative;
+}
+
+.row {
+  width: 500px;
+  height: 160px;
+  /*border: solid purple 5px;*/
+  display: inline-block;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.square {
+  width: 150px;
+  height: 150px;
+  padding: 0px;
+  margin: 0px;
+  /*border: solid red 5px;*/
+  display: inline-block;
+  position: relative;
+}
+
+.xPiece {
+  font-size: 150pt;
+  color: blue;
+  vertical-align: top;
+}
+
+.oPiece {
+  font-size: 150pt;
+  color:red;
+
+}
+
+.mark {
+  width: 130px;
+  height: 130px;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+}
+
+div div h1 {
+  position:absolute;
+  margin: 30px 0;
+}
+
+.results {
+  font-size: 75pt;
+  line-height: 75pt;
+  position: absolute;
+  left: 30%;
+  z-index: 99;
+}
+
+#TL, #TM, #TR {
+  border-bottom: #203731 solid 10px;
+}
+
+#ML, #MM, #MR {
+  border-bottom: #203731 solid 10px;
+}
+
+#TL, #ML, #BL {
+  border-right: #203731 solid 10px;
+}
+
+#TM, #MM, #BM {
+  border-right: #203731 solid 10px;
+}
+
+#oWin, #xWin {
+  hidden: true;
+}
+
+#oWin {
+  color: red;
+}
+
+#xWin {
+  color: blue;
 }
