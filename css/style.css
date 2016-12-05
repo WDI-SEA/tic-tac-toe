@@ -1,3 +1,44 @@
+body{
+  background: silver;
+  text-align: center;
+}
 h1 {
-  color: purple;
+  font-size: 60px;
+}
+h2{
+  margin-bottom: 60px;
+  font-size: 30px;
+}
+.cell{
+  background: darkred;
+  width: 150px;
+  height: 150px;
+  display: inline-block;
+  vertical-align: top;
+  margin: 2px 0;
+  font-size: 60px;
+  line-height: 150px;
+  color: white;
+}
+.cellX{
+  background: blue;
+}
+.cellO{
+  background: green;
+}
+button{
+  font-size: 30px;
+  margin-top: 60px;
+  font-weight: 900;
+  padding: 10px 20px;
+  color: white;
+  background: Gray;
+}
+label{
+  font-size: 25px;
+  font-weight: 700;
+
+}
+.radioBut{
+  margin-top: 60px;
 }
