@@ -1,3 +1,105 @@
 h1 {
   color: purple;
 }
+
+h3 {
+  position: absolute;
+}
+
+body {
+  background-color: tan;
+  text-align: center;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.clearfix {
+  clear: both;
+}
+
+.board {
+  display: inline-block;
+  background-color: #decebe;
+}
+
+.scoreboard {
+  margin: 0 auto;
+  height: 100px;
+  line-height: 100px;
+}
+
+.scorebkgd {
+  position: relative;
+  color: tan;
+  padding: 15px;
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+  font-weight: 900;
+  font-size: 60px;
+}
+
+.score {
+  position: absolute;
+  padding: inherit;
+  top: 0;
+  left: 0;
+  width: inherit;
+  font-weight: normal;
+  font-size: 20px;
+  color: black;
+}
+
+#lhs {
+  float: left;
+}
+
+#message {
+  display: inline-block;
+  width: 100px;
+  line-height: 1em;
+  text-align: left;
+}
+
+#rhs {
+  float: right;
+}
+
+.gameboard {
+  /*display: inline-block;*/
+  margin: 0 auto;
+  background-color: #decebe;
+  padding: 10px;
+}
+
+.row {
+}
+
+.square {
+  display: inline-block;
+  background-color: brown;
+  color: brown; /* changes in .js */
+  margin: 5px;
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+  font-size: 60px;
+}
+
+.square:hover {
+  background-color: crimson;
+  color: crimson;
+}
+
+.square:active{
+  background-color: brown;
+  color: brown;
+}
+
+
+.resets {
+  padding: 0 10px 20px 10px;
+}
+
+button {
+  width: 100px;
+}
