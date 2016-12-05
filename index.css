@@ -1,0 +1,11 @@
+html {
+  color: red;
+}
+
+.cell {
+  border: solid black 1px;
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+  text-align: center;
+}
