@@ -12,12 +12,11 @@ body{
   height: 800px;
   background-image: url("../img/paper.png");
   background-size: cover;
-  background-repeat: no-repeat;
   position: absolute;
-  display: block;
+  display: inline-block;;
   float: left;
   z-index: -1;
-  opacity: 0.1;
+  opacity: 0.2;
 }*/
 
 #container{
