@@ -27,13 +27,11 @@ var moves = 0; // max moves is dim**2;
 /* GAME INITIALIZATION */
 // assuming static 3x3 grid
 // maybe edit later for modular grid size
-zeroedScores();
 resetSquares();
 
 function zeroedScores() {
   scores[0].textContent = 0;
   scores[1].textContent = 0;
-  // player = nextTurn(player);
   message.textContent =  "scores reset. player " + players[player] + " begins next game.";
   resetSquares();
 }
