@@ -5,7 +5,7 @@ h1 {
 .mainContainer {
   width: 600px;
   margin: 0 auto;
-  border: 10px solid red;
+  //border: 10px solid red;
 }
 
 .cell {
@@ -13,5 +13,8 @@ h1 {
   height: 50px;
   width: 150px;
   display: inline-block;
-  position: relative;
+}
+
+.blueCell {
+  background-color: blue;
 }
