@@ -4,7 +4,21 @@ body{
   font-family: 'Gloria Hallelujah', cursive;
   /*font-family: 'Shadows Into Light', cursive;
   font-family: 'Rock Salt', cursive;*/
+
 }
+
+/*background{
+  width: 800px;
+  height: 800px;
+  background-image: url("../img/paper.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  display: block;
+  float: left;
+  z-index: -1;
+  opacity: 0.1;
+}*/
 
 #container{
   width: 300px;
@@ -13,13 +27,24 @@ body{
 }
 
 #nav{
-  height: 40px;
-  background-color: silver;
+  height: 50px;
+  line-height: 50px;
+  /*background-color: grey;*/
+  font-size: 35px;
+  color: blue;
+  text-shadow: 0 0 30px yellow;
 }
 
 #score{
-  height: 40px;
-  background-color: grey;
+  height: 50px;
+  line-height: 50px;
+  /*background-color: grey;*/
+}
+
+.scores{
+  width: 48%;
+  display: inline-block;
+  font-size: 25px;
 }
 
 #board{
@@ -28,6 +53,7 @@ body{
   opacity: 0.1;
   background-size: cover;*/
   overflow: hidden;
+  background-color: white;
 }
 
 /*#tile0, #tile1, #tile2, #tile3, #tile4, #tile5{
@@ -55,12 +81,9 @@ body{
 }
 
 #footer{
-  height: 40px;
-  line-height: 40px;
-  /*background-color: grey;*/
-  font-size: 35px;
-  color: blue;
-  text-shadow: 0 0 30px yellow;
+  height: 50px;
+  /*height: 40px;
+  background-color: silver;*/
 }
 
 .win{
@@ -68,4 +91,15 @@ body{
   /*color: rgb(251, 249, 23);*/
   color: blue;
   text-shadow: 0 0 30px yellow;
+}
+
+button{
+  width: 40%;
+  height: 40px;
+  margin:  4%;
+  background-color: rgb(255, 232, 149);
+  border-radius: 8px;
+  font-family: 'Gloria Hallelujah', cursive;
+  font-size: 16px;
+  /*color: blue;*/
 }
