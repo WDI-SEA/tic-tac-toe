@@ -59,7 +59,6 @@ document.addEventListener("DOMContentLoaded", function() {
 		for (var i = 0; i < board.children.length; i++) {
 			board.children[i].setAttribute("class", "empty");
 		}
-		xTurn = true;
 		numChosen = 0;
 	});
 
