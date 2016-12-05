@@ -1,14 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
-  <link rel="stylesheet" type="text/css" href="css/style.css">
-</head>
-<body>
-  <h1>Hello Front-End</h1>
+<html>
+  <head>
+    <title>Tic-Tac-Toe!</title>
+    <meta charset="utf-8">
+    <link href="index.css" media="screen" rel="stylesheet" type="text/css">
+  </head>
 
-  <script type="text/javascript" src="js/app.js"></script>
-</body>
+  <body>
+    <h1>Tic Tac Toe</h1>
+    <div id="table-tac">
+    </div>
+
+    <div id="div-tac">
+      <div class="row row1">
+        <div id="cell0" class="cell">_</div>
+        <div id="cell1" class="cell">_</div>
+        <div id="cell2" class="cell">_</div>
+      </div>
+      <div class="row row2">
+        <div id="cell3" class="cell">_</div>
+        <div id="cell4" class="cell">_</div>
+        <div id="cell5" class="cell">_</div>
+      </div>
+      <div class="row row3">
+        <div id="cell6" class="cell">_</div>
+        <div id="cell7" class="cell">_</div>
+        <div id="cell8" class="cell">_</div>
+      </div>
+    </div>
+
+    <div>
+      <h2 id="winner"></h2>
+      <button id="new-game">New Game</button>
+    </div>
+  </body>
+  <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+  <script src="tic-tac-toe.js"></script>
+  <script type="text/javascript">
+    $(document).on('ready', function() {
+      var game = new TicTacToe();
+
+      function clickCell(ev) {
+        var cell = ev.target;
+        game.takeTurn(cell);
+      }
+
+      $(".cell").click(clickCell);
+      $("#new-game").click(function() {
+        // We can't bind the button click directly to game.reset
+        // because the "this" value will be for the button.
+        // We must create a function where the "game" variable
+        // calls reset from itself so "this" is game.
+        game.newGame();
+      });
+    })
+
+  </script>
 </html>
+
