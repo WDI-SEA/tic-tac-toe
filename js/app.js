@@ -2,7 +2,7 @@
 
 
 document.addEventListener("DOMContentLoaded", function() {
-              console.log("DOM loaded");
+    console.log("DOM loaded");
 
     //starts the first play at "x"
     var state = 1;
@@ -22,31 +22,9 @@ document.addEventListener("DOMContentLoaded", function() {
       var board = document.getElementById("board");
       for(var i = 0; i < board.children.length; i++){
         board.children[i].addEventListener("click", clickCell);
+        board.children[i].textContent="";
+        board.children[i].style.backgroundColor= "white";
         console.log("event listener re-added");
-
-// ????????????how can i influence the child nodes instead of defining this a million times?
-//This don't work  --> document.getElementById("board").children.textContent="";
-
-
-      document.getElementById("0").textContent="";
-      document.getElementById("0").style.backgroundColor= "white";
-      document.getElementById("1").textContent="";
-      document.getElementById("1").style.backgroundColor= "white";
-      document.getElementById("2").textContent="";
-      document.getElementById("2").style.backgroundColor= "white";
-      document.getElementById("3").textContent="";
-      document.getElementById("3").style.backgroundColor= "white";
-      document.getElementById("4").textContent="";
-      document.getElementById("4").style.backgroundColor= "white";
-      document.getElementById("5").textContent="";
-      document.getElementById("5").style.backgroundColor= "white";
-      document.getElementById("6").textContent="";
-      document.getElementById("6").style.backgroundColor= "white";
-      document.getElementById("7").textContent="";
-      document.getElementById("7").style.backgroundColor= "white";
-      document.getElementById("8").textContent="";
-      document.getElementById("8").style.backgroundColor= "white";
-
 
         state = 1; //resets state back to "X"
       }
