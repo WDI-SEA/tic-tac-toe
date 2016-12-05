@@ -1,6 +1,7 @@
 body {
   font-family: Helvetica, sans-serif;
 }
+
 nav {
   height: 60px;
   width: 91.2%;
@@ -10,11 +11,12 @@ nav {
   background-color: rgb(160, 219, 230);
   display: inline-block;
 }
+
 form {
   display: inline-block;
 }
 
-#clear{
+#clear {
   margin-left: 30px;
   margin-bottom: 10px;
   height: 40px;

@@ -10,8 +10,8 @@ var count = 3;
 var turn = "x";
 
 function whosTurn() {
-  if (count >= 11){
-    turn ="done";
+  if (count >= 11) {
+    turn = "done";
   } else if (count % 2 === 0) {
     turn = "x";
   } else if (count % 2 !== 0) {
@@ -23,13 +23,13 @@ function whosTurn() {
 };
 
 //say whos turn
-function whoGoes(){
+function whoGoes() {
   var player = document.getElementById("player");
-  if (turn =="x"){
+  if (turn == "x") {
     player.textContent = "It is X's turn";
-  } else if (turn =="o") {
+  } else if (turn == "o") {
     player.textContent = "It is O's turn";
-  } else if (turn =="done") {
+  } else if (turn == "done") {
     player.textContent = "Game over";
   }
 }
