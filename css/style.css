@@ -17,6 +17,14 @@ display: inline-block;
   text-align: center;
 }
 
+button {
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  margin-top: 15px;
+
+}
+
 .gamePiece {
   height: 100px;
   width: 100px;
