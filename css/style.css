@@ -1,3 +1,49 @@
-h1 {
-  color: purple;
+#container {
+  display: table-cell;
+  height: 800px;
+  width: 600px;
+  background-color: #94afa8;
+  text-align: center;
+  vertical-align: middle;
+}
+
+#game {
+display: inline-block;
+  background-color: #24e0ab;
+  height: 300px;
+  width: 300px;
+  margin: auto 0;
+  border: solid black 1px;
+  text-align: center;
+}
+
+button {
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  margin-top: 15px;
+
+}
+
+.gamePiece {
+  height: 100px;
+  width: 100px;
+  float: left;
+  text-align: center;
+}
+
+.color:hover {
+  background: #84f6ef
+}
+
+.grow:hover {
+  -webkit-transform: scale(1.05);
+  -moz-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  transform: scale(1.05);
+}
+
+img {
+  max-width: 250px;
+  max-height: 250px;
 }
