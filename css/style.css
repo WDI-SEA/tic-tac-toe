@@ -1,3 +1,71 @@
-h1 {
-  color: purple;
+body {
+	height: 98vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: url("../img/pan.jpg");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center; 
+	background-color: #e4e3e3;
+}
+
+#board {
+	max-width: 500px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.empty, .chosen {
+	width: 132px;
+	height: 132px;
+	float: left;
+	margin: 14px;
+	background-color: rgba(0, 0, 0, 0.0);
+	transition-property: background-color;
+	transition-duration: 600ms;
+}
+
+.empty:hover {
+	background-color: rgba(0, 0, 0, 0.15);
+	cursor: pointer;
+}
+
+img {
+	max-width: 132px;
+	max-height: 132px;
+}
+
+#turn-indicator {
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 20px;
+	background-color: #0e0c0f;
+	color: white;
+	text-align: center;
+}
+
+#turn-indicator img {
+	max-height: 26px;
+	margin-top: 5px;
+}
+
+#turn-indicator i {
+	display: block;
+	margin: 10px;
+}
+
+h4 {
+	font-family: 'Roboto Slab', serif;
+	font-weight: 700;
+	padding: 0;
+	display: inline-block;
+	margin: 0;
+}
+
+.inactive {
+	color: #3b3836;
 }

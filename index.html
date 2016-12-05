@@ -1,14 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
-  <link rel="stylesheet" type="text/css" href="css/style.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Tic Snack Toe</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<audio src="aud/sizzle.mp3" id="sizzle"></audio>
+	<script src="https://use.fontawesome.com/0b8790a92d.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:700" rel="stylesheet">
+	<script type="text/javascript" src="js/app.js"></script>
 </head>
 <body>
-  <h1>Hello Front-End</h1>
 
-  <script type="text/javascript" src="js/app.js"></script>
+	<main id="board">
+		<div class="empty" id="1"></div>
+		<div class="empty" id="2"></div>
+		<div class="empty" id="3"></div>
+		<div class="empty" id="4"></div>
+		<div class="empty" id="5"></div>
+		<div class="empty" id="6"></div>
+		<div class="empty" id="7"></div>
+		<div class="empty" id="8"></div>
+		<div class="empty" id="9"></div>
+	</main>
+
+	<div id="turn-indicator">
+		<img src="img/bacon_act.svg" alt="Bacon's turn" id="bacon-turn">
+		<i class="fa fa-caret-up" aria-hidden="true" id="up-arrow"></i>
+		<h4>YOUR TURN</h4>
+		<i class="fa fa-caret-down inactive" aria-hidden="true" id="down-arrow"></i>
+		<img src="img/egg_in.svg" alt="Bacon's turn" id="egg-turn">
+	</div>
+
 </body>
 </html>
