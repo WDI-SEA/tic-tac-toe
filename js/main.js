@@ -63,7 +63,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function clearStuff() {
         console.log("Im alive!");
-        this.innerHTML = "Working?";
         board = {};
         turn = 0;
         console.log(turn);
