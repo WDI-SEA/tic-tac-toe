@@ -7,7 +7,7 @@
   // X always starts first
 
 
-  function nextMove() {
+  var nextMove = function() {
     console.log(move);
     if (move === 1) {
       move = 0;
@@ -15,11 +15,6 @@
       move = 1;
     }
   }
-
-  // Add listener to restart button
-  document.getElementById("restart").addEventListener("click",gameRestart());
-
-
 
 
   // add an event listener to each board square
@@ -47,7 +42,6 @@
 
   // Determine if there is a winner and announce
     function isWinner(a) {
-      console.log("isWinner");
       if (a) {
         document.getElementById("title").hidden=true;
         if (move===0) {
@@ -62,7 +56,6 @@
 
   // function of if there are three marks in a row
   function winners() {
-    console.log("winners");
     var winAr = [];
     for (var i=0; i<square.length; i++){
       winAr.push(square[i].children[0].className);
@@ -96,6 +89,9 @@
       return false;
     }
   }
+
+  // Add listener to restart button
+  document.getElementById("restart").addEventListener("click",gameRestart());
 
   //Restart game
   function gameRestart() {
