@@ -3,12 +3,57 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <title>Tic-Tac-Toe</title>
+  <link href="https://fonts.googleapis.com/css?family=Finger+Paint" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-  <h1>Hello Front-End</h1>
-
+  <header>
+    <nav class="clearfix">
+      <a href id="restart">Restart Game</a>
+    </nav>
+  </header>
+  <div id="container">
+    <h1 id="title">Tic-Tac-Toe</h1>
+    <h1 id="xWin" hidden=true>X Wins!</h1>
+    <h1 id="oWin" hidden=true>O Wins!</h1>
+    <div id="gameboard">
+      <div class="row">
+        <div class="square" id="TL">
+          <h1></h1>
+        </div>
+        <div class="square" id="TM">
+          <h1></h1>
+        </div>
+        <div class="square" id="TR">
+          <h1></h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="square" id="ML">
+          <h1></h1>
+        </div>
+        <div class="square" id="MM">
+          <h1></h1>
+        </div>
+        <div class="square" id="MR">
+          <h1></h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="square" id="BL">
+          <h1></h1>
+        </div>
+        <div class="square" id="BM">
+          <h1></h1>
+        </div>
+        <div class="square" id="BR">
+          <h1></h1>
+        </div>
+      </div>
+  </div>
+  <footer>
+  </footer>
   <script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>
