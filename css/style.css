@@ -1,3 +1,165 @@
+input {
+margin: 0 auto;
+display: inline-block;
+}
 h1 {
-  color: purple;
+  display: inline-block;
+  margin: .2em 150px;
+  color: yellow;
+  text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+
+}
+body{
+  background: linear-gradient(blue, white);
+}
+#container{
+  position: relative;
+}
+#buttons {
+  margin: 0 auto;
+  display: block;
+
+}
+.nav{
+  position: fixed;
+  width: 100%;
+  height: 100px;
+  background: rgba(20, 20, 20, 0.3);
+  top:0px;
+  text-align: center;
+  z-index: 999;
+  display: block;
+  white-space: nowrap;
+}
+#test {
+  margin: 19px;
+  color: yellow;
+}
+
+#board {
+  position: relative;
+  width: 700px;
+  margin: 100px auto;
+}
+#toprow {
+  display: inline-block;
+
+  width: 100%;
+  text-align: center;
+}
+#midrow {
+  display: inline-block;
+
+  width: 100%;
+  text-align: center;
+
+
+}
+#lowerrow {
+  display: inline-block;
+
+  width: 100%;
+  text-align: center;
+
+}
+#topLeft {
+  height: 200px;
+  width: 200px;
+  border-color: black;
+  border-right: 5px solid;
+  border-bottom: 5px solid;
+  display: inline-block;
+
+
+
+}
+
+#topRight {
+  height: 200px;
+  width: 200px;
+  border-color: black;
+  border-bottom: 5px solid;
+  border-left: 5px solid;
+  display: inline-block;
+
+}
+
+#topMid {
+
+  height: 200px;
+  width: 200px;
+  border-right: 5px solid;
+  border-color: black;
+  border-bottom: 5px solid;
+  border-left: 5px solid;
+  display: inline-block;
+
+}
+
+#midLeft {
+
+  height: 200px;
+  width: 200px;
+  border-color: black;
+  border-top: 5px solid;
+  border-bottom: 5px solid;
+  border-right: 5px solid;
+  display: inline-block;
+
+}
+
+#middle {
+
+  height: 200px;
+  width: 200px;
+  border-color: black;
+  border: 5px solid;
+  display: inline-block;
+
+}
+
+#midRight {
+
+  height: 200px;
+  width: 200px;
+  border-color: black;
+  border-top: 5px solid;
+  border-bottom: 5px solid;
+  border-left: 5px solid;
+  display: inline-block;
+
+}
+
+#lowerLeft {
+
+  height: 200px;
+  width: 200px;
+  border-color: black;
+  border-top: 5px solid;
+  border-right: 5px solid;
+  display: inline-block;
+
+}
+
+#lowerMid {
+
+  height: 200px;
+  width: 200px;
+  border-color: black;
+  border-top: 5px solid;
+  border-left: 5px solid;
+  border-right: 5px solid;
+  display: inline-block;
+
+}
+
+#lowerRight {
+
+  height: 200px;
+  width: 200px;
+  border-color: black;
+  border-top: 5px solid;
+  border-left: 5px solid;
+  display: inline-block;
+
 }
