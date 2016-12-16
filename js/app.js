@@ -1,21 +1,24 @@
-console.log('Hello frontend');
-var X = 'X', O = 'O', BLANK = '', NO_WINNER = 'NO';
+var X = 'X';
+var O = 'O';
+var BLANK = '';
+var NO_WINNER = 'NO';
 var winner;
 var curPlayer;
-var board;
+var theBoard;
 var moves;
 var computer = BLANK;
 
+
 var switchPlayer = function() {
-  curPlayer = ( curPlayer === X ) ? O : X;
-  document.getElementById('curPlayer').textContent='Current Player: '+ curPlayer;
+  curPlayer = (curPlayer === X) ? O : X;
+  document.getElementById('curPlayer').textContent = 'Current Player: ' + curPlayer;
 };
 
 var canMove = function(board, i, j) {
-  if ( board[i][j] === BLANK ) {
+  if (board[i][j] === BLANK) {
     return true;
   } else {
-    document.getElementById('curPlayer').textContent='Select a blank cell for ' + curPlayer;
+    document.getElementById('curPlayer').textContent = 'Select a blank cell for ' + curPlayer;
     return false;
   }
 };
@@ -38,11 +41,11 @@ var getPos = function(id) {
     i: parseInt(arr[1]),
     j: parseInt(arr[2])
   };
-}
+};
 
 var isValidPos = function(i, j) {
-  return i >=0 && i <= 2 && j >= 0 && j <= 2;
-}
+  return i >= 0 && i <= 2 && j >= 0 && j <= 2;
+};
 
 var hasWonDirection = function(board, player, i, j, iDelta, jDelta) {
   var count = 0;
@@ -57,7 +60,7 @@ var hasWonDirection = function(board, player, i, j, iDelta, jDelta) {
   }
 
   return count === 3;
-}
+};
 
 var hasWon = function(board, player, i, j) {
   var directions = [
@@ -76,9 +79,84 @@ var hasWon = function(board, player, i, j) {
   }
 
   return false;
-}
+};
 
-var getComputerPos = function() {
+var calculateScore = function(board, who, i, j, player) {
+  var won = hasWon(board, who, i, j);
+  if (won && who === player) {
+    return 10;
+  } else if (won && who !== player) {
+    return -10;
+  } else {
+    for (var k = 0; k < board.length; k++) {
+      for (var l = 0; l < board[k].length; l++) {
+        if (board[k][l] === BLANK) {
+          return null;
+        }
+      }
+    }
+    return 0;
+  }
+};
+
+var minimax = function(board, who, player) {
+  var allPossibleMoves = [];
+  var i;
+  var j;
+  var currentScore;
+  var position;
+  for (i = 0; i < board.length; i++) {
+    for (j = 0; j < board[i].length; j++) {
+      if (board[i][j] === BLANK) {
+        allPossibleMoves.push({ i: i, j: j });
+      }
+    }
+  }
+
+  var allPossibleScores = [];
+  for (i = 0; i < allPossibleMoves.length; i++) {
+    var currentMove = allPossibleMoves[i];
+    board[currentMove.i][currentMove.j] = who;
+    currentScore = calculateScore(board, who, currentMove.i, currentMove.j, player);
+    if (currentScore === null) {
+      var result = minimax(board, (who === X) ? O : X, player);
+      currentScore = result.score;
+    }
+    board[currentMove.i][currentMove.j] = BLANK;
+    allPossibleScores.push(currentScore);
+  }
+
+  if (who === curPlayer) {
+    var maxScore = -100;
+
+    for (i = 0; i < allPossibleMoves.length; i++) {
+      currentScore = allPossibleScores[i];
+      if (currentScore > maxScore) {
+        maxScore = currentScore;
+        position = allPossibleMoves[i];
+      }
+    }
+
+    return { position: position, score: maxScore };
+  } else {
+    var minScore = 100;
+
+    for (i = 0; i < allPossibleMoves.length; i++) {
+      currentScore = allPossibleScores[i];
+      if (currentScore < minScore) {
+        minScore = currentScore;
+        position = allPossibleMoves[i];
+      }
+    }
+
+    return { position: position, score: minScore };
+  }
+};
+
+var getComputerPos = function(board) {
+  return minimax(board, curPlayer, curPlayer).position;
+
+  /* randomly choose a position
   var values = [0,1,2,3,4,5,6,7,8];
   while (values.length > 0) {
     var index = Math.floor(Math.random() * values.length);
@@ -94,12 +172,13 @@ var getComputerPos = function() {
 
     values.splice(index, 1);
   }
-
+//???why return i:0 j:0
   return {
     i: 0,
     j: 0
   };
-}
+  */
+};
 
 var makeComputerMove = function() {
   if (winner !== BLANK) {
@@ -110,19 +189,20 @@ var makeComputerMove = function() {
     return;
   }
 
-  var pos = getComputerPos();
+  var pos = getComputerPos(theBoard);
 
-  makeMove(pos.i, pos.j);
-}
+  // eslint-disable-next-line no-use-before-define
+  makeMove(pos.i, pos.j, theBoard);
+};
 
-var makeMove = function(i, j) {
+var makeMove = function(i, j, board) {
   if (!canMove(board, i, j)) {
     return;
   }
 
   moves++;
   board[i][j] = curPlayer;
-  element = document.getElementById('a_' + i + '_' + j);
+  var element = document.getElementById('a_' + i + '_' + j);
   element.textContent = curPlayer;
   element.className = 'cell cell' + curPlayer;
 
@@ -139,7 +219,7 @@ var makeMove = function(i, j) {
   switchPlayer();
 
   makeComputerMove();
-}
+};
 
 var onCellClick = function() {
   // console.log("click cell " + this.id);
@@ -149,40 +229,44 @@ var onCellClick = function() {
 
   var pos = getPos(this.id);
 
-  makeMove(pos.i, pos.j);
-}
-
-var cells = document.getElementsByClassName('cell');
-// console.log(cells);
-for (var i = 0; i < cells.length; i++) {
-  // console.log("add click cell " + cells[i].id);
-  cells[i].addEventListener('click', onCellClick);
-}
+  makeMove(pos.i, pos.j, theBoard);
+};
 
 var onRadioClick = function() {
   // console.log(this.id);
   computer = this.id.substring(2);
   // console.log(computer);
   makeComputerMove();
-}
+};
 
-var radios = document.getElementsByClassName('radio');
-// console.log(cells);
-for (var i = 0; i < radios.length; i++) {
-  // console.log("add click cell " + cells[i].id);
-  radios[i].addEventListener('click', onRadioClick);
-}
+var init = function() {
+  var i;
+  var cells = document.getElementsByClassName('cell');
+  // console.log(cells);
+  for (i = 0; i < cells.length; i++) {
+    // console.log("add click cell " + cells[i].id);
+    cells[i].addEventListener('click', onCellClick);
+  }
+
+  var radios = document.getElementsByClassName('radio');
+  // console.log(cells);
+  for (i = 0; i < radios.length; i++) {
+    // console.log("add click cell " + cells[i].id);
+    radios[i].addEventListener('click', onRadioClick);
+  }
+};
 
 var onResetClick = function() {
   winner = BLANK;
   curPlayer = O;
   moves = 0;
-  board = [
+  theBoard = [
     [BLANK, BLANK, BLANK],
     [BLANK, BLANK, BLANK],
     [BLANK, BLANK, BLANK]
   ];
 
+  var cells = document.getElementsByClassName('cell');
   for (var i = 0; i < cells.length; i++) {
     cells[i].textContent = BLANK;
     cells[i].className = 'cell';
@@ -190,7 +274,8 @@ var onResetClick = function() {
 
   switchPlayer();
   makeComputerMove();
-}
+};
 
 document.getElementById('reset').addEventListener('click', onResetClick);
+init();
 onResetClick();

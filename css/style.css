@@ -3,11 +3,11 @@ body{
   text-align: center;
 }
 h1 {
-  font-size: 60px;
+  font-size: 40px;
 }
 h2{
-  margin-bottom: 60px;
-  font-size: 30px;
+  margin-bottom: 30px;
+  font-size: 20px;
 }
 .cell{
   background: darkred;
@@ -16,29 +16,30 @@ h2{
   display: inline-block;
   vertical-align: top;
   margin: 2px 0;
-  font-size: 60px;
+  font-size: 40px;
   line-height: 150px;
   color: white;
 }
 .cellX{
-  background: blue;
+  background: rgb(200,0,0);
 }
 .cellO{
-  background: green;
+  background: rgb(128,128,128);
 }
 button{
-  font-size: 30px;
-  margin-top: 60px;
+  font-size: 20px;
+  margin-top: 20px;
   font-weight: 900;
   padding: 10px 20px;
   color: white;
   background: Gray;
 }
 label{
-  font-size: 25px;
+  font-size: 20px;
   font-weight: 700;
 
 }
 .radioBut{
-  margin-top: 60px;
+  margin-top: 30px;
+  margin-bottom: 0px;
 }
