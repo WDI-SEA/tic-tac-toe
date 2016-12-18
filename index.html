@@ -2,13 +2,36 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <meta name="viewport" content="wclassth=device-wclassth, initial-scale=1">
+  <title>Tic Tac Toe</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-  <h1>Hello Front-End</h1>
-
+  <h1>Tic-Tac-Toe</h1>
+  <h2 id="curPlayer">Current Player</h2>
+  <div>
+    <div class="row">
+      <div class="cell" id="a_0_0"></div>
+      <div class="cell" id="a_0_1"></div>
+      <div class="cell" id="a_0_2"></div>
+   </div>
+   <div class="row">
+      <div class="cell" id="a_1_0"></div>
+      <div class="cell" id="a_1_1"></div>
+      <div class="cell" id="a_1_2"></div>
+    </div>
+    <div class="row">
+      <div class="cell" id="a_2_0"></div>
+      <div class="cell" id="a_2_1"></div>
+      <div class="cell" id="a_2_2"></div>
+    </div>
+  </div>
+  <div class="radioBut">
+    <label><input type="radio" class="radio" name="ai" id="aiX">AI plays X</label>
+    <label><input type="radio" class="radio" name="ai" id="aiO">AI plays O</label>
+    <label><input type="radio" class="radio" name="ai" id="ai" checked>No AI</label>
+  </div>
+  <button type="reset" id='reset'>Reset</button>
   <script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>

@@ -10,6 +10,9 @@
   "rules": {
     "vars-on-top": 0,
     "func-names": 0,
-    "space-before-function-paren": 0
+    "space-before-function-paren": 0,
+    "no-else-return": 0,
+    "radix": 0,
+    "no-param-reassign": 0
   }
 }

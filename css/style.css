@@ -1,3 +1,53 @@
+body{
+  background: silver;
+  text-align: center;
+}
 h1 {
-  color: purple;
+  font-size: 40px;
+}
+h2{
+  margin-bottom: 30px;
+  font-size: 20px;
+}
+.cell{
+  background: darkred;
+  width: 150px;
+  height: 150px;
+  display: inline-block;
+  vertical-align: top;
+  margin: 2px 0;
+  font-size: 40px;
+  line-height: 150px;
+  color: white;
+}
+.cellX{
+  background: rgb(200,0,0);
+}
+.cellO{
+  background: rgb(128,128,128);
+}
+button{
+  font-size: 20px;
+  margin-top: 20px;
+  font-weight: 900;
+  padding: 10px 20px;
+  color: white;
+  background: Gray;
+}
+label{
+  font-size: 20px;
+  font-weight: 700;
+
+}
+.radioBut{
+  margin-top: 30px;
+  margin-bottom: 0px;
+}
+
+@media (max-width: 480px) {
+  .cell {
+    width: 75px;
+    height: 75px;
+    line-height: 75px;
+  }
 }
