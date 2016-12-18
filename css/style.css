@@ -43,3 +43,11 @@ label{
   margin-top: 30px;
   margin-bottom: 0px;
 }
+
+@media (max-width: 480px) {
+  .cell {
+    width: 75px;
+    height: 75px;
+    line-height: 75px;
+  }
+}
