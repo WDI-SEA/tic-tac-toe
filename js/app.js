@@ -18,13 +18,13 @@ function generateBoard() {
 			gameBoardArr[i].push({value: null, filled: false});
 			//add square to game board
 		}
-		addRow();
+		addRow(i);
 	}
 }
 console.log(gameBoardArr);
 
 // adds row of squares to the board
-function addRow() {
+function addRow(rowNumber) {
 	var divRow = document.createElement('div');
 	divRow.className = 'divRow';
 	gameBoard.appendChild(divRow);
@@ -32,18 +32,20 @@ function addRow() {
 	for (var i = 0; i < gameBoardDimension; i++) {
 		var aSquare = document.createElement('div');
 		aSquare.className = 'square';
-
+		aSquare.id = '"[' + rowNumber + '][' + i +']"';
 		//add event listener for player/click
-		aSquare.addEventListener('click', function() {
-			console.log('square clicked');
-			// add check here for player clicked
-			// tie the square to the gameboardArr
-			this.style.backgroundColor = 'red';
-		})
+		aSquare.addEventListener('click', updateGameBoard)
 		divRow.appendChild(aSquare);
 	}
 }
-// box is clicked
+// box is clicked 
+function updateGameBoard() {
+	console.log('square clicked');
+	// add check here for player clicked
+	// tie the square to the gameboardArr
+	this.style.backgroundColor = 'red';
+	
+}
 
 // check player turn
 
