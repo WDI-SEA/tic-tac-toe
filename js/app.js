@@ -21,7 +21,7 @@ function generateBoard() {
 		addRow(i);
 	}
 }
-console.log(gameBoardArr);
+console.log(gameBoardArr); //debug code
 
 // adds row of squares to the board
 function addRow(rowNumber) {
@@ -29,29 +29,43 @@ function addRow(rowNumber) {
 	divRow.className = 'divRow';
 	gameBoard.appendChild(divRow);
 
+	// change this to add squares function
 	for (var i = 0; i < gameBoardDimension; i++) {
 		var aSquare = document.createElement('div');
 		aSquare.className = 'square';
 		aSquare.id = rowNumber + "," + i;
 		//add event listener for player/click
-		aSquare.addEventListener('click', updateGameBoard)
+		aSquare.addEventListener('click', clickSquare)
 		divRow.appendChild(aSquare);
 	}
 }
 // box is clicked 
-function updateGameBoard() {
-	console.log('square clicked');
-	// add check here for player clicked
-	// tie the square to the gameboardArr
-	this.style.backgroundColor = 'red';
+function clickSquare() {
+
+	//updates square clicked to gameBoardArr
 	var squareId = this.id.split(',');
-	console.log(squareId);
-	console.log(gameBoardArr[squareId[0]][squareId[1]].filled = true);
-	
+	var squareSelected = gameBoardArr[squareId[0]][squareId[1]];
+	console.log('square ' + squareId + ' clicked'); // debug code
+	console.log(squareSelected.filled = true); // debug code
+
+	// update playable field
+	this.removeEventListener('click', clickSquare);
+
+	// add check here for player turn/who clicked
+	if (playerTurn === 0) {
+		this.style.backgroundColor = 'red';
+		switchPlayerTurn();
+
+	} else if (playerTurn === 1) {
+		this.style.backgroundColor = 'blue';
+		switchPlayerTurn();
+	}
+	console.log('player', playerTurn + 1, '\'s turn'); // debug code
 }
 
-// check player turn
-
+function switchPlayerTurn(currentPlayer) {
+	playerTurn = (playerTurn + 1) % 2;
+}
 // check win condition
 
 // update allowed moves
