@@ -5,20 +5,30 @@ document.addEventListener("DOMContentLoaded", function() {
 // initialize board
 var gameBoardDimension = 3;
 var gameBoardArr = [];
-var HTMLGameBoard = document.getElementById('gameBoard');
+var gameBoard = document.getElementById('gameBoard');
 
 for (var i = 0; i < gameBoardDimension; i++) {
 	for (var j = 0; j < gameBoardDimension; j++) {
 		gameBoardArr.push({value: null, filled: false});
 		//add square to game board
 	}
+	addRow(gameBoardDimension);
+
 }
 
-function addSquare() {
-	var aSquare = document.createElement('div');
-	aSquare.className = 'square';
-	HTMLGameBoard.appendChild(aSquare);
+function addRow(squaresNeeded) {
+	var divRow = document.createElement('div');
+	divRow.className = 'divRow';
+	gameBoard.appendChild(divRow);
+
+	for (var i = 0; i < squaresNeeded; i++) {
+		var aSquare = document.createElement('div');
+		aSquare.className = 'square';
+
+		divRow.appendChild(aSquare);
+	}
 }
+
 // check player turn
 
 // check win condition
