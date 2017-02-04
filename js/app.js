@@ -75,28 +75,24 @@ function switchPlayerTurn() {
 // check win condition
 
 // vertical win condition
-// 	function VerticalWin(player, row) {
-// 		// if all of column i is of currentPlayer, then game wins 
-// 		if (/*helper function*/) {
-// 			//player wins
-// 		}
-// 		else {
-// 			return
-// 		}
-// 	}
-// 	function checkVerticalSquares() {
-// 		for (var i = 0; i < gameBoardArr; i++) {
-// 			for (var j = 0; j < gameBoardArr; j++) {
-// 				if (gameBoardArr[i][i].filled) {
-
-// 				}
-// 				else{
-// 					return false
-// 				}
-// 				return true;
-// 			}
-// 		}
-// 	}
+	function checkIfWon(player) {
+		// if all of column i is of currentPlayer, then game wins 
+		checkVerticalSquares(player)
+		//
+		checkHorizontalSquares(player);
+		//
+		checkDiagonalSquares(player);
+	}
+	function checkVerticalSquares(currentPlayer) {
+		for (var i = 0; i < gameBoardArr; i++) {
+ 			for (var j = 0; j < gameBoardArr; j++) {
+				if (gameBoardArr[j][i].player != currentPlayer) {
+					return false;
+				}
+			}
+			return true;
+		}
+	}
 // horizontal win condition
 
 // diagonal win condition
