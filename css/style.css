@@ -2,16 +2,15 @@ h1 {
   color: purple;
 }
 .divRow {
-	position: relative;
 	height: auto;
 	width: 100%;
 	display: inline-block;
 }
 .square {
-	position: relative;
 	height: 100px;
 	width: 100px;
 	background-color: black;
 	border: 1px dashed white;
 	display: inline-block;
 }
+// get rid of unnecessary stuff

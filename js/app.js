@@ -4,27 +4,34 @@ document.addEventListener("DOMContentLoaded", function() {
 // user select gameboard dimension // possible feature
 // initialize board
 var gameBoardDimension = 3;
-var gameBoardArr = [];
+var gameBoardArr = []; // keep track of playable squares
 var gameBoard = document.getElementById('gameBoard');
+var playerTurn = 0;
 
-for (var i = 0; i < gameBoardDimension; i++) {
-	for (var j = 0; j < gameBoardDimension; j++) {
-		gameBoardArr.push({value: null, filled: false});
-		//add square to game board
+generateBoard();
+
+// generate the board
+function generateBoard() {
+	for (var i = 0; i < gameBoardDimension; i++) {
+		gameBoardArr.push([]);
+		for (var j = 0; j < gameBoardDimension; j++) {
+			gameBoardArr[i].push({value: null, filled: false});
+			//add square to game board
+		}
+		addRow();
 	}
-	addRow(gameBoardDimension);
-
 }
+console.log(gameBoardArr);
 
-function addRow(squaresNeeded) {
+// adds row of squares to the board
+function addRow() {
 	var divRow = document.createElement('div');
 	divRow.className = 'divRow';
 	gameBoard.appendChild(divRow);
 
-	for (var i = 0; i < squaresNeeded; i++) {
+	for (var i = 0; i < gameBoardDimension; i++) {
 		var aSquare = document.createElement('div');
 		aSquare.className = 'square';
-
 		divRow.appendChild(aSquare);
 	}
 }
@@ -36,14 +43,27 @@ function addRow(squaresNeeded) {
 // update allowed moves
 
 // handle allowance for multiple clicks
-
+	// in gameBoardArr
 // vertical win condition
-
+	// function VerticalWin(player, row) {
+	// 	// if all of column i is of currentPlayer, then game wins 
+	// 	if (/*helper function*/) {
+	// 		//player wins
+	// 	}
+	// 	else {
+	// 		return
+	// 	}
+	// }
+	function checkVerticalSquares() {
+		for (var i = 0; i < gameBoardDimensions; i++) {
+				// if filled = true for the entire row, return true, else return false
+		}
+	}
 // horizontal win condition
 
 // diagonal win condition
 
-
+//game win conditions
 
 
 
