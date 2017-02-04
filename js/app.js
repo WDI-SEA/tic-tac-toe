@@ -32,7 +32,7 @@ function addRow(rowNumber) {
 	for (var i = 0; i < gameBoardDimension; i++) {
 		var aSquare = document.createElement('div');
 		aSquare.className = 'square';
-		aSquare.id = '"[' + rowNumber + '][' + i +']"';
+		aSquare.id = rowNumber + "," + i;
 		//add event listener for player/click
 		aSquare.addEventListener('click', updateGameBoard)
 		divRow.appendChild(aSquare);
@@ -44,6 +44,9 @@ function updateGameBoard() {
 	// add check here for player clicked
 	// tie the square to the gameboardArr
 	this.style.backgroundColor = 'red';
+	var squareId = this.id.split(',');
+	console.log(squareId);
+	console.log(gameBoardArr[squareId[0]][squareId[1]].filled = true);
 	
 }
 
