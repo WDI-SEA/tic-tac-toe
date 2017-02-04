@@ -10,12 +10,12 @@ var playerTurn = 0;
 
 generateBoard();
 
-// generate the board
+// generate the board in a 2d Array2 -done
 function generateBoard() {
 	for (var i = 0; i < gameBoardDimension; i++) {
 		gameBoardArr.push([]);
 		for (var j = 0; j < gameBoardDimension; j++) {
-			gameBoardArr[i].push({value: null, filled: false});
+			gameBoardArr[i].push({player: null, filled: false});
 			//add square to game board
 		}
 		addRow(i);
@@ -45,56 +45,58 @@ function clickSquare() {
 	//updates square clicked to gameBoardArr
 	var squareId = this.id.split(',');
 	var squareSelected = gameBoardArr[squareId[0]][squareId[1]];
+	squareSelected.player = playerTurn;
+	console.log('selected square: ' + this.id + ' belongs to ' + squareSelected.player); //debug code
 	console.log('square ' + squareId + ' clicked'); // debug code
 	console.log(squareSelected.filled = true); // debug code
+
 
 	// update playable field
 	this.removeEventListener('click', clickSquare);
 
+
 	// add check here for player turn/who clicked
+		//need to change background color to a document.add x or o class
 	if (playerTurn === 0) {
 		this.style.backgroundColor = 'red';
 		switchPlayerTurn();
-
 	} else if (playerTurn === 1) {
 		this.style.backgroundColor = 'blue';
 		switchPlayerTurn();
 	}
+	console.log(gameBoardArr); // debug code
+}
+
+function switchPlayerTurn() {
+	playerTurn = (playerTurn + 1) % 2;
 	console.log('player', playerTurn + 1, '\'s turn'); // debug code
 }
 
-function switchPlayerTurn(currentPlayer) {
-	playerTurn = (playerTurn + 1) % 2;
-}
 // check win condition
 
-// update allowed moves
-
-// handle allowance for multiple clicks
-	// in gameBoardArr
 // vertical win condition
-	// function VerticalWin(player, row) {
-	// 	// if all of column i is of currentPlayer, then game wins 
-	// 	if (/*helper function*/) {
-	// 		//player wins
-	// 	}
-	// 	else {
-	// 		return
-	// 	}
-	// }
-	// function checkVerticalSquares() {
-	// 	for (var i = 0; i < gameBoardArr; i++) {
-	// 		for (var j = 0; j < gameBoardArr; j++) {
-	// 			if (gameBoardArr[i][i].filled) {
+// 	function VerticalWin(player, row) {
+// 		// if all of column i is of currentPlayer, then game wins 
+// 		if (/*helper function*/) {
+// 			//player wins
+// 		}
+// 		else {
+// 			return
+// 		}
+// 	}
+// 	function checkVerticalSquares() {
+// 		for (var i = 0; i < gameBoardArr; i++) {
+// 			for (var j = 0; j < gameBoardArr; j++) {
+// 				if (gameBoardArr[i][i].filled) {
 
-	// 			}
-	// 			else{
-	// 				return false
-	// 			}
-	// 			return true;
-	// 		}
-	// 	}
-	// }
+// 				}
+// 				else{
+// 					return false
+// 				}
+// 				return true;
+// 			}
+// 		}
+// 	}
 // horizontal win condition
 
 // diagonal win condition
