@@ -47,10 +47,10 @@ function clickSquare() {
 	var squareSelected = gameBoardArr[squareId[0]][squareId[1]];
 	squareSelected.player = playerTurn;
 	console.log('selected square: ' + this.id + ' belongs to ' + squareSelected.player); //debug code
-	console.log('square ' + squareId + ' clicked'); // debug code
-	console.log(squareSelected.filled = true); // debug code
+	//console.log('square ' + squareId + ' clicked'); // debug code
+	//console.log(squareSelected.filled = true); // debug code
 
-
+	checkIfWon();
 	// update playable field
 	this.removeEventListener('click', clickSquare);
 
@@ -64,7 +64,7 @@ function clickSquare() {
 		this.style.backgroundColor = 'blue';
 		switchPlayerTurn();
 	}
-	console.log(gameBoardArr); // debug code
+	//console.log(gameBoardArr); // debug code
 }
 
 function switchPlayerTurn() {
@@ -74,27 +74,52 @@ function switchPlayerTurn() {
 
 // check win condition
 
-// vertical win condition
-	function checkIfWon(player) {
+	function checkIfWon() {
 		// if all of column i is of currentPlayer, then game wins 
-		checkVerticalSquares(player)
+		
+		if(checkVerticalSquares()) {
+		}
 		//
-		checkHorizontalSquares(player);
+		checkHorizontalSquares();
 		//
-		checkDiagonalSquares(player);
+		//checkDiagonalSquares();
 	}
-	function checkVerticalSquares(currentPlayer) {
-		for (var i = 0; i < gameBoardArr; i++) {
- 			for (var j = 0; j < gameBoardArr; j++) {
-				if (gameBoardArr[j][i].player != currentPlayer) {
-					return false;
-				}
+// vertical win condition
+function checkVerticalSquares() {
+	var winCtr = 0;
+	for (var i = 0; i < gameBoardArr.length; i++) {
+		for (var j = 0; j < gameBoardArr.length; j++) {
+			if (gameBoardArr[j][i].player === playerTurn) {
+				winCtr++;
 			}
-			return true;
+		}
+		if (winCtr === gameBoardDimension) {
+			console.log("verticalWin");//debug code
+			return;
+		}
+		else {
+			winCtr = 0;
 		}
 	}
+}
 // horizontal win condition
+function checkHorizontalSquares() {
 
+	var winCtr = 0;
+	for (var i = 0; i < gameBoardArr.length; i++) {
+		for (var j = 0; j < gameBoardArr.length; j++) {
+			if (gameBoardArr[i][j].player === playerTurn) {
+				winCtr++
+			}
+		}
+		if (winCtr === gameBoardDimension) {
+			console.log("HorizontalWin");//debug code
+			return;
+		} else {
+			winCtr = 0;
+		}
+	}
+}
 // diagonal win condition
 
 //game win conditions
