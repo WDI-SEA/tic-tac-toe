@@ -6,8 +6,14 @@ body {
 	height: 75px;
 	width:  75px;;
 }
+#gameSettings {
+	display:inline-block;
+	float: left;
+	border: 2px solid red;
+}
 #gameBoard {
-	margin: 0 auto;
+	display: inline-block;
+	border: 2px solid red;
 }
 .divRow {
 	height: auto;
