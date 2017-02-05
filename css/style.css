@@ -1,3 +1,60 @@
-h1 {
-  color: purple;
+body{
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 13px;
 }
+h1 {
+  color:black;
+  font-family: 'Special Elite', cursive;
+  font-size: 55px;
+}
+#turn{
+  font-size: 30px;
+  color: green;
+  font-family: 'Special Elite', cursive;
+}
+#board{
+  background: url("http://i.imgur.com/FroyV5v.jpg");
+  padding: 8px;
+  font-size: 50px;
+  font-family: 'Qwigley', cursive;
+  align-content: center;
+
+
+}
+.row1{
+  display: inline-block;
+  outline: solid black 5px;
+  margin: 20px 10px;
+  padding: 10px;
+  height: 100px;
+  width: 100px;
+}
+.row2{
+  display: inline-block;
+  outline: solid black 5px;
+  margin: 20px 10px;
+  padding: 10px;
+  height: 100px;
+  width: 100px;
+}
+.row3{
+  display: inline-block;
+  outline: solid black 5px;
+  margin: 20px 10px;
+  padding: 10px;
+  height: 100px;
+  width: 100px;
+}
+.winner{
+  color: red;
+  font-size: 50px;
+  display: none;
+}
+
+
+/*display: inline-block;
+  padding: 5%;
+  width: 25px;
+  height: 25px;
+  margin: 8px;*/
