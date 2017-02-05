@@ -34,8 +34,10 @@ function addRow(rowNumber) {
 	var divRow = document.createElement('div');
 	divRow.className = 'divRow';
 	gameBoard.appendChild(divRow);
-
+	addSquare(rowNumber, divRow);
+}
 	// change this to add squares function
+function addSquare(rowNumber, divRow) {
 	for (var i = 0; i < gameBoardDimension; i++) {
 		var aSquare = document.createElement('div');
 		aSquare.className = 'square';
@@ -168,6 +170,7 @@ function gameOver() {
 	function resetBoard() {
 		//generate board
 		generateBoard();
+		//remove previous eventlisteners
 		//event listener if game is still in play and player hovers over button
 	}
 
