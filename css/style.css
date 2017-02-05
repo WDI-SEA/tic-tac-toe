@@ -1,3 +1,76 @@
-h1 {
-  color: purple;
+body {
+	background: url("../img/table.jpg");
+	text-align: center;
+	font-family: 'Indie Flower', cursive;
+}
+
+.head {
+	height: 100px;
+	background-color: rgba(0, 0, 0, .4);
+	margin-top: -28px;
+	font-size: 40px;
+}
+
+.head h1 img {
+	height: 70px;
+	margin: 10px 0 0 0;
+}
+
+table {
+	margin: 20px auto;
+	max-width: 600px;
+	width: 100%;
+	border-collapse: collapse;
+}
+
+td {
+	width: 33.333%;
+	border: 7px solid black;
+	font-size: 20px;
+	height: 198px;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+td:first-of-type {
+	border-left-color: transparent;
+	border-top-color: transparent;
+}
+
+td:nth-of-type(2) {
+	border-top-color:transparent;
+}
+
+td:nth-of-type(3) {
+	border-right-color:transparent;
+	border-top-color:transparent;
+}
+
+tr:nth-of-type(3) td{
+	border-bottom-color:transparent;
+}
+
+td h1 {
+	position: relative;
+	font-size: 100px;
+	margin: 0;
+	display: none;
+}
+
+.gameBoard {
+	background-image: url("../img/cloth.png");
+	background-size: contain;
+}
+
+#reset {
+	height: 40px;
+	width: 100px;
+	font-size: 16px;
+	border: none;
+	background-color: #0099ff;
+	font-family: 'Indie Flower', cursive;
+}
+
+#reset:hover {
+	background-color: pink;
 }
