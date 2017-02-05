@@ -3,11 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <title>Bfast Tac Toe</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Croissant+One|Yellowtail|Fontdiner+Swanky|Lobster" rel="stylesheet">
 </head>
 <body>
-  <h1>Hello Front-End</h1>
+  <div class="ai-indicator">2 year old AI enabled!</div>
+  <h1>Breakfast-Tac-Toe
+  </h1>
+  <h1><img class="whosturn ex"><span id="message-board">'s turn</span></h1>
+
+  <div class="buttons">
+    <button id="reset">Reset</button>
+    <button id="ai">Play w/ 2 yr old</button>
+  </div>
+
+  <div id="board">
+    <div class="row" id="row1">
+      <div class="cell odd" id="cell0"></div>
+      <div class="cell even" id="cell1"></div>
+      <div class="cell odd" id="cell2"></div>
+    </div>
+    <div class="row" id="row2">
+      <div class="cell even" id="cell3"></div>
+      <div class="cell odd" id="cell4"></div>
+      <div class="cell even" id="cell5"></div>
+    </div>
+    <div class="row" id="row3">
+      <div class="cell odd" id="cell6"></div>
+      <div class="cell even" id="cell7"></div>
+      <div class="cell odd" id="cell8"></div>
+    </div>
+  </div>
+
+
 
   <script type="text/javascript" src="js/app.js"></script>
 </body>
