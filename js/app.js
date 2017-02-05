@@ -21,7 +21,7 @@ function generateBoard() {
 		addRow(i);
 	}
 }
-console.log(gameBoardArr); //debug code
+//console.log(gameBoardArr); //debug code
 
 // adds row of squares to the board
 function addRow(rowNumber) {
@@ -46,7 +46,7 @@ function clickSquare() {
 	var squareId = this.id.split(',');
 	var squareSelected = gameBoardArr[squareId[0]][squareId[1]];
 	squareSelected.player = playerTurn;
-	console.log('selected square: ' + this.id + ' belongs to ' + squareSelected.player); //debug code
+	//console.log('selected square: ' + this.id + ' belongs to ' + squareSelected.player); //debug code
 	//console.log('square ' + squareId + ' clicked'); // debug code
 	//console.log(squareSelected.filled = true); // debug code
 
@@ -77,12 +77,15 @@ function switchPlayerTurn() {
 	function checkIfWon() {
 		// if all of column i is of currentPlayer, then game wins 
 		
-		if(checkVerticalSquares()) {
+		if (checkVerticalSquares()) {
+			console.log("vertical Win for Player" + (playerTurn + 1));//debug code
+		} else if (checkHorizontalSquares()) {
+			console.log("Horizontal Win for Player" + (playerTurn + 1));//debug code
+		} else if (checkUpSlopeSquares()) {
+			console.log("Diagonal Win for Player" + (playerTurn + 1));//debug code
+		} else if (checkDownSlopeSquares()) {
+			console.log("Diagonal Win for Player" + (playerTurn + 1));//debug code
 		}
-		//
-		checkHorizontalSquares();
-		//
-		//checkDiagonalSquares();
 	}
 // vertical win condition
 function checkVerticalSquares() {
@@ -94,8 +97,7 @@ function checkVerticalSquares() {
 			}
 		}
 		if (winCtr === gameBoardDimension) {
-			console.log("verticalWin");//debug code
-			return;
+			return true;
 		}
 		else {
 			winCtr = 0;
@@ -104,29 +106,62 @@ function checkVerticalSquares() {
 }
 // horizontal win condition
 function checkHorizontalSquares() {
-
 	var winCtr = 0;
 	for (var i = 0; i < gameBoardArr.length; i++) {
 		for (var j = 0; j < gameBoardArr.length; j++) {
 			if (gameBoardArr[i][j].player === playerTurn) {
-				winCtr++
+				winCtr++;
 			}
 		}
 		if (winCtr === gameBoardDimension) {
-			console.log("HorizontalWin");//debug code
-			return;
+			return true;
 		} else {
 			winCtr = 0;
 		}
 	}
 }
 // diagonal win condition
+function checkUpSlopeSquares() {
+	//slope down check
+	var winCtr = 0;
+	for (var i = 0; i < gameBoardDimension; i++) {
+		if (gameBoardArr[i][i].player === playerTurn) {
+			winCtr++;
+		} else {
+			winCtr = 0;
+		}
+	}
+	if(winCtr === gameBoardDimension){
+		return true;
+	}
+}
 
+
+
+
+function checkDownSlopeSquares() {
+	//slope up check
+	var winCtr = 0;
+	var offsetCtr = gameBoardDimension - 1;
+	for (var i = 0; i < gameBoardDimension - 1; i++) {
+		if (gameBoardArr[i][offsetCtr].player === playerTurn) {
+			winCtr++;
+			offsetCtr--;
+		} else {
+			winCtr = 0;
+		}
+	}
+
+	if(winCtr === gameBoardDimension){
+		return true;
+	}
+}
 //game win conditions
 
 
 
-// 
+// game over conditions
+	//disable further clicking
 
 
 
