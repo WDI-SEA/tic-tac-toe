@@ -16,16 +16,13 @@ announceTurn = announceTurn.getElementsByTagName('h2');
 var playerOneTheme = '';
 var playerTwoTheme = '';
 var themeSelectBox = document.getElementById('theme-select');
+var bodyBackground = document.getElementsByTagName('body')[0];
 selectTheme();
 // function to read boardsize and call initialize
 	// requires player count
 
 function selectTheme() {
-	// set background images
-	// set sounds
-		//phasers vs blaster sound
-		//theme songs
-
+	document.getElementById('theme-select').style.visibility = 'visible';
 	document.getElementById('submitTheme').addEventListener('click', setTheme);
 
 }
@@ -34,17 +31,23 @@ function setTheme() {
 
 	for (var i = 0; i < selection.length; i++) {
 		if (selection[i].checked) {
-			console.log(selection[i].value);
-			playerOneTheme = 'rebel-theme';
-			playerTwoTheme = 'empire-theme';
+			if (selection[i].value === 'starWars'){
+				setStarwarsTheme();
+				document.getElementById('r2').play();
+			}
 		} 
 	}
 	// call getBoardSize()
 	// remove hidden from gamesettings
-	//themeSelectBox.style.visibility = 'hidden';
+	themeSelectBox.style.visibility = 'hidden';
 	announcement = document.getElementById('gameSettings');
 	announcement.style.visibility = 'visible';
 	getBoardSize();
+}
+function setStarwarsTheme() {
+	playerOneTheme = 'rebel-theme';
+	playerTwoTheme = 'empire-theme';
+	bodyBackground.style.backgroundImage = "url('./img/starWars.jpg')";
 }
 function getBoardSize() {
 	//initialize playerSettings
@@ -219,7 +222,8 @@ function announceGameOver() {
 // reset function
 function resetBtn() {
 	removeOldBoard();
-	getBoardSize();
+	selectTheme();
+	bodyBackground.style.backgroundImage = '';
 	//event listener if game is still in play and player hovers over button
 
 	//add hidden to gameover text again

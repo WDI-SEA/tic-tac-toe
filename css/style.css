@@ -1,5 +1,8 @@
 body {
 	text-align: center;
+	background-repeat: no-repeat;
+	background-size: 100%;
+
 }
 #theme-select label {
 	text-align: center;
@@ -32,6 +35,7 @@ body {
 	display:inline-block;
 	float: left;
 	border: 2px solid red;
+	background-color: white;
 }
 #gameBoard {
 	display: inline-block;
@@ -45,7 +49,7 @@ body {
 .square {
 	height: 100px;
 	width: 100px;
-	border: 1px solid black;
+	border: 2px solid white;
 	display: inline-block;
 	margin: 1px 3px;
 }
