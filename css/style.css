@@ -2,7 +2,7 @@ body {
   text-align: center;
   font-family: 'Lobster', cursive;
   letter-spacing: 1.5px;
-  background-color: ALiceBlue;
+  background-color: AliceBlue;
 }
 
 h1 {
@@ -11,7 +11,7 @@ h1 {
 
 button {
   width: 200px;
-  height: 60px;
+  height: 80px;
   padding: 10px;
   margin: 10px 10px 30px 10px;
   color: #fff;
@@ -49,15 +49,31 @@ button.active {
 .ai-indicator {
   position: absolute;
   padding: 10px;
+  width: 250px;
   margin: 0;
-  background-color: 	#778899;
   color: white;
   font-family: 'Croissant One', cursive;
   visibility: hidden;
 }
+
+.short {
+  background-color: #778899;
+}
+
+.full {
+  top: 70px;
+  background-color: green;
+}
+
 .whosturn {
   height: 50px;
   width: 50px;
+}
+
+.draw {
+  height: 50px;
+  width: 50px;
+  visibility: hidden;
 }
 
 .cell {
