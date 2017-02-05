@@ -1,5 +1,5 @@
 var moveCount = 0;
-var movesMade = new Array(8); // [{cell :cell1, cellValue: "ex"}]
+var movesMade = new Array(9);
 var interval;
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -17,6 +17,7 @@ function addAllEventListeners() {
   }
 
   document.getElementById("ai").addEventListener("click", generateNextMove);
+  document.getElementById("ai-defensive").addEventListener("click", generateNextDefensiveMove);
 }
 
 function removeAllEventListeners() {
@@ -26,6 +27,7 @@ function removeAllEventListeners() {
   }
 
   document.getElementById("ai").removeEventListener("click", generateNextMove);
+  document.getElementById("ai-defensive").removeEventListener("click", generateNextDefensiveMove);
 }
 
 function updateWhosTurn(classToAdd){
@@ -68,6 +70,13 @@ function cellClicked() {
         removeAllEventListeners();
       } else {
         document.getElementById("message-board").textContent = " aww it's a draw!";
+        if(document.getElementsByClassName("whosturn")[0].classList.contains("ex")){
+          document.getElementsByClassName("draw")[0].classList.add("oh");
+        } else {
+          document.getElementsByClassName("draw")[0].classList.add("ex");
+        }
+        document.getElementsByClassName("draw")[0].style.visibility = "visible";
+
         clearInterval(interval);
       }
   }
@@ -143,11 +152,15 @@ function resetBoard() {
   moveCount = 0;
 
   //reset moves movesMade
-  movesMade = new Array(8);
+  movesMade = new Array(9);
 
   //reset whos turn board
   updateWhosTurn("ex");
-  document.getElementsByClassName("ai-indicator")[0].style.visibility = "hidden";
+  document.getElementsByClassName("short")[0].style.visibility = "hidden";
+  document.getElementsByClassName("full")[0].style.visibility = "hidden";
+  document.getElementsByClassName("draw")[0].style.visibility = "hidden";
+  document.getElementsByClassName("draw")[0].classList.remove("ex");
+  document.getElementsByClassName("draw")[0].classList.remove("oh");
 
   //reset event listeners
   removeAllEventListeners();
@@ -155,7 +168,8 @@ function resetBoard() {
 }
 
 function generateNextMove(){
-  document.getElementsByClassName("ai-indicator")[0].style.visibility = "visible";
+  console.log("click");
+  document.getElementsByClassName("short")[0].style.visibility = "visible";
 
   if( moveCount % 2 === 0 ){
     document.getElementById("message-board").textContent = ", it's YOUR turn!";
@@ -164,6 +178,7 @@ function generateNextMove(){
   interval = setInterval(function() {
     //don't let AI be clicked again
     document.getElementById("ai").removeEventListener("click", generateNextMove);
+    document.getElementById("ai-defensive").removeEventListener("click", generateNextDefensiveMove);
 
     //have ai go second
     if(moveCount % 2 === 1){
@@ -176,4 +191,200 @@ function generateNextMove(){
       }
     }
   }, 1000);
+  //TODO: disable click while AI is thinking
+}
+
+
+//defensive
+var INFINITY = 1000000;
+
+function getHorizontalScore(cellIndex, player){
+  var first, second;
+
+  if( cellIndex === 1 || cellIndex === 4 || cellIndex === 7 ){
+    first = -1;
+    second = 1;
+  } else if( cellIndex === 0 || cellIndex === 3 || cellIndex === 6 ){
+    first = 1;
+    second = 2;
+  } else {
+    first = -2;
+    second = -1;
+  }
+  console.log(cellIndex + ":" + (cellIndex+first) + ":" + (cellIndex+second));
+  return getVerticalOrHorizontalScore(cellIndex, player, first, second);
+}
+
+function getVerticalScore(cellIndex, player){
+  var first, second;
+
+  if( cellIndex === 0 || cellIndex === 1 || cellIndex === 2 ){
+    first = 3;
+    second = 6;
+  } else if( cellIndex === 3 || cellIndex === 4 || cellIndex === 5 ){
+    first = -3;
+    second = 3;
+  } else {
+    first = -6;
+    second = -3;
+  }
+
+  return getVerticalOrHorizontalScore(cellIndex, player, first, second);
+}
+
+function getVerticalOrHorizontalScore(cellIndex, player, first, second){
+  if( movesMade[cellIndex+first] === player && movesMade[cellIndex+second] === player ){ //stay
+      return 1;
+  }
+  //one = me and other empty
+  else if(movesMade[cellIndex+first] === player){
+    console.log("one = me!");
+    if(!movesMade[cellIndex+second]){
+      console.log("other is empty!");
+      return 2;
+    } else {
+      console.log("other is full, and it's not me")
+      return INFINITY;
+    }
+  }
+
+  else if(movesMade[cellIndex+second] === player){
+    console.log("one = me!");
+    if(!movesMade[cellIndex+first]){
+      console.log("other is empty!");
+      return 2;
+    } else {
+      console.log("other is ful and it's not me");
+      return INFINITY;
+    }
+  }
+
+  //both !== me and both empty
+  else if(movesMade[cellIndex+first] !== player && movesMade[cellIndex+second] !== player){
+    if(!movesMade[cellIndex+first] && !movesMade[cellIndex+second]){
+      return 3;
+    } else { //both !== me and both full
+      return INFINITY;
+    }
+  }
+}
+
+function getLeftDiagonalScore(cellIndex, player){
+  var first, second;
+
+  //shouldn't calculate if index = 1, 3, 5, or 7
+  if( [1,3,5,7,2,6].indexOf(cellIndex) >= 0 ){
+    return INFINITY;
+  }
+
+  if( cellIndex === 0 ){
+    first = 4;
+    second = 8;
+  } else if( cellIndex === 4 ){
+    first = -4;
+    second = 4;
+  } else {
+    first = -8;
+    second = -4;
+  }
+
+  return getVerticalOrHorizontalScore(cellIndex, player, first, second);
+}
+
+function getRightDiagonalScore(cellIndex, player){
+  var first, second;
+
+  if( [1,3,5,7, 0, 8].indexOf(cellIndex) >= 0 ){
+    return INFINITY;
+  }
+
+  if( cellIndex === 2 ){
+    first = 2;
+    second = 4;
+  } else if( cellIndex === 4 ){
+    first = -2;
+    second = 2;
+  } else {
+    first = -4;
+    second = -2;
+  }
+
+  return getVerticalOrHorizontalScore(cellIndex, player, first, second);
+}
+
+
+function getScore(cellIndex, player){
+  var horizontal, vertical, leftDiagonal, rightDiagonal;
+  //if it's not an empty cell, all values are infinity
+  if( movesMade[cellIndex] ){
+    horizontal = vertical = leftDiagonal = rightDiagonal = INFINITY;
+  } else {
+    //calculate horizontal score
+    horizontal = getHorizontalScore(cellIndex, player);
+
+    //calculate vertical score
+    vertical = getVerticalScore(cellIndex, player);
+
+    //calculate diagonal score
+    leftDiagonal = getLeftDiagonalScore(cellIndex, player);
+    rightDiagonal = getRightDiagonalScore(cellIndex, player);
+
+  }
+
+  var indexScores = {
+    h: horizontal,
+    v: vertical,
+    ld: leftDiagonal,
+    rd: rightDiagonal
+  };
+
+  return indexScores;
+};
+
+function chooseMove(){
+  var opponentScores = new Array(9);
+
+  for( var i = 0; i < 9; i++){
+    opponentScores[i] = getScore(i, "ex");
+  }
+
+  console.log(opponentScores);
+  // console.log(getScore(7, "ex"));
+
+  //choose a cell with the lowest score
+  var temp = opponentScores[0].h;
+  var moveIndex = 0;
+  for( var i = 0; i < opponentScores.length; i++){
+
+    for(var key in opponentScores[i]){
+      if(opponentScores[i][key] < temp){
+        temp = opponentScores[i][key];
+        moveIndex = i;
+      }
+    }
+  }
+  console.log(moveIndex);
+  return moveIndex;
+}
+
+function generateNextDefensiveMove(){
+  console.log("click");
+  document.getElementsByClassName("full")[0].style.visibility = "visible";
+
+  if( moveCount % 2 === 0 ){
+    document.getElementById("message-board").textContent = ", it's YOUR turn!";
+  }
+
+  interval = setInterval(function() {
+    //don't let either AI be clicked again
+    document.getElementById("ai-defensive").removeEventListener("click", generateNextDefensiveMove);
+    document.getElementById("ai").removeEventListener("click", generateNextMove);
+
+    //have ai go second
+    if(moveCount % 2 === 1){
+      document.getElementById("message-board").textContent = " is thinking...";
+      document.getElementById('cell' + chooseMove()).click();
+    }
+  }, 1000);
+  //TODO: disable click while AI is thinking
 }
