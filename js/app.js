@@ -6,22 +6,22 @@ document.addEventListener("DOMContentLoaded", function(){
 	//Empty Arrays used to store player move history to check against for win logic
 	var xMoves = []; 
 	var oMoves = []; 
+	var xMovesStr = xMoves.toString();
 
 	//Win Combanations
-	var winCombos = [
-		["a1", "a2", "a3"],
-		["b1", "b2", "b3"],
-		["c1", "c2", "c3"],
-		["a1", "b1", "c1"],
-		["a2", "b2", "c2"],
-		["a3", "b3", "c3"],
-		["a1", "b2", "c3"],
-		["a3", "b2", "c1"],
-
-	];
+	var winMoves = ["a,b,c",
+	"d,e,f",
+	"g,h,i",
+	"a,d,g",
+	"b,e,h",
+	"c,f,i",
+	"a,e,i",
+	"c,e,g",];
 
 	oTurn = document.getElementById("oTurn");
+	oWin = document.getElementById("oWin");
 	xTurn = document.getElementById("xTurn");
+	xWin = document.getElementById("xWin");
 
 	//Adding click event to the tiles
 	function clickTiles(){
@@ -55,7 +55,10 @@ document.addEventListener("DOMContentLoaded", function(){
 		//Remove click listener once the tile is clicked
 		this.removeEventListener("click", isClicked);
 
+		gameWinX();
+		gameWinO();
 	} 
+
 
 	//Add click event to reset button
 	document.getElementById("reset").addEventListener("click", resetGame);
@@ -70,8 +73,54 @@ document.addEventListener("DOMContentLoaded", function(){
 			clearTile[i].style.backgroundImage = "";
 		}
 		clickTiles();
-		//Reset the player turn message
-		document.querySelector("img").src = "./img/dmx-x.png";
+
+		//Clear the Win Message and Reset Player Turn Icon
+		document.getElementById("message").innerHTML = "Turn = <br><img src=\'./img/dmx-x.png\' class='scaled'>"
+		xWin.pause();
+		oWin.pause();
+	}
+
+	//Game Win functions - For loop that sorts the moves array 
+	//converts sorted array to string, and then compares to winning string combos 
+	function gameWinX(){
+		for (var i = 0; i<winMoves.length; i++){
+			xMoves.sort();
+			if(xMoves.toString() == winMoves[i]){
+				document.getElementById("message").innerHTML = "<img src=\'./img/dmx-x.png\' class='scaled'> Wins!"
+				xTurn.pause();
+				xWin.play();
+			}
+		}
+	}
+
+	function gameWinO(){
+		for (var i = 0; i<winMoves.length; i++){
+			oMoves.sort();
+			if(oMoves.toString() == winMoves[i]){
+				document.getElementById("message").innerHTML = "<img src=\'./img/dmx-o.png\' class='scaled'> Wins!"
+				oTurn.pause();
+				oWin.play();
+			}
+		}
 	}
 
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
