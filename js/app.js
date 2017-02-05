@@ -40,11 +40,13 @@ document.addEventListener("DOMContentLoaded", function(){
 		if (turn % 2 === 0){
 			this.style.background = "url('./img/dmx-x.png') no-repeat center";
 			document.querySelector("img").src = "./img/dmx-o.png";
+			//On click add to corresponding players history array
 			xMoves.push(this.id);
 			xTurn.play()
 		} else {
 			this.style.background = "url('./img/dmx-o.png') no-repeat center";
 			document.querySelector("img").src = "./img/dmx-x.png";
+			//On click add to corresponding players history array
 			oMoves.push(this.id);
 			oTurn.play()
 		}
@@ -73,28 +75,3 @@ document.addEventListener("DOMContentLoaded", function(){
 	}
 
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
