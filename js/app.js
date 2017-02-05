@@ -79,6 +79,7 @@ function switchPlayerTurn() {
 		
 		if (checkVerticalSquares()) {
 			console.log("vertical Win for Player" + (playerTurn + 1));//debug code
+			gameOver();
 		} else if (checkHorizontalSquares()) {
 			console.log("Horizontal Win for Player" + (playerTurn + 1));//debug code
 		} else if (checkUpSlopeSquares()) {
@@ -152,13 +153,18 @@ function checkDownSlopeSquares() {
 		return true;
 	}
 }
-//game win conditions
-
-
-
-// game over conditions
+// game win conditions
+function gameOver() {
 	//disable further clicking
+	var allSquares = document.getElementsByClassName('square');
+	for (var i = 0; i < allSquares.length; i++){
+		allSquares[i].removeEventListener('click', clickSquare);
+	}
+}
 
 
+
+
+// reset function
 
 });
