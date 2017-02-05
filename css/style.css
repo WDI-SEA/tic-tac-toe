@@ -1,6 +1,10 @@
 h1 {
   color: purple;
 }
+#gameBoard {
+	position: relative;
+	margin: 0 auto;
+}
 .divRow {
 	height: auto;
 	width: 100%;
@@ -12,5 +16,17 @@ h1 {
 	background-color: black;
 	border: 1px dashed white;
 	display: inline-block;
+}
+.x-block{
+	background-image: url('./../img/x.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+.o-block {
+	background-image: url('./../img/circle.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
 }
 // get rid of unnecessary stuff

@@ -10,16 +10,22 @@ var playerTurn = 0;
 
 generateBoard();
 
-// generate the board in a 2d Array2 -done
+
+
+
+// functions
 function generateBoard() {
+	gameBoardArr = [];
 	for (var i = 0; i < gameBoardDimension; i++) {
 		gameBoardArr.push([]);
 		for (var j = 0; j < gameBoardDimension; j++) {
-			gameBoardArr[i].push({player: null, filled: false});
+			gameBoardArr[i].push({player: null});
 			//add square to game board
 		}
 		addRow(i);
 	}
+	var resetBtn = document.getElementById('resetBtn');
+	resetBtn.addEventListener('click', resetBtn)
 }
 //console.log(gameBoardArr); //debug code
 
@@ -46,10 +52,7 @@ function clickSquare() {
 	var squareId = this.id.split(',');
 	var squareSelected = gameBoardArr[squareId[0]][squareId[1]];
 	squareSelected.player = playerTurn;
-	//console.log('selected square: ' + this.id + ' belongs to ' + squareSelected.player); //debug code
-	//console.log('square ' + squareId + ' clicked'); // debug code
-	//console.log(squareSelected.filled = true); // debug code
-
+	
 	checkIfWon();
 	// update playable field
 	this.removeEventListener('click', clickSquare);
@@ -58,10 +61,12 @@ function clickSquare() {
 	// add check here for player turn/who clicked
 		//need to change background color to a document.add x or o class
 	if (playerTurn === 0) {
-		this.style.backgroundColor = 'red';
+		this.className += ' x-block';
+		//this.style.backgroundColor = 'red';
 		switchPlayerTurn();
 	} else if (playerTurn === 1) {
-		this.style.backgroundColor = 'blue';
+		this.className += ' o-block';
+		//this.style.backgroundColor = 'blue';
 		switchPlayerTurn();
 	}
 	//console.log(gameBoardArr); // debug code
@@ -74,20 +79,12 @@ function switchPlayerTurn() {
 
 // check win condition
 
-	function checkIfWon() {
-		// if all of column i is of currentPlayer, then game wins 
-		
-		if (checkVerticalSquares()) {
-			console.log("vertical Win for Player" + (playerTurn + 1));//debug code
-			gameOver();
-		} else if (checkHorizontalSquares()) {
-			console.log("Horizontal Win for Player" + (playerTurn + 1));//debug code
-		} else if (checkUpSlopeSquares()) {
-			console.log("Diagonal Win for Player" + (playerTurn + 1));//debug code
-		} else if (checkDownSlopeSquares()) {
-			console.log("Diagonal Win for Player" + (playerTurn + 1));//debug code
-		}
+function checkIfWon() {	
+	if (checkVerticalSquares() || checkHorizontalSquares() || 
+		checkUpSlopeSquares()  || checkDownSlopeSquares()) {
+		gameOver();
 	}
+}
 // vertical win condition
 function checkVerticalSquares() {
 	var winCtr = 0;
@@ -121,6 +118,7 @@ function checkHorizontalSquares() {
 		}
 	}
 }
+
 // diagonal win condition
 function checkUpSlopeSquares() {
 	//slope down check
@@ -160,11 +158,31 @@ function gameOver() {
 	for (var i = 0; i < allSquares.length; i++){
 		allSquares[i].removeEventListener('click', clickSquare);
 	}
+	console.log('gameOver') //debug code
+
+	// activate game over square
+
 }
 
-
-
-
 // reset function
+	function resetBoard() {
+		//generate board
+		generateBoard();
+		//event listener if game is still in play and player hovers over button
+	}
+
+
+
+
+
+
+
+
+
+
+
+
 
 });
+
+
