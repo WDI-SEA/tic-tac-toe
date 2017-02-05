@@ -136,14 +136,11 @@ function checkUpSlopeSquares() {
 	}
 }
 
-
-
-
 function checkDownSlopeSquares() {
 	//slope up check
 	var winCtr = 0;
 	var offsetCtr = gameBoardDimension - 1;
-	for (var i = 0; i < gameBoardDimension - 1; i++) {
+	for (var i = 0; i < gameBoardDimension; i++) {
 		if (gameBoardArr[i][offsetCtr].player === playerTurn) {
 			winCtr++;
 			offsetCtr--;
@@ -151,7 +148,6 @@ function checkDownSlopeSquares() {
 			winCtr = 0;
 		}
 	}
-
 	if(winCtr === gameBoardDimension){
 		return true;
 	}
