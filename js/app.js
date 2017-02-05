@@ -8,13 +8,14 @@ var gameBoardArr = []; // keep track of playable squares
 var gameBoard = document.getElementById('gameBoard');
 var playerTurn = 0;
 
-generateBoard();
+initialize();
 
 
-
+// function to read boardsize and call initialize
+	// requires player count
 
 // functions
-function generateBoard() {
+function initialize() {
 	gameBoardArr = [];
 	for (var i = 0; i < gameBoardDimension; i++) {
 		gameBoardArr.push([]);
@@ -64,12 +65,10 @@ function clickSquare() {
 	// add check here for player turn/who clicked
 		//need to change background color to a document.add x or o class
 	if (playerTurn === 0) {
-		this.className += ' x-block';
-		//this.style.backgroundColor = 'red';
+		this.className += ' x-block blocks';
 		switchPlayerTurn();
 	} else if (playerTurn === 1) {
-		this.className += ' o-block';
-		//this.style.backgroundColor = 'blue';
+		this.className += ' o-block blocks';
 		switchPlayerTurn();
 	}
 	//console.log(gameBoardArr); // debug code
@@ -169,11 +168,8 @@ function gameOver() {
 
 // reset function
 	function resetBtn() {
-		//remove old board
 		removeOldBoard();
-		//generate new board
-		generateBoard();
-		//remove previous eventlisteners
+		initialize();
 		//event listener if game is still in play and player hovers over button
 	}
 function removeOldBoard() {
