@@ -57,6 +57,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 		gameWinX();
 		gameWinO();
+		gameDraw();
 	} 
 
 
@@ -101,6 +102,12 @@ document.addEventListener("DOMContentLoaded", function(){
 				oTurn.pause();
 				oWin.play();
 			}
+		}
+	}
+
+	function gameDraw(){
+		if(turn === 9){
+			document.getElementById("message").innerHTML = "<img src=\'./img/dmx-x.png\' class='scaled'> It's a Draw <img src=\'./img/dmx-o.png\' class='scaled'>"
 		}
 	}
 
