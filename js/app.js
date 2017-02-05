@@ -24,8 +24,8 @@ function generateBoard() {
 		}
 		addRow(i);
 	}
-	var resetBtn = document.getElementById('resetBtn');
-	resetBtn.addEventListener('click', resetBtn)
+	var HTMLResetBtn = document.getElementById('resetBtn');
+	HTMLResetBtn.addEventListener('click', resetBtn)
 }
 //console.log(gameBoardArr); //debug code
 
@@ -34,6 +34,7 @@ function addRow(rowNumber) {
 	var divRow = document.createElement('div');
 	divRow.className = 'divRow';
 	gameBoard.appendChild(divRow);
+	
 	addSquare(rowNumber, divRow);
 }
 	// change this to add squares function
@@ -167,13 +168,20 @@ function gameOver() {
 }
 
 // reset function
-	function resetBoard() {
-		//generate board
+	function resetBtn() {
+		//remove old board
+		removeOldBoard();
+		//generate new board
 		generateBoard();
 		//remove previous eventlisteners
 		//event listener if game is still in play and player hovers over button
 	}
-
+function removeOldBoard() {
+	var rowsToRemove = document.getElementsByClassName('divRow');
+	while (rowsToRemove.length > 0){
+		rowsToRemove[0].parentNode.removeChild(rowsToRemove[0]);
+	}
+}
 
 
 
