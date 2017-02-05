@@ -1,3 +1,49 @@
+body {
+	background: url("../img/concert.jpg") no-repeat center;
+	text-align: center;
+	color: white;
+	font-family: 'Bangers', cursive;
+}
+
 h1 {
-  color: purple;
+	font-size: 50px;
+	text-shadow: 2px 2px #000;
+}
+
+button {
+	width: 150px;
+	height: 50px;
+	color: white;
+	background-color: darkslateblue;
+	border-style: none;
+	font-size: 24px;
+	cursor: pointer;
+	margin-top: 10px;
+	font-family: 'Bangers', cursive;
+}
+
+#board {
+	width: 500px;
+	margin: 0 auto;
+}
+
+.tile {
+	display: inline-block;
+	width: 150px;
+	height: 150px;
+	margin: 0;
+	/*background-color: white;*/
+	border: 2px solid black;
+	cursor: pointer;
+}
+
+#message {
+	font-size: 32px;
+	text-shadow: 2px 2px #000;
+	margin-bottom: 5px;
+}
+
+.scaled {
+	width: 75px;
+	height: 75px;
 }
