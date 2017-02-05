@@ -3,16 +3,30 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // user select gameboard dimension // possible feature
 // initialize board
-var gameBoardDimension = 3;
 var gameBoardArr = []; // keep track of playable squares
 var gameBoard = document.getElementById('gameBoard');
 var playerTurn = 0;
-
-initialize();
-
+var gameBoardDimension
+getBoardSize();
 
 // function to read boardsize and call initialize
 	// requires player count
+function getBoardSize() {
+	//initialize playerSettings
+	var boardThree = document.getElementById('3').addEventListener('click', submitSetting);
+	var boardFour  = document.getElementById('4').addEventListener('click', submitSetting);
+	var boardFive  = document.getElementById('5').addEventListener('click', submitSetting);
+	//click event listen for button submission
+		//disable click event after one is selected
+
+	
+}
+function submitSetting() {
+	gameBoardDimension = parseInt(this.id);
+	console.log(gameBoardDimension)
+	initialize();
+
+}
 
 // functions
 function initialize() {
@@ -25,8 +39,7 @@ function initialize() {
 		}
 		addRow(i);
 	}
-	var HTMLResetBtn = document.getElementById('resetBtn');
-	HTMLResetBtn.addEventListener('click', resetBtn)
+	var HTMLResetBtn = document.getElementById('resetBtn').addEventListener('click', resetBtn);
 }
 //console.log(gameBoardArr); //debug code
 
@@ -63,7 +76,6 @@ function clickSquare() {
 
 
 	// add check here for player turn/who clicked
-		//need to change background color to a document.add x or o class
 	if (playerTurn === 0) {
 		this.className += ' x-block blocks';
 		switchPlayerTurn();
@@ -167,11 +179,11 @@ function gameOver() {
 }
 
 // reset function
-	function resetBtn() {
-		removeOldBoard();
-		initialize();
-		//event listener if game is still in play and player hovers over button
-	}
+function resetBtn() {
+	removeOldBoard();
+	initialize();
+	//event listener if game is still in play and player hovers over button
+}
 function removeOldBoard() {
 	var rowsToRemove = document.getElementsByClassName('divRow');
 	while (rowsToRemove.length > 0){
