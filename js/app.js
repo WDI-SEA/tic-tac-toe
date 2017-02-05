@@ -176,16 +176,16 @@ function gameOver() {
 	for (var i = 0; i < allSquares.length; i++){
 		allSquares[i].removeEventListener('click', clickSquare);
 	}
-	console.log('gameOver') //debug code
 
-	// activate game over square
-	announcement = document.getElementById('gameover-text');
-	// remove hidden
-	//announcement.style.visibility = 'visible';
-	setTimeout(function(){ announcement.style.visibility = 'visible'},500)
+	// activate game over notice
+	setTimeout((announceGameOver),500);
+}
+function announceGameOver() {
 	// add player who won
 	var playerWon = announcement.getElementsByTagName('p');
 	playerWon[0].innerText = "Player " + (playerTurn + 1) + " has won!";
+	announcement = document.getElementById('gameover-text');
+	announcement.style.visibility = 'visible';
 }
 // reset function
 function resetBtn() {
