@@ -13,21 +13,50 @@ var gameBoardDimension = 0;
 var announcement = document.getElementById('gameover-text');
 var announceTurn = document.getElementById('gameSettings');
 announceTurn = announceTurn.getElementsByTagName('h2');
-getBoardSize();
-
+var playerOneTheme = '';
+var playerTwoTheme = '';
+var themeSelectBox = document.getElementById('theme-select');
+selectTheme();
 // function to read boardsize and call initialize
 	// requires player count
+
+function selectTheme() {
+	// set background images
+	// set sounds
+		//phasers vs blaster sound
+		//theme songs
+
+	document.getElementById('submitTheme').addEventListener('click', setTheme);
+
+}
+function setTheme() {
+	var selection = document.getElementsByName('theme');
+
+	for (var i = 0; i < selection.length; i++) {
+		if (selection[i].checked) {
+			console.log(selection[i].value);
+			playerOneTheme = 'rebel-theme';
+			playerTwoTheme = 'empire-theme';
+		} 
+	}
+	// call getBoardSize()
+	// remove hidden from gamesettings
+	//themeSelectBox.style.visibility = 'hidden';
+	announcement = document.getElementById('gameSettings');
+	announcement.style.visibility = 'visible';
+	getBoardSize();
+}
 function getBoardSize() {
 	//initialize playerSettings
 	//click event listen for button submission
 		//disable click event after one is selected
-	boardThree.addEventListener('click', initialize);
-	boardFour.addEventListener('click', initialize);
-	boardFive.addEventListener('click', initialize);
+	boardThree.addEventListener('click', initializeBoard);
+	boardFour.addEventListener('click', initializeBoard);
+	boardFive.addEventListener('click', initializeBoard);
 }
 
 // functions
-function initialize() {
+function initializeBoard() {
 	gameBoardDimension = parseInt(this.id);
 	gameBoardArr = [];
 	//draws game board into 2dArray
@@ -41,9 +70,9 @@ function initialize() {
 	announceTurn[2].innerText = 'Player ' + (playerTurn + 1) +'\'s Turn';
 
 	var HTMLResetBtn = document.getElementById('resetBtn').addEventListener('click', resetBtn);
-	boardThree.removeEventListener('click', initialize);
-	boardFour.removeEventListener('click', initialize);
-	boardFive.removeEventListener('click', initialize);
+	boardThree.removeEventListener('click', initializeBoard);
+	boardFour.removeEventListener('click', initializeBoard);
+	boardFive.removeEventListener('click', initializeBoard);
 
 }
 //console.log(gameBoardArr); //debug code
@@ -82,13 +111,13 @@ function clickSquare() {
 
 	// add check here for player turn/who clicked
 	if (playerTurn === 0) {
-		this.className += ' x-block blocks';
+		console.log(playerOneTheme);
+		this.className += ' ' + playerOneTheme + ' blocks';
 		switchPlayerTurn();
 	} else if (playerTurn === 1) {
-		this.className += ' o-block blocks';
+		this.className += ' ' + playerTwoTheme + ' blocks';
 		switchPlayerTurn();
 	}
-	//console.log(gameBoardArr); // debug code
 }
 
 function switchPlayerTurn() {
@@ -182,10 +211,10 @@ function gameOver() {
 }
 function announceGameOver() {
 	// add player who won
-	var playerWon = announcement.getElementsByTagName('p');
-	playerWon[0].innerText = "Player " + (playerTurn + 1) + " has won!";
 	announcement = document.getElementById('gameover-text');
 	announcement.style.visibility = 'visible';
+	var playerWon = announcement.getElementsByTagName('p');
+	playerWon[0].innerText = "Player " + (playerTurn + 1) + " has won!";
 }
 // reset function
 function resetBtn() {

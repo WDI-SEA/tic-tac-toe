@@ -21,7 +21,14 @@ body {
 #theme-select {
 
 }
+.rebel-theme {
+	background-image: url('./../img/rebel.png');
+}
+.empire-theme {
+	background-image: url('./../img/empire.svg');
+}
 #gameSettings {
+	visibility: hidden;
 	display:inline-block;
 	float: left;
 	border: 2px solid red;
