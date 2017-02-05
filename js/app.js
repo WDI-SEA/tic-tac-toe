@@ -6,40 +6,41 @@ document.addEventListener("DOMContentLoaded", function() {
 var gameBoardArr = []; // keep track of playable squares
 var gameBoard = document.getElementById('gameBoard');
 var playerTurn = 0;
-var gameBoardDimension
+var boardThree = document.getElementById('3');
+var boardFour  = document.getElementById('4');
+var boardFive  = document.getElementById('5');
+var gameBoardDimension = 0;
+
 getBoardSize();
 
 // function to read boardsize and call initialize
 	// requires player count
 function getBoardSize() {
 	//initialize playerSettings
-	var boardThree = document.getElementById('3').addEventListener('click', submitSetting);
-	var boardFour  = document.getElementById('4').addEventListener('click', submitSetting);
-	var boardFive  = document.getElementById('5').addEventListener('click', submitSetting);
 	//click event listen for button submission
 		//disable click event after one is selected
-
-	
-}
-function submitSetting() {
-	gameBoardDimension = parseInt(this.id);
-	console.log(gameBoardDimension)
-	initialize();
-
+	boardThree.addEventListener('click', initialize);
+	boardFour.addEventListener('click', initialize);
+	boardFive.addEventListener('click', initialize);
 }
 
 // functions
 function initialize() {
+	gameBoardDimension = parseInt(this.id);
 	gameBoardArr = [];
+	//draws game board into 2dArray
 	for (var i = 0; i < gameBoardDimension; i++) {
 		gameBoardArr.push([]);
 		for (var j = 0; j < gameBoardDimension; j++) {
 			gameBoardArr[i].push({player: null});
-			//add square to game board
 		}
 		addRow(i);
 	}
 	var HTMLResetBtn = document.getElementById('resetBtn').addEventListener('click', resetBtn);
+	boardThree.removeEventListener('click', initialize);
+	boardFour.removeEventListener('click', initialize);
+	boardFive.removeEventListener('click', initialize);
+
 }
 //console.log(gameBoardArr); //debug code
 
@@ -175,14 +176,22 @@ function gameOver() {
 	console.log('gameOver') //debug code
 
 	// activate game over square
-
+	var announcement = document.getElementById('gameover-text');
+	// remove hidden
+	//announcement.style.visibility = 'visible';
+	setTimeout(function(){ announcement.style.visibility = 'visible'},500)
+	// add player who won
+	var playerWon = announcement.getElementsByTagName('p');
+	playerWon[0].innerText = "Player " + (playerTurn + 1) + " has won!";
 }
 
 // reset function
 function resetBtn() {
 	removeOldBoard();
-	initialize();
+	getBoardSize();
 	//event listener if game is still in play and player hovers over button
+
+	//add hidden to gameover text again
 }
 function removeOldBoard() {
 	var rowsToRemove = document.getElementsByClassName('divRow');
@@ -191,6 +200,8 @@ function removeOldBoard() {
 	}
 }
 
+
+//add to function switchPlayer that announces current player turn 
 
 
 
