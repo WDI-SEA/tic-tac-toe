@@ -2,6 +2,7 @@ body{
   text-align: center;
   font-family: 'Open Sans', sans-serif;
   font-size: 13px;
+  background-color: lightGray;
 }
 h1 {
   color:black;
@@ -12,49 +13,64 @@ h1 {
   font-size: 30px;
   color: green;
   font-family: 'Special Elite', cursive;
+  display: ;
 }
 #board{
+  text-align: center;
   background: url("http://i.imgur.com/FroyV5v.jpg");
   padding: 8px;
   font-size: 50px;
   font-family: 'Qwigley', cursive;
-  align-content: center;
-
-
+  margin: auto;
+  height: 500px;
+  width: 500px;
+  position: relative;
+  outline: solid black 2px;
+  box-shadow: 10px 8px 10px 0px rgba(0, 0, 0, 0.2), 10px 6px 20px 0px rgba(0, 0, 0, 0.19);
 }
 .row1{
+  position: relative;
   display: inline-block;
   outline: solid black 5px;
-  margin: 20px 10px;
+  margin: 20px 20px;
   padding: 10px;
   height: 100px;
   width: 100px;
+  box-shadow: 10px 8px 10px 0px rgba(0, 0, 0, 0.2), 10px 6px 20px 0px rgba(0, 0, 0, 0.19);
 }
 .row2{
+  position: relative;
   display: inline-block;
   outline: solid black 5px;
-  margin: 20px 10px;
+  margin: 20px 20px;
   padding: 10px;
   height: 100px;
   width: 100px;
+  box-shadow: 10px 8px 10px 0px rgba(0, 0, 0, 0.2), 10px 6px 20px 0px rgba(0, 0, 0, 0.19);
 }
 .row3{
+  position: relative;
   display: inline-block;
   outline: solid black 5px;
-  margin: 20px 10px;
+  margin: 20px 20px;
   padding: 10px;
   height: 100px;
   width: 100px;
+  box-shadow: 10px 8px 10px 0px rgba(0, 0, 0, 0.2), 10px 6px 20px 0px rgba(0, 0, 0, 0.19);
 }
 .winner{
   color: red;
   font-size: 50px;
   display: none;
 }
+#reset{
+  padding: 5px 50px;
+  margin: 10px 0px 0px 0px;
+  border-radius: 5px;
+  background-color: lightGray;
+  font-size: 15px;
+  box-shadow: 10px 8px 10px 0px rgba(0, 0, 0, 0.2), 10px 6px 10px 0px rgba(0, 0, 0, 0.19);
+}
 
 
-/*display: inline-block;
-  padding: 5%;
-  width: 25px;
-  height: 25px;
-  margin: 8px;*/
+/*rgba(238,223,204,0.5)*/
