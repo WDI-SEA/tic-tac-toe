@@ -8,8 +8,8 @@
   <link href="https://fonts.googleapis.com/css?family=Croissant+One|Yellowtail|Fontdiner+Swanky|Lobster" rel="stylesheet">
 </head>
 <body>
-  <div class="ai-indicator short">Short Stack AI enabled!</div>
-  <div class="ai-indicator full">Full Stack AI enabled!</div>
+  <div class="ai-indicator short">Short Stack <img src="img/shortStack.svg"> AI enabled!</div>
+  <div class="ai-indicator full">Full Stack <img src="img/fullStack.svg"> AI enabled!</div>
   <h1>Breakfast-Tac-Toe
   </h1>
   <h1><img class="draw"><img class="whosturn ex"><span id="message-board">'s turn</span></h1>
@@ -17,6 +17,11 @@
   <div class="buttons">
     <button id="ai">Play w/ Short Stack AI</button>
     <button id="ai-defensive">Play w/ Full Stack AI</button>
+    <div id="scoreboard">
+      <h1>Score</h1>
+      <p>Eggs: <span class="oh-score">0</span></p>
+      <p>Bacon: <span class="ex-score">0</span></p>
+    </div>
     <button id="reset">Reset</button>
   </div>
 

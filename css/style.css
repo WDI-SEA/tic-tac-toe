@@ -7,6 +7,8 @@ body {
 
 h1 {
   color: purple;
+  padding: 0;
+  margin: 0;
 }
 
 button {
@@ -40,9 +42,20 @@ button.active {
     display: inline-block;
 }
 
+#reset {
+  position: absolute;
+  top: 483px;
+  height: 50px;
+}
+
+#scoreboard {
+  background-color: white;
+  height: 150px;
+}
+
 .buttons {
   position: absolute;
-  top: 152px;
+  top: 96px;
   right: 200px;
 }
 
@@ -61,7 +74,6 @@ button.active {
 }
 
 .full {
-  top: 70px;
   background-color: green;
 }
 

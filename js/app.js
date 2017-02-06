@@ -1,6 +1,7 @@
 var moveCount = 0;
 var movesMade = new Array(9);
 var interval;
+var INFINITY = 1000000;
 
 document.addEventListener("DOMContentLoaded", function() {
   console.log('DOM loaded');
@@ -70,6 +71,7 @@ function cellClicked() {
         removeAllEventListeners();
       } else {
         document.getElementById("message-board").textContent = " aww it's a draw!";
+        //display both images
         if(document.getElementsByClassName("whosturn")[0].classList.contains("ex")){
           document.getElementsByClassName("draw")[0].classList.add("oh");
         } else {
@@ -90,6 +92,9 @@ function donePlayingGame(){
 function displayWinner(winner){
   updateWhosTurn(winner);
   document.getElementById("message-board").textContent = "has won!";
+  //add score
+  var scoreElement = document.getElementsByClassName(winner + "-score")[0];
+  scoreElement.textContent = parseInt(scoreElement.textContent)+1;
 }
 
 function horizontalWin(){
@@ -195,9 +200,7 @@ function generateNextMove(){
 }
 
 
-//defensive
-var INFINITY = 1000000;
-
+//defensive AI logic
 function getHorizontalScore(cellIndex, player){
   var first, second;
 
@@ -211,8 +214,7 @@ function getHorizontalScore(cellIndex, player){
     first = -2;
     second = -1;
   }
-  console.log(cellIndex + ":" + (cellIndex+first) + ":" + (cellIndex+second));
-  return getVerticalOrHorizontalScore(cellIndex, player, first, second);
+  return calculateScoreLogic(cellIndex, player, first, second);
 }
 
 function getVerticalScore(cellIndex, player){
@@ -229,32 +231,26 @@ function getVerticalScore(cellIndex, player){
     second = -3;
   }
 
-  return getVerticalOrHorizontalScore(cellIndex, player, first, second);
+  return calculateScoreLogic(cellIndex, player, first, second);
 }
 
-function getVerticalOrHorizontalScore(cellIndex, player, first, second){
+function calculateScoreLogic(cellIndex, player, first, second){
   if( movesMade[cellIndex+first] === player && movesMade[cellIndex+second] === player ){ //stay
       return 1;
   }
   //one = me and other empty
   else if(movesMade[cellIndex+first] === player){
-    console.log("one = me!");
     if(!movesMade[cellIndex+second]){
-      console.log("other is empty!");
       return 2;
     } else {
-      console.log("other is full, and it's not me")
       return INFINITY;
     }
   }
 
   else if(movesMade[cellIndex+second] === player){
-    console.log("one = me!");
     if(!movesMade[cellIndex+first]){
-      console.log("other is empty!");
       return 2;
     } else {
-      console.log("other is ful and it's not me");
       return INFINITY;
     }
   }
@@ -288,7 +284,7 @@ function getLeftDiagonalScore(cellIndex, player){
     second = -4;
   }
 
-  return getVerticalOrHorizontalScore(cellIndex, player, first, second);
+  return calculateScoreLogic(cellIndex, player, first, second);
 }
 
 function getRightDiagonalScore(cellIndex, player){
@@ -309,7 +305,7 @@ function getRightDiagonalScore(cellIndex, player){
     second = -2;
   }
 
-  return getVerticalOrHorizontalScore(cellIndex, player, first, second);
+  return calculateScoreLogic(cellIndex, player, first, second);
 }
 
 
@@ -347,9 +343,6 @@ function chooseMove(){
   for( var i = 0; i < 9; i++){
     opponentScores[i] = getScore(i, "ex");
   }
-
-  console.log(opponentScores);
-  // console.log(getScore(7, "ex"));
 
   //choose a cell with the lowest score
   var temp = opponentScores[0].h;
