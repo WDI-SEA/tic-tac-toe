@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function(){
       if (playerXTurn == true){
         space = this.id;
         document.getElementById(this.id).innerHTML="X";
-        document.getElementById(this.id).style.backgroundColor="rgba(238,223,204,.09)";
+        document.getElementById(this.id).style.backgroundColor="rgba(238,223,204,.1)";
         document.getElementById(this.id).classList.remove("empty");
         document.getElementById(this.id).classList.add("X");
         playerXTurn = false;
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function(){
       } else{
         space = this.id;
         document.getElementById(this.id).innerHTML="O";
-        document.getElementById(this.id).style.backgroundColor="rgba(0,0,0,.09)";
+        document.getElementById(this.id).style.backgroundColor="rgba(0,0,0,.1)";
         document.getElementById(this.id).classList.remove("empty");
         document.getElementById(this.id).classList.add("O");
         playerXTurn = true;
