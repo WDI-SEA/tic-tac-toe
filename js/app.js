@@ -30,7 +30,7 @@ function setTheme() {
 			if (themeSelection[i].value === 'starWars') {
 				document.getElementById('r2').play();
 				setTimeout(setStarwarsTheme, 1000);
-			} else if (selection[i].value === 'pokemon') {
+			} else if (themeSelection[i].value === 'pokemon') {
 				setTimeout(setPokemonTheme, 1000);
 				document.getElementById('pikaSound').play();
 			}
@@ -106,7 +106,9 @@ function clickSquare() {
 	this.removeEventListener('click', clickSquare);
 
 	assignSquare(this);
-	checkIfWon();
+	if(checkIfWon()) {
+		return;
+	}
 	switchPlayerTurn();
 }
 function assignSquare(square) {
@@ -124,6 +126,7 @@ function checkIfWon() {
 	if (checkDirectionSquares('vertical') || checkDirectionSquares('horizontal') || 
 		checkSlopeSquares('up')  || checkSlopeSquares('down')) {
 		gameOver();
+		return true;
 	}
 }
 function checkDirectionSquares(direction) {
@@ -190,6 +193,7 @@ function resetBtn() {
 }
 function resetSettings() {
 	playerTurn = 0;
+	console.log(playerTurn);
 	announceTurn[1].innerText = 'Player Turn';
 	announceGameover.style.visibility = 'hidden';
 	gameSettingBox.style.visibility = 'hidden';

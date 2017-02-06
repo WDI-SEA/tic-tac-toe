@@ -1,15 +1,18 @@
 @font-face {
 	font-family: "Starwars";
-	src: url("./../fonts/starwars.tff");
+	src: url('../fonts/starwars.ttf');
 }
 body {
 	background-repeat: no-repeat;
 	background-size: 100%;
 /*	font-family: "Starwars";
 */}
-#theme-select label {
-	margin: 5px;
-	font-size: 32px;
+#theme-select2 h1 {
+	font-size: 36px;
+}
+#theme-select2 label {
+	font-size: 24px;
+	margin-left: 10px;
 }
 .board-select {
 	height: 75px;
@@ -28,7 +31,7 @@ body {
 	box-shadow: 10px 10px 5px black;
 }
 #submitTheme {
-	margin-top: 30px;
+	margin-top: 15px;
 }
 #gameSettings {
 	padding: 0 15px;

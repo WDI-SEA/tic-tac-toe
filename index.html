@@ -19,11 +19,15 @@
 		</div>
 
 		<div class='text-box' id='theme-select'>
-			<input type='radio' name='theme' value='starWars' checked><label>Star Wars</label>
-			<br>
-			<input type='radio' name='theme' value='pokemon'><label>Pokemon</label>
-			<br>
-			<button id='submitTheme'>Submit</button>
+			<div id='theme-select2'>
+				<h1>Tic Tac Toe</h1>
+				<h2>Choose a Theme</h2>
+				<input type='radio' name='theme' value='starWars' checked><label>Star Wars</label>
+				<br>
+				<input type='radio' name='theme' value='pokemon'><label>Pokemon</label>
+				<br>
+				<button id='submitTheme'>Submit</button>
+			</div>
 		</div>
 
 		<div class='blocks' id='gameBoard'></div>
@@ -34,7 +38,6 @@
 			</div>
 		</div>
 		<audio id='pikaSound' src='./sounds/pikachu.mp3'></audio>
-		<audio id='pikaWin' src='./sounds/pikachuWin.mp3'></audio>
 
 		<audio id='r2' src='./sounds/R2D2a.m4r'></audio>
 		<script type="text/javascript" src="js/app.js"></script>
