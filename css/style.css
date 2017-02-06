@@ -41,6 +41,7 @@ body {
 #gameBoard {
 	margin: 10% 0 0 10%;
 	display: inline-block;
+	width: 550px;
 }
 .divRow {
 	height: auto;

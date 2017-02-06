@@ -14,7 +14,6 @@ var gameBoardDimension = 0;
 var playerTurn = 0;
 var playerOneTheme = '';
 var playerTwoTheme = '';
-	//setTimeout((announceGameOver),500);
 
 
 selectTheme();
@@ -25,10 +24,10 @@ function selectTheme() {
 	document.getElementById('submitTheme').addEventListener('click', setTheme);
 }
 function setTheme() {
-	var selection = document.getElementsByName('theme');
-	for (var i = 0; i < selection.length; i++) {
-		if (selection[i].checked) {
-			if (selection[i].value === 'starWars') {
+	var themeSelection = document.getElementsByName('theme');
+	for (var i = 0; i < themeSelection.length; i++) {
+		if (themeSelection[i].checked) {
+			if (themeSelection[i].value === 'starWars') {
 				document.getElementById('r2').play();
 				setTimeout(setStarwarsTheme, 1000);
 			} else if (selection[i].value === 'pokemon') {
@@ -127,7 +126,6 @@ function checkIfWon() {
 		gameOver();
 	}
 }
-// vertical win condition
 function checkDirectionSquares(direction) {
 	var winCtr = 0;
 	for (var i = 0; i < gameBoardArr.length; i++) {
@@ -144,14 +142,12 @@ function checkDirectionSquares(direction) {
 		}
 		if (winCtr === gameBoardDimension) {
 			return true;
-		}
-		else {
+		} else {
 			winCtr = 0;
 		}
 	}
 }
 function checkSlopeSquares(slopeDirection) {
-	//slope down check
 	var winCtr = 0;
 	var offsetCtr = gameBoardDimension - 1;
 	for (var i = 0; i < gameBoardDimension; i++) {
@@ -183,7 +179,6 @@ function disableClickSquares() {
 	}
 }
 function announceGameOver() {
-	// add player who won
 	announceGameover.style.visibility = 'visible';
 	var playerWon = announceGameover.getElementsByTagName('p');
 	playerWon[0].innerText = "Player " + (playerTurn + 1) + " has won!";
@@ -206,16 +201,6 @@ function removeOldBoard() {
 		rowsToRemove[0].parentNode.removeChild(rowsToRemove[0]);
 	}
 }
-
-
-
-
-
-
-
-
-
-
 
 });
 
