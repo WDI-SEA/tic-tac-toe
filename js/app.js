@@ -1,26 +1,24 @@
 document.addEventListener("DOMContentLoaded", function() {
-	console.log('DOM Loaded');
 
-// user select gameboard dimension // possible feature
-// initialize board
-var gameBoardArr = []; // keep track of playable squares
 var gameBoard = document.getElementById('gameBoard');
-var playerTurn = 0;
 var boardThree = document.getElementById('3');
 var boardFour  = document.getElementById('4');
 var boardFive  = document.getElementById('5');
-var gameBoardDimension = 0;
-var announcement = document.getElementById('gameover-text');
+var announceGameover = document.getElementById('gameover-text');
 var announceTurn = document.getElementById('gameSettings');
 announceTurn = announceTurn.getElementsByTagName('h2');
-var playerOneTheme = '';
-var playerTwoTheme = '';
 var themeSelectBox = document.getElementById('theme-select');
 var bodyBackground = document.getElementsByTagName('body')[0];
 var gameSettingBox = document.getElementById('gameSettings');
+var gameBoardArr = []; // keep track of playable squares
+var gameBoardDimension = 0;
+var playerTurn = 0;
+var playerOneTheme = '';
+var playerTwoTheme = '';
+
+
 selectTheme();
-// function to read boardsize and call initialize
-	// requires player count
+
 
 function selectTheme() {
 	document.getElementById('theme-select').style.visibility = 'visible';
@@ -29,7 +27,6 @@ function selectTheme() {
 }
 function setTheme() {
 	var selection = document.getElementsByName('theme');
-
 	for (var i = 0; i < selection.length; i++) {
 		if (selection[i].checked) {
 			if (selection[i].value === 'starWars'){
@@ -56,19 +53,12 @@ function setPokemonTheme() {
 	playerTwoTheme = 'meowth-theme';
 	bodyBackground.style.backgroundImage = "url('./img/stadium.jpg')";
 	document.getElementById('pikaSound').play();
-
-
 }
 function getBoardSize() {
-	//initialize playerSettings
-	//click event listen for button submission
-		//disable click event after one is selected
 	boardThree.addEventListener('click', initializeBoard);
 	boardFour.addEventListener('click', initializeBoard);
 	boardFive.addEventListener('click', initializeBoard);
 }
-
-// functions
 function initializeBoard() {
 	gameBoardDimension = parseInt(this.id);
 	gameBoardArr = [];
@@ -80,16 +70,15 @@ function initializeBoard() {
 		}
 		addRow(i);
 	}
-	announceTurn[2].innerText = 'Player ' + (playerTurn + 1) +'\'s Turn';
 
+	announceTurn[1].innerText = 'Player ' + (playerTurn + 1) +'\'s Turn';
+	disableBoardSelect();
+}
+function disableBoardSelect() {
 	boardThree.removeEventListener('click', initializeBoard);
 	boardFour.removeEventListener('click', initializeBoard);
 	boardFive.removeEventListener('click', initializeBoard);
-
 }
-//console.log(gameBoardArr); //debug code
-
-// adds row of squares to the board
 function addRow(rowNumber) {
 	var divRow = document.createElement('div');
 	divRow.className = 'divRow';
@@ -97,59 +86,57 @@ function addRow(rowNumber) {
 	
 	addSquare(rowNumber, divRow);
 }
-	// change this to add squares function
 function addSquare(rowNumber, divRow) {
 	for (var i = 0; i < gameBoardDimension; i++) {
 		var aSquare = document.createElement('div');
 		aSquare.className = 'square';
 		aSquare.id = rowNumber + "," + i;
-		//add event listener for player/click
+
 		aSquare.addEventListener('click', clickSquare)
 		divRow.appendChild(aSquare);
 	}
 }
-// box is clicked 
 function clickSquare() {
-
 	//updates square clicked to gameBoardArr
 	var squareId = this.id.split(',');
 	var squareSelected = gameBoardArr[squareId[0]][squareId[1]];
 	squareSelected.player = playerTurn;
-	
-	checkIfWon();
-	// update playable field
 	this.removeEventListener('click', clickSquare);
 
-	// add check here for player turn/who clicked && adds player tile
-	if (playerTurn === 0) {
-		this.className += ' ' + playerOneTheme + ' blocks';
-	} else if (playerTurn === 1) {
-		this.className += ' ' + playerTwoTheme + ' blocks';
-	}
+	assignSquare(this);
+	checkIfWon();
 	switchPlayerTurn();
 }
-
+function assignSquare(square) {
+	if (playerTurn === 0) {
+		square.className += ' ' + playerOneTheme + ' blocks';
+	} else if (playerTurn === 1) {
+		square.className += ' ' + playerTwoTheme + ' blocks';
+	}
+}
 function switchPlayerTurn() {
 	playerTurn = (playerTurn + 1) % 2;
-	announceTurn[2].innerText = 'Player ' + (playerTurn + 1) +'\'s Turn';
-
+	announceTurn[1].innerText = 'Player ' + (playerTurn + 1) +'\'s Turn';
 }
-
-// check win condition
-
 function checkIfWon() {	
-	if (checkVerticalSquares() || checkHorizontalSquares() || 
-		checkUpSlopeSquares()  || checkDownSlopeSquares()) {
+	if (checkDirectionSquares('vertical') || checkDirectionSquares('horizontal') || 
+		checkSlopeSquares('up')  || checkSlopeSquares('down')) {
 		gameOver();
 	}
 }
 // vertical win condition
-function checkVerticalSquares() {
+function checkDirectionSquares(direction) {
 	var winCtr = 0;
 	for (var i = 0; i < gameBoardArr.length; i++) {
 		for (var j = 0; j < gameBoardArr.length; j++) {
-			if (gameBoardArr[j][i].player === playerTurn) {
+			if (direction === 'vertical') {
+				if (gameBoardArr[j][i].player === playerTurn) {
+					winCtr++;
+				}
+			} else if (direction === 'horizontal') {
+				if (gameBoardArr[i][j].player === playerTurn) {
 				winCtr++;
+				}
 			}
 		}
 		if (winCtr === gameBoardDimension) {
@@ -160,47 +147,20 @@ function checkVerticalSquares() {
 		}
 	}
 }
-// horizontal win condition
-function checkHorizontalSquares() {
-	var winCtr = 0;
-	for (var i = 0; i < gameBoardArr.length; i++) {
-		for (var j = 0; j < gameBoardArr.length; j++) {
-			if (gameBoardArr[i][j].player === playerTurn) {
-				winCtr++;
-			}
-		}
-		if (winCtr === gameBoardDimension) {
-			return true;
-		} else {
-			winCtr = 0;
-		}
-	}
-}
-
-// diagonal win condition
-function checkUpSlopeSquares() {
+function checkSlopeSquares(slopeDirection) {
 	//slope down check
-	var winCtr = 0;
-	for (var i = 0; i < gameBoardDimension; i++) {
-		if (gameBoardArr[i][i].player === playerTurn) {
-			winCtr++;
-		} else {
-			winCtr = 0;
-		}
-	}
-	if(winCtr === gameBoardDimension){
-		return true;
-	}
-}
-
-function checkDownSlopeSquares() {
-	//slope up check
 	var winCtr = 0;
 	var offsetCtr = gameBoardDimension - 1;
 	for (var i = 0; i < gameBoardDimension; i++) {
-		if (gameBoardArr[i][offsetCtr].player === playerTurn) {
-			winCtr++;
-			offsetCtr--;
+		if (slopeDirection === 'up'){
+			if (gameBoardArr[i][i].player === playerTurn) {
+				winCtr++;
+			}
+		}else if (slopeDirection === 'down') {
+			if (gameBoardArr[i][offsetCtr].player === playerTurn) {
+				winCtr++;
+				offsetCtr--;
+			}
 		} else {
 			winCtr = 0;
 		}
@@ -209,37 +169,33 @@ function checkDownSlopeSquares() {
 		return true;
 	}
 }
-// game win conditions
 function gameOver() {
-	//disable further clicking
+	disableClickSquares()
+	setTimeout((announceGameOver),500);
+}
+function disableClickSquares() {
 	var allSquares = document.getElementsByClassName('square');
 	for (var i = 0; i < allSquares.length; i++){
 		allSquares[i].removeEventListener('click', clickSquare);
 	}
-
-	// activate game over notice
-	setTimeout((announceGameOver),500);
 }
 function announceGameOver() {
 	// add player who won
-	announcement = document.getElementById('gameover-text');
-	announcement.style.visibility = 'visible';
-	var playerWon = announcement.getElementsByTagName('p');
+	announceGameover.style.visibility = 'visible';
+	var playerWon = announceGameover.getElementsByTagName('p');
 	playerWon[0].innerText = "Player " + (playerTurn + 1) + " has won!";
 }
-// reset function
 function resetBtn() {
-	playerTurn = 0;
+	resetSettings()
 	removeOldBoard();
-	announceTurn[2].innerText = 'Player Turn';
-	announcement.style.visibility = 'hidden';
-	gameSettingBox.style.visibility = 'hidden';
-
 	selectTheme();
+}
+function resetSettings() {
+	playerTurn = 0;
+	announceTurn[1].innerText = 'Player Turn';
+	announceGameover.style.visibility = 'hidden';
+	gameSettingBox.style.visibility = 'hidden';
 	bodyBackground.style.backgroundImage = '';
-	//event listener if game is still in play and player hovers over button
-
-	//add hidden to gameover text again
 }
 function removeOldBoard() {
 	var rowsToRemove = document.getElementsByClassName('divRow');
@@ -247,8 +203,6 @@ function removeOldBoard() {
 		rowsToRemove[0].parentNode.removeChild(rowsToRemove[0]);
 	}
 }
-
-
 
 
 
