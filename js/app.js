@@ -7,7 +7,7 @@ var boardFive  = document.getElementById('5');
 var announceGameover = document.getElementById('gameover-text');
 var announceTurn = document.getElementById('gameSettings').getElementsByTagName('h2');
 var themeSelectBox = document.getElementById('theme-select');
-var bodyBackground = document.getElementsByTagName('body')[0];
+var bodyCss = document.getElementsByTagName('body')[0];
 var gameSettingBox = document.getElementById('gameSettings');
 var gameBoardArr = []; // keep track of playable squares
 var gameBoardDimension = 0;
@@ -47,13 +47,15 @@ function hideThemeSelect() {
 function setStarwarsTheme() {
 	playerOneTheme = 'rebel-theme';
 	playerTwoTheme = 'empire-theme';
-	bodyBackground.style.backgroundImage = "url('./img/starWars.jpg')";
+	bodyCss.style.fontFamily = "Starwars";
+	bodyCss.style.backgroundImage = "url('./img/starWars.jpg')";
 	hideThemeSelect();
 }
 function setPokemonTheme() {
 	playerOneTheme = 'pikachu-theme';
 	playerTwoTheme = 'meowth-theme';
-	bodyBackground.style.backgroundImage = "url('./img/stadium.jpg')";
+	bodyCss.style.fontFamily = "pokemon";
+	bodyCss.style.backgroundImage = "url('./img/stadium.jpg')";
 	hideThemeSelect();
 }
 function getBoardSize() {
@@ -218,11 +220,11 @@ function resetBtn() {
 }
 function resetSettings() {
 	playerTurn = 0;
-	console.log(playerTurn);
 	announceTurn[1].innerText = 'Player Turn';
 	announceGameover.style.visibility = 'hidden';
 	gameSettingBox.style.visibility = 'hidden';
-	bodyBackground.style.backgroundImage = '';
+	bodyCss.style.fontFamily = "impact";
+	bodyCss.style.backgroundImage = '';
 }
 function removeOldBoard() {
 	var rowsToRemove = document.getElementsByClassName('divRow');

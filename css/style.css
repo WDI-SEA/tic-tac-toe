@@ -1,14 +1,22 @@
 @font-face {
 	font-family: "Starwars";
-	src: url('../fonts/starwars.ttf');
+	src: url('./../fonts/distant-galaxy.ttf');
+}
+@font-face {
+	font-family: "pokemon";
+	src: url('./../fonts/pokemon.ttf');
 }
 body {
+	font-family: impact;
 	background-repeat: no-repeat;
 	background-size: 100%;
-/*	font-family: "Starwars";
-*/}
+}
 #theme-select2 h1 {
 	font-size: 36px;
+	margin-bottom: 0;
+}
+#theme-select2 h2 {
+	margin-top: 0;
 }
 #theme-select2 label {
 	font-size: 24px;
@@ -19,8 +27,7 @@ body {
 	width:  75px;;
 }
 .text-box {
-/*	font-family: "Starwars";
-*/	text-align: center;
+	text-align: center;
 	height: 250px;
 	width: 600px;
 	background-color: #1D2447;
