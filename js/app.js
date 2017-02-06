@@ -102,14 +102,20 @@ function addSquare(rowNumber, divRow) {
 }
 function clickSquare() {
 	//updates square clicked to gameBoardArr
-	var squareId = this.id.split(',');
+	assignSquare(this);
+	determineGameState();
+}
+function assignSquare(square) {
+	var squareId = square.id.split(',');
 	var squareSelected = gameBoardArr[squareId[0]][squareId[1]];
 	squareSelected.player = playerTurn;
 	squareSelected.filled = true;
-	this.removeEventListener('click', clickSquare);
-
-	assignSquare(this);
-	determineGameState();
+	square.removeEventListener('click', clickSquare);
+	if (playerTurn === 0) {
+		square.className += ' ' + playerOneTheme + ' blocks';
+	} else if (playerTurn === 1) {
+		square.className += ' ' + playerTwoTheme + ' blocks';
+	}
 }
 function determineGameState() {
 	if(checkIfWon()) {
@@ -131,13 +137,6 @@ function checkBoardFull() {
 		}
 	}
 	return true;
-}
-function assignSquare(square) {
-	if (playerTurn === 0) {
-		square.className += ' ' + playerOneTheme + ' blocks';
-	} else if (playerTurn === 1) {
-		square.className += ' ' + playerTwoTheme + ' blocks';
-	}
 }
 function switchPlayerTurn() {
 	playerTurn = (playerTurn + 1) % 2;
