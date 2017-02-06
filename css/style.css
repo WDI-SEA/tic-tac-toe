@@ -7,7 +7,7 @@ body{
 h1 {
   color:black;
   font-family: 'Special Elite', cursive;
-  font-size: 55px;
+  font-size: 50px;
 }
 #turn{
   font-size: 30px;
@@ -60,16 +60,20 @@ h1 {
 }
 .winner{
   color: red;
-  font-size: 50px;
+  font-size: 30px;
   display: none;
 }
 #reset{
+  color: #fff;
+  text-shadow: -2px 2px #000000;
+  border-radius: 3px;
+  background-color: gray;
+  background-image: linear-gradient(top, #6496c8, #346392);
+  box-shadow: inset 0 0 0 1px #27496d;
+  border: none;
   padding: 5px 50px;
   margin: 10px 0px 0px 0px;
-  border-radius: 5px;
-  background-color: lightGray;
   font-size: 15px;
-  box-shadow: 10px 8px 10px 0px rgba(0, 0, 0, 0.2), 10px 6px 10px 0px rgba(0, 0, 0, 0.19);
 }
 
 

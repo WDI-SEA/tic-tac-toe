@@ -1,6 +1,4 @@
-console.log("Hello Hailey!");
 document.addEventListener("DOMContentLoaded", function(){
-  console.log("DOM loaded");
 
   var playerXTurn = true;
   var board = document.getElementById("board");
@@ -32,7 +30,6 @@ document.addEventListener("DOMContentLoaded", function(){
   function markSpace(){
     if (document.getElementById(this.id).classList.contains("empty")){
       if (playerXTurn == true){
-        console.log("X went");
         space = this.id;
         document.getElementById(this.id).innerHTML="X";
         document.getElementById(this.id).style.backgroundColor="rgba(238,223,204,.09)";
@@ -42,7 +39,6 @@ document.addEventListener("DOMContentLoaded", function(){
         turnTrackerAlert(playerXTurn);
         winChecker();
       } else{
-        console.log("O went");
         space = this.id;
         document.getElementById(this.id).innerHTML="O";
         document.getElementById(this.id).style.backgroundColor="rgba(0,0,0,.09)";
@@ -56,7 +52,6 @@ document.addEventListener("DOMContentLoaded", function(){
   };
 
   function winChecker(){
-    console.log("win checking...");
     switch(true){
       case (document.getElementById("a1").innerHTML == ("X")) && (document.getElementById("b1").innerHTML == ("X")) && (document.getElementById("c1").innerHTML == ("X")):
       case (document.getElementById("a2").innerHTML == ("X")) && (document.getElementById("b2").innerHTML == ("X")) && (document.getElementById("c2").innerHTML == ("X")):
@@ -75,7 +70,6 @@ document.addEventListener("DOMContentLoaded", function(){
       case (document.getElementById("c1").innerHTML == ("O")) && (document.getElementById("c2").innerHTML == ("O")) && (document.getElementById("c3").innerHTML == ("O")):
       case (document.getElementById("a1").innerHTML == ("O")) && (document.getElementById("b2").innerHTML == ("O")) && (document.getElementById("c3").innerHTML == ("O")):
       case (document.getElementById("c1").innerHTML == ("O")) && (document.getElementById("b2").innerHTML == ("O")) && (document.getElementById("a3").innerHTML == ("O")):
-        console.log("We have a winner!");
         document.getElementById("turn").style.display="none";
         document.getElementById("winner").style.display="block";
         removeEventListener();
@@ -86,7 +80,6 @@ document.addEventListener("DOMContentLoaded", function(){
   resetButton.addEventListener("click", resetGame);
 
   function resetGame(){
-    console.log("Reset!")
     playerXMoves = [];
     playerOMoves = [];
     playerXTurn = true;
@@ -100,7 +93,6 @@ document.addEventListener("DOMContentLoaded", function(){
   };
 
   function clearXSpace(){
-    console.log("I'm clearing Xs");
     for (var i = 0; i < document.getElementsByClassName("X").length; i++) {
       document.getElementsByClassName("X")[i].innerHTML="__";
       document.getElementsByClassName("X")[i].style.backgroundColor="inherit";
@@ -108,7 +100,6 @@ document.addEventListener("DOMContentLoaded", function(){
   };
 
   function clearOSpace(){
-    console.log("I'm clearing Os");
     for (var i = 0; i < document.getElementsByClassName("O").length; i++) {
       document.getElementsByClassName("O")[i].innerHTML="__";
       document.getElementsByClassName("O")[i].style.backgroundColor="inherit";
@@ -122,5 +113,4 @@ document.addEventListener("DOMContentLoaded", function(){
       document.getElementsByClassName("resetClass")[i].classList.add("empty");
     }
   }
-
 });
