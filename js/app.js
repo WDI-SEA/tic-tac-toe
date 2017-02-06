@@ -107,10 +107,14 @@ function clickSquare() {
 	this.removeEventListener('click', clickSquare);
 
 	assignSquare(this);
+	determineGameState();
+}
+function determineGameState() {
 	if(checkIfWon()) {
+		gameOver();
 		return;
 	} else if (!checkIfWon() && checkBoardFull()) {
-		drawResult(); // line 197
+		drawResult(); 
 		return;
 	} else {
 		switchPlayerTurn();
@@ -140,7 +144,6 @@ function switchPlayerTurn() {
 function checkIfWon() {	
 	if (checkDirectionSquares('vertical') || checkDirectionSquares('horizontal') || 
 		checkSlopeSquares('up')  || checkSlopeSquares('down')) {
-		gameOver();
 		return true;
 	} 
 }
@@ -191,7 +194,6 @@ function gameOver() {
 	setTimeout((announceGameOver),500);
 }
 function drawResult() {
-	console.log('hello');
 	setTimeout((function() { announceGameOver('draw') }),500);
 }
 function disableClickSquares() {
