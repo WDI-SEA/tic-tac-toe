@@ -14,6 +14,7 @@ var gameBoardDimension = 0;
 var playerTurn = 0;
 var playerOneTheme = '';
 var playerTwoTheme = '';
+var aiMode = false;
 
 
 selectTheme();
@@ -24,21 +25,19 @@ function selectTheme() {
 	document.getElementById('submitTheme').addEventListener('click', setTheme);
 }
 function setTheme() {
-	var themeSelection = document.getElementsByName('theme');
-	for (var i = 0; i < themeSelection.length; i++) {
-		if (themeSelection[i].checked) {
-			if (themeSelection[i].value === 'starWars') {
-				document.getElementById('r2').play();
-				setTimeout(setStarwarsTheme, 1000);
-			} else if (themeSelection[i].value === 'pokemon') {
-				setTimeout(setPokemonTheme, 1000);
-				document.getElementById('pikaSound').play();
-			}
-		} 
-	}
+	aiMode = document.getElementsByName('mode')[1].checked;
+	var themeSelection1 = document.getElementsByName('theme')[0].checked;
+		if (themeSelection1) {
+			document.getElementById('r2').play();
+			setTimeout(setStarwarsTheme, 1000);
+		} else {
+			document.getElementById('pikaSound').play();
+			setTimeout(setPokemonTheme, 1000);
+		}
+	} 
+	getBoardSize();
 	//  change visibility of text boxs
 	var HTMLResetBtn = document.getElementById('resetBtn').addEventListener('click', resetBtn);
-	getBoardSize();
 }
 function hideThemeSelect() {
 	themeSelectBox.style.visibility = 'hidden';
@@ -101,10 +100,6 @@ function addSquare(rowNumber, divRow) {
 	}
 }
 function clickSquare() {
-	//updates square clicked to gameBoardArr
-	if (playerTurn === 1) {
-		aiTurn();
-	}
 	assignSquare(this);
 	determineGameState();
 }
@@ -128,12 +123,8 @@ function assignAiSquare(gameBoardSelected, ArrVal1, ArrVal2) {
 	gameBoardSelected.player = playerTurn;
 	gameBoardSelected.filled = true;
 	squareId.removeEventListener('click', clickSquare);
-
 	squareId.className += ' ' + playerTwoTheme + ' blocks';
 }
-
-
-
 function assignSquare(square) {	
 	var squareId = square.id.split(',');
 	var squareSelected = gameBoardArr[squareId[0]][squareId[1]];
@@ -170,8 +161,10 @@ function checkBoardFull() {
 function switchPlayerTurn() {
 	playerTurn = (playerTurn + 1) % 2;
 	announceTurn[1].innerText = 'Player ' + (playerTurn + 1) +'\'s Turn';
-	if (playerTurn === 1) {
-		aiTurn();
+	if (aiMode) {
+		if (playerTurn === 1) {
+			setTimeout(aiTurn, 1000);
+		}
 	}
 }
 function checkIfWon() {	
@@ -224,7 +217,7 @@ function checkSlopeSquares(slopeDirection) {
 }
 function gameOver() {
 	disableClickSquares();
-	setTimeout((announceGameOver),500);
+	setTimeout(announceGameOver,500);
 }
 function drawResult() {
 	setTimeout((function() { announceGameOver('draw') }),500);

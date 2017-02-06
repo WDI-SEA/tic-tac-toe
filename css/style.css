@@ -22,6 +22,9 @@ body {
 	font-size: 24px;
 	margin-left: 10px;
 }
+#theme-box {
+	float: left;
+}
 .board-select {
 	height: 75px;
 	width:  75px;;
@@ -39,6 +42,7 @@ body {
 }
 #submitTheme {
 	margin-top: 15px;
+	clear: both;
 }
 #gameSettings {
 	padding: 0 15px;

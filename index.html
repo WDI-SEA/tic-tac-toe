@@ -22,11 +22,22 @@
 			<div id='theme-select2'>
 				<h1>Tic Tac Toe</h1>
 				<h2>Choose a Theme</h2>
-				<input type='radio' name='theme' value='starWars' checked><label>
-				<span style="font-family:'Starwars'"">Star Wars</span></label>
-				<br>
-				<input type='radio' name='theme' value='pokemon'>
-				<label style="font-family:'pokemon'"">Pokemon</label>
+				<div id='theme-box'>
+					<input type='radio' name='theme' value='starWars' checked>
+					<label><span style="font-family:'Starwars'"">Star Wars</span></label>
+					<br>
+					<input type='radio' name='theme' value='pokemon'>
+					<label style="font-family:'pokemon'"">Pokemon</label>
+				</div>
+				<div id='mode-box'>
+					<form>
+					<input type='radio' name='mode' value='vs' checked>
+					<label>Versus</label>
+					<br>
+					<input type='radio' name='mode' value='ai'>
+					<label>AI</label>
+					</form>
+				</div>
 				<br>
 				<button id='submitTheme'>Submit</button>
 			</div>
