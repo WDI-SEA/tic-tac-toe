@@ -1,3 +1,20 @@
+
+body{
+	text-align: center;
+}
+.cell{
+	width: 150px;
+	height: 150px;
+	display: inline-block;
+	margin: 2px 0;
+	font-size: 60px;
+	line-height: 150px;
+	background-color: grey;
+	vertical-align: top;
+}
+
 h1 {
   color: purple;
+  text-align: center;
 }
+
