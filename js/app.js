@@ -33,8 +33,7 @@ function setTheme() {
 		} else {
 			document.getElementById('pikaSound').play();
 			setTimeout(setPokemonTheme, 1000);
-		}
-	} 
+		} 
 	getBoardSize();
 	//  change visibility of text boxs
 	var HTMLResetBtn = document.getElementById('resetBtn').addEventListener('click', resetBtn);
@@ -94,7 +93,6 @@ function addSquare(rowNumber, divRow) {
 		var aSquare = document.createElement('div');
 		aSquare.className = 'square';
 		aSquare.id = rowNumber + "," + i;
-		// add ai here instead
 		aSquare.addEventListener('click', clickSquare)
 		divRow.appendChild(aSquare);
 	}
@@ -163,7 +161,7 @@ function switchPlayerTurn() {
 	announceTurn[1].innerText = 'Player ' + (playerTurn + 1) +'\'s Turn';
 	if (aiMode) {
 		if (playerTurn === 1) {
-			setTimeout(aiTurn, 1000);
+			setTimeout(aiTurn, 500);
 		}
 	}
 }
