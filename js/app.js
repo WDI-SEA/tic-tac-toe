@@ -2,14 +2,18 @@ console.log("Hello Hailey!");
 document.addEventListener("DOMContentLoaded", function(){
   console.log("DOM loaded");
 
-
-  var playerXMoves = [];
-  var playerOMoves = [];
   var playerXTurn = true;
   var board = document.getElementById("board");
   var resetButton = document.getElementById("reset");
   var space;
-
+  var row1 = (document.getElementById("a1").innerHTML == document.getElementById("b1").innerHTML) && document.getElementById("c1").innerHTML;
+  var row2 = (document.getElementById("a2").innerHTML == document.getElementById("b2").innerHTML) && document.getElementById("c2").innerHTML;
+  var row3 = (document.getElementById("a3").innerHTML == document.getElementById("b3").innerHTML) && document.getElementById("c3").innerHTML;
+  var collum1 = (document.getElementById("a1").innerHTML == document.getElementById("a2").innerHTML) && document.getElementById("a3").innerHTML;
+  var collum2 = (document.getElementById("b1").innerHTML == document.getElementById("b2").innerHTML) && document.getElementById("b3").innerHTML;
+  var collum3 = (document.getElementById("c1").innerHTML == document.getElementById("c2").innerHTML) && document.getElementById("c3").innerHTML;
+  var diagonal1 = (document.getElementById("a1").innerHTML == document.getElementById("b2").innerHTML) && document.getElementById("c3").innerHTML;
+  var diagonal2 = (document.getElementById("c1").innerHTML == document.getElementById("b2").innerHTML) && document.getElementById("a3").innerHTML;
 
   function turnTrackerAlert(){
     if (playerXTurn == false){
@@ -33,10 +37,9 @@ document.addEventListener("DOMContentLoaded", function(){
         document.getElementById(this.id).style.backgroundColor="rgba(238,223,204,.09)";
         document.getElementById(this.id).classList.remove("empty");
         document.getElementById(this.id).classList.add("X");
-        addMove();
-        winChecker(playerXMoves);
         playerXTurn = false;
         turnTrackerAlert(playerXTurn);
+        winChecker();
       } else{
         console.log("O went");
         space = this.id;
@@ -44,38 +47,39 @@ document.addEventListener("DOMContentLoaded", function(){
         document.getElementById(this.id).style.backgroundColor="rgba(0,0,0,.09)";
         document.getElementById(this.id).classList.remove("empty");
         document.getElementById(this.id).classList.add("O");
-        addMove();
-        winChecker(playerOMoves);
         playerXTurn = true;
         turnTrackerAlert(playerXTurn);
+        winChecker();
       }
     }
   };
 
-  function addMove(){
-    if (playerXTurn) {
-      playerXMoves.push(space);
-      console.log(playerXMoves);
-    } else{
-      playerOMoves.push(space);
-      console.log(playerOMoves);
-    }
-  };
-
   function winChecker(){
-    console.log("Winner?")
-    switch(playerXMoves || playerOMoves){
-      case "a1" && "b1" && "c1":
-      case "a2" && "b2" && "c2":
-      case "a3" && "b3" && "c3":
-      case "a1" && "a2" && "a3":
-      case "b1" && "b2" && "b3":
-      case "c1" && "c2" && "c3":
-      case "a1" && "b2" && "c3":
-      case "c1" && "b2" && "a3":
-        console.log("We have a winner!")
-        document.getElementsByClassName(turn).display.none;
-        document.getElementsByClassName(winner).display.block;
+    console.log("win checking...");
+    switch(true){
+      case (document.getElementById("a1").innerHTML == ("X")) && (document.getElementById("b1").innerHTML == ("X")) && (document.getElementById("c1").innerHTML == ("X")):
+      case (document.getElementById("a2").innerHTML == ("X")) && (document.getElementById("b2").innerHTML == ("X")) && (document.getElementById("c2").innerHTML == ("X")):
+      case (document.getElementById("a3").innerHTML == ("X")) && (document.getElementById("b3").innerHTML == ("X")) && (document.getElementById("c3").innerHTML == ("X")):
+      case (document.getElementById("a1").innerHTML == ("X")) && (document.getElementById("a2").innerHTML == ("X")) && (document.getElementById("a3").innerHTML == ("X")):
+      case (document.getElementById("b1").innerHTML == ("X")) && (document.getElementById("b2").innerHTML == ("X")) && (document.getElementById("b3").innerHTML == ("X")):
+      case (document.getElementById("c1").innerHTML == ("X")) && (document.getElementById("c2").innerHTML == ("X")) && (document.getElementById("c3").innerHTML == ("X")):
+      case (document.getElementById("a1").innerHTML == ("X")) && (document.getElementById("b2").innerHTML == ("X")) && (document.getElementById("c3").innerHTML == ("X")):
+      case (document.getElementById("c1").innerHTML == ("X")) && (document.getElementById("b2").innerHTML == ("X")) && (document.getElementById("a3").innerHTML == ("X")):
+
+      case (document.getElementById("a1").innerHTML == ("O")) && (document.getElementById("b1").innerHTML == ("O")) && (document.getElementById("c1").innerHTML == ("O")):
+      case (document.getElementById("a2").innerHTML == ("O")) && (document.getElementById("b2").innerHTML == ("O")) && (document.getElementById("c2").innerHTML == ("O")):
+      case (document.getElementById("a3").innerHTML == ("O")) && (document.getElementById("b3").innerHTML == ("O")) && (document.getElementById("c3").innerHTML == ("O")):
+      case (document.getElementById("a1").innerHTML == ("O")) && (document.getElementById("a2").innerHTML == ("O")) && (document.getElementById("a3").innerHTML == ("O")):
+      case (document.getElementById("b1").innerHTML == ("O")) && (document.getElementById("b2").innerHTML == ("O")) && (document.getElementById("b3").innerHTML == ("O")):
+      case (document.getElementById("c1").innerHTML == ("O")) && (document.getElementById("c2").innerHTML == ("O")) && (document.getElementById("c3").innerHTML == ("O")):
+      case (document.getElementById("a1").innerHTML == ("O")) && (document.getElementById("b2").innerHTML == ("O")) && (document.getElementById("c3").innerHTML == ("O")):
+      case (document.getElementById("c1").innerHTML == ("O")) && (document.getElementById("b2").innerHTML == ("O")) && (document.getElementById("a3").innerHTML == ("O")):
+        console.log("We have a winner!");
+        document.getElementById("turn").style.display="none";
+        document.getElementById("winner").style.display="block";
+        for (var i = 0; i < board.children.length; i++) {
+          board.children[i].removeEventListener("click", markSpace);
+        }
         break;
     }
   };
@@ -84,12 +88,12 @@ document.addEventListener("DOMContentLoaded", function(){
 
   function resetGame(){
     console.log("Reset!")
-    playerXMoves= [];
-    playerOMoves= [];
-    playerXTurn= true;
-    document.getElementById("turn").style.display.block;
+    playerXMoves = [];
+    playerOMoves = [];
+    playerXTurn = true;
+    document.getElementById("turn").style.display="block";
     document.getElementById("turn").innerHTML="Player one, your turn!";
-    document.getElementById("winner").style.display.none;
+    document.getElementById("winner").style.display="none";
     clearXSpace();
     clearOSpace();
     fixClasses();
@@ -100,7 +104,6 @@ document.addEventListener("DOMContentLoaded", function(){
     for (var i = 0; i < document.getElementsByClassName("X").length; i++) {
       document.getElementsByClassName("X")[i].innerHTML="__";
       document.getElementsByClassName("X")[i].style.backgroundColor="inherit";
-        // document.getElementsByClassName("X")[i].add("empty");
     }
   };
 
@@ -119,8 +122,5 @@ document.addEventListener("DOMContentLoaded", function(){
       document.getElementsByClassName("resetClass")[i].classList.add("empty");
     }
   }
-
-          // document.getElementById(this.id).classList.remove("X" || "O");
-          // document.getElementById(this.id).classList.add("empty");
 
 });
