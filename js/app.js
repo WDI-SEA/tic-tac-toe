@@ -68,7 +68,7 @@ function initializeBoard() {
 	for (var i = 0; i < gameBoardDimension; i++) {
 		gameBoardArr.push([]);
 		for (var j = 0; j < gameBoardDimension; j++) {
-			gameBoardArr[i].push({player: null});
+			gameBoardArr[i].push({player: null, filled: null});
 		}
 		addRow(i);
 	}
@@ -103,13 +103,28 @@ function clickSquare() {
 	var squareId = this.id.split(',');
 	var squareSelected = gameBoardArr[squareId[0]][squareId[1]];
 	squareSelected.player = playerTurn;
+	squareSelected.filled = true;
 	this.removeEventListener('click', clickSquare);
 
 	assignSquare(this);
 	if(checkIfWon()) {
 		return;
+	} else if (!checkIfWon() && checkBoardFull()) {
+		drawResult(); // line 197
+		return;
+	} else {
+		switchPlayerTurn();
 	}
-	switchPlayerTurn();
+}
+function checkBoardFull() {
+	for (var i = 0; i < gameBoardArr.length; i++) {
+		for (var j = 0; j < gameBoardArr.length; j++) {
+			if (gameBoardArr[i][j].filled === null) {
+				return false;
+			}
+		}
+	}
+	return true;
 }
 function assignSquare(square) {
 	if (playerTurn === 0) {
@@ -127,7 +142,7 @@ function checkIfWon() {
 		checkSlopeSquares('up')  || checkSlopeSquares('down')) {
 		gameOver();
 		return true;
-	}
+	} 
 }
 function checkDirectionSquares(direction) {
 	var winCtr = 0;
@@ -172,8 +187,12 @@ function checkSlopeSquares(slopeDirection) {
 	}
 }
 function gameOver() {
-	disableClickSquares()
+	disableClickSquares();
 	setTimeout((announceGameOver),500);
+}
+function drawResult() {
+	console.log('hello');
+	setTimeout((function() { announceGameOver('draw') }),500);
 }
 function disableClickSquares() {
 	var allSquares = document.getElementsByClassName('square');
@@ -181,10 +200,14 @@ function disableClickSquares() {
 		allSquares[i].removeEventListener('click', clickSquare);
 	}
 }
-function announceGameOver() {
+function announceGameOver(condition) {
+	var message = announceGameover.getElementsByTagName('p');
 	announceGameover.style.visibility = 'visible';
-	var playerWon = announceGameover.getElementsByTagName('p');
-	playerWon[0].innerText = "Player " + (playerTurn + 1) + " has won!";
+	if (condition === 'draw') {
+		message[0].innerText = "Draw, no one wins";
+	} else {
+		message[0].innerText = "Player " + (playerTurn + 1) + " has won!";
+	}
 }
 function resetBtn() {
 	resetSettings()
