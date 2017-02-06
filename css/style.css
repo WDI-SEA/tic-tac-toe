@@ -24,6 +24,7 @@ body {
 }
 #theme-box {
 	float: left;
+	padding-left: 75px;
 }
 .board-select {
 	height: 75px;
@@ -46,7 +47,7 @@ body {
 }
 #gameSettings {
 	padding: 0 15px;
-	margin-top: 10%;
+	margin: 10% 0 0 3%;
 	visibility: hidden;
 	display:inline-block;
 	float: left;

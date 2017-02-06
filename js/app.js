@@ -15,6 +15,8 @@ var playerTurn = 0;
 var playerOneTheme = '';
 var playerTwoTheme = '';
 var aiMode = false;
+var allSquares = document.getElementsByClassName('square');
+var message = announceGameover.getElementsByTagName('p');
 
 
 selectTheme();
@@ -25,8 +27,8 @@ function selectTheme() {
 	document.getElementById('submitTheme').addEventListener('click', setTheme);
 }
 function setTheme() {
-	aiMode = document.getElementsByName('mode')[1].checked;
 	var themeSelection1 = document.getElementsByName('theme')[0].checked;
+	aiMode = document.getElementsByName('mode')[1].checked;
 		if (themeSelection1) {
 			document.getElementById('r2').play();
 			setTimeout(setStarwarsTheme, 1000);
@@ -101,15 +103,12 @@ function clickSquare() {
 	assignSquare(this);
 	determineGameState();
 }
-function aiTurn() {
-	selectRandomSquare();
-}
-function selectRandomSquare(){
+function aiSelectRandomSquare(){
 	var randomNumber1 = Math.floor(Math.random() * gameBoardArr.length);
 	var randomNumber2 = Math.floor(Math.random() * gameBoardArr.length);
 	var aiMove = gameBoardArr[randomNumber1][randomNumber2];	
 	if (aiMove.filled) {
-		selectRandomSquare();
+		aiSelectRandomSquare();
 	} else {
 		assignAiSquare(aiMove, randomNumber1, randomNumber2);
 		determineGameState();
@@ -161,7 +160,7 @@ function switchPlayerTurn() {
 	announceTurn[1].innerText = 'Player ' + (playerTurn + 1) +'\'s Turn';
 	if (aiMode) {
 		if (playerTurn === 1) {
-			setTimeout(aiTurn, 500);
+			setTimeout(aiSelectRandomSquare, 500);
 		}
 	}
 }
@@ -221,13 +220,11 @@ function drawResult() {
 	setTimeout((function() { announceGameOver('draw') }),500);
 }
 function disableClickSquares() {
-	var allSquares = document.getElementsByClassName('square');
 	for (var i = 0; i < allSquares.length; i++){
 		allSquares[i].removeEventListener('click', clickSquare);
 	}
 }
 function announceGameOver(condition) {
-	var message = announceGameover.getElementsByTagName('p');
 	announceGameover.style.visibility = 'visible';
 	if (condition === 'draw') {
 		message[0].innerText = "Draw, no one wins";
