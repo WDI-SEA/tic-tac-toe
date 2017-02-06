@@ -5,8 +5,7 @@ var boardThree = document.getElementById('3');
 var boardFour  = document.getElementById('4');
 var boardFive  = document.getElementById('5');
 var announceGameover = document.getElementById('gameover-text');
-var announceTurn = document.getElementById('gameSettings');
-announceTurn = announceTurn.getElementsByTagName('h2');
+var announceTurn = document.getElementById('gameSettings').getElementsByTagName('h2');
 var themeSelectBox = document.getElementById('theme-select');
 var bodyBackground = document.getElementsByTagName('body')[0];
 var gameSettingBox = document.getElementById('gameSettings');
@@ -15,6 +14,7 @@ var gameBoardDimension = 0;
 var playerTurn = 0;
 var playerOneTheme = '';
 var playerTwoTheme = '';
+	//setTimeout((announceGameOver),500);
 
 
 selectTheme();
@@ -23,36 +23,39 @@ selectTheme();
 function selectTheme() {
 	document.getElementById('theme-select').style.visibility = 'visible';
 	document.getElementById('submitTheme').addEventListener('click', setTheme);
-
 }
 function setTheme() {
 	var selection = document.getElementsByName('theme');
 	for (var i = 0; i < selection.length; i++) {
 		if (selection[i].checked) {
-			if (selection[i].value === 'starWars'){
-				setStarwarsTheme();
+			if (selection[i].value === 'starWars') {
+				document.getElementById('r2').play();
+				setTimeout(setStarwarsTheme, 1000);
 			} else if (selection[i].value === 'pokemon') {
-				setPokemonTheme();
+				setTimeout(setPokemonTheme, 1000);
+				document.getElementById('pikaSound').play();
 			}
 		} 
 	}
 	//  change visibility of text boxs
-	themeSelectBox.style.visibility = 'hidden';
-	gameSettingBox.style.visibility = 'visible';
 	var HTMLResetBtn = document.getElementById('resetBtn').addEventListener('click', resetBtn);
 	getBoardSize();
+}
+function hideThemeSelect() {
+	themeSelectBox.style.visibility = 'hidden';
+	gameSettingBox.style.visibility = 'visible';	
 }
 function setStarwarsTheme() {
 	playerOneTheme = 'rebel-theme';
 	playerTwoTheme = 'empire-theme';
 	bodyBackground.style.backgroundImage = "url('./img/starWars.jpg')";
-	document.getElementById('r2').play();
+	hideThemeSelect();
 }
 function setPokemonTheme() {
 	playerOneTheme = 'pikachu-theme';
 	playerTwoTheme = 'meowth-theme';
 	bodyBackground.style.backgroundImage = "url('./img/stadium.jpg')";
-	document.getElementById('pikaSound').play();
+	hideThemeSelect();
 }
 function getBoardSize() {
 	boardThree.addEventListener('click', initializeBoard);
