@@ -95,17 +95,46 @@ function addSquare(rowNumber, divRow) {
 		var aSquare = document.createElement('div');
 		aSquare.className = 'square';
 		aSquare.id = rowNumber + "," + i;
-
+		// add ai here instead
 		aSquare.addEventListener('click', clickSquare)
 		divRow.appendChild(aSquare);
 	}
 }
 function clickSquare() {
 	//updates square clicked to gameBoardArr
+	if (playerTurn === 1) {
+		aiTurn();
+	}
 	assignSquare(this);
 	determineGameState();
 }
-function assignSquare(square) {
+function aiTurn() {
+	selectRandomSquare();
+}
+function selectRandomSquare(){
+	var randomNumber1 = Math.floor(Math.random() * gameBoardArr.length);
+	var randomNumber2 = Math.floor(Math.random() * gameBoardArr.length);
+	var aiMove = gameBoardArr[randomNumber1][randomNumber2];	
+	if (aiMove.filled) {
+		selectRandomSquare();
+	} else {
+		assignAiSquare(aiMove, randomNumber1, randomNumber2);
+		determineGameState();
+	}
+}
+function assignAiSquare(gameBoardSelected, ArrVal1, ArrVal2) {
+	var htmlId = ArrVal1.toString() + ',' + ArrVal2.toString();
+	var squareId = document.getElementById(htmlId);
+	gameBoardSelected.player = playerTurn;
+	gameBoardSelected.filled = true;
+	squareId.removeEventListener('click', clickSquare);
+
+	squareId.className += ' ' + playerTwoTheme + ' blocks';
+}
+
+
+
+function assignSquare(square) {	
 	var squareId = square.id.split(',');
 	var squareSelected = gameBoardArr[squareId[0]][squareId[1]];
 	squareSelected.player = playerTurn;
@@ -141,6 +170,9 @@ function checkBoardFull() {
 function switchPlayerTurn() {
 	playerTurn = (playerTurn + 1) % 2;
 	announceTurn[1].innerText = 'Player ' + (playerTurn + 1) +'\'s Turn';
+	if (playerTurn === 1) {
+		aiTurn();
+	}
 }
 function checkIfWon() {	
 	if (checkDirectionSquares('vertical') || checkDirectionSquares('horizontal') || 
