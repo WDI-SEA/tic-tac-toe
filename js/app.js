@@ -17,6 +17,7 @@ var playerOneTheme = '';
 var playerTwoTheme = '';
 var themeSelectBox = document.getElementById('theme-select');
 var bodyBackground = document.getElementsByTagName('body')[0];
+var gameSettingBox = document.getElementById('gameSettings');
 selectTheme();
 // function to read boardsize and call initialize
 	// requires player count
@@ -33,21 +34,30 @@ function setTheme() {
 		if (selection[i].checked) {
 			if (selection[i].value === 'starWars'){
 				setStarwarsTheme();
-				document.getElementById('r2').play();
+			} else if (selection[i].value === 'pokemon') {
+				setPokemonTheme();
 			}
 		} 
 	}
-	// call getBoardSize()
-	// remove hidden from gamesettings
+	//  change visibility of text boxs
 	themeSelectBox.style.visibility = 'hidden';
-	announcement = document.getElementById('gameSettings');
-	announcement.style.visibility = 'visible';
+	gameSettingBox.style.visibility = 'visible';
+	var HTMLResetBtn = document.getElementById('resetBtn').addEventListener('click', resetBtn);
 	getBoardSize();
 }
 function setStarwarsTheme() {
 	playerOneTheme = 'rebel-theme';
 	playerTwoTheme = 'empire-theme';
 	bodyBackground.style.backgroundImage = "url('./img/starWars.jpg')";
+	document.getElementById('r2').play();
+}
+function setPokemonTheme() {
+	playerOneTheme = 'pikachu-theme';
+	playerTwoTheme = 'meowth-theme';
+	bodyBackground.style.backgroundImage = "url('./img/stadium.jpg')";
+	document.getElementById('pikaSound').play();
+
+
 }
 function getBoardSize() {
 	//initialize playerSettings
@@ -72,7 +82,6 @@ function initializeBoard() {
 	}
 	announceTurn[2].innerText = 'Player ' + (playerTurn + 1) +'\'s Turn';
 
-	var HTMLResetBtn = document.getElementById('resetBtn').addEventListener('click', resetBtn);
 	boardThree.removeEventListener('click', initializeBoard);
 	boardFour.removeEventListener('click', initializeBoard);
 	boardFive.removeEventListener('click', initializeBoard);
@@ -111,20 +120,19 @@ function clickSquare() {
 	// update playable field
 	this.removeEventListener('click', clickSquare);
 
-
-	// add check here for player turn/who clicked
+	// add check here for player turn/who clicked && adds player tile
 	if (playerTurn === 0) {
-		console.log(playerOneTheme);
 		this.className += ' ' + playerOneTheme + ' blocks';
-		switchPlayerTurn();
 	} else if (playerTurn === 1) {
 		this.className += ' ' + playerTwoTheme + ' blocks';
-		switchPlayerTurn();
 	}
+	switchPlayerTurn();
 }
 
 function switchPlayerTurn() {
 	playerTurn = (playerTurn + 1) % 2;
+	announceTurn[2].innerText = 'Player ' + (playerTurn + 1) +'\'s Turn';
+
 }
 
 // check win condition
@@ -221,14 +229,17 @@ function announceGameOver() {
 }
 // reset function
 function resetBtn() {
+	playerTurn = 0;
 	removeOldBoard();
+	announceTurn[2].innerText = 'Player Turn';
+	announcement.style.visibility = 'hidden';
+	gameSettingBox.style.visibility = 'hidden';
+
 	selectTheme();
 	bodyBackground.style.backgroundImage = '';
 	//event listener if game is still in play and player hovers over button
 
 	//add hidden to gameover text again
-	announceTurn[2].innerText = 'Player Turn';
-	announcement.style.visibility = 'hidden';
 }
 function removeOldBoard() {
 	var rowsToRemove = document.getElementsByClassName('divRow');
@@ -238,7 +249,6 @@ function removeOldBoard() {
 }
 
 
-//add to function switchPlayer that announces current player turn 
 
 
 

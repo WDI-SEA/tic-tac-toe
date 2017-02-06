@@ -1,45 +1,46 @@
+@font-face {
+	font-family: "Starwars";
+	src: url("./../fonts/starwars.tff");
+}
 body {
-	text-align: center;
 	background-repeat: no-repeat;
 	background-size: 100%;
-
-}
+/*	font-family: "Starwars";
+*/}
 #theme-select label {
-	text-align: center;
-	font-size: 24px;
+	margin: 5px;
+	font-size: 32px;
 }
 .board-select {
 	height: 75px;
 	width:  75px;;
 }
 .text-box {
+/*	font-family: "Starwars";
+*/	text-align: center;
 	height: 250px;
 	width: 600px;
-	border: 1px solid black;
-	background-color: salmon;
+	background-color: #1D2447;
+	color: white;
 	position: fixed;
 	top: 25%;
 	left: 25%;
+	box-shadow: 10px 10px 5px black;
 }
-#theme-select {
-
-}
-.rebel-theme {
-	background-image: url('./../img/rebel.png');
-}
-.empire-theme {
-	background-image: url('./../img/empire.svg');
+#submitTheme {
+	margin-top: 30px;
 }
 #gameSettings {
+	padding: 0 15px;
+	margin-top: 10%;
 	visibility: hidden;
 	display:inline-block;
 	float: left;
-	border: 2px solid red;
 	background-color: white;
 }
 #gameBoard {
+	margin: 10% 0 0 10%;
 	display: inline-block;
-	border: 2px solid red;
 }
 .divRow {
 	height: auto;
@@ -58,11 +59,27 @@ body {
 	background-size: cover;
 	background-position: center;
 }
+#resetBtn {
+	text-align: center;
+	margin-top: 15px;
+}
 .x-block{
 	background-image: url('./../img/x.png');
 }
 .o-block {
 	background-image: url('./../img/circle.png');
+}
+.rebel-theme {
+	background-image: url('./../img/rebel.png');
+}
+.empire-theme {
+	background-image: url('./../img/empire.svg');
+}
+.pikachu-theme {
+	background-image: url('./../img/pikachu.png');
+}
+.meowth-theme {
+	background-image: url('./../img/meowth.png');
 }
 button {
 	font-size: 24px;
