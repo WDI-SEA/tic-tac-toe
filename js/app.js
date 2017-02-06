@@ -6,14 +6,8 @@ document.addEventListener("DOMContentLoaded", function(){
   var board = document.getElementById("board");
   var resetButton = document.getElementById("reset");
   var space;
-  var row1 = (document.getElementById("a1").innerHTML == document.getElementById("b1").innerHTML) && document.getElementById("c1").innerHTML;
-  var row2 = (document.getElementById("a2").innerHTML == document.getElementById("b2").innerHTML) && document.getElementById("c2").innerHTML;
-  var row3 = (document.getElementById("a3").innerHTML == document.getElementById("b3").innerHTML) && document.getElementById("c3").innerHTML;
-  var collum1 = (document.getElementById("a1").innerHTML == document.getElementById("a2").innerHTML) && document.getElementById("a3").innerHTML;
-  var collum2 = (document.getElementById("b1").innerHTML == document.getElementById("b2").innerHTML) && document.getElementById("b3").innerHTML;
-  var collum3 = (document.getElementById("c1").innerHTML == document.getElementById("c2").innerHTML) && document.getElementById("c3").innerHTML;
-  var diagonal1 = (document.getElementById("a1").innerHTML == document.getElementById("b2").innerHTML) && document.getElementById("c3").innerHTML;
-  var diagonal2 = (document.getElementById("c1").innerHTML == document.getElementById("b2").innerHTML) && document.getElementById("a3").innerHTML;
+
+  addEventListener();
 
   function turnTrackerAlert(){
     if (playerXTurn == false){
@@ -23,10 +17,17 @@ document.addEventListener("DOMContentLoaded", function(){
     }
   };
 
- for (var i = 0; i < board.children.length; i++) {
-    board.children[i].addEventListener("click", markSpace);
+  function addEventListener(){
+    for (var i = 0; i < board.children.length; i++) {
+      board.children[i].addEventListener("click", markSpace);
+    }
   };
 
+  function removeEventListener(){
+    for (var i = 0; i < board.children.length; i++) {
+      board.children[i].removeEventListener("click", markSpace);
+    }
+  };
 
   function markSpace(){
     if (document.getElementById(this.id).classList.contains("empty")){
@@ -77,9 +78,7 @@ document.addEventListener("DOMContentLoaded", function(){
         console.log("We have a winner!");
         document.getElementById("turn").style.display="none";
         document.getElementById("winner").style.display="block";
-        for (var i = 0; i < board.children.length; i++) {
-          board.children[i].removeEventListener("click", markSpace);
-        }
+        removeEventListener();
         break;
     }
   };
@@ -97,6 +96,7 @@ document.addEventListener("DOMContentLoaded", function(){
     clearXSpace();
     clearOSpace();
     fixClasses();
+    addEventListener();
   };
 
   function clearXSpace(){
