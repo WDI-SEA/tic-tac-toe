@@ -21,13 +21,14 @@ var message = announceGameover.getElementsByTagName('p');
 
 selectTheme();
 
-
+// opens theme selection box
 function selectTheme() {
 	document.getElementById('theme-select').style.visibility = 'visible';
 	document.getElementById('submitTheme').addEventListener('click', setTheme);
 }
 function setTheme() {
 	var themeSelection1 = document.getElementsByName('theme')[0].checked;
+	// checks if versus or ai mode, used in switchPlayer()
 	aiMode = document.getElementsByName('mode')[1].checked;
 		if (themeSelection1) {
 			document.getElementById('r2').play();
@@ -36,8 +37,9 @@ function setTheme() {
 			document.getElementById('pikaSound').play();
 			setTimeout(setPokemonTheme, 1000);
 		} 
+	// activates event listener for player select of board size
 	getBoardSize();
-	//  change visibility of text boxs
+	//adds reset button functionality
 	var HTMLResetBtn = document.getElementById('resetBtn').addEventListener('click', resetBtn);
 }
 function hideThemeSelect() {
@@ -66,7 +68,7 @@ function getBoardSize() {
 function initializeBoard() {
 	gameBoardDimension = parseInt(this.id);
 	gameBoardArr = [];
-	//draws game board into 2dArray
+	//draws game board into 2dArray, creates a row & attaches squares within
 	for (var i = 0; i < gameBoardDimension; i++) {
 		gameBoardArr.push([]);
 		for (var j = 0; j < gameBoardDimension; j++) {
@@ -106,7 +108,8 @@ function clickSquare() {
 function aiSelectRandomSquare(){
 	var randomNumber1 = Math.floor(Math.random() * gameBoardArr.length);
 	var randomNumber2 = Math.floor(Math.random() * gameBoardArr.length);
-	var aiMove = gameBoardArr[randomNumber1][randomNumber2];	
+	var aiMove = gameBoardArr[randomNumber1][randomNumber2];
+	//recursive check for free square for ai to use	
 	if (aiMove.filled) {
 		aiSelectRandomSquare();
 	} else {
@@ -145,6 +148,7 @@ function determineGameState() {
 		switchPlayerTurn();
 	}
 }
+// used to determine if result is a draw
 function checkBoardFull() {
 	for (var i = 0; i < gameBoardArr.length; i++) {
 		for (var j = 0; j < gameBoardArr.length; j++) {
@@ -216,6 +220,7 @@ function gameOver() {
 	disableClickSquares();
 	setTimeout(announceGameOver,500);
 }
+// one line function, I guess unnecessary but it's clearer in line 145 this way
 function drawResult() {
 	setTimeout((function() { announceGameOver('draw') }),500);
 }
