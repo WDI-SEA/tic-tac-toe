@@ -1,16 +1,18 @@
-document.addEventListener('DOMContentLoaded', function(){
-	console.log('DOM loaded');
-});
 
 
 
+document.getElementsByClassName('tile')[0].onclick = function() {console.log('hello world');}
 
+// var click = document.getElementsByClassName('.tile');
 
-var click = document.querySelectorAll('.tile');
+// var textBox = document.getElementsByClassName('.topcontainer')
+var move = 0;
 
-var textBox = document.getElementsByClassName('.topcontainer')
+var board = document.getElementsByClassName('.board')
 
-var win = ['a,b,c', 'd,e,f', 'g,h,i', 'a,d,g', 'b,e,h', 'c,f,i', 'a,e,i', 'c,e,g']
+var x = [];
+
+var o = [];
 
 // click.addEventListener('click', add);
 
@@ -18,10 +20,30 @@ var win = ['a,b,c', 'd,e,f', 'g,h,i', 'a,d,g', 'b,e,h', 'c,f,i', 'a,e,i', 'c,e,g
 // 	console.log('hi');
 // }
 
-
-click.onClick = console.log('hello');
-
+// click.onClick = console.log('hello');
 
 
 // var click = document.querySelectorAll('.container button')
+
+//---------------------
+
+// tiles click
+
+function clickTile() {
+	for (var i = 0; i<board.children.length; i++) {
+		board.children[i].addEventListener('click', isClicked)
+	}
+}
+
+function clicked() {
+	console.log(move);
+	if (move%2 ===0) {
+		var clickX = './img/playX.png';
+		console.log('X')
+	} else {
+		var clickO = './img/playO.png';
+		console.log('O')
+	}
+	move++
+}
 
