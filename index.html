@@ -3,12 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <title>Tic-Tac-Toe</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-  <h1>Hello Front-End</h1>
-
+  <div id="startModal" class = "modal">
+   <div class="modal-content">
+    <div class="modal-header">
+      <h2>Choose:</h2>
+    </div>
+    <div class="modal-body">
+      <input id="Xstart" type="image" border=3 src="http://texas.thefootballbrainiacs.com/wp-content/uploads/2016/01/X.jpg" alt="X" width="120">
+      <input id="Ostart" align="right" border=3 type="image" src="http://www.clipartbest.com/cliparts/jcx/oqM/jcxoqMXzi.png" alt="O" width="120">
+    </div>
+    <div class="modal-footer">
+      <h3>Tic Tac Toe</h3>
+    </div>
+  </div>
+</div>
+<div align="center">
+<button id="restart">RESTART</button>
+</div>
+<h3>Player choice:</h3>
+<img src="http://texas.thefootballbrainiacs.com/wp-content/uploads/2016/01/X.jpg" width="120" id="xChoice" style = "display: none"></img>
+<img src="http://www.clipartbest.com/cliparts/jcx/oqM/jcxoqMXzi.png"width="120" id="oChoice" style = "display: none"></img>
   <script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>
