@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TicTacToe</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+<header>
+	<h3>Tic-Tac-Toe</h3>
+</header>
+
+<form id="resetbutton">
+	<div class="game" id="board">	
+		<button onclick="this.setAttribute('disabled', 'disabled')" class="grid" id="one"></button>		
+		<button onclick="this.setAttribute('disabled', 'disabled')" class="grid" id="two"></button>
+		<button onclick="this.setAttribute('disabled', 'disabled')" class="grid" id="three"></button>
+<br>
+		<button onclick="this.setAttribute('disabled', 'disabled')" class="grid" id="four"></button>		
+		<button onclick="this.setAttribute('disabled', 'disabled')" class="grid" id="five"></button>
+		<button onclick="this.setAttribute('disabled', 'disabled')" class="grid" id="six"></button>
+<br>		
+		<button onclick="this.setAttribute('disabled', 'disabled')" class="grid" id="seven"></button>		
+		<button onclick="this.setAttribute('disabled', 'disabled')" class="grid" id="eight"></button>
+		<button onclick="this.setAttribute('disabled', 'disabled')" class="grid" id="nine"></button>
+
+
+		
+
+	</div> 
+</form>
+<div style="text-align:center">
+<!-- 	<input type="reset" id="clear" value="Reset"></input> -->
+	<input type="button" value="Reset" id="clear" onClick="window.location.reload()"></input>
+</div>
+<footer></footer>
+</body>
+<script type="text/javascript" src="script.js"></script>
+</html>
