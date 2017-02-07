@@ -48,6 +48,11 @@ var playColTwo = false;
 var solvedPlayColTwo= false;
 var playColThree = false;
 var solvedPlayColThree= false;
+//emergency computer cross moves
+var playCrossOne = false;
+var solvedCrossOne = false;
+var playCrossTwo = false;
+var solvedCrossTwo = false;
 
 
 
@@ -87,6 +92,8 @@ var grid = new clickableGrid(3, 3, function(el, row, col, i) {
     playerselectionRow.forEach(function(x){ countsRow[x] = (countsRow[x] || 0) +1; });
     playerselectionCol.forEach(function(x){ countsCol[x] = (countsCol[x] || 0) +1; });
 
+
+
     //counts row & column for computerTurn in case play is close to winning
     if(Win === false){
       if(countsRow[0] == 2 && solvedPlayRowOne == false){
@@ -112,6 +119,17 @@ var grid = new clickableGrid(3, 3, function(el, row, col, i) {
       if(countsCol[2] == 2 && solvedPlayColThree == false){
         console.log('user is about to win by col 3!!');
         playColThree = true;
+      }
+      if((countsRow[0] == 1 && countsRow[2] == 1) && (countsCol[2] == 1 && countsCol[0] == 1) && (i == 7 || i == 3)){
+        console.log('user is about to cross3!!!')
+        playCrossTwo = true;
+      }else if(((countsCol[0] == 1 && countsCol[1] == 1) && (countsRow[0] == 1 && countsRow[1] ==1)) || ((countsCol[0] == 1 && countsCol[2] == 1) && (countsRow[0] == 1 && countsRow[2] ==1))){
+        console.log('user is about to cross!!!')
+        playCrossOne = true;
+      }
+      if(((countsCol[2] == 1 && countsCol[1] == 1) && (countsRow[0] == 1 && countsRow[1] ==1)) || ((countsCol[0] == 1 && countsCol[1] == 1) && (countsRow[1] == 1 && countsRow[2] ==1))){
+        console.log('user is about to cross2!!!')
+        playCrossTwo = true;
       }
     }
 
@@ -579,8 +597,205 @@ function computerTurn(){
           }
         }
       }
-    }
-    else{
+    }else if(playCrossOne == true){
+      if(playerchoice == "O"){
+        console.log(document.getElementsByTagName("td"))
+        if(document.getElementsByTagName("td")[0].className == "clickedO" && document.getElementsByTagName("td")[4].className == "clickedO" && (squaresLeft.indexOf(8) > -1)){
+          document.getElementsByTagName("td")[8].className = 'clickedX';
+          console.log(document.getElementsByTagName("td")[8]);
+          locationCompChoice = squaresLeft.indexOf(8);
+          squaresLeft.splice(locationCompChoice, 1);
+          solvedCrossOne = true;
+        }else if(document.getElementsByTagName("td")[8].className == "clickedO" && document.getElementsByTagName("td")[4].className == "clickedO" && (squaresLeft.indexOf(0) > -1)){
+          document.getElementsByTagName("td")[0].className = 'clickedX';
+          console.log(document.getElementsByTagName("td")[0]);
+          locationCompChoice = squaresLeft.indexOf(0);
+          squaresLeft.splice(locationCompChoice, 1);
+          solvedCrossOne = true;
+        }else if(document.getElementsByTagName("td")[0].className == "clickedO" && document.getElementsByTagName("td")[8].className == "clickedO" && (squaresLeft.indexOf(4) > -1)){
+          document.getElementsByTagName("td")[4].className = 'clickedX';
+          console.log(document.getElementsByTagName("td")[4]);
+          locationCompChoice = squaresLeft.indexOf(4);
+          squaresLeft.splice(locationCompChoice, 1);
+          solvedCrossOne = true;
+        }else{
+          solvedCrossOne = true;
+          function getRandomInt(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min)) + min;
+          }
+          var computerRnd = getRandomInt(0, squaresLeft.length)
+          console.log(computerRnd);
+          //determine possible moves left then choose
+          var computerChoice = squaresLeft[computerRnd];
+          console.log('computer chooses: ' + computerChoice);
+          //go to win condition if boolean is true otherwise use computer move
+          if(playerchoice == "O"){
+            console.log(document.getElementsByTagName("td"))
+            document.getElementsByTagName("td")[computerChoice].className = 'clickedX';
+            console.log(document.getElementsByTagName("td")[computerChoice]);
+            locationCompChoice = squaresLeft.indexOf(computerChoice);
+            squaresLeft.splice(locationCompChoice, 1);
+          }
+          if(playerchoice == "X"){
+            console.log(document.getElementsByTagName("td"))
+            document.getElementsByTagName("td")[computerChoice].className='clickedO';
+            console.log(document.getElementsByTagName("td")[computerChoice]);
+            locationCompChoice = squaresLeft.indexOf(computerChoice);
+            squaresLeft.splice(locationCompChoice, 1);
+          }
+        }
+      }
+      if(playerchoice == "X"){
+        console.log(document.getElementsByTagName("td"))
+        if(document.getElementsByTagName("td")[0].className == "clickedX" && document.getElementsByTagName("td")[4].className == "clickedX" && (squaresLeft.indexOf(8) > -1)){
+          document.getElementsByTagName("td")[8].className = 'clickedO';
+          console.log(document.getElementsByTagName("td")[8]);
+          locationCompChoice = squaresLeft.indexOf(8);
+          squaresLeft.splice(locationCompChoice, 1);
+          solvedCrossOne= true;
+        }else if(document.getElementsByTagName("td")[8].className == "clickedX" && document.getElementsByTagName("td")[4].className == "clickedX" && (squaresLeft.indexOf(0) > -1)){
+          document.getElementsByTagName("td")[0].className = 'clickedO';
+          console.log(document.getElementsByTagName("td")[0]);
+          locationCompChoice = squaresLeft.indexOf(0);
+          squaresLeft.splice(locationCompChoice, 1);
+          solvedCrossOne = true;
+        }else if(document.getElementsByTagName("td")[8].className == "clickedX" && document.getElementsByTagName("td")[0].className == "clickedX" && (squaresLeft.indexOf(4) > -1)){
+          document.getElementsByTagName("td")[4].className = 'clickedO';
+          console.log(document.getElementsByTagName("td")[4]);
+          locationCompChoice = squaresLeft.indexOf(4);
+          squaresLeft.splice(locationCompChoice, 1);
+          solvedCrossOne = true;
+        }else{
+          solvedCrossOne = true;
+          function getRandomInt(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min)) + min;
+          }
+          var computerRnd = getRandomInt(0, squaresLeft.length)
+          console.log(computerRnd);
+          //determine possible moves left then choose
+          var computerChoice = squaresLeft[computerRnd];
+          console.log('computer chooses: ' + computerChoice);
+          //go to win condition if boolean is true otherwise use computer move
+          if(playerchoice == "O"){
+            console.log(document.getElementsByTagName("td"))
+            document.getElementsByTagName("td")[computerChoice].className = 'clickedX';
+            console.log(document.getElementsByTagName("td")[computerChoice]);
+            locationCompChoice = squaresLeft.indexOf(computerChoice);
+            squaresLeft.splice(locationCompChoice, 1);
+          }
+          if(playerchoice == "X"){
+            console.log(document.getElementsByTagName("td"))
+            document.getElementsByTagName("td")[computerChoice].className='clickedO';
+            console.log(document.getElementsByTagName("td")[computerChoice]);
+            locationCompChoice = squaresLeft.indexOf(computerChoice);
+            squaresLeft.splice(locationCompChoice, 1);
+          }
+        }
+      }
+    }else if(playCrossTwo == true){
+      if(playerchoice == "O"){
+        console.log(document.getElementsByTagName("td"))
+        if(document.getElementsByTagName("td")[2].className == "clickedO" && document.getElementsByTagName("td")[4].className == "clickedO" && (squaresLeft.indexOf(6) > -1)){
+          document.getElementsByTagName("td")[6].className = 'clickedX';
+          console.log(document.getElementsByTagName("td")[6]);
+          locationCompChoice = squaresLeft.indexOf(6);
+          squaresLeft.splice(locationCompChoice, 1);
+          solvedCrossTwo = true;
+        }else if(document.getElementsByTagName("td")[6].className == "clickedO" && document.getElementsByTagName("td")[4].className == "clickedO" && (squaresLeft.indexOf(2) > -1)){
+          document.getElementsByTagName("td")[2].className = 'clickedX';
+          console.log(document.getElementsByTagName("td")[2]);
+          locationCompChoice = squaresLeft.indexOf(2);
+          squaresLeft.splice(locationCompChoice, 1);
+          solvedCrossTwo = true;
+        }else if(document.getElementsByTagName("td")[2].className == "clickedO" && document.getElementsByTagName("td")[6].className == "clickedO" && (squaresLeft.indexOf(4) > -1)){
+          document.getElementsByTagName("td")[4].className = 'clickedX';
+          console.log(document.getElementsByTagName("td")[4]);
+          locationCompChoice = squaresLeft.indexOf(4);
+          squaresLeft.splice(locationCompChoice, 1);
+          solvedCrossTwo= true;
+        }else{
+          solvedCrossTwo = true;
+          function getRandomInt(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min)) + min;
+          }
+          var computerRnd = getRandomInt(0, squaresLeft.length)
+          console.log(computerRnd);
+          //determine possible moves left then choose
+          var computerChoice = squaresLeft[computerRnd];
+          console.log('computer chooses: ' + computerChoice);
+          //go to win condition if boolean is true otherwise use computer move
+          if(playerchoice == "O"){
+            console.log(document.getElementsByTagName("td"))
+            document.getElementsByTagName("td")[computerChoice].className = 'clickedX';
+            console.log(document.getElementsByTagName("td")[computerChoice]);
+            locationCompChoice = squaresLeft.indexOf(computerChoice);
+            squaresLeft.splice(locationCompChoice, 1);
+          }
+          if(playerchoice == "X"){
+            console.log(document.getElementsByTagName("td"))
+            document.getElementsByTagName("td")[computerChoice].className='clickedO';
+            console.log(document.getElementsByTagName("td")[computerChoice]);
+            locationCompChoice = squaresLeft.indexOf(computerChoice);
+            squaresLeft.splice(locationCompChoice, 1);
+          }
+        }
+      }
+      if(playerchoice == "X"){
+        console.log(document.getElementsByTagName("td"))
+        if(document.getElementsByTagName("td")[2].className == "clickedX" && document.getElementsByTagName("td")[4].className == "clickedX" && (squaresLeft.indexOf(6) > -1)){
+          document.getElementsByTagName("td")[6].className = 'clickedO';
+          console.log(document.getElementsByTagName("td")[6]);
+          locationCompChoice = squaresLeft.indexOf(6);
+          squaresLeft.splice(locationCompChoice, 1);
+          solvedCrossTwo= true;
+        }else if(document.getElementsByTagName("td")[6].className == "clickedX" && document.getElementsByTagName("td")[4].className == "clickedX" && (squaresLeft.indexOf(2) > -1)){
+          document.getElementsByTagName("td")[2].className = 'clickedO';
+          console.log(document.getElementsByTagName("td")[2]);
+          locationCompChoice = squaresLeft.indexOf(2);
+          squaresLeft.splice(locationCompChoice, 1);
+          solvedCrossTwo = true;
+        }else if(document.getElementsByTagName("td")[6].className == "clickedX" && document.getElementsByTagName("td")[2].className == "clickedX" && (squaresLeft.indexOf(4) > -1)){
+          document.getElementsByTagName("td")[4].className = 'clickedO';
+          console.log(document.getElementsByTagName("td")[4]);
+          locationCompChoice = squaresLeft.indexOf(4);
+          squaresLeft.splice(locationCompChoice, 1);
+          solvedCrossTwo = true;
+        }else{
+          solvedCrossTwo = true;
+          function getRandomInt(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min)) + min;
+          }
+          var computerRnd = getRandomInt(0, squaresLeft.length)
+          console.log(computerRnd);
+          //determine possible moves left then choose
+          var computerChoice = squaresLeft[computerRnd];
+          console.log('computer chooses: ' + computerChoice);
+          //go to win condition if boolean is true otherwise use computer move
+          if(playerchoice == "O"){
+            console.log(document.getElementsByTagName("td"))
+            document.getElementsByTagName("td")[computerChoice].className = 'clickedX';
+            console.log(document.getElementsByTagName("td")[computerChoice]);
+            locationCompChoice = squaresLeft.indexOf(computerChoice);
+            squaresLeft.splice(locationCompChoice, 1);
+          }
+          if(playerchoice == "X"){
+            console.log(document.getElementsByTagName("td"))
+            document.getElementsByTagName("td")[computerChoice].className='clickedO';
+            console.log(document.getElementsByTagName("td")[computerChoice]);
+            locationCompChoice = squaresLeft.indexOf(computerChoice);
+            squaresLeft.splice(locationCompChoice, 1);
+          }
+        }
+      }
+    }else{
       //generate random number for computer turn
       function makeCompGo(){
         function getRandomInt(min, max) {
