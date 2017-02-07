@@ -3,12 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <title>Tic Tac Toe</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC|Bungee+Shade|Righteous" rel="stylesheet">
+  <script type="text/javascript" src="js/app.js"></script>
 </head>
 <body>
-  <h1>Hello Front-End</h1>
+  <h1> Tic - Tac - Toe</h1>
+  <div id="board">
+      <div class="box" id="1"></div>
+      <div class="box" id="2"></div>
+      <div class="box" id="3"></div>
+      <div class="box" id="4"></div>
+      <div class="box" id="5"></div>
+      <div class="box" id="6"></div>
+      <div class="box" id="7"></div>
+      <div class="box" id="8"></div>
+      <div class="box" id="9"></div>
+  </div>
+  <br>
+  <h3 id="message">turn = <img src="./img/paintbrushes.png" class="scaled"></h3>
+  
+  <button id="restart">RESTART GAME</button>
 
-  <script type="text/javascript" src="js/app.js"></script>
+  <audio id="xTurn" src="stroke.wav"></audio>
+  <audio id="oTurn" src="splatter.wav"></audio>
+  
+<!--   <audio id="xWin" src=""></audio>
+  <audio id="oWin" src=""></audio>
+  <audio id="gameStart" src=""></audio> -->
 </body>
 </html>
