@@ -10,26 +10,26 @@
 	<body>
 		<div id='gameSettings'>
 			<h2>Select Board Size</h2>
-			<button class='board-select' id='3'>3x3</button>
-			<button class='board-select' id='4'>4x4</button>
-			<button class='board-select' id='5'>5x5</button>
+			<button class='boardSelect' id='3'>3x3</button>
+			<button class='boardSelect' id='4'>4x4</button>
+			<button class='boardSelect' id='5'>5x5</button>
 			<br>
 			<button id='resetBtn'>Reset</button>
 			<h2>Player Turn</h2>
 		</div>
 
-		<div class='text-box' id='theme-select'>
-			<div id='theme-select2'>
+		<div class='textBox' id='themeSelect'>
+			<div id='themeSelect2'>
 				<h1>Tic Tac Toe</h1>
 				<h2>Choose a Theme</h2>
-				<div id='theme-box'>
+				<div id='themeBox'>
 					<input type='radio' name='theme' value='starWars' checked>
-					<label><span style="font-family:'Starwars'"">Star Wars</span></label>
+					<label id='starwarsSelect'>Star Wars</label>
 					<br>
 					<input type='radio' name='theme' value='pokemon'>
-					<label style="font-family:'pokemon'"">Pokemon</label>
+					<label id='pokemonSelect'>Pokemon</label>
 				</div>
-				<div id='mode-box'>
+				<div id='modeBox'>
 					<form>
 					<input type='radio' name='mode' value='vs' checked>
 					<label>Versus</label>
@@ -44,10 +44,9 @@
 		</div>
 
 		<div class='blocks' id='gameBoard'></div>
-		<div class='text-box' id='gameover-text'>
+		<div class='textBox' id='gameoverText'>
 			<div>
 				<h1>Game Over</h1>
-				<p></p>
 			</div>
 		</div>
 		<audio id='pikaSound' src='./sounds/pikachu.mp3'></audio>

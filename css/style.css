@@ -11,26 +11,32 @@ body {
 	background-repeat: no-repeat;
 	background-size: 100%;
 }
-#theme-select2 h1 {
+#starwarsSelect {
+	font-family: 'Starwars';
+}
+#pokemonSelect {
+	font-family: 'pokemon';
+}
+#themeSelect2 h1 {
 	font-size: 36px;
 	margin-bottom: 0;
 }
-#theme-select2 h2 {
+#themeSelect2 h2 {
 	margin-top: 0;
 }
-#theme-select2 label {
+#themeSelect2 label {
 	font-size: 24px;
 	margin-left: 10px;
 }
-#theme-box {
+#themeBox {
 	float: left;
 	padding-left: 75px;
 }
-.board-select {
+.boardSelect {
 	height: 75px;
-	width:  75px;;
+	width:  75px;
 }
-.text-box {
+.textBox {
 	text-align: center;
 	height: 250px;
 	width: 600px;
@@ -78,33 +84,27 @@ body {
 	text-align: center;
 	margin-top: 15px;
 }
-.x-block{
-	background-image: url('./../img/x.png');
-}
-.o-block {
-	background-image: url('./../img/circle.png');
-}
-.rebel-theme {
+.rebelTheme {
 	background-image: url('./../img/rebel.png');
 }
-.empire-theme {
+.empireTheme {
 	background-image: url('./../img/empire.svg');
 }
-.pikachu-theme {
+.pikachuTheme {
 	background-image: url('./../img/pikachu.png');
 }
-.meowth-theme {
+.meowthTheme {
 	background-image: url('./../img/meowth.png');
 }
 button {
 	font-size: 24px;
 }
-#gameover-text {
+#gameoverText {
 	visibility: hidden;
 }
-#gameover-text div h1{
+#gameoverText div h1{
 	font-size: 60px;
 }
-#gameover-text div p {
+#gameoverText div p {
 	font-size: 32px;
 }

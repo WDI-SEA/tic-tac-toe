@@ -105,26 +105,6 @@ function clickSquare() {
 	assignSquare(this);
 	determineGameState();
 }
-function aiSelectRandomSquare(){
-	var randomNumber1 = Math.floor(Math.random() * gameBoardArr.length);
-	var randomNumber2 = Math.floor(Math.random() * gameBoardArr.length);
-	var aiMove = gameBoardArr[randomNumber1][randomNumber2];
-	//recursive check for free square for ai to use	
-	if (aiMove.filled) {
-		aiSelectRandomSquare();
-	} else {
-		assignAiSquare(aiMove, randomNumber1, randomNumber2);
-		determineGameState();
-	}
-}
-function assignAiSquare(gameBoardSelected, ArrVal1, ArrVal2) {
-	var htmlId = ArrVal1.toString() + ',' + ArrVal2.toString();
-	var squareId = document.getElementById(htmlId);
-	gameBoardSelected.player = playerTurn;
-	gameBoardSelected.filled = true;
-	squareId.removeEventListener('click', clickSquare);
-	squareId.className += ' ' + playerTwoTheme + ' blocks';
-}
 function assignSquare(square) {	
 	var squareId = square.id.split(',');
 	var squareSelected = gameBoardArr[squareId[0]][squareId[1]];
@@ -168,6 +148,26 @@ function switchPlayerTurn() {
 		}
 	}
 }
+function aiSelectRandomSquare(){
+	var randomNumber1 = Math.floor(Math.random() * gameBoardArr.length);
+	var randomNumber2 = Math.floor(Math.random() * gameBoardArr.length);
+	var aiMove = gameBoardArr[randomNumber1][randomNumber2];
+	//recursive check for free square for ai to use	
+	if (aiMove.filled) {
+		aiSelectRandomSquare();
+	} else {
+		assignAiSquare(aiMove, randomNumber1, randomNumber2);
+		determineGameState();
+	}
+}
+function assignAiSquare(gameBoardSelected, ArrVal1, ArrVal2) {
+	var htmlId = ArrVal1.toString() + ',' + ArrVal2.toString();
+	var squareId = document.getElementById(htmlId);
+	gameBoardSelected.player = playerTurn;
+	gameBoardSelected.filled = true;
+	squareId.removeEventListener('click', clickSquare);
+	squareId.className += ' ' + playerTwoTheme + ' blocks';
+}
 function checkIfWon() {	
 	if (checkDirectionSquares('vertical') || checkDirectionSquares('horizontal') || 
 		checkSlopeSquares('up')  || checkSlopeSquares('down')) {
@@ -203,7 +203,7 @@ function checkSlopeSquares(slopeDirection) {
 			if (gameBoardArr[i][i].player === playerTurn) {
 				winCtr++;
 			}
-		}else if (slopeDirection === 'down') {
+		} else if (slopeDirection === 'down') {
 			if (gameBoardArr[i][offsetCtr].player === playerTurn) {
 				winCtr++;
 				offsetCtr--;
@@ -220,7 +220,7 @@ function gameOver() {
 	disableClickSquares();
 	setTimeout(announceGameOver,500);
 }
-// one line function, I guess unnecessary but it's clearer in line 145 this way
+// one line function, I guess unnecessary but it's clearer in line 125 this way
 function drawResult() {
 	setTimeout((function() { announceGameOver('draw') }),500);
 }
