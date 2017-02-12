@@ -44,3 +44,18 @@ We will be making a Tic Tac Toe game using all of these concepts.
 ## Licensing
 1. All content is licensed under a CC-BY-NC-SA 4.0 license.
 2. All software code is licensed under GNU GPLv3. For commercial use or alternative licensing, please contact legal@ga.co.
+
+
+Student Resources
+1. Pokemon fonts - http://www.dafont.com/font-comment.php?file=pokemon
+2. Star wars font - http://www.dafont.com/sf-distant-galaxy.font
+3. Pikachu sound - http://www.soundboard.com/sb/sound/298340
+4. R2 sound - https://www.reddit.com/r/StarWars/comments/1if301/i_made_a_bunch_of_star_wars_ringtones/
+5. star wars background - http://more-sky.com/group/starwars-backgrounds/
+6. pokemon background - http://fantendo.wikia.com/wiki/Pokemon_Stadium_3_(SSBGA)?file=Pok%C3%A9mon_Stadium_2.jpg 
+7. meowth image - http://vignette1.wikia.nocookie.net/pokemon/images/b/b8/052Meowth_BW_anime.png/revision/latest?cb=20150101230316
+8. pikachu image - http://vignette2.wikia.nocookie.net/pokemon/images/b/b1/025Pikachu_XY_anime_3.png/revision/latest?cb=20140902050035
+
+
+
+

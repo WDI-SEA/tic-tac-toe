@@ -1,3 +1,110 @@
-h1 {
-  color: purple;
+@font-face {
+	font-family: "Starwars";
+	src: url('./../fonts/distant-galaxy.ttf');
+}
+@font-face {
+	font-family: "pokemon";
+	src: url('./../fonts/pokemon.ttf');
+}
+body {
+	font-family: impact;
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
+#starwarsSelect {
+	font-family: 'Starwars';
+}
+#pokemonSelect {
+	font-family: 'pokemon';
+}
+#themeSelect2 h1 {
+	font-size: 36px;
+	margin-bottom: 0;
+}
+#themeSelect2 h2 {
+	margin-top: 0;
+}
+#themeSelect2 label {
+	font-size: 24px;
+	margin-left: 10px;
+}
+#themeBox {
+	float: left;
+	padding-left: 75px;
+}
+.boardSelect {
+	height: 75px;
+	width:  75px;
+}
+.textBox {
+	text-align: center;
+	height: 250px;
+	width: 600px;
+	background-color: #1D2447;
+	color: white;
+	position: fixed;
+	top: 25%;
+	left: 25%;
+	box-shadow: 10px 10px 5px black;
+}
+#submitTheme {
+	clear: both;
+}
+#gameSettings {
+	padding: 0 15px;
+	margin: 10% 0 0 3%;
+	visibility: hidden;
+	display:inline-block;
+	float: left;
+	background-color: white;
+}
+#gameBoard {
+	margin: 10% 0 0 10%;
+	display: inline-block;
+	width: 550px;
+}
+.divRow {
+	height: auto;
+	width: 100%;
+	display: inline-block;
+}
+.square {
+	height: 100px;
+	width: 100px;
+	border: 2px solid white;
+	display: inline-block;
+	margin: 1px 3px;
+}
+.blocks {
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+#resetBtn {
+	text-align: center;
+	margin-top: 15px;
+}
+.rebelTheme {
+	background-image: url('./../img/rebel.png');
+}
+.empireTheme {
+	background-image: url('./../img/empire.svg');
+}
+.pikachuTheme {
+	background-image: url('./../img/pikachu.png');
+}
+.meowthTheme {
+	background-image: url('./../img/meowth.png');
+}
+button {
+	font-size: 24px;
+}
+#gameoverText {
+	visibility: hidden;
+}
+#gameoverText div h1{
+	font-size: 60px;
+}
+#gameoverText div p {
+	font-size: 32px;
 }

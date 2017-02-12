@@ -1,14 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
-  <link rel="stylesheet" type="text/css" href="css/style.css">
-</head>
-<body>
-  <h1>Hello Front-End</h1>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Tic Tac Toe</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+	</head>
 
-  <script type="text/javascript" src="js/app.js"></script>
-</body>
+	<body>
+		<div id='gameSettings'>
+			<h2>Select Board Size</h2>
+			<button class='boardSelect' id='3'>3x3</button>
+			<button class='boardSelect' id='4'>4x4</button>
+			<button class='boardSelect' id='5'>5x5</button>
+			<br>
+			<button id='resetBtn'>Reset</button>
+			<h2>Player Turn</h2>
+		</div>
+
+		<div class='textBox' id='themeSelect'>
+			<div id='themeSelect2'>
+				<h1>Tic Tac Toe</h1>
+				<h2>Choose a Theme</h2>
+				<div id='themeBox'>
+					<input type='radio' name='theme' value='starWars' checked>
+					<label id='starwarsSelect'>Star Wars</label>
+					<br>
+					<input type='radio' name='theme' value='pokemon'>
+					<label id='pokemonSelect'>Pokemon</label>
+				</div>
+				<div id='modeBox'>
+					<form>
+					<input type='radio' name='mode' value='vs' checked>
+					<label>Versus</label>
+					<br>
+					<input type='radio' name='mode' value='ai'>
+					<label>AI</label>
+					</form>
+				</div>
+				<br>
+				<button id='submitTheme'>Submit</button>
+			</div>
+		</div>
+
+		<div class='blocks' id='gameBoard'></div>
+		<div class='textBox' id='gameoverText'>
+			<div>
+				<h1>Game Over</h1>
+				<p id='winnerDeclaration'></p>
+			</div>
+		</div>
+		<audio id='pikaSound' src='./sounds/pikachu.mp3'></audio>
+
+		<audio id='r2' src='./sounds/R2D2a.m4r'></audio>
+		<script type="text/javascript" src="js/app.js"></script>
+	</body>
 </html>
