@@ -2,9 +2,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	//Variabes
 	var imgArr = document.getElementsByTagName("img"); 
+	var imgSrc = document.querySelector("img").getAttribute("src");
+	var imgId = document.getElementById(" ");
 	var resetButton = document.getElementById("reset");
 	var xTurn = true; 
-	var imgId = document.querySelectorAll("#img1, #img2, #img3, #img4, #img5, #img6, #img7, #img8, #img9");
+
 
 	//Image object
 	var imagesSource = 
@@ -14,43 +16,33 @@ document.addEventListener('DOMContentLoaded', function() {
 		O: "./img/o.png"
 	};
 
-	// var xWins =
-	// {
-	// 	ROW1: imgId[0].src=imagesSource.X 
-		// ROW2: document.querySelectorAll("#img4, #img5, #img6").src=imagesSource.X,
-		// ROW3: document.querySelectorAll("#img7, #img8, #img9").src=imagesSource.X,
-	// 	COL1:
-	// 	COL2:
-	// 	COL3:
-	// 	DIAG1:
-	// 	DIAG2:
+	var xMoves = []; 
+	var oMoves = []; 
+	var xMovesStr = xMoves.toString();
 
-	// };
+	var winMoves = [
+	[1,2,3],
+ 	[4,5,6],
+ 	[7,8,9],
+ 	[1,4,6],
+ 	[2,5,8],
+ 	[3,6,9],
+ 	[1,5,9],
+ 	[3,5,7]
 
-	// var oWins =
-	// {
-	// 	ROW1: document.getElementsByClassName("row1").src=imagesSource.O,
-	// 	ROW2: document.getElementsByClassName("row2").src=imagesSource.O,
-	// 	ROW3: document.getElementsByClassName("row2").src=imagesSource.O
-	// // 	COL1:
-	// // 	COL2:
-	// // 	COL3:
-	// // 	DIAG1:
-	// // 	DIAG2:
-
-	// };
+ 	];
 
 	//Add a click event listener to each square 
-	addEventListener(); 
+	clickOnSquare(); 
 
 
-	function addEventListener(){
+	function clickOnSquare(){
 		for (var i = 0; i < imgArr.length; i++) {
 			imgArr[i].addEventListener("click", theGame);
  		}
  	};
  
- 	function removeEventListener(){
+ 	function onlyClickSquareOnce(){
  		for (var i = 0; i < imgArr.length; i++) {
  			imgArr[i].removeEventListener("click", theGame);
  		}
@@ -61,37 +53,41 @@ document.addEventListener('DOMContentLoaded', function() {
  			if (xTurn) {
  				this.src = imagesSource.X; 
  				this.removeEventListener("click", theGame);
- 				//winCondition();
+ 				
  			} else {
  				this.src = imagesSource.O; 
  				this.removeEventListener("click", theGame);
- 				//winCondition();
+ 				
  			}
  			xTurn = !xTurn; 
-
+ 			gameWin()
+ 			
  		}
  	};	
 
-//Win Condition. I have not been able to get it functioning
-	// function winCondition(){
-	// 	if ((imgArr[0].src = (imagesSource.X))) {
-	// 		document.getElementById("board").style.background="blue";
-	// 	}
+	function gameWin(){
+	for(var i = 0; i < winMoves.length; i++) {
+		for (var j = 0; j < winMoves[i].length; j++) {
+		if (imgId.winMoves[i][j].src = imagesSource.X) {
+			console.log("hey");
+		}
+	}
+}
 
-	// };	
+}
   
- 	//Add a click event listener for my reset button
+ 	//Add a click event listener for the reset button
 	resetButton.addEventListener("click", resetGame);
 
 	//Reset button 
 	function resetGame() {
 		xTurn = true; 
-		addEventListener(); 
+		clickOnSquare(); 
 		document.getElementById("board").style.background="white";
 		for (var i = 0; imgArr.length; i++) {
 			imgArr[i].src = imagesSource.EMPTY; 
-		}
-	};
+			}
+		};
 
-});
+	});
 
