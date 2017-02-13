@@ -1,3 +1,72 @@
-h1 {
-  color: purple;
+body{
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 15px;
+  background-color: teal;
 }
+h1 {
+  color:black;
+  font-family: 'Special Elite', cursive;
+  font-size: 50px;
+  border-bottom: rgba(0,0,0,0.2) solid;
+  border-width: 6px;
+}
+#turn{
+  font-size: 30px;
+  text-shadow: -2px 2px rgba(0, 0, 0, 0.2);
+  color: white;
+  font-family: 'Special Elite', cursive;
+  display: block;
+}
+#board{
+  background: url("http://i.imgur.com/FroyV5v.jpg");
+  font-size: 50px;
+  font-family: 'Qwigley', cursive;
+  margin: auto;
+  min-width: 340px;
+  min-height: 340px;
+  max-width: 550px;
+  max-height: 550px;
+  position: relative;
+  border-radius: 50px;
+  box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.2), 0px 0px 20px 10px rgba(0, 0, 0, 0.19);
+}
+.row{
+  position: relative;
+  display: inline-block;
+  margin: 5% 0% 5% 0;
+  padding: 0 5%;
+  width: 90%;
+  height: 33%;
+}
+.tile{
+  width: 20%;
+  height: 20%;
+  min-width: 65px;
+  min-height: 65px;
+  margin: 5%;
+  position: relative;
+  display: inline-block;
+  box-shadow: 0px 0px 12px 12px rgba(0, 0, 0, 0.2), 0px 0px 12px 12px rgba(0, 0, 0, 0.19);
+}
+h2{
+  color: white;
+  font-size: 30px;
+  font-family: 'Special Elite', cursive;
+  display: none;
+  text-shadow: -3px 3px rgba(0, 0, 0, 0.2);
+}
+#reset{
+  color: rgb(0,0,0);
+  text-shadow: -1px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  background-color: white;
+  background-image: linear-gradient(top, #6496c8, #346392);
+  box-shadow: inset 0 0 0 1px #27496d;
+  border: none;
+  padding: 5px 50px;
+  margin: 20px 0px 0px 0px;
+  font-size: 15px;
+}
+
+/*rgba(238,223,204,0.5)*/
