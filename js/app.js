@@ -1,9 +1,12 @@
 document.addEventListener("DOMContentLoaded", function(){
 
   var playerXTurn = true;
-  var board = document.getElementById("board");
+  var row1 = document.getElementById("row1");
+  var row2 = document.getElementById("row2");
+  var row3 = document.getElementById("row3");
   var resetButton = document.getElementById("reset");
   var space;
+  var moves =0;
 
   addEventListener();
 
@@ -16,14 +19,26 @@ document.addEventListener("DOMContentLoaded", function(){
   };
 
   function addEventListener(){
-    for (var i = 0; i < board.children.length; i++) {
-      board.children[i].addEventListener("click", markSpace);
+    for (var i = 0; i < row1.children.length; i++) {
+      row1.children[i].addEventListener("click", markSpace);
+    }
+    for (var i = 0; i < row2.children.length; i++) {
+      row2.children[i].addEventListener("click", markSpace);
+    }
+    for (var i = 0; i < row3.children.length; i++) {
+      row3.children[i].addEventListener("click", markSpace);
     }
   };
 
   function removeEventListener(){
-    for (var i = 0; i < board.children.length; i++) {
-      board.children[i].removeEventListener("click", markSpace);
+    for (var i = 0; i < row1.children.length; i++) {
+      row1.children[i].removeEventListener("click", markSpace);
+    }
+    for (var i = 0; i < row2.children.length; i++) {
+      row2.children[i].removeEventListener("click", markSpace);
+    }
+    for (var i = 0; i < row3.children.length; i++) {
+      row3.children[i].removeEventListener("click", markSpace);
     }
   };
 
@@ -32,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function(){
       if (playerXTurn == true){
         space = this.id;
         document.getElementById(this.id).innerHTML="X";
-        document.getElementById(this.id).style.backgroundColor="rgba(238,223,204,.1)";
+        document.getElementById(this.id).style.backgroundColor="rgba(238,223,204,.2)";
         document.getElementById(this.id).classList.remove("empty");
         document.getElementById(this.id).classList.add("X");
         playerXTurn = false;
@@ -41,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function(){
       } else{
         space = this.id;
         document.getElementById(this.id).innerHTML="O";
-        document.getElementById(this.id).style.backgroundColor="rgba(0,0,0,.1)";
+        document.getElementById(this.id).style.backgroundColor="rgba(0,0,0,.2)";
         document.getElementById(this.id).classList.remove("empty");
         document.getElementById(this.id).classList.add("O");
         playerXTurn = true;
@@ -52,6 +67,7 @@ document.addEventListener("DOMContentLoaded", function(){
   };
 
   function winChecker(){
+    moves ++;
     switch(true){
       case (document.getElementById("a1").innerHTML == ("X")) && (document.getElementById("b1").innerHTML == ("X")) && (document.getElementById("c1").innerHTML == ("X")):
       case (document.getElementById("a2").innerHTML == ("X")) && (document.getElementById("b2").innerHTML == ("X")) && (document.getElementById("c2").innerHTML == ("X")):
@@ -74,18 +90,22 @@ document.addEventListener("DOMContentLoaded", function(){
         document.getElementById("winner").style.display="block";
         removeEventListener();
         break;
-    }
+      case (moves == 9):
+        document.getElementById("tie").style.display="block";
+        document.getElementById("turn").style.display='none';
+        break;
+      }
   };
 
   resetButton.addEventListener("click", resetGame);
 
   function resetGame(){
-    playerXMoves = [];
-    playerOMoves = [];
     playerXTurn = true;
+    moves = 0;
     document.getElementById("turn").style.display="block";
     document.getElementById("turn").innerHTML="Player one, your turn!";
     document.getElementById("winner").style.display="none";
+    document.getElementById("tie").style.display="none";
     clearXSpace();
     clearOSpace();
     fixClasses();

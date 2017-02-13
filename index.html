@@ -11,20 +11,29 @@
   <h1>Tic Tac Toe</h1>
   <p class="rules">Hopefully you already know how to play Tic Tac Toe but incase you don't here ya go: Grab a friend and take turns marking different squares on the board below. Player one will be X and player two  will be O. To win you must get three in a row! <em>Good luck!</em></p>
   <p id="turn">Player one, your turn!</p>
-  <h1 class="winner" id="winner">We have a winner!</h1>
+  <h2 id="winner">We have a winner!</h2>
+  <h2 id="tie">Cats game! Try again.</h2>
   <div class="board" id="board">
-    <div class="row1 empty resetClass" id="a1">__</div>
-    <div class="row1 empty resetClass" id="b1">__</div>
-    <div class="row1 empty resetClass" id="c1">__</div>
-    <br>
-    <div class="row2 empty resetClass" id="a2">__</div>
-    <div class="row2 empty resetClass" id="b2">__</div>
-    <div class="row2 empty resetClass" id="c2">__</div>
-    <br>
-    <div class="row3 empty resetClass" id="a3">__</div>
-    <div class="row3 empty resetClass" id="b3">__</div>
-    <div class="row3 empty resetClass" id="c3">__</div>
+    <div class="row" id="row1">
+      <div class="tile empty resetClass" id="a1">__</div>
+      <div class="tile empty resetClass" id="b1">__</div>
+      <div class="tile empty resetClass" id="c1">__</div>
+    </div>
+
+    <div class="row" id="row2">
+      <div class="tile empty resetClass" id="a2">__</div>
+      <div class="tile empty resetClass" id="b2">__</div>
+      <div class="tile empty resetClass" id="c2">__</div>
+    </div>
+
+    <div class="row" id="row3">
+      <div class="tile empty resetClass" id="a3">__</div>
+      <div class="tile empty resetClass" id="b3">__</div>
+      <div class="tile empty resetClass" id="c3">__</div>
+    </div>
+
   </div>
   <button type="button" id="reset">Clear</button>
   <script type="text/javascript" src="js/app.js"></script>
 </body>
+</html>
