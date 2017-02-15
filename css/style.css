@@ -1,3 +1,15 @@
-h1 {
-  color: purple;
+.gameBox{
+  width: 400px;
+  height: 400px; 
+}
+.tile{
+  max-width:80px;
+  display:inline-block;
+  width: 30%;
+  height: 80px;
+  margin: 1%;
+  border: 1em solid blue;
+}
+body{
+  display: inline-block;
 }
