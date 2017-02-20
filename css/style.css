@@ -12,8 +12,7 @@ h1 {
 }
 
 button {
-  width: 200px;
-  height: 80px;
+  width: 100%;
   padding: 10px;
   margin: 10px 10px 30px 10px;
   color: #fff;
@@ -39,30 +38,20 @@ button.active {
 }
 
 #board {
-    display: inline-block;
-}
-
-#reset {
-  position: absolute;
-  top: 483px;
-  height: 50px;
+    /*display: inline-block;*/
+    width: 540px;
+    margin: 20px auto;
 }
 
 #scoreboard {
+  width: 100%;
   background-color: white;
-  height: 150px;
-}
-
-.buttons {
-  position: absolute;
-  top: 96px;
-  right: 200px;
+  padding: 10px;
 }
 
 .ai-indicator {
   position: absolute;
   padding: 10px;
-  width: 250px;
   margin: 0;
   color: white;
   font-family: 'Croissant One', cursive;
@@ -88,10 +77,13 @@ button.active {
   visibility: hidden;
 }
 
+
 .cell {
-  float: left;
+  /*float: left;*/
   height: 180px;
   width: 180px;
+  margin: 0;
+  padding: 0;
 }
 
 .even {
@@ -108,4 +100,13 @@ button.active {
 
 .oh {
   content:url("../img/oh.svg");
+}
+
+/*@media screen
+and (max-device-width: 768px) {
+  .cell {
+    height: 100px;
+    width: 100px;
+  }*/
+
 }
