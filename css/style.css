@@ -1,3 +1,112 @@
+body {
+  text-align: center;
+  font-family: 'Lobster', cursive;
+  letter-spacing: 1.5px;
+  background-color: AliceBlue;
+}
+
 h1 {
   color: purple;
+  padding: 0;
+  margin: 0;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 10px 30px 10px;
+  color: #fff;
+  background-color:#bfbff2;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 6px #2626c0;
+  font-family: 'Lobster', cursive;
+  font-size: 1.5em;
+  display: block;
+}
+
+button:hover,
+button.hover {
+  background-color: #7f7fe6;
+}
+
+button:active,
+button.active {
+  background-color:  #7f7fe6;
+  box-shadow: 0 3px #2626c0;
+  transform: translateY(5px);
+}
+
+#board {
+    /*display: inline-block;*/
+    width: 540px;
+    margin: 20px auto;
+}
+
+#scoreboard {
+  width: 100%;
+  background-color: white;
+  padding: 10px;
+}
+
+.ai-indicator {
+  position: absolute;
+  padding: 10px;
+  margin: 0;
+  color: white;
+  font-family: 'Croissant One', cursive;
+  visibility: hidden;
+}
+
+.short {
+  background-color: #778899;
+}
+
+.full {
+  background-color: green;
+}
+
+.whosturn {
+  height: 50px;
+  width: 50px;
+}
+
+.draw {
+  height: 50px;
+  width: 50px;
+  visibility: hidden;
+}
+
+
+.cell {
+  /*float: left;*/
+  height: 180px;
+  width: 180px;
+  margin: 0;
+  padding: 0;
+}
+
+.even {
+  background-color: #e6e6fa ;
+}
+
+.odd {
+  background-color: #bfbff2;
+}
+
+.ex {
+  content:url("../img/ex.svg");
+}
+
+.oh {
+  content:url("../img/oh.svg");
+}
+
+/*@media screen
+and (max-device-width: 768px) {
+  .cell {
+    height: 100px;
+    width: 100px;
+  }*/
+
 }

@@ -2,12 +2,90 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <title>Bfast Tac Toe</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Croissant+One|Yellowtail|Fontdiner+Swanky|Lobster" rel="stylesheet">
 </head>
 <body>
-  <h1>Hello Front-End</h1>
+ <div class="ai-indicator short">Short Stack <img src="img/shortStack.svg"> AI enabled!</div>
+<div class="ai-indicator full">Full Stack <img src="img/fullStack.svg"> AI enabled!</div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <h1>Breakfast-Tac-Toe</h1>
+      </div>
+      <div class="col-xs-12">
+        <h1><img class="draw"><img class="whosturn ex"><span id="message-board">'s turn</span></h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container buttons">
+  <div class="row">
+    <div class="col-xs-offset-4 col-xs-4">
+      <div id="scoreboard">
+        <h1>Score</h1>
+        <p>Eggs: <span class="oh-score">0</span></p>
+        <p>Bacon: <span class="ex-score">0</span></p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-4">
+      <button id="ai">Play w/ Short Stack AI</button>
+    </div>
+    <div class="col-xs-12 col-sm-4">
+      <button id="ai-defensive">Play w/ Full Stack AI</button>
+    </div>
+    <div class="col-xs-12 col-sm-4">
+      <button id="reset">Reset</button>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-2">
+      <div class="ai-indicator short">Short Stack <img src="img/shortStack.svg"> AI enabled!</div>
+    </div>
+    <div class="col-xs-offset-2 col-xs-2">
+      <div class="ai-indicator full">Full Stack <img src="img/fullStack.svg"> AI enabled!</div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  <div class="container" id="board">
+    <div class="row" id="row1">
+      <div id="cell0" class="even cell col-xs-4">
+      </div>
+      <div id="cell1" class="odd cell col-xs-4">
+      </div>
+      <div id="cell2" class="even cell col-xs-4">
+      </div>
+    </div>
+    <div class="row" id="row2">
+      <div id="cell3" class="odd cell col-xs-4">
+      </div>
+      <div id="cell4" class="even cell col-xs-4">
+      </div>
+      <div id="cell5" class="odd cell col-xs-4">
+      </div>
+    </div>
+    <div class="row" id="row3">
+      <div id="cell6" class="even cell col-xs-4">
+      </div>
+      <div id="cell7" class="odd cell col-xs-4">
+      </div>
+      <div id="cell8" class="even cell col-xs-4">
+      </div>
+    </div>
+  </div>
 
   <script type="text/javascript" src="js/app.js"></script>
 </body>
