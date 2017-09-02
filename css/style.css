@@ -1,3 +1,27 @@
 h1 {
-  color: purple;
+  color: teal;
+  text-align: center;
+}
+
+
+#gameBoard {
+  width: 100%;
+  height: 1000px;
+  background: salmon;
+  text-align: center;
+}
+
+.squares {
+  height: 200px;
+  width:200px;
+  background: gray;
+  display: inline-block;
+}
+
+.X {
+  background: red;
+}
+
+.O {
+  background: blue;
 }
