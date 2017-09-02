@@ -1,5 +1,14 @@
+// to do:
+//figure out loop to replace onclicks
+//add condition for draw
+//fix skeleton
+//clean out unecessary code
+
+
 var player1 = document.getElementById("player1");
 var player2 = document.getElementById("player2");
+
+var winnerAnnouncement = document.getElementById("winnerAnnoucement2");
 
 var scorePlayer1 = document.getElementById("player1Score");
 var scorePlayer2 = document.getElementById("player2Score");
@@ -40,130 +49,133 @@ var currentScorePlayer2 = 0;
 function startGame(){
 
 //onclick to place x's and o's
-// to do:
-//   -figure out loop to replace these
-//   -only allow click once- now will allow multiple clicks replacing x's and o's
-//   -winner gets declared after an extra click - placement of checkForWinner()?
-
   table.onclick = function(){
     checkForWinner();
   }
 
   oneA.onclick = function(){
-    oneA.textContent = currentPlayer;
-    oneA.classList.add(currentPlayer);
-    if(currentPlayer === "X"){
-      player1Selections.push(oneA);
-    }else{
-      player2Selections.push(oneA);
-    }
-    changeTurn();
-    checkForWinner();
+    if(oneA.textContent == ""){
+      oneA.textContent = currentPlayer;
+      if(currentPlayer === "X"){
+        player1Selections.push(oneA);
+      }else{
+        player2Selections.push(oneA);
+      }
+      checkForWinner();
+      changeTurn();
+      }
     }
   oneB.onclick = function(){
-    oneB.textContent = currentPlayer;
-    oneB.classList.add(currentPlayer);
-    if(currentPlayer === "X"){
-      player1Selections.push(oneB);
-    }else{
-      player2Selections.push(oneB);
-    }
-    changeTurn();
-    checkForWinner();
+    if(oneB.textContent== ""){
+      oneB.textContent = currentPlayer;
+      if(currentPlayer === "X"){
+        player1Selections.push(oneB);
+      }else{
+        player2Selections.push(oneB);
+      }
+      checkForWinner();
+      changeTurn();
+      }
     }
   oneC.onclick = function(){
-    oneC.textContent = currentPlayer;
-    oneC.classList.add(currentPlayer);
-    if(currentPlayer === "X"){
-      player1Selections.push(oneC);
-    }else{
-      player2Selections.push(oneC);
-    }
-    changeTurn();
-    checkForWinner();
+    if(oneC.textContent== ""){
+      oneC.textContent = currentPlayer;
+      if(currentPlayer === "X"){
+        player1Selections.push(oneC);
+      }else{
+        player2Selections.push(oneC);
+      }
+      checkForWinner();
+      changeTurn();
+      }
     }
   twoA.onclick = function(){
-    twoA.textContent = currentPlayer;
-    twoA.classList.add(currentPlayer);
-    if(currentPlayer === "X"){
-      player1Selections.push(twoA);
-    }else{
-      player2Selections.push(twoA);
-    }
-    changeTurn();
-    checkForWinner();
+    if(twoA.textContent== ""){
+      twoA.textContent = currentPlayer;
+      if(currentPlayer === "X"){
+        player1Selections.push(twoA);
+      }else{
+        player2Selections.push(twoA);
+      }
+      checkForWinner();
+      changeTurn();
+      }
     }
   twoB.onclick = function(){
-    twoB.textContent = currentPlayer;
-    twoB.classList.add(currentPlayer);
-    if(currentPlayer === "X"){
-      player1Selections.push(twoB);
-    }else{
-      player2Selections.push(twoB);
-    }
-    changeTurn();
-    checkForWinner();
+    if(twoB.textContent== ""){
+      twoB.textContent = currentPlayer;
+      if(currentPlayer === "X"){
+        player1Selections.push(twoB);
+      }else{
+        player2Selections.push(twoB);
+      }
+      checkForWinner();
+      changeTurn();
+      }
     }
   twoC.onclick = function(){
-    twoC.textContent = currentPlayer;
-    twoC.classList.add(currentPlayer);
-    if(currentPlayer === "X"){
-      player1Selections.push(twoC);
-    }else{
-      player2Selections.push(twoC);
-    }
-    changeTurn();
-    checkForWinner();
+    if(twoC.textContent== ""){
+      twoC.textContent = currentPlayer;
+      if(currentPlayer === "X"){
+        player1Selections.push(twoC);
+      }else{
+        player2Selections.push(twoC);
+      }
+      checkForWinner();
+      changeTurn();
+      }
     }
   threeA.onclick = function(){
-    threeA.textContent = currentPlayer;
-    threeA.classList.add(currentPlayer);
-    if(currentPlayer === "X"){
-      player1Selections.push(threeA);
-    }else{
-      player2Selections.push(threeA);
-    }
-    changeTurn();
-    checkForWinner();
+    if(threeA.textContent== ""){
+      threeA.textContent = currentPlayer;
+      if(currentPlayer === "X"){
+        player1Selections.push(threeA);
+      }else{
+        player2Selections.push(threeA);
+      }
+      checkForWinner();
+      changeTurn();
+      }
     }
   threeB.onclick = function(){
-    threeB.textContent = currentPlayer;
-    threeB.classList.add(currentPlayer);
-      if(currentPlayer === "X"){
-      player1Selections.push(threeB);
-    }else{
-      player2Selections.push(threeB);
-    }
-    changeTurn();
-    checkForWinner();
+    if(threeB.textContent== ""){
+      threeB.textContent = currentPlayer;
+        if(currentPlayer === "X"){
+        player1Selections.push(threeB);
+      }else{
+        player2Selections.push(threeB);
+      }
+        checkForWinner();
+        changeTurn();
+      }
     }
   threeC.onclick = function(){
-    threeC.textContent = currentPlayer;
-    threeC.classList.add(currentPlayer);
-      if(currentPlayer === "X"){
-      player1Selections.push(threeC);
-    }else{
-      player2Selections.push(threeC);
-    }
-    changeTurn();
-    checkForWinner();
+    if(threeC.textContent== ""){
+      threeC.textContent = currentPlayer;
+        if(currentPlayer === "X"){
+        player1Selections.push(threeC);
+      }else{
+        player2Selections.push(threeC);
+      }
+      checkForWinner();
+      changeTurn();
+      }
     }
   resetGame.onclick = function(){
     reset();
   }
 }
-// }
 
 //keeps track of turns/changes color for active player
 function changeTurn(){
   if(currentPlayer === "X"){
       currentPlayer = "O";
-      player1.style.background = "white";
-      player2.style.background = "green";
+      player1.style.borderBottom = "none";
+      player2.style.borderBottom = "thick solid #fffb96";
   } else {
     currentPlayer = "X";
-    player1.style.background = "green";
-    player2.style.background = "white";
+    player1.style.borderBottom = "thick solid #fffb96";
+    player2.style.borderBottom = "none";
   }
 }
 
@@ -202,20 +214,43 @@ function checkForWinner(){
         if(currentPlayer == "X"){
           currentScorePlayer1++;
           scorePlayer1.textContent = currentScorePlayer1;
+          player1.classList.add("animate");
         }else{
           currentScorePlayer2++;
           scorePlayer2.textContent = currentScorePlayer2;
+          player2.classList.add("animate");
         }
-       reset();
+       setTimeout(function(){
+          reset();
+       }, 2000);
       }
+  }
+  // if(playerSelections.length >= 9){
+  //   var div = document.createElement("div");
+  //   div.classList.add("draw");
+  //   div.textContent = "Nobody Won!";
+  //   setTimeout(function(){
+  //     reset();
+  //   }, 2000);
+  //   var img = new Image();
+  //   div.appendChild(img);
+  //   img.src = "../img/skeleton.gif";
+  // setTimeout(function(){
+  //   div.removeChild(div.firstChild);
+  //   div.textContent = "";
+  // }, 4000);
   }
 }
 
 function reset()
 {
     currentPlayer = "X";
+    player1.style.borderBottom = "thick solid #fffb96";
+    player2.style.borderBottom = "none";
     player1Selections = [];
     player2Selections = [];
+    player1.classList.remove("animate");
+    player2.classList.remove("animate");
     for(i=0; i<array.length; i++){
       array[i].textContent = "";
     }
