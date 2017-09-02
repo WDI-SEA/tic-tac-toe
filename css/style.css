@@ -1,3 +1,104 @@
+body {
+	text-align: center;
+	background: lightblue;
+}
 h1 {
-  color: purple;
+  color: darkgreen;
+  font-family: sans-serif;
+}
+.gameboard {
+	display: inline-block;
+	position: relative;
+	width: 175px;
+	height: 200px;
+}
+#b1 {
+	position: relative;
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	border: 2px solid darkgreen;
+	margin-bottom: 4px;
+}
+#b2 {
+	position: relative;
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	border: 2px solid darkgreen;
+	margin-bottom: 4px;
+}
+#b3 {
+	position: relative;
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	border: 2px solid darkgreen;
+	margin-bottom: 4px;
+}
+#b4 {
+	position: relative;
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	border: 2px solid darkgreen;
+	margin-bottom: 4px;
+}
+#b5 {
+	position: relative;
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	border: 2px solid darkgreen;
+	margin-bottom: 4px;
+}
+#b6 {
+	display: inline-block;
+	position: relative;
+	width: 50px;
+	height: 50px;
+	border: 2px solid darkgreen;
+	margin-bottom: 4px;
+}
+#b7 {
+	position: relative;
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	border: 2px solid darkgreen;
+}
+#b8 {
+	position: relative;
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	border: 2px solid darkgreen;
+}
+#b9 {
+	position: relative;
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	border: 2px solid darkgreen;
+}
+button {
+	position: relative;
+	background-color: khaki;
+	border-color: darkgreen;
+	border-radius: 7px;
+
+}
+.instructions {
+	position: relative;
+	font-family: sans-serif;
+	color: green;
+}
+h2 {
+	font-size: 25px;
+	line-height: 20px;
+
+}
+p { 
+	position: relative;
+
 }
