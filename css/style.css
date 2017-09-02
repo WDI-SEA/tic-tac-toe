@@ -1,3 +1,54 @@
+body{
+  margin: auto;
+  text-align: center;
+}
+
 h1 {
-  color: purple;
+  font-size: 50px;
+}
+
+#topBox{
+  height: 80px;
+  width: 600px;
+  margin: 10px auto;
+}
+
+#player1, #player2{
+  height: 40px;
+  background: yellow;
+  width: 180px;
+  display: inline-block;
+  font-size: 30px;
+  border-radius: 10px;
+  line-height: 40px;
+
+}
+
+#player1Score, #player2Score{
+  width: 100px;
+  display: inline-block;
+  font-size: 30px;
+  border-radius: 10px;
+  line-height: 40px;
+}
+
+table{
+  margin: auto;
+  border-collapse: collapse;
+  border-style: hidden;
+}
+
+td {
+  border: 1px solid black;
+  height: 150px;
+  width: 150px;
+  text-align: center;
+}
+
+#reset{
+  width: 150px;
+  padding: 10px;
+  margin: 25px;
+  border-radius: 10px;
+  background: white;
 }
