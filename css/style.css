@@ -1,3 +1,88 @@
+body, div {
+	vertical-align: top;
+	text-align: center;
+	padding: 0;
+	margin: 0;
+	border:0;
+}
+
+body {
+	white-space: nowrap;
+	min-width: 1000px;
+	overflow-x: scroll;
+	overflow-x: hidden;
+}
+
 h1 {
   color: purple;
+  text-align: center;
+}
+
+hr {
+	display: inline-block;
+  	background-color:  black;
+  	border-color: black;
+  	color: black;
+	width: 640px;
+}
+
+.row {
+	text-align: center;
+	vertical-align: center;
+	line-height: 200px
+	width: 640px;
+	height: 200px;
+}
+
+.tile {
+	display: inline-block;
+	position: relative;
+	background-color: lightgray;
+	width: 200px;
+	height: 200px;
+}
+
+.horizontalLine {
+	display: inline-block;
+  	background-color:  black;
+  	text-align: center;
+  	line-height: 0px;
+	width: 640px;
+  	height:1px;
+}
+.verticalLine {
+	display: inline-block;
+  	background-color:  black;
+  	height:200px;
+  	width:2px;
+  	margin: 0 5px;
+}
+
+.sidebar{
+	display: inline-block;
+	background-color: blue;
+	text-align: center;
+	height: 665px;
+	width: 300px;
+	margin: auto;
+}
+
+.gameboard{
+	display: inline-block;
+	background-color: green;
+	text-align: center;
+	vertical-align: center;
+	height: 665px;
+	width: 660px;
+	margin: auto;
+}
+
+aside p {
+	margin: 180px 0 20px 0;
+}
+
+
+#emptyTop {
+	height: 10px;
+	width: 660px;
 }
