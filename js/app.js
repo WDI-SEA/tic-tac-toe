@@ -1,13 +1,10 @@
 // to do:
 //figure out loop to replace onclicks
-//fix skeleton
 //clean out unecessary code
 
 
 var player1 = document.getElementById("player1");
 var player2 = document.getElementById("player2");
-
-var winnerAnnouncement = document.getElementById("winnerAnnoucement2");
 
 var scorePlayer1 = document.getElementById("player1Score");
 var scorePlayer2 = document.getElementById("player2Score");
@@ -177,7 +174,7 @@ function startGame(){
   }
 }
 
-//keeps track of turns/changes color for active player
+//keeps track of turns + changes bottom border of active player
 function changeTurn(){
   if(currentPlayer === "X"){
       currentPlayer = "O";
@@ -194,11 +191,13 @@ function changeTurn(){
 function checkForWinner(){
   var win = false;
   var playerSelections = new Array()
+  //sets up player selections arrays
   if(currentPlayer == "X"){
       playerSelections = player1Selections;
     }else{
       playerSelections = player2Selections;
     };
+  //if more than 3 turns from one player, checks if cells match winning combos in winners array
   if(playerSelections.length >= 3){
     for(i=0; i< winners.length; i++){
       var sets = winners[i];
@@ -221,6 +220,7 @@ function checkForWinner(){
         break;
       }
     }
+    //if game is won, add +1 score to winning player, start border animation, reset game
       if(win == true){
         if(currentPlayer == "X"){
           currentScorePlayer1++;
@@ -236,6 +236,7 @@ function checkForWinner(){
        }, 2000);
       }
   }
+  //if tie, play skeleton waving and reset after 4 seconds
   if(playerSelections.length >= 5 && win == false){
     var img = new Image();
     var hello = document.getElementById("hello");
@@ -248,6 +249,7 @@ function checkForWinner(){
   }
 }
 
+//reset game function (clear board, remove animations, reset arrays, reset to player 1's turn)
 function reset()
 {
     currentPlayer = "X";
