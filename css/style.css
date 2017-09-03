@@ -2,6 +2,10 @@ body {
   text-align: center;
 }
 
+h1 {
+  font-size: 40px;
+}
+
 h1, h2 {
   color: charcoal;
   font-family: sans-serif;
@@ -9,10 +13,6 @@ h1, h2 {
 
 div {
   display: inline-block;
-}
-
-#player-turn-message {
-
 }
 
 .row, .buttons, h1 {
@@ -29,6 +29,21 @@ div {
 .overlay {
   pointer-events: none;
   background-color: #E3E3E3;
+}
+
+.gameboard {
+  width: 500px;
+  height: 500px;
+}
+
+.gameboard-overlay {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  background-color: rgba(0,0,0,0);
+  width: 500px;
+  height: 500px;
+  margin: 0;
 }
 
 .x {

@@ -5,53 +5,42 @@ document.addEventListener('DOMContentLoaded', function() {
 
   var boxes = document.getElementsByClassName('box');
   var reset = document.querySelector('.reset');
-  var set = document.querySelector('.set');
-  var turnMessage = document.getElementById('player-turn-message');
-
+  var gameMessage = document.getElementById('game-message');
+  var gameboardOverlay = document.querySelector('.gameboard-overlay');
   var player = 'x';
 
   function addEventListeners() {
     reset.addEventListener('click', resetBoard);
     Array.from(boxes).forEach(function(box) {
       box.addEventListener('click', function() {
-        makeMove(this);
+        takeTurn(this);
       });
-    });
-    set.addEventListener('click', function() {
-      confirmMove();
     });
   }
 
-  function makeMove(box) {
-    
+  function takeTurn(box) {
     if (player === 'x') {
-      if (box.classList.contains('x')) {
-        box.classList.remove('x');
-        set.classList.remove('active');
-      } else {
-        box.classList.add('x');
-        set.classList.add('active');
-      }
-    } else if (player === 'o') {
-      if (box.classList.contains('o')) {
-        box.classList.remove('o');
-        set.classList.remove('active');
-      } else {
-        box.classList.add('o');
-        set.classList.add('active');
-      }
+      box.classList.add('x');
+      box.classList.add('overlay');
+      box.title = 'x';
     }
-    // containsX = box.classList.contains('x');
-    // containsO = box.classList.contains('o');
-    // if (containsX) {
-    //   box.classList.remove('x');
-    //   box.classList.add('o');
-    // } else if (containsO) {
-    //   box.classList.remove('o');
-    //   box.classList.add('x');
-    // } else {
-    //   box.classList.add('x');
-    // }
+    if (player === 'o') {
+      box.classList.add('o');
+      box.classList.add('overlay');
+      box.title = 'o';
+    }
+    if (win()) {
+      gameOver("win");
+    } else if (tie()) {
+      gameOver("tie");
+    } else {
+      if (player === 'x') {
+        player = 'o';
+      } else if (player === 'o') {
+        player = 'x';
+      }
+      gameMessage.textContent = "It is player " + player.toUpperCase() + "'s turn!";
+    }
   }
 
   function resetBoard() {
@@ -59,37 +48,13 @@ document.addEventListener('DOMContentLoaded', function() {
       box.classList.remove('x');
       box.classList.remove('o');
       box.classList.remove('overlay');
+      box.title = "";
     });
-    set.classList.remove('active');
-    player = 'o';
-  }
-
-  function confirmMove() {
-    if (set.classList.contains('active')) {
-      Array.from(boxes).forEach(function(box) {
-        containsX = box.classList.contains('x');
-        containsO = box.classList.contains('o');
-        if (containsX || containsO) {
-          box.classList.add('overlay');
-        }
-        if (containsX) {
-          box.title = 'x';
-        }
-        if (containsO) {
-          box.title = 'o';
-        }
-      });
-      if (win()) {
-        alert(player + 'has won!');
-      }
-      if (player === 'x') {
-        player = 'o';
-      } else if (player === 'o') {
-        player = 'x';
-      }
-      turnMessage.textContent = "It is player " + player.toUpperCase() + "'s turn!";
-      set.classList.remove('active');
-    }
+    reset.classList.remove('active');
+    reset.textContent = "Reset Board";
+    gameMessage.textContent = "It is player " + player.toUpperCase() + "'s turn!";
+    gameboardOverlay.style.display = "none";
+    player = 'x';
   }
 
   function win() {
@@ -104,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
      || (grid[0][2] === player && grid[1][1] === player && grid[2][0] === player)) {
       return true;
     }
-    console.log(grid);
+    // console.log(grid);
   }
 
   function getRows() {
@@ -112,7 +77,6 @@ document.addEventListener('DOMContentLoaded', function() {
     var row2 = document.getElementsByClassName('row-2');
     var row3 = document.getElementsByClassName('row-3');
     var rows = [row1[0], row2[0], row3[0]];
-    console.log("Rows: " + rows);
     return rows;
   }
 
@@ -129,7 +93,28 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function tie() {
+    grid = getGrid();
+    for (var i = 0; i < grid.length; i++) {
+      for (var j = 0; j < grid[i].length; j++) {
+        if (grid[i][j] === "") {
+          return false;
+        }
+      }
+    }
+    return true;
+  }
 
+  function gameOver(winCondition) {
+    if (winCondition === "win") {
+      console.log(gameMessage.textContent);
+      gameMessage.textContent = "Player " + player.toUpperCase() + " has won!";
+      console.log(gameMessage.textContent);
+    } else if (winCondition === "tie") {
+      gameMessage.textContent = "It's a tie!";
+    }
+    gameboardOverlay.style.display = "inherit";
+    reset.textContent = "Play Again?";
+    reset.classList.add('active');
   }
 
   addEventListeners();
