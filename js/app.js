@@ -240,7 +240,6 @@ function checkForWinner(){
   //   div.textContent = "";
   // }, 4000);
   }
-}
 
 function reset()
 {
