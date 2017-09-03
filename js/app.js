@@ -1,6 +1,5 @@
 // to do:
 //figure out loop to replace onclicks
-//add condition for draw
 //fix skeleton
 //clean out unecessary code
 
@@ -48,10 +47,22 @@ var currentScorePlayer2 = 0;
 
 function startGame(){
 
-//onclick to place x's and o's
-  table.onclick = function(){
-    checkForWinner();
-  }
+//why doesn't this loop work?? :( :( :(
+
+          // for(r=0; r<array.length; r++){
+          //   array[r].onclick = function(){
+          //     if(array[r].onclick.textContent == ""){
+          //     array[r].onclick.textContent = currentPlayer;
+          //     if(currentPlayer === "X"){
+          //       player1Selections.push(array[r]);
+          //     }else{
+          //       player2Selections.push(array[r]);
+          //     }
+          //     checkForWinner();
+          //     changeTurn();
+          //     }
+          //   }
+          // }
 
   oneA.onclick = function(){
     if(oneA.textContent == ""){
@@ -225,21 +236,17 @@ function checkForWinner(){
        }, 2000);
       }
   }
-  // if(playerSelections.length >= 9){
-  //   var div = document.createElement("div");
-  //   div.classList.add("draw");
-  //   div.textContent = "Nobody Won!";
-  //   setTimeout(function(){
-  //     reset();
-  //   }, 2000);
-  //   var img = new Image();
-  //   div.appendChild(img);
-  //   img.src = "../img/skeleton.gif";
-  // setTimeout(function(){
-  //   div.removeChild(div.firstChild);
-  //   div.textContent = "";
-  // }, 4000);
+  if(playerSelections.length >= 5 && win == false){
+    var img = new Image();
+    var hello = document.getElementById("hello");
+    hello.appendChild(img);
+    img.src = "img/skeleton.gif";
+    setTimeout(function(){
+      hello.removeChild(img);
+      reset();
+    }, 4000);
   }
+}
 
 function reset()
 {
