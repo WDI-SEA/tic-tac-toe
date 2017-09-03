@@ -1,3 +1,75 @@
+body {
+  text-align: center;
+}
+
 h1 {
-  color: purple;
+  color: charcoal;
+  font-family: sans-serif;
+}
+
+div {
+  display: inline-block;
+}
+
+.box {
+  background-color: white;
+  width: 200px;
+  height: 200px;
+  margin: 4px 2px;
+}
+
+.overlay {
+  pointer-events: none;
+  background-color: #E3E3E3;
+}
+
+.x {
+  background-image: url("/img/x.png");
+  background-size: 100% 100%;
+}
+
+.o {
+  background-image: url("/img/o.png");
+  background-size: 100% 100%;
+}
+
+.button {
+  background-color: buttonface;
+  margin: 0 20px 20px 20px;
+  width: 200px;
+  line-height: 25px;
+  font-size: 20px;
+}
+
+.button, .box {
+  border: 1px solid grey;
+  box-shadow: 0px 1px 0px #2f6627;
+  border-radius: 5px;
+}
+
+.button:focus {
+  outline: inherit;
+}
+
+.button:active {
+  position: relative;
+  top: 2px;
+}
+
+.set {
+  cursor: not-allowed;
+}
+
+.set:active {
+  position: inherit;
+  top: inherit;
+}
+
+.active {
+  cursor: inherit;
+  position: relative;
+  bottom: 2px;
+  color: white;
+  background-color: green;
+  content: "Confirm Move";
 }
