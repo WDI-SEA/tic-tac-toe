@@ -2,7 +2,7 @@ body {
   text-align: center;
 }
 
-h1 {
+h1, h2 {
   color: charcoal;
   font-family: sans-serif;
 }
@@ -11,10 +11,18 @@ div {
   display: inline-block;
 }
 
+#player-turn-message {
+
+}
+
+.row, .buttons, h1 {
+  display: block;
+}
+
 .box {
   background-color: white;
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   margin: 4px 2px;
 }
 
