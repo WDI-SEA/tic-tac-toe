@@ -1,3 +1,91 @@
-h1 {
-  color: purple;
+h1 { 
+  color: red;
 }
+.gameBoard {
+	
+	width: 300px;
+	height: 300px;
+	border: 8px ridge #777;
+	border-radius: 12px;
+	margin: 0 auto;
+}
+.gameBoard > div {
+	display: inline-flex;
+	
+	width: 99px;
+	height: 99px;
+	border: 1px solid black;
+	
+	margin-left: -2px;
+	margin-right: -2px;
+	
+}
+button {
+
+}
+h1 > div {
+
+}
+/*#gridOne {
+	display: inline-block;
+	width: 200px;
+	height: 200px;
+	border: 1px solid black;
+	margin: 0;
+}
+#gridTwo {
+	display: inline-block;
+	width: 200px;
+	height: 200px;
+	border: 1px solid black;
+	margin: 0;
+}
+#gridthree {
+	display: inline-block;
+	width: 200px;
+	height: 200px;
+	border: 1px solid black;
+	margin: 0;
+}
+#gridFour {
+	display: inline-block;
+	width: 200px;
+	height: 200px;
+	border: 1px solid black;
+	margin: 0;
+}
+#gridFive {
+	display: inline-block;
+	width: 200px;
+	height: 200px;
+	border: 1px solid black;
+	margin: 0;
+}
+#gridSix {
+	display: inline-block;
+	width: 200px;
+	height: 200px;
+	border: 1px solid black;
+	margin: 0;
+}
+#gridSeven {
+	display: inline-block;
+	width: 200px;
+	height: 200px;
+	border: 1px solid black;
+	margin: 0;
+}
+#gridEight {
+	display: inline-block;
+	width: 200px;
+	height: 200px;
+	border: 1px solid black;
+	margin: 0;
+}
+#gridNine {
+	display: inline-block;
+	width: 200px;
+	height: 200px;
+	border: 1px solid black;
+	margin: 0;
+}*/
