@@ -16,7 +16,7 @@ var player1 = "X";
 var player2 = "O";
 var firstPlayer = player1;
 var nextPlayer = player1;
-var marker = "x";
+var marker = "X";
 
 var selectPlayer = function () {
 	if (nextPlayer === "X") {
@@ -29,148 +29,250 @@ var selectPlayer = function () {
 }
 
 var changeLetter1 = function () {
-	if (box1.value === undefined) {
-		box1.textContent = marker;
-		if (marker = "x") {
-			marker = "O";
-		} else {
-			marker = "O";
-		}
-		console.log("box1")
+	if (box1.textContent==='X' || box1.textContent==='O') {
+		console.log("this box has been played");
 	} else {
-		return "this box has been played, idiot"
-		alert("this box has been played, idiot")
-		console.log("this box has been played")
+		box1.textContent = nextPlayer;
+		selectPlayer();
+		// if (marker = "X") {
+		// 	marker = "O";
+		// } else {
+		// 	marker = "X";
+		console.log("box1 hit and selectPlayer function run")
 	}
-};
-
+}
 var changeLetter2 = function () {
-	if (box2.value === undefined) {
-		box2.textContent = marker;
-		if (marker = "x") {
-			marker = "O";
-		} else {
-			marker = "O";
-		}
-		console.log("box2")
+	if (box2.textContent==='X' || box2.textContent==='O') {
+		console.log("this box has been played");
 	} else {
-		return "this box has been played, idiot"
-		alert("this box has been played, idiot")
-		console.log("this box has been played")
+		box2.textContent = nextPlayer;
+		selectPlayer();
+		// if (marker = "X") {
+		// 	marker = "O";
+		// } else {
+		// 	marker = "X";
+		console.log("box2 hit and selectPlayer function run")
 	}
 }
-
 var changeLetter3 = function () {
-	if (box3.value === undefined) {
-		box3.textContent = marker;
-		if (marker = "x") {
-			marker = "O";
-		} else {
-			marker = "O";
-		}
-		console.log("box3")
+	if (box3.textContent==='X' || box3.textContent==='O') {
+		console.log("this box has been played");
 	} else {
-		return "this box has been played, idiot"
-		alert("this box has been played, idiot")
-		console.log("this box has been played")
+		box3.textContent = nextPlayer;
+		selectPlayer();
+		// if (marker = "X") {
+		// 	marker = "O";
+		// } else {
+		// 	marker = "X";
+		console.log("box3 hit and selectPlayer function run")
 	}
 }
-
 var changeLetter4 = function () {
-	if (box4.value === undefined) {
-		box4.textContent = marker;
-		if (marker = "x") {
-			marker = "O";
-		} else {
-			marker = "O";
-		}
-		console.log("box4")
+	if (box4.textContent==='X' || box4.textContent==='O') {
+		console.log("this box has been played");
 	} else {
-		return "this box has been played, idiot"
-		alert("this box has been played, idiot")
-		console.log("this box has been played")
+		box4.textContent = nextPlayer;
+		selectPlayer();
+		// if (marker = "X") {
+		// 	marker = "O";
+		// } else {
+		// 	marker = "X";
+		console.log("box4 hit and selectPlayer function run")
 	}
 }
-
 var changeLetter5 = function () {
-	if (box5.value === undefined) {
-		box5.textContent = marker;
-		if (marker = "x") {
-			marker = "O";
-		} else {
-			marker = "O";
-		}
-		console.log("box5")
+	if (box5.textContent==='X' || box5.textContent==='O') {
+		console.log("this box has been played");
 	} else {
-		return "this box has been played, idiot"
-		alert("this box has been played, idiot")
-		console.log("this box has been played")
+		box5.textContent = nextPlayer;
+		selectPlayer();
+		// if (marker = "X") {
+		// 	marker = "O";
+		// } else {
+		// 	marker = "X";
+		console.log("box5 hit and selectPlayer function run")
 	}
 }
-
 var changeLetter6 = function () {
-	if (box6.value === undefined) {
-		box6.textContent = marker;
-		if (marker = "x") {
-			marker = "O";
-		} else {
-			marker = "O";
-		}
-		console.log("box6")
+	if (box6.textContent==='X' || box6.textContent==='O') {
+		console.log("this box has been played");
 	} else {
-		return "this box has been played, idiot"
-		alert("this box has been played, idiot")
-		console.log("this box has been played")
+		box6.textContent = nextPlayer;
+		selectPlayer();
+		// if (marker = "X") {
+		// 	marker = "O";
+		// } else {
+		// 	marker = "X";
+		console.log("box6 hit and selectPlayer function run")
 	}
 }
-
 var changeLetter7 = function () {
-	if (box7.value === undefined) {
-		box7.textContent = marker;
-		if (marker = "x") {
-			marker = "O";
-		} else {
-			marker = "O";
-		}
-		console.log("box7")
+	if (box7.textContent==='X' || box7.textContent==='O') {
+		console.log("this box has been played");
 	} else {
-		return "this box has been played, idiot"
-		alert("this box has been played, idiot")
-		console.log("this box has been played")
+		box7.textContent = nextPlayer;
+		selectPlayer();
+		// if (marker = "X") {
+		// 	marker = "O";
+		// } else {
+		// 	marker = "X";
+		console.log("box7 hit and selectPlayer function run")
 	}
 }
-
 var changeLetter8 = function () {
-	if (box8.value === undefined) {
-		box8.textContent = marker;
-		if (marker = "x") {
-			marker = "O";
-		} else {
-			marker = "O";
-		}
-		console.log("box8")
+	if (box8.textContent==='X' || box8.textContent==='O') {
+		console.log("this box has been played");
 	} else {
-		return "this box has been played, idiot"
-		alert("this box has been played, idiot")
-		console.log("this box has been played")
+		box8.textContent = nextPlayer;
+		selectPlayer();
+		// if (marker = "X") {
+		// 	marker = "O";
+		// } else {
+		// 	marker = "X";
+		console.log("box8 hit and selectPlayer function run")
+	}
+}
+var changeLetter9 = function () {
+	if (box9.textContent==='X' || box9.textContent==='O') {
+		console.log("this box has been played");
+	} else {
+		box9.textContent = nextPlayer;
+		selectPlayer();
+		// if (marker = "X") {
+		// 	marker = "O";
+		// } else {
+		// 	marker = "X";
+		console.log("box9 hit and selectPlayer function run")
 	}
 }
 
-var changeLetter9 = function () {
-	if (box9.value === undefined) {
-		box9.textContent = marker;
-		if (marker = "x") {
-			marker = "O";
-		} else {
-			marker = "O";
-		}
-		console.log("box9")
-	} else {
-		return "this box has been played, idiot"
-		alert("this box has been played, idiot")
-		console.log("this box has been played")
-	}
-}
+// var changeLetter2 = function () {
+// 	if (box2.value === undefined) {
+// 		box2.textContent = marker;
+// 		if (marker = "X") {
+// 			marker = "O";
+// 		} else {
+// 			marker = "X";
+// 		}
+// 		console.log("box2")
+// 	} else {
+// 		return "this box has been played, idiot"
+// 		alert("this box has been played, idiot")
+// 		console.log("this box has been played")
+// 	}
+// }
+
+// var changeLetter3 = function () {
+// 	if (box3.value === undefined) {
+// 		box3.textContent = marker;
+// 		if (marker = "X") {
+// 			marker = "O";
+// 		} else {
+// 			marker = "X";
+// 		}
+// 		console.log("box3")
+// 	} else {
+// 		return "this box has been played, idiot"
+// 		alert("this box has been played, idiot")
+// 		console.log("this box has been played")
+// 	}
+// }
+
+// var changeLetter4 = function () {
+// 	if (box4.value === undefined) {
+// 		box4.textContent = marker;
+// 		if (marker = "X") {
+// 			marker = "O";
+// 		} else {
+// 			marker = "X";
+// 		}
+// 		console.log("box4")
+// 	} else {
+// 		return "this box has been played, idiot"
+// 		alert("this box has been played, idiot")
+// 		console.log("this box has been played")
+// 	}
+// }
+
+// var changeLetter5 = function () {
+// 	if (box5.value === undefined) {
+// 		box5.textContent = marker;
+// 		if (marker = "X") {
+// 			marker = "O";
+// 		} else {
+// 			marker = "X";
+// 		}
+// 		console.log("box5")
+// 	} else {
+// 		return "this box has been played, idiot"
+// 		alert("this box has been played, idiot")
+// 		console.log("this box has been played")
+// 	}
+// }
+
+// var changeLetter6 = function () {
+// 	if (box6.value === undefined) {
+// 		box6.textContent = marker;
+// 		if (marker = "X") {
+// 			marker = "O";
+// 		} else {
+// 			marker = "X";
+// 		}
+// 		console.log("box6")
+// 	} else {
+// 		return "this box has been played, idiot"
+// 		alert("this box has been played, idiot")
+// 		console.log("this box has been played")
+// 	}
+// }
+
+// var changeLetter7 = function () {
+// 	if (box7.value === undefined) {
+// 		box7.textContent = marker;
+// 		if (marker = "X") {
+// 			marker = "O";
+// 		} else {
+// 			marker = "X";
+// 		}
+// 		console.log("box7")
+// 	} else {
+// 		return "this box has been played, idiot"
+// 		alert("this box has been played, idiot")
+// 		console.log("this box has been played")
+// 	}
+// }
+
+// var changeLetter8 = function () {
+// 	if (box8.value === undefined) {
+// 		box8.textContent = marker;
+// 		if (marker = "X") {
+// 			marker = "O";
+// 		} else {
+// 			marker = "X";
+// 		}
+// 		console.log("box8")
+// 	} else {
+// 		return "this box has been played, idiot"
+// 		alert("this box has been played, idiot")
+// 		console.log("this box has been played")
+// 	}
+// }
+
+// var changeLetter9 = function () {
+// 	if (box9.value === undefined) {
+// 		box9.textContent = marker;
+// 		if (marker = "X") {
+// 			marker = "O";
+// 		} else {
+// 			marker = "X";
+// 		}
+// 		console.log("box9")
+// 	} else {
+// 		return "this box has been played, idiot"
+// 		alert("this box has been played, idiot")
+// 		console.log("this box has been played")
+// 	}
+// }
 
 
 // var changeLetter = function (whichBox) { //maybe delete both of these
@@ -191,16 +293,16 @@ var changeLetter9 = function () {
 
 
 
-document.addEventListener("click", changeLetter1);
-document.addEventListener("click", changeLetter2);
-document.addEventListener("click", changeLetter3);
-document.addEventListener("click", changeLetter4);
-document.addEventListener("click", changeLetter5);
-document.addEventListener("click", changeLetter6);
-document.addEventListener("click", changeLetter7);
-document.addEventListener("click", changeLetter8);
-document.addEventListener("click", changeLetter9);
-document.addEventListener("click", selectPlayer);
+box1.addEventListener("click", changeLetter1);
+box2.addEventListener("click", changeLetter2);
+box3.addEventListener("click", changeLetter3);
+box4.addEventListener("click", changeLetter4);
+box5.addEventListener("click", changeLetter5);
+box6.addEventListener("click", changeLetter6);
+box7.addEventListener("click", changeLetter7);
+box8.addEventListener("click", changeLetter8);
+box9.addEventListener("click", changeLetter9);
+// document.addEventListener("click", selectPlayer);
 
 
 })
