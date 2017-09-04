@@ -1,66 +1,83 @@
-h1 {
-  color: white;
-  text-align: center;
-}
 
 body {
   background: black;
 }
 
 button {
-  font-size: 18px;
+  font-size: 20px;
+  color: white;
+  background: #404040;
+  font-family: 'Cinzel Decorative', cursive;
+}
+
+img {
+  height: 100px;
+  margin: auto;
+}
+
+#title{
+  text-align: center;
 }
 
 #gameBoard {
   width: 100%;
-  height: 650px;
-  background: black;
+  height: 460px;
+  padding: 10px;
+  background: url(../img/Landscape.jpg);
+  background-size: cover;
   text-align: center;
 }
 
 .squares {
-  height: 200px;
-  width:200px;
-  background: white;
+  height: 150px;
+  width: 150px;
+  background: #404040;
   display: inline-block;
 }
 
 .X {
   background: gray;
+  background: url(../img/Dragon.jpg);
+  background-size: 150px 150px;
 }
 
 .O {
-  background: red;
+  background: url(../img/Lion.jpg);
+  background-size: 150px 150px;
 }
-
 
 #bottomContainer {
   background: black;
   text-align: center;
+  height: 250px;
 }
 
-#displayWinner{
-  width: 400px;
-  height: 100px;
-  background: blue;
-  display:inline-block;
-}
-
-#buttonDiv {
-  height: 50px;
-  width: 200px;
+.bottomDisplays {
+  width: 250px;
+  height: 200px;
   display: inline-block;
 }
 
-#displayTurn {
-  width: 400px;
-  height: 100px;
-  background: red;
+.inner {
+  height: 50px;
+  width: 100%;
   display: inline-block;
 }
 
 .displayText {
-  margin: auto;
+  color: white;
+  font-size: 30px;
+  font-family: 'Cinzel', serif;
+  display: block;
+}
+
+.fancyDisplayText {
   color: white;
   font-size: 36px;
+  font-family: 'Cinzel Decorative', cursive;
+  display: inline-block;
+}
+
+#button {
+  display: inline-block;
 }
