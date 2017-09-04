@@ -1,4 +1,3 @@
-console.log('Hello frontend');
 document.addEventListener('DOMContentLoaded', function() {
 
 
@@ -13,11 +12,21 @@ var box6 = document.getElementById("b6");
 var box7 = document.getElementById("b7");
 var box8 = document.getElementById("b8");
 var box9 = document.getElementById("b9");
-
-
+var player1 = "X";
+var player2 = "O";
+var firstPlayer = player1;
+var nextPlayer = player1;
 var marker = "x";
 
-
+var selectPlayer = function () {
+	if (nextPlayer === "X") {
+		nextPlayer = player2;
+		console.log("player 2 is next")
+	} else {
+		nextPlayer = player1;
+		console.log("player 1 is next")
+	}
+}
 
 var changeLetter1 = function () {
 	if (box1.value === undefined) {
@@ -191,7 +200,7 @@ document.addEventListener("click", changeLetter6);
 document.addEventListener("click", changeLetter7);
 document.addEventListener("click", changeLetter8);
 document.addEventListener("click", changeLetter9);
-
+document.addEventListener("click", selectPlayer);
 
 
 })
