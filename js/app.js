@@ -1,4 +1,5 @@
-var currentPlayer = "x";
+var currentPlayer = "X";
+var playCounter = 0;
 
 //get html divs corresponding to game squares
 var idpos00 = document.getElementById("pos00");
@@ -11,6 +12,7 @@ var idpos20 = document.getElementById("pos20");
 var idpos21 = document.getElementById("pos21");
 var idpos22 = document.getElementById("pos22");
 var whosUp = document.getElementById("whosUp");
+var sidebarText = document.getElementById("sidebarText");
 
 //contain DOM elements for gameboard boxes
 var boxElements = [
@@ -35,11 +37,11 @@ var boardInPlay = [
 //builds board based on the boardInPlay array
 var buildBoard = function(){
   for(var i = 0; i<boardInPlay.length; i++){ 
-    var col = boardInPlay[i]; 
-      for(var j = 0; j<col.length; j++){
-        if(boardInPlay[i][j]==="x"){
+    var row = boardInPlay[i]; 
+      for(var j = 0; j<row.length; j++){
+        if(boardInPlay[i][j]==="X"){
           boxElements[i][j].style.backgroundImage =  "url('img/ximg.png')";  
-        } else if(boardInPlay[i][j]==="o"){
+        } else if(boardInPlay[i][j]==="O"){
           boxElements[i][j].style.backgroundImage =  "url('img/oimg.png')"; 
         } else {
           boxElements[i][j].style.backgroundImage =  "";  
@@ -51,23 +53,25 @@ var buildBoard = function(){
 //sets board back to default
 var resetGame = function(){
   for(var i = 0; i<boardInPlay.length; i++){ 
-    var col = boardInPlay[i]; 
-      for(var j = 0; j<col.length; j++){
+    var row = boardInPlay[i]; 
+      for(var j = 0; j<row.length; j++){
       	boardInPlay[i][j]=boardStart[i][j];
       } 
   } 
-  currentPlayer = "x";
+  currentPlayer = "X";
   buildBoard();
+  playCounter = 0;
   whosUp.style.backgroundImage =  "url('img/ximg.png')";
+  sidebarText.textContent = "Click the board to place an:"
 };
 
 //anonymous - switches player and changes whosUp image
 var switchPlayer = function(){
-	if(currentPlayer==="x"){
-		currentPlayer="o";
+	if(currentPlayer==="X"){
+		currentPlayer="O";
 		whosUp.style.backgroundImage =  "url('img/oimg.png')";
 	} else{
-		currentPlayer="x";
+		currentPlayer="X";
 		whosUp.style.backgroundImage =  "url('img/ximg.png')";
 	}
 }
@@ -78,7 +82,7 @@ var arrayAllSame = function(testArray){
 	for(var i = 1; i<testArray.length; i++){
 		if(testArray[0]!==testArray[i]){
 			isSame=false;
-		}
+    	}
 	}
 	return isSame;
 };
@@ -87,23 +91,67 @@ var arrayAllSame = function(testArray){
 var checkForWinner = function(player){
 	var isWinner = false;
 	//horizontal
-	for(var i = 0; i<boardInPlay.length; i++){ 
-		arrayAllSame(player); 
-  	} 
+	for(var i = 0; i<boardInPlay.length; i++){
+		if(arrayAllSame(boardInPlay[i])===true){
+		  isWinner = true;
+		  console.log(player + "wins");
+		  return isWinner; 
+      	}
+    }
 	//vertical
+	for(var j = 0; j<boardInPlay.length;j++){
+		var colArray = [];
+		for(var i = 0; i<boardInPlay.length; i++){ 
+     		colArray.push(boardInPlay[i][j]);
+  		} 
+      if(arrayAllSame(colArray)===true){
+		    isWinner = true;
+		    console.log(player + "wins");
+		    return isWinner;
+      }
+	}
+	 
+	// diagonal
+	var diagDown = [];
+		for(var i = 0; i<boardInPlay.length; i++){ 
+     		diagDown.push(boardInPlay[i][i]);
+     	}
+		if(arrayAllSame(diagDown)===true){
+		  isWinner = true;
+		  console.log(player + "wins");
+		  return isWinner; 
+      	}
 
-	//diagonal
+	var diagUp = [];
+		for(var i = 0; i<boardInPlay.length; i++){
+			var j = boardInPlay.length - 1 - i;
+     		diagUp.push(boardInPlay[i][j]);
+     	}
+		if(arrayAllSame(diagUp)===true){
+		  isWinner = true;
+		  console.log(player + "wins");
+		  return isWinner; 
+      	} 
+      playCounter++;
+      return isWinner;
 };
 
-//accepts "coordinate" in the form posxy and value of current player
+//accepts "coordinate" in the form posij and value of current player
 var updateBoardInPlay = function(pos,player){
 	var i = pos.charAt(3);
 	var j = pos.charAt(4);
 	if(boardInPlay[i][j]===boardStart[i][j]){
 		boardInPlay[i][j]=player;
 		if(checkForWinner(player)===true){
-			///winning stuff
-		} else{
+			buildBoard();
+			whosUp.style.backgroundImage =  "url('img/win.gif')";
+			sidebarText.textContent = player + " wins!";
+		} else if (playCounter===9){
+			buildBoard();
+			whosUp.style.backgroundImage =  "";
+			sidebarText.textContent = "It's a draw!  Reset to play again.";
+		}
+		else{
 		switchPlayer();
 		buildBoard();
 		}	
@@ -111,9 +159,7 @@ var updateBoardInPlay = function(pos,player){
 };
 
 
-
 //initialize and play the game
-
 resetGame();
 
 idpos00.addEventListener("click",function(){updateBoardInPlay("pos00",currentPlayer);});

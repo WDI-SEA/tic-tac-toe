@@ -16,20 +16,20 @@ body {
 
 h1 {
 	display: inline-block;
-	background-color: gray;
-	color: white;
+	background-color: #EAE7DC;
+	color: #E85A4F;
   	text-align: center;
-	border: 1px solid black;
-	min-width: 960px;
+  	line-height: 50px;
+	border: 3px solid white;
+	min-width: 964px;
+	height: 50px;
 	margin: 0;
 }
 
 hr {
 	display: inline-block;
-  	background-color:  black;
-  	border-color: black;
-  	color: black;
-	width: 640px;
+  	border-color: #8E8D8A;
+  	width: 640px;
 }
 
 .row {
@@ -42,23 +42,13 @@ hr {
 
 .tile {
 	display: inline-block;
-	/*position: relative;
-	background-color: lightgray;*/
 	width: 200px;
 	height: 200px;
 }
 
-.horizontalLine {
-	display: inline-block;
-  	background-color:  black;
-  	text-align: center;
-  	line-height: 0px;
-	width: 640px;
-  	height:1px;
-}
 .verticalLine {
 	display: inline-block;
-  	background-color:  black;
+  	background-color:  #8E8D8A;
   	height:200px;
   	width:2px;
   	margin: 0 5px;
@@ -66,7 +56,7 @@ hr {
 
 .sidebar{
 	display: inline-block;
-	background-color: blue;
+	background-color: #EAE7DC;
 	text-align: center;
 	height: 665px;
 	width: 300px;
@@ -75,7 +65,7 @@ hr {
 
 .gameboard{
 	display: inline-block;
-	background-color: green;
+	background-color: #EAE7DC;
 	text-align: center;
 	vertical-align: center;
 	height: 665px;
@@ -84,7 +74,10 @@ hr {
 }
 
 aside p {
+	font-weight: bold;
+	font-size: 20px;
 	margin: 180px 0 20px 0;
+	color: #E85A4F;
 }
 
 #reset {
