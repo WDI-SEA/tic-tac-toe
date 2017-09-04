@@ -5,7 +5,7 @@
 
 
 body{
-  margin: auto;
+  margin: 0 auto;
   text-align: center;
   background-image: url("../img/bg.jpg");
   background-size: cover;
@@ -16,31 +16,41 @@ h1 {
   color: #ff71ce;
   font-size: 60px;
   letter-spacing: 2px;
+  margin: 5px auto;
 
+}
+p{
+  font-family: Times;
+  font-size: 18px;
+  margin: 25px auto;
 }
 
 #topBox{
   height: 70px;
   width: 600px;
-  margin: 0 auto;
+  margin-top: 5px auto;
+  display: inline-block;
 }
 
 #dropdown{
-  height: 32px;
-  width: 150px;
-  font-size: 25px;
+  height: 50px;
+  width: 180px;
+  font-size: 28px;
   background: transparent;
   border: none;
+  font-family: Times;
 }
+
 
 #player1{
   height: 32px;
   width: 180px;
   display: inline-block;
-  font-size: 30px;
+  font-size: 28px;
   border-radius: 10px;
   line-height: 40px;
   font-family: Times;
+  padding-bottom: 10px;
 }
 
 #player1Score, #player2Score{
@@ -100,16 +110,13 @@ button{
 }
 
 .animate {
-  animation: 1s rainbow infinite;
+  animation: 1s rainbowBorder infinite;
 }
 
-@keyframes animateBorderOne {
-  to {
-    outline-color: #b967ff;
-    box-shadow: 0 0 5px 9px #01cdfe;
-  }
+.colorChange{
+  animation: .5s rainbowText infinite;
 }
-@keyframes rainbow{
+@keyframes rainbowBorder{
   0%{
     border-bottom: 10px solid #ff71ce;
   }
@@ -124,5 +131,22 @@ button{
   }
   100%{
     border-bottom: 10px solid #fffb96;
+  }
+}
+@keyframes rainbowText{
+  0%{
+    color:#ff71ce;
+  }
+  20%{
+    color:#01cdfe;
+  }
+  40%{
+    color:#05ffa1;
+  }
+  80%{
+    bcolor:#b967ff;
+  }
+  100%{
+    color:#fffb96;
   }
 }

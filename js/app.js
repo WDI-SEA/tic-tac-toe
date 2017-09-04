@@ -37,6 +37,19 @@ var currentScorePlayer1 = 0;
 var currentScorePlayer2 = 0;
 
 
+//CLICK EVENTS
+
+//reset game and score
+  newGame.onclick = function(){
+    reset();
+    currentScorePlayer1 = 0;
+    currentScorePlayer2 = 0;
+    scorePlayer1.textContent = currentScorePlayer1;
+    scorePlayer2.textContent = currentScorePlayer2;
+  }
+
+//FUNCTIONS
+
 //if computer player is selected
 function computerPlays(){
   if(dropdown.options[dropdown.selectedIndex].value == "2"){
@@ -51,7 +64,7 @@ function computerPlays(){
       if(emptyCells.length == "0"){
         checkForWinner();
       }
-      //randomly selects from empty cells array
+      //randomly selects from empty cells array and fills cell with "O"
       var randomSelection = emptyCells[Math.floor(Math.random()*emptyCells.length)];
       setTimeout(function(){
         randomSelection.textContent = "O";
@@ -62,20 +75,6 @@ function computerPlays(){
     }
   }
 }
-
-
-//CLICK EVENTS
-
-//reset game and score
-  newGame.onclick = function(){
-    reset();
-    currentScorePlayer1 = 0;
-    currentScorePlayer2 = 0;
-    scorePlayer1.textContent = currentScorePlayer1;
-    scorePlayer2.textContent = currentScorePlayer2;
-  }
-
-//FUNCTIONS
 
 //adds X or O from click event (click events in HTML)
 function modifyText(location){
@@ -110,6 +109,7 @@ function changeTurn(){
 function checkForWinner(){
   var win = false;
   var playerSelections = new Array()
+   var winningCombo = "";
   //sets up player selections arrays
   if(currentPlayer == "X"){
       playerSelections = player1Selections;
@@ -126,6 +126,10 @@ function checkForWinner(){
         for(k=0;k<playerSelections.length; k++){
           if(sets[j] == playerSelections[k]){
             found = true;
+            //filters two sets to return the winning combo- used for animation later
+            winningCombo = sets.filter(function(value){
+              return playerSelections.indexOf(value)>-1;
+            });
             break;
           }
         }
@@ -139,7 +143,7 @@ function checkForWinner(){
         break;
       }
     }
-    //if game is won, add +1 score to winning player, start border animation, reset game
+    //if game is won, add +1 score to winning player, start border animation, starts cell animation, reset game after 2 seconds
       if(win == true){
         if(currentPlayer == "X"){
           currentScorePlayer1++;
@@ -150,12 +154,15 @@ function checkForWinner(){
           scorePlayer2.textContent = currentScorePlayer2;
           dropdown.classList.add("animate");
         }
+       for(m=0; m<winningCombo.length; m++){
+          winningCombo[m].classList.add("colorChange");
+       }
        setTimeout(function(){
           reset();
        }, 2000);
       }
   }
-  //if tie, play skeleton waving and reset after 4 seconds
+  //if tie, add skeleton waving gif and reset after 4 seconds
   if(playerSelections.length >= 5 && win == false){
     var img = new Image();
     var hello = document.getElementById("hello");
@@ -179,5 +186,7 @@ function reset(){
     dropdown.classList.remove("animate");
     for(i=0; i<array.length; i++){
       array[i].textContent = "";
+      array[i].classList.remove("colorChange");
     }
+    winningCombo = [];
 }
