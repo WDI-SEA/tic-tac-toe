@@ -6,7 +6,7 @@ h1 {
   color: darkgreen;
   font-family: sans-serif;
 }
-.gameboard {
+#board {
 	display: inline-block;
 	position: relative;
 	width: 175px;
