@@ -16,23 +16,25 @@
   </div>
 <table id="table">
     <tr id="1" class="row">
-        <td id="oneA" class="one"></td>
-        <td id="oneB" class="one"></td>
-        <td id="oneC" class="one"></td>
-    </tr id="2" class="row">
+        <td id="oneA" class="one" onclick="modifyText(oneA);"></td>
+        <td id="oneB" class="one" onclick="modifyText(oneB);"></td>
+        <td id="oneC" class="one" onclick="modifyText(oneC);"></td>
+    </tr>
     <tr id="2" class="row">
-        <td id="twoA" class="two"></td>
-        <td id="twoB" class="two"></td>
-        <td id="twoC" class="two"></td>
+        <td id="twoA" class="two" onclick="modifyText(twoA);"></td>
+        <td id="twoB" class="two" onclick="modifyText(twoB);"></td>
+        <td id="twoC" class="two" onclick="modifyText(twoC);"></td>
     </tr>
     <tr id="3" class="row">
-        <td id="threeA" class="three"></td>
-        <td id="threeB" class="three"></td>
-        <td id="threeC" class="three"></td>
+        <td id="threeA" class="three" onclick="modifyText(threeA);"></td>
+        <td id="threeB" class="three" onclick="modifyText(threeB);"></td>
+        <td id="threeC" class="three" onclick="modifyText(threeC);"></td>
     </tr>
 </table>
 <div id="hello"></div>
-<button id="reset">New Game</button>
+<button id="reset" onclick="reset();">Reset Board</button>
+<button id="newGame">New Game</button>
+
 
   <script type="text/javascript" src="js/app.js"></script>
 </body>

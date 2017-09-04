@@ -1,15 +1,9 @@
-// to do:
-//figure out loop to replace onclicks
-//clean out unecessary code
-
-
 var player1 = document.getElementById("player1");
 var player2 = document.getElementById("player2");
 
 var scorePlayer1 = document.getElementById("player1Score");
 var scorePlayer2 = document.getElementById("player2Score");
 
-var table = document.getElementById("table");
 var oneA = document.getElementById("oneA");
 var oneB = document.getElementById("oneB");
 var oneC = document.getElementById("oneC");
@@ -20,9 +14,10 @@ var threeA = document.getElementById("threeA");
 var threeB = document.getElementById("threeB");
 var threeC = document.getElementById("threeC");
 
-var resetGame = document.getElementById("reset");
+var newGame = document.getElementById("newGame");
 
 var array = [oneA, oneB, oneC, twoA, twoB, twoC, threeA, threeB, threeC];
+//winning combos:
 var winners = [
   [oneA, twoA, threeA],
   [oneB, twoB, threeB],
@@ -41,138 +36,33 @@ var currentPlayer = "X";
 var currentScorePlayer1 = 0;
 var currentScorePlayer2 = 0;
 
+//CLICK EVENTS
 
-function startGame(){
-
-//why doesn't this loop work?? :( :( :(
-
-          // for(r=0; r<array.length; r++){
-          //   array[r].onclick = function(){
-          //     if(array[r].onclick.textContent == ""){
-          //     array[r].onclick.textContent = currentPlayer;
-          //     if(currentPlayer === "X"){
-          //       player1Selections.push(array[r]);
-          //     }else{
-          //       player2Selections.push(array[r]);
-          //     }
-          //     checkForWinner();
-          //     changeTurn();
-          //     }
-          //   }
-          // }
-
-  oneA.onclick = function(){
-    if(oneA.textContent == ""){
-      oneA.textContent = currentPlayer;
-      if(currentPlayer === "X"){
-        player1Selections.push(oneA);
-      }else{
-        player2Selections.push(oneA);
-      }
-      checkForWinner();
-      changeTurn();
-      }
-    }
-  oneB.onclick = function(){
-    if(oneB.textContent== ""){
-      oneB.textContent = currentPlayer;
-      if(currentPlayer === "X"){
-        player1Selections.push(oneB);
-      }else{
-        player2Selections.push(oneB);
-      }
-      checkForWinner();
-      changeTurn();
-      }
-    }
-  oneC.onclick = function(){
-    if(oneC.textContent== ""){
-      oneC.textContent = currentPlayer;
-      if(currentPlayer === "X"){
-        player1Selections.push(oneC);
-      }else{
-        player2Selections.push(oneC);
-      }
-      checkForWinner();
-      changeTurn();
-      }
-    }
-  twoA.onclick = function(){
-    if(twoA.textContent== ""){
-      twoA.textContent = currentPlayer;
-      if(currentPlayer === "X"){
-        player1Selections.push(twoA);
-      }else{
-        player2Selections.push(twoA);
-      }
-      checkForWinner();
-      changeTurn();
-      }
-    }
-  twoB.onclick = function(){
-    if(twoB.textContent== ""){
-      twoB.textContent = currentPlayer;
-      if(currentPlayer === "X"){
-        player1Selections.push(twoB);
-      }else{
-        player2Selections.push(twoB);
-      }
-      checkForWinner();
-      changeTurn();
-      }
-    }
-  twoC.onclick = function(){
-    if(twoC.textContent== ""){
-      twoC.textContent = currentPlayer;
-      if(currentPlayer === "X"){
-        player1Selections.push(twoC);
-      }else{
-        player2Selections.push(twoC);
-      }
-      checkForWinner();
-      changeTurn();
-      }
-    }
-  threeA.onclick = function(){
-    if(threeA.textContent== ""){
-      threeA.textContent = currentPlayer;
-      if(currentPlayer === "X"){
-        player1Selections.push(threeA);
-      }else{
-        player2Selections.push(threeA);
-      }
-      checkForWinner();
-      changeTurn();
-      }
-    }
-  threeB.onclick = function(){
-    if(threeB.textContent== ""){
-      threeB.textContent = currentPlayer;
-        if(currentPlayer === "X"){
-        player1Selections.push(threeB);
-      }else{
-        player2Selections.push(threeB);
-      }
-        checkForWinner();
-        changeTurn();
-      }
-    }
-  threeC.onclick = function(){
-    if(threeC.textContent== ""){
-      threeC.textContent = currentPlayer;
-        if(currentPlayer === "X"){
-        player1Selections.push(threeC);
-      }else{
-        player2Selections.push(threeC);
-      }
-      checkForWinner();
-      changeTurn();
-      }
-    }
-  resetGame.onclick = function(){
+//reset game and score
+  newGame.onclick = function(){
     reset();
+    currentScorePlayer1 = 0;
+    currentScorePlayer2 = 0;
+    scorePlayer1.textContent = currentScorePlayer1;
+    scorePlayer2.textContent = currentScorePlayer2;
   }
-}
+
+//FUNCTIONS
+
+//adds X or O from click event (click events in HTML)
+function modifyText(location){
+     if(location.textContent == ""){
+      location.textContent = currentPlayer;
+      if(currentPlayer === "X"){
+        player1Selections.push(location);
+      }else{
+        player2Selections.push(location);
+      }
+      checkForWinner();
+      changeTurn();
+      }
+    }
+
 
 //keeps track of turns + changes bottom border of active player
 function changeTurn(){
@@ -250,8 +140,7 @@ function checkForWinner(){
 }
 
 //reset game function (clear board, remove animations, reset arrays, reset to player 1's turn)
-function reset()
-{
+function reset(){
     currentPlayer = "X";
     player1.style.borderBottom = "thick solid #fffb96";
     player2.style.borderBottom = "none";
@@ -263,5 +152,3 @@ function reset()
       array[i].textContent = "";
     }
 }
-
-startGame();
