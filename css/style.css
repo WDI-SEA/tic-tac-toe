@@ -25,7 +25,15 @@ h1 {
   margin: 0 auto;
 }
 
-#player1, #player2{
+#dropdown{
+  height: 32px;
+  width: 150px;
+  font-size: 25px;
+  background: transparent;
+  border: none;
+}
+
+#player1{
   height: 32px;
   width: 180px;
   display: inline-block;

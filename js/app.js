@@ -1,32 +1,32 @@
 var player1 = document.getElementById("player1");
-var player2 = document.getElementById("player2");
+var dropdown = document.getElementById("dropdown");
 
 var scorePlayer1 = document.getElementById("player1Score");
 var scorePlayer2 = document.getElementById("player2Score");
 
-var oneA = document.getElementById("oneA");
-var oneB = document.getElementById("oneB");
-var oneC = document.getElementById("oneC");
-var twoA = document.getElementById("twoA");
-var twoB = document.getElementById("twoB");
-var twoC = document.getElementById("twoC");
-var threeA = document.getElementById("threeA");
-var threeB = document.getElementById("threeB");
-var threeC = document.getElementById("threeC");
+var oneA = document.getElementById("cell1");
+var oneB = document.getElementById("cell2");
+var oneC = document.getElementById("cell3");
+var twoA = document.getElementById("cell4");
+var twoB = document.getElementById("cell5");
+var twoC = document.getElementById("cell6");
+var threeA = document.getElementById("cell7");
+var threeB = document.getElementById("cell8");
+var threeC = document.getElementById("cell9");
 
 var newGame = document.getElementById("newGame");
 
-var array = [oneA, oneB, oneC, twoA, twoB, twoC, threeA, threeB, threeC];
+var array = [cell1, cell2, cell3, cell4, cell5, cell6, cell7, cell8, cell9];
 //winning combos:
 var winners = [
-  [oneA, twoA, threeA],
-  [oneB, twoB, threeB],
-  [oneC, twoC, threeC],
-  [oneA, oneB, oneC],
-  [twoA, twoB, twoC],
-  [threeA, threeB, threeC],
-  [oneA, twoB, threeC],
-  [oneC, twoB, threeA]
+  [cell1, cell4, cell7],
+  [cell2, cell5, cell8],
+  [cell3, cell6, cell9],
+  [cell1, cell2, cell3],
+  [cell4, cell5, cell6],
+  [cell7, cell8, cell9],
+  [cell1, cell5, cell9],
+  [cell3, cell5, cell7]
 ]
 var player1Selections = [];
 var player2Selections = [];
@@ -35,6 +35,34 @@ var currentPlayer = "X";
 
 var currentScorePlayer1 = 0;
 var currentScorePlayer2 = 0;
+
+
+//if computer player is selected
+function computerPlays(){
+  if(dropdown.options[dropdown.selectedIndex].value == "2"){
+    if(currentPlayer == "O"){
+      var emptyCells = [];
+      for(x=0; x<array.length; x++){
+        if(array[x].textContent == ""){
+          emptyCells.push(array[x]);
+        }
+      }
+      //stops computer from getting an extra turn if Player 1("X") wins on last available square
+      if(emptyCells.length == "0"){
+        checkForWinner();
+      }
+      //randomly selects from empty cells array
+      var randomSelection = emptyCells[Math.floor(Math.random()*emptyCells.length)];
+      setTimeout(function(){
+        randomSelection.textContent = "O";
+        player2Selections.push(randomSelection);
+        checkForWinner();
+        changeTurn();
+      }, 1500);
+    }
+  }
+}
+
 
 //CLICK EVENTS
 
@@ -60,6 +88,7 @@ function modifyText(location){
       }
       checkForWinner();
       changeTurn();
+      computerPlays();
       }
     }
 
@@ -69,11 +98,11 @@ function changeTurn(){
   if(currentPlayer === "X"){
       currentPlayer = "O";
       player1.style.borderBottom = "none";
-      player2.style.borderBottom = "thick solid #fffb96";
+      dropdown.style.borderBottom = "thick solid #fffb96";
   } else {
     currentPlayer = "X";
     player1.style.borderBottom = "thick solid #fffb96";
-    player2.style.borderBottom = "none";
+    dropdown.style.borderBottom = "none";
   }
 }
 
@@ -119,7 +148,7 @@ function checkForWinner(){
         }else{
           currentScorePlayer2++;
           scorePlayer2.textContent = currentScorePlayer2;
-          player2.classList.add("animate");
+          dropdown.classList.add("animate");
         }
        setTimeout(function(){
           reset();
@@ -143,11 +172,11 @@ function checkForWinner(){
 function reset(){
     currentPlayer = "X";
     player1.style.borderBottom = "thick solid #fffb96";
-    player2.style.borderBottom = "none";
+    dropdown.style.borderBottom = "none";
     player1Selections = [];
     player2Selections = [];
     player1.classList.remove("animate");
-    player2.classList.remove("animate");
+    dropdown.classList.remove("animate");
     for(i=0; i<array.length; i++){
       array[i].textContent = "";
     }

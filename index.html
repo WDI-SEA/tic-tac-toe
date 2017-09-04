@@ -11,24 +11,27 @@
   <div id="topBox">
       <div id="player1">Player 1</div>
       <div id="player1Score">0</div>
-      <div id="player2">Player 2</div>
+      <select id="dropdown">
+          <option value="1" id="player2">Player 2</option>
+          <option value="2" id="computer">Computer</option>
+      </select>
       <div id="player2Score">0</div>
   </div>
 <table id="table">
     <tr id="1" class="row">
-        <td id="oneA" class="one" onclick="modifyText(oneA);"></td>
-        <td id="oneB" class="one" onclick="modifyText(oneB);"></td>
-        <td id="oneC" class="one" onclick="modifyText(oneC);"></td>
+        <td id="cell1" class="one" onclick="modifyText(cell1);"></td>
+        <td id="cell2" class="one" onclick="modifyText(cell2);"></td>
+        <td id="cell3" class="one" onclick="modifyText(cell3);"></td>
     </tr>
     <tr id="2" class="row">
-        <td id="twoA" class="two" onclick="modifyText(twoA);"></td>
-        <td id="twoB" class="two" onclick="modifyText(twoB);"></td>
-        <td id="twoC" class="two" onclick="modifyText(twoC);"></td>
+        <td id="cell4" class="two" onclick="modifyText(cell4);"></td>
+        <td id="cell5" class="two" onclick="modifyText(cell5);"></td>
+        <td id="cell6" class="two" onclick="modifyText(cell6);"></td>
     </tr>
     <tr id="3" class="row">
-        <td id="threeA" class="three" onclick="modifyText(threeA);"></td>
-        <td id="threeB" class="three" onclick="modifyText(threeB);"></td>
-        <td id="threeC" class="three" onclick="modifyText(threeC);"></td>
+        <td id="cell7" class="three" onclick="modifyText(cell7);"></td>
+        <td id="cell8" class="three" onclick="modifyText(cell8);"></td>
+        <td id="cell9" class="three" onclick="modifyText(cell9);"></td>
     </tr>
 </table>
 <div id="hello"></div>
