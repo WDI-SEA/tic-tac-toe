@@ -3,12 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <title>Tic Tac Toe</title>
+  <!-- <link href="https://fonts.googleapis.com/css?family=Cookie|Dancing+Script" rel="stylesheet"> -->
+  <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-  <h1>Hello Front-End</h1>
+<div id="test"></div>
+  <h1>TIC TAC TOE</h1>
+  <div id="box">
+    <ul>
+    <li id="p1">Player 1</li>
+    <li id="Player1Score">0</li>
+    <li id="p2">Player 2</li>
+    <li id="Player2Score">0</li>
+    </ul>
+      <button id='reset'  type="reset" value="Reset">Reset</button>
 
+  </div>
+
+
+  <table id="gameboard">
+  	<tr id="top">
+  		<td id="topL" class="box"></td>
+  		<td id="topM" class="box"></td>
+  		<td id="topR" class="box"></td>
+  	</tr>
+  	<tr id="middle">
+  		<td id="midL" class="box"></td>
+  		<td id="midM" class="box"></td>
+  		<td id="midR" class="box"></td>
+  	</tr>
+  	<tr id="bottom">
+  		<td id="botL" class="box"></td>
+  		<td id="botM" class="box"></td>
+  		<td id="botR" class="box"></td>
+  	</tr>
+  	
+  </table>
+ 
   <script type="text/javascript" src="js/app.js"></script>
+
 </body>
 </html>
