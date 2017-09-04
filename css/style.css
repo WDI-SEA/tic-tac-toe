@@ -1,27 +1,66 @@
 h1 {
-  color: teal;
+  color: white;
   text-align: center;
 }
 
+body {
+  background: black;
+}
+
+button {
+  font-size: 18px;
+}
 
 #gameBoard {
   width: 100%;
-  height: 1000px;
-  background: salmon;
+  height: 650px;
+  background: black;
   text-align: center;
 }
 
 .squares {
   height: 200px;
   width:200px;
-  background: gray;
+  background: white;
   display: inline-block;
 }
 
 .X {
-  background: red;
+  background: gray;
 }
 
 .O {
+  background: red;
+}
+
+
+#bottomContainer {
+  background: black;
+  text-align: center;
+}
+
+#displayWinner{
+  width: 400px;
+  height: 100px;
   background: blue;
+  display:inline-block;
+}
+
+#buttonDiv {
+  height: 50px;
+  width: 200px;
+  display: inline-block;
+}
+
+#displayTurn {
+  width: 400px;
+  height: 100px;
+  background: red;
+  display: inline-block;
+}
+
+.displayText {
+  margin: auto;
+  color: white;
+  font-size: 36px;
 }

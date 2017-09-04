@@ -10,29 +10,33 @@
 <body>
 
 
-  <h1>Tic Tac Toe</h1>
+  <h1>Tic Tac Thrones</h1>
 
-<div id="gameBoard">
-  <div>
-    <div class="squares" id="topLeft"></div>
-    <div class="squares" id="topMid"></div>
-    <div class="squares" id="topRight"></div>
+  <div id="gameBoard">
+    <div>
+      <div class="squares" id="topLeft"></div>
+      <div class="squares" id="topMid"></div>
+      <div class="squares" id="topRight"></div>
+    </div>
+
+    <div>
+      <div class="squares" id="midLeft"></div>
+      <div class="squares" id="midMid"></div>
+      <div class="squares" id="midRight"></div>
+    </div>
+
+    <div>
+      <div class="squares" id="botLeft"></div>
+      <div class="squares" id="botMid"></div>
+      <div class="squares" id="botRight"></div>
+    </div>
   </div>
 
-  <div>
-    <div class="squares" id="midLeft"></div>
-    <div class="squares" id="midMid"></div>
-    <div class="squares" id="midRight"></div>
+  <div id="bottomContainer">
+    <div id="displayWinner"><p id="winnerText" class="displayText">Who will prevail?</p></div>
+    <div id="buttonDiv"><button id="clear">Clear Board</button></div>
+    <div id="displayTurn"><p id="displayText" class="displayText">Players Turn</p></div>
   </div>
-
-  <div>
-    <div class="squares" id="botLeft"></div>
-    <div class="squares" id="botMid"></div>
-    <div class="squares" id="botRight"></div>
-  </div>
-</div>
-
-
 
   <script type="text/javascript" src="js/app.js"></script>
 </body>
