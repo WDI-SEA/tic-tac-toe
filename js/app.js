@@ -1,7 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-// var boxset = [];
-
 var box1 = document.getElementById("b1");
 var box2 = document.getElementById("b2");
 var box3 = document.getElementById("b3");
@@ -15,7 +13,6 @@ var player1 = "X";
 var player2 = "O";
 var firstPlayer = player1;
 var nextPlayer = player1;
-// var marker = "X";
 var winNotify = document.getElementById("win");
 var nextPlayerNotif = document.getElementById("nextUp");
 
@@ -158,81 +155,129 @@ var didSomeoneWin = function () {
 		document.getElementById("win").style.color = "red";
 		nextPlayerNotif.textContent = "We Have a Winner!";
 		document.getElementById("nextUp").style.color = "red";
+		document.getElementById("winnerWinner").style.AnimationName="winBlink";
+		document.getElementById("winnerWinner").style.animationDuration="1s";
+		document.getElementById("winnerWinner").style.animationIterationCount="infinite";
 		} else if (box4.textContent === "X" && box5.textContent === "X" && box6.textContent === "X") {
 			winNotify.textContent = "X Wins!"
 			document.getElementById("win").style.color = "red";
 			nextPlayerNotif.textContent = "We Have a Winner!";
 			document.getElementById("nextUp").style.color = "red";
+			document.getElementById("winnerWinner").style.AnimationName="winBlink";
+			document.getElementById("winnerWinner").style.animationDuration="1s";
+			document.getElementById("winnerWinner").style.animationIterationCount="infinite";
 		} else if (box7.textContent === "X" && box8.textContent === "X" && box9.textContent === "X") {
 			winNotify.textContent = "X Wins!"
 			document.getElementById("win").style.color = "red";
 			nextPlayerNotif.textContent = "We Have a Winner!";
 			document.getElementById("nextUp").style.color = "red";
+			document.getElementById("winnerWinner").style.AnimationName="winBlink";
+			document.getElementById("winnerWinner").style.animationDuration="1s";
+			document.getElementById("winnerWinner").style.animationIterationCount="infinite";
 		} else if (box1.textContent === "O" && box2.textContent === "O" && box3.textContent === "O") {
 			winNotify.textContent = "O Wins!"
 			document.getElementById("win").style.color = "red";
 			nextPlayerNotif.textContent = "We Have a Winner!";
 			document.getElementById("nextUp").style.color = "red";
+			document.getElementById("winnerWinner").style.AnimationName="winBlink";
+			document.getElementById("winnerWinner").style.animationDuration="1s";
+			document.getElementById("winnerWinner").style.animationIterationCount="infinite";
 		} else if (box4.textContent === "O" && box5.textContent === "O" && box6.textContent === "O") {
 			winNotify.textContent = "O Wins!"
 			document.getElementById("win").style.color = "red";
 			nextPlayerNotif.textContent = "We Have a Winner!";
 			document.getElementById("nextUp").style.color = "red";
+			document.getElementById("winnerWinner").style.AnimationName="winBlink";
+			document.getElementById("winnerWinner").style.animationDuration="1s";
+			document.getElementById("winnerWinner").style.animationIterationCount="infinite";
 		} else if (box7.textContent === "O" && box8.textContent === "O" && box9.textContent === "O") {
 			winNotify.textContent = "O Wins!"
 			document.getElementById("win").style.color = "red";
 			nextPlayerNotif.textContent = "We Have a Winner!";
 			document.getElementById("nextUp").style.color = "red";
+			document.getElementById("winnerWinner").style.AnimationName="winBlink";
+			document.getElementById("winnerWinner").style.animationDuration="1s";
+			document.getElementById("winnerWinner").style.animationIterationCount="infinite";
 		} else if (box1.textContent === "X" && box4.textContent === "X" && box7.textContent === "X") {
 			winNotify.textContent = "X Wins!"
 			document.getElementById("win").style.color = "red";
 			nextPlayerNotif.textContent = "We Have a Winner!";
 			document.getElementById("nextUp").style.color = "red";
+			document.getElementById("winnerWinner").style.AnimationName="winBlink";
+			document.getElementById("winnerWinner").style.animationDuration="1s";
+			document.getElementById("winnerWinner").style.animationIterationCount="infinite";
 		} else if (box2.textContent === "X" && box5.textContent === "X" && box8.textContent === "X") {
 			winNotify.textContent = "X Wins!"
 			document.getElementById("win").style.color = "red";
 			nextPlayerNotif.textContent = "We Have a Winner!";
 			document.getElementById("nextUp").style.color = "red";
+			document.getElementById("winnerWinner").style.AnimationName="winBlink";
+			document.getElementById("winnerWinner").style.animationDuration="1s";
+			document.getElementById("winnerWinner").style.animationIterationCount="infinite";
 		} else if (box3.textContent === "X" && box6.textContent === "X" && box9.textContent === "X") {
 			winNotify.textContent = "X Wins!"
 			document.getElementById("win").style.color = "red";
 			nextPlayerNotif.textContent = "We Have a Winner!";
 			document.getElementById("nextUp").style.color = "red";
+			document.getElementById("winnerWinner").style.AnimationName="winBlink";
+			document.getElementById("winnerWinner").style.animationDuration="1s";
+			document.getElementById("winnerWinner").style.animationIterationCount="infinite";
 		} else if (box1.textContent === "O" && box4.textContent === "O" && box7.textContent === "O") {
 			winNotify.textContent = "O Wins!"
 			document.getElementById("win").style.color = "red";
 			nextPlayerNotif.textContent = "We Have a Winner!";
 			document.getElementById("nextUp").style.color = "red";
+			document.getElementById("winnerWinner").style.AnimationName="winBlink";
+			document.getElementById("winnerWinner").style.animationDuration="1s";
+			document.getElementById("winnerWinner").style.animationIterationCount="infinite";
 		} else if (box2.textContent === "O" && box5.textContent === "O" && box8.textContent === "O") {
 			winNotify.textContent = "O Wins!"
 			document.getElementById("win").style.color = "red";
 			nextPlayerNotif.textContent = "We Have a Winner!";
 			document.getElementById("nextUp").style.color = "red";
+			document.getElementById("winnerWinner").style.AnimationName="winBlink";
+			document.getElementById("winnerWinner").style.animationDuration="1s";
+			document.getElementById("winnerWinner").style.animationIterationCount="infinite";
 		} else if (box3.textContent === "O" && box6.textContent === "O" && box9.textContent === "O") {
 			winNotify.textContent = "O Wins!"
 			document.getElementById("win").style.color = "red";
 			nextPlayerNotif.textContent = "We Have a Winner!";
 			document.getElementById("nextUp").style.color = "red";
+			document.getElementById("winnerWinner").style.AnimationName="winBlink";
+			document.getElementById("winnerWinner").style.animationDuration="1s";
+			document.getElementById("winnerWinner").style.animationIterationCount="infinite";
 		} else if (box1.textContent === "X" && box5.textContent === "X" && box9.textContent === "X") {
 			winNotify.textContent = "X Wins!"
 			document.getElementById("win").style.color = "red";
 			nextPlayerNotif.textContent = "We Have a Winner!";
 			document.getElementById("nextUp").style.color = "red";
+			document.getElementById("winnerWinner").style.AnimationName="winBlink";
+			document.getElementById("winnerWinner").style.animationDuration="1s";
+			document.getElementById("winnerWinner").style.animationIterationCount="infinite";
 		} else if (box7.textContent === "X" && box5.textContent === "X" && box3.textContent === "X") {
 			winNotify.textContent = "X Wins!"
 			document.getElementById("win").style.color = "red";
 			nextPlayerNotif.textContent = "We Have a Winner!";
 			document.getElementById("nextUp").style.color = "red";
+			document.getElementById("winnerWinner").style.AnimationName="winBlink";
+			document.getElementById("winnerWinner").style.animationDuration="1s";
+			document.getElementById("winnerWinner").style.animationIterationCount="infinite";
 		} else if (box1.textContent === "O" && box5.textContent === "O" && box9.textContent === "O") {
 			winNotify.textContent = "O Wins!"
 			document.getElementById("win").style.color = "red";
 			nextPlayerNotif.textContent = "We Have a Winner!";
 			document.getElementById("nextUp").style.color = "red";
+			document.getElementById("winnerWinner").style.AnimationName="winBlink";
+			document.getElementById("winnerWinner").style.animationDuration="1s";
+			document.getElementById("winnerWinner").style.animationIterationCount="infinite";
 		} else if (box7.textContent === "O" && box5.textContent === "O" && box3.textContent === "O") {
 			winNotify.textContent = "O Wins!"
 			document.getElementById("win").style.color = "red";
 			nextPlayerNotif.textContent = "We Have a Winner!";
 			document.getElementById("nextUp").style.color = "red";
+			document.getElementById("winnerWinner").style.AnimationName="winBlink";
+			document.getElementById("winnerWinner").style.animationDuration="1s";
+			document.getElementById("winnerWinner").style.animationIterationCount="infinite";
 	} else {
 		winNotify.textContent = "No Winner Yet";
 	}
