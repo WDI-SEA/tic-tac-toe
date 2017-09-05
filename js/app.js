@@ -156,17 +156,37 @@ var changeLetter9 = function () {
 }
 
 var didSomeoneWin = function () {
-	if (b1 === "X" && b2 === "X" && b3 === "X") {
+	if (box1.textContent === "X" && box2.textContent === "X" && box3.textContent === "X") {
 		console.log("X Wins");
-		} else if (b4 === "X" && b5 === "X" && b6 === "X") {
+		} else if (box4.textContent === "X" && box5.textContent === "X" && box6.textContent === "X") {
 			console.log("X Wins");
-		} else if (b7 === "X" && b8 === "X" && b9 === "X") {
+		} else if (box7.textContent === "X" && box8.textContent === "X" && box9.textContent === "X") {
 			console.log("X Wins");
-		} else if (b1 === "O" && b2 === "O" && b3 === "O") {
+		} else if (box1.textContent === "O" && box2.textContent === "O" && box3.textContent === "O") {
 			console.log("O Wins");
-		} else if (b4 === "O" && b5 === "O" && b6 === "O") {
+		} else if (box4.textContent === "O" && box5.textContent === "O" && box6.textContent === "O") {
 			console.log("O Wins");
-		} else if (b7 === "O" && b8 === "O" && b9 === "O") {
+		} else if (box7.textContent === "O" && box8.textContent === "O" && box9.textContent === "O") {
+			console.log("O Wins");
+		} else if (box1.textContent === "X" && box4.textContent === "X" && box7.textContent === "X") {
+			console.log("X Wins");
+		} else if (box2.textContent === "X" && box5.textContent === "X" && box8.textContent === "X") {
+			console.log("X Wins");
+		} else if (box3.textContent === "X" && box6.textContent === "X" && box9.textContent === "X") {
+			console.log("X Wins");
+		} else if (box1.textContent === "O" && box4.textContent === "O" && box7.textContent === "O") {
+			console.log("O Wins");
+		} else if (box2.textContent === "O" && box5.textContent === "O" && box8.textContent === "O") {
+			console.log("O Wins");
+		} else if (box3.textContent === "O" && box6.textContent === "O" && box9.textContent === "O") {
+			console.log("O Wins");
+			} else if (box1.textContent === "X" && box5.textContent === "X" && box9.textContent === "X") {
+			console.log("X Wins");
+		} else if (box7.textContent === "X" && box5.textContent === "X" && box3.textContent === "X") {
+			console.log("X Wins");
+		} else if (box1.textContent === "O" && box5.textContent === "O" && box9.textContent === "O") {
+			console.log("O Wins");
+		} else if (box7.textContent === "O" && box5.textContent === "O" && box3.textContent === "O") {
 			console.log("O Wins");
 	} else {
 		console.log("no winner yet");

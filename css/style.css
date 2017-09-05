@@ -19,6 +19,7 @@ h1 {
 	height: 50px;
 	border: 2px solid darkgreen;
 	margin-bottom: 4px;
+	text-align: center;
 }
 #b2 {
 	position: relative;
@@ -27,6 +28,7 @@ h1 {
 	height: 50px;
 	border: 2px solid darkgreen;
 	margin-bottom: 4px;
+	text-align: center;
 }
 #b3 {
 	position: relative;
@@ -35,6 +37,7 @@ h1 {
 	height: 50px;
 	border: 2px solid darkgreen;
 	margin-bottom: 4px;
+	text-align: center;
 }
 #b4 {
 	position: relative;
@@ -43,6 +46,7 @@ h1 {
 	height: 50px;
 	border: 2px solid darkgreen;
 	margin-bottom: 4px;
+	text-align: center;
 }
 #b5 {
 	position: relative;
@@ -51,6 +55,7 @@ h1 {
 	height: 50px;
 	border: 2px solid darkgreen;
 	margin-bottom: 4px;
+	text-align: center;
 }
 #b6 {
 	display: inline-block;
@@ -59,6 +64,7 @@ h1 {
 	height: 50px;
 	border: 2px solid darkgreen;
 	margin-bottom: 4px;
+	text-align: center;
 }
 #b7 {
 	position: relative;
@@ -66,6 +72,7 @@ h1 {
 	width: 50px;
 	height: 50px;
 	border: 2px solid darkgreen;
+	text-align: center;
 }
 #b8 {
 	position: relative;
@@ -73,6 +80,7 @@ h1 {
 	width: 50px;
 	height: 50px;
 	border: 2px solid darkgreen;
+	text-align: center;
 }
 #b9 {
 	position: relative;
@@ -80,6 +88,7 @@ h1 {
 	width: 50px;
 	height: 50px;
 	border: 2px solid darkgreen;
+	text-align: center;
 }
 button {
 	position: relative;
