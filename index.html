@@ -3,11 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <title>Tic Tac Toe</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
+
 <body>
-  <h1>Hello Front-End</h1>
+  <h1>Tic Tac Toe</h1>
+
+  	<div id="board">
+	  <div class="row" id="topRow">
+	  	<div class="empty top square" id="one"></div>
+	  	<div class="empty top square" id="two"></div>
+	  	<div class="empty top square" id="three"></div>
+	  </div>
+
+	  <div class="row" id="midRow">
+	  	<div class="empty mid square" id="four"></div>
+	  	<div class="empty mid square" id="five"></div>
+	  	<div class="empty mid square" id="six"></div>
+	  </div>
+
+	  <div class="row" id="botRow">
+	  	<div class="empty bottom square" id="seven"></div>
+	  	<div class="empty bottom square" id="eight"></div>
+	  	<div class="empty bottom square" id="nine"></div>
+	  </div>
+	</div>  
+
+  <button type="reset" value="Reset" id="reset">RESET</button>
+
+
 
   <script type="text/javascript" src="js/app.js"></script>
 </body>

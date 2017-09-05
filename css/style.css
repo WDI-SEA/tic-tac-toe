@@ -1,3 +1,64 @@
+body {
+	background: black;
+	text-align: center;
+}
+
 h1 {
-  color: purple;
+  color: lightblue;
+  font-family: copperplate, serif;
+  font-size: 48px;
+  font-weight: lighter;
+  text-align: center;
+  background-color: black;
+  width: 300px;
+  margin: 20px auto;
+  border: 6px double darkorange;
+}
+
+button {
+	font-size: 24px;
+	font-family: copperplate, serif;
+	padding: 10px 20px;
+	background: darkorange;
+	font-weight: bold;
+	margin: 20px;
+}
+
+#board {
+	height: 600px;
+	width: 600px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.win {
+	position: absolute;
+	display: block;
+	top: 200px;
+	margin-left: 40px;
+	margin-top: 150px;
+	border: 10px double darkorange;
+	opacity: .8;
+}
+
+.row {
+	background: black;
+	width: 600px;
+	height: 200px;
+	margin: 5px auto 0px auto;
+	text-align: center;
+}
+
+.square {
+	background: lightblue;
+	border: 2px black;
+	width: 175px;
+	height: 175px;
+	display: inline-block;
+	margin: 12px 7px;
+}
+
+img {
+	max-width: 100%
+	max-height: 100%;
 }
