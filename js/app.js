@@ -72,6 +72,7 @@ var firstCell = function() {
 		}
 	};	
 	count++;
+	console.log(count);
 	array[0].removeEventListener('click', firstCell);
 	if (count === 9 && playerOne === false && playerTwo === false) {
 		alert("It's a tie game. Hit Reset to try again.");
@@ -100,6 +101,7 @@ var secondCell = function() {
 		}
 	};
 	count++;
+	console.log(count);
 	array[1].removeEventListener('click', secondCell);
 	if (count === 9 && playerOne === false && playerTwo === false) {
 		alert("It's a tie game. Hit Reset to try again.");
@@ -134,6 +136,7 @@ var thiCell = function() {
 		};
 	};
 	count++;
+	console.log(count);
 	array[2].removeEventListener('click', thiCell);
 	if (count === 9 && playerOne === false && playerTwo === false) {
 		alert("It's a tie game. Hit Reset to try again.");
@@ -162,6 +165,7 @@ var fourCell = function() {
 		}
 	};
 	count++;
+	console.log(count);
 	array[3].removeEventListener('click', fourCell);
 	if (count === 9 && playerOne === false && playerTwo === false) {
 		alert("It's a tie game. Hit Reset to try again.");
@@ -202,6 +206,7 @@ var fiveCell = function() {
 		}
 	};
 	count++;
+	console.log(count);
 	array[4].removeEventListener('click', fiveCell);
 	if (count === 9 && playerOne === false && playerTwo === false) {
 		alert("It's a tie game. Hit Reset to try again.");
@@ -230,6 +235,7 @@ var sixCell = function() {
 		};
 	};
 	count++;
+	console.log(count);
 	array[5].removeEventListener('click', sixCell);
 	if (count === 9 && playerOne === false && playerTwo === false) {
 		alert("It's a tie game. Hit Reset to try again.");
@@ -264,6 +270,7 @@ var sevCell = function() {
 		};
 	};
 	count++;
+	console.log(count);
 	array[6].removeEventListener('click', sevCell);
 	if (count === 9 && playerOne === false && playerTwo === false) {
 		alert("It's a tie game. Hit Reset to try again.");
@@ -292,6 +299,7 @@ var eightCell = function() {
 		}
 	};
 	count++;
+	console.log(count);
 	array[7].removeEventListener('click', eightCell);
 	if (count === 9 && playerOne === false && playerTwo === false) {
 		alert("It's a tie game. Hit Reset to try again.");
@@ -326,12 +334,12 @@ var nineCell = function() {
 		}
 	};
 	count++;
+	console.log(count);
 	array[8].removeEventListener('click', nineCell);
 	if (count === 9 && playerOne === false && playerTwo === false) {
 		alert("It's a tie game. Hit Reset to try again.");
 	};
 };
-
 
 array[0].addEventListener('click', firstCell);
 array[1].addEventListener('click', secondCell);
