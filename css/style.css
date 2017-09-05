@@ -1,3 +1,86 @@
-h1 {
-  color: purple;
+html {
+	width: 100%;
+	height: 100%;
+	padding: 15px;
+	background-color: #14bdac;
 }
+
+body {
+	border: 5px solid black;
+	height: 100%;
+	width: 100%;
+	padding-bottom: 25px;
+}
+
+h1 {
+	text-align: center;
+	letter-spacing: 2px;
+	background-color: #14bdac;
+	font-weight: 500;
+}
+
+#reset {
+	border: 2px rgb(84, 84, 84) solid;
+	color: rgb(84, 84, 84);
+	letter-spacing: 5px;
+}
+
+#reset:hover {
+	border: 2px white solid;
+	color: white;
+}
+
+#introduction {
+	width: 100%;
+	background-color: #14bdac;
+	padding: 10px 0;
+	margin: 0 auto 20px auto;
+}
+
+h3 {
+	background-color: rgb(242, 235, 211);
+	padding: 10px;
+	margin: 15px;
+	text-align: center;
+	font-weight: 100;
+}
+
+.fun {
+	color: rgb(84, 84, 84);
+	letter-spacing: 5px;
+}
+
+#content {
+	width: 100%;
+	height: 478px;
+	margin: 0 auto;
+}
+
+#box {
+	height: 362px;
+	width: 362px;
+	margin: 0 auto;
+	background-color: black;
+
+}
+
+.layer {
+	height: 122px;
+	width: 370px;
+	margin: 0;
+	display: inline-block;
+	margin: 0;
+	
+}
+
+.tile {
+	background-color: rgb(242, 235, 211);
+	height: 118px;
+	width: 118px;
+	display: inline-block;
+	text-align: center;
+}
+
+
+
+
