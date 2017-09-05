@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var player = 'x';
   var ai = 'o';
   var vsAi = false;
+  var aiTimeOut;
 
   /* turn functionality */
 
@@ -46,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function takeAiTurn() {
     gameboardOverlay.style.display = 'inherit';
-    setTimeout(function() {
+    aiTimeout = setTimeout(function() {
       var grid = getGridDOM();
       var rows = getRows();
       var move = generateValidMove();
@@ -195,6 +196,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function playVsAi() {
+    clearTimeout(aiTimeout);
     resetBoard();
     if (vsAi) {
       vsAi = false;
