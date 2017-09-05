@@ -2,24 +2,46 @@ h1 {
   color: red;
 }
 .gameBoard {
-	
+	display: block;
+	/*border: 1px solid white*/
 	width: 300px;
+	height: 300px;
+	margin-right: -2px;
+	margin-left: -2px;
+
+	background-color: orange;
+	border: none;
+
+	
+	margin: 0 auto;
+/*	width: 300px;
 	height: 300px;
 	border: 8px ridge #777;
 	border-radius: 12px;
-	margin: 0 auto;
+	
+	margin-left: 200px;*/
 }
 .gameBoard > div {
-	display: inline-flex;
-	
+	display: inline-block;
+	position: relative;
+	margin: 0 auto;
+	margin-left: 1px;
+	margin-top: 1px;
+	/*margin-right: -1px;
+	margin-bottom: 1.5px;*/
+	border: solid white;
+	width: 90px;
+	height: 90px;
+	background: white;
+  	border-radius: 5px;
+	/*display: inline-flex;
 	width: 99px;
 	height: 99px;
 	border: 1px solid black;
-	
 	margin-left: -2px;
-	margin-right: -2px;
-	
+	margin-right: -2px;*/
 }
+
 button {
 
 }
