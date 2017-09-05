@@ -32,6 +32,11 @@ line-height: 90px;*/
 
 
 }
+.box{
+	vertical-align: text-bottom;
+}
+
+
 ul{
 	
 	font-size: 20px;
@@ -39,7 +44,7 @@ ul{
 	
 	font-weight: bold;
 }
-#box{
+#topbox{
 	margin: 0 auto;
 	text-align: center;
 	padding-bottom: 0px;
@@ -50,9 +55,9 @@ ul{
 }
 td{
 	border: 20px ridge white;
-	
+	   line-height: 200px;
 	color: gold; /* Old browsers */
-
+	font-size: 200px;
 	position: relative;
 	top: 30px;
 	 text-shadow: 2px 2px rgba(0, 0, 0, 0.2);
@@ -79,10 +84,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#56eae8', end
 	width: 200px;
 	display: inline-block;
 	text-orientation: center;
-	font-size: 200px;
+
 	z-index: 1;
 	vertical-align: middle;
-    line-height: 90px;
+ 
     padding: 1px;
 
     
@@ -97,9 +102,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#56eae8', end
 	height: 200px;
 	width: 200px;
 	vertical-align: middle;
-    line-height: 90px;
+    
     padding: 1px;
-    font-size: 200px;
+  
 }
 /*top right box*/
 #topR{
@@ -109,23 +114,21 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#56eae8', end
 	width: 200px;
 	display: inline-block;
 	vertical-align: middle;
-    line-height: 90px;
+
     padding: 1px;
-    font-size: 200px;
+    
 }
 
 
 #midL{
 	
-	border-right: 7px solid black;
+display: inline-block;
 	height: 200px;
 	width: 200px;
-	display: inline-block;
-	z-index: -1;
 	vertical-align: middle;
-    line-height: 90px;
+    
     padding: 1px;
-    font-size: 200px;
+   
 }
 /*middle middle box*/
 #midM{
@@ -134,9 +137,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#56eae8', end
 	height: 200px;
 	width: 200px;
 	vertical-align: middle;
-    line-height: 90px;
+    
     padding: 1px;
-    font-size: 200px;
+   
 }
 /*middle right box*/
 #midR{
@@ -146,9 +149,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#56eae8', end
 	width: 200px;
 	display: inline-block;
 	vertical-align: middle;
-    line-height: 90px;
+    
     padding: 1px;
-    font-size: 200px;
+  
 }
 
 
@@ -159,9 +162,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#56eae8', end
 	width: 200px;
 	display: inline-block;
 	vertical-align: middle;
-    line-height: 90px;
+    
     padding: 1px;
-    font-size: 200px;
+  
 }
 /*bottom middle box*/
 #botM{
@@ -170,9 +173,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#56eae8', end
 	height: 200px;
 	width: 200px;
 	vertical-align: middle;
-    line-height: 90px;
+    
     padding: 1px;
-    font-size: 200px;
+  
 }
 /*top right box*/
 #botR{
@@ -182,9 +185,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#56eae8', end
 	width: 200px;
 	display: inline-block;
 	vertical-align: middle;
-    line-height: 90px;
+    
     padding: 1px;
-    font-size: 200px;
+  
 }
 
 #reset{

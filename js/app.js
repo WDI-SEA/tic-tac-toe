@@ -13,9 +13,9 @@ var currentScorePlayer2 = 0;
 var scorePlayer1 = document.getElementById("Player1Score");
 var scorePlayer2 = document.getElementById("Player2Score");
 
-function startGame(){
+/*function startGame(){
 
-};
+};*/
 
 //reset
  /* reset.onclick = function(){
@@ -127,7 +127,7 @@ TR.onclick = function(){
 	}
 }
 //MIDDLE CLICK
-ML.onclick = function(){
+/*ML.onclick = function(){
 	if(ML.textContent === ""){
 		ML.textContent = currentPlayer;
 		if(currentPlayer === 'X'){
@@ -137,7 +137,11 @@ ML.onclick = function(){
 		}
 		  checkForWinner();
       changeTurn();
-	}
+      console.log("clicked");
+	}*/
+//}
+function midclick(){
+  document.getElementById('midL').innerHTML =currentPlayer;
 }
 
 MM.onclick = function(){
@@ -278,8 +282,8 @@ function checkForWinner(){
        }, 2000);
       }
   }
-  //if tie, play skeleton waving and reset after 4 seconds
-  if(playerSelections.length >= 5 && win == false){
+  //if tie, play bomb and reset after 4 seconds
+  /*if(bomb.length >= 5 && win == false){
     var img = new Image();
     var hello = document.getElementById("hello");
     hello.appendChild(img);
@@ -287,13 +291,11 @@ function checkForWinner(){
     setTimeout(function(){
       hello.removeChild(img);
       reset();
-    }, 4000);
-  }
-}
+    }, 4000);*/
+  //}
 
 //reset game function (clear board, remove animations, reset arrays, reset to player 1's turn)
-function reset()
-{
+function reset() {
     currentPlayer = "X";
     p1.style.borderBottom = "thick solid #fffb96";
     p2.style.borderBottom = "none";
@@ -303,10 +305,11 @@ function reset()
     p2.classList.remove("animate");
     for(i=0; i<array.length; i++){
       array[i].textContent = "";
-    }
+    };
+}
 }
 
-startGame();
+/*startGame();*/
 
 
 
