@@ -1,3 +1,75 @@
+body {
+  margin:0px;
+  padding:0px;
+  text-align:center;
+  background-image: url("http://cdn.playbuzz.com/cdn/70f73a27-1d0a-439e-8174-66bf402c061f/1e112208-0501-4f78-acf6-0979fb1e0fd5.jpg");
+  background-repeat:no-repeat;
+  background-size:150%;
+}
+
 h1 {
-  color: purple;
+	font-family:'IM Fell English SC', serif;
+	font-weight: bold;
+	font-size: 60px;
+}
+
+.row {
+	height: 156;
+}
+
+.squares {
+  display:inline-block;
+  padding: 20px;
+  padding-top:30px;
+  width:100px;
+  height:90px;
+  background:white;
+  border-radius: 25%;
+  border: 5px goldenrod double;
+  opacity: 0.5;
+  margin:2px;
+  margin-top:4px;
+}
+
+#harry {
+	display:inline-block;
+  	padding: 20px;
+  	padding-top:30px;
+  	width:100px;
+  	height:90px;
+  	background-image:url("http://cdn.playbuzz.com/cdn/b804a498-9431-4ab3-8b3c-33d6ef24d160/fd4dd154-5163-44e8-83ed-8676d87072a5.jpg");
+  	background-size:50%
+  	border-radius: 25%;
+  	border: 5px goldenrod double;
+  	margin:2px;
+  	margin-top:4px;
+}
+
+#draco {
+	display:inline-block;
+  	padding: 20px;
+  	padding-top:30px;
+  	width:100px;
+  	height:90px;
+  	background-image:url("http://vignette1.wikia.nocookie.net/the-mighty-slytherins/images/a/a3/DracoEID.jpg/revision/latest?cb=20150617073623");
+  	background-size:50%
+  	border-radius: 25%;
+  	border: 5px goldenrod double;
+  	margin:2px;
+  	margin-top:4px;
+}
+
+#message {
+  font-size:20px;
+  font-family:'IM Fell English SC', serif;
+}
+
+#reset {
+  margin:15px;
+  padding: 10px;
+  font-size:12px;
+  font-weight:bold;
+  font-family:'IM Fell English SC', serif;
+  border-radius:20%;
+  background-color:goldenrod;
 }
