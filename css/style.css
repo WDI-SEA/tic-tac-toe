@@ -1,3 +1,64 @@
-h1 {
-  color: purple;
+body {
+	background: gray;
+	width: 100%;
+}
+
+header {
+  color: red;
+  font-weight: bold;
+  font-size: 150px;
+  text-align: center;
+  background: black;
+  margin: 0, 0, 15px, 0;
+  
+}
+
+section {
+	display: inline;
+}
+
+#board {
+
+	width: 500px;
+	height: 500px;
+	top: 50%;
+	left: 50%;
+	background-color: black;
+	display: block;
+	margin: 20px auto;
+
+}
+
+.square {
+	width: 33%;
+	height: 33%;
+	position: relative;
+	margin: 0 0 0 0;
+	float: left;
+}
+
+
+.top {
+	border-bottom: 2px solid white;
+}
+
+.bottom {
+	border-top: 2px solid white;
+}
+
+.left {
+	border-right: 2px solid white;
+}
+
+.right {
+	border-left: 2px solid white;
+}
+
+button {
+
+	font-size: 30px;
+	text-align: center
+	margin: auto;
+	border-radius: 20px;
+	border-color: black;
 }
