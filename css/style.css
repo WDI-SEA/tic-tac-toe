@@ -1,3 +1,148 @@
+body {
+	background-color: grey;
+}
+
 h1 {
   color: purple;
+  text-align: center;
 }
+
+table { 
+	margin: auto
+}
+ 
+#square1 { 
+    width:150px;
+    height:150px;
+    font-size: 75px;
+    text-align: center;
+}
+#square2 {
+    width:150px;
+    height:150px;
+    border-left:1px solid #000;
+    border-right:1px solid #000;
+    font-size: 75px;
+    text-align: center;
+}
+#square3 { 
+    width:150px;
+    height:150px;
+    font-size: 75px;
+    text-align: center;
+}
+#square4{ 
+    width:150px;
+    height:150px;
+    border-top:1px solid #000;
+    border-bottom:1px solid #000;
+    font-size: 75px;
+    text-align: center;
+}
+#square5 {
+    width:150px;
+    height:150px;
+    border-left:1px solid #000;
+    border-right:1px solid #000;
+    border-top:1px solid #000;
+    border-bottom:1px solid #000;
+    font-size: 75px;
+    text-align: center;
+}
+#square6 { 
+    width:150px;
+    height:150px;
+    border-top:1px solid #000;
+    border-bottom:1px solid #000;
+    font-size: 75px;
+    text-align: center;
+}
+#square7 {
+    width:150px;
+    height:150px;
+    font-size: 75px;
+    text-align: center;
+}
+#square8 {
+    width:150px;
+    height:150px;
+    border-left:1px solid #000;
+    border-right:1px solid #000;
+    font-size: 75px;
+    text-align: center;
+}
+#square9 { 
+    width:150px;
+    height:150px;
+    font-size: 75px;
+    text-align: center;
+}
+
+input {
+	background-color: green;
+	color: black;
+	text-align: center;
+	display: block;
+	font-size: 24px;
+	padding: 15px 32px;
+	margin: auto;
+}
+/*#a{
+    border-left:1px solid #000;
+    border-right:1px solid #000;
+}
+
+#h{
+    border-top:1px solid #000;
+    border-bottom:1px solid #000;
+}*/
+
+
+
+
+
+/*
+
+.board {
+	background-color: pink;
+}*/
+
+
+
+/*.square{
+	width: 100px;
+	height: 100px;
+}
+
+.v{
+	border-left: 1px solid #000;
+	border-right: 1px solid #000;
+}
+
+.h{
+	border-top: 1px solid #000;
+	border-bottom: 1px solid #000;
+}*/
+
+
+
+
+/*.gird {
+
+}
+
+.cell {
+	height: 50px;
+	width: 50px;
+	background-color: #999;
+	display: inline-block;
+}
+
+.grid {
+
+	justify-content: space-around;
+}
+
+.cell:nth-child(3n) {
+	background-color: #F05;
+}*/
