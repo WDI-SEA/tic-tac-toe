@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+//document.addEventListener("DOMContentLoaded", function() {
   console.log("DOM loaded");
 console.log('Hello player');
 
@@ -12,6 +12,7 @@ var currentScorePlayer1 = 0;
 var currentScorePlayer2 = 0;
 var scorePlayer1 = document.getElementById("Player1Score");
 var scorePlayer2 = document.getElementById("Player2Score");
+
 function startGame(){
 
 };
@@ -24,6 +25,27 @@ function startGame(){
     reset();
   }
 }*/
+//reset try two
+/*function resetgame(){
+  document.getElementById('gameboard').reset();
+  reset();
+}*/
+
+//reset game try 3
+function resetBoard(){
+    currentPlayer = "X";
+    p1.style.borderBottom = "thick solid #fffb96 ";
+    p2.style.borderBottom = "none";
+    p1Selections = [];
+    p2Selections = [];
+    for(i=0; i<array.length; i++){
+      array[i].textContent = "";
+    }
+}
+
+reset.onclick = function(){
+   resetBoard();
+}
 
 //TOP LEFT
 var TL = document.getElementById("topL");
@@ -59,6 +81,7 @@ var winners = [
 [TM, MM, BR],
 [TR, MR, BR]
 ]
+var array = [TL,TM,TR,ML,MM,MR,BL,BM,BR];
 
 //function xOro() {
 	//if(data-id === game[]){
@@ -287,8 +310,7 @@ startGame();
 
 
 
-
-});
+//});
 
 //so I counldn't get the restart button to work, or the 'x's and 'o's to be in the boxes correctly
 //for some reason the game will only say when x has won ...

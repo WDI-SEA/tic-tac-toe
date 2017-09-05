@@ -35,7 +35,7 @@ line-height: 90px;*/
 ul{
 	
 	font-size: 20px;
-	
+	list-style: inside disc;
 	
 	font-weight: bold;
 }
@@ -43,17 +43,18 @@ ul{
 	margin: 0 auto;
 	text-align: center;
 	padding-bottom: 0px;
-	
-	left: 50%;
+	position: relative;
 
+	
+*/
 }
 td{
 	border: 20px ridge white;
 	
 	color: gold; /* Old browsers */
 
-
-
+	position: relative;
+	top: 30px;
 	 text-shadow: 2px 2px rgba(0, 0, 0, 0.2);
 	 background: -moz-linear-gradient(top, rgba(86,234,232,1) 0%, rgba(125,185,232,0) 100%); /* FF3.6-15 */
 background: -webkit-linear-gradient(top, rgba(86,234,232,1) 0%,rgba(125,185,232,0) 100%); /* Chrome10-25,Safari5.1-6 */
@@ -83,6 +84,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#56eae8', end
 	vertical-align: middle;
     line-height: 90px;
     padding: 1px;
+
     
 
 
