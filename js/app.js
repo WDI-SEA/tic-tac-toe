@@ -136,7 +136,6 @@ document.addEventListener('DOMContentLoaded', function() {
   function highlightWinningCells() {
     var gridDOM = getGridDOM();
     var gridData = getGridData();
-    console.log(player);
     for (var i = 0; i < gridData.length; i++) {
       if (gridData[i][0] === player && gridData[i][1] === player && gridData[i][2] === player) {
         console.log("did something");
@@ -196,6 +195,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function playVsAi() {
+    resetBoard();
     if (vsAi) {
       vsAi = false;
       playAi.textContent = "Play AI";

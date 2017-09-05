@@ -60,7 +60,7 @@ h1, h2 {
 
 .winning-solution {
   pointer-events:none;
-  background-color: green;
+  background-color: #A9E3A2;
   color: white;
 }
 
