@@ -121,13 +121,8 @@ document.addEventListener('DOMContentLoaded', function() {
 	}
 
 	var someoneWon = function () {
-		if (confirm (s1.textContent === "X" && s2.textContent === "X" && s3.textContent === "X")== true) {
-		return true; 
-		else {
-    	return false;
-    	}
-    }
-		/*console.log ("X Wins");
+		if (s1.textContent === "X" && s2.textContent === "X" && s3.textContent === "X") {
+		console.log ("X Wins");
 		} else if (s4.textContent === "X" && s5.textContent === "X" && s6.textContent === "X") {
 		console.log ("X Wins");
 		} else if (s7.textContent === "X" && s8.textContent === "X" && s9.textContent === "X") {
@@ -137,18 +132,17 @@ document.addEventListener('DOMContentLoaded', function() {
 		} else if (s4.textContent === "O" && s5.textContent === "O" && s6.textContent === "O") {
 		console.log ("O Wins");
 		} else if (s7.textContent === "O" && s8.textContent === "O" && s9.textContent === "O") {
-		console.log ("O Wins");*/
-		
-  
-	
-	// console.log ("no winner yet")} 
+		console.log ("O Wins");
+		console.log ("no winner yet")} 
+	}
+
 	/*== return true}; else 
 		{return false;
 		}
 
 	*/
 	/*document.getElementById("input").onclick = function () {
-  	document.getElementById(".textContent").innerHTML = ""; // Button not working 
+  	document.getElementById(".textContent").innerHTML = ""; // Button not working
 	};*/
 
 	        
