@@ -1,23 +1,41 @@
 body {
 	text-align: center;
-	background: lightblue;
+	background: lightgrey;
 }
 h1 {
-  color: darkgreen;
-  font-family: sans-serif;
+	color: darkgreen;
+	font-size: 40px;
+	font-family: sans-serif;
+	border: 2px solid green;
+	border-radius: 10px;
+	background: white;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+#win {
+	font-size: 25px;
+	color: darkorange;
+}
+#nextUp {
+	font-size: 18px;
+	color: darkorange;
+	font-style: italic;
 }
 #board {
 	display: inline-block;
 	position: relative;
 	width: 175px;
 	height: 200px;
+	/*border: 2px solid green;
+	border-radius: 10px;
+	padding: 15px 15px 1px 15px;*/
 }
 #b1 {
 	position: relative;
 	display: inline-block;
 	width: 50px;
 	height: 50px;
-	border: 2px solid darkgreen;
+	border: 2px groove orange;
 	margin-bottom: 4px;
 	text-align: center;
 }
@@ -26,7 +44,7 @@ h1 {
 	display: inline-block;
 	width: 50px;
 	height: 50px;
-	border: 2px solid darkgreen;
+	border: 2px groove orange;
 	margin-bottom: 4px;
 	text-align: center;
 }
@@ -35,7 +53,7 @@ h1 {
 	display: inline-block;
 	width: 50px;
 	height: 50px;
-	border: 2px solid darkgreen;
+	border: 2px groove orange;
 	margin-bottom: 4px;
 	text-align: center;
 }
@@ -44,7 +62,7 @@ h1 {
 	display: inline-block;
 	width: 50px;
 	height: 50px;
-	border: 2px solid darkgreen;
+	border: 2px groove orange;
 	margin-bottom: 4px;
 	text-align: center;
 }
@@ -53,7 +71,7 @@ h1 {
 	display: inline-block;
 	width: 50px;
 	height: 50px;
-	border: 2px solid darkgreen;
+	border: 2px groove orange;
 	margin-bottom: 4px;
 	text-align: center;
 }
@@ -62,7 +80,7 @@ h1 {
 	position: relative;
 	width: 50px;
 	height: 50px;
-	border: 2px solid darkgreen;
+	border: 2px groove orange;
 	margin-bottom: 4px;
 	text-align: center;
 }
@@ -71,7 +89,7 @@ h1 {
 	display: inline-block;
 	width: 50px;
 	height: 50px;
-	border: 2px solid darkgreen;
+	border: 2px groove orange;
 	text-align: center;
 }
 #b8 {
@@ -79,7 +97,7 @@ h1 {
 	display: inline-block;
 	width: 50px;
 	height: 50px;
-	border: 2px solid darkgreen;
+	border: 2px groove orange;
 	text-align: center;
 }
 #b9 {
@@ -87,20 +105,28 @@ h1 {
 	display: inline-block;
 	width: 50px;
 	height: 50px;
-	border: 2px solid darkgreen;
+	border: 2px groove orange;
 	text-align: center;
 }
-button {
+.box {
+	text-align: center;
+	font-size: 40px;
+	background: lightgreen;
+	color: darkgreen;
+}
+input {
 	position: relative;
-	background-color: khaki;
+	background-color: white;
 	border-color: darkgreen;
 	border-radius: 7px;
-
 }
 .instructions {
 	position: relative;
 	font-family: sans-serif;
 	color: green;
+	border: 2px solid green;
+	border-radius: 10px;
+	background: white;
 }
 h2 {
 	font-size: 25px;
@@ -109,5 +135,15 @@ h2 {
 }
 p { 
 	position: relative;
-
+}
+.box:hover {
+	text-align: center;
+	font-size: 40px;
+	background: darkorange;
+}
+button:hover {
+	position: relative;
+	background-color: darkorange;
+	border-color: darkgreen;
+	border-radius: 7px;
 }

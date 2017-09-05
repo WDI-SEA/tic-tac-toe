@@ -8,19 +8,22 @@
 </head>
 <body>
   <h1>TIC-TAC-TOE</h1>
+  <p id="win">No Winner Yet</p>
+  <p id="nextUp">X Is Next</p>
   <div id="board">
-  		<div id="b1">Click</div>
-  		<div id="b2">Click</div>
-  		<div id="b3">Click</div>
-  		<div id="b4">Click</div>
-  		<div id="b5">Click</div>
-  		<div id="b6">Click</div>
-  		<div id="b7">Click</div>
-  		<div id="b8">Click</div>
-  		<div id="b9">Click</div>
+  		<div id="b1" class="box">-</div>
+  		<div id="b2" class="box">-</div>
+  		<div id="b3" class="box">-</div>
+  		<div id="b4" class="box">-</div>
+  		<div id="b5" class="box">-</div>
+  		<div id="b6" class="box">-</div>
+  		<div id="b7" class="box">-</div>
+  		<div id="b8" class="box">-</div>
+  		<div id="b9" class="box">-</div>
 	</div>
-  <br>
-  <button type="reset" value="reset">Reset</button>
+  <br> 
+  <input type="button" value="Restart" onClick="window.location.reload()">
+  <br> <br>
   <div class="instructions">
   	<h2>Instructions</h2>
   	<p>You should know how to play this game already</p>
