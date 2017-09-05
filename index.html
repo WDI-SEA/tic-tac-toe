@@ -1,14 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
-  <link rel="stylesheet" type="text/css" href="css/style.css">
+  	<meta charset="UTF-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<title>Justen's Tic Tac Toe Game</title>
+  	<link rel="stylesheet" type="text/css" href="css/style.css">
+  	<link href="https://fonts.googleapis.com/css?family=Play|Righteous" rel="stylesheet">
 </head>
 <body>
-  <h1>Hello Front-End</h1>
+  	<h1>Tic Tac Toe</h1>
+  	<div id="gameBoard">
+  		<div class="row line1">
+  			<div class="field" id="space11"></div>
+  			<div class="field" id=space12><p></p></div>
+  			<div class="field" id="space13"></div>
+  		</div>
+  		<div class="row line2">
+  			<div class="field" id="space21"></div>
+  			<div class="field" id=space22></div>
+  			<div class="field" id="space23"></div>
+  		</div>
+  		<div class="row line3">
+  			<div class="field" id="space31"></div>
+  			<div class="field" id=space32></div>
+  			<div class="field" id="space33"></div>
+  		</div>
+  		<button id="resetButton">RESET GAME</button>
+  			<table>
+		<thead>
+			<th>Player One</th>
+			<th class="score" id="p1Score"></th>
+		</thead>
+		<tbody>
+			<td>Player Two</td>
+			<td class="score" id="p2Score"></td>
+		</tbody>
+	</table>
+	</div>
 
-  <script type="text/javascript" src="js/app.js"></script>
+
+  	<script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>
