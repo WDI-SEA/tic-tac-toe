@@ -180,7 +180,7 @@ var didSomeoneWin = function () {
 			console.log("O Wins");
 		} else if (box3.textContent === "O" && box6.textContent === "O" && box9.textContent === "O") {
 			console.log("O Wins");
-			} else if (box1.textContent === "X" && box5.textContent === "X" && box9.textContent === "X") {
+		} else if (box1.textContent === "X" && box5.textContent === "X" && box9.textContent === "X") {
 			console.log("X Wins");
 		} else if (box7.textContent === "X" && box5.textContent === "X" && box3.textContent === "X") {
 			console.log("X Wins");
