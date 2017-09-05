@@ -1,3 +1,56 @@
 h1 {
-  color: purple;
+  color: royalblue;
+  text-align: center;
+}
+table{
+	margin: auto;
+	width: 600px;
+	height: 600px;
+}
+td{
+	border: solid black 10px;
+	width: 200px;
+	height: 200px;
+}
+.score{
+	border: solid black 2px;
+	height: 25px;
+	width: 75px;
+	margin: 25px;
+	margin-left: 550px;
+	position: relative;
+}
+.xScore{
+
+}
+.oScore{
+
+}
+#topLeft{
+	border-left:transparent;
+	border-top: transparent;
+}
+#topCenter{
+	border-top:transparent;
+}
+#topRight{
+	border-top: transparent;
+	border-right: transparent;
+}
+#midLeft{
+	border-left: transparent;
+}
+#midRight{
+	border-right: transparent;
+}
+#botLeft{
+	border-left: transparent;
+	border-bottom: transparent;
+}
+#botCenter{
+	border-bottom: transparent;
+}
+#botRight{
+	border-bottom: transparent;
+	border-right: transparent;
 }
