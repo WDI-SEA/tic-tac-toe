@@ -23,11 +23,13 @@ var clicked8 = false;
 var clicked9 = false;
 var playerOne = 'X';
 var playerTwo = 'O';
+var turnCounter = 0;
 var boardArray = [
 	[position1, position2, position3],
 	[position4, position5, position6],
 	[position7, position8, position9]
 ];
+keepPlaying = true;
 var winningCombinations = [
 	["1", "2", "3"],
 	["4", "5", "6"],
@@ -43,15 +45,64 @@ var score = {
 	O: 1
 };
 
-position1.addEventListener('click', function (){
-	clicked1 = true;
-	return playerOne;
-	//var called = function () {
-		//console.log('I feel like I am close...');
-		//document.getElementById('1').setAttribute.playerOne;
-	//}
-	//called();
-})
+//turn function
+var turn = function (){
+	if(turnCounter % 2 === 0) {
+		return "X";
+	} else {
+		return "O";
+	}
+};
+
+// var checkForWinner = function () {
+//  	switch(true);
+//  	 	case winningCombinations[0] === X && winningCombinations[1] === X && winningCombinations[2]:
+//  	 	break;
+//  	 	case winningCombinations[3] === X && winningCombinations[4] === X && winningCombinations[5]:
+//  	 	break;
+//  	 	case winningCombinations[6] === X && winningCombinations[7] === X && winningCombinations[8]:
+//  	 	break;
+//  	 	case winningCombinations[0] === X && winningCombinations[3] === X && winningCombinations[6]:
+//  	 	break;
+//  	 	case winningCombinations[1] === X && winningCombinations[4] === X && winningCombinations[7]:
+//  	 	break;
+//  	 	case winningCombinations[2] === X && winningCombinations[5] === X && winningCombinations[8]:
+//  	 	break;
+//  	 	case winningCombinations[0] === X && winningCombinations[4] === X && winningCombinations[8]:
+//  	 	break;
+//  	 	case winningCombinations[2] === X && winningCombinations[4] === X && winningCombinations[6]:
+//  	 	break;
+//       		// add winner function -- display a winner function then set keepPlaying = false
+//  }
+
+var play = function (){
+	if(!this.classList.contains('X') && !this.classList.contains('O') && keepPlaying) {
+	this.classList.add(turn());
+	// add check for winner function here
+	turnCounter++;
+	}
+}; 
+
+var startBoard = function (){
+	var gameBoxes = document.getElementsByClassName('box');
+	for(var i=0; i < gameBoxes.length; i++) {
+		gameBoxes[i].addEventListener('click', play);
+	}
+};
+
+turn();
+// play();
+startBoard();
+
+// position1.addEventListener('click', function (){
+// 	clicked1 = true;
+// 	return playerOne;
+// 	//var called = function () {
+// 		//console.log('I feel like I am close...');
+// 		//document.getElementById('1').setAttribute.playerOne;
+// 	//}
+// 	//called();
+// })
 
 
 

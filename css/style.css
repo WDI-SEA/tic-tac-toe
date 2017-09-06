@@ -34,8 +34,20 @@ h1 {
 	cursor: pointer;
 }
 
-.box:hover{
+/*.box:hover{
 	background: white;
+}*/
+
+.X {
+	background-image: url('/Users/willylikestokayak/source/unit1/tic-tac-toe/img/sloth.jpg');
+	background-size: 100px 100px;
+	background-repeat: no-repeat;
+}
+
+.O {
+	background-image: url('/Users/willylikestokayak/source/unit1/tic-tac-toe/img/marmot.jpg');
+	background-size: 100px 100px;
+	background-repeat: no-repeat;
 }
 
 #button {
