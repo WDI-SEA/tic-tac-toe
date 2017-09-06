@@ -38,19 +38,19 @@ section {
 }
 
 
-.top {
+#tleft, #tmiddle, #tright {
 	border-bottom: 2px solid white;
 }
 
-.bottom {
+#bleft, #bmiddle, #bright {
 	border-top: 2px solid white;
 }
 
-.left {
+#tleft, #cleft, #bleft {
 	border-right: 2px solid white;
 }
 
-.right {
+#tright, #cright, #bright {
 	border-left: 2px solid white;
 }
 
