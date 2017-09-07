@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	console.log(button);
 	var nextPlayerNotif = document.getElementById ("nextUp");
 	var winNotify =document.getElementById ("win");
+
 	var selectPlayer = function () {
 		if (winNotify.value === "X wins!" || winNotify.value === "O wins!") {
 		} else if (nextPlayer ==="X") {
@@ -140,51 +141,8 @@ document.addEventListener('DOMContentLoaded', function() {
 		document.getElementById("winnerWinner").style.AnimationName="winBlink";
 	}
 
-	var checkWinner = function() {
-		console.log('ill be thankful')
-		if (s1.textContent === "X" && s2.textContent === "X" && s3.textContent === "X") {
-			winNotify.textContent="X Wins!"
-			displayimage ();
-		} else if (s4.textContent === "X" && s5.textContent === "X" && s6.textContent === "X") {
-			winNotify.textContent="X Wins!"
-		} else if (s7.textContent === "X" && s8.textContent === "X" && s9.textContent === "X") {
-			winNotify.textContent="X Wins!"
-		} else if (s1.textContent === "O" && s2.textContent === "O" && s3.textContent === "O") {
-			winNotify.textContent="0 Wins!"
-		} else if (s4.textContent === "O" && s5.textContent === "O" && s6.textContent === "O") {
-			winNotify.textContent="0 Wins!"
-		} else if (s7.textContent === "O" && s8.textContent === "O" && s9.textContent === "O") {
-			winNotify.textContent="0 Wins!"
-		} else if (s7.textContent === "X" && s8.textContent === "X" && s9.textContent === "X") {
-			winNotify.textContent="X Wins!"
-		} else if (s1.textContent === "X" && s4.textContent === "X" && s7.textContent === "X") {
-			winNotify.textContent="X Wins!"
-		} else if (s2.textContent === "X" && s5.textContent === "X" && s8.textContent === "X") {
-			winNotify.textContent="X Wins!"
-		} else if (s7.textContent === "O" && s8.textContent === "O" && s9.textContent === "O") {
-			winNotify.textContent="0 Wins!"
-		} else if (s1.textContent === "O" && s4.textContent === "O" && s7.textContent === "O") {
-			winNotify.textContent="0 Wins!"
-		} else if (s2.textContent === "O" && s5.textContent === "O" && s8.textContent === "O") {
-			winNotify.textContent="0 Wins!"
-		} else if (s3.textContent === "X" && s6.textContent === "X" && s9.textContent === "X") {
-			winNotify.textContent="X Wins!"
-		} else if (s1.textContent === "X" && s5.textContent === "X" && s9.textContent === "X") {
-			winNotify.textContent="X Wins!"
-		} else if (s7.textContent === "X" && s5.textContent === "X" && s3.textContent === "X") {
-			winNotify.textContent="X Wins!"
-		} else if (s3.textContent === "O" && s6.textContent === "O" && s9.textContent === "O") {
-			winNotify.textContent="0 Wins!"
-		} else if (s1.textContent === "O" && s5.textContent === "O" && s9.textContent === "O") {
-			winNotify.textContent="0 Wins!"
-		} else if (s7.textContent === "O" && s5.textContent === "O" && s3.textContent === "O") {
-			winNotify.textContent="0 Wins!"
-		} else {
-			winNotify.textContent = "No Winner Yet";
-		}
-	}
-	
 	function reset() {
+		nextPlayer=player1;
 		console.log('Im in the reset function')
 		s1.textContent="";
 		s2.textContent="";
@@ -195,7 +153,121 @@ document.addEventListener('DOMContentLoaded', function() {
 		s7.textContent="";
 		s8.textContent="";
 		s9.textContent="";
+		nextPlayerNotif.textContent="X is Next!";
 	}
+
+	/*function checkForTie () {
+		   (s1.textContent === "X" || "O") && 
+		   (s2.textContent === "X" || "O") &&
+		   (s3.textContent === "X" || "O") &&
+		   (s4.textContent === "X" || "O") &&
+		   (s5.textContent === "X" || "O") &&
+		   (s6.textContent === "X" || "O") &&
+		   (s7.textContent === "X" || "O") && 
+		   (s8.textContent === "X" || "O") && 
+		   (s9.textContent === "X" || "O");
+		   setTimeout(function(){
+		   	reset ();
+		}
+	}*/
+
+	var checkWinner = function() {
+		console.log('ill be thankful')
+		if (s1.textContent === "X" && s2.textContent === "X" && s3.textContent === "X") {
+			winNotify.textContent="X Wins!";
+			setTimeout(function(){
+				reset ();
+			}, 3000);
+		} else if (s4.textContent === "X" && s5.textContent === "X" && s6.textContent === "X") {
+			winNotify.textContent="X Wins!"
+			setTimeout(function(){
+				reset ();
+			}, 3000);
+		} else if (s7.textContent === "X" && s8.textContent === "X" && s9.textContent === "X") {
+			winNotify.textContent="X Wins!"
+			setTimeout(function(){
+				reset ();
+			}, 3000);
+		} else if (s1.textContent === "O" && s2.textContent === "O" && s3.textContent === "O") {
+			winNotify.textContent="0 Wins!"
+			setTimeout(function(){
+				reset ();
+			}, 3000);
+		} else if (s4.textContent === "O" && s5.textContent === "O" && s6.textContent === "O") {
+			winNotify.textContent="0 Wins!"
+			setTimeout(function(){
+				reset ();
+			}, 3000);
+		} else if (s7.textContent === "O" && s8.textContent === "O" && s9.textContent === "O") {
+			winNotify.textContent="0 Wins!"
+			setTimeout(function(){
+				reset ();
+			}, 3000);
+		} else if (s7.textContent === "X" && s8.textContent === "X" && s9.textContent === "X") {
+			winNotify.textContent="X Wins!"
+			setTimeout(function(){
+				reset ();
+			}, 3000);
+		} else if (s1.textContent === "X" && s4.textContent === "X" && s7.textContent === "X") {
+			winNotify.textContent="X Wins!"
+			setTimeout(function(){
+				reset ();
+			}, 3000);
+		} else if (s2.textContent === "X" && s5.textContent === "X" && s8.textContent === "X") {
+			winNotify.textContent="X Wins!"
+			setTimeout(function(){
+				reset ();
+			}, 3000);
+		} else if (s7.textContent === "O" && s8.textContent === "O" && s9.textContent === "O") {
+			winNotify.textContent="0 Wins!"
+			setTimeout(function(){
+				reset ();
+			}, 3000);
+		} else if (s1.textContent === "O" && s4.textContent === "O" && s7.textContent === "O") {
+			winNotify.textContent="0 Wins!"
+			setTimeout(function(){
+				reset ();
+			}, 3000);
+		} else if (s2.textContent === "O" && s5.textContent === "O" && s8.textContent === "O") {
+			winNotify.textContent="0 Wins!"
+			setTimeout(function(){
+				reset ();
+			}, 3000);
+		} else if (s3.textContent === "X" && s6.textContent === "X" && s9.textContent === "X") {
+			winNotify.textContent="X Wins!"
+			setTimeout(function(){
+				reset ();
+			}, 3000);
+		} else if (s1.textContent === "X" && s5.textContent === "X" && s9.textContent === "X") {
+			winNotify.textContent="X Wins!"
+			setTimeout(function(){
+				reset ();
+			}, 3000);
+		} else if (s7.textContent === "X" && s5.textContent === "X" && s3.textContent === "X") {
+			winNotify.textContent="X Wins!"
+			setTimeout(function(){
+				reset ();
+			}, 3000);
+		} else if (s3.textContent === "O" && s6.textContent === "O" && s9.textContent === "O") {
+			winNotify.textContent="0 Wins!"
+			setTimeout(function(){
+				reset ();
+			}, 3000);
+		} else if (s1.textContent === "O" && s5.textContent === "O" && s9.textContent === "O") {
+			winNotify.textContent="0 Wins!"
+			setTimeout(function(){
+				reset ();
+			}, 3000);
+		} else if (s7.textContent === "O" && s5.textContent === "O" && s3.textContent === "O") {
+			winNotify.textContent="0 Wins!"
+			setTimeout(function(){
+				reset ();
+			}, 3000);
+		} else {
+			winNotify.textContent = "No Winner Yet";
+		}
+	}
+	
 
 	button.addEventListener("click",reset);
 
