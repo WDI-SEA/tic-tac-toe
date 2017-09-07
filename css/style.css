@@ -12,7 +12,7 @@ h1 {
 	width: 306px;
 	height: 306px;
 	background-color: #6B8E23;
-	border: 6px outset #6B8E23;
+	border: 6px outset #6B8E23; 
 	border-radius: 8px;
 	margin-top: 20px;
 	/*margin: 0 auto;*/
@@ -37,6 +37,7 @@ h1 {
 	height: 90px;
 	background: white;
   	border-radius: 5px;
+  	vertical-align: top;
 
 	/*display: inline-flex;
 	width: 99px;
