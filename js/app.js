@@ -1,130 +1,4 @@
-//*console.log('Hello frontend');
 
-
-// gameboard======
-// 1. funciton to determine player turn
-// 2. function for x's and o's
-// 		-insert new class of "x" or "o"
-// 		-add background image of "x" or "o"
-// 3. determine if winner 
-// 	class of "Top/center/bottom/left/middle/right" === 3 "x" || 3 "o"
-// 	how to determine diagonal win??
-// 		pop up alert "player (x) wins"
-// 	how to prevent replacing 'x' with 'o' (and vice versa)
-// 3. function for board reset
-
-/*var Player1 = 'X';
-var Player2 = 'O';
-
-var board = [[0, 0, 0]
-			 [0, 0, 0] 
-			 [0, 0, 0]]
-
-
-var placeMarker = document.addEventListenter('click' function(){
-	document.getElementsByClassName('this.square').textContent = 'X';
-})
-
-
-function (getWinner){}
-	switch('isWinner') {
-		case 'X Wins':
-		var topCheck[] = getElementsByClassName(.top) === 3;
-
-
-}
-
-
-functionn 
-*/
-
-
-/*
-
-Backup Code:
-
-
-document.addEventListener('DOMContentLoaded', function() {
-
-var player =1;
-var X = "X"
-var O = "O"
-var nextPlayer = 'O';
-var turn = 1;
-var squares = document.getElementsByClassName('square');
-
-var player = function() {
-	if(turn % 2 === 0){
-		nextPlayer = "O";
-		turn++
-	} else {
-		nextPlayer = 'X';
-		turn++
-	}
-};
-
-document.getElementsByClassName("squares").textContent = "X";
-document.getElementsByClassName("squares").textConent = "O";
-	
-
-
-// game piece placement
-function gamePiece(index) {
-	if(squares.textContent === 'X' || squares.textContent === 'O');
-	console.log("this square has been played");
-		} else {
-	squares[index].textContent = nextPlayer;
-		}
-	player();
-	win()
-}
-
-var xPlayed =[];
-var oPlayerd = [];
-
-//create board function
-function createBoard(){
-	document.getElementById("baord");
-}
-
-//copy for all squares in array
-
-squares[0].addEventListenter("click", function() {
-	gamePiece(0);
-});
-squares[1].addEventListenter("click", function() {
-	gamePiece(1);
-});
-squares[2].addEventListenter("click", function() {
-	gamePiece(2);
-});
-squares[3].addEventListenter("click", function() {
-	gamePiece(3);
-});
-squares[4].addEventListenter("click", function() {
-	gamePiece(4);
-});
-squares[5].addEventListenter("click", function() {
-	gamePiece(5);
-});
-squares[6].addEventListenter("click", function() {
-	gamePiece(6);
-});
-squares[7].addEventListenter("click", function() {
-	gamePiece(7);
-});
-squares[8].addEventListenter("click", function() {
-	gamePiece(8);
-});
-squares[0].addEventListenter("click", function() {
-	gamePiece(9);
-});
-
-createBoard();
-
-*/
-
-/*Sample Code*/
 
 document.addEventListener('DOMContentLoaded', function() {
 
@@ -139,114 +13,116 @@ var squares = document.getElementsByClassName("square");
 
 // Turn function
 var player = function (){
-    // document.getElementsByClassName("square");
     if(turn % 2 === 0){
-        // document.textContent= "X";
         nextPlayer = "O";
         turn++;
-        // console.log("O is next");
     }else{
-        // document.textContent = "O";
         nextPlayer = "X";
         turn++;
-        // console.log("X is next");
     }
 };
 
-//second turn function
-// function player(){
-//     if(player === 1){
-//         document.getElementsByClassName("squares").textContent = "X";
-//         player = 0;
-//     }else {
-//         document.getElementsByClassName("squares").textContent = "O";
-//         player = 1;
-//     }
-// }
 
-
-// X, O function
-function gamePiece(index){
-    /// use this.style or whatever
-    if(squares.textContent === "X" || squares.textContent === "O"){
+function gamePiece(elementId){
+    var el = document.getElementById(elementId);
+    if(el.textContent === "X" || el.textContent === "O"){
         console.log("this square has been played");
-        // squares.push('X').xPLayed;
-        // squares.push('O').oPlayed;
     } else{
-        squares[index].textContent = nextPlayer;
+        el.textContent = nextPlayer;
     }
+    checkWinner();
     player();
-    win();
-} 
-    
-var xPlayed = []
-var oPlayed = []
-
-// win function
-function win(){
-    if(gamePiece === 3){
-        alert("You win!");
-    };
-    switch(true){
-        case squares[0], squares[1], squares[2]:
-            break;
-        case squares[0], squares[3], squares[6]:
-            break;
-        case squares[1], squares[4], squares[7]:
-            break;
-        case squares[2], squares[5], squares[8]:
-            break;
-        case squares[0], squares[4], squares[8]:
-            break;
-        case squares[3], squares[4], squares[5]:
-            break;
-        case squares[6], squares[7], squares[8]:
-            break;
-        case squares[2], squares[4], squares[6]:
-            break;
-    }
 }
+function checkWinner() {
+    //brings up a winner alert box regardless of what box is clicked and how many turns have passed
+    console.log('in check winner')
+    if ($("#tleft").textContent === $("#tmiddle").textContent && $("#tleft").textContent === $("#tright").textContent && $("#tmiddle").textContent === $("#tright").textContent) {
+        window.alert(nextPlayer + " Won!!");  
+    } else if ($("#cleft").textContent === $("#cmiddle").textContent && $("#cleft").textContent === $("#cright").textContent && $("#cright").textContent === $("#cleft").textContent) {
+        window.alert(nextPlayer + " Won!!");  
+        console.log('this worked')
+    } else if ($("#bleft").textContent === $("#bmiddle").textContent && $("#bleft").textContent === $("#bright").textContent && $("#middle").textContent === $("#bright").textContent) {
+        window.alert(nextPlayer + " Won!!");  
+    } else if ($("#tleft").textContent === $("#cleft").textContent && $("#tleft").textContent === $("#bleft").textContent && $("#cleft").textContent == $("#bleft").textContent) {
+        window.alert(nextPlayer + " Won!!");  
+    } else if ($("#tmiddle").textContent === $("#cmiddle").textContent && $("#tmiddle").textContent === $("#bmiddle").textContent && $("cmiddle").textContent === $("bmiddle").textContent) {
+        window.alert(nextPlayer + " Won!!");  
+    } else if ($("#bleft").textContent === $("#bmiddle").textContent && $("#bleft").textContent === $("#bright").textContent && $("#bmiddle").textContent === $("#bright").textContent) {
+        window.alert(nextPlayer + " Won!!");  
+    } else if ($("#tleft").textContent === $("#cmiddle").textContent && $("tleft").textContent === $("#bright").textContent && $("#cmiddle").textContent ===  $("#bright").textConent) {
+        window.alert(nextPlayer + " Won!!");  
+    } else if ($("#tright").textContent === $("#cmiddle").textContent && $("#tright").textContent === $("#bleft").textContent && $("#cmiddle").textConent === $("#bleft").textConent) {
+        window.alert(nextPlayer + " Won!!");  
+    } else if (document.getElementById(elementId) === 9) {
+     window.alert("You tie!!");
+    }
+};
 
-// create board function
+
+
+// create board function 
 function createBoard(){
     document.getElementById("board");
 }
 
 //reset function
-function reset(){
-    document.getElementById("board").reset();
+//function reset(){
+$('button').on('click', function() {  
+    document.getElementsByClassName("square").empty(); //should empty the divs # of any text. Not working??
+    // var clear = document.getElementsByClassName("square");
+    // for (var i = 0; i <= clear.length; i++) {
+     //   clear.removeChild(clear.firstChild);
+     //clear.removeAttribute("");
+
+    //var reset = document.getElementsByClassName('square').textContent("");
+    //reset.setAttribute(text, "");
+    //$("#square").empty();
+ 
+    var turn = 1
+    nextPlayer = "O";
     console.log("reset");
-    reset();
-}
+    console.log(nextPlayer);
+    console.log("turn counter is " + turn);
+});
 
 
-////find a way to make this function apply to every member of array
-squares[0].addEventListener("click", function(){
-    gamePiece(0);    
+
+//click events for each div
+squares[0].addEventListener("click", function() {
+    var elementId = squares[0].id;
+    gamePiece(elementId);
 });
 squares[1].addEventListener("click", function(){
-    gamePiece(1);    
+    var elementId = squares[1].id
+    gamePiece(elementId);    
 });
 squares[2].addEventListener("click", function(){
-    gamePiece(2);    
+    var elementId = squares[2].id
+    gamePiece(elementId);    
 });
 squares[3].addEventListener("click", function(){
-    gamePiece(3);    
+    var elementId = squares[3].id
+    gamePiece(elementId);    
 });
 squares[4].addEventListener("click", function(){
-    gamePiece(4);    
+    var elementId = squares[4].id
+    gamePiece(elementId);    
 });
 squares[5].addEventListener("click", function(){
-    gamePiece(5);    
+    var elementId = squares[5].id
+    gamePiece(elementId);    
 });
 squares[6].addEventListener("click", function(){
-    gamePiece(6);    
+    var elementId = squares[6].id
+    gamePiece(elementId);    
 });
 squares[7].addEventListener("click", function(){
-    gamePiece(7);    
+    var elementId = squares[7].id
+    gamePiece(elementId);    
 });
 squares[8].addEventListener("click", function(){
-    gamePiece(8);    
+    var elementId = squares[8].id
+    gamePiece(elementId);    
 });
-
+});
 // createBoard();
