@@ -15,140 +15,189 @@ document.addEventListener('DOMContentLoaded', function() {
 	var player1 = "X";
 	var player2 = "O";
 	var firstPlayer = player1;
+
 	var nextPlayer = player1;
 	var marker = "x";
+	var button =document.getElementById("button");
+	console.log(button);
+	var nextPlayerNotif = document.getElementById ("nextUp");
+	var winNotify =document.getElementById ("win");
+	var selectPlayer = function () {
+		if (winNotify.value === "X wins!" || winNotify.value === "O wins!") {
+		} else if (nextPlayer ==="X") {
+			nextPlayer = player2;
+			nextPlayerNotif.textContent = "O is Next";
+		} else {
+			nextPlayer =player1;
+			nextPlayerNotif.textContent = "X is Next";
+		}
+	}
 
 	
-	
-	var selectPlayer = function () {
-	    if (nextPlayer === "X") {
-	        nextPlayer = player2;
-	        console.log("player 2 is next")
-	    } else {
-	        nextPlayer = player1;
-	        console.log("player 1 is next")
-	    }
-	}
 	var changeLetter1 = function () {
 	    if (s1.textContent === 'X' ||
-	        s1.textContent === '0') {
+	        s1.textContent === 'O') {
 	        	console.log("this box has been played")
 	        } else {
 	        	s1.textContent=nextPlayer;
 	        	selectPlayer();
+	        	checkWinner ();
 	        	console.log("s1 hit and selectPlayer function run")
 	    }
 	}
 	var changeLetter2 = function () {
 	    if (s2.textContent === 'X' ||
-	        s2.textContent === '0') {
+	        s2.textContent === 'O') {
 	        	console.log("this box has been played")
 	        } else {
 	        	s2.textContent=nextPlayer;
 	        	selectPlayer();
+	        	checkWinner ();
 	        	console.log("s1 hit and selectPlayer function run")
 	    }
 	}
 	var changeLetter3 = function () {
 	    if (s3.textContent === 'X' ||
-	        s3.textContent === '0') {
+	        s3.textContent === 'O') {
 	        	console.log("this box has been played")
 	        } else {
 	        	s3.textContent=nextPlayer;
 	        	selectPlayer();
+	        	checkWinner ();
 	        	console.log("s1 hit and selectPlayer function run")
 	    }
 	}
 	var changeLetter4 = function () {
 		    if (s4.textContent === 'X' ||
-		        s4.textContent === '0') {
+		        s4.textContent === 'O') {
 		        	console.log("this box has been played")
 		        } else {
 		        	s4.textContent=nextPlayer;
 		        	selectPlayer();
+		        	checkWinner ();
 		        	console.log("s1 hit and selectPlayer function run")
 		    }
 		}
 	var changeLetter5 = function () {
 		    if (s5.textContent === 'X' ||
-		        s5.textContent === '0') {
+		        s5.textContent === 'O') {
 		        	console.log("this box has been played")
 		        } else {
 		        	s5.textContent=nextPlayer;
 		        	selectPlayer();
+		        	checkWinner ();
 		        	console.log("s1 hit and selectPlayer function run")
 		    }
 		}
 	var changeLetter6 = function () {
 		    if (s6.textContent === 'X' ||
-		        s6.textContent === '0') {
+		        s6.textContent === 'O') {
 		        	console.log("this box has been played")
 		        } else {
 		        	s6.textContent=nextPlayer;
 		        	selectPlayer();
+		        	checkWinner ();
 		        	console.log("s1 hit and selectPlayer function run")
 		    }
 		}
 	var changeLetter7 = function () {
 		    if (s7.textContent === 'X' ||
-		        s7.textContent === '0') {
+		        s7.textContent === 'O') {
 		        	console.log("this box has been played")
 		        } else {
 		        	s7.textContent=nextPlayer;
 		        	selectPlayer();
+		        	checkWinner ();
 		        	console.log("s1 hit and selectPlayer function run")
 		    }
 		}
 	var changeLetter8 = function () {
 		    if (s8.textContent === 'X' ||
-		        s8.textContent === '0') {
+		        s8.textContent === 'O') {
 		        	console.log("this box has been played")
 		        } else {
 		        	s8.textContent=nextPlayer;
 		        	selectPlayer();
+		        	checkWinner ();
 		        	console.log("s1 hit and selectPlayer function run")
 		    }
 		}
 	var changeLetter9 = function () {
 		    if (s9.textContent === 'X' ||
-		        s9.textContent === '0') {
+		        s9.textContent === 'O') {
 		        	console.log("this box has been played")
 		        } else {
 		        	s9.textContent=nextPlayer;
 		        	selectPlayer();
+		        	checkWinner ();
 		        	console.log("s1 hit and selectPlayer function run")
 		    }
 	}
-
-	var someoneWon = function () {
-		if (s1.textContent === "X" && s2.textContent === "X" && s3.textContent === "X") {
-		console.log ("X Wins");
-		} else if (s4.textContent === "X" && s5.textContent === "X" && s6.textContent === "X") {
-		console.log ("X Wins");
-		} else if (s7.textContent === "X" && s8.textContent === "X" && s9.textContent === "X") {
-		console.log ("X Wins"); 
-		} if (s1.textContent === "O" && s2.textContent === "O" && s3.textContent === "O") {
-		console.log ("O Wins");
-		} else if (s4.textContent === "O" && s5.textContent === "O" && s6.textContent === "O") {
-		console.log ("O Wins");
-		} else if (s7.textContent === "O" && s8.textContent === "O" && s9.textContent === "O") {
-		console.log ("O Wins");
-		console.log ("no winner yet")} 
+	var displayimage = function (){
+		document.getElementById ("winner");
+		nextPlayerNotif. textContent ="Looks Like We Have a Winner!";
+		documentgetElementById("nextUp").style.color = "pink";
+		document.getElementById("winnerWinner").style.AnimationName="winBlink";
 	}
 
-	/*== return true}; else 
-		{return false;
+	var checkWinner = function() {
+		console.log('ill be thankful')
+		if (s1.textContent === "X" && s2.textContent === "X" && s3.textContent === "X") {
+			winNotify.textContent="X Wins!"
+			displayimage ();
+		} else if (s4.textContent === "X" && s5.textContent === "X" && s6.textContent === "X") {
+			winNotify.textContent="X Wins!"
+		} else if (s7.textContent === "X" && s8.textContent === "X" && s9.textContent === "X") {
+			winNotify.textContent="X Wins!"
+		} else if (s1.textContent === "O" && s2.textContent === "O" && s3.textContent === "O") {
+			winNotify.textContent="0 Wins!"
+		} else if (s4.textContent === "O" && s5.textContent === "O" && s6.textContent === "O") {
+			winNotify.textContent="0 Wins!"
+		} else if (s7.textContent === "O" && s8.textContent === "O" && s9.textContent === "O") {
+			winNotify.textContent="0 Wins!"
+		} else if (s7.textContent === "X" && s8.textContent === "X" && s9.textContent === "X") {
+			winNotify.textContent="X Wins!"
+		} else if (s1.textContent === "X" && s4.textContent === "X" && s7.textContent === "X") {
+			winNotify.textContent="X Wins!"
+		} else if (s2.textContent === "X" && s5.textContent === "X" && s8.textContent === "X") {
+			winNotify.textContent="X Wins!"
+		} else if (s7.textContent === "O" && s8.textContent === "O" && s9.textContent === "O") {
+			winNotify.textContent="0 Wins!"
+		} else if (s1.textContent === "O" && s4.textContent === "O" && s7.textContent === "O") {
+			winNotify.textContent="0 Wins!"
+		} else if (s2.textContent === "O" && s5.textContent === "O" && s8.textContent === "O") {
+			winNotify.textContent="0 Wins!"
+		} else if (s3.textContent === "X" && s6.textContent === "X" && s9.textContent === "X") {
+			winNotify.textContent="X Wins!"
+		} else if (s1.textContent === "X" && s5.textContent === "X" && s9.textContent === "X") {
+			winNotify.textContent="X Wins!"
+		} else if (s7.textContent === "X" && s5.textContent === "X" && s3.textContent === "X") {
+			winNotify.textContent="X Wins!"
+		} else if (s3.textContent === "O" && s6.textContent === "O" && s9.textContent === "O") {
+			winNotify.textContent="0 Wins!"
+		} else if (s1.textContent === "O" && s5.textContent === "O" && s9.textContent === "O") {
+			winNotify.textContent="0 Wins!"
+		} else if (s7.textContent === "O" && s5.textContent === "O" && s3.textContent === "O") {
+			winNotify.textContent="0 Wins!"
+		} else {
+			winNotify.textContent = "No Winner Yet";
 		}
-
-	*/
-	/*document.getElementById("input").onclick = function () {
-  	document.getElementById(".textContent").innerHTML = ""; // Button not working
-	};*/
-
-	        
-	        
+	}
 	
+	function reset() {
+		console.log('Im in the reset function')
+		s1.textContent="";
+		s2.textContent="";
+		s3.textContent="";
+		s4.textContent="";
+		s5.textContent="";
+		s6.textContent="";
+		s7.textContent="";
+		s8.textContent="";
+		s9.textContent="";
+	}
 
+	button.addEventListener("click",reset);
 
 	s1.addEventListener("click", changeLetter1);
 	s2.addEventListener("click", changeLetter2);

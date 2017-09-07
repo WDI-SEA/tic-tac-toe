@@ -5,6 +5,11 @@ body {
 h1 {
   color: purple;
   text-align: center;
+  font-size: 60px;
+  font-family: "Georgia";
+  color: rgb(0,191,255);
+  font-family: cursive;
+
 }
 
 table { 
@@ -77,9 +82,15 @@ table {
     font-size: 75px;
     text-align: center;
 }
-
-input {
-	background-color: green;
+p {
+    margin: auto;
+    text-align: center;
+    font-size: 20px;
+    text-decoration: underline;
+    font-family: "Georgia";
+}
+button {
+	background-color: rgb(0,191,255);
 	color: black;
 	text-align: center;
 	display: block;
@@ -87,62 +98,8 @@ input {
 	padding: 15px 32px;
 	margin: auto;
 }
-/*#a{
-    border-left:1px solid #000;
-    border-right:1px solid #000;
+#winner {
+    display: none;
+    height: 400px;
+    width: 300px
 }
-
-#h{
-    border-top:1px solid #000;
-    border-bottom:1px solid #000;
-}*/
-
-
-
-
-
-/*
-
-.board {
-	background-color: pink;
-}*/
-
-
-
-/*.square{
-	width: 100px;
-	height: 100px;
-}
-
-.v{
-	border-left: 1px solid #000;
-	border-right: 1px solid #000;
-}
-
-.h{
-	border-top: 1px solid #000;
-	border-bottom: 1px solid #000;
-}*/
-
-
-
-
-/*.gird {
-
-}
-
-.cell {
-	height: 50px;
-	width: 50px;
-	background-color: #999;
-	display: inline-block;
-}
-
-.grid {
-
-	justify-content: space-around;
-}
-
-.cell:nth-child(3n) {
-	background-color: #F05;
-}*/
