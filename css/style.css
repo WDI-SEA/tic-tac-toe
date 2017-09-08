@@ -18,45 +18,28 @@ h1 {
 }
 
 .squares {
-  display:inline-block;
-  padding: 20px;
-  padding-top:30px;
-  width:100px;
-  height:90px;
-  background:white;
-  border-radius: 25%;
-  border: 5px goldenrod double;
-  opacity: 0.5;
-  margin:2px;
-  margin-top:4px;
+	display:inline-block;
+	padding: 20px;
+ 	padding-top:30px;
+	width:100px;
+	height:90px;
+	background:rgba(255,255,255,0.5);
+	border-radius: 25%;
+	border: 5px goldenrod double;
+ 	margin:2px;
+ 	margin-top:4px;
 }
 
-#harry {
-	display:inline-block;
-  	padding: 20px;
-  	padding-top:30px;
-  	width:100px;
-  	height:90px;
+.harry {
   	background-image:url("http://cdn.playbuzz.com/cdn/b804a498-9431-4ab3-8b3c-33d6ef24d160/fd4dd154-5163-44e8-83ed-8676d87072a5.jpg");
-  	background-size:50%
-  	border-radius: 25%;
-  	border: 5px goldenrod double;
-  	margin:2px;
-  	margin-top:4px;
+  	background-size:100%;
+  	opacity:1;
 }
 
-#draco {
-	display:inline-block;
-  	padding: 20px;
-  	padding-top:30px;
-  	width:100px;
-  	height:90px;
+.draco {
   	background-image:url("http://vignette1.wikia.nocookie.net/the-mighty-slytherins/images/a/a3/DracoEID.jpg/revision/latest?cb=20150617073623");
-  	background-size:50%
-  	border-radius: 25%;
-  	border: 5px goldenrod double;
-  	margin:2px;
-  	margin-top:4px;
+  	background-size:100%;
+  	opacity: 1;
 }
 
 #message {

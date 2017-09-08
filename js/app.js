@@ -1,16 +1,32 @@
+document.addEventListener('DOMContentLoaded', function() {
 
-var harry = document.getElementById("harry");
-var draco = document.getElementById("draco");
+var harry = document.getElementsByClassName("harry");
+var draco = document.getElementsByClassName("draco");
+var resetButton = document.getElementById("reset");
+var squares = document.getElementsByClassName("squares");
+var square1 = document.getElementById("square1");
+var square2 = document.getElementById("square2");
+var square3 = document.getElementById("square3");
+var square4 = document.getElementById("square4");
+var square5 = document.getElementById("square5");
+var square6 = document.getElementById("square6");
+var square7 = document.getElementById("square7");
+var square8 = document.getElementById("square8");
+var square9 = document.getElementById("square9");
+
+
+var player = "";
+var winner = "";
 
 function startGame() {
-  for (var i = 1; i <= 9; i = i +1) {
-    clearBox(i);
-  }
+  // clearBox();
   if(Math.random() < 0.5) {
-    document.turn = harry;
+    player = 'harry';
+    }else{
+    player = 'draco';
   }
-  document.winner = null;
-  setMessage(document.turn + " is chasing after the Snitch!");
+  winner = null;
+  setMessage(player + " is chasing after the Snitch!");
 }
 
 function setMessage(msg) {
@@ -18,46 +34,85 @@ function setMessage(msg) {
 }
 
 function nextMove(square) {
- if (document.turn !== null) {
-  setMessage(document.turn + " already caught the Snitch.");
-  if(square.innerText === "") {
-    square.innerText = document.turn;
-    switchTurn();
+  if (player==='harry'){
+      square.classList.add('harry');
+      checkForWinner();
+  }else if (player==='draco'){
+      square.classList.add('draco');
+      checkForWinner();
   }else{
-    setMessage("Hey now, you can't pick that one.");
+      setMessage("Hey now, you can't pick that one.");
   }
+  switchTurn();
 }
+
 
 
 function switchTurn() {
-  if(checkForWinner(document.turn)) {
-    document.winner = document.turn;
-    setMessage(document.winner + " has caught the Snitch!");
-  }else if(document.turn === harry) {
-    document.turn = draco;
-    setMessage("Now " + document.turn + " is going after the Snitch!");
+  if(checkForWinner(move)) {
+   winner = player;
+   setMessage(winner + " has caught the Snitch!");
+  }else if(player === 'harry') {
+    player = 'draco';
+    setMessage("Now " + player + " is going after the Snitch!");
   }else{
-    document.turn = "harry";
-    setMessage("Now " + document.turn + " is going after the Snitch!");
+    player = "harry";
+    setMessage("Now " + player + " is going after the Snitch!");
   }
 }
 
 
+
+//new checkForWinner:
 function checkForWinner(move) {
-  var result = false;
-  if (checkRow(1, 2, 3, move) || 
-      checkRow(4, 5, 6, move) ||
-      checkRow(7, 8, 9, move) ||
-      checkRow(1, 4, 7, move) ||
-      checkRow(2, 5, 8, move) ||
-      checkRow(3, 6, 9, move) ||
-      checkRow(1, 5, 9, move) ||
-      checkRow(3, 5, 7, move)) {
-
-      result = true;
+  //var result=false;
+  if(square1===square2 && square1===square3 & square2===square3){
+    declareWinner();
+  }else if(square4===square5 && square4===square6 && square5===square6){
+    declareWinner();
+  }else if(square7===square8 && square7===square9 && square8===square9){
+    declareWinner();
+  }else if(square1===square4 && square1===square7 && square4===square7){
+    declareWinner();
+  }else if(square2===square5 && square2===square6 && square5===square6){
+    declareWinner();
+  }else if(square3===square6 && square3===square9 && square6===square9){
+    declareWinner();
+  }else if(square1===square5 && square1===square9 && square5===square9){
+    declareWinner();
+  }else if(square3===square5 && square3===square7 && square5===square7){
+    declareWinner();
+  }else{
+    setMessage("Oh blimey, the Snitch flew away into the distance!");
   }
-  return result;
 }
+
+
+function declareWinner(){
+  winner=player;
+  setMessage(winner + " has caught the Snitch!");
+  //insert snitch animation once rest of game is working
+}
+   
+
+
+//old checkForWinner:
+
+// function checkForWinner(move) {
+//   var result = false;
+//   if (checkRow(1, 2, 3, move) || 
+//       checkRow(4, 5, 6, move) ||
+//       checkRow(7, 8, 9, move) ||
+//       checkRow(1, 4, 7, move) ||
+//       checkRow(2, 5, 8, move) ||
+//       checkRow(3, 6, 9, move) ||
+//       checkRow(1, 5, 9, move) ||
+//       checkRow(3, 5, 7, move)) {
+
+//       result = true;
+//   }
+//   return result;
+// }
 
 
 function checkRow(a, b, c, move) {
@@ -72,6 +127,22 @@ function getBox(number) {
 }
 
 
-function clearBox(number) {
-  document.getElementById("square" + number).innerText = "";
+function clearBox() {
+  for (var i = 1; i <= 9; i++) {
+    document.getElementById("square" + (i)).style.backgroundImage="none";
+    document.getElementById("square" + (i)).style.background="rgba(255,255,255,0.5);";
+  } 
 }
+
+resetButton.addEventListener("click", clearBox);
+
+for (var i = 1; i < 10; i++) {
+  // console.log(getBox(i));
+  getBox(i).addEventListener("click", function() {
+    nextMove(this);
+  });
+}
+
+startGame();
+
+});
