@@ -11,6 +11,7 @@ var xPoints = 0;
 var oPoints = 0;
 var squares = document.getElementsByClassName("square");
 
+
 // Turn function
 var player = function (){
     if(turn % 2 === 0){
@@ -25,64 +26,82 @@ var player = function (){
 
 function gamePiece(elementId){
     var el = document.getElementById(elementId);
-    if(el.textContent === "X" || el.textContent === "O"){
+    var clicked = el.getAttribute('data-clicked');
+    if(clicked == "true"){
         console.log("this square has been played");
+       
     } else{
         el.textContent = nextPlayer;
+        el.setAttribute('data-clicked', 'true'); 
+
     }
     checkWinner();
     player();
 }
+
+function declareWin() {
+
+}
+
 function checkWinner() {
-    //brings up a winner alert box regardless of what box is clicked and how many turns have passed
-    console.log('in check winner')
-    if ($("#tleft").textContent === $("#tmiddle").textContent && $("#tleft").textContent === $("#tright").textContent && $("#tmiddle").textContent === $("#tright").textContent) {
-        window.alert(nextPlayer + " Won!!");  
-    } else if ($("#cleft").textContent === $("#cmiddle").textContent && $("#cleft").textContent === $("#cright").textContent && $("#cright").textContent === $("#cleft").textContent) {
-        window.alert(nextPlayer + " Won!!");  
+   if (turn >= 5) {
+    console.log('in check winner'); 
+    console.log($('#tleft').text());
+     if ($('#tleft').text() === nextPlayer && $('#tmiddle').text() === nextPlayer && $('#tright').text() === nextPlayer) {
+        console.log(nextPlayer + " Won!!"); 
+        ($(".square").attr('data-clicked', "true"));
+        console.log("No More Plays") //window alert functions no longer work after adjustments (9/7 10:23pm)
+    } else if ($("#cleft").text() === nextPlayer && $("#cmiddle").text() === nextPlayer && $("#cright").text() === nextPlayer) {
+        console.log(nextPlayer + " Won!!");  
         console.log('this worked')
-    } else if ($("#bleft").textContent === $("#bmiddle").textContent && $("#bleft").textContent === $("#bright").textContent && $("#middle").textContent === $("#bright").textContent) {
-        window.alert(nextPlayer + " Won!!");  
-    } else if ($("#tleft").textContent === $("#cleft").textContent && $("#tleft").textContent === $("#bleft").textContent && $("#cleft").textContent == $("#bleft").textContent) {
-        window.alert(nextPlayer + " Won!!");  
-    } else if ($("#tmiddle").textContent === $("#cmiddle").textContent && $("#tmiddle").textContent === $("#bmiddle").textContent && $("cmiddle").textContent === $("bmiddle").textContent) {
-        window.alert(nextPlayer + " Won!!");  
-    } else if ($("#bleft").textContent === $("#bmiddle").textContent && $("#bleft").textContent === $("#bright").textContent && $("#bmiddle").textContent === $("#bright").textContent) {
-        window.alert(nextPlayer + " Won!!");  
-    } else if ($("#tleft").textContent === $("#cmiddle").textContent && $("tleft").textContent === $("#bright").textContent && $("#cmiddle").textContent ===  $("#bright").textConent) {
-        window.alert(nextPlayer + " Won!!");  
-    } else if ($("#tright").textContent === $("#cmiddle").textContent && $("#tright").textContent === $("#bleft").textContent && $("#cmiddle").textConent === $("#bleft").textConent) {
-        window.alert(nextPlayer + " Won!!");  
-    } else if (document.getElementById(elementId) === 9) {
-     window.alert("You tie!!");
+        ($(".square").attr('data-clicked', "true"));
+    } else if ($("#bleft").text() === nextPlayer && $("#bmiddle").text() === nextPlayer && $("#bright").text() === nextPlayer) {
+        console.log(nextPlayer + " Won!!");  
+        ($(".square").attr('data-clicked', "true"));
+    } else if ($("#tleft").text() === nextPlayer && $("#cleft").text() === nextPlayer && $("#bleft").text() == nextPlayer) {
+        console.log(nextPlayer + " Won!!");  
+        ($(".square").attr('data-clicked', "true"));
+    } else if ($("#tmiddle").text() === nextPlayer && $("#bmiddle").text() === nextPlayer && $("cmiddle").text() === nextPlayer) {
+        console.log(nextPlayer + " Won!!");  
+        ($(".square").attr('data-clicked', "true"));
+    } else if ($("#bleft").text() === nextPlayer && $("#bmiddle").text() === nextPlayer && $("#bright").text() === nextPlayer) {
+        console.log(nextPlayer + " Won!!");  
+        ($(".square").attr('data-clicked', "true"));
+    } else if ($("#tleft").text() === nextPlayer && $("cmiddle").text() === nextPlayer && $("#bright").text() ===  nextPlayer) {
+        console.log(nextPlayer + " Won!!");  
+        ($(".square").attr('data-clicked', "true"));
+    } else if ($("#tright").text() === nextPlayer && $("#cmiddle").text() === nextPlayer && $("#bleft").text() === nextPlayer) {
+        console.log(nextPlayer + " Won!!");  
+        ($(".square").attr('data-clicked', "true"));
+    } else if (turn === 9) {
+     console.log("You tie!!");
     }
-};
+}};
 
 
 
+// }
+
+// function reset() {
+//     for (var i = 0; i < 9; i++) {
+//         squares.textContent[i] = ("")
+//     }
+// };
 // create board function 
 function createBoard(){
     document.getElementById("board");
-}
+};
 
 //reset function
-//function reset(){
-$('button').on('click', function() {  
-    document.getElementsByClassName("square").empty(); //should empty the divs # of any text. Not working??
-    // var clear = document.getElementsByClassName("square");
-    // for (var i = 0; i <= clear.length; i++) {
-     //   clear.removeChild(clear.firstChild);
-     //clear.removeAttribute("");
 
-    //var reset = document.getElementsByClassName('square').textContent("");
-    //reset.setAttribute(text, "");
-    //$("#square").empty();
- 
-    var turn = 1
+$('#button').on('click', function() {  
+    $(".square").empty(); 
+    var turn = 1;
     nextPlayer = "O";
     console.log("reset");
     console.log(nextPlayer);
     console.log("turn counter is " + turn);
+   $(".square").attr('data-clicked', "false");
 });
 
 
@@ -123,6 +142,7 @@ squares[7].addEventListener("click", function(){
 squares[8].addEventListener("click", function(){
     var elementId = squares[8].id
     gamePiece(elementId);    
+})
 });
-});
+
 // createBoard();
