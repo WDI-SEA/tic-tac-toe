@@ -2,6 +2,7 @@ console.log('Hello frontend');
 
 var resetGame = document.getElementById("button");
 var game = document.getElementsByClassName("box");
+var gamePieces = document.getElementsByClassName("text");
 var gameBoard = false;
 var div1 = document.getElementById('1');
 var div2 = document.getElementById('2');
@@ -16,35 +17,35 @@ var playerOne = 'X';
 var playerTwo = 'O';
 var turnCounter = 0;
 keepPlaying = true;
-var winnerX = "Player 1 wins!"
-var winner0 = "Player 2 wins!"
+var winnerX = "Player 1 wins!";
+var winner0 = "Player 2 wins!";
 
 
 var turn = function (){
 	if(turnCounter % 2 === 0) {
-		return ('.X');
+		return 'X';
 	} else {
-		return ('.O');
+		return 'O';
 	}
 };
 
 var checkForWinner = function(){
-	// console.log(div1.style.backgroundImage);
-	if(div1.style.backgroundImage === div2.style.backgroundImage && div1.style.backgroundImage === div3.style.backgroundImage && div2.style.backgroundImage === div3.style.backgroundImage){
+	 console.log(div1.style.border);
+	if(div1.style.border === div2.style.border && div1.style.border === div3.style.border && div2.style.border === div3.style.border){
 		declareWinner(turn());
-	}else if(div4.style.backgroundImage === div5.style.backgroundImage && div4.style.backgroundImage === div6.style.backgroundImage && div5.style.backgroundImage === div6.style.backgroundImage){
+	}else if(div4.style.border === div5.style.border && div4.style.border === div6.style.border && div5.style.border === div6.style.border){
 		declareWinner(turn());
-	} else if(div7.style.backgroundImage === div8.style.backgroundImage && div7.style.backgroundImage === div9.style.backgroundImage && div8.style.backgroundImage === div9.style.backgroundImage){
+	} else if(div7.style.border === div8.style.border && div7.style.border === div9.style.border && div8.style.border === div9.style.border){
 		declareWinner(turn());
-	} else if(div1.style.backgroundImage === div4.style.backgroundImage && div1.style.backgroundImage=== div7.style.backgroundImage && div4.style.backgroundImage === div7.style.backgroundImage){
+	} else if(div1.style.border === div4.style.border && div1.style.border === div7.style.border && div4.style.border === div7.style.border){
 		declareWinner(turn());
-	} else if(div2.style.backgroundImage === div5.style.backgroundImage && div2.style.backgroundImage === div8.style.backgroundImage && div5.style.backgroundImage === div8.style.backgroundImage){
+	} else if(div2.style.border === div5.style.border && div2.style.border === div8.style.border && div5.style.border === div8.style.border){
 		declareWinner(turn());
-	} else if(div3.style.backgroundImage === div6.style.backgroundImage && div3.style.backgroundImage === div9.style.backgroundImage && div6.style.backgroundImage === div9.style.backgroundImage){
+	} else if(div3.style.border === div6.style.border && div3.style.border === div9.style.border && div6.style.border === div9.style.border){
 		declareWinner(turn());
-	} else if(div1.style.backgroundImage === div5.style.backgroundImage && div1.style.backgroundImage === div9.style.backgroundImage && div5.style.backgroundImage === div9.style.backgroundImage){
+	} else if(div1.style.border === div5.style.border && div1.style.border === div9.style.border && div5.style.border === div9.style.border){
 		declareWinner(turn());
-	} else if(div3.style.backgroundImage === div5.style.backgroundImage && div3.style.backgroundImage === div7.style.backgroundImage && div5.style.backgroundImage === div7.style.backgroundImage){
+	} else if(div3.style.border === div5.style.border && div3.style.border === div7.style.border && div5.style.border === div7.style.border){
 		declareWinner(turn());
 	}
 }
@@ -58,7 +59,8 @@ var checkForWinner = function(){
 var play = function (){
 	if(!this.classList.contains('X') && !this.classList.contains('O') && keepPlaying) {
 		this.classList.add(turn());
-		console.log('test play');
+		//add check for winner function here
+		turnCounter++;
 			}
 		};
 // 		// console.log(this.style.backgroundImage);

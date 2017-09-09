@@ -16,13 +16,15 @@ h1 {
   font-weight: bold;
   padding-bottom: 0px;
   color: #aeafb2;
-  margin-bottom: 20px;
+  margin-bottom: -20px;
 }
 .container{
-	width: 314px;
-	height: 309px;
+	width: 321px;
+	height: 320px;
 	background: #56756d;
 	display: inline-block;
+	position: relative;
+	bottom: 60px;
 }
 
 .box{
@@ -35,25 +37,49 @@ h1 {
 }
 
 .X {
-	/*border-width: 1px;
-	background-image: url('../img/sloth.jpg');
+	border-width: 1px solid red;
+	background-image: url('../img/slothX.jpg');
 	background-size: 100px 100px;
-	background-repeat: no-repeat;*/
-	text-align: center;
-	font-weight: bold;
-	font-size: 70px;
-	content: "X";
+	background-repeat: no-repeat;
 }
 
 .O {
-	/*background-image: url('../img/marmot.jpg');
+	border: 1px solid red;
+	background-image: url('../img/otterO.jpg');
 	background-size: 100px 100px;
-	background-repeat: no-repeat;*/
-	text-align: center;
-	font-weight: bold;
-	font-size: 70px;
+	background-repeat: no-repeat;
+}
+.pieceDisplay {
+	display: inline-block;
+	margin: 0;
+	padding: 0;
 }
 
+#xGamePiece {
+	height: 200px;
+	width: 280px;
+	position: relative;
+	top: 100px;
+	padding: 0;
+}
+p {
+	position: relative;
+	font-family: 'Shadows Into Light', cursive;
+  	font-size: 30px;
+}
+#xPlayerAssignment {
+	bottom: 100px;
+}
+#oPlayerAssignment {
+	bottom: 80px;
+}
+#oGamePiece {
+	height: 200px;
+	width: 280px;
+	position: relative;
+	margin: 0;
+	padding: 0;
+}
 #button {
 	text-align: center;
 	border: none;
