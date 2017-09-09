@@ -19,8 +19,8 @@ h1 {
   margin-bottom: -20px;
 }
 .container{
-	width: 321px;
-	height: 320px;
+	width: 314px;
+	height: 309px;
 	background: #56756d;
 	display: inline-block;
 	position: relative;
@@ -37,14 +37,12 @@ h1 {
 }
 
 .X {
-	border-width: 1px solid red;
 	background-image: url('../img/slothX.jpg');
 	background-size: 100px 100px;
 	background-repeat: no-repeat;
 }
 
 .O {
-	border: 1px solid red;
 	background-image: url('../img/otterO.jpg');
 	background-size: 100px 100px;
 	background-repeat: no-repeat;
