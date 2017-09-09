@@ -8,10 +8,8 @@ var cell5 = document.getElementById('cell5');
 var cell6 = document.getElementById('cell6');
 var cell7 = document.getElementById('cell7');
 var cell8 = document.getElementById('cell8');
-
 //game state
-var player = 'X'
-
+var player = 'X';
 var row1 = [cell0, cell1, cell2];
 var row2 = [cell3, cell4, cell5];
 var row3 = [cell6, cell7, cell8];
@@ -20,12 +18,49 @@ var col2 = [cell1,cell4, cell7];
 var col3 = [cell2,cell5, cell8];
 var diag1 = [cell0, cell4, cell8];
 var diag2 = [cell2, cell4, cell6];
-
 var gBoard = [row1, row2, row3];//this is set by var rows1-3 above
 var totalMoves = 0;
+var wonByLine = function(line) {
+    if (line[0].className === player && 
+        line[1].className === player && 
+        line[2].className === player) {
+        return true;
+    } 
+    return false;
+}
+var didWin = function(cellId) {
+    switch (cellId) {
+        case "cell0":
+            return wonByLine(row1) || wonByLine(col1)
+        break;
+        
+        case "cell1":
+        
+        break;
+        case "cell2":
 
+        break;
+        case "cell3":
+
+        break;
+        case "cell4":
+
+        break;
+        case "cell5":
+
+        break;
+        case "cell6":
+
+        break;
+        case "cell7":
+
+        break;
+        case "cell8":
+
+        break;
+            }
+}
 //clickHandlers
-
 gBoard.forEach(function (row){
     row.forEach(function(cell){
        //get click event working on each cell
@@ -34,7 +69,7 @@ gBoard.forEach(function (row){
             if (cell.className !== "") { //dont do anything if the cell is taken - if not empty
                 return;
             }
-
+            totalMoves += 1;
             //mark the player cell
             cell.className = player;
             cell.textContent = player;
@@ -56,6 +91,13 @@ gBoard.forEach(function (row){
             } 
  
         })
+    });
+});
+
+gBoard.forEach(function (row){
+    row.forEach(function(cell){
+       cell.className = player;
+        cell.textContent = player;
     });
 });
 
