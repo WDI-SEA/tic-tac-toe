@@ -34,20 +34,24 @@ h1 {
 	cursor: pointer;
 }
 
-/*.box:hover{
-	background: white;
-}*/
-
 .X {
-	background-image: url('/Users/willylikestokayak/source/unit1/tic-tac-toe/img/sloth.jpg');
+	/*border-width: 1px;
+	background-image: url('../img/sloth.jpg');
 	background-size: 100px 100px;
-	background-repeat: no-repeat;
+	background-repeat: no-repeat;*/
+	text-align: center;
+	font-weight: bold;
+	font-size: 70px;
+	content: "X";
 }
 
 .O {
-	background-image: url('/Users/willylikestokayak/source/unit1/tic-tac-toe/img/marmot.jpg');
+	/*background-image: url('../img/marmot.jpg');
 	background-size: 100px 100px;
-	background-repeat: no-repeat;
+	background-repeat: no-repeat;*/
+	text-align: center;
+	font-weight: bold;
+	font-size: 70px;
 }
 
 #button {
