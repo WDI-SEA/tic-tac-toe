@@ -62,47 +62,61 @@ var didWin = function(cellId) {
         break;
             }
 }
-//clickHandlers
-gBoard.forEach(function (row){
-    row.forEach(function(cell){
-       //get click event working on each cell
-       cell.addEventListener('click', function(){
-        //see if cell is clicked/ empty
-            if (cell.className !== "") { //dont do anything if the cell is taken - if not empty
-                return;
-            }
-            totalMoves += 1;
-            //mark the player cell
-            cell.className = player;
-            cell.textContent = player;
+var stopGame = function() {
+    gBoard.forEach(function(row) {
+        row.forEach(function(cell) {
+            cell.removeEventListener('click', moveMade);
+        });
+    });
+    alert('Player ' + player + ' wins!');
+}
+var moveMade = function(cell) {
+    //see if cell is clicked/ empty
+    if (cell.target.className !== "") { //dont do anything if the cell is taken - if not empty
+        return;
+    }
+    totalMoves += 1;
+    //mark the player cell
+    cell.target.className = player;
+    cell.target.textContent = player;
 
-            //check to see if its a winning move
-            if (didWin(cell.id)) {
-                console.log("Youve Won" + player); 
-            }else { 
-              //if not, is it a tie?
-              if (totalMoves === 9){
-                console.log("You both lose!");
-              } 
-              //switch player
-              if (player === "X") {
-                player = "O";
-              }else {
-                player = "X";
-              }
-            } 
- 
-        })
+    //check to see if its a winning move
+    if (didWin(cell.target.id)) {
+        stopGame();
+    }else { 
+      //if not, is it a tie?
+      if (totalMoves === 9){
+        alert("You both lose!");
+      } 
+      //switch player
+      if (player === "X") {
+        player = "O";
+      }else {
+        player = "X";
+      }
+    } 
+}
+//clickHandlers
+var gameClicker = function() {
+    gBoard.forEach(function(row) {
+        row.forEach(function(cell) {
+           //get click event working on each cell
+           cell.addEventListener('click', moveMade)
+        });
     });
-});
-reset.addEventListener('click', function(){
-    gBoard.forEach(function (row){
-    row.forEach(function(cell){
-        cell.className = '';
+}
+gameClicker();
+
+reset.addEventListener('click', function() {
+    totalMoves = 0;
+    player = 'X';
+    gameClicker();
+    gBoard.forEach(function(row) {
+        row.forEach(function(cell) {
+            cell.className = '';
+            cell.textContent = '';
+        });
     });
-    // cell.className = "";
-    cell.textContent = 'X';
-});
 });
 
 
