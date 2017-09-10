@@ -16,19 +16,35 @@ var p1Count = 0;
 var p2Count = 0;
 var p1Score = document.getElementById("p1Score");
 var p2Score = document.getElementById("p2Score");
+var display = document.getElementById("turn");
+var t1Display = function(){
+	display.textContent = "Player One's Turn"
+	display.style.color = "gold";
+};
+var t2Display = function(){
+	display.textContent = "Player Two's Turn";
+	display.style.color = "purple";
+};
+var tie = function(){
+	display.textContent = "Bummer, it's a tie. Press Reset to try again!";
+	display.style.color = "red";
+};
 p1Score.textContent = p1Count;
 p2Score.textContent = p2Count;
+t1Display();
 var p1 = function () {
 	playerOne = true;
 	p1Count++;
 	p1Score.textContent = p1Count;
-	alert("Player One Wins!");
+	display.textContent = "Player One Wins!";
+	display.style.color = "gold";
 };
 var p2 = function () {	
 	playerTwo = false;
 	p2Count++;
 	p2Score.textContent = p2Count;
-	alert("Player Two Wins!");
+	display.textContent = "Player Two Wins!";
+	display.style.color = "purple";
 };
 
 var stop = function() { 
@@ -47,6 +63,7 @@ var firstCell = function() {
 	if (count % 2 === 0) {
 		array[0].textContent = "0";
 		array[0].classList.add("purple");
+		t2Display();
 		if (array[0].textContent === "0" && array[1].textContent === "0" && array[2].textContent === "0") {
 			p1();
 			stop();
@@ -60,6 +77,7 @@ var firstCell = function() {
 	} else {
 		array[0].textContent = "X";
 		array[0].classList.add("gold");
+		t1Display();
 		if (array[0].textContent === "X" && array[1].textContent === "X" && array[2].textContent === "X") {
 			p2();
 			stop();
@@ -75,13 +93,14 @@ var firstCell = function() {
 	console.log(count);
 	array[0].removeEventListener('click', firstCell);
 	if (count === 9 && playerOne === false && playerTwo === false) {
-		alert("It's a tie game. Hit Reset to try again.");
+		tie();
 	};
 };
 var secondCell = function() {
 	if (count % 2 === 0) {
 		array[1].textContent = "0";
 		array[1].classList.add("purple");
+		t2Display();
 		if (array[0].textContent === "0" && array[1].textContent === "0" && array[2].textContent === "0") {
 			p1();
 			stop();
@@ -92,6 +111,7 @@ var secondCell = function() {
 	} else {
 		array[1].textContent = "X";
 		array[1].classList.add("gold");
+		t1Display();
 		if (array[0].textContent === "X" && array[1].textContent === "X" && array[2].textContent === "X") {
 			p2();
 			stop();
@@ -104,13 +124,14 @@ var secondCell = function() {
 	console.log(count);
 	array[1].removeEventListener('click', secondCell);
 	if (count === 9 && playerOne === false && playerTwo === false) {
-		alert("It's a tie game. Hit Reset to try again.");
+		tie();
 	};
 };
 var thiCell = function() {
 	if (count % 2 === 0) {
 		array[2].textContent = "0";
 		array[2].classList.add("purple");
+		t2Display();
 		if (array[0].textContent === "0" && array[1].textContent === "0" && array[2].textContent === "0") {
 			p1();
 			stop();
@@ -124,6 +145,7 @@ var thiCell = function() {
 	} else {
 		array[2].textContent = "X";
 		array[2].classList.add("gold");
+		t1Display();
 		if (array[0].textContent === "X" && array[1].textContent === "X" && array[2].textContent === "X") {
 			p2();
 			stop();
@@ -139,13 +161,14 @@ var thiCell = function() {
 	console.log(count);
 	array[2].removeEventListener('click', thiCell);
 	if (count === 9 && playerOne === false && playerTwo === false) {
-		alert("It's a tie game. Hit Reset to try again.");
+		tie();
 	};
 };
 var fourCell = function() {
 	if (count % 2 === 0) {
 		array[3].textContent = "0";
 		array[3].classList.add("purple");
+		t2Display();
 		if (array[3].textContent === "0" && array[4].textContent === "0" && array[5].textContent === "0") {
 			p1();
 			stop();
@@ -156,6 +179,7 @@ var fourCell = function() {
 	} else {
 		array[3].textContent = "X";
 		array[3].classList.add("gold");
+		t1Display();
 		if (array[3].textContent === "X" && array[4].textContent === "X" && array[5].textContent === "X") {
 			p2();
 			stop();
@@ -168,13 +192,14 @@ var fourCell = function() {
 	console.log(count);
 	array[3].removeEventListener('click', fourCell);
 	if (count === 9 && playerOne === false && playerTwo === false) {
-		alert("It's a tie game. Hit Reset to try again.");
+		tie();
 	};
 };
 var fiveCell = function() {
 	if (count % 2 === 0) {
 		array[4].textContent = "0";
 		array[4].classList.add("purple");
+		t2Display();
 		if (array[3].textContent === "0" && array[4].textContent === "0" && array[5].textContent === "0") {
 			p1();
 			stop();
@@ -191,6 +216,7 @@ var fiveCell = function() {
 	} else {
 		array[4].textContent = "X";
 		array[4].classList.add("gold");
+		t1Display();
 		if (array[3].textContent === "X" && array[4].textContent === "X" && array[5].textContent === "X") {
 			p2();
 			stop();
@@ -209,13 +235,14 @@ var fiveCell = function() {
 	console.log(count);
 	array[4].removeEventListener('click', fiveCell);
 	if (count === 9 && playerOne === false && playerTwo === false) {
-		alert("It's a tie game. Hit Reset to try again.");
+		tie();
 	};
 };
 var sixCell = function() {
 	if (count % 2 === 0) {
 		array[5].textContent = "0";
 		array[5].classList.add("purple");
+		t2Display();
 		if (array[3].textContent === "0" && array[4].textContent === "0" && array[5].textContent === "0") {
 			p1();
 			stop();
@@ -226,6 +253,7 @@ var sixCell = function() {
 	} else {
 		array[5].textContent = "X";
 		array[5].classList.add("gold");
+		t1Display();
 		if (array[3].textContent === "X" && array[4].textContent === "X" && array[5].textContent === "X") {
 			p2();
 			stop();
@@ -238,13 +266,14 @@ var sixCell = function() {
 	console.log(count);
 	array[5].removeEventListener('click', sixCell);
 	if (count === 9 && playerOne === false && playerTwo === false) {
-		alert("It's a tie game. Hit Reset to try again.");
+		tie();
 	};
 };
 var sevCell = function() {
 	if (count % 2 === 0) {
 		array[6].textContent = "0";
 		array[6].classList.add("purple");
+		t2Display();
 		if (array[6].textContent === "0" && array[7].textContent === "0" && array[8].textContent === "0") {
 			p1();
 			stop();
@@ -258,6 +287,7 @@ var sevCell = function() {
 	} else {
 		array[6].textContent = "X";
 		array[6].classList.add("gold");
+		t1Display();
 		if (array[6].textContent === "X" && array[7].textContent === "X" && array[8].textContent === "X") {
 			p2();
 			stop();
@@ -273,13 +303,14 @@ var sevCell = function() {
 	console.log(count);
 	array[6].removeEventListener('click', sevCell);
 	if (count === 9 && playerOne === false && playerTwo === false) {
-		alert("It's a tie game. Hit Reset to try again.");
+		tie();
 	};
 };
 var eightCell = function() {
 	if (count % 2 === 0) {
 		array[7].textContent = "0";
 		array[7].classList.add("purple");
+		t2Display();
 		if (array[6].textContent === "0" && array[7].textContent === "0" && array[8].textContent === "0") {
 			p1();
 			stop();
@@ -290,6 +321,7 @@ var eightCell = function() {
 	} else {
 		array[7].textContent = "X";
 		array[7].classList.add("gold");
+		t1Display();
 		if (array[6].textContent === "X" && array[7].textContent === "X" && array[8].textContent === "X") {
 			p2();
 			stop();
@@ -302,13 +334,14 @@ var eightCell = function() {
 	console.log(count);
 	array[7].removeEventListener('click', eightCell);
 	if (count === 9 && playerOne === false && playerTwo === false) {
-		alert("It's a tie game. Hit Reset to try again.");
+		tie();
 	};
 };
 var nineCell = function() {
 	if (count % 2 === 0) {
 		array[8].textContent = "0";
 		array[8].classList.add("purple");
+		t2Display();
 		if (array[6].textContent === "0" && array[7].textContent === "0" && array[8].textContent === "0") {
 			p1();
 			stop();
@@ -322,6 +355,7 @@ var nineCell = function() {
 	} else {
 		array[8].textContent = "X";
 		array[8].classList.add("gold");
+		t1Display();
 		if (array[6].textContent === "X" && array[7].textContent === "X" && array[8].textContent === "X") {
 			p2();
 			stop();
@@ -337,7 +371,7 @@ var nineCell = function() {
 	console.log(count);
 	array[8].removeEventListener('click', nineCell);
 	if (count === 9 && playerOne === false && playerTwo === false) {
-		alert("It's a tie game. Hit Reset to try again.");
+		tie();
 	};
 };
 
@@ -353,6 +387,7 @@ array[8].addEventListener('click', nineCell);
 
 document.querySelector('button').addEventListener('click', function(){
 	count = 0;
+	t1Display();
 	for (var i = 0; i < array.length; i++) {
 		array[i].textContent = "";
 		array[i].classList.remove("purple");

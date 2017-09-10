@@ -27,6 +27,14 @@ td {
 div.field {
 	vertical-align: top;
 }
+#turn {
+	font-family: 'Play', sans-serif;
+	font-size: 2em;
+	text-align: center;
+	margin: 0 auto;
+	text-decoration: underline;
+	margin-bottom: 1%;
+}
 #gameBoard {
 	height: 600px;
 	width: 600px;
