@@ -102,14 +102,16 @@ var play = function() {
 	if(!this.classList.contains('X') && !this.classList.contains('O') && keepPlaying) {
 		this.classList.add(turn());
 		checkForWinner();
+		//checkForTie();
 		turnCounter++;
-			}
-		};
+	}
+};
 
-var checkForTie = function() {
-	if(turnCounter === 8);
+var checkForTie = function(play) {
+	if(turnCounter === 8 && keepPlaying === false);
 	console.log("you tie");
-}
+	console.log(turnCounter);
+};
 
 var startBoard = function() {
 	var gameBoxes = document.getElementsByClassName('box');
