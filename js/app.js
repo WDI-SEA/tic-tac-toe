@@ -30,7 +30,7 @@ var turn = function() {
 
 var displayWinner = function() {
 	winner.textContent = photo;
-	playChange.textContent = '';
+	//playChange.textContent = ('');
 	keepPlaying = false;
 };
 
@@ -50,7 +50,7 @@ var checkForTie = function() {
 	for(var i=0; i < checkSquares.length; i++) {
 		keepPlaying = false;
 		tie = true;
-		console.log("please let this work...")
+		return winner.textContent = "TIE GAME!";
 	}
 };
 
