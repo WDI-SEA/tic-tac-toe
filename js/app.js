@@ -1,8 +1,10 @@
 console.log('Javascript running.');
 //Start declaring variables
 var squares = document.getElementsByClassName('tile');
-for (var i = 0; i < squares.length; i++) {
-var value = squares[i].getAttribute('value');
+
+for (let i = 0; i < squares.length; i++) {
+var value = squares[i].getAttribute('data-value');
+console.log(value)
 }
 var backgroundImage = document.querySelectorAll('.tile')
 var reset = document.querySelector('#reset');
@@ -12,14 +14,15 @@ var turnValue = true;
 var addX = function (box) {
 	console.log('addX run');
 	box.style.backgroundImage = "url('img/x.png')";
-	box.setAttribute('value', '1');
+	box.setAttribute('data-value', '1');
+	console.log(box)
 	winCondition(true);
 };
 
 var addO = function (box) {
 	console.log('addO run');
 	box.style.backgroundImage = "url('img/o.jpg')";
-	box.setAttribute('value', '0');
+	box.setAttribute('data-value', '0');
 	winCondition(false);
 };
 
@@ -44,22 +47,22 @@ var checkDraw = function() {
 };
 var winCondition = function(bool) {
 	//console.log('win condition is a work in progress');
-	let div = squares;
-		   if (div[0]+value[0] === div[1]+value[1] && div[0]+value[0] === div[2]+value[2] && div[1]+value[1] === div[2]+value[2]) {
+	//let div = squares;
+		   if (value[0] === value[1] && value[0] === value[2] && value[1] === value[2]) {
 		   	declareWinner(bool);
-		   } else if (div[3]+value[3] === div[4]+value[4] && div[3]+value[4] === div[5]+value[5] && div[4]+value[4] === div[5]+value[5]) {
+		   } else if (value[3] === value[4] && value[3] === value[5] && value[4] === value[5]) {
 		   	declareWinner(bool);
-		   } else if (div[6]+value[6] === div[7]+value[7] && div[6].value[6] === div[8].value[8] && div[7].value[7] === div[8].value[8]) {
+		   } else if (value[6] === value[7] && value[6] === value[8] && value[7] === value[8]) {
 		   	declareWinner(bool);
-		   } else if (div[0].value[0] === div[3].value[3] && div[0].value[0] === div[6].value[6] && div[3].value[3] === div[6].value[6]) { 
+		   } else if (value[0] === value[3] && value[0] === value[6] && value[3] === value[6]) { 
 		   	declareWinner(bool);
-		   } else if (div[1].value[1] === div[4].value[4] && div[1].value[1] === div[7].value[7] && div[4].value[4] === div[7].value[7]) {
+		   } else if (value[1] === value[4] && value[1] === value[7] && value[4] === value[7]) {
 		   	declareWinner(bool);	
-		   } else if (div[2].value[2] === div[5].value[5] && div[2].value[2] === div[8].value[8] && div[5].value[5] === div[8].value[8]) {
+		   } else if (value[2] === value[5] && value[2] === value[8] && value[5] === value[8]) {
 		   	declareWinner(bool);
-		   } else if (div[0].value[0] === div[4].value[4] && div[0].value[0] === div[8].value[8] && div[4].value[4] === div[8].value[8]) {
+		   } else if (value[0] === value[4] && value[0] === value[8] && value[4] === value[8]) {
 		   	declareWinner(bool);
-		   } else if (div[2].value[2] === div[4].value[4] && div[2].value[2] === div[6].value[6] && div[4].value[4] === div[6].value[6]) {
+		   } else if (value[2] === value[4] && value[2] === value[6] && value[4] === value[6]) {
 		   	declareWinner(bool);
 		   } else {
 		   	checkDraw();
