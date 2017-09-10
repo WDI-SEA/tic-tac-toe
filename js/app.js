@@ -30,7 +30,7 @@ var turn = function() {
 
 var displayWinner = function() {
 	winner.textContent = photo;
-	//playChange.textContent = ('');
+	playChange.textContent = ('');
 	keepPlaying = false;
 };
 
@@ -41,55 +41,60 @@ var resetBoard = function() {
         clearSquares[i].classList.remove('O');
         turnCounter = 0;
         keepPlaying = true;
-        winner.remove('');
+        //winner.remove('');
 	}
 }; 
 
-var checkForTie = function() {
-	var checkSquares = document.getElementsByClassName('box');
-	for(var i=0; i < checkSquares.length; i++) {
-		keepPlaying = false;
-		tie = true;
-		console.log('im in the tie game function');
-		return winner.textContent = "TIE GAME!";
-	}
-};
+// var checkForTie = function() {
+// 	var checkSquares = document.getElementsByClassName('box');
+// 	for(var i=0; i < checkSquares.length; i++) {
+// 		keepPlaying = false;
+// 		tie = true;
+// 		console.log('im in the tie game function');
+// 		return winner.textContent = "TIE GAME!";
+// 	}
+// };
 
 var checkForWinner = function() {
 	var cuteAnimal = turn();
 	switch (true) {
 		case div1.classList.contains(cuteAnimal) && div2.classList.contains(cuteAnimal) && div3.classList.contains(cuteAnimal):
 			displayWinner();
-			checkForTie();
+			console.log("line one winner");
+			//checkForTie();
 		break;
 		case div4.classList.contains(cuteAnimal) && div5.classList.contains(cuteAnimal) && div6.classList.contains(cuteAnimal):
 			displayWinner();
-			checkForTie();
+			//checkForTie();
 		break;
 		case div7.classList.contains(cuteAnimal) && div8.classList.contains(cuteAnimal) && div9.classList.contains(cuteAnimal):
 			displayWinner();
-			checkForTie();
+			//checkForTie();
 		break;
 		case div1.classList.contains(cuteAnimal) && div4.classList.contains(cuteAnimal) && div7.classList.contains(cuteAnimal):
 			displayWinner();
-			checkForTie();
+			//checkForTie();
 		break;
 		case div2.classList.contains(cuteAnimal) && div5.classList.contains(cuteAnimal) && div8.classList.contains(cuteAnimal):
 			displayWinner();
-			checkForTie();
+			//checkForTie();
 		break;
 		case div3.classList.contains(cuteAnimal) && div6.classList.contains(cuteAnimal) && div9.classList.contains(cuteAnimal):
 			displayWinner();
-			checkForTie();
+			//checkForTie();
 		break;
 		case div1.classList.contains(cuteAnimal) && div5.classList.contains(cuteAnimal) && div9.classList.contains(cuteAnimal):
 			displayWinner();
-			checkForTie();
+			//checkForTie();
 		break;
 		case div3.classList.contains(cuteAnimal) && div5.classList.contains(cuteAnimal) && div7.classList.contains(cuteAnimal):
 			displayWinner();
-			checkForTie();
+			//checkForTie();
 		break;
+		//case div1.classList.contains(cuteAnimal) && div2.classList.contains(cuteAnimal) && div3.classList.contains(cuteAnimal) && div4.classList.contains(cuteAnimal) && div5.classList.contains(cuteAnimal) && div6.classList.contains(cuteAnimal) && div7.classList.contains(cuteAnimal) && div8.classList.contains(cuteAnimal) && div9.classList.contains(cuteAnimal):
+			//(turnCounter === 8):
+			//console.log("You Tie");
+		//break;
 	}
 };
 
@@ -100,6 +105,11 @@ var play = function() {
 		turnCounter++;
 			}
 		};
+
+var checkForTie = function() {
+	if(turnCounter === 8);
+	console.log("you tie");
+}
 
 var startBoard = function() {
 	var gameBoxes = document.getElementsByClassName('box');
