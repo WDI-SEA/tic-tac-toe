@@ -8,6 +8,7 @@ var cell5 = document.getElementById('cell5');
 var cell6 = document.getElementById('cell6');
 var cell7 = document.getElementById('cell7');
 var cell8 = document.getElementById('cell8');
+var reset = document.getElementById('reset');
 //game state
 var player = 'X';
 var row1 = [cell0, cell1, cell2];
@@ -28,35 +29,36 @@ var wonByLine = function(line) {
     } 
     return false;
 }
+
 var didWin = function(cellId) {
     switch (cellId) {
         case "cell0":
-            return wonByLine(row1) || wonByLine(col1)
+            return wonByLine(row1) || wonByLine(col1) || wonByLine(diag1);
         break;
         
         case "cell1":
-        
+            return wonByLine(row1) || wonByLine(col2);
         break;
         case "cell2":
-
+            return wonByLine(row1) || wonByLine(col3) || wonByLine(diag2);
         break;
         case "cell3":
-
+            return wonByLine(row2) || wonByLine(col1);
         break;
         case "cell4":
-
+            return wonByLine(row2) || wonByLine(col2) || wonByLine(diag1) || wonByLine(diag2);
         break;
         case "cell5":
-
+            return wonByLine(row2) || wonByLine(col3);
         break;
         case "cell6":
-
+            return wonByLine(row3) || wonByLine(col1) || wonByLine(diag2);
         break;
         case "cell7":
-
+            return wonByLine(row3) || wonByLine(col2);
         break;
         case "cell8":
-
+            return wonByLine(row3) || wonByLine(col3) || wonByLine(diag1);
         break;
             }
 }
@@ -93,13 +95,17 @@ gBoard.forEach(function (row){
         })
     });
 });
-
-gBoard.forEach(function (row){
+reset.addEventListener('click', function(){
+    gBoard.forEach(function (row){
     row.forEach(function(cell){
-       cell.className = player;
-        cell.textContent = player;
+        cell.className = '';
     });
+    // cell.className = "";
+    cell.textContent = 'X';
 });
+});
+
+
 
 
 
