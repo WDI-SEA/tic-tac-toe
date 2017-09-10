@@ -1,11 +1,13 @@
 console.log('Javascript running.');
 //Start declaring variables
 var squares = document.getElementsByClassName('tile');
-
+var value = []
 for (let i = 0; i < squares.length; i++) {
-var value = squares[i].getAttribute('data-value');
-console.log(value)
+var values = squares[i].getAttribute('data-value');
+console.log(values);
+value.push(values[i]);
 }
+
 var backgroundImage = document.querySelectorAll('.tile')
 var reset = document.querySelector('#reset');
 var turnValue = true;
@@ -14,15 +16,15 @@ var turnValue = true;
 var addX = function (box) {
 	console.log('addX run');
 	box.style.backgroundImage = "url('img/x.png')";
-	box.setAttribute('data-value', '1');
-	console.log(box)
+	box.setAttribute('data-value', 'x');
+	console.log(box);
 	winCondition(true);
 };
 
 var addO = function (box) {
 	console.log('addO run');
 	box.style.backgroundImage = "url('img/o.jpg')";
-	box.setAttribute('data-value', '0');
+	box.setAttribute('data-value', 'o');
 	winCondition(false);
 };
 
