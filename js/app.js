@@ -50,6 +50,7 @@ var checkForTie = function() {
 	for(var i=0; i < checkSquares.length; i++) {
 		keepPlaying = false;
 		tie = true;
+		console.log('im in the tie game function');
 		return winner.textContent = "TIE GAME!";
 	}
 };
