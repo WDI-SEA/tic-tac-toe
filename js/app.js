@@ -2,24 +2,29 @@ console.log('Javascript running.');
 //Start declaring variables
 var squares = document.getElementsByClassName('tile');
 var values = [];
+for (var i = 0; i < squares.length; i++) {
+	var value = squares[i].getAttribute('data-value')
+	values.push(value);
+}
+console.log(values);
 var backgroundImage = document.querySelectorAll('.tile')
 var reset = document.querySelector('#reset');
 var turnValue = true;
 
 //Declare functions
-var grabValues = function () {
-	for (let i = 0; i < squares.length; i++) {
+var changeArrayValue = function () {
+	values = []
+	for (var i = 0; i < squares.length; i++) {
 		var value = squares[i].getAttribute('data-value');
-		console.log(value);
 		values.push(value);
 	}
-	return values;
 }
 
 var addX = function (box) {
 	console.log('addX run');
 	box.style.backgroundImage = "url('img/x.png')";
 	box.setAttribute('data-value', 'x');
+	changeArrayValue();
 	console.log(box);
 	winCondition(true);
 };
@@ -28,6 +33,7 @@ var addO = function (box) {
 	console.log('addO run');
 	box.style.backgroundImage = "url('img/o.jpg')";
 	box.setAttribute('data-value', 'o');
+	changeArrayValue();
 	console.log(box);
 	winCondition(false);
 };
@@ -43,8 +49,9 @@ var declareWinner = function(bool) {
 };
 var checkDraw = function() {
 	console.log("This means that winCondition works");
-	for (let i = 0; i < squares[i].length; i++) {
-		if (squares[i].isClicked === true) {
+	for (let i = 0; i < squares.length; i++) {
+		var boardCheck = squares[i].getAttribute('data-clicked');
+		if (boardCheck[i] === true) {
 			alert("It's a draw!");
 		} else {
 			console.log("Waiting next move");
@@ -53,7 +60,6 @@ var checkDraw = function() {
 };
 var winCondition = function(bool) {
 	console.log('win condition is a work in progress');
-	grabValues();
 		   if (values[0] === values[1] && values[0] === values[2] && values[1] === values[2]) {
 		   	declareWinner(bool);
 		   } else if (values[3] === values[4] && values[3] === values[5] && values[4] === values[5]) {
