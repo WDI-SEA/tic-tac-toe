@@ -106,9 +106,13 @@ for (var i = 0; i < squares.length; i++) {
 	});
 }
 reset.addEventListener('click', function() {
-	for (var i = 0; i < backgroundImage.length; i++) {
+	for (let i = 0; i < backgroundImage.length; i++) {
 		var clear = backgroundImage[i];
 		clear.style.backgroundImage = "url('img/transparent.png')";
+	}
+	for (let i = 0; i < squares.length; i++) {
+		var isClicked = squares[i];
+		isClicked.setAttribute('data-clicked', 'false');
 	}
 	document.getElementById("displayWinner").innerHTML = " ";
 });
