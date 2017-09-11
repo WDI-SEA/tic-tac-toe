@@ -8,6 +8,7 @@ body {
 	height: 100%;
 	width: 100%;
 	background-color: #14bdac;
+	padding-bottom: 10%;
 
 }
 
@@ -80,6 +81,11 @@ h3 {
 	text-align: center;
 }
 
-
+#displayWinner {
+	text-align: center;
+	margin: 10%, auto;
+	font-size: 40px;
+	letter-spacing: 10px;
+}
 
 
