@@ -5,6 +5,7 @@ var values = [];
 var backgroundImage = document.querySelectorAll('.tile')
 var reset = document.querySelector('#reset');
 var turnValue = true;
+arrayCheck = [];
 //Declare functions
 var changeArrayValue = function () {
 	values = []
@@ -36,13 +37,17 @@ var declareWinner = function(bool) {
 	}
 };
 var checkDraw = function() {
-	for (let i = 8; i < squares.length; i++) {
-		var boardCheck = squares[i].getAttribute('data-clicked');
-		if (boardCheck === "true") {
-			document.getElementById("displayWinner").innerHTML = "It's a draw";
-		} else {
-		}
+	//arrayCheck = [];
+	for (var i = 0; i < squares.length; i++) {
+		boardCheck = squares[i].getAttribute('data-clicked');
 	}
+		arrayCheck.push(boardCheck);
+		if (arrayCheck.length === squares.length) {
+			document.getElementById("displayWinner").innerHTML = "It's a draw";
+			console.log(boardCheck);
+		} else {
+			console.log("Waiting next move");
+		}
 };
 var winCondition = function(bool) {
 		   if (values[0] === values[1] && values[0] === values[2] && values[1] === values[2]) {
@@ -87,6 +92,7 @@ for (var i = 0; i < squares.length; i++) {
 	});
 }
 reset.addEventListener('click', function() {
+	arrayCheck = [];
 	for (let i = 0; i < backgroundImage.length; i++) {
 		var clear = backgroundImage[i];
 		clear.style.backgroundImage = "url('img/transparent.png')";
