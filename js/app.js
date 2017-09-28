@@ -1,11 +1,11 @@
 //document.addEventListener("DOMContentLoaded", function() {
-  console.log("DOM loaded");
+console.log("DOM loaded");
 console.log('Hello player');
 
 var p1 = document.getElementById('p1');
 var p2 = document.getElementById('p2');
 var reset = document.getElementById('reset');
-var currentPlayer = 'X' 
+var currentPlayer = 'X'
 var p1Selections=[];
 var p2Selections=[];
 var currentScorePlayer1 = 0;
@@ -88,7 +88,7 @@ var array = [TL,TM,TR,ML,MM,MR,BL,BM,BR];
 
 //	}
 //}
-//TOP CLICK 
+//TOP CLICK
 TL.onclick = function(){
 	if(TL.textContent === ""){
 		TL.textContent = currentPlayer;
@@ -296,17 +296,17 @@ function checkForWinner(){
 
 //reset game function (clear board, remove animations, reset arrays, reset to player 1's turn)
 function reset() {
-    currentPlayer = "X";
+  currentPlayer = "X";
     p1.style.borderBottom = "thick solid #fffb96";
     p2.style.borderBottom = "none";
-    p1Selections = [];
-    p2Selections = [];
-    p1.classList.remove("animate");
-    p2.classList.remove("animate");
-    for(i=0; i<array.length; i++){
-      array[i].textContent = "";
-    };
-}
+      p1Selections = [];
+        p2Selections = [];
+        p1.classList.remove("animate");
+        p2.classList.remove("animate");
+        for(i=0; i<array.length; i++){
+          array[i].textContent = "";
+        };
+      }
 }
 
 /*startGame();*/
