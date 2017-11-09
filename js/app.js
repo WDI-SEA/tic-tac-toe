@@ -64,7 +64,7 @@ function computerPlays(){
       if(emptyCells.length == "0"){
         checkForWinner();
       }
-      //randomly selects from empty cells array and fills cell with "O"
+      // randomly selects from empty cells array and fills cell with "O"
       var randomSelection = emptyCells[Math.floor(Math.random()*emptyCells.length)];
       setTimeout(function(){
         randomSelection.textContent = "O";
@@ -90,7 +90,6 @@ function modifyText(location){
       computerPlays();
       }
     }
-
 
 //keeps track of turns + changes bottom border of active player
 function changeTurn(){
@@ -190,3 +189,5 @@ function reset(){
     }
     winningCombo = [];
 }
+
+
