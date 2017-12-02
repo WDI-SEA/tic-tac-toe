@@ -1,8 +1,8 @@
 ![General Assembly Logo](http://i.imgur.com/ke8USTq.png)
 
-#Tic Tac Toe
+# Tic Tac Toe
 
-##Objectives
+## Objectives
 
 * Build a tic tac toe game in HTML, CSS, and vanilla JavaScript
 * Use best practices when writing code
@@ -11,7 +11,7 @@ This week we have been learning about writing functions, working with loops, and
 
 We will be making a Tic Tac Toe game using all of these concepts.
 
-##Getting Started
+## Getting Started
 
 * Fork and clone this repository.
 * Run `npm install` to install dependencies.
@@ -23,7 +23,7 @@ We will be making a Tic Tac Toe game using all of these concepts.
   * Select elements and attach functions via event listeners
   * You will also need a variable to keep track of moves. This will be used to indicate whether or not to draw an `X` or an `O`
 
-##Requirements
+## Requirements
 * A user should be able to click on different squares to make a move.
 * Every click will alternate between marking an `X` and `O`
 * Upon marking of an individual cell, use JavaScript to add a class to each cell to display separate colors.
@@ -32,7 +32,7 @@ We will be making a Tic Tac Toe game using all of these concepts.
 
 **Have Fun** - The best way to learn is by playing with code. Let creativity guide you and try some experiments with JS and CSS and see what you can do.
 
-##Bonuses
+## Bonuses
 
 * Display a message to indicate which turn is about to be played.
 * After the necessary moves have been played, stop game and alert the winner if one player ends up winning with three in a row.
