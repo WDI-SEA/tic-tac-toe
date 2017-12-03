@@ -14,7 +14,9 @@ h2 {
 
 p {
   font-size: 20px;
-  color: white; 
+  color: white;
+  position: absolute;
+  left: 0;
 }
 
 .block:hover {
@@ -28,7 +30,6 @@ body {
 
 .block {
   display: inline-grid;
-  color: white;
   width: 100px;
   height: 100px;
   border: 10px solid blue;
