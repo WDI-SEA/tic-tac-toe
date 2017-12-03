@@ -1,3 +1,100 @@
+body {
+   font-family: 'VT323', monospace;
+   margin: 0px;
+   padding: 0px;
+   background-color: #0a0a10;
+   background-image: url("../img/unit1-wargames_bg.jpg");
+   background-position-x: center;
+   background-position-y: 0px;
+   background-repeat: no-repeat;
+   color: #50f050;
+}
+
 h1 {
-  color: purple;
+   width:80%;
+   margin: 30px auto 30px;
+}
+
+.gameboard {
+   width: 700px;
+   text-align: center;
+   margin: 30px auto 0px;
+}
+
+.row {
+   display: block;
+}
+
+.square {
+   width: 150px;
+   height: 150px;
+   display: inline-block;
+   /*background-color: rgba(150,150,150,0.1);*/
+   margin: 0 0 0 0;
+   padding: 0;
+}
+
+.horizontalLine {
+   background-color: #a0e0ff;
+   width: 70%;
+   height: 10px;
+   margin: -3px 15% 0 15%;
+}
+
+.verticalLine {
+   background-color: #a0e0ff;
+   width: 10px;
+   height: 150px;
+   margin: 0 -7px 0 -6px;
+   padding: 0;
+   display: inline-block;
+}
+
+.mark {
+   float: right;
+   position: relative;
+   font-size: 30px;
+   width: 150px;
+   height: 0px; /* prevents click blocking */
+   text-align: center;
+   line-height: 0px; /* helps scaling from the font center*/
+   top: 50%;
+   display: none;
+   transition: all 0.3s ease-out;
+   -webkit-touch-callout: none; /* iOS Safari */
+   -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+   -moz-user-select: none; /* Firefox */
+   -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none;
+}
+
+#markX {
+   color: #7090e0;
+
+}
+
+#markO {
+   color: #a0a0e0;
+}
+
+.button {
+   width: 100px;
+   height: 30px;
+   text-align: center;
+   margin: 0 auto;
+   background-color: #50f050;
+   line-height: 30px;
+   color: #111;
+   display: inline-block;
+}
+
+.dimmed{
+   background-color: rgba(0,0,0,0);
+   color: #50f050;
+   border: 0.5px solid #50f050;
+}
+
+.spacer {
+   margin: 10px;
 }
