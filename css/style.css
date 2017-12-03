@@ -34,3 +34,7 @@ body {
   height: 100px;
   border: 10px solid blue;
 }
+
+.c1, .c2, .c3 {
+  font-size: 0;
+}

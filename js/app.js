@@ -10,7 +10,7 @@ var check = {
   "5": 'nobody',
   "6": 'nobody',
   "7": 'nobody',
-  "8": 'nobody',
+  "8": 'nobody'
 }
 
 var trueAndFalseS = function(turn){
@@ -41,6 +41,8 @@ var addBoxEventListeners = function(){
     boxObjects[i].addEventListener('click', boxClicked);
     boxObjects[i].setAttribute('data-index', i);
   }
+  var buttonReset = document.getElementById('reset');
+  buttonReset.addEventListener('click', reset);
 }
 
 var boxClicked = function(e){
@@ -60,24 +62,24 @@ var boxClicked = function(e){
 }
 
 var checkWin = function(){
-  if ((check["0"] && check["1"] && check["2"] === 'green') ||
-      (check["3"] && check["4"] && check["5"] === 'green') ||
-      (check["6"] && check["7"] && check["8"] === 'green') ||
-      (check["0"] && check["3"] && check["6"] === 'green') ||
-      (check["1"] && check["4"] && check["7"] === 'green') ||
-      (check["2"] && check["5"] && check["8"] === 'green') ||
-      (check["0"] && check["4"] && check["8"] === 'green') ||
-      (check["2"] && check["4"] && check["6"] === 'green')) {
+  if (((check["0"] === 'green') && (check["1"] === 'green') && (check["2"] === 'green')) ||
+      ((check["3"] === 'green') && (check["4"] === 'green') && (check["5"] === 'green')) ||
+      ((check["6"] === 'green') && (check["7"] === 'green') && (check["8"] === 'green')) ||
+      ((check["0"] === 'green') && (check["3"] === 'green') && (check["6"] === 'green')) ||
+      ((check["1"] === 'green') && (check["4"] === 'green') && (check["1"] === 'green')) ||
+      ((check["2"] === 'green') && (check["5"] === 'green') && (check["8"] === 'green')) ||
+      ((check["0"] === 'green') && (check["4"] === 'green') && (check["8"] === 'green')) ||
+      ((check["2"] === 'green') && (check["4"] === 'green') && (check["6"] === 'green'))) {
         greenWins();
       } else if
-      ((check["0"] && check["1"] && check["2"] === 'red') ||
-      (check["3"] && check["4"] && check["5"] === 'red') ||
-      (check["6"] && check["7"] && check["8"] === 'red') ||
-      (check["0"] && check["3"] && check["6"] === 'red') ||
-      (check["1"] && check["4"] && check["7"] === 'red') ||
-      (check["2"] && check["5"] && check["8"] === 'red') ||
-      (check["0"] && check["4"] && check["8"] === 'red') ||
-      (check["2"] && check["4"] && check["6"] === 'red')) {
+      (((check["0"] === 'red') && (check["1"] === 'red') && (check["2"] === 'red')) ||
+      ((check["3"] === 'red') && (check["4"] === 'red') && (check["5"] === 'red')) ||
+      ((check["6"] === 'red') && (check["7"] === 'red') && (check["8"] === 'red')) ||
+      ((check["0"] === 'red') && (check["3"] === 'red') && (check["6"] === 'red')) ||
+      ((check["1"] === 'red') && (check["4"] === 'red') && (check["7"] === 'red')) ||
+      ((check["2"] === 'red') && (check["5"] === 'red') && (check["8"] === 'red')) ||
+      ((check["0"] === 'red') && (check["4"] === 'red') && (check["8"] === 'red')) ||
+      ((check["2"] === 'red') && (check["4"] === 'red') && (check["6"] === 'red'))) {
         redWins();
       }
       else {
@@ -93,6 +95,9 @@ var redWins = function (){
   document.getElementById('p2WinText').style.display = "flex";
 }
 
+var reset = function(){
+  location.reload();
+}
 
 // var gimme = function(){
 //   check = "";
