@@ -1,46 +1,49 @@
 (function() {
   "use strict";
-
   var turn = 0;
+  var xScore = 0;
+  var oScore = 0;
+  var draw = 0;
+
   var board = document.getElementById('board');
-
-  //initialize the board
-  // create game controller - to contain score, whose turn it is etc. 
-  // 
-  // create logic
-  // create win condition(row, col, player)
-
-  //Does any row, column or diagonal contain the wining score(mac )
-  // create draw condition
-  //create restart
-  //
-  //
-  //
-  //
-
-  //Create "click handlers" by using the event parameter
+  var rows = document.querySelectorAll('tr');
+  var cells = document.querySelectorAll('td');
   board.addEventListener('click', (cell) => {
     populateCell(cell);
   });
+
+  function resetBoard() {
+    turn = 0;
+
+    console.log('reseting board');
+    for (var i = 0; i < cells.length; i += 1) {
+      cells[i].textContent = '';
+      console.log(cells[i]);
+    }
+  }
 
   //takes in an element clicked and changes the value accordint to which player clicked it
   function populateCell(cell) {
     if (checkIfFree(cell)) {
       if (turn % 2 === 0) {
         cell.target.innerText = 'X';
-        if(checkIfWon(turn % 2)){
-            alert('x won');
+        if (checkIfWon(turn % 2)) {
+          xScore += 1;
+          console.log('resetting Board X won');
+          setTimeout(resetBoard, 1000);
+          console.log('xscore ' + xScore);
         }
       } else {
         cell.target.innerText = 'O';
-        if(checkIfWon(turn % 2)){
-            alert('o won');
+        if (checkIfWon(turn % 2)) {
+          oScore += 1; 
+          console.log('resetting Board O won');
+          setTimeout(resetBoard, 1000);
+          console.log('Oscore ' + oScore);
         }
       }
-      // if(checkIfWon(board)){alert('you won');};
       turn += 1;
     }
-
   }
   // Returns true if there is no text in the cell.
   function checkIfFree(cell) {
@@ -50,16 +53,14 @@
     return false;
   }
 
-
   function checkIfWon(player) {
-    var rows = document.querySelectorAll('tr');
+
     var rowResult = [];
     var colResult = [];
     var diagRight = [];
     var diagLeft = [];
-    var winCondition = null
+    var winCondition = null;
     var symbol = null;
-
     switch (player) {
       case 0:
         symbol = 'X';
@@ -69,7 +70,6 @@
         symbol = "O";
         winCondition = 'OOO'
     }
-
     for (var i = 0; i < rows.length; i += 1) {
       var last = rows[i].cells.length - i - 1;
       for (var j = 0; j < rows[i].cells.length; j += 1) {
@@ -82,28 +82,26 @@
       }
       diagLeft.push(rows[i].cells[last].innerText);
       diagRight.push(rows[i].cells[i].innerText);
-      // console.log('colResult: '+colResult.filter((str)=>{return /\S/.test(str)}));
-      // console.log('Row result: ' + rowResult);
-      // console.log('Col result: ' + colResult);
-      // console.log('diagLeft: ' + diagLeft);
-      // console.log('diagRight: ' + diagRight);
-
-    if (rowResult.join('') === winCondition || colResult.join('') === winCondition) { 
-        return true }
-    rowResult = [];
-    colResult = [];
+      if (rowResult.join('') === winCondition || colResult.join('') === winCondition) {
+        return true;
+      }
+      //clear row and column arays
+      rowResult = [];
+      colResult = [];
     }
     if (diagRight.join('') === winCondition || diagLeft.join('') === winCondition) {
-      return true
+      return true;
     }
+    //clear diagonal arrays
     diagRight = [];
     diagLeft = [];
-
-    // if (rowResult.join('') === 'XXX' || colResult.join('') === 'XXX' || diagLeft.join('') === 'XXX' || diagRight.join('') === 'XXX' ) { 
-    //     return true; }
-
-
-
+    console.log('turn',turn)
+    //increment draw variable upon a draw match and reset the board
+    if (turn === 8) {
+      draw += 1;
+      console.log('resetting Board - Draw');
+      setTimeout(resetBoard, 1000);
+    }
   }
 
   function getAllIndexes(arr, val) {
@@ -114,26 +112,4 @@
     }
     return indexes;
   }
-
-  // var rows = 3;
-  // var cols = 3;
-  // var board = document.getElementById('board');
-  // var rows = document.querySelectorAll('tr');
-
-
-
-  // for (var i=0; i < rows; i+=1){
-  //    for (var j=0; j < cols; j+=1){
-  //        rowResult.push(rows[i].cells[j].innerText);
-  //  console.log(rows[i].cells[j].innerText );
-
-  //  }
-  //  console.log(rowResult);
-  // }
-
-  // console.log(rows[0].children[0].innerText);
-
-  //console.log(rows[0].cells.length);
-
-
 }());
