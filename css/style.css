@@ -1,3 +1,204 @@
-h1 {
-  color: purple;
+body {
+	text-align: center;
+	background: #D7DADB;
+	margin: 0 auto;
+	font-family: 'Poppins', Helvetica, sans-serif;
+	color: white;
+	font-weight: 300;
+	letter-spacing: 1px;
+}
+
+/* Game board styles */
+#board {
+	display: inline-block;
+	position: relative;
+	margin: 50px;
+}
+
+.gamecell {
+	display: inline-block;
+	font-size: 100px;
+	line-height: 150px;
+	width: 150px;
+	height: 150px;
+	margin: 10px;
+	font-weight: 500;
+	color: white;
+	transition: all 0.5s;
+}
+
+.unplayed { 
+	background: white;
+}
+
+.unplayed:hover {
+	cursor: pointer;
+	transform: scale(1.10);
+ }
+
+.player1 {
+	background: #FA3B48;
+	cursor: not-allowed;
+}
+
+.player2 {
+	background: #70BDDA;
+	cursor: not-allowed;
+}
+
+
+/* Control window styling */
+#controlwindow {
+	background: rgba(45,62,79,.90);
+	padding: 20px;
+	transition: all .25s;
+}
+
+#welcome {
+	font-size: 22px;
+}
+
+#statusbox {
+	font-size: 24px;
+	margin: 10px auto 20px auto;
+	padding: 5px;
+}
+
+#player1score, #player2score { 
+	display: inline-block;
+	padding: 5px;
+	margin: 5px;
+	font-size: 24px;
+	font-weight: 700;
+}
+
+#player1score span, #player2score span {
+	display: inline-block;
+	color: white;
+	margin-left: 20px;
+	font-weight: 400;
+	width: 80px;
+	font-size: 22px;
+	padding: 5px;
+	letter-spacing: 2px;
+}
+
+#player1score span { 
+	background: #FA3B48;
+}
+
+#player2score span {
+	background: #70BDDA;
+}
+
+button {
+	transition: all .25s;
+}
+
+#singleplayer, #twoplayer {
+	color: white;
+	border-radius: 20px;
+	background: #FA3B48;
+	font-size: 24px;
+	padding: 10px 30px;
+	margin: 20px;
+	border: none;
+}
+
+#singleplayer:hover, #twoplayer:hover {
+	transform: scale(1.25);
+	background: #70BDDA;
+}
+
+#reset {
+	border: 2px solid white;
+	color: white;
+	border-radius: 20px;
+	background: none;
+	font-size: 18px;
+	margin: 30px auto;
+	padding: 10px 20px;
+}
+
+#playagain {
+	border: 2px solid white;
+	color: #2D3E4F;
+	background: white;
+	border-radius: 20px;
+	font-size: 18px;
+	margin: 30px auto -15px auto;
+	padding: 15px 25px;
+	font-weight: 700;
+}
+
+#playagain:hover {
+	transform: scale(1.10);
+}
+
+/* The below classes are toggled on and off dependent on gameplay status */
+
+/* Stage 1 where we are prompting user to select 1 or two player */
+#controlwindow.gamestart {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	height: 450px;
+	width: 460px;
+}
+
+#statusbox.gamestart {
+	font-size: 36px;
+	padding: 20px;
+	margin: 20px auto;
+}
+
+#welcome.gamestart, #singleplayer.gamestart, #twoplayer.gamestart {
+	display: block;
+	margin: 20px auto 5px auto;
+}
+
+#welcome.gamestart {
+	margin-top: 50px;
+}
+
+#player1score.gamestart, #player2score.gamestart, #reset.gamestart, #playagain.gamestart {
+	display: none;
+}
+
+/* Stage 2 where the gameplay is in progress */
+#controlwindow.gameinprogress {
+	position: absolute;
+	left: -260px;
+	top: 10px;
+	width: 200px;
+}
+
+#player1score.gameinprogress, #player2score.gameinprogress, #reset.gameinprogress {
+	display: block;
+}
+
+#welcome.gameinprogress, #singleplayer.gameinprogress, #twoplayer.gameinprogress, #playagain.gameinprogress {
+	display: none;
+}
+
+/* Stage 3 where the game has ended and we are prompting for another round */
+#controlwindow.gameover {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	height: 450px;
+	width: 462px;
+}
+
+#statusbox.gameover {
+	font-size: 36px;
+	margin: 50px auto 20px auto;
+}
+
+#player1score.gameover, #player2score.gameover, #playagain.gameover, #reset.gameover {
+	display: block;
+}
+
+#singleplayer.gameover, #twoplayer.gameover, #welcome.gameover {
+	display: none;
 }
