@@ -1,33 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Hello Front-End</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
+
 <body>
-
-
-<table id="board">
-  <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-</table>
-<!-- Create/generate table with data-attributes on each cell -->
-
+  <div class="container">
+    <header>
+      <h1> O(n²) Tic Tac Toe Game</h1>
+      <p>For when you absolutely, positively need to check everything; multiple times.</p>
+    </header>
+    <ul class="score-board">
+        <li id="x-score"></li>
+        <li id="o-score"></li>
+        <li id="draw-score"></li>
+    </ul>
+  </div>
+  <table id="board">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+  <!-- Create/generate table with data-attributes on each cell -->
   <script type="text/javascript" src="js/app.js"></script>
 </body>
+
 </html>

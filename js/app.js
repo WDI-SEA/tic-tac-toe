@@ -4,13 +4,15 @@
   var xScore = 0;
   var oScore = 0;
   var draw = 0;
-
   var board = document.getElementById('board');
   var rows = document.querySelectorAll('tr');
   var cells = document.querySelectorAll('td');
   board.addEventListener('click', (cell) => {
     populateCell(cell);
   });
+  var boardXScore = document.getElementById('x-score');
+  var boardOScore = document.getElementById('o-score');
+  var boardDraw = document.getElementById('draw-score');
 
   function resetBoard() {
     turn = 0;
@@ -21,7 +23,6 @@
       console.log(cells[i]);
     }
   }
-
   //takes in an element clicked and changes the value accordint to which player clicked it
   function populateCell(cell) {
     if (checkIfFree(cell)) {
@@ -31,13 +32,13 @@
           xScore += 1;
           console.log('resetting Board X won');
           setTimeout(resetBoard, 1000);
-          console.log('xscore ' + xScore);
+          boardXScore.innerText = 'X games won: ' + xScore;
         }
       } else {
         cell.target.innerText = 'O';
         if (checkIfWon(turn % 2)) {
-          oScore += 1; 
-          console.log('resetting Board O won');
+          oScore += 1;
+          boardOScore.innerText = 'O games won:  ' + oScore;
           setTimeout(resetBoard, 1000);
           console.log('Oscore ' + oScore);
         }
@@ -52,9 +53,8 @@
     }
     return false;
   }
-
+  //scans through the entire board and checks for a winCondition.
   function checkIfWon(player) {
-
     var rowResult = [];
     var colResult = [];
     var diagRight = [];
@@ -68,48 +68,50 @@
         break;
       case 1:
         symbol = "O";
-        winCondition = 'OOO'
-    }
+        winCondition = 'OOO';
+        break;
+      default:
+        console.log("Internal error: player unknown");
+    } 
+    //loop through all the rows 
     for (var i = 0; i < rows.length; i += 1) {
       var last = rows[i].cells.length - i - 1;
+      //loop through all the cells in a row
       for (var j = 0; j < rows[i].cells.length; j += 1) {
+        //checks how many like symbols a row contains and adds them to an array
         if (rows[i].cells[j].innerText === symbol) {
           rowResult.push(rows[i].cells[j].innerText);
         }
+        //checks how many like symbols a column contains and adds them to an array
         if (rows[j].cells[i].innerText === symbol) {
           colResult.push(rows[j].cells[i].innerText);
         }
       }
+      //checks how many like symbols are contained in the diagonals and adds them to an array
       diagLeft.push(rows[i].cells[last].innerText);
       diagRight.push(rows[i].cells[i].innerText);
+      // if the content of row or column matche the winCondition returns true
       if (rowResult.join('') === winCondition || colResult.join('') === winCondition) {
         return true;
       }
-      //clear row and column arays
+      //clears row and column arays
       rowResult = [];
       colResult = [];
     }
+    //if the content of the diagonals match the winCondition and return true
     if (diagRight.join('') === winCondition || diagLeft.join('') === winCondition) {
       return true;
     }
     //clear diagonal arrays
     diagRight = [];
     diagLeft = [];
-    console.log('turn',turn)
+    console.log('turn', turn)
     //increment draw variable upon a draw match and reset the board
     if (turn === 8) {
       draw += 1;
+      boardDraw.innerText = 'Draw games: ' + draw;
       console.log('resetting Board - Draw');
       setTimeout(resetBoard, 1000);
     }
-  }
-
-  function getAllIndexes(arr, val) {
-    var indexes = []
-    var index = -1;
-    while ((iindex = arr.indexOf(val, index + 1)) != -1) {
-      indexes.push(i);
-    }
-    return indexes;
   }
 }());
