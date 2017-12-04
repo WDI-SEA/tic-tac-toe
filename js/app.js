@@ -3,15 +3,15 @@ var turn = 0;
 var selectPlayerX = function(cell) {
 	cell.textContent = "X";
 	cell.style.background = "rgba(191, 36, 255, 1)";
-	document.getElementsByClassName("player-x")[0].innerHTML = "Player X Turn";
-	document.getElementsByClassName("player-o")[0].innerHTML = "&nbsp";
+	document.getElementsByClassName("player-x")[0].innerHTML = "&nbsp";
+	document.getElementsByClassName("player-o")[0].innerHTML = "Player O Turn";
 }
 
 var selectPlayerO = function(cell) {
 	cell.textContent = "O";
 	cell.style.background = "rgba(81, 232, 50, 1)";
-	document.getElementsByClassName("player-x")[0].innerHTML = "&nbsp";
-	document.getElementsByClassName("player-o")[0].innerHTML = "Player O Turn";
+	document.getElementsByClassName("player-x")[0].innerHTML = "Player X Turn";
+	document.getElementsByClassName("player-o")[0].innerHTML = "&nbsp";
 }
 
 var reset = function() {
@@ -26,6 +26,8 @@ var reset = function() {
  	}
  	turn = 0;
 	console.log("You've reset the game.");
+	document.getElementsByClassName("player-x")[0].innerHTML = "Player X Turn";
+	document.getElementsByClassName("player-o")[0].innerHTML = "&nbsp";
 }
 
 var swapPlayer = function(cell) {
