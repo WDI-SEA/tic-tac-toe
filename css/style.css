@@ -1,3 +1,27 @@
-h1 {
-  color: purple;
+.box{
+  margin: 0;
+  display: inline-block;
+  height: 200px;
+  width: 200px;
+/*center align inner contents of boxes*/
+}
+
+
+#gameArea{
+	width: 620px;
+	height: 620px;
+	margin: 0;
+}
+
+#b1, #b4 {
+	border-bottom: 6px solid black;
+}
+
+#b8, #b9{
+	border-left:  6px solid black;
+}
+
+#b2, #b3, #b5, #b6 {
+	border-left: 6px solid black;
+	border-bottom: 6px solid black;
 }
