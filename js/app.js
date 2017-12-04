@@ -5,6 +5,8 @@ var resetButton = document.getElementById("reset");
 
 // var name1 = prompt("What is player 1's name?");
 // var name2 = prompt("What is player 2's name?");
+// Implemented this in older version but wouldnt load after DOM 
+// Very frustrating but kept the variables just in case I had time to try it again :)
 
 // Keep track of what squares have what letter. X array, O array.
 // To be used for game winning?
