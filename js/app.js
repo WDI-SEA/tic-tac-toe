@@ -2,12 +2,12 @@ var turn = 0;
 
 var selectPlayerX = function(cell) {
 	cell.textContent = "X";
-	cell.style.background = "red";
+	cell.style.background = "rgba(191, 36, 255, 1)";
 }
 
 var selectPlayerO = function(cell) {
 	cell.textContent = "O";
-	cell.style.background = "green";
+	cell.style.background = "rgba(81, 232, 50, 1)";
 }
 
 var reset = function() {
@@ -66,7 +66,6 @@ var checkWin = function(cell) {
  	//check rows
  	for(var i = 0; i < grid.length; i++) {
  		var checkRows = [];
- 		var allEqualRows = true;
  		for(var j = 0; j < grid[i].length; j++) {
  			checkRows.push(grid[i][j]);
  		}
@@ -76,7 +75,6 @@ var checkWin = function(cell) {
  	//check columns
  	for(var i = 0; i < grid.length; i++) {
  		var checkCols = [];
- 		var allEqualCols = true;
 	 	for(var j = 0; j < grid.length; j++) {
 	 		checkCols.push(grid[j][i]);
 	 	}
@@ -85,14 +83,12 @@ var checkWin = function(cell) {
 
 	//check left to right down diagonal
 	var diagonal1 = [];
-	allEqualDiagonal1 = true;
 	for(var i = 0; i < grid.length; i++) {
 		diagonal1.push(grid[i][i]);
 	}
 	checkVictor(diagonal1);
 
  	var diagonal2 = [];
- 	allEqualDiagonal2 = true;
  	for(var i = 0; i < grid.length; i++) {
  		diagonal2.push(grid[i][grid.length-i-1]);
  	}
