@@ -31,7 +31,7 @@
         cell.target.style = 'color:#F00';
         if (checkIfWon(turn % 2)) {
           xScore += 1;
-          setTimeout(resetBoard, 1000);
+          setTimeout(resetBoard, 1500);
           boardXScore.innerText = 'X games won: ' + xScore;
         }
       } else {
@@ -41,7 +41,7 @@
 
           oScore += 1;
           boardOScore.innerText = 'O games won:  ' + oScore;
-          setTimeout(resetBoard, 1000);
+          setTimeout(resetBoard, 1500);
         }
       }
       turn += 1;
@@ -57,7 +57,14 @@
   function highlightPlayerTurn(player){
     playerTurn.innerText = 'It\'s ' +player+'\'s turn';
   }
+  function playerWon(player){
+    switch(player){
+      case 0: playerTurn.innerText = "Player X Won";
+      break;
+      case 1: playerTurn.innerText = "Player O Won";
+    }
 
+  }
 
   //scans through the entire board and checks for a winCondition.
   function checkIfWon(player) {
@@ -101,6 +108,7 @@
       diagRight.push(rows[i].cells[i].innerText);
       // if the content of row or column matche the winCondition returns true
       if (rowResult.join('') === winCondition || colResult.join('') === winCondition) {
+        playerWon(player);
         return true;
       }
       //clears row and column arays
@@ -109,6 +117,7 @@
     }
     //if the content of the diagonals match the winCondition and return true
     if (diagRight.join('') === winCondition || diagLeft.join('') === winCondition) {
+      playerWon(player);
       return true;
     }
     //clear diagonal arrays
@@ -118,7 +127,7 @@
     if (turn === 8) {
       draw += 1;
       boardDraw.innerText = 'Draw games: ' + draw;
-      setTimeout(resetBoard, 1000);
+      setTimeout(resetBoard, 1500);
     }
   }
 }());
