@@ -1,3 +1,10 @@
+
+// A user should be able to click on different squares to make a move.
+// * Every click will alternate between marking an `X` and `O`
+// * Upon marking of an individual cell, 
+//use JavaScript to add a class to each cell to display separate colors.
+// * A cell should not be able to be replayed once marked.
+// * Add a reset button that will clear the contents of the board.
 var wins1 = 0;
 var wins2 = 0;
 var p1Col1 = 0;
@@ -29,7 +36,7 @@ function boxClicked(){
 	clickCount++;
 	if(clickCount%2!==0 && clickCount<=9){
 		if(i==1){
-			this.style.background = 'url("../img/x.png")';
+			this.src = '../img/x.png';
 			this.style.backgroundSize = "contain";
 			p1Col1++;
 			p1Row1++;
@@ -37,14 +44,14 @@ function boxClicked(){
 			checkWinner();
 		}
 		if(i==2){
-			this.style.background = 'url("../img/x.png")';
+			this.src = '../img/x.png';
 			this.style.backgroundSize = "contain";
 			p1Col2++;
 			p1Row1++;
 			checkWinner();
 		}
 		if(i==3){
-			this.style.background = 'url("../img/x.png")';
+			this.src = '../img/x.png';
 			this.style.backgroundSize = "contain";
 			p1Col3++;
 			p1Row1++;
@@ -52,14 +59,14 @@ function boxClicked(){
 			checkWinner();
 		}
 		if(i==4){
-			this.style.background = 'url("../img/x.png")';
+			this.src = '../img/x.png';
 			this.style.backgroundSize = "contain";
 			p1Col1++;
 			p1Row2++;
 			checkWinner();
 		}
 		if(i==5){
-			this.style.background = 'url("../img/x.png")';
+			this.src = '../img/x.png';
 			this.style.backgroundSize = "contain";
 			p1Col2++;
 			p1Row2++;
@@ -68,14 +75,14 @@ function boxClicked(){
 			checkWinner();
 		}
 		if(i==6){
-			this.style.background = 'url("../img/x.png")';
+			this.src = '../img/x.png';
 			this.style.backgroundSize = "contain";
 			p1Col3++;
 			p1Row2++;
 			checkWinner();
 		}
 		if(i==7){
-			this.style.background = 'url("../img/x.png")';
+			this.src = '../img/x.png';
 			this.style.backgroundSize = "contain";
 			p1Col1++;
 			p1Row3++;
@@ -83,14 +90,14 @@ function boxClicked(){
 			checkWinner();
 		}
 		if(i==8){
-			this.style.background = 'url("../img/x.png")';
+			this.src = '../img/x.png';
 			this.style.backgroundSize = "contain";
 			p1Col2++;
 			p1Row3++;
 			checkWinner();
 		}
 		if(i==9){
-			this.style.background = 'url("../img/x.png")';
+			this.src = '../img/x.png';
 			this.style.backgroundSize = "contain";
 			p1Col3++;
 			p1Row3++;
@@ -99,7 +106,7 @@ function boxClicked(){
 		}
 	}else if(clickCount%2===0 && clickCount<=9){
 		if(i==1){
-			this.style.background = 'url("../img/o.png")';
+			this.src = '../img/o.png';
 			this.style.backgroundSize = "contain";
 			p2Col1++;
 			p2Row1++;
@@ -107,14 +114,14 @@ function boxClicked(){
 			checkWinner();
 		}
 		if(i==2){
-			this.style.background = 'url("../img/o.png")';
+			this.src = '../img/o.png';
 			this.style.backgroundSize = "contain";
 			p2Col2++;
 			p2Row1++;
 			checkWinner();
 		}
 		if(i==3){
-			this.style.background = 'url("../img/o.png")';
+			this.src = '../img/o.png';
 			this.style.backgroundSize = "contain";
 			p2Col3++;
 			p2Row1++;
@@ -122,14 +129,14 @@ function boxClicked(){
 			checkWinner();
 		}
 		if(i==4){
-			this.style.background = 'url("../img/o.png")';
+			this.src = '../img/o.png';
 			this.style.backgroundSize = "contain";
 			p2Col1++;
 			p2Row2++;
 			checkWinner();
 		}
 		if(i==5){
-			this.style.background = 'url("../img/o.png")';
+			this.src = '../img/o.png';
 			this.style.backgroundSize = "contain";
 			p2Col2++;
 			p2Row2++;
@@ -138,14 +145,14 @@ function boxClicked(){
 			checkWinner();
 		}
 		if(i==6){
-			this.style.background = 'url("../img/o.png")';
+			this.src = '../img/o.png';
 			this.style.backgroundSize = "contain";
 			p2Col3++;
 			p2Row2++;
 			checkWinner();
 		}
 		if(i==7){
-			this.style.background = 'url("../img/o.png")';
+			this.src = '../img/o.png';
 			this.style.backgroundSize = "contain";
 			p2Col1++;
 			p2Row3++;
@@ -153,14 +160,14 @@ function boxClicked(){
 			checkWinner();
 		}
 		if(i==8){
-			this.style.background = 'url("../img/o.png")';
+			this.src = '../img/o.png';
 			this.style.backgroundSize = "contain";
 			p2Col2++;
 			p2Row3++;
 			checkWinner();
 		}
 		if(i==9){
-			this.style.background = 'url("../img/o.png")';
+			this.src = '../img/o.png';
 			this.style.backgroundSize = "contain";
 			p2Col3++;
 			p2Row3++;
@@ -222,13 +229,14 @@ function checkWinner(){
 		setTimeout(reset(), 2000);
 	}
 }
+}
 
 document.addEventListener("DOMContentLoaded", function(){
 	document.getElementById('reset').addEventListener('click', reset);
 	document.getElementById('resetFull').addEventListener('click', resetGame);
 	reset();
+})
 
-});
 
 
 

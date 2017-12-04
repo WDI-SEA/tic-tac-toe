@@ -15,77 +15,77 @@ h1 {
 	margin: 0px;
 }
 #box1{
-	background: none;
-	background-color: white;
 	border-right: 1px solid black;
 	border-bottom: 1px solid black;
 	margin: 0px -2px 0px 0px;
+	background: url("../img/squre.jpg");
+	background-size: contain;
 	z-index: -1;
 }
 #box2{
-	background: none;
-	background-color: white;
 	border-left: 1px solid black;
 	border-bottom: 1px solid black;
 	border-right: 1px solid black;
 	margin: 0px -2px 0px -2px;
+	background: url("../img/squre.jpg");
+	background-size: contain;
 	z-index: -1;
 }
 #box3{
-	background: none;
-	background-color: white;
 	border-left: 1px solid black;
 	border-bottom: 1px solid black;
 	margin: 0px 0px 0px -2px;
+	background: url("../img/squre.jpg");
+	background-size: contain;
 	z-index: -1;
 }
 #box4{
-	background: none;
-	background-color: white;
 	border-top: 1px solid black;
 	border-right: 1px solid black;
 	border-bottom: 1px solid black;
 	margin: 0px -2px 0px 0px;
+	background: url("../img/squre.jpg");
+	background-size: contain;
 	z-index: -1;
 }
 #box5{
-	background: none;
-	background-color: white;
 	border: 1px solid black;
 	margin: 0px -2px 0px -2px;
+	background: url("../img/squre.jpg");
+	background-size: contain;
 	z-index: -1;
 }
 #box6{
-	background: none;
-	background-color: white;
 	border-top: 1px solid black;
 	border-left: 1px solid black;
 	border-bottom: 1px solid black;
 	margin: 0px 0px 0px -2px;
+	background: url("../img/squre.jpg");
+	background-size: contain;
 	z-index: -1;
 }
 #box7{
-	background: none;
-	background-color: white;
 	border-top: 1px solid black;
 	border-right: 1px solid black;
 	margin: 0px -2px 0px 0px;
+	background: url("../img/squre.jpg");
+	background-size: contain;
 	z-index: -1;
 }
 #box8{
-	background: none;
-	background-color: white;
 	border-top: 1px solid black;
 	border-right: 1px solid black;
 	border-left: 1px solid black;
 	margin: 0px -2px 0px -2px;
+	background: url("../img/squre.jpg");
+	background-size: contain;
 	z-index: -1;
 }
 #box9{
-	background: none;
-	background-color: white;
 	border-top: 1px solid black;
 	border-left: 1px solid black;
 	margin: 0px 0px 0px -2px;
+	background: url("../img/squre.jpg");
+	background-size: contain;
 	z-index: -1;
 }
