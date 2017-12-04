@@ -39,6 +39,7 @@ var board = function () {
       }else{
         this.className = 'tileO';
         document.getElementById('playerChange').textContent= "Player X is Up";
+        this.removeEventListener('click', tileSelect);
   }});
 }
 }
@@ -55,7 +56,7 @@ board();
 // };
 
 restart.addEventListener('click', function(){
-  console.log('restart click')
+  window.location.reload();
 });
 
 // document.addEventListener('DOMContentLoaded', function () {
