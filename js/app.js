@@ -28,6 +28,9 @@ var reset = function() {
 	console.log("You've reset the game.");
 	document.getElementsByClassName("player-x")[0].innerHTML = "Player X Turn";
 	document.getElementsByClassName("player-o")[0].innerHTML = "&nbsp";
+	for(var i = 0; i < document.getElementsByTagName("td").length; i++) {
+		document.getElementsByTagName("td")[i].addEventListener("click", takeTurn);
+	}
 }
 
 var swapPlayer = function(cell) {
@@ -62,6 +65,9 @@ var checkVictor = function(check) {
 var win = function(winner) {
 	console.log(winner + " won!");
 	document.getElementById("winner").innerHTML = "Player " + winner + " Wins"; 
+	for(var i = 0; i < document.getElementsByTagName("td").length; i++) {
+		document.getElementsByTagName("td")[i].removeEventListener("click", takeTurn);
+	}
 }
 
 var checkWin = function(cell) {
