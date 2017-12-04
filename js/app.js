@@ -1,6 +1,5 @@
 var playerUp = "Player1";
 var cells = document.getElementsByClassName("cell");
-var selectedCell;
 var player1sign = document.getElementById("player1sign");
 var player2sign = document.getElementById("player2sign");
 var numTurns = 0;
@@ -64,13 +63,10 @@ var checkForWin = function (arr) {
 }
 //executes each time a player clicks on a cell
 var markUpCell = function() {
-	selectedCell.removeEventListener("click", function() {
-		selectedCell = this;
-		markUpCell();
-	});
+	this.removeEventListener("click", markUpCell);
 	if(playerUp==="Player1") {
-		selectedCell.className += " clickedByP1";
-		xCells.push(selectedCell.id);
+		this.className += " clickedByP1";
+		xCells.push(this.id);
 		if (!checkForWin(xCells)) {
 			player2sign.style.background = "chartreuse";
 			player1sign.style.background = "black";
@@ -78,8 +74,8 @@ var markUpCell = function() {
 		}
 	}
 	else {
-		selectedCell.className += " clickedByP2";
-		oCells.push(selectedCell.id);
+		this.className += " clickedByP2";
+		oCells.push(this.id);
 		if (!checkForWin(oCells)) {
 			player1sign.style.background = "chartreuse";
 			player2sign.style.background = "black";
@@ -91,11 +87,7 @@ var markUpCell = function() {
 
 var resetEventListeners = function () {
 	for (var i = 0; i<cells.length; i++) {
-		selectedCell = cells[i];
-		selectedCell.addEventListener("click", function() {
-			selectedCell = this;
-			markUpCell();
-		});
+		cells[i].addEventListener("click", markUpCell);
 	}
 }
 
