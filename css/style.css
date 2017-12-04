@@ -1,3 +1,89 @@
+body {
+	text-align: center;
+	color: rgb(241, 112, 143);
+	font-family: 'Open Sans', sans-serif;
+	background: black;
+	}
 h1 {
-  color: purple;
-}
+  	font-family: 'Nova Script', cursive;
+  	font-size: 58px;
+  	letter-spacing: 8px;
+  	font-weight: 100px;
+  	margin-top: 35px;
+	}
+#playerTwoTurn {
+	display: none;
+	font-family: 'Nova Script', cursive;
+	margin: 0 0;
+	height: 40px;
+	width: 350px;
+	font-size: 32px;
+	}	
+#playerOneTurn {
+	display: inline-block;
+	font-family: 'Nova Script', cursive;
+	font-weight: 200;
+	letter-spacing: 4px;
+	margin: 0 0;
+	height: 40px;
+	width: 350px;
+	font-size: 32px;
+	}
+.board {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20px;
+	width: 400px;
+	}
+.cell {
+	display: inline-block;
+	height: 130px;
+	width: 100px;
+	background-image: url("../img/blank-board.jpg");
+	}
+.cellOdd {
+	display: inline-block;
+	background-size: cover;
+	height: 130px;
+	width: 100px;
+	background-image: url("../img/printable-letter-x-chalkboard.png");
+	}
+.cellEven {
+	display: inline-block;
+	background-size: cover;
+	height: 130px;
+	width: 100px;
+		background-image: url("../img/printable-letter-o-chalkboard.png");
+	}
+#playerTwoW {
+	display: none;
+	position: absolute;
+	padding-top: 200px;
+	margin-top: -500px;
+	margin-left: -400px;
+	height: 300px;
+	width: 800px;
+	font-size: 100px;
+	}
+#playerOneW {
+	display: none;
+	position: absolute;
+	padding-top: 200px;
+	margin-top: -500px;
+	margin-left: -400px;
+	height: 300px;
+	width: 800px;
+	font-size: 100px;
+	}
+button {
+	color: rgb(241, 112, 143);
+	background: rgb(82, 82, 82);
+	margin-top: 25px;
+	margin-bottom: 50px;
+	width: 240px;
+	height: 35px;
+	font-size: 20px;
+	font-family: 'Open Sans', sans-serif;
+	letter-spacing: 3px;
+	padding-bottom: 3px;
+	}
