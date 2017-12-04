@@ -46,20 +46,16 @@ body {
 	cursor: not-allowed;
 }
 
-
 /* Control window styling */
 #controlwindow {
+	background: #2D3E4F;
 	background: rgba(45,62,79,.90);
 	padding: 20px;
 	transition: all .25s;
-}
-
-#welcome {
-	font-size: 22px;
+	font-size: 24px;
 }
 
 #statusbox {
-	font-size: 24px;
 	margin: 10px auto 20px auto;
 	padding: 5px;
 }
@@ -68,7 +64,6 @@ body {
 	display: inline-block;
 	padding: 5px;
 	margin: 5px;
-	font-size: 24px;
 	font-weight: 700;
 }
 
@@ -78,7 +73,6 @@ body {
 	margin-left: 20px;
 	font-weight: 400;
 	width: 80px;
-	font-size: 22px;
 	padding: 5px;
 	letter-spacing: 2px;
 }
@@ -93,13 +87,13 @@ body {
 
 button {
 	transition: all .25s;
+	font-size: 18px;
 }
 
 #singleplayer, #twoplayer {
 	color: white;
 	border-radius: 20px;
 	background: #FA3B48;
-	font-size: 24px;
 	padding: 10px 30px;
 	margin: 20px;
 	border: none;
@@ -115,7 +109,6 @@ button {
 	color: white;
 	border-radius: 20px;
 	background: none;
-	font-size: 18px;
 	margin: 30px auto;
 	padding: 10px 20px;
 }
@@ -125,7 +118,6 @@ button {
 	color: #2D3E4F;
 	background: white;
 	border-radius: 20px;
-	font-size: 18px;
 	margin: 30px auto -15px auto;
 	padding: 15px 25px;
 	font-weight: 700;
@@ -133,6 +125,7 @@ button {
 
 #playagain:hover {
 	transform: scale(1.10);
+	color: #FA3B48;
 }
 
 /* The below classes are toggled on and off dependent on gameplay status */
@@ -158,7 +151,7 @@ button {
 }
 
 #welcome.gamestart {
-	margin-top: 50px;
+	margin-top: 60px;
 }
 
 #player1score.gamestart, #player2score.gamestart, #reset.gamestart, #playagain.gamestart {
