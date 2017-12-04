@@ -14,7 +14,6 @@ var boxClicked = function(){
 	this.textContent = "O";
 	currentPlayer = currentPlayer - 1;
 	}
-
 	this.removeEventListener("click", boxClicked);
 }
 
