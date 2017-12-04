@@ -1,5 +1,11 @@
+
 h1 {
-  color: purple;
+  color: #ffffff;
+  font-size: 30px;
+  font-family: 'Bungee Inline', cursive;
+  text-shadow: 5px 5px #5a5b5b;
+
+
   position: relative;
   top: 10px;
 }
@@ -7,19 +13,26 @@ h1 {
 
 body{
 	text-align: center;
+	background-color : #d2def2;
 }
 
 .titles {
 	background-color: #8B928D;
 	height: 95px;
-	width: 80%;
+	width: 60%;
 	display: inline-block;
 	margin: 15px;
+	border-radius: 10px;
+	border-left: 12px solid #5a5b5b;
+	border-bottom: 12px solid #5a5b5b;
 }
 
 #turnText {
 	padding: 25px;
 	font-size: 30px;
+	font-family: 'Bungee Inline', cursive;
+	color: #ffffff;
+	text-shadow: 5px 5px #5a5b5b;
 
 }
 .baseBoard{
@@ -27,10 +40,9 @@ body{
 	height: 500px;
 	width: 500px;
 	display: inline-block;
-}
-
-
-.grid {
+	border-radius: 10px;
+	border-left: 12px solid #5a5b5b;
+	border-bottom: 12px solid #5a5b5b;
 
 }
 
@@ -41,7 +53,9 @@ body{
 	display: inline-block;
 	height: 120px;
 	width: 120px;
-	background-color: white;	
+	background-color: white;
+	border-radius: 5px;	
+	border: 2px solid #5a5b5b;
 }
 
 .cellO{
@@ -53,8 +67,8 @@ body{
 	display: inline-block;
 	height: 120px;
 	width: 120px;
-	
-
+	border-radius: 5px;	
+	border: 2px solid #5a5b5b;
 }
 
 .cellX{
@@ -66,17 +80,25 @@ body{
 	display: inline-block;
 	height: 120px;
 	width: 120px;
-	
+	border-radius: 5px;	
+	border: 2px solid #5a5b5b;	
 }
 
-#button {
-	padding-bottom:  20px;
-}
 
 #resetButton {
-	
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	font-size: 20px;
+	font-family:'Bungee Inline', cursive; 
+	background-color: transparent;
+	outline: none;
+	border: none;
 }
 
-
+.buttonDiv {
+	position:relative;
+	bottom: 189px;
+}
 
 

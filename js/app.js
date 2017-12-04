@@ -8,15 +8,12 @@ var cellClicked = function (){
 	if(count % 2 === 1) {
 	this.className = "cellX";
 	document.getElementById("turnText").textContent = "It is O's Turn!";
-	this.removeEventListener('click', cellClicked);
-	
-
+	this.removeEventListener('click', cellClicked);	
 } else {
-	// if(count % 2 === 0){
 	this.className = "cellO";
 	document.getElementById("turnText").textContent = "It is X's Turn!";}
 	this.removeEventListener('click', cellClicked);
-	
+
 }
 
 var addCellListeners = function (){
