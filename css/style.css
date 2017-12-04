@@ -1,3 +1,99 @@
+body {
+	text-align: center;
+	font-family: sans-serif;
+	background-color: tan;
+}
 h1 {
-  color: purple;
+
+}
+div {
+	
+}
+button {
+	height: 100%;
+	width: 100%;
+	/*padding: 0; an option*/
+	/*border-width: 0; an option*/
+}
+#wrapper {
+	display: inline-block;
+	text-align: center;
+	margin: 0 0 20px 0;
+}
+#player1,
+#player2 {
+	display: inline-block;
+	font-size: 12px;
+	font-weight: bold;
+	width: 100px;
+	padding: 10px;
+	color: #ff7777;
+	background-color: #333366;
+	border: 2px solid #881111;
+}
+#player1 {
+	float: left;
+	border-radius: 200% 10px / 20em 10px;
+}
+#player2 {
+	float: right;
+	border-radius: 200% 10px / 20em 10px;
+}
+#reset {
+	display: inline-block;
+	font-size: 18px;
+	font-weight: bold;
+	width: 100%;
+	padding: 10px 30px;
+	margin: 5px 0;
+	border-radius: 10px 200% / 10px 20em;
+	color: #ff7777;
+	background-color: #333366;
+	border-color: #881111;
+	box-sizing: border-box;
+}
+#container {
+	display: inline-block;
+	position: relative;
+	width: 600px;
+	height: 600px;
+	font-size: 0;
+	max-width: 100%;
+}
+.box {
+	display: inline-block;
+	position: relative;
+	width: 33.333333%;
+	height: 33.333333%;
+	border: 1px solid #000000;
+/*	max-width: 33.333333%;
+	max-height: 33.333333%;*/
+	box-sizing: border-box;
+}
+#box1 {
+
+}
+#box2 {
+
+}
+#box3 {
+
+}
+#box4 {
+
+}
+#box5 {
+
+}
+#box6 {
+
+}
+#box7 {
+
+}
+#box8 {
+
+}
+#box9 {
+
 }
