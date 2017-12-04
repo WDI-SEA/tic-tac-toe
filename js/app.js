@@ -55,7 +55,7 @@ var checkVictor = function(check) {
 //stops everything and puts in winning text
 var win = function(winner) {
 	console.log(winner + " won!");
-	alert(winner + " has won!");
+	document.getElementById("winner").innerHTML = "Player " + winner + " Wins"; 
 }
 
 var checkWin = function(cell) {
