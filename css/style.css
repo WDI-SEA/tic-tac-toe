@@ -1,3 +1,138 @@
+/* Element Styling */
+body {
+  font-family: Calibri;
+  background-color: #91AAB4;
+  font-size: 24px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+div {
+    display:inline-block;
+}
+
 h1 {
-  color: purple;
+  color: #FFFFFF;
+  font-size: 48px;
+  
+}
+
+p {
+  padding: 5px;
+  font-size: 20px;
+  color: #172A40;
+  margin: 0;
+}
+
+#playerIndicator {
+  background: #FFFFFF;
+  display:inline-block;
+  width: 440px;
+  margin: 0 auto;
+  margin-top: 20px;
+  border: 2px solid gray;
+}
+
+
+button {
+    background-color: #FFFFFF; 
+    border: none;
+    color: #172A40;
+    padding: 10px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: 1px solid #172A40;
+}
+
+.title {
+  background-color: #172A40;
+  width:100%;
+  border: 5px solid gray;
+}
+
+
+.container {
+  height:100px;
+  background-color: #FFFFFF;
+  padding: 20px;
+  text-align: center;
+  
+} 
+
+.board {
+    display:inline-block;
+    width: 400px;
+    background-color: #FFFFFF;
+    padding: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    border: 2px solid gray;
+}
+
+.tile {
+  background: #172A40;
+  background-size: cover;
+  background-position: center;
+  display:inline-block;
+  color:white;
+  font-weight: bold;
+  border: 1px solid black;
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+  margin-left: 5px;
+  margin-right: 5px;
+  border: 3px solid gray;
+}
+
+.tileO {
+  background: url('../img/o.png');
+  background-size: cover;
+  background-position: center;
+  background-color: #D0E4F2;
+  display:inline-block;
+  color:white;
+  font-weight: bold;
+  border: 1px solid black;
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+  margin-left: 5px;
+  margin-right: 5px;
+  border: 3px solid gray;
+}
+
+.tileX {
+  background: url('../img/x.png');
+  background-size: cover;
+  background-position: center;
+  background-color: #A7C7C5;
+  display:inline-block;
+  color:white;
+  font-weight: bold;
+  border: 1px solid black;
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+  margin-left: 5px;
+  margin-right: 5px;
+  border: 3px solid gray;
+}
+
+
+#winText {
+    position: absolute;
+    text-align: center;
+    font-size: 78px;
+    width: 360px;
+    background-color: none;
+    padding-left: 150px;
+    padding-top: 150px;
+    color: #FC4349;
+    transform: rotate(-40deg);
 }
