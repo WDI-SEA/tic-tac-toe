@@ -32,14 +32,14 @@ var board = function () {
     for (var i=0; i<box.length; i++){
     box[i].addEventListener('click', function(){
       turn ++;
-      if(count % 2 === 1){
+      if(turn % 2 === 1){
         this.className = 'tileX';
         document.getElementById('playerChange').textContent = "Player O is Up";
         this.removeEventListener('click', tileSelect);
       }else{
         this.className = 'tileO';
         document.getElementById('playerChange').textContent= "Player X is Up";
-  });
+  }});
 }
 }
 board();
