@@ -1,3 +1,82 @@
 h1 {
   color: purple;
+  position: relative;
+  top: 10px;
 }
+
+
+body{
+	text-align: center;
+}
+
+.titles {
+	background-color: #8B928D;
+	height: 95px;
+	width: 80%;
+	display: inline-block;
+	margin: 15px;
+}
+
+#turnText {
+	padding: 25px;
+	font-size: 30px;
+
+}
+.baseBoard{
+	background-color: #abeb6f;
+	height: 500px;
+	width: 500px;
+	display: inline-block;
+}
+
+
+.grid {
+
+}
+
+.cell {
+
+	position: relative;
+	top: 75px;
+	display: inline-block;
+	height: 120px;
+	width: 120px;
+	background-color: white;	
+}
+
+.cellO{
+	background:url("../img/o.png");
+	background-color: white;
+	background-size: cover;
+	position: relative;
+	top: 75px;
+	display: inline-block;
+	height: 120px;
+	width: 120px;
+	
+
+}
+
+.cellX{
+	background:url("../img/X.png");
+	background-color: white;
+	background-size: cover;
+	position: relative;
+	top: 75px;
+	display: inline-block;
+	height: 120px;
+	width: 120px;
+	
+}
+
+#button {
+	padding-bottom:  20px;
+}
+
+#resetButton {
+	
+}
+
+
+
+
