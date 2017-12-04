@@ -1,9 +1,31 @@
 h1 {
-  color: purple;
+  color: #F00;
 }
 
-td{
+.container {
+  text-align: center;
+}
+
+.table {
+  text-align: center;
+  display: flex;
+
+  justify-content: center;
+}
+
+tr {}
+
+td {
+  font-size: 5em;
   border: 1px solid black;
   height: 100px;
-  width: 100px;  
+  width: 100px;
+}
+
+ul {}
+
+ul li {
+    font-size: 1.5em;
+    list-style: none;
+  /*display: inline-block;*/
 }

@@ -7,6 +7,7 @@
   var board = document.getElementById('board');
   var rows = document.querySelectorAll('tr');
   var cells = document.querySelectorAll('td');
+  //add an event listener to the board and pass the event for cell population.
   board.addEventListener('click', (cell) => {
     populateCell(cell);
   });
@@ -16,11 +17,8 @@
 
   function resetBoard() {
     turn = 0;
-
-    console.log('reseting board');
     for (var i = 0; i < cells.length; i += 1) {
       cells[i].textContent = '';
-      console.log(cells[i]);
     }
   }
   //takes in an element clicked and changes the value accordint to which player clicked it
@@ -40,7 +38,6 @@
           oScore += 1;
           boardOScore.innerText = 'O games won:  ' + oScore;
           setTimeout(resetBoard, 1000);
-          console.log('Oscore ' + oScore);
         }
       }
       turn += 1;
@@ -75,7 +72,7 @@
     } 
     //loop through all the rows 
     for (var i = 0; i < rows.length; i += 1) {
-      var last = rows[i].cells.length - i - 1;
+      var last = rows[i].cells.length - i - 1; // used for diagLeft - 1st row, last position, 2nd row, next to last position etc.
       //loop through all the cells in a row
       for (var j = 0; j < rows[i].cells.length; j += 1) {
         //checks how many like symbols a row contains and adds them to an array
@@ -105,12 +102,10 @@
     //clear diagonal arrays
     diagRight = [];
     diagLeft = [];
-    console.log('turn', turn)
     //increment draw variable upon a draw match and reset the board
     if (turn === 8) {
       draw += 1;
       boardDraw.innerText = 'Draw games: ' + draw;
-      console.log('resetting Board - Draw');
       setTimeout(resetBoard, 1000);
     }
   }
