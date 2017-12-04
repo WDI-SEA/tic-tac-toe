@@ -59,6 +59,7 @@ var setWinner = function(location) {
    }
 }
 
+//-- check for winner 
 var checkWinner = function() {
    let winRow = 0;
    let winCol = 0;
