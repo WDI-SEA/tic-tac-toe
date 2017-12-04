@@ -1,10 +1,16 @@
+// Change currentboard to not numbers
+// DRY on win condition
+
+
+
+
 // Setting up counter we will use to track who's turn it is
 var turnCounter = 0;
 var currentTurn;
 
 // Setting up array where we will add in player names based on what square they click on
 // Each item in the array pertains to a square on the board
-var currentBoard = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+var currentBoard = ['unplayed', 'unplayed', 'unplayed', 'unplayed', 'unplayed', 'unplayed', 'unplayed', 'unplayed', 'unplayed'];
 var currentSpaceIndex; 
 
 // For keeping track of score accross mulitple games
@@ -63,31 +69,23 @@ var gameOver = function() {
 
 var checkForWin = function() {
 	// Check all winning combinations for player 1
-	if (((currentBoard[0] === 'player1') && (currentBoard[1] === 'player1') && (currentBoard[2] === 'player1')) ||
-		((currentBoard[3] === 'player1') && (currentBoard[4] === 'player1') && (currentBoard[5] === 'player1')) ||
-		((currentBoard[6] === 'player1') && (currentBoard[7] === 'player1') && (currentBoard[8] === 'player1')) ||
-		((currentBoard[0] === 'player1') && (currentBoard[3] === 'player1') && (currentBoard[6] === 'player1')) ||
-		((currentBoard[1] === 'player1') && (currentBoard[4] === 'player1') && (currentBoard[7] === 'player1')) ||
-		((currentBoard[2] === 'player1') && (currentBoard[5] === 'player1') && (currentBoard[8] === 'player1')) ||
-		((currentBoard[0] === 'player1') && (currentBoard[4] === 'player1') && (currentBoard[8] === 'player1')) ||
-		((currentBoard[2] === 'player1') && (currentBoard[4] === 'player1') && (currentBoard[6] === 'player1'))) {
-			statusBox.textContent = 'Player 1 has won';
-			player1Score++;
-			player1ScoreSection.textContent = player1Score;
-			gameOver();
-
-	// Check all winning combinations for player 2
-	} else if (((currentBoard[0] === 'player2') && (currentBoard[1] === 'player2') && (currentBoard[2] === 'player2')) ||
-		((currentBoard[3] === 'player2') && (currentBoard[4] === 'player2') && (currentBoard[5] === 'player2')) ||
-		((currentBoard[6] === 'player2') && (currentBoard[7] === 'player2') && (currentBoard[8] === 'player2')) ||
-		((currentBoard[0] === 'player2') && (currentBoard[3] === 'player2') && (currentBoard[6] === 'player2')) ||
-		((currentBoard[1] === 'player2') && (currentBoard[4] === 'player2') && (currentBoard[7] === 'player2')) ||
-		((currentBoard[2] === 'player2') && (currentBoard[5] === 'player2') && (currentBoard[8] === 'player2')) ||
-		((currentBoard[0] === 'player2') && (currentBoard[4] === 'player2') && (currentBoard[8] === 'player2')) ||
-		((currentBoard[2] === 'player2') && (currentBoard[4] === 'player2') && (currentBoard[6] === 'player2'))) {
-			statusBox.textContent = 'Player 2 has won';
-			player2Score++;
-			player2ScoreSection.textContent = player2Score;
+	if (((currentBoard[0] === currentTurn) && (currentBoard[1] === currentTurn) && (currentBoard[2] === currentTurn)) ||
+		((currentBoard[3] === currentTurn) && (currentBoard[4] === currentTurn) && (currentBoard[5] === currentTurn)) ||
+		((currentBoard[6] === currentTurn) && (currentBoard[7] === currentTurn) && (currentBoard[8] === currentTurn)) ||
+		((currentBoard[0] === currentTurn) && (currentBoard[3] === currentTurn) && (currentBoard[6] === currentTurn)) ||
+		((currentBoard[1] === currentTurn) && (currentBoard[4] === currentTurn) && (currentBoard[7] === currentTurn)) ||
+		((currentBoard[2] === currentTurn) && (currentBoard[5] === currentTurn) && (currentBoard[8] === currentTurn)) ||
+		((currentBoard[0] === currentTurn) && (currentBoard[4] === currentTurn) && (currentBoard[8] === currentTurn)) ||
+		((currentBoard[2] === currentTurn) && (currentBoard[4] === currentTurn) && (currentBoard[6] === currentTurn))) {
+			if (currentTurn === 'player1') {
+				statusBox.textContent = 'Player 1 has won';
+				player1Score++;
+				player1ScoreSection.textContent = player1Score;
+			} else if (currentTurn === 'player2') {
+				statusBox.textContent = 'Player 2 has won';
+				player2Score++;
+				player2ScoreSection.textContent = player2Score;
+			}
 			gameOver();
 
 	// If all squares played and none of the above are met, then it's a draw
@@ -108,7 +106,7 @@ var computerTurn = function () {
 	}
 	for (var i = 0; i < 50; i++) {
 		var randomNumber = getRandomInt(0, 8);	// Select a random number between 0 and 8
-		if (currentBoard[randomNumber] === 0) {	// Check if that number hasn't already been played
+		if (currentBoard[randomNumber] === 'unplayed') {	// Check if that number hasn't already been played
 			// If the randomly selected space is empty, then play that space
 			currentBoard[randomNumber] = 'player2';
 			gameSpaces[randomNumber].classList.remove('unplayed');
@@ -119,7 +117,7 @@ var computerTurn = function () {
 		}
 	}
 	for (var i = 0; i < currentBoard.length; i++) {	// User can click after computer completes turn
-		if (currentBoard[i] === 0) {
+		if (currentBoard[i] === 'unplayed') {
 			gameSpaces[i].addEventListener('click', spaceClicked);
 		}
 	}
@@ -137,7 +135,7 @@ var newTurn = function () {	// Only called if there is no win or draw
 		if (gameType === 'singleplayer') {	// If user selected single player mode, the computer will play next
 			statusBox.textContent = 'Player 2 is playing';
 			for (var i = 0; i < currentBoard.length; i++) {	
-				if (currentBoard[i] === 0) {	// Making spaces unclickable during computer's turn
+				if (currentBoard[i] === 'unplayed') {	// Making spaces unclickable during computer's turn
 					gameSpaces[i].removeEventListener('click', spaceClicked);
 				}
 			}
@@ -180,7 +178,7 @@ var addSpaceEventListeners = function() { // Creating event listeners for every 
 };
 
 var newGame = function() {	// Functionality to clear the board, but not the scores
-	currentBoard = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+	currentBoard = ['unplayed', 'unplayed', 'unplayed', 'unplayed', 'unplayed', 'unplayed', 'unplayed', 'unplayed', 'unplayed'];
 	turnCounter = 0;	
 	addSpaceEventListeners();  
 	statusBox.textContent = 'Make a move Player 1';
