@@ -3,12 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <title>Tic Tac Toe</title>
+  <link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-  <h1>Hello Front-End</h1>
-
+  <h1>Tic.Tac.Toe</h1>
+	  	<div class="row">
+		  	<div class="cell" id="UL"></div>
+		  	<div class="cell" id="UM"></div>
+		  	<div class="cell" id="UR"></div>
+	  	</div>
+		<div class="row">
+		  	<div class="cell" id="ML"></div>
+		  	<div class="cell" id="MM"></div>
+		  	<div class="cell" id="MR"></div>
+	  	</div>
+	  	<div class="row">
+		  	<div class="cell" id="LL"></div>
+		  	<div class="cell" id="LM"></div>
+		  	<div class="cell" id="LR"></div>
+		</div>
+	  	<div id="controlcenter">
+		  	<div class="turn" id=player1sign>Player 1</div>
+		  	<div class="turn" id=player2sign>Player 2</div>
+		  	<button>Reset Game</button>
+	  	</div>
   <script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>

@@ -1,3 +1,50 @@
+body {
+	text-align: center;
+	background: black;
+	font-family: 'Audiowide', cursive;
+}
+
 h1 {
-  color: purple;
+  color: chartreuse;
+  font-size: 50px;
+}
+
+.cell {
+	height: 100px;
+	width: 100px;
+	background: white;
+	display: inline-block;
+	border: 1px solid black;
+}
+
+#controlcenter {
+	height: 120px;
+	width: 300px;
+	border: solid white 5px;
+	display: inline-block;
+	margin-top: 20px;
+}
+
+.clickedByP1 {
+	background: url("/img/x.png");
+	background-size: cover;
+}
+
+.clickedByP2 {
+	background: url("/img/o.jpg");
+	background-size: cover;
+}
+
+.turn {
+	display: inline-block;
+	width: 40%;
+	margin-top: 20px;
+}
+
+
+button {
+	height: 40px;
+	width: 110px;
+	font-size: 15px;
+	margin: 20px;
 }
