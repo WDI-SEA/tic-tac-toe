@@ -61,30 +61,24 @@ var setWinner = function(location) {
 
 var checkWinner = function() {
    let winRow = 0;
-   let winCol = [0,0,0];
+   let winCol = 0;
    let isFull = 0;
 
    for (let r=0; r<3; r++) {
       winRow =0;
+      winCol =0;
 
       for (let c=0; c<3; c++) {
          winRow += gridMark[r][c];
-         winCol[c] += gridMark[r][c];
+         // backwards c,r will get the column info
+         winCol += gridMark[c][r];
          if (gridMark[r][c] !== 0) {
             isFull++;
          }
       }
 
       //-- check row win
-      if (winRow === 3 || winRow === -3) {
-         //winner
-         setWinner();
-      }
-   }
-
-   //-- check col win
-   for (let j=0; j<3; j++) {
-      if (winCol[j] === 3 || winCol[j] === -3) {
+      if (winRow === 3 || winRow === -3 || winCol ===3 || winCol ===-3) {
          //winner
          setWinner();
       }
@@ -108,7 +102,7 @@ var checkWinner = function() {
 var setComputerMark = function() {
    let valid=false;
    let tries,r,c=0;
-   
+
    while (!valid) {
       r=Math.random()*3 | 0;
       c=Math.random()*3 | 0;
