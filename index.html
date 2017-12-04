@@ -3,12 +3,44 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <title>Tic-Tac-Toe</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-  <h1>Hello Front-End</h1>
-
+  <h1 id="logo">Tic-Tac-Toe</h1>
+  <!-- new game button will go here eventaully -->
+  <div id="scoreBoard">
+  	<h1>Score Board</h1>
+  	<div>
+  		<div id="x">&nbsp;</div>
+  		<h3>X's</h3>
+  	</div>
+  	<div>
+  		<div id="o">&nbsp;</div>
+  		<h3>O's</h3>
+  	</div>
+  	<div>
+  		<div id="cats">&nbsp;</div>
+  		<h3>Cat's Game</h3>
+  	</div>
+  </div>
+  <div id="gameBoard">
+  	<div>
+  		<div class="rowOne columnOne cells" id="one" onclick="cellClicked('one')">&nbsp;</div>
+  		<div class="rowOne columnTwo cells" id="two" onclick="cellClicked('two')">&nbsp;</div>
+  		<div class="rowOne columnThree cells" id="three" onclick="cellClicked('three')">&nbsp;</div>
+  	</div>
+  	<div>	
+  		<div class="rowTwo columnOne cells" id="four" onclick="cellClicked('four')">&nbsp;</div>
+  		<div class="rowTwo columnTwo cells" id="five" onclick="cellClicked('five')">&nbsp;</div>
+  		<div class="rowTwo columnThree cells" id="six" onclick="cellClicked('six')">&nbsp;</div>
+  	</div>
+  	<div>
+  		<div class="rowThree columnOne cells" id="seven" onclick="cellClicked('seven')">&nbsp;</div>
+  		<div class="rowThree columnTwo cells" id="eight" onclick="cellClicked('eight')">&nbsp;</div>
+  		<div class="rowThree columnThree cells" id="nine" onclick="cellClicked('nine')">&nbsp;</div>
+  	</div>
+  </div>
   <script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>
