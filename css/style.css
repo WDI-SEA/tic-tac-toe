@@ -1,3 +1,48 @@
-h1 {
-  color: purple;
+body {
+  text-align: center;
+  height: 700px;
+  font-family: 'Macondo Swash Caps', cursive;
+  background-image: url(https://i.pinimg.com/originals/b2/e5/db/b2e5dbe69ba6746c80967b6a9ba1983f.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+#headline {
+  font-size: 100px;
+  color: silver;
+}
+#displayPlayer {
+  height: 30px;
+  font-size: 50px;
+  color: aqua;
+  display: inline-block;
+  margin: 5px;
+  background-color: rgba(0,0,0,0.5);
+}
+button {
+  padding: 5px 50px;
+  font-size: 24px;
+  margin: 20px;
+  font-family: 'Macondo Swash Caps', cursive;
+  color: gold;
+  background-color: black;
+  display: inline-block;
+}
+.board {
+  padding: 5px;
+  width: 400px;
+  background-color: rgba(0,0,0,0);
+  display: inline-block;
+}
+.square {
+  height: 100px;
+  width: 100px;
+  background-color:rgba(0,0,0,0.3);
+  border: 5px solid silver;
+  display: inline-block;
+  text-align: center;
+  position: relative;
+  margin: 5px;
+  vertical-align: middle;
+  line-height: 100px;
+  font-size: 50px;
 }
