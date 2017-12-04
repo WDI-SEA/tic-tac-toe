@@ -3,12 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <title>A Simple tic-tac-toe game</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
-<body>
-  <h1>Hello Front-End</h1>
-
-  <script type="text/javascript" src="js/app.js"></script>
+<body onload="startGame()">
+  <h1>TIC TAC TOE</h1>
+  <p>A super basic tic-tac-toe game where you just put X's and O's into the cells and not sure who win and loses!</p>
+  <div id = "message">turn message here.</div>
+  <div class = "row">
+  	<div class = "col" onclick="nextTurn(this)"></div>
+  	<div class = "col" onclick="nextTurn(this)"></div>
+  	<div class = "col" onclick="nextTurn(this)"></div>
+  </div>
+  <div class = "row">	
+  	<div class = "col" onclick="nextTurn(this)"></div>
+  	<div class = "col" onclick="nextTurn(this)"></div>
+  	<div class = "col" onclick="nextTurn(this)"></div>
+  </div>
+  <div class = "row">	
+  	<div class = "col" onclick="nextTurn(this)"></div>
+  	<div class = "col" onclick="nextTurn(this)"></div>
+  	<div class = "col" onclick="nextTurn(this)"></div>
+  
+  
+  <div class = "center button">
+  	<button id="restart">New Game</button>
+  </div>
+  <script src="js/app.js" type="text/javascript"></script>
 </body>
 </html>
