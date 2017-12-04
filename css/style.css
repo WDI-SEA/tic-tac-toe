@@ -26,12 +26,12 @@ h1 {
 }
 
 .clickedByP1 {
-	background: url("/img/x.png");
+	background: url("../img/x.png");
 	background-size: cover;
 }
 
 .clickedByP2 {
-	background: url("/img/o.jpg");
+	background: url("../img/o.jpg");
 	background-size: cover;
 }
 
