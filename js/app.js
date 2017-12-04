@@ -9,6 +9,7 @@ for (var i = 0; i < boxes.length; i++) {
    boxes[i].addEventListener("click",pushText);
  }
 
+
 //pushes x or o 
 //str left open for "x" and "o"
 function pushText () {
@@ -22,6 +23,9 @@ else{
    str="O";
    isStrX=true;
    } 
+
+
+
 
 //gets info from each line of boxes and changes into string 
 
@@ -39,7 +43,7 @@ checking(2,5,8);
 checking(0,4,8);
 checking(2,4,6);
 
-};
+}
 
 
 
