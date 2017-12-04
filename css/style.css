@@ -1,3 +1,59 @@
-h1 {
-  color: purple;
+body {
+	text-align: center;
+	font-family: "Shadows Into Light Two", cursive;
+	text-transform: lowercase;
 }
+
+h1 {
+  	color: purple;
+  	background-color: #dbe0df;
+  	padding: 20px 0;
+  	width: 600px;
+  	margin: auto;
+}
+
+#wrapper {
+	background-color: #8af2d1;
+	width: 600px;
+	height: 600px;
+	margin: auto;
+	margin-bottom: 200px;
+}
+
+.boxes {
+	position: relative;
+	top: 20px;
+	width: 150px;
+	height: 150px;
+	margin: 4px 0;
+	border: medium solid white;
+	display: inline-block;
+	color: purple;
+	font-size: 20px;
+	font-weight: 800;
+
+}
+
+.colorX {
+	
+
+}
+
+#reset {
+	width: 150px;
+	padding: 5px;
+	margin: 50px 0;
+	border: 1px solid #fff;
+	font-family: "Shadows Into Light Two", cursive;
+	font-size: 18px;
+	color: purple;
+	background-color: #DBE0DF;
+}
+
+
+
+.colorO {
+	color: red;
+}
+
+
