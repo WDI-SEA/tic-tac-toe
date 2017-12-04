@@ -29,7 +29,7 @@ var rows_column_win = function(a) {
 			return test[key];
 		};
 	};
-	
+	console.log(counts);
 	// check for count of 3
 	if (test_counts(counts)===3) {
 		return true;
