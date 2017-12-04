@@ -9,7 +9,6 @@
  [0, 4, 8],
  ]
 
-
 var cells = document.querySelectorAll('.cell');
 var playerStart = document.getElementById('playerStart');
 var player1 = document.getElementById('player1');
@@ -50,8 +49,6 @@ var addCellEventListener = function(){
 		cells[i].addEventListener('click', cellsClicked);
 	}
 }
-
-
 var newGame = function() {
 	for(var i = 0; i < cells.length; i++){
 		cells[i].innerHTML = '';
