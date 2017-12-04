@@ -17,6 +17,7 @@ var reset = function() {
  	for(var i = 0; i < gridReset.length; i++) {
  		for(var j = 0; j < gridReset.length; j++) {
  			gridReset[i][j].textContent = "";
+ 			gridReset[i][j].style.background = "blue";
  		}
  	}
  	turn = 0;
