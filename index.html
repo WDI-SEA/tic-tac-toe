@@ -3,12 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-  <h1>Hello Front-End</h1>
+  <h1>Tic-Tac-Toe</h1>
 
+  <fieldset>
+    <div>
+      <Table>
+<tr>
+  <td id="cell_0_0" class="cell" onClick="JavaScript: clickCell(0,0);"</td>
+  <td id="cell_0_1" class="cell" onClick="JavaScript: clickCell(0,1);"</td>
+  <td id="cell_0_2" class="cell" onClick="JavaScript: clickCell(0,2);"</td>
+</tr>
+  <tr>
+  <td id="cell_1_0" class="cell" onClick="JavaScript: clickCell(1,0);"</td>
+  <td id="cell_1_1" class="cell" onClick="JavaScript: clickCell(1,1);"</td>
+  <td id="cell_1_2" class="cell" onClick="JavaScript: clickCell(1,2);"</td>
+</tr>
+  <tr>
+  <td id="cell_2_0" class="cell" onClick="JavaScript: clickCell(2,0);"</td>
+  <td id="cell_2_1" class="cell" onClick="JavaScript: clickCell(2,1);"</td>
+  <td id="cell_2_2" class="cell" onClick="JavaScript: clickCell(2,2);"</td>
+</tr>
+      </table>
+    </div>
+    <input type=button onClick="javascript: reset();" value="Reset">
+    <br/></br/>
   <script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>
