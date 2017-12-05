@@ -3,6 +3,7 @@
   display: inline-block;
   height: 200px;
   width: 200px;
+  background-size: cover;
 /*center align inner contents of boxes*/
 }
 

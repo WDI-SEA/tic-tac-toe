@@ -10,72 +10,84 @@ var player2Selections = new Array();
 // var XMoves = [];
 
 
-// when page loads, get boxes; then onclick place onto them; 
-// when page loads do reset; an onclick function
-var move
 
 function reset(){
-	move = 0;
-	for(var i = 0; i < box:)
-		// set each box to innerHTML to empty '' to clear
+  // console.log('this worked');
+  var boxSquares = document.querySelectorAll('.box');
+  //empty images
+  //addEventListenersBack
+  for(var i = 0; i<boxSquares.length; i++){
+    boxSquares[i].style.backgroundImage = 'none';
+    boxSquares[i].addEventListener('click', boxClicked);
+  }
+  //make currentPlayer = 0;
+  currentPlayer = 0;
 }
 
-var boxClicked = function place(){
-this.src = 'img/theLetterX.png';
+var boxClicked = function(){
+  console.log('fired');
+  currentPlayer++;
+  //this function fires when I click boxes
+  //this referes to div I clicked
+  //I'm changing the background image
+  if(currentPlayer%2 ===1){
+    ///add X class
+    this.style.backgroundImage = 'url(img/theLetterX.png)';
+  }else if (currentPlayer%2 ===0){
+    ///Add O Class
+    this.style.backgroundImage = 'url(img/theLetterO.png)';
+  }
+  this.removeEventListener('click', boxClicked);
 
-this.removeEventListener('click', boxClicked);
+  if(currentPlayer === 9){
+    //Theres a draw
+    draw();
+  }
 
-if(player1Selections(this.id))
-	placeLetter(){
-	}else player2Selections()
-	placeLetter()
+  ///every turn call checkWinner function Here VVVVVV
+
+
 }
-// this.innerHTML = % 0===0
-// var xo = move % 1
-// if (xo == 1)
-// 	this.innerHTML = "X";
-// }else{
-// 	this.innerHTML = "O";
-// }
-// this.onlick = null;
-// }
 
-placeLetter()
-//function that activates either image x or image o to appear in div box after click
+var draw = function(){
+  document.getElementById("result").innerHTML = "There Was a Draw";
+}
+
+var checkWinner = function(){
+  //every turn check to see if winning combination of divs has X or O id;
+}
 
 var generateBoxes = function(){
   console.log('generating boxes');
-  for(var i = 0; i < boxes.length; i++){
+  for(var i = 0; i < boxes.length; i++){}
 }
 
 
 // branching order list; line 4 will finish before moving to line 5; large commmands at top; 'tree traversal'
 
 var addBoxesEventListeners = function(){
-  var boxSquares = document.querySelectorAll('#box');
+  var boxSquares = document.querySelectorAll('.box');
 
   for(var i = 0; i < boxSquares.length; i++){
     boxSquares[i].addEventListener('click', boxClicked);
   }
 }
 
-function winOptions()
-{
-    winners.push([1, 2, 3]);
-    winners.push([4, 5, 6]);
-    winners.push([7, 8, 9]);
-    winners.push([1, 4, 7]);
-    winners.push([2, 5, 8]);
-    winners.push([3, 6, 9]);
-    winners.push([1, 5, 9]);
-    winners.push([3, 5, 7]);
+function winOptions(){
+  // winners.push([1, 2, 3]);
+  // winners.push([4, 5, 6]);
+  // winners.push([7, 8, 9]);
+  // winners.push([1, 4, 7]);
+  // winners.push([2, 5, 8]);
+  // winners.push([3, 6, 9]);
+  // winners.push([1, 5, 9]);
+  // winners.push([3, 5, 7]);
 }
 
 document.addEventListener('DOMContentLoaded', function() {
   //Add Event Listeners
   document.getElementById('reset').addEventListener('click', reset);
   addBoxesEventListeners();
-
 });
 
 
@@ -84,6 +96,5 @@ document.addEventListener('DOMContentLoaded', function() {
 // win conditions
 // x wins function
 // o wins function
-// clear board function
-// onclick insert x or o image
+// 
 // 
