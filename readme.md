@@ -29,15 +29,19 @@ We will be making a Tic Tac Toe game using all of these concepts.
 * Upon marking of an individual cell, use JavaScript to add a class to each cell to display separate colors.
 * A cell should not be able to be replayed once marked.
 * Add a reset button that will clear the contents of the board.
+* Display a message to indicate which turn is about to be played.
+* After the necessary moves have been played, stop game and alert the winner if one player ends up winning with three in a row.
+  * Hint: Determine a set of winning combinations. Check those combinations on the board contents after every move.
 
 **Have Fun** - The best way to learn is by playing with code. Let creativity guide you and try some experiments with JS and CSS and see what you can do.
 
 ## Bonuses
 
-* Display a message to indicate which turn is about to be played.
-* After the necessary moves have been played, stop game and alert the winner if one player ends up winning with three in a row.
-  * Hint: Determine a set of winning combinations. Check those combinations on the board contents after every move.
 * Add a simple AI to support one player vs computer mode. Note that randomly selecting a space would count as "simple". Try that and iterate from there.
+
+## Super Duper Bonus
+
+* Add an AI that can beat you every time with the mini-max algorithm.
 
 ---
 
