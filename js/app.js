@@ -1,10 +1,17 @@
 var turn = 0;
+function reset(){
+	location.reload();
+}
 
 var cells = [
  [ 0, 0, 0],
  [ 0, 0, 0],
  [ 0, 0, 0]
 ];
+
+var oneTwo = function(){
+	return (turn % 2 + 1);
+}
 
 var xOrO = function(){
 	if (turn % 2 + 1 == 1){
@@ -20,28 +27,28 @@ var win = function() {
 
 var checkWin = function() {
 	   if 
-	   	(cells[0][0] == (turn % 2 + 1) && cells[0][1] == (turn % 2 + 1) && cells[0][2] == (turn % 2 + 1)){
+	   	(cells[0][0] == oneTwo && cells[0][1] == oneTwo && cells[0][2] == oneTwo){
 	   		win();
 	}else if 
-		(cells[1][0] == (turn % 2 + 1) && cells[1][1] == (turn % 2 + 1) && cells[1][2] == (turn % 2 + 1)){
+		(cells[1][0] == oneTwo && cells[1][1] == oneTwo && cells[1][2] == oneTwo){
 			win();
 	}else if
-		(cells[2][0] == (turn % 2 + 1) && cells[2][1] == (turn % 2 + 1) && cells[2][2] == (turn % 2 + 1)){
+		(cells[2][0] == oneTwo && cells[2][1] == oneTwo && cells[2][2] == oneTwo){
 			win();
 	}else if 
-		(cells[0][0] == (turn % 2 + 1) && cells[1][1] == (turn % 2 + 1) && cells[2][2] == (turn % 2 + 1)){
+		(cells[0][0] == oneTwo && cells[1][1] == oneTwo && cells[2][2] == oneTwo){
 			win();
 	}else if
-		(cells[0][2] == (turn % 2 + 1) && cells[1][1] == (turn % 2 + 1) && cells[2][0] == (turn % 2 + 1)){
+		(cells[0][2] == oneTwo && cells[1][1] == oneTwo && cells[2][0] == oneTwo){
 			win();
 	}else if
-		(cells[0][0] == (turn % 2 + 1) && cells[1][0] == (turn % 2 + 1) && cells[2][0] == (turn % 2 + 1)){
+		(cells[0][0] == oneTwo && cells[1][0] == oneTwo && cells[2][0] == oneTwo){
 			win();
 	}else if
-		(cells[0][1] == (turn % 2 + 1) && cells[1][1] == (turn % 2 + 1) && cells[2][1] == (turn % 2 + 1)){
+		(cells[0][1] == oneTwo && cells[1][1] == oneTwo && cells[2][1] == oneTwo){
 			win();
 	}else if
-		(cells[0][2] == (turn % 2 + 1) && cells[1][2] == (turn % 2 + 1) && cells[2][2] == (turn % 2 + 1)){
+		(cells[0][2] == oneTwo && cells[1][2] == oneTwo && cells[2][2] == oneTwo){
 			win();
 	}else
 		(turn++)
@@ -50,30 +57,33 @@ var checkWin = function() {
 function cellClicked(id) {
     console.log("cellClicked", id);
     document.getElementById(id).innerText = xOrO();
-    checkWin();
+    // cellValue();
+    
+    document.getElementById(id).removeAttribute("onclick");
 };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+function cellValue(id){
+		if (id == "one"){
+		cells[0][0] = oneTwo; checkWin();
+	}else if (id == "two"){
+		cells[0][1] = oneTwo; checkWin();
+	}else if (id == "three"){
+		cells[0][2] = oneTwo; checkWin();
+	}else if (id == "four"){
+		cells[1][0] = oneTwo; checkWin();
+	}else if (id == "five"){
+		cells[1][1] = oneTwo; checkWin();
+	}else if (id == "six"){
+		cells[1][2] = oneTwo; checkWin();
+	}else if (id == "seven"){
+		cells[2][0] = oneTwo; checkWin();
+	}else if (id == "eight"){
+		cells[2][1] = oneTwo; checkWin();
+	}else if (id == "nine"){
+		cells[2][2] = oneTwo; checkWin();
+	}else 
+		console.log("error no id value");
+}
 
 
 
