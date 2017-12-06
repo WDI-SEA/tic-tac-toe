@@ -17,8 +17,7 @@ h2{
 	display: inline-block;
 	background-color: white;
 }
-#player1,
-#player2{
+h3 {
 	border: 8px solid black;
 	width: 200px;
 	display: inline-block;
@@ -26,6 +25,8 @@ h2{
 	display: none;
 	background-color: white;
 }
+
+
 #playerStart{
 	border: 8px solid black;
 	width: 200px;
