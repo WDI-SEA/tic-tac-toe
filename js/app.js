@@ -32,33 +32,26 @@ var board = function () {
     for (var i=0; i<box.length; i++){
     box[i].addEventListener('click', function(){
       turn ++;
-      if(turn % 2 === 1){
+      if(turn % 2 === 0){
         this.className = 'tileX';
-        document.getElementById('playerChange').textContent = "Player O is Up";
-        this.removeEventListener('click', tileSelect);
+        // document.getElementById('playerChange').textContent = "Player O is Up";
+        // this.removeEventListener('click', tileSelect);
       }else{
         this.className = 'tileO';
-        document.getElementById('playerChange').textContent= "Player X is Up";
-        this.removeEventListener('click', tileSelect);
+        // document.getElementById('playerChange').textContent= "Player X is Up";
+        // this.removeEventListener('click', tileSelect);
   }});
 }
 }
 board();
-
-// function player() {
-//   document.getElementsByClassName(this.id);
-//   if (turn % 2 ===0 ){
-//     document.textContent('X');
-//     turn = 2;
-//     document.textContent('O');
-//     turn = 2;
-//   }
-// };
+var removeEventListener = function () {
+  var boardBox = document.querySelectorAll('title');
+  for(var i=0; i<box.length; i++){
+    this.removeEventListener('click',tileSelect)
+  }
+}
+removeEventListener();
 
 restart.addEventListener('click', function(){
   window.location.reload();
 });
-
-// document.addEventListener('DOMContentLoaded', function () {
-//   addBoxEventListener();
-// });
