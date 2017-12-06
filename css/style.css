@@ -1,14 +1,11 @@
 body{
 	text-align: center;
 	font-family: 'Anton', sans-serif;
-	height: 100%;
-	width: 100%;
-
 }
 .wrapper{
 	border: 8px solid black;
-	width: 800px;
-	height: 900px;
+	width: 700px;
+	height: 850px;
 	display: inline-block;
 	background-color: beige;
 }
@@ -39,7 +36,7 @@ h2{
 	position: relative;
 }
 .board{
-	width: 550px;
+	width: 460px;
 	padding-bottom: 3px;
 	display: inline-block;
 	margin: 20px;
@@ -49,14 +46,15 @@ h2{
 }
 .cell{
 	border: 3px solid black;
-	height: 160px;
-	width: 184px;
+	height: 150px;
+	width: 154px;
 	background-color: white;
 	display: inline-block;
 	vertical-align: middle;
 	line-height: 150px;
 	font-size: 80px;
 	margin: -5px;
+	cursor:pointer;
 }
 button{
 	width:200px;
