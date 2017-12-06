@@ -19,42 +19,96 @@ function reset(){
   for(var i = 0; i<boxSquares.length; i++){
     boxSquares[i].style.backgroundImage = 'none';
     boxSquares[i].addEventListener('click', boxClicked);
+    document.getElementById("result").innerHTML = '';
   }
   //make currentPlayer = 0;
   currentPlayer = 0;
+
 }
 
 var boxClicked = function(){
+  var winnie;
   console.log('fired');
   currentPlayer++;
   //this function fires when I click boxes
   //this referes to div I clicked
   //I'm changing the background image
   if(currentPlayer%2 ===1){
-    ///add X class
+    ///Add X class
     this.style.backgroundImage = 'url(img/theLetterX.png)';
+    this.className += " x";
+    winnie = " x";
   }else if (currentPlayer%2 ===0){
     ///Add O Class
     this.style.backgroundImage = 'url(img/theLetterO.png)';
+    this.className += " o";
+    winnie = " o";
   }
   this.removeEventListener('click', boxClicked);
+
+  everyTurn(winnie);
 
   if(currentPlayer === 9){
     //Theres a draw
     draw();
   }
 
-  ///every turn call checkWinner function Here VVVVVV
+  //every turn call checkWinner function Here VVVVVV
 
 
+}
+
+///add a param to everyturn
+var everyTurn = function(param){
+  if(currentPlayer >=5){
+    //pass same parameterinto check winner
+    checkWinner(param);
+  }
 }
 
 var draw = function(){
   document.getElementById("result").innerHTML = "There Was a Draw";
 }
 
-var checkWinner = function(){
+//add a param to check winner
+var checkWinner = function(winner){
   //every turn check to see if winning combination of divs has X or O id;
+  // console.log("inside check winner", winner);
+  var boxes = document.querySelectorAll(".box");
+
+  console.log(boxes[0].className === 'box'+winner);
+    if(boxes[0].className === 'box'+ winner && boxes[1].className === 'box'+ winner && boxes[2].className === 'box'+ winner){
+        document.getElementById("result").innerHTML = winner.toUpperCase() + " Won!";
+        removeEventListeners();
+    }else if(boxes[3].className === 'box'+ winner && boxes[4].className === 'box'+ winner && boxes[5].className === 'box'+ winner){
+        document.getElementById("result").innerHTML = winner.toUpperCase() + " Won!";
+        removeEventListeners();
+    }else if(boxes[6].className === 'box'+ winner && boxes[7].className === 'box'+ winner && boxes[8].className === 'box'+ winner){
+        document.getElementById("result").innerHTML = winner.toUpperCase() + " Won!";
+        removeEventListeners();
+    }else if(boxes[2].className === 'box'+ winner && boxes[4].className === 'box'+ winner && boxes[6].className === 'box'+ winner){
+        document.getElementById("result").innerHTML = winner.toUpperCase() + " Won!";
+        removeEventListeners();
+    }else if(boxes[0].className === 'box'+ winner && boxes[4].className === 'box'+ winner && boxes[8].className === 'box'+ winner){
+        document.getElementById("result").innerHTML = winner.toUpperCase() + " Won!";
+        removeEventListeners();
+    }else if(boxes[0].className === 'box'+ winner && boxes[3].className === 'box'+ winner && boxes[6].className === 'box'+ winner){
+        document.getElementById("result").innerHTML = winner.toUpperCase() + " Won!";
+        removeEventListeners();
+    }else if(boxes[1].className === 'box'+ winner && boxes[4].className === 'box'+ winner && boxes[7].className === 'box'+ winner){
+        document.getElementById("result").innerHTML = winner.toUpperCase() + " Won!";
+        removeEventListeners();
+    }else if(boxes[2].className === 'box'+ winner && boxes[5].className === 'box'+ winner && boxes[8].className === 'box'+ winner){
+        document.getElementById("result").innerHTML = winner.toUpperCase() + " Won!";
+        removeEventListeners();
+  }     
+}
+
+var removeEventListeners = function(){
+  var boxes = document.querySelectorAll(".box");
+  for(var i = 0; i< boxes.length; i++){
+    boxes[i].removeEventListener('click', boxClicked);
+  }
 }
 
 var generateBoxes = function(){
@@ -62,8 +116,6 @@ var generateBoxes = function(){
   for(var i = 0; i < boxes.length; i++){}
 }
 
-
-// branching order list; line 4 will finish before moving to line 5; large commmands at top; 'tree traversal'
 
 var addBoxesEventListeners = function(){
   var boxSquares = document.querySelectorAll('.box');
@@ -73,16 +125,9 @@ var addBoxesEventListeners = function(){
   }
 }
 
-function winOptions(){
-  // winners.push([1, 2, 3]);
-  // winners.push([4, 5, 6]);
-  // winners.push([7, 8, 9]);
-  // winners.push([1, 4, 7]);
-  // winners.push([2, 5, 8]);
-  // winners.push([3, 6, 9]);
-  // winners.push([1, 5, 9]);
-  // winners.push([3, 5, 7]);
-}
+
+//stop game listener for clicking
+
 
 document.addEventListener('DOMContentLoaded', function() {
   //Add Event Listeners
@@ -90,11 +135,3 @@ document.addEventListener('DOMContentLoaded', function() {
   addBoxesEventListeners();
 });
 
-
-
-
-// win conditions
-// x wins function
-// o wins function
-// 
-// 
