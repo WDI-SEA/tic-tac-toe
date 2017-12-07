@@ -30,4 +30,5 @@ function switchPlayer(){
 	} else {
 		document.currentPlayer = "X";
 	}
+	setMessage("It's " + document.currentPlayer + "'s turn.")
 }
