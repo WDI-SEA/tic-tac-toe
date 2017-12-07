@@ -5,7 +5,7 @@ body{
 .wrapper{
 	border: 8px solid black;
 	width: 700px;
-	height: 850px;
+	height: 900px;
 	display: inline-block;
 	background-color: beige;
 }
