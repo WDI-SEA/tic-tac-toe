@@ -1,29 +1,29 @@
 var turn = 0;
-
-// Array of game box elements
+var playerSymbol = "X"   
+var xBoxArray = [];
+var oBoxArray = [];
 var box = document.getElementsByClassName('box');
 var scoreBoard_h1 = document.getElementById('display');
 var currentTurn_span = document.getElementById('currentTurn');
 var currentPlayer_span = document.getElementById('currentPlayer');
 var resetButton = document.getElementById('resetButton');
-var xBoxArray = [];
-var oBoxArray = [];
-    
+
 // Manages scoreboard
 function scoreBoardCalc() {
-    if(turn >= 9){
-        scoreBoard_h1.textContent = 'Game Over';
-        scoreBoard_h1.style.border = '8px solid #000';
-    }else{
-        currentTurn_span.textContent = (turn + 1);
-    }if(turn % 2 === 0){
-        currentPlayer_span.textContent = 'X';
+    symbolCalc();
+    scoreBoard_h1.innerHTML = ("Move: " + playerSymbol);
+}
+
+//changes state of scoreboard based on player turn
+function symbolCalc() {
+    if (turn % 2 === 0){
+        playerSymbol = "X"
         scoreBoard_h1.style.border = '8px solid #D23955';
-    }else{
-        currentPlayer_span.textContent = 'O';
-        scoreBoard_h1.style.border = '8px solid #3C9BD3';
+        return;
     }
-};
+    playerSymbol = "O";
+    scoreBoard_h1.style.border = '8px solid #3C9BD3';
+}
 
 // Click functionality to boxes
 function activeBox() {
@@ -56,9 +56,10 @@ function clearBoard() {
     for(var i = 0; i < box.length; i++){
         box[i].classList.remove('xBox', 'oBox')
     }
-    activeBox();
+    scoreBoard_h1.innerHTML = "Tic Tac Toe";
+    scoreBoard_h1.style.border = '8px solid #000';
     turn = 0;
-
+    activeBox();
 }
 
 //creates array of turns
@@ -71,7 +72,7 @@ function createArrays(){
     }
 }
 
-//Detect winner
+//Not pretty detect winner function 
 function checkWinner() {
     if(xBoxArray[0] === true && xBoxArray[1] === true && xBoxArray[2] == true ||
     xBoxArray[3] === true && xBoxArray[4] === true && xBoxArray[5] == true ||
@@ -81,7 +82,8 @@ function checkWinner() {
     xBoxArray[2] === true && xBoxArray[5] === true && xBoxArray[8] == true ||
     xBoxArray[0] === true && xBoxArray[4] === true && xBoxArray[8] == true ||
     xBoxArray[2] === true && xBoxArray[4] === true && xBoxArray[6] == true){
-        console.log('X wins!')
+        scoreBoard_h1.style.border = '8px solid #D23955';
+        scoreBoard_h1.innerHTML = 'X wins!';
         for(var i = 0; i < box.length; i++){
             box[i].removeEventListener('click', playerTurn);
         }
@@ -94,7 +96,8 @@ function checkWinner() {
     oBoxArray[2] === true && oBoxArray[5] === true && oBoxArray[8] == true ||
     oBoxArray[0] === true && oBoxArray[4] === true && oBoxArray[8] == true ||
     oBoxArray[2] === true && oBoxArray[4] === true && oBoxArray[6] == true){
-        console.log('O wins!')
+        scoreBoard_h1.style.border = '8px solid #3C9BD3';
+        scoreBoard_h1.innerHTML = 'O wins!';
         for(var i = 0; i < box.length; i++){
             box[i].removeEventListener('click', playerTurn);
         }
