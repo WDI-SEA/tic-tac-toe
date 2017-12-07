@@ -2,92 +2,149 @@ var plays = 0;
 var evenTurn = [];
 var oddTurn = [];
 var resetButton = document.getElementsByTagName("button");
-var win123 = ["1one", "2two", "3three"]
-var win147 = ["1one", "4four", "7seven"]
-var win159 = ["1one", "5five", "9nine"]
-var win258 = ["2two", "5five", "8eight"]
-var win369 = ["3three", "6six", "9nine"]
-var win357 = ["3three", "5five", "7seven"]
-var win456 = ["4four", "5five", "6six"]
-var win789 = ["7seven", "8eight", "9nine"]
 
-var checkWin = function(){
-	console.log("checkin win");
-	console.log("checkSort");
-	switch(evenTurn.sort().join(",")){
-		case win123.join(","):
-			console.log("winner");
-			document.getElementById("playerTwoW").style.display = "inline-block";
-			break;
-		case win147.join(","):
-			console.log("winner");
-			document.getElementById("playerTwoW").style.display = "inline-block";
-			break;
-		case win159.join(","):
-			console.log("winner");
-			document.getElementById("playerTwoW").style.display = "inline-block";
-			break;
-		case win258.join(","):
-			console.log("winner");
-			document.getElementById("playerTwoW").style.display = "inline-block";
-			break;
-		case win357.join(","):
-			console.log("winner");
-			document.getElementById("playerTwoW").style.display = "inline-block";
-			break;
-		case win369.join(","):
-			console.log("winner");
-			document.getElementById("playerTwoW").style.display = "inline-block";
-			break;
-		case win456.join(","):
-			console.log("winner");
-			document.getElementById("playerTwoW").style.display = "inline-block";
-			break;
-		case win789.join(","):
-			console.log("winner");
-			document.getElementById("playerTwoW").style.display = "inline-block";
-			break;
-		default:
-			console.log("default");
-			break;
+
+var checkDraw =function(){
+	if(plays===9){
+		console.log("checkddddraw");
+		document.getElementById("draw").style.display = "inline-block";
+		document.getElementById("playerOneTurn").style.display = "none";
+		document.getElementById("playerTwoTurn").style.display = "none";
 	}
-	switch(oddTurn.sort().join(",")){
-		case win123.join(","):
-			console.log("winner");
+}
+
+
+var checkWinEven = function(){
+	if(
+		evenTurn.indexOf("1one") != -1
+		&& evenTurn.indexOf("2two") != -1
+		&& evenTurn.indexOf("3three") != -1){
+			console.log("winnwiin");
+			document.getElementById("playerTwoW").style.display = "inline-block";
+			document.getElementById("playerOneTurn").style.display = "none";
+
+	}else if(
+		evenTurn.indexOf("1one") != -1
+		&& evenTurn.indexOf("4four") != -1
+		&& evenTurn.indexOf("7seven") != -1){
+			console.log("winnwiin");
+			document.getElementById("playerTwoW").style.display = "inline-block";
+			document.getElementById("playerOneTurn").style.display = "none";
+
+	}else if(
+		evenTurn.indexOf("1one") != -1
+		&& evenTurn.indexOf("5five") != -1
+		&& evenTurn.indexOf("9nine") != -1){
+			console.log("winnwiin");
+			document.getElementById("playerTwoW").style.display = "inline-block";
+			document.getElementById("playerOneTurn").style.display = "none";
+
+	}else if(
+		evenTurn.indexOf("2two") != -1
+		&& evenTurn.indexOf("5five") != -1
+		&& evenTurn.indexOf("8eight") != -1){
+			console.log("winnwiin");
+			document.getElementById("playerTwoW").style.display = "inline-block";
+			document.getElementById("playerOneTurn").style.display = "none";
+
+	}else if(
+		evenTurn.indexOf("3three") != -1
+		&& evenTurn.indexOf("5five") != -1
+		&& evenTurn.indexOf("7seven") != -1){
+			console.log("winnwiin");
+			document.getElementById("playerTwoW").style.display = "inline-block";
+			document.getElementById("playerOneTurn").style.display = "none";
+
+	}else if(
+		evenTurn.indexOf("3three") != -1
+		&& evenTurn.indexOf("6six") != -1
+		&& evenTurn.indexOf("9nine") != -1){
+			console.log("winnwiin");
+			document.getElementById("playerTwoW").style.display = "inline-block";
+			document.getElementById("playerOneTurn").style.display = "none";
+
+	}else if(
+		evenTurn.indexOf("4four") != -1
+		&& evenTurn.indexOf("5five") != -1
+		&& evenTurn.indexOf("6six") != -1){
+			console.log("winnwiin");
+			document.getElementById("playerTwoW").style.display = "inline-block";
+			document.getElementById("playerOneTurn").style.display = "none";
+
+	}else if(
+		evenTurn.indexOf("7seven") != -1
+		&& evenTurn.indexOf("8eight") != -1
+		&& evenTurn.indexOf("9nine") != -1){
+			console.log("winnwiin");
+			document.getElementById("playerTwoW").style.display = "inline-block";
+			document.getElementById("playerOneTurn").style.display = "none";
+	}else(checkDraw());
+}
+var checkWinOdd = function(){
+	if(
+		oddTurn.indexOf("1one") != -1
+		&& oddTurn.indexOf("2two") != -1
+		&& oddTurn.indexOf("3three") != -1){
+			console.log("winnwiin");
 			document.getElementById("playerOneW").style.display = "inline-block";
-			break;
-		case win147.join(","):
-			console.log("winner");
+			document.getElementById("playerTwoTurn").style.display = "none";
+
+	}else if(
+		oddTurn.indexOf("1one") != -1
+		&& oddTurn.indexOf("4four") != -1
+		&& oddTurn.indexOf("7seven") != -1){
+			console.log("winnwiin");
 			document.getElementById("playerOneW").style.display = "inline-block";
-			break;
-		case win159.join(","):
-			console.log("winner");
+			document.getElementById("playerTwoTurn").style.display = "none";
+
+	}else if(
+		oddTurn.indexOf("1one") != -1
+		&& oddTurn.indexOf("5five") != -1
+		&& oddTurn.indexOf("9nine") != -1){
+			console.log("winnwiin");
 			document.getElementById("playerOneW").style.display = "inline-block";
-			break;
-		case win258.join(","):
-			console.log("winner");
+			document.getElementById("playerTwoTurn").style.display = "none";
+
+	}else if(
+		oddTurn.indexOf("2two") != -1
+		&& oddTurn.indexOf("5five") != -1
+		&& oddTurn.indexOf("8eight") != -1){
+			console.log("winnwiin");
 			document.getElementById("playerOneW").style.display = "inline-block";
-			break;
-		case win357.join(","):
-			console.log("winner");
+			document.getElementById("playerTwoTurn").style.display = "none";
+
+	}else if(
+		oddTurn.indexOf("3three") != -1
+		&& oddTurn.indexOf("5five") != -1
+		&& oddTurn.indexOf("7seven") != -1){
+			console.log("winnwiin");
 			document.getElementById("playerOneW").style.display = "inline-block";
-			break;
-		case win369.join(","):
-			console.log("winner");
+			document.getElementById("playerTwoTurn").style.display = "none";
+
+	}else if(
+		oddTurn.indexOf("3three") != -1
+		&& oddTurn.indexOf("6six") != -1
+		&& oddTurn.indexOf("9nine") != -1){
+			console.log("winnwiin");
 			document.getElementById("playerOneW").style.display = "inline-block";
-			break;
-		case win456.join(","):
-			console.log("winner");
+			document.getElementById("playerTwoTurn").style.display = "none";
+
+	}else if(
+		oddTurn.indexOf("4four") != -1
+		&& oddTurn.indexOf("5five") != -1
+		&& oddTurn.indexOf("6six") != -1){
+			console.log("winnwiin");
 			document.getElementById("playerOneW").style.display = "inline-block";
-			break;
-		case win789.join(","):
-			console.log("winner");
+			document.getElementById("playerTwoTurn").style.display = "none";
+
+	}else if(
+		oddTurn.indexOf("7seven") != -1
+		&& oddTurn.indexOf("8eight") != -1
+		&& oddTurn.indexOf("9nine") != -1){
+			console.log("winnwiin");
 			document.getElementById("playerOneW").style.display = "inline-block";
-			break;
-		default:
-			console.log("default");
-			break;
-	}	
+			document.getElementById("playerTwoTurn").style.display = "none";
+	}else(checkDraw());
 }
 
 var resetBoard = function(){
@@ -98,6 +155,7 @@ var resetBoard = function(){
 	evenTurn.splice(0,evenTurn.length);
 	document.getElementById("playerOneW").style.display = "none";
 	document.getElementById("playerTwoW").style.display = "none";
+	document.getElementById("draw").style.display = "none";
 	var resetCells = document.querySelectorAll(".cellEven, .cell, .cellOdd");
 		for(var i=0; i<resetCells.length; i++){	
 			resetCells[i].addEventListener("click", cellClicked);
@@ -113,14 +171,16 @@ var cellClicked = function(){
 	document.getElementById("playerOneTurn").style.display = "none";
 	document.getElementById("playerTwoTurn").style.display = "inline-block";
 	oddTurn.push(this.id);
+	checkWinOdd();
 	}else{
 	this.className = "cellEven";
 	document.getElementById("playerTwoTurn").style.display = "none";
 	document.getElementById("playerOneTurn").style.display = "inline-block";
 	evenTurn.push(this.id);
+	checkWinEven();
 	}
 	this.removeEventListener("click", cellClicked);
-	checkWin();
+	// checkWin();
 }
 var move = function(){
 	var allCells = document.querySelectorAll(".cell");
