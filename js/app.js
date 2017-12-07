@@ -14,25 +14,12 @@ var win = [
   [6, 4, 2],
 ];
 
-// var tileSelect = function(){
-//   turn ++;
-//   if(count % 2 === 1){
-//     this.id = 'tileX';
-//     document.getElementById('playerChange').textContent = "Player O is Up";
-//     this.removeEventListener('click', tileSelect);
-//   }else{
-//     this.id = 'tileO';
-//     document.getElementById('playerChange').textContent= "Player X is Up";
-//   }
-// }
-
-
 // box clicked
 var board = function () {
     for (var i=0; i<box.length; i++){
     box[i].addEventListener('click', function(){
       turn ++;
-      if(turn % 1 === 0){
+      if(turn % 2 === 1){
         this.className = 'tileX';
         console.log('clickx');
         removeTile();
@@ -55,10 +42,6 @@ var removeTile = function () {
     this.removeEventListener('click',board);
   }
 }
-// var checkWin =function () {
-//   if (win[i])
-// }
-// removeTile();
 
 restart.addEventListener('click', function(){
   window.location.reload();
