@@ -3,7 +3,7 @@ var turn = 0;
 var playerX = "X";
 var playerO = "O";
 var restart = document.getElementById('reset');
-var winOutput = [
+var win = [
   [0, 1, 2],
   [3, 4, 5],
   [6, 7, 8],
@@ -32,25 +32,33 @@ var board = function () {
     for (var i=0; i<box.length; i++){
     box[i].addEventListener('click', function(){
       turn ++;
-      if(turn % 2 === 0){
+      if(turn % 1 === 0){
         this.className = 'tileX';
+        console.log('clickx');
+        removeTile();
         // document.getElementById('playerChange').textContent = "Player O is Up";
         // this.removeEventListener('click', tileSelect);
       }else{
         this.className = 'tileO';
+        console.log('clicko');
+        removeTile();
         // document.getElementById('playerChange').textContent= "Player X is Up";
         // this.removeEventListener('click', tileSelect);
   }});
 }
 }
 board();
-var removeEventListener = function () {
-  var boardBox = document.querySelectorAll('title');
+var removeTile = function () {
+  var boardBox = document.querySelectorAll('tile');
   for(var i=0; i<box.length; i++){
-    this.removeEventListener('click',tileSelect)
+    console.log('remove');
+    this.removeEventListener('click',board);
   }
 }
-removeEventListener();
+// var checkWin =function () {
+//   if (win[i])
+// }
+// removeTile();
 
 restart.addEventListener('click', function(){
   window.location.reload();
