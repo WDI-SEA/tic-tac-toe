@@ -11,23 +11,24 @@
   <p>A super basic tic-tac-toe game where you just put X's and O's into the cells and not sure who win and loses!</p>
   <div id = "message">turn message here.</div>
   <div class = "row">
-  	<div class = "col" onclick="nextTurn(this)"></div>
-  	<div class = "col" onclick="nextTurn(this)"></div>
-  	<div class = "col" onclick="nextTurn(this)"></div>
+  	<div class = "col" id="c1" onclick="nextTurn(this)"></div>
+  	<div class = "col" id="c2" onclick="nextTurn(this)"></div>
+  	<div class = "col" id="c3" onclick="nextTurn(this)"></div>
   </div>
   <div class = "row">	
-  	<div class = "col" onclick="nextTurn(this)"></div>
-  	<div class = "col" onclick="nextTurn(this)"></div>
-  	<div class = "col" onclick="nextTurn(this)"></div>
+  	<div class = "col" id="c4" onclick="nextTurn(this)"></div>
+  	<div class = "col" id="c5" onclick="nextTurn(this)"></div>
+  	<div class = "col" id="c6" onclick="nextTurn(this)"></div>
   </div>
   <div class = "row">	
-  	<div class = "col" onclick="nextTurn(this)"></div>
-  	<div class = "col" onclick="nextTurn(this)"></div>
-  	<div class = "col" onclick="nextTurn(this)"></div>
+  	<div class = "col" id="c7" onclick="nextTurn(this)"></div>
+  	<div class = "col" id="c8" onclick="nextTurn(this)"></div>
+  	<div class = "col" id="c9" onclick="nextTurn(this)"></div>
+  <div>
   
   
   <div class = "center button">
-  	<button id="restart">New Game</button>
+  	<button id="restart" href = "javascript: startGame();">New Game</button>
   </div>
   <script src="js/app.js" type="text/javascript"></script>
 </body>

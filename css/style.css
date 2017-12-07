@@ -1,35 +1,28 @@
 body {
-  margin: auto;
-  font-family: circular san-serif;
+  /*margin: auto;*/
+  font-family: "arial" san-serif;
   background-color: pink;
   margin-top: 5px;
   text-align: center;
-  display: inline-block;
 }
 #message {
 	font-size: 18pt;
 	margin-bottom: 10px;
 }
 
-.board {
-	height: 80px
-	width: 80px 
-	background-color: black;
-}
-
 .row {
-
+	
 }
 
 .col {
 	display: inline-block;
 	width: 90px;
 	height: 80px;
-	text-align: center;
 	background-color: white;
 	font-size: 40px;
 	padding: 10px;
 	margin-top: 2px;
+	overflow: auto;
 
 }
 
