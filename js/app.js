@@ -1,61 +1,106 @@
 var turn = 0;
 
-//Array of game box elements
-var blankBoxes = document.getElementsByClassName('box');
-
-//Scoreboard elements
+// Array of game box elements
+var box = document.getElementsByClassName('box');
 var scoreBoard_h1 = document.getElementById('display');
 var currentTurn_span = document.getElementById('currentTurn');
 var currentPlayer_span = document.getElementById('currentPlayer');
+var resetButton = document.getElementById('resetButton');
+var xBoxArray = [];
+var oBoxArray = [];
+    
+// Manages scoreboard
+function scoreBoardCalc() {
+    if(turn >= 9){
+        scoreBoard_h1.textContent = 'Game Over';
+        scoreBoard_h1.style.border = '8px solid #000';
+    }else{
+        currentTurn_span.textContent = (turn + 1);
+    }if(turn % 2 === 0){
+        currentPlayer_span.textContent = 'X';
+        scoreBoard_h1.style.border = '8px solid #D23955';
+    }else{
+        currentPlayer_span.textContent = 'O';
+        scoreBoard_h1.style.border = '8px solid #3C9BD3';
+    }
+};
 
-var resetButton = document.getElementById('reset');
+// Click functionality to boxes
+function activeBox() {
+    for (var i = 0; i < box.length; i++) {
+        box[i].addEventListener('click', playerTurn);
+    }
+};
 
-//Manages scoreboard
-var scoreBoardCalc = function(){
-	if(turn >= 9){
-		scoreBoard_h1.textContent = 'Game Over';
-		scoreBoard_h1.style.border = '8px solid #000';
-	}else{
-		currentTurn_span.textContent = (turn + 1);
-		if(turn % 2 === 0){
-			currentPlayer_span.textContent = 'X';
-		}else{
-			currentPlayer_span.textContent = 'O';
-		}if(turn % 2 === 0){
-			scoreBoard_h1.style.border = '8px solid #D23955';
-		}else{
-			scoreBoard_h1.style.border = '8px solid #3C9BD3';
-		}
-	}
+//Add X and O through class addition, run functions on click
+function playerTurn(){
+    turn++;
+    if (turn % 2 === 1) {
+        this.className += ' xBox';
+    } else {
+        this.className += ' oBox';
+    }
+    scoreBoardCalc();
+    this.removeEventListener('click', playerTurn);
+    createArrays();
+    checkWinner();
+};
+
+// Reset button
+function resetClick(){
+    resetButton.addEventListener('click', clearBoard);
+};
+
+////clear board
+function clearBoard() {
+    for(var i = 0; i < box.length; i++){
+        box[i].classList.remove('xBox', 'oBox')
+    }
+    activeBox();
+    turn = 0;
+
 }
 
-//Manages gameboard
-var activeBox = function(){
-	for(var i = 0; i < blankBoxes.length; i++){
-		blankBoxes[i].addEventListener('click', play);
-	}
+//creates array of turns
+function createArrays(){
+    xBoxArray = [];
+    oBoxArray = [];
+    for(var i = 0; i < box.length; i++){
+        xBoxArray.push(box[i].classList.contains('xBox'));
+        oBoxArray.push(box[i].classList.contains('oBox'));
+    }
 }
 
-var play = function(){
-	turn++
-	if(turn % 2 === 1){
-		this.className = 'xBox';
-	}else{
-		this.className = 'oBox';
-	}scoreBoardCalc();
-	this.removeEventListener('click', play);
+//Detect winner
+function checkWinner() {
+    if(xBoxArray[0] === true && xBoxArray[1] === true && xBoxArray[2] == true ||
+    xBoxArray[3] === true && xBoxArray[4] === true && xBoxArray[5] == true ||
+    xBoxArray[6] === true && xBoxArray[7] === true && xBoxArray[8] == true ||
+    xBoxArray[0] === true && xBoxArray[3] === true && xBoxArray[6] == true ||
+    xBoxArray[1] === true && xBoxArray[4] === true && xBoxArray[7] == true ||
+    xBoxArray[2] === true && xBoxArray[5] === true && xBoxArray[8] == true ||
+    xBoxArray[0] === true && xBoxArray[4] === true && xBoxArray[8] == true ||
+    xBoxArray[2] === true && xBoxArray[4] === true && xBoxArray[6] == true){
+        console.log('X wins!')
+        for(var i = 0; i < box.length; i++){
+            box[i].removeEventListener('click', playerTurn);
+        }
+        return
+    }else if(oBoxArray[0] === true && oBoxArray[1] === true && oBoxArray[2] == true ||
+    oBoxArray[3] === true && oBoxArray[4] === true && oBoxArray[5] == true ||
+    oBoxArray[6] === true && oBoxArray[7] === true && oBoxArray[8] == true ||
+    oBoxArray[0] === true && oBoxArray[3] === true && oBoxArray[6] == true ||
+    oBoxArray[1] === true && oBoxArray[4] === true && oBoxArray[7] == true ||
+    oBoxArray[2] === true && oBoxArray[5] === true && oBoxArray[8] == true ||
+    oBoxArray[0] === true && oBoxArray[4] === true && oBoxArray[8] == true ||
+    oBoxArray[2] === true && oBoxArray[4] === true && oBoxArray[6] == true){
+        console.log('O wins!')
+        for(var i = 0; i < box.length; i++){
+            box[i].removeEventListener('click', playerTurn);
+        }
+        return
+    }
 }
-
-//Reset button
-var reset = function(){
-	resetButton.addEventListener('click',function(){
-		location.reload();
-	})
-}
-
-//Add event listeners
-document.addEventListener('DOMContentLoaded', function() {
-});
 
 activeBox();
-reset();
+resetClick();
