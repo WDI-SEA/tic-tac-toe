@@ -1,11 +1,11 @@
 
-  var index=boxes
-var str="";
-var isStrX=true
-var boxes=document.querySelectorAll(".grid-element");
-boxes=Array.from(boxes);
+var index = boxes
+var str = "";
+var isStrX = true
+var boxes = document.querySelectorAll(".grid-element");
+boxes = Array.from(boxes);
 // var overlay=document.querySelector(".overlay");
-var notifiar=document.querySelector("h1");
+var notifiar = document.querySelector("h1");
 
 for (var i = 0; i < boxes.length; i++) {
     boxes[i].addEventListener("click",pushText);
@@ -14,19 +14,19 @@ for (var i = 0; i < boxes.length; i++) {
 
 function pushText () {
   
-  var index=boxes.indexOf(this);
+  var index = boxes.indexOf(this);
 
   if (isStrX) {
-    str="X";
-    isStrX=false;
+    str = "X";
+    isStrX = false;
     console.log(index)
   }
-  else{
-    str="O";
-    isStrX=true;
+  else {
+    str = "O";
+    isStrX = true;
   }
   this.removeEventListener("click", pushText);
-  this.innerHTML=str;
+  this.innerHTML = str;
 
 
   checking(0,1,2);
@@ -41,6 +41,11 @@ function pushText () {
   checking(2,4,6);
 }
 
+// function checkForDraw (num1, num2, num3, num4, num5, num6, num7, num8, num9)
+//   if (
+
+//     )
+
 
 
 
@@ -48,21 +53,22 @@ function pushText () {
 function checking (num1,num2,num3) {
 
   if (
-      boxes[num1].innerHTML.trim()===boxes[num2].innerHTML.trim() && 
-      boxes[num2].innerHTML.trim()===boxes[num3].innerHTML.trim() &&
-      boxes[num1].innerHTML.trim()===boxes[num3].innerHTML.trim() &&
-      boxes[num1].innerHTML.trim()!=="" &&
-      boxes[num2].innerHTML.trim()!=="" &&
-      boxes[num3].innerHTML.trim()!=="" 
+      boxes[num1].innerHTML.trim() === boxes[num2].innerHTML.trim() && 
+      boxes[num2].innerHTML.trim() === boxes[num3].innerHTML.trim() &&
+      boxes[num1].innerHTML.trim() === boxes[num3].innerHTML.trim() &&
+      boxes[num1].innerHTML.trim() !== "" &&
+      boxes[num2].innerHTML.trim() !== "" &&
+      boxes[num3].innerHTML.trim() !== "" 
     )
     {
-      notifiar.innerHTML=str+" wins";
+      notifiar.innerHTML = str + " wins";
       console.log(num1,num2,num3);
     }
 }
 
 
 function reloadGame() {
-location.reload()
+  location.reload()
+
 }
        
