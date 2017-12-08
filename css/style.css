@@ -1,10 +1,15 @@
+body{
+  background-color: grey;
+}
 h1 {
 	text-align: center;
 	font-family: 'Poppins', sans-serif;
+  color: pink;
 }
 
 button {
 	font-family: 'Poppins', sans-serif;
+  background-color: white;
 }
 
 #grid{
@@ -18,16 +23,18 @@ button {
     box-sizing: border-box;
     width:100px;
     float:left;
-    border:1px solid;
+    border:1px solid #EE05A8;
     height: 100px;
     display: flex;
     justify-content: center;
    	align-items: center;
     font-size: 24px;
+    background-color: pink;
+    color: white;
 }
 
 //**overlay upon win*/
-.overlay{
+/*.overlay{
     position: absolute;
     top:0;
     left:0;
@@ -43,3 +50,4 @@ button {
    justify-content: center;
    align-items: center;
 }
+*/
