@@ -9,9 +9,7 @@ var notifiar=document.querySelector("h1");
 
 for (var i = 0; i < boxes.length; i++) {
     boxes[i].addEventListener("click",pushText);
-  boxes[i].removeEventListener("click", index);
 }
-
 
 
 function pushText () {
@@ -27,6 +25,7 @@ function pushText () {
     str="O";
     isStrX=true;
   }
+  this.removeEventListener("click", pushText);
   this.innerHTML=str;
 
 
@@ -40,8 +39,10 @@ function pushText () {
 
   checking(0,4,8);
   checking(2,4,6);
-
 }
+
+
+
 
 //show overlay when win is calculated....?
 function checking (num1,num2,num3) {
