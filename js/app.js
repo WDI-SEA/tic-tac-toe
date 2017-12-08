@@ -41,13 +41,6 @@ function pushText () {
   checking(2,4,6);
 }
 
-// function checkForDraw (num1, num2, num3, num4, num5, num6, num7, num8, num9)
-//   if (
-
-//     )
-
-
-
 
 //show overlay when win is calculated....?
 function checking (num1,num2,num3) {
@@ -64,6 +57,10 @@ function checking (num1,num2,num3) {
       notifiar.innerHTML = str + " wins";
       console.log(num1,num2,num3);
     }
+}
+
+var checkForDraw(){
+  
 }
 
 
