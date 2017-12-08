@@ -41,7 +41,6 @@ function pushText () {
   checking(2,4,6);
 }
 
-
 //show overlay when win is calculated....?
 function checking (num1,num2,num3) {
 
@@ -59,8 +58,10 @@ function checking (num1,num2,num3) {
     }
 }
 
-var checkForDraw(){
-  
+var checkForDraw (function(boxes){
+  // if(
+    // check all boxes to see if they are full
+    )
 }
 
 
