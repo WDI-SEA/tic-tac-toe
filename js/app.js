@@ -1,4 +1,4 @@
-var beforeClick = document.getElementById("imgs").style.visibility = "hidden";
+document.getElementById("imgs").style.visibility = "hidden";
 
 var turn = 0;
 
@@ -18,18 +18,23 @@ var buttons = document.getElementsByTagName("button");
 
 var afterClick = function(){
 	turn += 1;
+
 	if((turn+1) % 2 === 0){
 		this.innerHTML="<img src='img/imagex.png'/>";
 		this.removeEventListener("click", afterClick);
-		console.log("Player one clicked " + this.id);
+		this.style.backgroundColor = "#4F0C24";
 		currentBoard[this.id] = "x";
 		checkWinner();
 	} else {
 		this.innerHTML="<img src='img/imageo.jpg'/>";
 		this.removeEventListener("click", afterClick);
-		console.log("Player two clicked " + this.id);
+		this.style.backgroundColor = "#F7D86B"
 		currentBoard[this.id] = "o";
 		checkWinner();
+	}
+	if(turn === 8){
+		alert("draw!");
+		gameOver();
 	}
 }
 var checkWinner = function(){
@@ -39,6 +44,7 @@ var checkWinner = function(){
 		 	=== currentBoard[winningCombo[2]]) && currentBoard[winningCombo[0]]!==undefined
 	 	){
 		 	alert("You won!!");
+		 	gameOver();
 		 }
 	});
 }
@@ -49,12 +55,10 @@ var cellClick =
 	cellClick[i].addEventListener("click", afterClick);
 }
 
-var reset = function(){
-document.getElementById("reset").remove("img");
+
+var gameOver = function(){
+	document.querySelectorAll("button");
+		for (var i = 0; i < cellClick.length; i++){
+		cellClick[i].removeEventListener("click", afterClick);
+	}
 }
-
-document.getElementById("reset").addEventListener("click", reset);
-
-
-document.addEventListener("DOMContentLoaded", function(){
-});
