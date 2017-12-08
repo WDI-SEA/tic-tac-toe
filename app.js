@@ -120,8 +120,8 @@ var checkWinner = function (){
 	}
 	if (
 		playerOArray.indexOf('02') != -1 
-		&& playerXArray.indexOf('12') != -1 
-		&& playerXArray.indexOf('22') != -1){
+		&& playerOArray.indexOf('12') != -1 
+		&& playerOArray.indexOf('22') != -1){
 			document.getElementById("turnText").textContent = "O Wins! Start New Game!";
 		return true;
 
@@ -182,6 +182,7 @@ function resetClick(){
 		returnCells[i].className = "cell";
 		playerOArray = [];
 		playerXArray = [];
+		currentTurn = "playerX";
 	}
 }
 
