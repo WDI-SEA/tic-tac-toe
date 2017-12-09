@@ -1,18 +1,7 @@
 var box = document.getElementsByClassName('tile');
 var turn = 0;
-var playerX = "X";
-var playerO = "O";
 var restart = document.getElementById('reset');
-var win = [
-  [0, 1, 2],
-  [3, 4, 5],
-  [6, 7, 8],
-  [0, 3, 6],
-  [1, 4, 7],
-  [2, 5, 8],
-  [0, 4, 8],
-  [6, 4, 2],
-];
+var win = document.getElementById('sq')
 
 var boxListeners = function () {
     for (var i = 0; i < box.length; i++){
@@ -24,42 +13,29 @@ boxListeners();
 function boxClick(){
   turn++
   if (turn % 2 ===1){
-    this.className = 'tileX';
-    console.log('click X' + 'on turn ' + turn);
+    this.className += ' tileX';
+    console.log('click X' + ' on turn ' + turn);
+    checkWin(" tileX");
   } else {
-    this.className = 'tileO';
-    console.log('click O ' + "on turn " + turn);
+    this.className += ' tileO';
+    console.log('click O ' + 'on turn' + turn);
+    checkWin(" tileO");
   }
   this.removeEventListener('click', boxClick);
   console.log("listener removed");
 }
-// box clicked
-// var board = function () {
-//     for (var i=0; i<box.length; i++){
-//     box[i].addEventListener('click', function(){
-//       turn ++;
-//       if(turn % 2 === 1){
-//         this.className = 'tileX';
-//         console.log('clickx');
-//         removeTile();
-//         // document.getElementById('playerChange').textContent = "Player O is Up";
-//         // this.removeEventListener('click', tileSelect);
-//       }else{
-//         this.className = 'tileO';
-//         console.log('clicko');
-//         removeTile();
-//         // document.getElementById('playerChange').textContent= "Player X is Up";
-//         // this.removeEventListener('click', tileSelect);
-//   }});
+var checkWin = function (winner) {
+  var boxes = document.querySelectorAll('.tile');
+    if(boxes[0].className === 'tile'+ winner && boxes[1].className === 'tile' + winner && boxes[2].className === 'tile' + winner){
+      document.getElementById('headline').textContent = winner + " Won!";
+    }
+}
+// function checkWin() {
+//   if (tileX)
 // }
-// }
-// board();
-// var removeTile = function () {
-//   var boardBox = document.querySelectorAll('tile');
-//   for(var i=0; i<box.length; i++){
-//     console.log('remove');
-//     this.removeEventListener('click',board);
-//   }
+//
+// function boxScan(){
+//   return document.getElementById('sq' + ).className;
 // }
 
 restart.addEventListener('click', function(){
