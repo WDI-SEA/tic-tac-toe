@@ -1,20 +1,18 @@
 body{
   text-align: center;
   background-color: rgb(124,238,206);
-}
-h1 {
-  color: black;
   font-family: Pacifico;
+  color: black;
 }
 button {
-  padding: 5px;
   font-family: Pacifico;
   font-size: 15px;
   font-weight: bold;
   background-color: rgb(124,238,206);
   border: 0;
+  margin-top: 20px;
+  margin-left: 12px;
 }
-
 .contain{
   height: 310px;
   width: 310px;
