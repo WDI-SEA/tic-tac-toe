@@ -49,8 +49,8 @@ var checkWin = function (winner) {
     }else if(boxes[2].className === 'tile'+ winner && boxes[4].className === 'tile' + winner && boxes[6].className === 'tile' + winner){
       document.getElementById('winMessage').textContent = winner + " is your winner!";
       removeEventListeners();
-    }else if(boxClick === 8){
-      document.getElementById('winMessage').textContent = winner + " This match is a draw!";
+    }else if(turn === 9){
+      document.getElementById('winMessage').textContent = " This match is a draw!";
     }
 }
 restart.addEventListener('click', function(){
