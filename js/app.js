@@ -12,13 +12,13 @@ boxListeners();
 function boxClick(){
   turn++
   if (turn % 2 ===1){
-    this.className += ' tileX';
+    this.className += ' X';
     console.log('click X' + ' on turn ' + turn);
-    checkWin(" tileX");
+    checkWin(" X");
   } else {
-    this.className += ' tileO';
+    this.className += ' O';
     console.log('click O ' + 'on turn' + turn);
-    checkWin(" tileO");
+    checkWin(" O");
   }
     this.removeEventListener('click', boxClick);
     console.log("listener removed");

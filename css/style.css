@@ -32,7 +32,7 @@ button {
   display: none;
   /*float: right;*/
 }
-.tileX{
+.X{
   background:url(../img/x.png);
   height: 100px;
   width: 100px;
@@ -41,7 +41,7 @@ button {
   background-size: cover;
   display: inline-block;
 }
-.tileO{
+.O{
   background:url(../img/o.png);
   height: 100px;
   width: 100px;
