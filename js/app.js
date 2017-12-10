@@ -1,58 +1,52 @@
-var box1 = document.getElementById('box1').onclick;
-var box2 = document.getElementById('box2').onclick;
-var box3 = document.getElementById('box3').onclick;
-var box4 = document.getElementById('box4').onclick;
-var box5 = document.getElementById('box5').onclick;
-var box6 = document.getElementById('box6').onclick;
-var box7 = document.getElementById('box7').onclick;
-var box8 = document.getElementById('box8').onclick;
-var box9 = document.getElementById('box9').onclick;
-var allBoxes = [box1, box2, box3, box4, box5, box6, box7, box8, box9]
+var board = document.getElementById('container');
+var box1 = document.getElementById('box1');
+var box2 = document.getElementById('box2');
+var box3 = document.getElementById('box3');
+var box4 = document.getElementById('box4');
+var box5 = document.getElementById('box5');
+var box6 = document.getElementById('box6');
+var box7 = document.getElementById('box7');
+var box8 = document.getElementById('box8');
+var box9 = document.getElementById('box9');
+var allBoxes = [box1, box2, box3, box4, box5, box6, box7, box8, box9];
 var selectedXBoxes = [];
 var selectedOBoxes = [];
+var imageX = function(e){e.target.style.backgroundImage = 'url(./img/red-x.png)'}; //show X
+var imageO = function(e){e.target.style.backgroundImage = 'url(./img/blue-o.png)'}; //show O
 
-// var reset = document.getElementById('reset');
-// var resetBoard = 
+// Event listener for click on each box/div
+for (var i = 0; i < allBoxes.length; i++){
+	allBoxes[i].addEventListener('click', clicked);
+};
 
-// var numberOfClicks = c
+// Action when clicked
+function clicked(e){
+	console.log(e.target.getAttribute('id') + ' clicked!');
+	e.target.removeEventListener('click', clicked);
+	switchTurn(e);
+};
 
-// reset button
-
-// click button 1) X or O shows up 2) switch turns 3) Play 2's Turn lights up
-// if () {} else {}
-// var boxClicked = addEventListener('click', function() {
-// 	for (var i = 0; i <= 8; i++) {
-// 		allBoxes[i] = function() {
-// 			console.log('box' + [i + 1] + 'clicked');
-// 		}
-// 		allBoxes[i]();
-// 	}
-// })
-
-// var boxClicked = addEventListener('click', function() {
-// 	for (var i = 0; i <= 8; i++) {
-// 		if (i >= 9) {
-// 			break;
-// 		}
-// 		allBoxes = function() {
-// 			console.log('box' + [i + 1] + 'clicked');
-// 		}
-// 		allBoxes();
-// 	}
-// })
-
-switch (addEventListener('click', function() {
-	case box1:allBoxes = function() {
-		console.log('box' + [allBoxes + 1] + 'clicked');
+// Switch turns
+function switchTurn(e){
+	//if Xlength equals Olength add selected box/div to X array, else add it to O array
+	if (selectedXBoxes.length == selectedOBoxes.length){
+		selectedXBoxes.push(e.target.getAttribute("id").replace("box", ""));
+		imageX(e); //show X
+		//Player 1 color
 	}
-	allBoxes();
+	else{
+		selectedOBoxes.push(e.target.getAttribute("id").replace("box", ""));
+		imageO(e); //show O
+		//Player 2 color
+	};
+};
 
-// 	console.log('box1 clicked');
-// });
-// box1Clicked();
-
-// no button can be clicked more than once until reset
+//Player Turn lights up
 
 // win condition 123 456 789 147 258 369 159 357
 
 // tie condition else
+
+// reset button
+
+// var reset = document.getElementById('reset');
