@@ -40,7 +40,7 @@ div{
 .columnOne, .columnTwo{
 	border-right: 5px solid black;
 }
-.cells{
+.cell{
 	font-size: 24px;
 	line-height: 50px;
 	height: 60px;
