@@ -1,15 +1,13 @@
 
 ///add a class instead of replacing class
 // element.className += " xPlayed";
-function startGame () {
+function startGame() {
 	document.currentPlayer = "X";
 }
-
 ///You need to write a check winner function
 //you're going to call checkWinner() at the end of every turn;
-
-var boxes = document.getElementsByClassName("col");
-console.log(boxes);//this is an array of all the divs
+// function checkWin(boxes);
+// if ()
 
 function nextTurn(col) {
 	if(col.innerText == '') {
@@ -31,4 +29,19 @@ function switchPlayer(){
 		document.currentPlayer = "X";
 	}
 	setMessage("It's " + document.currentPlayer + "'s turn.")
+}
+function checkWin() {
+
+}
+
+function checkBox(a, b, c, move) {
+	var results = false;
+	if (getBox(a) === move && getBox(b)=== move && getBox(c) === move) {
+		results = true;
+	}
+	return result;
+}
+
+function getBox(number) {
+	return document.getElementById("c" + number).innerText;
 }
