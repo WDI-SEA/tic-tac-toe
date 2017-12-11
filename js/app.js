@@ -1,17 +1,17 @@
-function startGame() {
-	for (var i = 1; 1<= 9; i++){
+//To start the game, clear the boxes of their values and set player = x
+function startGame() {  
+	for (var i = 1; i <= 9; i++){
 		reset(i);
 	}
 	document.turn = "X";
 	document.winner= null;
 	setMessage(document.turn + "'s turn to start.")
 }
-
 function setMessage(msg){
 	document.getElementById("message").innerText = msg;	
 }
-
-function nextTurn(column) {
+//Set message to winning condition if any has won if not the game continues
+function nextTurn(column) { 
 	if(document.winner != null){
 		setMessage(document.turn + " has won the game already!")
 	}else if(column.innerText == '') {
@@ -21,7 +21,7 @@ function nextTurn(column) {
 		setMessage("Choose another square! ");
 	}
 }
-
+//
 function switchTurn(){
 	if(checkWin(document.turn)) {
 		setMessage("Congrats " + document.turn + ", you won!")
@@ -35,8 +35,6 @@ function switchTurn(){
 	}
 	
 }
-
-
 function checkWin(move) {
 	var result = false;
 	if (checkBox(1, 2, 3, move) ||
@@ -51,7 +49,6 @@ function checkWin(move) {
 	}
 	return result;
 }
-
 function checkBox(a, b, c, move) {
 	var result = false;
 	if (getBox(a) == move && getBox(b) == move && getBox(c) == move) {
@@ -59,19 +56,14 @@ function checkBox(a, b, c, move) {
 	}
 	return result;
 }
-
 function getBox(number) {
 	return document.getElementById("s" + number).innerText;	
 }
-
 function reset(number) {
 	document.getElementById("s" + number).innerText = "";
 }
 
-
-///add a class instead of replacing class
-// element.className += " xPlayed";
-///You need to write a check winner function
-//you're going to call checkWinner() at the end of every turn;
-// function checkWin(boxes);
-// if ()
+// To dos for next version:
+// - Add simple AI
+// - Add another player class
+// - Add Tie condition
