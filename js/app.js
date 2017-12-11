@@ -1,243 +1,99 @@
-
-// A user should be able to click on different squares to make a move.
-// * Every click will alternate between marking an `X` and `O`
-// * Upon marking of an individual cell, 
-//use JavaScript to add a class to each cell to display separate colors.
-// * A cell should not be able to be replayed once marked.
-// * Add a reset button that will clear the contents of the board.
-var wins1 = 0;
-var wins2 = 0;
-var p1Col1 = 0;
-var p1Col2 = 0;
-var p1Col3 = 0;
-var p1Row1 = 0;
-var p1Row2 = 0;
-var p1Row3 = 0;
-var p1Dia1 = 0;
-var p1Dia2 = 0;
-
-var p2Col1 = 0;
-var p2Col2 = 0;
-var p2Col3 = 0;
-var p2Row1 = 0;
-var p2Row2 = 0;
-var p2Row3 = 0;
-var p2Dia1 = 0;
-var p2Dia2 = 0;
-
+var boxes = document.getElementsByClassName('box');
 var clickCount = 0;
+var xWin = document.getElementById('wins1');
+var oWin = document.getElementById('wins2');
+var winCondition = [
+  ["00", "01", "02"],
+  ["10", "11", "12"],
+  ["20", "21", "22"],
+  ["00", "10", "20"],
+  ["01", "11", "21"],
+  ["02", "12", "22"],
+  ["00", "11", "22"],
+  ["02", "11", "20"],
+];
+var xWinArr = [];
+var oWinArr = [];
+var didXWin;
+var didOWin;
 
-var el = document.getElementsByClassName('box');
-for(var i=0; i<el.length;i++){
-	addEventListener(el.item(i), 'click', boxClicked);
+//add event listener
+function addBoxListeners(){
+	for(var i=0; i<boxes.length; i++){
+		boxes[i].addEventListener('click', boxClicked);
+	}
 }
 
+//click event
+//change text of boxes
+//remove event listeners
+//add class name for color change
 function boxClicked(){
 	clickCount++;
 	if(clickCount%2!==0 && clickCount<=9){
-		if(i==1){
-			this.src = '../img/x.png';
-			this.style.backgroundSize = "contain";
-			p1Col1++;
-			p1Row1++;
-			p1Dia1++;
-			checkWinner();
-		}
-		if(i==2){
-			this.src = '../img/x.png';
-			this.style.backgroundSize = "contain";
-			p1Col2++;
-			p1Row1++;
-			checkWinner();
-		}
-		if(i==3){
-			this.src = '../img/x.png';
-			this.style.backgroundSize = "contain";
-			p1Col3++;
-			p1Row1++;
-			p1Dia2++;
-			checkWinner();
-		}
-		if(i==4){
-			this.src = '../img/x.png';
-			this.style.backgroundSize = "contain";
-			p1Col1++;
-			p1Row2++;
-			checkWinner();
-		}
-		if(i==5){
-			this.src = '../img/x.png';
-			this.style.backgroundSize = "contain";
-			p1Col2++;
-			p1Row2++;
-			p1Dia1++;
-			p1Dia2++;
-			checkWinner();
-		}
-		if(i==6){
-			this.src = '../img/x.png';
-			this.style.backgroundSize = "contain";
-			p1Col3++;
-			p1Row2++;
-			checkWinner();
-		}
-		if(i==7){
-			this.src = '../img/x.png';
-			this.style.backgroundSize = "contain";
-			p1Col1++;
-			p1Row3++;
-			p1Dia2++;
-			checkWinner();
-		}
-		if(i==8){
-			this.src = '../img/x.png';
-			this.style.backgroundSize = "contain";
-			p1Col2++;
-			p1Row3++;
-			checkWinner();
-		}
-		if(i==9){
-			this.src = '../img/x.png';
-			this.style.backgroundSize = "contain";
-			p1Col3++;
-			p1Row3++;
-			p1Dia1++;
-			checkWinner();
-		}
+		this.textContent = "X";
+		this.className += " boxX";
+		xWinArr.push(this.id);
+		this.removeEventListener('click', boxClicked);
 	}else if(clickCount%2===0 && clickCount<=9){
-		if(i==1){
-			this.src = '../img/o.png';
-			this.style.backgroundSize = "contain";
-			p2Col1++;
-			p2Row1++;
-			p2Dia1++;
-			checkWinner();
-		}
-		if(i==2){
-			this.src = '../img/o.png';
-			this.style.backgroundSize = "contain";
-			p2Col2++;
-			p2Row1++;
-			checkWinner();
-		}
-		if(i==3){
-			this.src = '../img/o.png';
-			this.style.backgroundSize = "contain";
-			p2Col3++;
-			p2Row1++;
-			p2Dia2++;
-			checkWinner();
-		}
-		if(i==4){
-			this.src = '../img/o.png';
-			this.style.backgroundSize = "contain";
-			p2Col1++;
-			p2Row2++;
-			checkWinner();
-		}
-		if(i==5){
-			this.src = '../img/o.png';
-			this.style.backgroundSize = "contain";
-			p2Col2++;
-			p2Row2++;
-			p2Dia1++;
-			p2Dia2++;
-			checkWinner();
-		}
-		if(i==6){
-			this.src = '../img/o.png';
-			this.style.backgroundSize = "contain";
-			p2Col3++;
-			p2Row2++;
-			checkWinner();
-		}
-		if(i==7){
-			this.src = '../img/o.png';
-			this.style.backgroundSize = "contain";
-			p2Col1++;
-			p2Row3++;
-			p2Dia2++;
-			checkWinner();
-		}
-		if(i==8){
-			this.src = '../img/o.png';
-			this.style.backgroundSize = "contain";
-			p2Col2++;
-			p2Row3++;
-			checkWinner();
-		}
-		if(i==9){
-			this.src = '../img/o.png';
-			this.style.backgroundSize = "contain";
-			p2Col3++;
-			p2Row3++;
-			p2Dia1++;
-			checkWinner();
-		}
+		this.textContent = "O";
+		this.className += " boxO";
+		oWinArr.push(this.id);
+		this.removeEventListener('click', boxClicked);
+	}
+	if(clickCount>=5){
+		checkWinner();
 	}
 }
 
+function checkWinner(){
+	console.log("did someone win???");
+	function compareNumbers(a, b){
+		return a - b;
+	}
+	didXWin = xWinArr.slice().sort(compareNumbers);
+	didOWin = oWinArr.slice().sort(compareNumbers);
+
+	for(let i=0; i<winCondition.length; i++){
+		if(winCondition[i] === didXWin){
+			console.log("x won");
+		}
+		console.log("this was checked");
+	}
+	for(let i=0; i<winCondition.length; i++){
+		if(winCondition[i] === didOWin){
+			console.log("o won");
+		}
+		console.log("this was checked");
+	}
+	console.log("hmmmm");
+}
+
+//reset
 function reset(){
-	var boxImages = document.getElementsByTagName('img');
-	for(var i=0; i<boxImages.length; i++){
-		boxImages[i].setAttribute('src', '../img/squre.jpg');
+	var xBoxes = document.getElementsByClassName('boxX');
+	var oBoxes = document.getElementsByClassName('boxO');
+	for(var i=0; i<xBoxes.length; i++){
+		xBoxes[i].textContent = " ";
+		xBoxes[i].className = "box";
 	}
-	var el = document.getElementsByClassName('box');
-	for(var i=0; i<el.length;i++){
-	el.item(i).onclick = boxClicked;
+	for(var i=0; i<oBoxes.length; i++){
+		oBoxes[i].textContent = " ";
+		oBoxes[i].className = "box";
 	}
+	addBoxListeners();
 	clickCount = 0;
-	p1Col1 = 0;
-	p1Col2 = 0;
-	p1Col3 = 0;
-	p1Row1 = 0;
-	p1Row2 = 0;
-	p1Row3 = 0;
-	p1Dia1 = 0;
-	p1Dia2 = 0;
-	p2Col1 = 0;
-	p2Col2 = 0;
-	p2Col3 = 0;
-	p2Row1 = 0;
-	p2Row2 = 0;
-	p2Row3 = 0;
-	p2Dia1 = 0;
-	p2Dia2 = 0;
 }
 
+//full reset
 function resetGame(){
 	wins1 = 0;
 	wins2 = 0;
 	reset();
 }
 
-function checkWinner(){
-	if(clickCount>=3){
-		if(p1Col1==3 || p1Col2==3 || p1Col3==3 || p1Row1==3 || p1Row2==3 || p1Row3==3 || p1Dia1==3 || p1Dia1==3){
-		wins1++;
-		document.getElementById("wins1").textContent= wins1;
-		clickCount=0;
-		setTimeout(reset(), 2000);
-		}
-		if(p2Col1==3 || p2Col2==3 || p2Col3==3 || p2Row1==3 || p2Row2==3 || p2Row3==3 || p2Dia1==3 || p2Dia2==3){
-		wins2++;
-		document.getElementById("wins2").textContent= wins2;
-		clickCount=0;
-	}else if(clickCount<9){
-		return true;
-	}else if(clickCount==9){
-		setTimeout(reset(), 2000);
-	}
-}
-}
-
 document.addEventListener("DOMContentLoaded", function(){
 	document.getElementById('reset').addEventListener('click', reset);
 	document.getElementById('resetFull').addEventListener('click', resetGame);
-	reset();
+	addBoxListeners();
 })
-
-
-
-
-

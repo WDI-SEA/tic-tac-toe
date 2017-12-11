@@ -1,91 +1,31 @@
 body{
 	text-align: center;
+	font-size: 30px;
+	font-family: 'Cabin Sketch', cursive;
 }
 h1 {
-  color: purple;
+  color: blue;
+  font-size: 60px;
 }
 .row{
 	display: block;
-	margin: -4px 0px -4px 0px;
+	height: 120px;
 }
 .box{
 	display: inline-block;
+	border: 5px solid black;
 	width: 100px;
 	height: 100px;
-	margin: 0px;
+	background-color: white;
+	font-size: 100px;
+	color: white;
 }
-#box1{
-	border-right: 1px solid black;
-	border-bottom: 1px solid black;
-	margin: 0px -2px 0px 0px;
-	background: url("../img/squre.jpg");
-	background-size: contain;
-	z-index: -1;
+.boxX{
+	background-color: purple;
 }
-#box2{
-	border-left: 1px solid black;
-	border-bottom: 1px solid black;
-	border-right: 1px solid black;
-	margin: 0px -2px 0px -2px;
-	background: url("../img/squre.jpg");
-	background-size: contain;
-	z-index: -1;
+.boxX,.boxO{
+	border-color: lightblue;
 }
-#box3{
-	border-left: 1px solid black;
-	border-bottom: 1px solid black;
-	margin: 0px 0px 0px -2px;
-	background: url("../img/squre.jpg");
-	background-size: contain;
-	z-index: -1;
-}
-#box4{
-	border-top: 1px solid black;
-	border-right: 1px solid black;
-	border-bottom: 1px solid black;
-	margin: 0px -2px 0px 0px;
-	background: url("../img/squre.jpg");
-	background-size: contain;
-	z-index: -1;
-}
-#box5{
-	border: 1px solid black;
-	margin: 0px -2px 0px -2px;
-	background: url("../img/squre.jpg");
-	background-size: contain;
-	z-index: -1;
-}
-#box6{
-	border-top: 1px solid black;
-	border-left: 1px solid black;
-	border-bottom: 1px solid black;
-	margin: 0px 0px 0px -2px;
-	background: url("../img/squre.jpg");
-	background-size: contain;
-	z-index: -1;
-}
-#box7{
-	border-top: 1px solid black;
-	border-right: 1px solid black;
-	margin: 0px -2px 0px 0px;
-	background: url("../img/squre.jpg");
-	background-size: contain;
-	z-index: -1;
-}
-#box8{
-	border-top: 1px solid black;
-	border-right: 1px solid black;
-	border-left: 1px solid black;
-	margin: 0px -2px 0px -2px;
-	background: url("../img/squre.jpg");
-	background-size: contain;
-	z-index: -1;
-}
-#box9{
-	border-top: 1px solid black;
-	border-left: 1px solid black;
-	margin: 0px 0px 0px -2px;
-	background: url("../img/squre.jpg");
-	background-size: contain;
-	z-index: -1;
+.boxO{
+	background-color: pink;
 }
