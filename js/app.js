@@ -1,5 +1,9 @@
 function startGame() {
+	for (var i = 1; 1<= 9; i++){
+		reset(i);
+	}
 	document.turn = "X";
+	document.winner= null;
 	setMessage(document.turn + "'s turn to start.")
 }
 
@@ -8,7 +12,9 @@ function setMessage(msg){
 }
 
 function nextTurn(column) {
-	if(column.innerText == '') {
+	if(document.winner != null){
+		setMessage(document.turn + " has won the game already!")
+	}else if(column.innerText == '') {
 	   column.innerText = document.turn;
 	   switchTurn();
 	}else {
@@ -19,6 +25,7 @@ function nextTurn(column) {
 function switchTurn(){
 	if(checkWin(document.turn)) {
 		setMessage("Congrats " + document.turn + ", you won!")
+		document.winner = document.turn;
 	}else if(document.turn == "X") {
 		document.turn = "O";
 		setMessage("It's " + document.turn + "'s turn.")
@@ -55,6 +62,10 @@ function checkBox(a, b, c, move) {
 
 function getBox(number) {
 	return document.getElementById("s" + number).innerText;	
+}
+
+function reset(number) {
+	document.getElementById("s" + number).innerText = "";
 }
 
 
