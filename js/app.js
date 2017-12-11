@@ -44,15 +44,14 @@ function checkWin(move) {
 
 function checkBox(a, b, c, move) {
 	var result = false;
-	if (getBox(a) === move && getBox(b)=== move && getBox(c) === move) {
+	if (getBox(a) == move && getBox(b) == move && getBox(c) == move) {
 		results = true;
 	}
 	return result;
 }
 
 function getBox(number) {
-	return document.getElementById("c" + number).innerText;
-	console.log("pulled list");
+	return document.getElementById("s" + number).innerText;	
 }
 
 
