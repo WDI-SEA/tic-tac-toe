@@ -3,6 +3,7 @@
 // element.className += " xPlayed";
 function startGame() {
 	document.currentPlayer = "X";
+	setMessage(document.currentPlayer + "'s turn to start.")
 }
 ///You need to write a check winner function
 //you're going to call checkWinner() at the end of every turn;
@@ -23,6 +24,7 @@ function setMessage(msg){
 }
 
 function switchPlayer(){
+
 	if(document.currentPlayer == "X") {
 		document.currentPlayer = "O";
 	} else {
@@ -30,9 +32,18 @@ function switchPlayer(){
 	}
 	setMessage("It's " + document.currentPlayer + "'s turn.")
 }
-function checkWin() {
-
-}
+function checkWin(move) {
+// 	var results = false;
+// 	if (checkBox(1, 2, 3, move) ||
+// 		checkBox(4, 5, 6, move) ||
+// 		checkBox(1, 2, 3, move) ||
+// 		checkBox(1, 2, 3, move) ||
+// 		checkBox(1, 2, 3, move) ||
+// 		checkBox(1, 2, 3, move) ||
+// 		checkBox(1, 2, 3, move) ||
+// 		checkBox(1, 2, 3, move) ||
+// 		checkBox(1, 2, 3, move))
+// }
 
 function checkBox(a, b, c, move) {
 	var results = false;
