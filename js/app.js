@@ -1,52 +1,49 @@
-
-///add a class instead of replacing class
-// element.className += " xPlayed";
 function startGame() {
-	document.currentPlayer = "X";
-	setMessage(document.currentPlayer + "'s turn to start.")
-}
-///You need to write a check winner function
-//you're going to call checkWinner() at the end of every turn;
-// function checkWin(boxes);
-// if ()
-
-function nextTurn(col) {
-	if(col.innerText == '') {
-	   col.innerText = document.currentPlayer;
-	   switchPlayer();
-	}else {
-		setMessage("Choose another square! ");
-	}
+	document.turn = "X";
+	setMessage(document.turn + "'s turn to start.")
 }
 
 function setMessage(msg){
 	document.getElementById("message").innerText = msg;	
 }
 
-function switchPlayer(){
-
-	if(document.currentPlayer == "X") {
-		document.currentPlayer = "O";
-	} else {
-		document.currentPlayer = "X";
+function nextTurn(column) {
+	if(column.innerText == '') {
+	   column.innerText = document.turn;
+	   switchTurn();
+	}else {
+		setMessage("Choose another square! ");
 	}
-	setMessage("It's " + document.currentPlayer + "'s turn.")
 }
+
+function switchTurn(){
+	if(document.turn == "X") {
+		document.turn = "O";
+	} else {
+		document.turn = "X";
+
+	}
+	setMessage("It's " + document.turn + "'s turn.")
+}
+
+
 function checkWin(move) {
-// 	var results = false;
-// 	if (checkBox(1, 2, 3, move) ||
-// 		checkBox(4, 5, 6, move) ||
-// 		checkBox(1, 2, 3, move) ||
-// 		checkBox(1, 2, 3, move) ||
-// 		checkBox(1, 2, 3, move) ||
-// 		checkBox(1, 2, 3, move) ||
-// 		checkBox(1, 2, 3, move) ||
-// 		checkBox(1, 2, 3, move) ||
-// 		checkBox(1, 2, 3, move))
-// }
+	var result = false;
+	if (checkBox(1, 2, 3, move) ||
+		checkBox(4, 5, 6, move) ||
+		checkBox(7, 8, 9, move) ||
+		checkBox(1, 4, 7, move) ||
+		checkBox(2, 5, 8, move) ||
+		checkBox(3, 6, 9, move) ||
+		checkBox(1, 5, 9, move) ||
+		checkBox(3, 5, 7, move)) {
+		result = true;
+	}
+	return result;
+}
 
 function checkBox(a, b, c, move) {
-	var results = false;
+	var result = false;
 	if (getBox(a) === move && getBox(b)=== move && getBox(c) === move) {
 		results = true;
 	}
@@ -55,4 +52,13 @@ function checkBox(a, b, c, move) {
 
 function getBox(number) {
 	return document.getElementById("c" + number).innerText;
+	console.log("pulled list");
 }
+
+
+///add a class instead of replacing class
+// element.className += " xPlayed";
+///You need to write a check winner function
+//you're going to call checkWinner() at the end of every turn;
+// function checkWin(boxes);
+// if ()

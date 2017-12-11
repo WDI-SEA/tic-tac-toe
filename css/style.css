@@ -1,7 +1,7 @@
 body {
   margin: auto;
-  font-family: "arial" san-serif;
-  background-color: pink;
+  font-family: Helvetica, sans-serif;
+  background-color: gray;
   margin-top: 5px;
   text-align: center;
 }
@@ -14,7 +14,7 @@ body {
 	
 }
 
-.col {
+.column {
 	display: inline-block;
 	width: 90px;
 	height: 80px;
