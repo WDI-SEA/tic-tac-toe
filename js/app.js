@@ -17,13 +17,16 @@ function nextTurn(column) {
 }
 
 function switchTurn(){
-	if(document.turn == "X") {
+	if(checkWin(document.turn)) {
+		setMessage("Congrats " + document.turn + ", you won!")
+	}else if(document.turn == "X") {
 		document.turn = "O";
+		setMessage("It's " + document.turn + "'s turn.")
 	} else {
 		document.turn = "X";
-
+		setMessage("It's " + document.turn + "'s turn.")
 	}
-	setMessage("It's " + document.turn + "'s turn.")
+	
 }
 
 
@@ -45,7 +48,7 @@ function checkWin(move) {
 function checkBox(a, b, c, move) {
 	var result = false;
 	if (getBox(a) == move && getBox(b) == move && getBox(c) == move) {
-		results = true;
+		result = true;
 	}
 	return result;
 }
