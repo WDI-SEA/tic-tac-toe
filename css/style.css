@@ -19,6 +19,7 @@ h1 {
 	background-color: white;
 	font-size: 100px;
 	color: white;
+	overflow: auto;
 }
 .boxX{
 	background-color: purple;
