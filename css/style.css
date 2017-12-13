@@ -1,3 +1,152 @@
-h1 {
-  color: purple;
+body {
+    margin-top: 60px;
+    background-image: url(http://www.pptbackgrounds.org/uploads/tic-tac-toe-backgrounds-wallpapers.jpg);
+        color: white;
+        font-family: cursive;
+    font-weight: bold;
+    text-align:center;
 }
+
+h1 {
+
+    text-transform: uppercase;
+    letter-spacing: 0.1;
+    color: black;
+
+}
+.container {
+    margin: 0 auto;
+    width: 400px;
+}
+
+#game {
+    width: 300px;
+    height: 300px;
+    border: 1px solid tan;
+    margin: 0 auto;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+#game > li {
+    list-style: none;
+    float: left;
+    overflow: hidden;
+    text-decoration:none;
+    width: 100px;
+    height: 100px;
+    background: white;
+    border: 1px solid black;
+    border-right: 1px solid black;
+    cursor: pointer;
+    text-transform: uppercase;
+    text-align: center;
+    padding-top: 20px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#game > li.x {
+    font-size: 40px;
+    color: tan;
+}
+
+#game > li.o {
+    font-size: 40px;
+    color: black;
+}
+
+#game > li:hover {
+    background: black;
+}
+
+#game > li:active {
+    width: 100px;
+    height: 100px;
+    border: 0;
+}
+
+#nfo {
+    text-align:center;
+    margin-top: 10px;
+}
+
+#whos-turn > span,
+#game-messages > span {
+    display: none;
+}
+
+#whos-turn.x span.x,
+#whos-turn.o span.o,
+#game-messages.player-x-win > span.player-x-win,
+#game-messages.player-o-win > span.player-o-win,
+#game-messages.draw > span.draw {
+    display: block;
+    margin-top: 10px;
+}
+
+#reset-game {
+    text-align: center;
+        border: none;
+        padding: 0.6em 1.2em;
+        background: tan;
+        color: black;
+        font-size: 1em;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        cursor: pointer;
+        display: inline-block;
+        margin: 3px 2px;
+        border-radius: 2px;
+}
+
+#reset-game:hover {
+        background: black;
+
+  color: purple;
+  text-align: center;
+  font-family: monospace;
+  font-size: 53px;
+}
+
+h2 {
+  color: purple;
+  text-align: center;
+  font-family: monospace;
+}
+
+div {
+  text-align: center;
+  margin: 3px auto;
+  text-align: center;
+  margin: auto;
+}
+body {
+  background-color: lightblue;
+}
+.cell {
+  text-align: center;
+  width: 100px;
+  height: 100px;
+  border: 5px solid #000000;
+  font-size: 46px;
+  font-family: arial;
+  font-weight: bold;
+
+  margin: auto;
+
+}
+.fieldset {
+  text-align: center;
+  margin: auto;
+}
+.cell:hover {
+  background: purple;
+  text-align: center;
+}
+.cell:hover2{
+  background:gold;
+  text-align: center;
+
+}
+
