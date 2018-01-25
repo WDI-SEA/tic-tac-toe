@@ -1,3 +1,29 @@
-h1 {
-  color: purple;
+html, body {
+  font-family: sans-serif;
+}
+
+.flex-row div.red {
+  background: red;
+}
+
+.flex-row div.blue {
+  background: blue;
+}
+
+.flex-row {
+  width: 60vw;
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-row div {
+  background: #000;
+  width: 100px;
+  height: 100px;
+  margin: 10px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: lightgreen;
+  font-size: 300%;
 }
