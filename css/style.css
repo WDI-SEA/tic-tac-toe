@@ -2,10 +2,21 @@ html, body {
   font-family: sans-serif;
 }
 
+#game-name {
+  position: absolute;
+  font-size: 63px;
+  color: #fff;
+  margin: 225px 0px 0px -123px;
+  left: 0;
+}
+
 #container {
+  position: relative;
   width: 360px;
   margin: 0 auto;
   text-align: center;
+  background: #437cad;
+  padding: 50px 100px;
 }
 
 #reset {
@@ -17,11 +28,15 @@ html, body {
   padding: 3px 25px;
 }
 
-.flex-row div.color1 {
+h3 {
+  color: #fff;
+}
+
+.square.color1 {
   background: #0DD397;
 }
 
-.flex-row div.color2 {
+.square.color2 {
   background: #7A06B9;
 }
 
@@ -41,4 +56,5 @@ html, body {
   align-items: center;
   color: #fff;
   font-size: 300%;
+  border-radius: 5px;
 }
