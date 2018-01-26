@@ -2,12 +2,27 @@ html, body {
   font-family: sans-serif;
 }
 
-.flex-row div.red {
-  background: red;
+#container {
+  width: 360px;
+  margin: 0 auto;
+  text-align: center;
 }
 
-.flex-row div.blue {
-  background: blue;
+#reset {
+  background: #333;
+  color: #fff;
+  font-size: 18px;
+  border: none;
+  border-radius: 3px;
+  padding: 3px 25px;
+}
+
+.flex-row div.color1 {
+  background: #0DD397;
+}
+
+.flex-row div.color2 {
+  background: #7A06B9;
 }
 
 .flex-row {
@@ -16,7 +31,7 @@ html, body {
   flex-direction: row;
 }
 
-.flex-row div {
+.square {
   background: #000;
   width: 100px;
   height: 100px;
@@ -24,6 +39,6 @@ html, body {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: lightgreen;
+  color: #fff;
   font-size: 300%;
 }
