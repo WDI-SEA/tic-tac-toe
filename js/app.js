@@ -227,21 +227,3 @@ var red = '<img src="img/o_red.png">';
  };
 
 
-
-
-(box1.innerHTML === blue && box2.innerHTML === blue && box3.innerHTML === blue) ||
-(box4.innerHTML === blue && box5.innerHTML === blue && box6.innerHTML === blue) ||
-(box7.innerHTML === blue && box8.innerHTML === blue && box9.innerHTML === blue) ||
-(box1.innerHTML === blue && box4.innerHTML === blue && box7.innerHTML === blue) ||
-(box2.innerHTML === blue && box5.innerHTML === blue && box8.innerHTML === blue) ||
-(box3.innerHTML === blue && box6.innerHTML === blue && box9.innerHTML === blue) ||
-(box1.innerHTML === blue && box5.innerHTML === blue && box9.innerHTML === blue) ||
-(box3.innerHTML === blue && box5.innerHTML === blue && box7.innerHTML === blue)||
-(box1.innerHTML === red && box2.innerHTML === red && box3.innerHTML === red) ||
-(box4.innerHTML === red && box5.innerHTML === red && box6.innerHTML === red) ||
-(box7.innerHTML === red && box8.innerHTML === red && box9.innerHTML === red) ||
-(box1.innerHTML === red && box4.innerHTML === red && box7.innerHTML === red) ||
-(box2.innerHTML === red && box5.innerHTML === red && box8.innerHTML === red) ||
-(box3.innerHTML === red && box6.innerHTML === red && box9.innerHTML === red) ||
-(box1.innerHTML === red && box5.innerHTML === red && box9.innerHTML === red) ||
-(box3.innerHTML === red && box5.innerHTML === red && box7.innerHTML === red) 
