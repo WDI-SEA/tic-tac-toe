@@ -1,3 +1,22 @@
+html,body {
+  margin: 0;
+  padding: 0;
+  background: purple;
+}
+
 h1 {
   color: purple;
+}
+
+#gameboard {
+  text-align: center;
+  position: relative;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  display:inline-block;
+  margin: 10px;
+  background: black;
 }
