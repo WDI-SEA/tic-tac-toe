@@ -2,6 +2,8 @@ var currentPlay = 0;
 var resetButton = document.getElementById('reset');
 var squaresArr = document.querySelectorAll('.square');
 var currentPlayElement = document.getElementById('current-play');
+var friendOrAiArr = document.querySelectorAll('input[type="radio"]');
+console.log(friendOrAiArr);
 
 var displayCurrentPlay = function() {
   if (currentPlay % 2 ===0) {
@@ -16,25 +18,68 @@ displayCurrentPlay();
 
 // changeSquare function fired when square is clicked
 var changeSquare = function() {
-  if (currentPlay % 2 === 0 && !this.hasChildNodes()) {
-    this.textContent = 'X';
-    this.className += ' color1';
-    currentPlay++;
-    if (currentPlay <= 8){
-      displayCurrentPlay();
-    } else {
-      currentPlayElement.textContent = 'Game Over';
+  if (friendOrAiArr[0].checked) {
+    if (currentPlay % 2 === 0 && !this.hasChildNodes()) {
+      this.textContent = 'X';
+      this.className += ' color1';
+      currentPlay++;
+      if (currentPlay <= 8){
+        displayCurrentPlay();
+      } else {
+        currentPlayElement.textContent = 'Game Over';
+      }
+    } else if (currentPlay % 2 !== 0 && !this.hasChildNodes()){
+      this.textContent = 'O';
+      this.className += ' color2';
+      currentPlay++;
+      if (currentPlay <= 8){
+        displayCurrentPlay();
+      } else {
+        currentPlayElement.textContent = 'Game Over';
+      }
     }
-  } else if (currentPlay % 2 !== 0 && !this.hasChildNodes()){
-    this.textContent = 'O';
-    this.className += ' color2';
-    currentPlay++;
-    if (currentPlay <= 8){
-      displayCurrentPlay();
-    } else {
-      currentPlayElement.textContent = 'Game Over';
+    checkIfWon();
+  } // END -- if friend is checked
+
+  else if (friendOrAiArr[1].checked) {
+    var emptySquaresArr = [];
+    var aiPlay = function() {
+      squaresArr.forEach(function(item) {
+        if (!item.hasChildNodes())
+        emptySquaresArr.push(item);
+      });
+
+      var rand = emptySquaresArr[Math.floor(Math.random() * emptySquaresArr.length)];
+      var computersPlay = function() {
+        rand.textContent = 'O';
+        rand.className += ' color2';
+        currentPlay++;
+        if (currentPlay <= 8){
+          displayCurrentPlay();
+        } else {
+          currentPlayElement.textContent = 'Game Over';
+        }
+        checkIfWon();
+      }
+      setTimeout(computersPlay, 500);
     }
-  }
+
+    if (!this.hasChildNodes()) {
+      this.textContent = 'X';
+      this.className += ' color1';
+      currentPlay++;
+      if (currentPlay <= 8){
+        displayCurrentPlay();
+      } else {
+        currentPlayElement.textContent = 'Game Over';
+      }
+      aiPlay();
+      checkIfWon();
+    }
+  } // END -- else if AI is checked
+} // END changeSquare function
+
+var checkIfWon = function() {
   // check to see if anyone has won yet
   if (squaresArr[0].textContent !== '' && squaresArr[0].textContent === squaresArr[1].textContent && squaresArr[1].textContent === squaresArr[2].textContent ) {
     setTimeout(function() {
@@ -78,7 +123,6 @@ var changeSquare = function() {
     }, 400);
   } // END -- check to see if anyone has won yet
 }
-// END changeSquare function
 
 // Add Click Event Listener To Each Square
 for (var i = 0; i <= 8; i++) {
@@ -95,4 +139,5 @@ var resetBoard = function() {
 }
 resetButton.addEventListener('click', resetBoard, false);
 
+// Rotate the title <h1>
 document.getElementById('game-name').style.transform = "rotate(-90deg)";
