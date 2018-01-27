@@ -1,3 +1,61 @@
-h1 {
-  color: purple;
+html, body {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	background-color: white;
 }
+
+h1 {
+  color: black;
+}
+
+.gameBoard {
+	width: 28%;
+	height: 26%;
+	margin: 0 auto;
+}
+
+.box {
+	background-color: black;
+	width: 30%;
+	height: 100px;
+	display: inline-block;
+	margin: 0 .1% 0 .3%;
+	padding: 1%;
+	background-size: cover;
+
+
+/*	background-attachment: fixed;*/
+}
+
+.container {
+	width: 100%;
+	margin: 0 auto;
+	/*display: inline-block;*/
+	text-align: center;
+	padding: 10px;
+}
+
+button {
+	margin: 2% auto;
+}
+
+
+
+.resetSquare {
+	background-color: black;
+}
+
+.birdKey {
+	background-image: url("../img/bird.png");
+}
+
+.treeKey {
+	background-image: url("../img/triangle.png");
+}
+
+/*#a1 {
+	border-right-style: solid white 2 px;
+	border-style: solid white zpx;
+}
+*/

@@ -3,11 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <title>Tic-Tac-Toe</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-  <h1>Hello Front-End</h1>
+  <h1>Tic-Tac-Toe</h1>
+
+  <div class="gameBoard">
+	  <div class="container">
+	  	<div class="box row1 col1 diag1" id="a1"></div>
+	  	<div class="box row1 col2" id="a2"></div>
+	  	<div class="box row1 col3 diag2" id="a3"></div>
+	  </div>
+	  <div class="container">
+	  	<div class="box row2 col1" id="b1"></div>
+	  	<div class="box row2 col2 diag1 diag2" id="b2"></div>
+	  	<div class="box row2 col3" id="b3"></div>  
+	  </div>
+	  <div class="container">
+	  	<div class="box row3 col1 diag1" id="c1"></div>
+	  	<div class="box row3 col2" id="c2"></div>
+	  	<div class="box row3 col3 diag2" id="c3"></div>
+	  </div>
+	</div>
+
+	<button type="button" class="reset" id="resetButton">Reset</button>
+
+
 
   <script type="text/javascript" src="js/app.js"></script>
 </body>
