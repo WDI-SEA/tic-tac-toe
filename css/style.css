@@ -7,8 +7,6 @@ html,body {
 
 body {
   background-color: #E1E1E1;
-  width: 50%;
-  margin: 0 auto;
 }
 
 div {
@@ -18,10 +16,10 @@ div {
 h1 {
   text-align: center;
   font-size: 40px;
+  margin-bottom: 30px;
 }
 
 h3 {
-  /* width: 200px; */
   text-decoration: underline;
 }
 
@@ -29,33 +27,46 @@ h3 {
 
 }
 
+.main {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.turn {
+  background-color: #E1E1E1;
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 50px;
+}
+
 .gameboard {
   height: 400px;
   width: 400px;
-  position: relative;
-  margin: 0 auto;
+  display: inline-block;
   z-index: 1;
   text-align: center;
   font-family: 'Indie Flower', cursive;
 }
 
-.square {
+.square-clicked {
   display: inline-block;
   margin: 3px;
   width: 120px;
   height: 120px;
   background-color: #4B9CD3;
   z-index: 10;
+  border-radius: 100px;
 }
 
-.square-clicked {
+.square {
   display: inline-block;
   margin: 3px;
-  width: 118px;
-  height: 118px;
+  width: 112px;
+  height: 112px;
   background-color: #E1E1E1;
-  border: 1px #4B9CD3 ridge;
+  border: 4px #4B9CD3 dashed;
   z-index: 10;
+  border-radius: 100px;
 }
 
 .row1 {
@@ -99,26 +110,8 @@ button {
   color: #E1E1E1;
   background-color: #4B9CD3;
   width: 200px;
-  margin-top: 10px;
+  margin-top: 20px;
   font-size: 20px;
-}
-
-.panel {
-  height: 50px;
-  width: 400px;
-  margin: 0 auto;
-  z-index: 10;
-  text-align: center;
-}
-
-.scores {
-  text-align: center;
-}
-
-.bottom {
-  display: inline-block;
-  width: 120px;
-  text-align: center;
 }
 
 .recordX{
