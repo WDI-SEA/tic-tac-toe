@@ -1,3 +1,15 @@
-h1 {
-  color: purple;
+.gameboard{
+	width: 80%;
+	margin:auto;
+	text-align: center;
+	background: green;
+}
+.square{
+	display: inline-block;
+	height: 100px;
+	width: 100px;
+	background: blue;
+}
+.row{
+	margin: 5px 0 5px 0;
 }
