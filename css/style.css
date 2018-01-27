@@ -1,64 +1,72 @@
-head,body {
-
+/* head,body {
 }
 body {
-
 }
-div {
-  border: 5px solid #000;
-}
+div {s
+  border: 1px solid #000;
+} */
 h1 {
   color: purple;
 }
+.game {
+  text-align: center;
+  position: static;
+  margin: 10px;
+  padding: 5px;
+}
+.gameHeader {
+  display: inline-block;
+  margin: 10px;
+  padding: 5px;
+}
+.gameControls button {
+  width: 150px;
+  height: 50px;
+  font-family: sans-serif;
+  font-size: 14px;
+  background-color: lightblue;
+}
+.player {
+  border: 1px solid blue;
+}
 .gameboard{
-
+  position: relative;
+  top: 10px;
+  padding: 5px;
+  width: 65%;
+  margin: 0 auto;
 }
 /* style row1 */
-.row1 {
-
+.row {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
 }
-/* style row2 */
-.row2 {
-
-}
-/* style row3 */
-.row3 {
-
+.middleRow {
+  border-color: black;
+  border-style: solid;
+  border-left: 2px;
+  border-right: 2px;
 }
 /* style col1 */
-.col1 {
-
-}
-/* style col2 */
-.col2 {
-
-}
-/* stle col3 */
-.col3 {
-
+.col {
+  border-color: black;
+  border-style: solid;
+  border-top: 2px;
+  border-bottom: 2px;
 }
 /* style diag2 */
-.diag1 {
-
-}
+.diag1 {}
 /* style diag2 */
-.diag2 {
-
-}
-.gameControls {
-
-}
-.player1 {
-
-}
-.player2 {
-
-}
+.diag2 {}
 /* for the loser */
 .lose {
-
+  border: 1px dashed red;
 }
 /* for the winner */
 .win {
-
+  border: 5px solid green;
+}
+.score{
+  font-weight: 800;
 }
