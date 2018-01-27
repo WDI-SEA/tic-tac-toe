@@ -1,15 +1,24 @@
-.gameboard{
+.container{
 	width: 80%;
 	margin:auto;
 	text-align: center;
-	background: green;
+}
+.ui{
+	margin: 0 0 5% 0;
 }
 .square{
 	display: inline-block;
+	background-size: cover;
+	background-attachment: fixed;
 	height: 100px;
 	width: 100px;
 	background: blue;
 }
 .row{
 	margin: 5px 0 5px 0;
+}
+.sideArea{
+	background: black;
+	display: inline-block;
+	widows: 25%;
 }
