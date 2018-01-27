@@ -1,3 +1,130 @@
+html,body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Varela Round', sans-serif;
+  color: #4B9CD3;
+}
+
+body {
+  background-color: #E1E1E1;
+  width: 50%;
+  margin: 0 auto;
+}
+
+div {
+
+}
+
 h1 {
-  color: purple;
+  text-align: center;
+  font-size: 40px;
+}
+
+h3 {
+  /* width: 200px; */
+  text-decoration: underline;
+}
+
+.name {
+
+}
+
+.gameboard {
+  height: 400px;
+  width: 400px;
+  position: relative;
+  margin: 0 auto;
+  z-index: 1;
+  text-align: center;
+  font-family: 'Indie Flower', cursive;
+}
+
+.square {
+  display: inline-block;
+  margin: 3px;
+  width: 120px;
+  height: 120px;
+  background-color: #4B9CD3;
+  z-index: 10;
+}
+
+.square-clicked {
+  display: inline-block;
+  margin: 3px;
+  width: 118px;
+  height: 118px;
+  background-color: #E1E1E1;
+  border: 1px #4B9CD3 ridge;
+  z-index: 10;
+}
+
+.row1 {
+
+}
+
+.row2 {
+
+}
+
+.row3 {
+
+}
+
+.col1 {
+
+}
+
+.col2 {
+
+}
+
+.col3 {
+
+}
+
+.diag1 {
+
+}
+
+.diag2 {
+
+}
+
+.reset {
+  text-align: center;
+}
+
+button {
+  font-family: 'Varela Round', sans-serif;
+  color: #E1E1E1;
+  background-color: #4B9CD3;
+  width: 200px;
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+.panel {
+  height: 50px;
+  width: 400px;
+  margin: 0 auto;
+  z-index: 10;
+  text-align: center;
+}
+
+.scores {
+  text-align: center;
+}
+
+.bottom {
+  display: inline-block;
+  width: 120px;
+  text-align: center;
+}
+
+.recordX{
+
+}
+
+.recordY {
+
 }
