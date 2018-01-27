@@ -22,3 +22,6 @@
 	display: inline-block;
 	widows: 25%;
 }
+.winner{
+	border: 2px solid red;
+}
