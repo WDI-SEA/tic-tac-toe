@@ -1,12 +1,12 @@
-/* head,body {
+head,body {
 }
 body {
+  min-width: 700px;
+  margin: 0 auto;
 }
-div {s
-  border: 1px solid #000;
-} */
 h1 {
   color: purple;
+  margin-left: 50px;
 }
 .game {
   text-align: center;
@@ -28,12 +28,16 @@ h1 {
 }
 .player {
   border: 1px solid blue;
+  width: 200px;
+}
+.player img{
+  width: 200px;
 }
 .gameboard{
   position: relative;
   top: 10px;
   padding: 5px;
-  width: 65%;
+  max-width: 350px;
   margin: 0 auto;
 }
 /* style row1 */
@@ -41,6 +45,10 @@ h1 {
   display: inline-block;
   margin: 0;
   padding: 0;
+}
+.row img {
+  width: 100px;
+  height: 100px;
 }
 .middleRow {
   border-color: black;
