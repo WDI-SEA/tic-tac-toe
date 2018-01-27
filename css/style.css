@@ -1,3 +1,112 @@
-h1 {
-  color: purple;
+html, body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Jura', sans-serif;
 }
+
+h1 {
+  color: black;
+  text-align:center;
+  margin: 15px 0 30px 0;
+}
+
+img {
+	height: 100px;
+	width: 100px;
+}
+
+p {
+	margin-top: 25px;
+}
+
+button {
+	padding: 15px 60px;
+	border-radius: 30px;
+	background-color: black;
+	color: white;
+	text-transform: uppercase;
+	font-family: 'Jura', sans-serif;
+	letter-spacing: 1px;
+	margin: 10px;
+}
+
+button:hover {
+	background-color: white;
+	color: black;
+	border: 3px solid black;
+	padding: 12px 57px;
+}
+
+#gameboard {
+	height: 500px;
+	width: 350px;
+	margin: 0 auto;
+	text-align: center;
+	position: relative;
+}
+
+#player {
+	color: lightgreen;
+}
+
+.unit {
+	display: inline-block;
+	padding: 5px;
+	margin: 0 -2px;
+	border-radius: 10px;
+	z-index: 2;
+	box-shadow: 0px 0px 40px 5px #0ff;
+}
+
+#topL {
+	border-right: 3px solid black;
+	border-bottom: 3px solid black;
+}
+
+#topM {
+	border-bottom: 3px solid black;
+	border-right: 3px solid black;
+	border-left: 3px solid black;
+}
+
+#topR {
+	border-left: 3px solid black;
+	border-bottom: 3px solid black;
+}
+
+#midL {
+	border-bottom: 3px solid black;
+	border-right: 3px solid black;
+	border-top: 3px solid black;
+}
+
+#midM {
+	border: 3px solid black;
+}
+
+#midR {
+	border-bottom: 3px solid black;
+	border-top: 3px solid black;
+	border-left: 3px solid black;
+}
+
+#botL {
+	margin-left: 2px;
+	border-top: 3px solid black;
+	border-right: 3px solid black;
+}
+
+#botM {
+	border-top: 3px solid black;
+	border-right: 3px solid black;
+	border-left: 3px solid black;
+}
+
+#botR {
+	border-top: 3px solid black;
+	border-left: 3px solid black;
+}
+
+
+
+
