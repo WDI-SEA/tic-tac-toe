@@ -1,3 +1,64 @@
+head,body {
+
+}
+body {
+
+}
+div {
+  border: 5px solid #000;
+}
 h1 {
   color: purple;
+}
+.gameboard{
+
+}
+/* style row1 */
+.row1 {
+
+}
+/* style row2 */
+.row2 {
+
+}
+/* style row3 */
+.row3 {
+
+}
+/* style col1 */
+.col1 {
+
+}
+/* style col2 */
+.col2 {
+
+}
+/* stle col3 */
+.col3 {
+
+}
+/* style diag2 */
+.diag1 {
+
+}
+/* style diag2 */
+.diag2 {
+
+}
+.gameControls {
+
+}
+.player1 {
+
+}
+.player2 {
+
+}
+/* for the loser */
+.lose {
+
+}
+/* for the winner */
+.win {
+
 }
