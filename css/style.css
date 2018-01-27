@@ -27,13 +27,18 @@ h1 {
   background-color: lightblue;
 }
 .player {
-  border: 1px solid blue;
+  border: 1px solid;
+  padding: 5px;
   width: 200px;
 }
-.player img{
+.player img {
   width: 200px;
 }
-.gameboard{
+.currentPlayer {
+  border: 5px solid green;
+  padding: 0;
+}
+.gameboard {
   position: relative;
   top: 10px;
   padding: 5px;
@@ -63,11 +68,6 @@ h1 {
   border-top: 2px;
   border-bottom: 2px;
 }
-/* style diag2 */
-.diag1 {}
-/* style diag2 */
-.diag2 {}
-/* for the loser */
 .lose {
   border: 1px dashed red;
 }
@@ -75,6 +75,6 @@ h1 {
 .win {
   border: 5px solid green;
 }
-.score{
+.score {
   font-weight: 800;
 }

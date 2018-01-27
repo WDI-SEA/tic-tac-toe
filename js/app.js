@@ -1,16 +1,21 @@
 console.log('Hello frontend');
+// object that holds playerO
 var playerO = {
   id: "playerO",
+  currentPlayer: false,
   score: 0,
   src: "./img/o-image.png",
   plays: []
 };
+// object that holds playerX
 var playerX = {
   id: "playerX",
+  currentPlayer: false,
   score: 0,
   src: "./img/x-image.png",
   plays: []
 };
+// object that holds gameBoard
 var gameBoard = {
   src: "./img/frame.png",
   moveCount: 0,
@@ -27,54 +32,98 @@ var gameBoard = {
 };
 var gameCount = 0;
 var gameOver = false;
-var currentPlayer = "playerX";
 
+//reset the game
 var newGame = function(){
   console.log("newGame called");
-  
-
+  playerO.plays = [];
+  playerX.plays = [];
+  gameBoard.moveCount = 0;
+  gameCount++;
+  var displayCount = document.getElementById("gameCount").textContent = gameCount;
+  loadGamePieces();
 };
 
+//check the game to see if someone won
 var checkGame = function(){
-  //check the game to see if someone won
   console.log("check game called");
+
 
 }
 
+var currentPlayer = function(){
+  if (playerO.currentPlayer === true){
+    var notInPlay = document.getElementById("playerO");
+    notInPlay.classList.remove("currentPlayer");
+    var inPlay = document.getElementById("playerX");
+    inPlay.classList.add("currentPlayer");
+  } else {
+    var notInPlay = document.getElementById("playerX");
+    notInPlay.classList.remove("currentPlayer");
+    var inPlay = document.getElementById("playerO");
+    inPlay.classList.add("currentPlayer");
+  }
+}
+
+//increase move count, adjust current player, set new image src
 var flipImage = function(){
-  //increase move count, adjust current player, set new image src
   gameBoard.moveCount++;
-  if (currentPlayer === "playerO"){
+  if (playerO.currentPlayer){
     this.src = playerO.src;
-    currentPlayer = "playerX";
+    playerO.plays.push(this.id);
+    console.log("player0");
+    console.log(playerO.plays);
+    playerO.currentPlayer = false;
+    playerX.currentPlayer = true;
+
   } else {
     this.src = playerX.src;
-    currentPlayer = "playerO";
+    playerX.plays.push(this.id);
+    console.log("playerX");
+    console.log(playerX.plays);
+    playerX.currentPlayer = false;
+    playerO.currentPlayer = true;
   }
   //check the game to see if someone won
   if (gameBoard.moveCount > 9){
     newGame();
-  } else if (gameBoard.moveCount > 2){
+  } else if (gameBoard.moveCount > 4){
     checkGame();
   }
+  currentPlayer();
 }
 
 // create and load game pieces
 var loadGamePieces = function(){
-  // create and load game pices
   var gamePieces = document.getElementsByClassName("row");
-  for (var i = 0; i < gamePieces.length; i++){
-    var gamePiece = document.createElement("img");
-    gamePiece.src = gameBoard.src;
-    gamePiece.id = "gamePiece"+(i+1);
-    gamePiece.addEventListener("click", flipImage);
-    gamePieces[i].appendChild(gamePiece);
+  // if game player game pieces are loaded change the face
+  // console.log(gamePieces[0].children);
+  if (gamePieces[0].children.length <= 0){
+      // make game pieces
+      for (var i = 0; i < gamePieces.length; i++){
+        var gamePiece = document.createElement("img");
+        gamePiece.setAttribute("src", gameBoard.src);
+        gamePiece.setAttribute("id", i+1);
+        gamePiece.setAttribute("data-id", "gamePiece"+(i+1));
+        gamePiece.addEventListener("click", flipImage);
+        gamePieces[i].appendChild(gamePiece);
+      }
+    } else {
+      //update existing img tag
+      for (var i = 0; i < gamePieces.length; i++){
+        var gamePiece = document.getElementById((i+1));
+        gamePiece.setAttribute("src", gameBoard.src);
+      }
+      // console.log(gamePieces[0].children);
+    }
   }
-  gameBoard.moveCount = 0;
-}
 
+// begin the game
 var initGame = function(){
   loadGamePieces();
+  currentPlayer();
+  playerX.currentPlayer = true;
+  gameCount = 0;
 
 }
 
