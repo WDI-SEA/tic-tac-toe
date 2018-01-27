@@ -11,29 +11,30 @@
     <h1>Tic Tac Toe</h1>
 
 		<div class="ui">
-      <input type="radio" name="gameType" value="AI">AI</input>
-      <input type="radio" name="gameType" value="human">Player</input>
+      <input type="radio" name="gameType" value="easy">Easy</input>
+      <input type="radio" name="gameType" value="hard">Hard</input>
+      <input type="radio" name="gameType" value="human">Human</input>
       <button type="button" id="resetButton">Reset Game</button>
       <p id="turn">Please Select an Opponent!</p>
 		</div>
 
 		<div class="gameboard">
-			<div class="row" id="toprow">
-				<div class="square top left diag1" id="top-left"></div>
-				<div class="square top center" id="top-center"></div>
-				<div class="square top right diag2" id="top-right"></div>
+			<div class="row">
+				<div class="square top left diag1"></div>
+				<div class="square top center"></div>
+				<div class="square top right diag2"></div>
 			</div>
 
-			<div class="row" id="midrow">
-				<div class="square mid left" id="mid-left"></div>
-				<div class="square mid center diag1 diag2" id="mid-center"></div>
-				<div class="square mid right" id="mid-right"></div>
+			<div class="row">
+				<div class="square mid left"></div>
+				<div class="square mid center diag1 diag2"></div>
+				<div class="square mid right"></div>
 			</div>
 
-			<div class="row" id="botrow">
-				<div class="square bot left diag2" id="bot-left"></div>
-				<div class="square bot center" id="bot-mid"></div>
-				<div class="square bot right diag1" id="bot-right"></div>
+			<div class="row">
+				<div class="square bot left diag2"></div>
+				<div class="square bot center"></div>
+				<div class="square bot right diag1"></div>
 			</div>
 		</div>
 
