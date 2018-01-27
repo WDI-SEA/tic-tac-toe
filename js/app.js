@@ -1,7 +1,3 @@
-console.log('TIC TAC TOE IS WORKING');
-
-
-
 // set event listener for click
 // on click change class = color
 // on click change text content = x or o
@@ -13,6 +9,9 @@ console.log('TIC TAC TOE IS WORKING');
 
 // if all squares clicked = 9 no wins, display nobody wins
 
+var move =
 
-sq 1 === sq 2 === sq 3 = wins
-sq 1 === sq 5 === sq 9 = wins
+document.getElementsByClass("box").addEventListener("click", function() {
+
+  box.style.background-color: white;
+}
