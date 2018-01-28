@@ -1,9 +1,15 @@
-//initial turn, "click counter" will be updated as clicks occur
+console.log("javascript running");
+
+//grab elements I need from DOM
+
+var box = document.querySelectorAll('.box');
+
+//turn counter
 var turn = 0
 
-//method for updating var = turn as clicks occur
+//function to change color of clicked box
+var boxClick = fuction() {
+  this.style.backgroundColor = #ffffff;
+});
 
-var afterClick = function()
-
-//click on any box, change style to "x"
-  document.getElementsByClass("box").addEventListener("click")
+console.log('clicked');
