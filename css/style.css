@@ -1,10 +1,40 @@
+html,body {
+  margin:0;
+  padding:0;
+}
+
 h1 {
   color: purple;
 }
 
 .gameBoard {
-  background-color: lightyellow;
+  background-color: blue;
+  height: 600px;
+  width: 75%;
+  position: relative;
+  top: 100px;
   margin: 0 auto;
+  padding: 0.5%;
+  cursor: pointer;
+  transform: rotate(-90deg) scale(0.1);
+  transform-origin: top left;
+  transition: all 1s ease-in-out;
+}
+
+#gameBoardClicked {
+  cursor: default;
+  box-shadow: 0 0 10px 2px #474726;
+  transform: rotate(0deg) scale(1);
+}
+
+.topRow .square, .midRow .square, .bottomRow .square{
+}
+
+.topRow, .midRow, .bottomRow {
+  height: 28%;
+  margin: 1%;
+  padding: 1%;
+  position: relative;
 }
 
 .topRow {
@@ -19,8 +49,264 @@ h1 {
   background-color: teal;
 }
 
-.square {
-  background-color: red;
+.square, .square p {
   display: inline-block;
-  margin: 1%;
 }
+
+.square {
+  width: 25%;
+  margin: 1%;
+  text-align: center;
+  position: relative;
+  top: -3%;
+  left: 8%;
+  background-color: #dd7;
+  height: 99%;
+  border-radius: 13%;
+  cursor: pointer;
+  transition: font-size .5s, background .5s, box-shadow .5s, transform .5s;
+}
+
+.square p {
+  font-size: 120px;
+  position: absolute;
+  top: -65%;
+  font-family: sans-serif;
+}
+
+[data-id="one"]:hover, [data-id="two"]:hover, [data-id="three"]:hover, [data-id="four"]:hover, [data-id="five"]:hover, [data-id="six"]:hover, [data-id="seven"]:hover, [data-id="eight"]:hover, [data-id="nine"]:hover {
+  font-size: 18px;
+  background: radial-gradient(circle, #FFFF9A 8%, #F5F583 65%);
+  cursor: pointer;
+}
+
+[data-id="one"]:hover {
+  box-shadow: 6px 6px 6px #333;
+  transform: translate(-10px, -10px) scale(1.05);
+}
+
+[data-id="two"]:hover {
+  box-shadow: 0 6px 6px #333;
+  transform: translate(0px, -10px) scale(1.05);
+}
+
+[data-id="three"]:hover {
+  box-shadow: -6px 6px 6px #333;
+  transform: translate(10px, -10px) scale(1.05);
+}
+
+[data-id="four"]:hover {
+  box-shadow: 6px 0px 6px #333;
+  transform: translate(-10px, 0px) scale(1.05);
+}
+
+[data-id="five"]:hover {
+  box-shadow: 0px 0px 7px 3px #333;
+  transform: translate(0px, 0px) scale(1.05);
+}
+
+[data-id="six"]:hover {
+  box-shadow: -6px 0px 6px #333;
+  transform: translate(10px, 0px) scale(1.05);
+}
+
+[data-id="seven"]:hover {
+  box-shadow: 6px -6px 6px #333;
+  transform: translate(-10px, 10px) scale(1.05);
+}
+
+[data-id="eight"]:hover {
+  box-shadow: 0 -6px 6px #333;
+  transform: translate(0px, 10px) scale(1.05);
+}
+
+[data-id="nine"]:hover {
+  box-shadow: -6px -6px 6px #333;
+  transform: translate(10px, 10px) scale(1.05);
+}
+
+#one, #two, #three, #four, #five, #six, #seven, #eight, #nine {
+  background-color: #A3A358;
+}
+
+#one {
+  box-shadow: -6px -6px 6px #3D3D21 inset;
+  transform: scale(.95) translate(5px, 5px);
+}
+
+#two {
+  box-shadow: 0px -6px 6px #3D3D21 inset;
+  transform: scale(.95) translate(5px, 5px);
+}
+
+#three {
+  box-shadow: 6px -6px 6px #3D3D21 inset;
+  transform: scale(.95) translate(5px, 5px); 
+}
+
+#four {
+  box-shadow: -6px 0px 6px #3D3D21 inset;
+  transform: scale(.95) translate(5px, 5px); 
+}
+
+#five {
+  box-shadow: 0px 0px 6px 5px #3D3D21 inset;
+  transform: scale(.95) translate(5px, 5px); 
+}
+
+#six {
+  box-shadow: 6px 0px 6px #3D3D21 inset;
+  transform: scale(.95) translate(5px, 5px); 
+}
+
+#seven {
+  box-shadow: -6px 6px 6px #3D3D21 inset;
+  transform: scale(.95) translate(5px, 5px); 
+}
+
+#eight {
+  box-shadow: 0px 6px 6px #3D3D21 inset;
+  transform: scale(.95) translate(5px, 5px); 
+}
+
+#nine {
+  box-shadow: 6px 6px 6px #3D3D21 inset;
+  transform: scale(.95) translate(5px, 5px); 
+}
+
+
+/*TEST CODE*/
+.testDiv1 {
+  height: 200px;
+  width: 200px;
+  background-color: #dd7;
+  border-radius: 15px;
+  position: relative;
+  left: 100px;
+  text-align: center;
+  cursor: pointer;
+  transition: all .5s;
+}
+
+.testDiv1:hover {
+  box-shadow: 6px 6px 6px #333;
+  transform: translate(-10px, -10px) scale(1.05);
+  font-size: 18px;
+  background: radial-gradient(circle, #FFFF90 8%, #EBEB7E 65%); 
+}
+
+.testDiv2 {
+  height: 200px;
+  width: 200px;
+  background-color: #dd7;
+  border-radius: 15px;
+  position: relative;
+  left: 100px;
+  top: 50px;
+  cursor: pointer;
+  text-align: center;
+  transition: all .5s;
+  transform: perspective(1) scaleZ(1) rotateY(0deg);;
+}
+
+.testDiv2:hover {
+  box-shadow: -6px -6px 6px #474726 inset;
+  transform: scale(.95) translate(5px, 5px);
+  vertical-align: bottom;
+  font-size: 15px;
+  background-color: #C4C46A;
+}
+
+.testDiv3 {
+  height: 200px;
+  width: 200px;
+  background: #dd7;
+  border-radius: 15px;
+  position: relative;
+  left: 100px;
+  top: 100px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 1.25s ease-in;
+}
+
+.testDiv3:hover {
+  animation: flip 2.5s 1;
+ /* box-shadow: 0 0 8px 4px #333;
+  transform: scale(1.05) rotate(360deg);
+  font-size: 18px;
+  background: radial-gradient(circle, #FFFF90 8%, #EBEB7E 65%); */
+}
+
+.testDivHolder {
+  height: 500px;
+  width: 500px;
+  background: #dd7;
+  border-radius: 15px;
+  position: relative;
+  left: 500px;
+  top: -400px;
+  cursor: pointer;
+  text-align: center;
+  transform: rotate(-90deg) scale(0.1);
+  transform-origin: top left;
+  transition: all .7s ease-in-out;
+}
+
+.testDivHolder:hover {
+  box-shadow: 0 0 10px 2px #474726;
+  transform: rotate(0deg) scale(1);
+}
+
+.inDivHolder {
+  height: 20%;
+  width: 20%;
+  background: #bcd;
+  border-radius: 15px;
+  position: absolute;
+  cursor: pointer;
+  text-align: center;
+  transition: all .7s ease-in;
+}
+
+.firstInHolder {
+  top: 10%;
+  left: 10%;
+}
+
+.secondInHolder {
+  top: 40%;
+  left: 40%;
+}
+
+.thirdInHolder {
+  top: 70%;
+  left: 70%;
+}
+
+@keyframes flip {
+  53% {box-shadow: 0 0 8px 4px #333;}
+  53% {transform: scale(1.15) rotate(360deg);}
+  53% {font-size: 18px;}
+  53% {background: radial-gradient(circle, #FFFF90 8%, #EBEB7E 65%);}
+  65% {box-shadow: 0 0 8px 4px #333;}
+  65% {transform: scale(1.15) rotate(360deg);}
+  65% {font-size: 18px;}
+  65% {background: radial-gradient(circle, #FFFF90 8%, #EBEB7E 65%);}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
