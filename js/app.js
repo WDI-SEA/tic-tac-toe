@@ -19,18 +19,20 @@ var resBut = document.getElementById("reset");
 var turnCount = 0;
 var occupiedGreen = [];
 var occupiedRed = [];
+var classWinNames = ["row1", "row2", "row3",
+					"col1", "col2", "col3",
+					"diag1", "diag2"];
 
 //for all the images/squares
 var imgs = document.querySelectorAll(".image");
 
 //this function is the move functionality, it swaps
-//the image of the game board and alters the turnRecord
+//the image n background of the game board and alters the
 //span to show the player up. also adds to the turn count
 //which ultimately determines who's up w the main if/else
 var swapImage = function() {
 	if (turnCount%2 === 1) {
-		this.setAttribute('src', './img/tiefighter.png');
-		this.parentElement.style.backgroundColor="red";
+		this.className = "red";
 		this.removeEventListener('click', swapImage);
 		turnRecord.style.color="lightgreen";
 		turnRecord.innerText ="Rebellion's";
@@ -38,8 +40,7 @@ var swapImage = function() {
 		//this.parentElement.style.boxShadowColor="lightgreen";
 		turnCount++;
 	} else {
-		this.setAttribute('src', './img/xwing.png');
-		this.parentElement.style.backgroundColor="lightgreen";
+		this.className = "green";
 		this.removeEventListener('click', swapImage);
 		turnRecord.style.color="red";
 		turnRecord.innerText ="Sith's";
@@ -55,42 +56,39 @@ for (var i = 0; i < imgs.length; i++) {
 
 //use this function as a parameter to a switch
 //statement going thru various classNames
-var scoreTrackGreen = 0;
-var scoreTrackRed = 0;
-var checkIfWin = function(className) {
-	for (var i=0; i < occupiedGreen.length; i++) {
-		if (occupiedGreen[i].className === className) {
-			scoreTrackGreen++;
-		}
-	} 
-	for (var i=0; i < occupiedRed.length; i++) {
-		if (occupiedRed[i].className === className) {
-			scoreTrackRed++;
-			console.log("sith wins");
-		}
-	}
-	if (scoreTrackGreen >= 3) {
-		console.log("rebels win");
-	} else if (scoreTrackRed >= 3) {
-		console.log("sith wins");
-	}
+var results = {
+	scoreTrackGreen: 0,
+	scoreTrackRed: 0
 }
 
+//HECK 
+//these iterators collect whether or not the green/red blocks (parent) classes
+//contain any of the winning class names. how to determine if 3 match??
+occupiedGreen.forEach(function(item) {
+	for (var i = 0; i < classWinNames.length; i++) {
+		if (item.parentElement.classList.contains(classWinNames[i]) && item.classList.contains("green")===true) {
+			results["scoreTrackGreen"]++;
+			console.log('did it');
+			break;
+		}
+	}
+});
 
-//switch statement for all the winning cases when 
-//turnCount is over 5 
-if (turnCount >= 5) {
-	checkIfWin(row1);
-	checkIfWin(row2);
-} 
-
+occupiedRed.forEach(function(item) {
+	for (var i = 0; i < classWinNames.length; i++) {
+		if (item.parentElement.classList.contains(classWinNames[i])===true) {
+			results["scoreTrackRed"]++;
+			console.log('did it');
+			break;
+		}
+	}
+});
 
 //reset sets board back to stars, span of player name back to initial, 
 //adds action listeners to pieces again, and resets the turn count
 reset.onclick = function () {
 	for (var i=0; i < imgs.length; i++) {
-		imgs[i].setAttribute('src', './img/stars.png');
-		document.getElementsByClassName('unit')[i].style.backgroundColor = "transparent";
+		imgs[i].className = "stars";
 		imgs[i].addEventListener("click", swapImage);
 		turnRecord.style.color="lightgreen";
 		turnRecord.innerText ="Rebellion's";

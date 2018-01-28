@@ -13,6 +13,7 @@ h1 {
 img {
 	height: 100px;
 	width: 100px;
+	box-shadow: 0px 0px 40px 5px;
 }
 
 p {
@@ -40,7 +41,7 @@ button:hover {
 #gameboard {
 	height: 500px;
 	width: 350px;
-	margin: 0 auto;
+	margin: auto;
 	text-align: center;
 	position: relative;
 }
@@ -51,12 +52,43 @@ button:hover {
 
 .unit {
 	display: inline-block;
-	padding: 5px;
-	margin: 0 -2px;
 	border-radius: 10px;
-	z-index: 2;
+	height: 100px;
+	width: 100px;
 	box-shadow: 0px 0px 40px 5px #0ff;
+	margin: -2px;
 }
+
+.stars {
+	background-image: url("../img/stars.png");
+	background-size: cover;
+	border-radius: 10px;
+	height: 100px;
+	width: 100px;
+}
+
+.green {
+	background-image: url("../img/xwing.png");
+	background-color: lightgreen;
+	background-size: cover;
+	display: inline-block;
+	border-radius: 10px;
+	height: 100px;
+	width: 100px;
+}
+
+.red {
+	background-image: url("../img/tiefighter.png");
+	background-size: cover;
+	background-color: red;
+	display: inline-block;
+	border-radius: 10px;
+	height: 100px;
+	width: 100px;
+	margin: auto;
+}
+
+
 
 #topL {
 	border-right: 3px solid black;
