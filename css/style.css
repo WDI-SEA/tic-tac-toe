@@ -1,11 +1,63 @@
+@keyframes fadeIn {
+    from {opacity: 0; display: none;}
+		to {opacity: 1; display: ;}
+}
+@@keyframes float {
+	from {}
+	to {}
+}
+body{
+	background: white;
+}
+img{
+	vertical-align: middle;
+}
+p{
+	font-size: 35px;
+}
 .container{
-	width: 80%;
+	position: relative;
+	width: 100%;
 	margin:auto;
 	text-align: center;
 }
+.title{
+	background: white;
+	position: relative;
+}
+.portal{
+	left: 30px;
+	position: relative;
+	transform: rotate(90deg);
+}
+.titleMorty{
+	right: 150px;
+	animation-name: fadeIn;
+	animation-duration: 10s;
+}
 .ui{
+	position: relative;
 	margin: 0 0 5% 0;
 }
+.opponent1{
+	margin: 0 auto;
+	background: green;
+	display: inline-block;
+}
+.opponent2{
+	width: 20%;
+	margin: 0 auto;
+	background: green;
+	display: inline-block;
+}
+.gameboard{
+	width: auto;
+	margin: auto;
+	display: inline-block;
+	background: black;
+}
+
+
 .square{
 	display: inline-block;
 	background-size: cover;
@@ -15,12 +67,7 @@
 	background: blue;
 }
 .row{
-	margin: 5px 0 5px 0;
-}
-.sideArea{
-	background: black;
-	display: inline-block;
-	widows: 25%;
+
 }
 .winner{
 	border: 2px solid red;

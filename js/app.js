@@ -51,7 +51,7 @@ var clearBoard = function (){
 }
 
 var endGame = function(winSym, winObj) {
-  //Collect winning Squares into Array - handles T win 
+  //Collect winning Squares into Array - handles T win
   for(var i in winObj){
     if(winObj[i] === 3){
       for(var j =0;j<allSquares.length;j++){
@@ -65,7 +65,6 @@ var endGame = function(winSym, winObj) {
     dc("Ends In Draw");
   }else{
     //change winning squares
-    dc(winningSquares);
     for(var i in winningSquares){
       winningSquares[i].classList.add("winner");
     }
@@ -112,7 +111,6 @@ var addSquare = function (sym, newClaim){
     appTo.diag2 += 1;
     appTo.diag2 === 3 ? checkEnd = true : "";
   }
-
   if(checkEnd){
     endGame(sym, appTo);
   }

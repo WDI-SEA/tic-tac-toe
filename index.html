@@ -3,21 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Extreme Tic Tac Toe!</title>
+  <title>Extreme Tic Tac Toe</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
 	<div class="container">
-    <h1>Tic Tac Toe</h1>
-
+    <div class="title">
+      <h1>Tic Tac <img class="portal" src="img/portalSmall.png"><img class="titleMorty" src="img/morty.png"></h1>
+    </div>
 		<div class="ui">
-      <input type="radio" name="gameType" value="easy">Easy</input>
-      <input type="radio" name="gameType" value="hard">Hard</input>
-      <input type="radio" name="gameType" value="human">Human</input>
+      <label>
+        <input type="radio" name="gameType" value="easy">
+        <img class="picSelect" src="img/newJerry.gif"></input>
+      </label>
+      <label>
+        <input type="radio" name="gameType" value="hard">
+        <img class="picSelect" src="img/newRick.gif"></input>
+      </label>
+      <label>
+        <input type="radio" name="gameType" value="human">
+        <img src="img/2Player.gif"></input>
+      </label>
       <button type="button" id="resetButton">Reset Game</button>
       <p id="turn">Please Select an Opponent!</p>
 		</div>
 
+    <div class="opponent1">
+      <img src="img/Rick.png">
+    </div>
 		<div class="gameboard">
 			<div class="row">
 				<div class="square top left diag1"></div>
@@ -37,7 +50,7 @@
 				<div class="square bot right diag1"></div>
 			</div>
 		</div>
-
+    <div class="opponent2">F</div>
 	</div>
   <script type="text/javascript" src="js/app.js"></script>
 </body>
