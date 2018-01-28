@@ -11,58 +11,67 @@
 <audio id="fire" src="./audio/TIE-Fire.wav" type="audio/wav"></audio>
 <audio id="fly" src="./audio/TIE-Fly6.wav" type="audio/wav"></audio>
 <div class = 'entirepage'>
-<h1>Star Wars<br>Tic-Tac-Toe</h1>
-<img id="bub" src="./img/speechbub.png">
-<p class ="words">The <span id="player">Rebellion's</span> turn, it is!</p>
-<img id="yoda" src="./img/yoda.png">
-<img class="staticSaber" id="saber" src="./img/lightsaber.png">
-<img class="staticSaber" id="saber2" src="./img/lightsaber.png">
-<p id = 'scoreboardSith'>0</p>
-<p id = 'scoreboardReb'>0</p>
-<div id="gameboard">
+  <h1>Star Wars<br>Tic-Tac-Toe</h1>
   
-  	<div class="unit row1 diag1 col1" id="topL">
-      <div class="image stars"></div>
-    </div>
-  	<div class="unit row1 col2" id="topM">
-      <div class="image stars"></div>
-    </div>
-  	<div class="unit row1 col3 diag2" id="topR">
-      <div class="image stars"></div>
-    </div>
-  
-  	<div class="unit row2 col1" id="midL">
-      <div class="image stars"></div>
-    </div>
-  	<div class="unit diag1 diag2 col2 row2" id="midM">
-      <div class="image stars"></div>
-    </div>
-  	<div class="unit row2 col3" id="midR">
-      <div class="image stars"></div>
-    </div>
+  <div class="left">
+    <img id="bub" src="./img/speechbub.png">
+    
+    <p class ="words">The <span id="player">Rebellion's</span> turn, it is!</p>
+    
+    <img id="yoda" src="./img/yoda.png">
+  </div>
 
-  	<div class="unit row3 col1 diag2" id="botL">
-      <div class="image stars"></div>
-    </div>
-  	<div class="unit  row3 col2" id="botM">
-      <div class="image stars"></div>
-    </div>
-  	<div class="unit row3 col3 diag1" id="botR">
-      <div class="image stars"></div>
-    </div>
+  <div class="right">
+    <img class="staticSaber" id="saber" src="./img/lightsaber.png">
+    <img class="staticSaber" id="saber2" src="./img/lightsaber.png">
+    <p id = 'scoreboardSith'>0</p>
+    <p id = 'scoreboardReb'>0</p>
+  </div>
 
-  <br>
-  <div id="buttonDiv">
-  <button type="button" id="reset">reset game</button>
-</div>
-</div>
+
+  <div id="gameboard">
+    
+    	<div class="unit row1 diag1 col1" id="topL">
+        <div class="image stars 0"></div>
+      </div>
+    	<div class="unit row1 col2" id="topM">
+        <div class="image stars 1 "></div>
+      </div>
+    	<div class="unit row1 col3 diag2" id="topR">
+        <div class="image stars 2"></div>
+      </div>
+    
+    	<div class="unit row2 col1" id="midL">
+        <div class="image stars 3"></div>
+      </div>
+    	<div class="unit diag1 diag2 col2 row2" id="midM">
+        <div class="image stars 4"></div>
+      </div>
+    	<div class="unit row2 col3" id="midR">
+        <div class="image stars 5"></div>
+      </div>
+
+    	<div class="unit row3 col1 diag2" id="botL">
+        <div class="image stars 6"></div>
+      </div>
+    	<div class="unit  row3 col2" id="botM">
+        <div class="image stars 7"></div>
+      </div>
+    	<div class="unit row3 col3 diag1" id="botR">
+        <div class="image stars 8"></div>
+      </div>
+
+    <br>
+   
+    <div id="buttonDiv">
+    <button type="button" id="reset">reset game</button>
+   </div>
+  </div>
+
   <img id="ship1" class="invisShip" src="./img/tiefighter2.png">
   <img id="ship2" class="invisShip" src="./img/xwing2.png">
 </div>
-<footer>
-  <p>Made by Emily Garrett 2017</p>
-</footer>
-
+  <p class="madeBy">Made by Emily Garrett 2017</p>
   <script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>

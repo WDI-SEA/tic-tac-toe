@@ -74,14 +74,14 @@ var checkIfWin = function() {
 	
 	while (turnCount >= 4) {
 		if (
-	      gameBoard[0].firstElementChild.className == gameBoard[1].firstElementChild.className && gameBoard[1].firstElementChild.className == gameBoard[2].firstElementChild.className  ||
-	      gameBoard[3].firstElementChild.className == gameBoard[4].firstElementChild.className && gameBoard[4].firstElementChild.className == gameBoard[5].firstElementChild.className  ||
-	      gameBoard[6].firstElementChild.className == gameBoard[7].firstElementChild.className && gameBoard[7].firstElementChild.className == gameBoard[8].firstElementChild.className  ||
-	      gameBoard[0].firstElementChild.className == gameBoard[3].firstElementChild.className && gameBoard[3].firstElementChild.className == gameBoard[6].firstElementChild.className  ||
-	      gameBoard[1].firstElementChild.className == gameBoard[4].firstElementChild.className && gameBoard[4].firstElementChild.className == gameBoard[7].firstElementChild.className  ||
-	      gameBoard[2].firstElementChild.className == gameBoard[5].firstElementChild.className && gameBoard[5].firstElementChild.className == gameBoard[8].firstElementChild.className ||
-	      gameBoard[0].firstElementChild.className == gameBoard[4].firstElementChild.className && gameBoard[4].firstElementChild.className == gameBoard[8].firstElementChild.className  ||
-	      gameBoard[2].firstElementChild.className == gameBoard[4].firstElementChild.className && gameBoard[4].firstElementChild.className == gameBoard[6].firstElementChild.className 
+	      gameBoard[0].firstElementChild.className === gameBoard[1].firstElementChild.className && gameBoard[1].firstElementChild.className === gameBoard[2].firstElementChild.className  ||
+	      gameBoard[3].firstElementChild.className === gameBoard[4].firstElementChild.className && gameBoard[4].firstElementChild.className === gameBoard[5].firstElementChild.className  ||
+	      gameBoard[6].firstElementChild.className === gameBoard[7].firstElementChild.className && gameBoard[7].firstElementChild.className === gameBoard[8].firstElementChild.className  ||
+	      gameBoard[0].firstElementChild.className === gameBoard[3].firstElementChild.className && gameBoard[3].firstElementChild.className === gameBoard[6].firstElementChild.className  ||
+	      gameBoard[1].firstElementChild.className === gameBoard[4].firstElementChild.className && gameBoard[4].firstElementChild.className === gameBoard[7].firstElementChild.className  ||
+	      gameBoard[2].firstElementChild.className === gameBoard[5].firstElementChild.className && gameBoard[5].firstElementChild.className === gameBoard[8].firstElementChild.className ||
+	      gameBoard[0].firstElementChild.className === gameBoard[4].firstElementChild.className && gameBoard[4].firstElementChild.className === gameBoard[8].firstElementChild.className  ||
+	      gameBoard[2].firstElementChild.className === gameBoard[4].firstElementChild.className && gameBoard[4].firstElementChild.className === gameBoard[6].firstElementChild.className 
 	    ) {
 	      console.log("we have a winner!");
 	       if (turnRecord.style.color === "lightgreen") {
