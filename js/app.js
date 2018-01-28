@@ -1,27 +1,13 @@
-// //variable declaration
-// var topLeft = document.getElementById("topL");
-// var topMid = document.getElementById("topM");
-// var topRi = document.getElementById("topR");
-// var midLeft = document.getElementById("midL");
-// var midMid = document.getElementById("midM");
-// var midRi = document.getElementById("midR");
-// var botLeft = document.getElementById("botL");
-// var botMid = document.getElementById("botM");
-// var botRi = document.getElementById("botR");
-
 // keeps track of which player is up
 var turnRecord = document.getElementById("player");
 
 //reset button
 var resBut = document.getElementById("reset");
 
-//variable initialization for counters and arrays
+var gameBoard = document.querySelectorAll("#gameboard > .unit");
+
+//variable initialization for counters
 var turnCount = 0;
-var occupiedGreen = [];
-var occupiedRed = [];
-var classWinNames = ["row1", "row2", "row3",
-					"col1", "col2", "col3",
-					"diag1", "diag2"];
 
 //for all the images/squares
 var imgs = document.querySelectorAll(".image");
@@ -36,7 +22,7 @@ var swapImage = function() {
 		this.removeEventListener('click', swapImage);
 		turnRecord.style.color="lightgreen";
 		turnRecord.innerText ="Rebellion's";
-		occupiedRed.push(this);
+		checkIfWin();
 		//this.parentElement.style.boxShadowColor="lightgreen";
 		turnCount++;
 	} else {
@@ -44,7 +30,7 @@ var swapImage = function() {
 		this.removeEventListener('click', swapImage);
 		turnRecord.style.color="red";
 		turnRecord.innerText ="Sith's";
-		occupiedGreen.push(this);
+		checkIfWin();
 		turnCount++;
 	}
 };
@@ -54,38 +40,41 @@ for (var i = 0; i < imgs.length; i++) {
 	imgs[i].addEventListener("click", swapImage);
 }
 
-//use this function as a parameter to a switch
-//statement going thru various classNames
-var results = {
-	scoreTrackGreen: 0,
-	scoreTrackRed: 0
-}
-
 //HECK 
 //these iterators collect whether or not the green/red blocks (parent) classes
 //contain any of the winning class names. how to determine if 3 match??
-occupiedGreen.forEach(function(item) {
-	for (var i = 0; i < classWinNames.length; i++) {
-		if (item.parentElement.classList.contains(classWinNames[i]) && item.classList.contains("green")===true) {
-			results["scoreTrackGreen"]++;
-			console.log('did it');
-			break;
-		}
-	}
-});
+var checkIfWin = function() {
+	
+	while (turnCount >= 4) {
+		if (
+	      gameBoard[0].firstElementChild.className == gameBoard[1].firstElementChild.className && gameBoard[1].firstElementChild.className == gameBoard[2].firstElementChild.className  ||
+	      gameBoard[3].firstElementChild.className == gameBoard[4].firstElementChild.className && gameBoard[4].firstElementChild.className == gameBoard[5].firstElementChild.className  ||
+	      gameBoard[6].firstElementChild.className == gameBoard[7].firstElementChild.className && gameBoard[7].firstElementChild.className == gameBoard[8]  ||
+	      gameBoard[0].firstElementChild.className == gameBoard[3].firstElementChild.className && gameBoard[3].firstElementChild.className == gameBoard[6].firstElementChild.className  ||
+	      gameBoard[1].firstElementChild.className == gameBoard[4].firstElementChild.className && gameBoard[4].firstElementChild.className == gameBoard[7].firstElementChild.className  ||
+	      gameBoard[2].firstElementChild.className == gameBoard[5].firstElementChild.className && gameBoard[5].firstElementChild.className == gameBoard[8] ||
+	      gameBoard[0].firstElementChild.className == gameBoard[4].firstElementChild.className && gameBoard[4].firstElementChild.className == gameBoard[8]  ||
+	      gameBoard[2].firstElementChild.className == gameBoard[4].firstElementChild.className && gameBoard[4].firstElementChild.className == gameBoard[6].firstElementChild.className 
+	    ) {
+	      console.log("we have a winner!");
+	      document.querySelector('p').innerText = "We have a winner!!!";
 
-occupiedRed.forEach(function(item) {
-	for (var i = 0; i < classWinNames.length; i++) {
-		if (item.parentElement.classList.contains(classWinNames[i])===true) {
-			results["scoreTrackRed"]++;
-			console.log('did it');
-			break;
-		}
+	      for (var i = 0; i < 9; i++) {
+	      	imgs[i].removeEventListener('click', swapImage);
+	      }
+
+	      return true;
+
+	    } else {
+
+	      return false;
+	    }
 	}
-});
+}
 
 //reset sets board back to stars, span of player name back to initial, 
-//adds action listeners to pieces again, and resets the turn count
+//adds action listeners to pieces again, fixes the paragraph and span
+//and resets the turn count
 reset.onclick = function () {
 	for (var i=0; i < imgs.length; i++) {
 		imgs[i].className = "stars";
@@ -93,7 +82,10 @@ reset.onclick = function () {
 		turnRecord.style.color="lightgreen";
 		turnRecord.innerText ="Rebellion's";
 	}
+	document.querySelector('p').innerHTML = "It's the " + "<span id='player'>Rebellion's</span>" + " turn!";
 	turnCount=0;
+	results['scoreTrackGreen'] = 0;
+	results['scoreTrackRed'] = 0;
 }
 
 
