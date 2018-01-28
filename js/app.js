@@ -1,5 +1,4 @@
 var turn = 0;
-
 var players = {
 	player1: {
 		player: "X",
@@ -10,7 +9,6 @@ var players = {
 		positions: []
 	}
 }
-
 var wins = [
 	["topRight", "topMid", "topLeft"], 
 	["right","mid","left"], 
@@ -47,6 +45,20 @@ var checkForWin = function (playerPositions, winArrays) {
 	}
 }
 
+var displayO = function() {
+	var displayO = document.getElementsByClassName("owins");
+	for (var i =0; i < displayO.length; i++){
+		displayO[i].classList.remove("none");
+	}
+}
+var displayX = function() {
+	var displayX = document.getElementsByClassName("xwins");
+	var displayO = document.getElementsByClassName("owins");
+	for (var i =0; i < displayX.length; i++){
+		displayX[i].classList.remove("none");
+	}
+}
+
 var reset = function() {
 	//Empties players positions arrays
 	players.player1.positions.splice(0,players.player1.positions.length);
@@ -59,7 +71,6 @@ var reset = function() {
 	// 	board[i].textContent= '';
 	// }
 }
-
 //"this" is awesome! Function alerts user if they are picking a a square already chosen using
 // using the players objects which holds the positions array
 var choice = function() {
@@ -73,19 +84,24 @@ var choice = function() {
 			this.textContent = players["player1"]["player"];
 			players["player1"]["positions"].push(this.id);		
 			turn++
-			checkForWin(players.player1.positions, wins);
+			var xWins = checkForWin(players.player1.positions, wins);
+			if (xWins){
+ 				displayX();
+ 			}
  		} else {
  			this.textContent = players["player2"]["player"];
 			players["player2"]["positions"].push(this.id);			
  			turn++
- 			checkForWin(players.player2.positions, wins);
+ 			var oWins = checkForWin(players.player2.positions, wins);
+ 			if (oWins){
+ 				displayO();
+ 			}
+ 			
  			//Brant you should love counters (t-shirt idea)! After this else statement 
  			//the variable turn will be at 2 causing the if part to run.
 		}
 	}
 }
-
-
 document.addEventListener("DOMContentLoaded", function() {
 	document.querySelector("#topRight").addEventListener("click", choice);
 	document.querySelector("#topMid").addEventListener("click", choice);
@@ -98,8 +114,4 @@ document.addEventListener("DOMContentLoaded", function() {
 	document.querySelector("#bottomLeft").addEventListener("click", choice);
 
 	document.querySelector(".reset").addEventListener("click", reset);
-
-
-
-
 });

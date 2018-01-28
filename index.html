@@ -7,9 +7,13 @@
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-  <h1>Tic Tac Game</h1>
-	<h4>Directions:</h4>
-	<p>The object of Tic Tac Toe is to get three in a row. You play on a three by three game board. The first player is known as X and the second is O. Players alternate placing Xs and Os on the game board until either oppenant has three in a row or all nine squares are filled.</p>
+ 	<h1>Tic Tac Game</h1>
+  	<div>
+		<h3>Directions</h3>
+		<p class="directions">The object of Tic Tac Toe is to get three in a row. You play on a three by three game board. The first player is known as X and the second is O. Players alternate placing Xs and Os on the game board until either oppenant has three in a row or all nine squares are filled.</p>
+	</div>
+	<span class="xwins none">X Wins!</span>
+	<span class="owins none">O Wins!</span>
 	<div class="board">
 		<div class="row1">
 			<div id="topRight" class="box"></div>
@@ -27,7 +31,9 @@
 			<div id="bottomLeft" class="box"></div>
 		</div>
 	</div>
+	<span class="xwins toleft none">X Wins!</span>
+	<span class="owins toleft none">O Wins!</span>
 	<div class="buttondiv"><button type="button" class="reset">Reset</button></div>
-  <script type="text/javascript" src="js/app.js"></script>
+  	<script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>
