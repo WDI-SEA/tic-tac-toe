@@ -14,6 +14,15 @@ div {
 
 }
 
+.wrapper {
+  position: relative;
+  width: 800px;
+}
+
+.clear {
+
+}
+
 .mark {
   vertical-align: center;
   margin: 0;
