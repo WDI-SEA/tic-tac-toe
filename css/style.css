@@ -1,3 +1,33 @@
-h1 {
-  color: purple;
+body{
+  font-size:0;
+}
+input,button {
+  background: grey;
+  display: block;
+  border-radius: 5px;
+  height: 20px;
+  margin: 0 auto;
+  margin-top:20px;
+}
+.frame {
+/* box-sizing: border-box;   */
+width:606px;
+border:1px solid black;
+margin:0 auto;
+margin-top: 10px;
+}
+.column {
+width:200px;
+height:200px;
+background:green;
+border: 1px solid black; 
+display:inline-block;
+} 
+
+  
+.white {
+  background: white;
+}
+.black {
+  background: black;
 }
