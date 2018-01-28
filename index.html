@@ -8,29 +8,37 @@
 </head>
 <body>
   <h1>Tic-Tac-Toe</h1>
+  	<div id="overall">
+		<div class="block" id="blockLeft">
+			<img src="img/bird.png" alt="bird" id="bird1">
+			<img src="img/triangle.png" alt="tree" id="tree1">
+		</div>
 
-  <div class="gameBoard">
-	  <div class="container">
-	  	<div class="box row1 col1 diag1" id="a1"></div>
-	  	<div class="box row1 col2" id="a2"></div>
-	  	<div class="box row1 col3 diag2" id="a3"></div>
-	  </div>
-	  <div class="container">
-	  	<div class="box row2 col1" id="b1"></div>
-	  	<div class="box row2 col2 diag1 diag2" id="b2"></div>
-	  	<div class="box row2 col3" id="b3"></div>  
-	  </div>
-	  <div class="container">
-	  	<div class="box row3 col1 diag1" id="c1"></div>
-	  	<div class="box row3 col2" id="c2"></div>
-	  	<div class="box row3 col3 diag2" id="c3"></div>
-	  </div>
+		<!-- <div class="block" id="blockRight"> -->
+		  <div class="gameBoard" id="gameBoard">
+			  <div class="container">
+			  	<div class="box row1 col1 diag1" id="a1" data-score="null"></div>
+			  	<div class="box row1 col2" id="a2" data-score="null"></div>
+			  	<div class="box row1 col3 diag2" id="a3" data-score="null"></div>
+			  </div>
+			  <div class="container">
+			  	<div class="box row2 col1" id="b1" data-score="null"></div>
+			  	<div class="box row2 col2 diag1 diag2" id="b2" data-score="null"></div>
+			  	<div class="box row2 col3" id="b3" data-score="null"></div>  
+			  </div>
+			  <div class="container">
+			  	<div class="box row3 col1 diag2" id="c1" data-score="null"></div>
+			  	<div class="box row3 col2" id="c2" data-score="null"></div>
+			  	<div class="box row3 col3 diag1" id="c3" data-score="null"></div>
+			  </div>
+		  </div>
+			
+			<div id="button">
+				<button type="button" class="reset" id="resetButton">Reset</button>
+			</div>
+		<!-- </div> -->
+
 	</div>
-
-	<button type="button" class="reset" id="resetButton">Reset</button>
-
-
-
   <script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>

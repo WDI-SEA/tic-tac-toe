@@ -2,44 +2,62 @@ html, body {
 	margin: 0;
 	padding: 0;
 	text-align: center;
-	background-color: white;
+	background-color: #111111;
 }
 
 h1 {
-  color: black;
+  color: white;
+  font-family: Arial;
+  padding: 10px;
+  font-size: 4em;
 }
 
 .gameBoard {
-	width: 28%;
+	width: 38%;
 	height: 26%;
 	margin: 0 auto;
 }
 
 .box {
-	background-color: black;
+	background-color: #111111;
 	width: 30%;
 	height: 100px;
 	display: inline-block;
 	margin: 0 .1% 0 .3%;
 	padding: 1%;
-	background-size: cover;
-
-
-/*	background-attachment: fixed;*/
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	cursor: pointer;
 }
 
 .container {
-	width: 100%;
+	width: auto;
 	margin: 0 auto;
 	/*display: inline-block;*/
 	text-align: center;
 	padding: 10px;
+	border-bottom: white solid 2px;
 }
 
 button {
-	margin: 2% auto;
+  background: grey;
+  border-radius: 28px;
+  font-family: Arial;
+  color: #171417;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
 }
 
+button:hover {
+  background: white;
+
+}
+
+#button {
+	padding: 5%;
+}
 
 
 .resetSquare {
@@ -54,8 +72,58 @@ button {
 	background-image: url("../img/triangle.png");
 }
 
-/*#a1 {
-	border-right-style: solid white 2 px;
-	border-style: solid white zpx;
+#a1 {
+	border-right: white solid 2px;
 }
-*/
+
+#a2 {
+	border-right: white solid 2px;
+}
+
+#b1 {
+	border-right: white solid 2px;
+}
+
+#b2 {
+	border-right: white solid 2px;
+}
+
+#c1 {
+	border-right: white solid 2px;
+}
+
+#c2 {
+	border-right: white solid 2px;
+}
+
+/*.block {
+	display: inline-block;
+}
+
+img {
+	display: block;
+	height: 100px;
+	width: 100px;
+	position: center;
+}*/
+
+#bird1 {
+	width: 80px;
+	height: 80;
+
+}
+
+#tree1 {
+	width: 80px;
+	height: 80px;
+}
+
+#blockLeft {
+	padding: 1% 18% 5% 20%;
+}
+
+.keySelected {
+	background-color: grey;
+}
+
+
