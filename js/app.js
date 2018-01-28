@@ -1,6 +1,6 @@
 console.log('Hello frontend');
 
-var xedBox = {
+var blackBox = {
 	boxtopleft: false,
 	boxtopmiddle: false,
 	boxtopright: false,
@@ -12,7 +12,7 @@ var xedBox = {
 	boxbottomright: false
 };
 
-var oedBox = {
+var redBox = {
 	boxtopleft: false,
 	boxtopmiddle: false,
 	boxtopright: false,
@@ -24,21 +24,51 @@ var oedBox = {
 	boxbottomright: false
 };
 
+var player = 0;
+var boxPosition;
 
-var markBox = function(elementId, color) {
+var markBox = function(elementId, boxClickedRedOrBlack) {
 	var newColor = document.getElementById(elementId)
-	newColor.style.background = color;
+	//newColor.style.background = color;
+	newColor.classList.add(boxClickedRedOrBlack);
+	newColor.classList.remove("box");
 };
 
+var playerChange = function() {
+	player = player + 1;
+};
 
-var checkBox = function() {
-	
-	if (!xedBox[this.id] && !oedBox[this.id]) {
- 		markBox(this.id, "black");
+var playerGo = function() {
+	var newPlayer = document.getElementsByTagName("p")[0];
+	if (player % 2){
+		newPlayer.textContent = "first player go";
+	} else {
+		newPlayer.textContent = "second player go";
 	}
 };
 
+var checkBox = function() {
+	boxPosition = this.id;
+	console.log(boxPosition)
+	
+	if (!blackBox[boxPosition] && !redBox[boxPosition]) {
+ 		playerGo();
+ 		if (player % 2) {
+ 			markBox(boxPosition, "boxClickedRed");
+			blackBox[boxPosition] = true;
+			playerChange();
+ 		} else {
+ 			markBox(boxPosition, "boxClickedBlack");
+			redBox[boxPosition] = true;
+			playerChange();
+ 		}
+		
+	}
+};
 
+var reset = function() {
+
+};
 
 
 
@@ -53,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	document.getElementById("boxbottommiddle").addEventListener('click', checkBox);
 	document.getElementById("boxbottomright").addEventListener('click', checkBox);
 
-	
+	document.getElementsByTagName("button")[0].addEventListener('click', reset);
 
 });
 

@@ -20,6 +20,18 @@ h1 {
 	background: white;
 }
 
-#box-topleft {
-	background: green;
+.boxClickedRed {
+	width: 100px;
+	height: 100px;
+	border: 2px solid black;
+	display: inline-block;
+	background: red;
+}
+
+.boxClickedBlack {
+	width: 100px;
+	height: 100px;
+	border: 2px solid black;
+	display: inline-block;
+	background: black;
 }
