@@ -1,5 +1,7 @@
 console.log('Hello frontend');
 // object that holds playerO
+// https://gomakethings.com/check-if-two-arrays-or-objects-are-equal-with-javascript/
+// https://stackoverflow.com/questions/7837456/how-to-compare-arrays-in-javascript
 var playerO = {
   id: "playerO",
   currentPlayer: false,
@@ -35,7 +37,7 @@ var gameOver = false;
 
 //reset the game
 var newGame = function(){
-  console.log("newGame called");
+  // console.log("newGame called");
   playerO.plays = [];
   playerX.plays = [];
   gameBoard.moveCount = 0;
@@ -47,12 +49,27 @@ var newGame = function(){
 //check the game to see if someone won
 var checkGame = function(){
   console.log("check game called");
+  if (playerO.currentPlayer && playerO.plays.length > 1){
+    // evaluate playerO plays with possibleWins
+    console.log("check playerO");
+    for (play in playerO.plays){
+      console.log(playerO.plays[play]);
 
+    }
+    for (wins in gameBoard.possibleWins){
+      console.log(gameBoard.possibleWins[wins]);
+
+    }
+  } else if (playerX.currentPlayer && playerX.plays.length > 1){
+    // evaluate playerX plays with possibleWins
+    console.log("check playerX");
+
+  }
 
 }
 
 var currentPlayer = function(){
-  if (playerO.currentPlayer === true){
+  if (playerO.currentPlayer){
     var notInPlay = document.getElementById("playerO");
     notInPlay.classList.remove("currentPlayer");
     var inPlay = document.getElementById("playerX");
@@ -70,15 +87,14 @@ var flipImage = function(){
   gameBoard.moveCount++;
   if (playerO.currentPlayer){
     this.src = playerO.src;
-    playerO.plays.push(this.id);
-    console.log("player0");
+    playerO.plays.push(parseInt(this.id));
+    console.log("playerO");
     console.log(playerO.plays);
     playerO.currentPlayer = false;
     playerX.currentPlayer = true;
-
   } else {
     this.src = playerX.src;
-    playerX.plays.push(this.id);
+    playerX.plays.push(parseInt(this.id));
     console.log("playerX");
     console.log(playerX.plays);
     playerX.currentPlayer = false;

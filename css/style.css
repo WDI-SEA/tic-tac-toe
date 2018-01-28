@@ -35,8 +35,7 @@ h1 {
   width: 200px;
 }
 .currentPlayer {
-  border: 5px solid green;
-  padding: 0;
+  background-color: lightgreen;
 }
 .gameboard {
   position: relative;
