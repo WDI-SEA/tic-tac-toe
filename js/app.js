@@ -62,15 +62,18 @@ var endGame = function(winSym, winObj) {
     }
   }
   if(winSym === "draw"){//event of draw
+    uiTurn.textContent = "Game is a Draw! Reset or Pick new opponent."
     dc("Ends In Draw");
   }else{
     //change winning squares
     for(var i in winningSquares){
       winningSquares[i].classList.add("winner");
     }
+    uiTurn.textContent = winSym+" WINS! Reset or Pick new opponent.";
     dc("Winner is: "+winSym);
   }
   for(var i=0;i<allSquares.length;i++){
+
     allSquares[i].removeEventListener("click",squareSelected);
   }
 }
@@ -111,22 +114,30 @@ var addSquare = function (sym, newClaim){
     appTo.diag2 += 1;
     appTo.diag2 === 3 ? checkEnd = true : "";
   }
+  if(sym === "x"){
+    sym = "BLIPSnCHITZ";
+  }  else{
+    sym = "The Citidel";
+  }
   if(checkEnd){
     endGame(sym, appTo);
+  }
+  if(turn >= 9){
+      endGame("draw");
   }
 }
 
 var squareSelected = function (){
   if(opp === "human"){
     if(turn%2 === 1 && !this.classList.contains("taken")){
-      this.style.background = "url('./img/x.png')";
+      this.style.background = "url('./img/blips.png')";
       this.classList.add("taken");
       this.classList.add("x");
       uiTurn.textContent = "Player 2 Pick a square";
       addSquare("x",this);
       turn++;
     }else if(!this.classList.contains("taken")){
-      this.style.background = "url('./img/o.png')";
+      this.style.background = "url('./img/citadel.png')";
       this.classList.add("taken");
       this.classList.add("o");
       uiTurn.textContent = "Player 1 Pick a square";
@@ -135,7 +146,7 @@ var squareSelected = function (){
     }else if(opp === "easy"){
       dc("easy AI selected");
       if(turn%2 === 1 && !this.classList.contains("taken")){
-        this.style.background = "url('./img/x.png')";
+        this.style.background = "url('./img/blips.png')";
         this.classList.add("taken");
         this.classList.add("x");
         uiTurn.textContent = "Player 2 Pick a square";
@@ -146,7 +157,7 @@ var squareSelected = function (){
     }else if(opp === "hard"){
       dc("Hard AI selected");
       if(turn%2 === 1 && !this.classList.contains("taken")){
-        this.style.background = "url('./img/x.png')";
+        this.style.background = "url('./img/blips.png')";
         this.classList.add("taken");
         this.classList.add("x");
         uiTurn.textContent = "Player 2 Pick a square";
@@ -171,7 +182,12 @@ var getPlayType = function (){
     rad[i].removeEventListener("click", getPlayType);
   }
   if(opp === "human"){
+    document.getElementById("opp1Img").src = "img/meseeks.png";
     uiTurn.textContent = "Player 1 Pick a square"
+  }else if(opp === "easy"){
+    document.getElementById("opp1Img").src = "img/jerrOpp.png";
+  }else if(opp === "hard"){
+    document.getElementById("opp1Img").src = "img/rick.png"
   }
 }
 
