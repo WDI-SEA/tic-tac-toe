@@ -9,6 +9,12 @@ var players = {
 		positions: []
 	}
 }
+var playerX = players["player1"]["player"];
+var playerO = players["player2"]["player"];
+var player1Positions = players.player1.positions;
+var player2Positions = players.player2.positions;
+var xturn = document.getElementById("xturn");
+var oturn = document.getElementById("oturn");
 var wins = [
 	["topRight", "topMid", "topLeft"], 
 	["right","mid","left"], 
@@ -44,7 +50,18 @@ var checkForWin = function (playerPositions, winArrays) {
 		}
 	}
 }
-
+var playerTurn = function(player) {
+	if (player === "O") {
+		xturn.classList.remove("none");
+		oturn.classList.add("none");
+	} else if (player === "X") {
+		oturn.classList.remove("none");
+		xturn.classList.add("none");
+	}
+}
+//display functions grab hardcoded elements and remove the class of none 
+//so that they are visible on the board. Could be done smoother
+//but your doing this at 2 am
 var displayO = function() {
 	var displayO = document.getElementsByClassName("owins");
 	for (var i =0; i < displayO.length; i++){
@@ -74,27 +91,36 @@ var reset = function() {
 //"this" is awesome! Function alerts user if they are picking a a square already chosen using
 // using the players objects which holds the positions array
 var choice = function() {
-	if (checkForWin(players.player1.positions, wins) || checkForWin(players.player2.positions, wins)) {
+
+	if (checkForWin(player1Positions, wins) || checkForWin(player2Positions, wins)) {
 		alert("Hit Reset Button To Play Again!");
-	} else if (players["player1"]["positions"].includes(this.id) || players["player2"]["positions"].includes(this.id)) {
+	} else if (player1Positions.includes(this.id) || player2Positions.includes(this.id)) {
 		alert("choose another square!")
 	} else {
 		if (turn % 2 ===0) {
  			//Statement switches turns because X is always first 
-			this.textContent = players["player1"]["player"];
-			players["player1"]["positions"].push(this.id);		
+			this.textContent = playerX;
+			this.classList.add("boxblue");
+			player1Positions.push(this.id);		
 			turn++
-			var xWins = checkForWin(players.player1.positions, wins);
+			var xWins = checkForWin(player1Positions, wins);
 			if (xWins){
  				displayX();
+ 				xturn.classList.add("none");
+ 			} else {
+ 				playerTurn(playerX);
  			}
  		} else {
  			this.textContent = players["player2"]["player"];
+ 			this.classList.add("boxgreen");
 			players["player2"]["positions"].push(this.id);			
  			turn++
  			var oWins = checkForWin(players.player2.positions, wins);
  			if (oWins){
  				displayO();
+ 				oturn.classList.add("none");
+ 			} else {
+ 				playerTurn(playerO);
  			}
  			
  			//Brant you should love counters (t-shirt idea)! After this else statement 

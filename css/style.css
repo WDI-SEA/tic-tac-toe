@@ -38,6 +38,15 @@ h3 {
 	font-weight: bold;
 	color: lightblue;
 }
+.turn p {
+	width: 55vw;
+	margin: 1vh auto 1vh auto;
+	text-align: center;
+	background: rgba(255, 255, 255, 0.4);
+	border: 2px solid black;
+
+}
+
 .board {
 	margin: 0 auto 0 auto;
 	padding-bottom: 0;
@@ -61,7 +70,12 @@ h3 {
 	color: white;
 	text-align: center;
 	border-radius: 5px;
-	
+}
+.boxblue {
+	background-color: blue;
+}
+.boxgreen {
+	background-color: green;
 }
 
 .row1 .box {
@@ -144,7 +158,3 @@ h3 {
 .none {
 	display: none;
 }
-
-
-
-
