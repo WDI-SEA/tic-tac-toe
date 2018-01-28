@@ -12,9 +12,11 @@ var rebScore = document.getElementById('scoreboardReb');
 //gets all the divs holding the backgrounds for tiles
 var gameBoard = document.querySelectorAll("#gameboard > .unit");
 
-//initializes the animated ships
+//initializes the animated ships and sabers
 var tieFighter = document.getElementById("ship1");
 var xWing = document.getElementById('ship2');
+var sithSaber = document.getElementById('saber');
+var rebSaber = document.getElementById('saber2');
 
 //resets the animated ships to default
 var tieTimeout = setTimeout(function () {
@@ -87,11 +89,13 @@ var checkIfWin = function() {
 	      	sScore++;
 	      	console.log('sith wins');
 	      	sithScore.innerHTML = sScore;
+	      	sithSaber.className = "shakeSaber";
 	      } else {
 	      	winner = 2;
 	      	rScore++;
 	      	console.log('rebels win');
 	      	rebScore.innerHTML = rScore;
+	      	rebSaber.className = "shakeSaber";
 	      }
 
 	      tieFly.play();
@@ -99,7 +103,7 @@ var checkIfWin = function() {
 				tieShoot.play();
 			}, 1200);
 
-	      words.innerText = "A winner, we have!!!";
+	      words.innerText = "A WINNER, WE HAVE!!!";
 	      words.style.color = "cyan";
 	      words.style.fontWeight = 600;
 	      xWing.className = "animateX";
@@ -131,6 +135,8 @@ reset.onclick = function () {
 	words.style.fontWeight = 200;
 	xWing.className = 'invisShip';
 	tieFighter.className = 'invisShip';
+	sithSaber.className = null;
+	rebSaber.className = null;
 	turnCount=0;
 	winner=0;
 }

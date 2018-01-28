@@ -67,7 +67,6 @@ button:hover {
 	width: 150px;
 	top: 300px;
 	right: 120px;
-	transform: scale(-1,1);
 	display: inline-block;
 }
 
@@ -78,8 +77,22 @@ button:hover {
 	width: 150px;
 	top: 150px;
 	right: 120px;
-	transform: scale(-1,1);
 	display: inline-block;
+}
+
+.shakeSaber {
+	animation: 1s shake;
+}
+
+@keyframes shake {
+  from{ 
+  	transform: scale(-1,1);
+  	transform: rotate(20deg);
+  }
+  to {
+  	transform: scale(-1,1);
+  	transform: rotate(-20deg);
+  }
 }
 
 #yoda {
