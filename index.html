@@ -1,14 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
-  <link rel="stylesheet" type="text/css" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tic-Tac-Toe</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-  <h1>Hello Front-End</h1>
-
-  <script type="text/javascript" src="js/app.js"></script>
+    <h1>Tic-Tac-Toe</h1>
+    <div id="board">
+        <div class="row">
+             <div class="square" data-value="" data-row=1 data-col=1 data-dia1=1></div>
+             <div class="square" data-value="" data-row=1 data-col=2></div>
+             <div class="square" data-value="" data-row=1 data-col=3 data-dia2=1></div>
+         </div>
+         <div class="row">
+             <div class="square" data-value="" data-row=2 data-col=1></div>
+             <div class="square" data-value="" data-row=2 data-col=2 data-dia1=1 data-dia2=1></div>
+             <div class="square" data-value="" data-row=2 data-col=3></div>
+         </div>
+         <div class="row">
+             <div class="square" data-value="" data-row=3 data-col=1 data-dia2=1></div>
+             <div class="square" data-value="" data-row=3 data-col=2></div>
+             <div class="square" data-value="" data-row=3 data-col=3 data-dia1=1></div>
+         </div>
+        <div id="winner"></div>
+    </div>
+    <div id="nextTurn">X plays first.</div>
+    <br>
+    <label>Computer Easy:<input type="radio" name="ai" class="ai" value="easy"></label>
+    <label>Computer Hard:<input type="radio" name="ai" class="ai" value="hard"></label>
+    <br><br>
+    <button id="reset">Reset</button>
+    <script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>

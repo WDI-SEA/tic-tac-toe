@@ -1,3 +1,57 @@
+body {
+	text-align: center;
+	padding: 0;
+	margin: 0;
+}
+
 h1 {
-  color: purple;
+	font-family: sans-serif;
+}
+
+.row {
+	width: 308px;
+	height: 104px;
+	background: black;
+	padding: 0;
+	margin: 0;
+	/*font-family: sans-serif; ADDING THIS BREAKS THINGS. WHY?*/
+	vertical-align: top;
+}
+
+.square {
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	padding: 25px;
+	border: 0;
+	background: white;
+	vertical-align: top; /*WHY IS THIS NEEDED?!*/
+	line-height: 50px;
+}
+
+#board {
+	width: 308px;
+	height: 308px;
+	border: 1px solid black;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+#winner {
+	display: none;
+	position: absolute;
+	top: 150px;
+	left: 521px;
+	width: 400px;
+	height: 200px;
+	background: url(../img/banner.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	line-height: 125px;
+	font-weight: bold;
+}
+
+#reset {
+	width: 15%;
+	padding: 10px;
 }

@@ -1,0 +1,21 @@
+function takes 2 arguments: board and player
+Evaluate board for available squares
+Check board for terminal states
+  - if available spots = 0, return a score of 0
+  - if human has won, return a score of -10
+  - if computer has won, return a score of 10
+
+If no terminal state has been reached, continue...
+
+Loop through each available move:
+  1. Make a local copy of the board passed into the function, "newBoard"
+  1. Make the move and store it in "newBoard",
+  2. result = minimax(newBoard, other player)
+  3. score = result.score
+
+all moves are scored.
+if player === human, select move with lowest score
+if player === computer, select move with highest score
+return "best move"
+
+IMPORTANT: have to be able to read score values in a consistent way, regardless of whether they're passed back from the "terminal state" checks or if you're reading a score from the "best move" passed from the function completing. Otherwise the recursion won't work.
