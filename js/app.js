@@ -1,4 +1,27 @@
-console.log('Hello frontend');
+
+var topRowCountBlack = 0;
+var middleRowCountBlack = 0; 
+var bottomRowCountBlack = 0;
+
+var leftColCountBlack = 0;
+var middlleColCountBlack = 0;
+var rightColCountBlack = 0;
+
+var leftDownDiagCountBlack = 0;
+var leftUpDiagCountBlack = 0;
+
+var topRowCountRed = 0;
+var middleRowCountRed = 0;
+var bottomRowCountRed = 0;
+
+var leftColCountRed = 0;
+var middlleColCountRed = 0;
+var rightColCountRed = 0;
+
+var leftDownDiagCountRed = 0;
+var leftUpDiagCountRed = 0;
+
+//var winClass = [];
 
 var blackBox = {
 	boxtopleft: false,
@@ -27,12 +50,13 @@ var redBox = {
 var player = 0;
 var boxPosition;
 
+var newColor = null;
 
-var markBox = function(elementId, boxClickedRedOrBlack) {
-	var newColor = document.getElementById(elementId)
-	//newColor.style.background = color;
+var markBox = function(elementId, boxClickedRedOrBlack, color) {
+	newColor = document.getElementById(elementId)
 	newColor.classList.add(boxClickedRedOrBlack);
 	newColor.classList.remove("box");
+	newColor.style.background = color;
 };
 
 var playerChange = function() {
@@ -48,66 +72,139 @@ var playerGo = function() {
 	}
 };
 
-var topRowCount = 0;
-var middleRowCount = 0;
-var bottomRowCount = 0;
 
-var leftColCount = 0;
-var middlleColCount = 0;
-var rightColCount = 0;
 
-var leftDownDiagCount = 0;
-var leftUpDiagCount = 0;
 
-var checkForWin = function(elementId) {
+var tallyForWin = function(elementId) {
+	
 	var boxClickedId = elementId;
-
-	switch (boxClickedId) {
+	
+	if (player % 2) {
+		switch (boxClickedId) {
 		case "boxtopleft":
-			topRowCount = topRowCount + 1;
-			leftColCount = leftColCount + 1;
-			leftDownDiagCount = leftDownDiagCount + 1;
+			topRowCountRed = topRowCountRed + 1;
+			leftColCountRed = leftColCountRed + 1;
+			leftDownDiagCountRed = leftDownDiagCountRed + 1;
 			break;
 		case "boxtopmiddle":
-			topRowCount = topRowCount + 1;
-			middlleColCount = middlleColCount + 1;
+			topRowCountRed = topRowCountRed + 1;
+			middlleColCountRed = middlleColCountRed + 1;
 			break;
 		case "boxtopright":
-			topRowCount = topRowCount + 1;
-			rightColCount = rightColCount + 1;
-			leftUpDiagCount = leftUpDiagCount + 1;
+			topRowCountRed = topRowCountRed + 1;
+			rightColCountRed = rightColCountRed + 1;
+			leftUpDiagCountRed = leftUpDiagCountRed + 1;
 			break;
 
 		case "boxmiddleleft":
-			middleRowCount = middleRowCount + 1;
-			leftColCount = leftColCount + 1;
+			middleRowCountRed = middleRowCountRed + 1;
+			leftColCountRed = leftColCountRed + 1;
 			break;
 		case "boxmiddlemiddle":
-			middleRowCount = middleRowCount + 1;
-			middlleColCount = middlleColCount + 1;
-			leftDownDiagCount = leftDownDiagCount + 1;
-			leftUpDiagCount = leftUpDiagCount + 1;
+			middleRowCountRed = middleRowCountRed + 1;
+			middlleColCountRed = middlleColCountRed + 1;
+			leftDownDiagCountRed = leftDownDiagCountRed + 1;
+			leftUpDiagCountRed = leftUpDiagCountRed + 1;
 			break;
 		case "boxmiddleright":
-			middleRowCount = middleRowCount + 1;
-			rightColCount = rightColCount + 1;
+			middleRowCountRed = middleRowCountRed + 1;
+			rightColCountRed = rightColCountRed + 1;
 			break;
 
 		case "boxbottomleft":
-			bottomRowCount = bottomRowCount + 1;
-			leftColCount = leftColCount + 1;
-			leftUpDiagCount = leftUpDiagCount + 1;
+			bottomRowCountRed = bottomRowCountRed + 1;
+			leftColCountRed = leftColCountRed + 1;
+			leftUpDiagCountRed = leftUpDiagCountRed + 1;
 			break;
 		case "boxbottommiddle":
-			bottomRowCount = bottomRowCount + 1;
+			bottomRowCountRed = bottomRowCountRed + 1;
+			middlleColCountRed = middlleColCountRed + 1;
 			break;
 		case "boxbottomright":
-			bottomRowCount = bottomRowCount + 1;
-			rightColCount = rightColCount + 1;
-			leftDownDiagCount = leftDownDiagCount + 1;
+			bottomRowCountRed = bottomRowCountRed + 1;
+			rightColCountRed = rightColCountRed + 1;
+			leftDownDiagCountRed = leftDownDiagCountRed + 1;
 			break;	
+		}
+	} else {
+		switch (boxClickedId) {
+		case "boxtopleft":
+			topRowCountBlack = topRowCountBlack + 1;
+			leftColCountBlack = leftColCountBlack + 1;
+			leftDownDiagCountBlack = leftDownDiagCountBlack + 1;
+			break;
+		case "boxtopmiddle":
+			topRowCountBlack = topRowCountBlack + 1;
+			middlleColCountBlack = middlleColCountBlack + 1;
+			break;
+		case "boxtopright":
+			topRowCountBlack = topRowCountBlack + 1;
+			rightColCountBlack = rightColCountBlack + 1;
+			leftUpDiagCountBlack = leftUpDiagCountBlack + 1;
+			break;
+
+		case "boxmiddleleft":
+			middleRowCountBlack = middleRowCountBlack + 1;
+			leftColCountBlack = leftColCountBlack + 1;
+			break;
+		case "boxmiddlemiddle":
+			middleRowCountBlack = middleRowCountBlack + 1;
+			middlleColCountBlack = middlleColCountBlack + 1;
+			leftDownDiagCountBlack = leftDownDiagCountBlack + 1;
+			leftUpDiagCountBlack = leftUpDiagCountBlack + 1;
+			break;
+		case "boxmiddleright":
+			middleRowCountBlack = middleRowCountBlack + 1;
+			rightColCountBlack = rightColCountBlack + 1;
+			break;
+
+		case "boxbottomleft":
+			bottomRowCountBlack = bottomRowCountBlack + 1;
+			leftColCountBlack = leftColCountBlack + 1;
+			leftUpDiagCountBlack = leftUpDiagCountBlack + 1;
+			break;
+		case "boxbottommiddle":
+			bottomRowCountBlack = bottomRowCountBlack + 1;
+			middlleColCountBlack = middlleColCountBlack + 1;
+			break;
+		case "boxbottomright":
+			bottomRowCountBlack = bottomRowCountBlack + 1;
+			rightColCountBlack = rightColCountBlack + 1;
+			leftDownDiagCountBlack = leftDownDiagCountBlack + 1;
+			break;	
+		}
 	}
-}
+};
+
+var winClassB;
+var winClassR;
+var winClass;
+
+var win = function() {
+	winClassB = document.querySelectorAll(".boxClickedBlack");
+	for (var i = 0; i < winClassB.length; i++) {
+		winClassB[i].style.background = "green";
+	}
+	winClassR = document.querySelectorAll(".boxClickedRed");
+	for (var i = 0; i < winClassR.length; i++) {
+		winClassR[i].style.background = "green";
+	}
+	winClass = document.querySelectorAll(".box");
+	for (var i = 0; i < winClass.length; i++) {
+		winClass[i].style.background = "green";
+	}
+};
+
+var checkForWin = function() {
+	if (topRowCountBlack === 3 || middleRowCountBlack === 3 || bottomRowCountBlack === 3 || leftColCountBlack === 3 || middlleColCountBlack === 3 || rightColCountBlack === 3 || leftDownDiagCountBlack === 3 || leftUpDiagCountBlack === 3)  {
+		console.log("player 1 win");
+		win();
+	} else if (topRowCountRed === 3 || middleRowCountRed === 3 || bottomRowCountRed === 3 || leftColCountRed === 3 || middlleColCountRed === 3 || rightColCountRed === 3 || leftDownDiagCountRed === 3 || leftUpDiagCountRed === 3) {
+		console.log("player 2 win");
+		win();
+	}
+
+};
 
 var checkBox = function() {
 	boxPosition = this.id;
@@ -117,16 +214,16 @@ var checkBox = function() {
 	if (!blackBox[boxPosition] && !redBox[boxPosition]) {
  		playerGo();
  		if (player % 2) {
- 			markBox(boxPosition, "boxClickedRed");
+ 			markBox(boxPosition, "boxClickedRed", "red");
 			blackBox[boxPosition] = true;
-			checkForWin(boxPosition);
-			console.log(topRowCount);
+			tallyForWin(boxPosition);
+			checkForWin();
 			playerChange();
  		} else {
- 			markBox(boxPosition, "boxClickedBlack");
+ 			markBox(boxPosition, "boxClickedBlack", "black");
 			redBox[boxPosition] = true;
-			checkForWin(boxPosition);
-			console.log(topRowCount);
+			tallyForWin(boxPosition);
+			checkForWin();
 			playerChange();
  		}
 		
@@ -134,11 +231,89 @@ var checkBox = function() {
 
 };
 
+
 var reset = function() {
-	
+	//resetBoardB = document.querySelectorAll(".boxClickedBlack");
+	//console.log(winClassB);
+	for (var i = 0; i < winClassB.length; i++) {
+		//console.log(winClassB);
+		winClassB[i].classList.remove("boxClickedBlack");
+		winClassB[i].classList.add("box");
+		winClassB[i].style.background = "white"
+		//console.log(winClassB);
+	}
+	//winClassR = document.querySelectorAll(".boxClickedRed");
+	//console.log(winClassR);
+	for (var i = 0; i < winClassR.length; i++) {
+		//console.log(winClassR);
+		winClassR[i].classList.remove("boxClickedRed");
+		winClassR[i].classList.add("box");
+		winClassR[i].style.background = "white"
+		//console.log(winClassR);
+	}
+	//winClass = document.querySelectorAll(".box");
+	//console.log(winClass);
+	for (var i = 0; i < winClass.length; i++) {
+		//console.log(winClass);
+		winClass[i].style.background = "white"
+		//console.log(winClass);
+	}
+
+	for (position in blackBox) {
+		blackBox[position] = false;
+	}
+
+
+	for (position in redBox) {
+		redBox[position] = false;
+	}
+
+
+	player = 0;
+
+	topRowCountBlack = 0;
+	middleRowCountBlack = 0; 
+	bottomRowCountBlack = 0;
+
+	leftColCountBlack = 0;
+	middlleColCountBlack = 0;
+	rightColCountBlack = 0;
+
+	leftDownDiagCountBlack = 0;
+	leftUpDiagCountBlack = 0;
+
+	topRowCountRed = 0;
+	middleRowCountRed = 0;
+	bottomRowCountRed = 0;
+
+	leftColCountRed = 0;
+	middlleColCountRed = 0;
+	rightColCountRed = 0;
+
+	leftDownDiagCountRed = 0;
+	leftUpDiagCountRed = 0;
+
+
+
 
 };
 
+// console.log(topRowCountBlack);
+// console.log(middleRowCountBlack);
+// console.log(bottomRowCountBlack);
+// console.log(leftColCountBlack);
+// console.log(middlleColCountBlack);
+// console.log(rightColCountBlack);
+// console.log(leftDownDiagCountBlack);
+// console.log(leftUpDiagCountBlack);
+// console.log(topRowCountRed);
+// console.log(middleRowCountRed);
+// console.log(bottomRowCountRed);
+// console.log(leftColCountRed);
+// console.log(middlleColCountRed);
+// console.log(rightColCountRed);
+// console.log(leftDownDiagCountRed);
+// console.log(leftUpDiagCountRed);
 
 
 document.addEventListener("DOMContentLoaded", function() {
