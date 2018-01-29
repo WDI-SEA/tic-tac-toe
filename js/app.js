@@ -1,17 +1,9 @@
 console.log("javascript running");
 
 //grab elements I need from DOM
-var sq1 = document.getElementById('sq1');
-var sq2 = document.getElementById('sq2');
-var sq3 = document.getElementById('sq3');
-var sq4 = document.getElementById('sq4');
-var sq5 = document.getElementById('sq5');
-var sq6 = document.getElementById('sq6');
-var sq7 = document.getElementById('sq7');
-var sq8 = document.getElementById('sq8');
-var sq9 = document.getElementById('sq9');
+//gets all the divs holding the backgrounds for tiles
+var gameBoard = document.querySelectorAll("#gameboard > .box");
 
-var box = document.querySelectorAll('.box');
 var turn = 0
 
 
@@ -27,9 +19,11 @@ var boxClick = function() {
   if (turn%2 === 0){
     this.textContent= 'O';
     this.style.backgroundColor = 'red';
+    checkWin();
   } else {
     this.textContent= 'X';
     this.style.backgroundColor = 'black';
+    checkWin();
   }
   //making sure boxClick function is working - also logs number of clicks to verify
   console.log("clicked!");
@@ -38,9 +32,23 @@ var boxClick = function() {
 
 //setting all scenarios in which a win could happen
 var checkWin = function() {
-//set conditions for each win by row, column and diagonal
-  if (boxClick.sq1.textContent === boxClick.sq2.textContent === boxClick.sq3.textContent) {
-    console.log("win row 1");
+
+var sq1 = classes(gameBoard[0].firstElementChild.className);
+
+
+while (turnCount >= 4) {
+  if (
+      (sq1 === sq2 && sq2 === sq3)  ||
+      (midL === midM && midM === midR)  ||
+      (botL === botM && botM === botR)  ||
+      (topL === midL && midL === botL)  ||
+      (topM === midM && midM === botM)  ||
+      (topR === midR && midR === botR)  ||
+      (topL === midM && midM === botR)  ||
+      (topR === midM && midM === botL)
+    ) {
+      console.log("we have a winner!");
+    }
   }
 };
 
