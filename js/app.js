@@ -7,7 +7,8 @@ var box = document.querySelectorAll('.box');
 //turn counter
 var turn = 0
 
-var winnerText = document.getElementByClass('winnerText');
+//Winner text - haven't got this to work yet, as I'm still trying to get my win conditions to work correctly
+// var winnerText = document.getElementByClass('winnerText');
 
 // //reset board using reset button
 // var resetBoard = function() {
