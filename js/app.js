@@ -92,10 +92,9 @@ var displayWinner0 = function (){
 
 //reset board using reset button #reset
 var resetBoard = function () {
-  var clearBoxes = document.getElementsByClassName('box');
-  for (var i=0; i < clearBoxes.length; i++) {
-        clearBoxes[i].textContent.remove('X');
-        clearBoxes[i].textContent.remove('0');
+  for(var i = 0; i < box.length; i++){
+		box[i].innerHTML = '';
+    box[i].style.backgroundColor('#4D9BA6');}
         winnerText.textContent = " ";
         turn = 0;
       }
