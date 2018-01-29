@@ -1,13 +1,10 @@
-
-
-
 // keeps track of which player is up
 var turnRecord = document.getElementById("player");
 
 //reset button
 var resBut = document.getElementById("reset");
 
-//deals w scoreboards
+//scoreboards bullshit
 var words = document.querySelector('p');
 var sithScore = document.getElementById('scoreboardSith');
 var rebScore = document.getElementById('scoreboardReb');
@@ -21,19 +18,19 @@ var xWing = document.getElementById('ship2');
 var sithSaber = document.getElementById('saber');
 var rebSaber = document.getElementById('saber2');
 
-//resets the animated ships to default
-var tieTimeout = setTimeout(function () {
-		tieFighter.className = "invisShip";
-	}, 1000);
-var xTimeout = setTimeout(function () {
-		xWing.className = "invisShip";
-	}, 1000);
+// //resets the animated ships to default
+// var tieTimeout = setTimeout(function () {
+// 		tieFighter.className = "invisShip";
+// 	}, 1000);
+// var xTimeout = setTimeout(function () {
+// 		xWing.className = "invisShip";
+// 	}, 1000);
 
 //audio tracks
 var tieFly = document.getElementById('fly');
 var tieShoot = document.getElementById('fire');
 
-//variable initialization for counters
+//variable initialization for counter
 var turnCount = 0;
 
 //for all the images/squares
@@ -47,17 +44,33 @@ var swapImage = function() {
 	if (turnCount%2 === 1) {
 		this.className = "red";
 		this.removeEventListener('click', swapImage);
-		turnRecord.style.color="lightgreen";
-		turnRecord.innerText ="Rebellion's";
+		turnRecord.style.color = "lightgreen";
+		turnRecord.innerText = "Rebellion's";
 		checkIfWin();
 		turnCount++;
 	} else {
 		this.className = "green";
 		this.removeEventListener('click', swapImage);
-		turnRecord.style.color="red";
-		turnRecord.innerText ="Sith's";
-		checkIfWin();
+		turnRecord.style.color = "red";
+		turnRecord.innerText = "Sith's";
 		turnCount++;
+		//to turn to single player, comment lines 56-71 out 
+		//and the timeout clear on 147
+		aiTurn = setTimeout(function () {
+			for (var i = 0; i < gameBoard.length; i++) {
+				var rando = Math.floor(Math.random()*9);
+				console.log(rando);
+				if ((gameBoard[rando].firstElementChild.className === "green") || (gameBoard[rando].firstElementChild.className === "red")) {
+
+				} else {
+					gameBoard[rando].firstElementChild.className = "red";
+					gameBoard[rando].removeEventListener('click', swapImage);
+					turnCount++;
+					break;
+				}		
+			}
+		}, 1350);
+		checkIfWin();
 	}
 };
 
@@ -69,6 +82,14 @@ for (var i = 0; i < imgs.length; i++) {
 var winner = null;
 var sScore = 0;
 var rScore = 0;
+
+var classes = function (item) {
+	if (item === "green" || item === "red"){
+		return item;
+	} else {
+		return Math.random();
+	}		
+}
 
 //HECK 
 //a very ugly conditional statement that runs while the 
@@ -84,18 +105,18 @@ var rScore = 0;
 //ANY of the board pieces. 
 var checkIfWin = function() {
 
-		//spaces variables 
-	var topL = gameBoard[0].firstElementChild.className;
-	var topM = gameBoard[1].firstElementChild.className;
-	var topR = gameBoard[2].firstElementChild.className;
+	//spaces variables
+	var topL = classes(gameBoard[0].firstElementChild.className);
+	var topM = classes(gameBoard[1].firstElementChild.className);
+	var topR = classes(gameBoard[2].firstElementChild.className);
 
-	var midL = gameBoard[3].firstElementChild.className;
-	var midM = gameBoard[4].firstElementChild.className;
-	var midR = gameBoard[5].firstElementChild.className;
+	var midL = classes(gameBoard[3].firstElementChild.className);
+	var midM = classes(gameBoard[4].firstElementChild.className);
+	var midR = classes(gameBoard[5].firstElementChild.className);
 
-	var botL = gameBoard[6].firstElementChild.className;
-	var botM = gameBoard[7].firstElementChild.className;
-	var botR = gameBoard[8].firstElementChild.className;
+	var botL = classes(gameBoard[6].firstElementChild.className);
+	var botM = classes(gameBoard[7].firstElementChild.className);
+	var botR = classes(gameBoard[8].firstElementChild.className);
 	
 	while (turnCount >= 4) {
 		if (
@@ -123,6 +144,8 @@ var checkIfWin = function() {
 	      	rebSaber.className = "shakeSaber";
 	      }
 
+	      clearTimeout(aiTurn);
+	      
 	      tieFly.play();
 	      var shootTimeout = setTimeout(function (){
 				tieShoot.play();
@@ -163,14 +186,16 @@ var checkIfWin = function() {
 //ships and sabers
 reset.onclick = function () {
 	for (var i=0; i < imgs.length; i++) {
-		imgs[i].className = "stars";
+		imgs[i].className = "image stars";
 		imgs[i].addEventListener("click", swapImage);
-		turnRecord.style.color="lightgreen";
-		turnRecord.innerText ="Rebellion's";
 	}
+	turnRecord.style.color="lightgreen";
+	turnRecord.innerText ="Rebellion's";
 	words.innerHTML = "The " + "<span id='player'>Rebellion's</span>" + " turn, it is!";
 	words.style.color = "black";
 	words.style.fontWeight = 200;
+	turnRecord = document.getElementById("player");
+
 	xWing.className = 'invisShip';
 	tieFighter.className = 'invisShip';
 	sithSaber.className = null;
