@@ -20,4 +20,7 @@ h1 {
   display: inline-block;
   margin: 10px;
   background-color: #4D9BA6;
+  vertical-align: middle;
+  color: white;
+  font-size: 50px;
 }
