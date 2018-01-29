@@ -106,7 +106,7 @@ var checkForWinner = function() {  //check the 8 win condition combos
 
 var play = function() {
 
-  if ((this.innerText !== "X") && (this.innerText !== "O") && (gameOver === false)) {
+  if ((!this.classList.contains("X")) && (!this.classList.contains("O")) && (gameOver === false)) {
     this.classList.add(turn(this));
     // console.log(this);
     checkForWinner();
