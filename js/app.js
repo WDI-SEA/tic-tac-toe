@@ -3,16 +3,15 @@ var resetButton = document.getElementById('reset');
 var squaresArr = document.querySelectorAll('.square');
 var currentPlayElement = document.getElementById('current-play');
 var friendOrAiArr = document.querySelectorAll('input[type="radio"]');
-console.log(friendOrAiArr);
+var whosTurn;
 
 var displayCurrentPlay = function() {
-  if (currentPlay % 2 ===0) {
+  if (currentPlay % 2 === 0) {
     whosTurn = "X's turn";
   } else {
     whosTurn = "O's turn"
   }
   currentPlayElement.textContent = currentPlay + 1 + "  " + whosTurn;
-
 }
 displayCurrentPlay();
 
