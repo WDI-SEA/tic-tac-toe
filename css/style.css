@@ -1,3 +1,43 @@
-h1 {
-  color: purple;
+body{
+  font-size:0;
+}
+input,button {
+  background: grey;
+  display: block;
+  border-radius: 5px;
+  height: 20px;
+  margin: 0 auto;
+  margin-top:20px;
+  text-align: center;
+}
+input {
+  font-size:16px;
+  color:rgb(185, 19, 19);
+}
+button {
+  font-size: 13px;
+  color:rgb(233, 229, 229);
+  width:80px;
+  height:30px;
+}
+.frame {
+width:606px;
+border:1px solid black;
+margin:0 auto;
+margin-top: 10px;
+}
+.column {
+width:200px;
+height:200px;
+background:grey;
+border: 1px solid green; 
+display:inline-block;
+} 
+
+  
+.white {
+  background: white;
+}
+.black {
+  background: black;
 }
