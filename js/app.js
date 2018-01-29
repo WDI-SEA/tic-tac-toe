@@ -4,78 +4,76 @@ var space = document.getElementsByClassName("square");
 var player = 1;
 var checkForWin = null;
 var resetSquares = null;
-
-var gameboard = ["pos0", "pos1", "pos2", "pos3", "pos4", "pos5", "pos6", "pos7", "pos8"];
-var movesX = [];
-var movesO = [];
+var movesBlue = [];
+var movesBlack = [];
 
 var checkForWin = function() {
-  if (movesX.indexOf("pos0") !== -1 && movesX.indexOf("pos1") !== -1 && movesX.indexOf("pos2") !== -1) {
+  if (movesBlue.indexOf("pos0") !== -1 && movesBlue.indexOf("pos1") !== -1 && movesBlue.indexOf("pos2") !== -1) {
     document.getElementById("instructions").textContent = "Blue Wins!";
     return true;
   }
-  if (movesX.indexOf("pos3") !== -1 && movesX.indexOf("pos4") !== -1 && movesX.indexOf("pos5") !== -1) {
+  if (movesBlue.indexOf("pos3") !== -1 && movesBlue.indexOf("pos4") !== -1 && movesBlue.indexOf("pos5") !== -1) {
     document.getElementById("instructions").textContent = "Blue Wins!";
     return true;
   }
-  if (movesX.indexOf("pos6") !== -1 && movesX.indexOf("pos7") !== -1 && movesX.indexOf("pos8") !== -1) {
+  if (movesBlue.indexOf("pos6") !== -1 && movesBlue.indexOf("pos7") !== -1 && movesBlue.indexOf("pos8") !== -1) {
     document.getElementById("instructions").textContent = "Blue Wins!";
     return true;
   }
-  if (movesX.indexOf("pos0") !== -1 && movesX.indexOf("pos3") !== -1 && movesX.indexOf("pos6") !== -1) {
+  if (movesBlue.indexOf("pos0") !== -1 && movesBlue.indexOf("pos3") !== -1 && movesBlue.indexOf("pos6") !== -1) {
     document.getElementById("instructions").textContent = "Blue Wins!";
     return true;
   }
-  if (movesX.indexOf("pos1") !== -1 && movesX.indexOf("pos4") !== -1 && movesX.indexOf("pos7") !== -1) {
+  if (movesBlue.indexOf("pos1") !== -1 && movesBlue.indexOf("pos4") !== -1 && movesBlue.indexOf("pos7") !== -1) {
     document.getElementById("instructions").textContent = "Blue Wins!";
     return true;
   }
-  if (movesX.indexOf("pos2") !== -1 && movesX.indexOf("pos5") !== -1 && movesX.indexOf("pos7") !== -1) {
+  if (movesBlue.indexOf("pos2") !== -1 && movesBlue.indexOf("pos5") !== -1 && movesBlue.indexOf("pos7") !== -1) {
     document.getElementById("instructions").textContent = "Blue Wins!";
     return true;
   }
-  if (movesX.indexOf("pos0") !== -1 && movesX.indexOf("pos4") !== -1 && movesX.indexOf("pos8") !== -1) {
+  if (movesBlue.indexOf("pos0") !== -1 && movesBlue.indexOf("pos4") !== -1 && movesBlue.indexOf("pos8") !== -1) {
     document.getElementById("instructions").textContent = "Blue Wins!";
     return true;
   }
-  if (movesX.indexOf("pos2") !== -1 && movesX.indexOf("pos4") !== -1 && movesX.indexOf("pos8") !== -1) {
+  if (movesBlue.indexOf("pos2") !== -1 && movesBlue.indexOf("pos4") !== -1 && movesBlue.indexOf("pos8") !== -1) {
     document.getElementById("instructions").textContent = "Blue Wins!";
     return true;
   }
-  if (movesO.indexOf("pos0") !== -1 && movesO.indexOf("pos1") !== -1 && movesO.indexOf("pos2") !== -1) {
+  if (movesBlack.indexOf("pos0") !== -1 && movesBlack.indexOf("pos1") !== -1 && movesBlack.indexOf("pos2") !== -1) {
     document.getElementById("instructions").textContent = "Black Wins!";
     return true;
   }
-  if (movesO.indexOf("pos3") !== -1 && movesO.indexOf("pos4") !== -1 && movesO.indexOf("pos5") !== -1) {
+  if (movesBlack.indexOf("pos3") !== -1 && movesBlack.indexOf("pos4") !== -1 && movesBlack.indexOf("pos5") !== -1) {
     document.getElementById("instructions").textContent = "Black Wins!";
     return true;
   }
-  if (movesO.indexOf("pos6") !== -1 && movesO.indexOf("pos7") !== -1 && movesO.indexOf("pos8") !== -1) {
+  if (movesBlack.indexOf("pos6") !== -1 && movesBlack.indexOf("pos7") !== -1 && movesBlack.indexOf("pos8") !== -1) {
     document.getElementById("instructions").textContent = "Black Wins!";
     return true;
   }
-  if (movesO.indexOf("pos0") !== -1 && movesO.indexOf("pos3") !== -1 && movesO.indexOf("pos6") !== -1) {
+  if (movesBlack.indexOf("pos0") !== -1 && movesBlack.indexOf("pos3") !== -1 && movesBlack.indexOf("pos6") !== -1) {
     document.getElementById("instructions").textContent = "Black Wins!";
     return true;
   }
-  if (movesO.indexOf("pos1") !== -1 && movesO.indexOf("pos4") !== -1 && movesO.indexOf("pos7") !== -1) {
+  if (movesBlack.indexOf("pos1") !== -1 && movesBlack.indexOf("pos4") !== -1 && movesBlack.indexOf("pos7") !== -1) {
     document.getElementById("instructions").textContent = "Black Wins!";
     return true;
   }
-  if (movesO.indexOf("pos2") !== -1 && movesO.indexOf("pos5") !== -1 && movesO.indexOf("pos8") !== -1) {
+  if (movesBlack.indexOf("pos2") !== -1 && movesBlack.indexOf("pos5") !== -1 && movesBlack.indexOf("pos8") !== -1) {
     document.getElementById("instructions").textContent = "Black Wins!";
     return true;
   }
-  if (movesO.indexOf("pos0") !== -1 && movesO.indexOf("pos4") !== -1 && movesO.indexOf("pos8") !== -1) {
+  if (movesBlack.indexOf("pos0") !== -1 && movesBlack.indexOf("pos4") !== -1 && movesBlack.indexOf("pos8") !== -1) {
     document.getElementById("instructions").textContent = "Black Wins!";
     return true;
   }
-  if (movesO.indexOf("pos2") !== -1 && movesO.indexOf("pos4") !== -1 && movesO.indexOf("pos8") !== -1) {
+  if (movesBlack.indexOf("pos2") !== -1 && movesBlack.indexOf("pos4") !== -1 && movesBlack.indexOf("pos8") !== -1) {
     document.getElementById("instructions").textContent = "Black Wins!";
     return true;
   }
-  if (movesX.length === 5) {
-    document.getElementById("instructions").textContent = "It's A Draw";
+  if (movesBlue.length === 5) {
+    document.getElementById("instructions").textContent = "It's a Draw";
     return true;
   }
 }
@@ -83,19 +81,17 @@ var checkForWin = function() {
 var makeAMove = function() {
       if (player === 1) {
         this.classList.remove("square");
-        this.classList.add("squareX");
-        // this.textContent = "X";
+        this.classList.add("squareBlue");
         document.getElementById("instructions").textContent = "Make your move, Black!";
-        movesX.push(this.id);
+        movesBlue.push(this.id);
         checkForWin();
         player = 0;
 
       } else if (player !== 1) {
         this.classList.remove("square");
-        this.classList.add("squareO");
-        // this.textContent = "O";
+        this.classList.add("squareBlack");
         document.getElementById("instructions").textContent = "Make your move, Blue!";
-        movesO.push(this.id);
+        movesBlack.push(this.id);
         checkForWin();
         player = 1;
       };
@@ -104,23 +100,18 @@ var makeAMove = function() {
         for (var j = 0; j < space.length; j++) {
           space[j].removeEventListener("click", makeAMove);
         };
-      } else if (movesX.length > 4 && checkForWin(false)) {
-        gameOver = true;
-        document.getElementById("instructions").textContent = "It's a draw!";
-        for (var j = 0; j < space.length; j++) {
-      }
     };
   };
 
 
 var rematch = function() {
   document.getElementById("instructions").textContent = "Blue, you go first"
-    var resetSquares = document.querySelectorAll(".square, .squareX, .squareO");
+    var resetSquares = document.querySelectorAll(".square, .squareBlue, .squareBlack");
         for (var i = 0; i < resetSquares.length; i++){
         resetSquares[i].addEventListener("click", makeAMove);
         resetSquares[i].className = "square";
-        movesX = [];
-        movesO = [];
+        movesBlue = [];
+        movesBlack = [];
         player = 1;
       }
     };

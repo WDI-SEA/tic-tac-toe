@@ -15,8 +15,7 @@ div {
 }
 
 .wrapper {
-  position: relative;
-  width: 800px;
+  width: 100%;
 }
 
 .clear {
@@ -73,7 +72,7 @@ h4 {
   color: #FFFFFF;
 }
 
-.squareX {
+.squareBlue {
   display: inline-block;
   margin: 3px;
   width: 112px;
@@ -85,7 +84,7 @@ h4 {
   transition-duration: 1s;
 }
 
-.squareO {
+.squareBlack {
   display: inline-block;
   margin: 3px;
   width: 112px;
@@ -105,7 +104,7 @@ h4 {
   font-size: 60px;
 }
 
-div.squareX {
+div.squareBlue {
   vertical-align: center;
   margin: 0;
   left: 40px;
@@ -113,7 +112,7 @@ div.squareX {
   font-size: 60px;
 }
 
-div.squareO {
+div.squareBlack {
   vertical-align: center;
   margin: 0;
   left: 40px;
