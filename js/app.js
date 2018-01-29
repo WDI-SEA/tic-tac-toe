@@ -1,4 +1,15 @@
 console.log("javascript running");
+//i've set the gameboard at the top of the doccument. now, i'm pulling out each of the 9 squares, and assigning variable to each, so i can match below for win conditions
+
+// var sq1 = (gameBoard[0].firstElementChild.classN);
+// var sq2 = (gameBoard[1].firstElementChild.className);
+// var sq3 = (gameBoard[2].firstElementChild.className);
+// var sq4 = (gameBoard[3].firstElementChild.className);
+// var sq5 = (gameBoard[4].firstElementChild.className);
+// var sq6 = (gameBoard[5].firstElementChild.className);
+// var sq7 = (gameBoard[6].firstElementChild.className);
+// var sq8 = (gameBoard[7].firstElementChild.className);
+// var sq9 = (gameBoard[8].firstElementChild.className);
 
 //grab elements I need from DOM
 //gets all the divs holding the backgrounds for tiles
@@ -51,18 +62,8 @@ var boxClick = function() {
 
 
 //master win function which includes all the winning combinations
-var checkWin = function() {
 
-  //i've set the gameboard at the top of the doccument. now, i'm pulling out each of the 9 squares, and assigning variable to each, so i can match below for win conditions
-  // var sq1 = (gameBoard[0].firstElementChild.classN);
-  // var sq2 = (gameBoard[1].firstElementChild.className);
-  // var sq3 = (gameBoard[2].firstElementChild.className);
-  // var sq4 = (gameBoard[3].firstElementChild.className);
-  // var sq5 = (gameBoard[4].firstElementChild.className);
-  // var sq6 = (gameBoard[5].firstElementChild.className);
-  // var sq7 = (gameBoard[6].firstElementChild.className);
-  // var sq8 = (gameBoard[7].firstElementChild.className);
-  // var sq9 = (gameBoard[8].firstElementChild.className);
+var checkWin = function() {
 
   var boxClick = gameboard.querySelectorAll('.box');
 
