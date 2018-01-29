@@ -75,31 +75,58 @@ var boxClick = function() {
 
 var checkWin = function() {
 //matching two conditions: box does not include textContent and it's classList matches X
+//matches 3 rows, 3 columns, 2 diagonals
   switch (true) {
-      case box[0].textContent !== '' && box[0].classList.contains('X') === box[1].textContent !== '' && box[1].classList.contains('X') === (box[2].textContent !== '' && box[2].classList.contains('X'):
+      case box[0].textContent !== '' && box[0].classList.contains('X') === box[1].textContent !== '' && box[1].classList.contains('X') === box[2].textContent !== '' && box[2].classList.contains('X'):
         winner();
       break;
-      case box[3].textContent !== '' && box[3].classList.contains('X') === box[4].textContent !== '' && box[4].classList.contains('X') === (box[5].textContent !== '' && box[5].classList.contains('X'):
+      case box[3].textContent !== '' && box[3].classList.contains('X') === box[4].textContent !== '' && box[4].classList.contains('X') === box[5].textContent !== '' && box[5].classList.contains('X'):
         winner();
       break;
-      case box[6].textContent !== '' && box[6].classList.contains('X') === box[7].textContent !== '' && box[7].classList.contains('X') === (box[8].textContent !== '' && box[8].classList.contains('X'):
+      case box[6].textContent !== '' && box[6].classList.contains('X') === box[7].textContent !== '' && box[7].classList.contains('X') === box[8].textContent !== '' && box[8].classList.contains('X'):
         winner();
       break;
-      case box[0].textContent !== '' && box[0].classList.contains('X') === box[3].textContent !== '' && box[3].classList.contains('X') === (box[6].textContent !== '' && box[6].classList.contains('X'):
+      case box[0].textContent !== '' && box[0].classList.contains('X') === box[3].textContent !== '' && box[3].classList.contains('X') === box[6].textContent !== '' && box[6].classList.contains('X'):
         winner();
       break;
-      case box[1].textContent !== '' && box[1].classList.contains('X') === box[4].textContent !== '' && box[4].classList.contains('X') === (box[7].textContent !== '' && box[7].classList.contains('X'):
+      case box[1].textContent !== '' && box[1].classList.contains('X') === box[4].textContent !== '' && box[4].classList.contains('X') === box[7].textContent !== '' && box[7].classList.contains('X'):
         winner();
       break;
-      case box[2].textContent !== '' && box[2].classList.contains('X') === box[5].textContent !== '' && box[5].classList.contains('X') === (box[8].textContent !== '' && box[8].classList.contains('X'):
+      case box[2].textContent !== '' && box[2].classList.contains('X') === box[5].textContent !== '' && box[5].classList.contains('X') === box[8].textContent !== '' && box[8].classList.contains('X'):
         winner();
       break;
-      case box[0].textContent !== '' && box[0].classList.contains('X') === box[4].textContent !== '' && box[4].classList.contains('X') === (box[8].textContent !== '' && box[8].classList.contains('X'):
+      case box[0].textContent !== '' && box[0].classList.contains('X') === box[4].textContent !== '' && box[4].classList.contains('X') === box[8].textContent !== '' && box[8].classList.contains('X'):
         winner();
       break;
-      case box[2].textContent !== '' && box[2].classList.contains('X') === box[1].textContent !== '' && box[1].classList.contains('X') === (box[2].textContent !== '' && box[2].classList.contains('X'):
+      case box[2].textContent !== '' && box[2].classList.contains('X') === box[4].textContent !== '' && box[4].classList.contains('X') === box[6].textContent !== '' && box[6].classList.contains('X'):
         winner();
       break;
+      //matching 'O winners'
+      case box[0].textContent !== '' && box[0].classList.contains('O') === box[1].textContent !== '' && box[1].classList.contains('O') === box[2].textContent !== '' && box[2].classList.contains('O'):
+        winner();
+      break;
+      case box[3].textContent !== '' && box[3].classList.contains('O') === box[4].textContent !== '' && box[4].classList.contains('O') === box[5].textContent !== '' && box[5].classList.contains('O'):
+        winner();
+      break;
+      case box[6].textContent !== '' && box[6].classList.contains('O') === box[7].textContent !== '' && box[7].classList.contains('O') === box[8].textContent !== '' && box[8].classList.contains('O'):
+        winner();
+      break;
+      case box[0].textContent !== '' && box[0].classList.contains('O') === box[3].textContent !== '' && box[3].classList.contains('O') === box[6].textContent !== '' && box[6].classList.contains('O'):
+        winner();
+      break;
+      case box[1].textContent !== '' && box[1].classList.contains('O') === box[4].textContent !== '' && box[4].classList.contains('O') === box[7].textContent !== '' && box[7].classList.contains('O'):
+        winner();
+      break;
+      case box[2].textContent !== '' && box[2].classList.contains('O') === box[5].textContent !== '' && box[5].classList.contains('O') === box[8].textContent !== '' && box[8].classList.contains('O'):
+        winner();
+      break;
+      case box[0].textContent !== '' && box[0].classList.contains('O') === box[4].textContent !== '' && box[4].classList.contains('O') === box[8].textContent !== '' && box[8].classList.contains('O'):
+        winner();
+      break;
+      case box[2].textContent !== '' && box[2].classList.contains('O') === box[4].textContent !== '' && box[4].classList.contains('O') === box[6].textContent !== '' && box[6].classList.contains('O'):
+        winner();
+      break;
+
   }
 };
 
