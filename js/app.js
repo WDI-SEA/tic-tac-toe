@@ -18,31 +18,31 @@ var box = document.querySelectorAll('.box');
 //turn counter
 var turn = 0
 var player;
+var winnerText = document.getElementsByClassName('winnerText')
 
-//Winner text - haven't got this to work yet, as I'm still trying to get my win conditions to work correctly
-var winnerText = document.getElementsByClassName('winnerText')[0];
+var resetButton = document.getElementById('reset');
+resetButton.addEventListener('click', resetBoard);
 
-//reset board using reset button
-//rest eent listnere
-var resetBoard = function() {
+var resetBoard = function (){
   for(var i = 0; i < box.length; i++){
-		box[i].innerHTML = '';
-    box[i].style.backgroundColor = '#4D9BA6';
-    winnerText.textContent = " ";
-    turn = 0;
+  		box[i].textContent = '';
+      box[i].style.backgroundColor = '#4D9BA6';
+      winnerText.textContent = " ";
+      turn = 0;
   }
 };
-//
-// //reset button
-//clear event listener
-// var resetButton = document.getElementById('#reset')
-// resetButton.addEventListener('click', resetBoard);
 
-//bigger question: innerHTML vs. textContent
+//X wins function
+var winnerX = function (){
+winnerText.textContent = ('X Wins!')
+}
 
-//function to step 1. add turn counter +1 each time boxClick happens (each time we click)
-//step 2. once a box is clicked, the function will count even turns (turn%2===0) & switch to one color, odd turns are the "else" condition
-//since first move is odd, X's happen on odd turns
+//O wins function
+var winnerX = function (){
+winnerText.textContent = ('X Wins!')
+}
+
+//function to turn boxes to X or O depending on turn click, also adds textContent and changes backgroundColor
 var boxClick = function() {
   turn++;
   if (turn%2 === 0){
@@ -52,25 +52,21 @@ var boxClick = function() {
     this.classList.add('O')};
     //remove event listener in here
     player = 'O'
-    if (turn >= 4 {
-      checkWin();
-    })
+      if (turn >= 4 {
+        checkWin();
+      })
   } else {
     this.textContent= 'X';
     this.style.backgroundColor = 'black';
     if (!this.classList.contains("X") && !this.classList.contains("O")) {
     this.classList.add('X')};
     player = 'X'
-    if (turn >= 4 {
-      checkWin();
-    })
+      if (turn >= 4 {
+        checkWin();
+      })
   }
-  //making sure function is working
-  console.log("clicked!");
 };
 
-
-//function that checks winning combinations
 
 
 var checkWin = function() {
@@ -78,71 +74,57 @@ var checkWin = function() {
 //matches 3 rows, 3 columns, 2 diagonals
   switch (true) {
       case box[0].textContent !== '' && box[0].classList.contains('X') === box[1].textContent !== '' && box[1].classList.contains('X') === box[2].textContent !== '' && box[2].classList.contains('X'):
-        winner();
+        winnerX();
       break;
       case box[3].textContent !== '' && box[3].classList.contains('X') === box[4].textContent !== '' && box[4].classList.contains('X') === box[5].textContent !== '' && box[5].classList.contains('X'):
-        winner();
+        winnerX();
       break;
       case box[6].textContent !== '' && box[6].classList.contains('X') === box[7].textContent !== '' && box[7].classList.contains('X') === box[8].textContent !== '' && box[8].classList.contains('X'):
-        winner();
+        winnerX();
       break;
       case box[0].textContent !== '' && box[0].classList.contains('X') === box[3].textContent !== '' && box[3].classList.contains('X') === box[6].textContent !== '' && box[6].classList.contains('X'):
-        winner();
+        winnerX();
       break;
       case box[1].textContent !== '' && box[1].classList.contains('X') === box[4].textContent !== '' && box[4].classList.contains('X') === box[7].textContent !== '' && box[7].classList.contains('X'):
-        winner();
+        winnerX();
       break;
       case box[2].textContent !== '' && box[2].classList.contains('X') === box[5].textContent !== '' && box[5].classList.contains('X') === box[8].textContent !== '' && box[8].classList.contains('X'):
-        winner();
+        winnerX();
       break;
       case box[0].textContent !== '' && box[0].classList.contains('X') === box[4].textContent !== '' && box[4].classList.contains('X') === box[8].textContent !== '' && box[8].classList.contains('X'):
-        winner();
+        winnerX();
       break;
       case box[2].textContent !== '' && box[2].classList.contains('X') === box[4].textContent !== '' && box[4].classList.contains('X') === box[6].textContent !== '' && box[6].classList.contains('X'):
-        winner();
+        winnerX();
       break;
       //matching 'O winners'
       case box[0].textContent !== '' && box[0].classList.contains('O') === box[1].textContent !== '' && box[1].classList.contains('O') === box[2].textContent !== '' && box[2].classList.contains('O'):
-        winner();
+        winnerO();
       break;
       case box[3].textContent !== '' && box[3].classList.contains('O') === box[4].textContent !== '' && box[4].classList.contains('O') === box[5].textContent !== '' && box[5].classList.contains('O'):
-        winner();
+        winnerO();
       break;
       case box[6].textContent !== '' && box[6].classList.contains('O') === box[7].textContent !== '' && box[7].classList.contains('O') === box[8].textContent !== '' && box[8].classList.contains('O'):
-        winner();
+        winnerO();
       break;
       case box[0].textContent !== '' && box[0].classList.contains('O') === box[3].textContent !== '' && box[3].classList.contains('O') === box[6].textContent !== '' && box[6].classList.contains('O'):
-        winner();
+        winnerO();
       break;
       case box[1].textContent !== '' && box[1].classList.contains('O') === box[4].textContent !== '' && box[4].classList.contains('O') === box[7].textContent !== '' && box[7].classList.contains('O'):
-        winner();
+        winnerO();
       break;
       case box[2].textContent !== '' && box[2].classList.contains('O') === box[5].textContent !== '' && box[5].classList.contains('O') === box[8].textContent !== '' && box[8].classList.contains('O'):
-        winner();
+        winnerO();
       break;
       case box[0].textContent !== '' && box[0].classList.contains('O') === box[4].textContent !== '' && box[4].classList.contains('O') === box[8].textContent !== '' && box[8].classList.contains('O'):
-        winner();
+        winnerO();
       break;
       case box[2].textContent !== '' && box[2].classList.contains('O') === box[4].textContent !== '' && box[4].classList.contains('O') === box[6].textContent !== '' && box[6].classList.contains('O'):
-        winner();
+        winnerO();
       break;
-
   }
 };
 
-
-
-// //display winner for X
-// var displayWinnerX = function (){
-//   winnerText.textContent = 'X';
-//   // resetBoard();
-// };
-//
-// //display winner for 0
-// var displayWinner0 = function (){
-//   winnerText.textContent = 'O';
-//   // resetBoard();
-// };
 
 // add event listener for all 9 boxes to be clicked. using loop for the class boxes
 var addBoxClickListener = function() {
@@ -150,7 +132,6 @@ var addBoxClickListener = function() {
 		box[i].addEventListener('click', boxClick);
 	}
 };
-
 
 document.addEventListener("DOMContentLoaded", function() {
     addBoxClickListener();
