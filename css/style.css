@@ -18,32 +18,10 @@ div {
   width: 100%;
 }
 
-.clear {
-
-}
-
-.mark {
-  vertical-align: center;
-  margin: 0;
-  position: absolute;
-  left: 40px;
-  bottom: 15px;
-}
-
-}
-
 h1 {
   text-align: center;
   font-size: 40px;
   margin-bottom: 30px;
-}
-
-h3 {
-  text-decoration: underline;
-}
-
-h4 {
-  font-size: 20px;
 }
 
 .name {
@@ -53,13 +31,6 @@ h4 {
 .main {
   text-align: center;
   margin: 0 auto;
-}
-
-.turn {
-  background-color: #E1E1E1;
-  display: inline-block;
-  vertical-align: top;
-  margin: 0 50px;
 }
 
 .gameboard {
@@ -96,29 +67,6 @@ h4 {
   transition-duration: 1s;
 }
 
-/* div.square {
-  vertical-align: center;
-  margin: 3px;
-  left: 40px;
-  bottom: 15px;
-  font-size: 60px;
-}
-
-div.squareBlue {
-  vertical-align: center;
-  margin: 0;
-  left: 40px;
-  bottom: 15px;
-  font-size: 60px;
-}
-
-div.squareBlack {
-  vertical-align: center;
-  margin: 0;
-  left: 40px;
-  bottom: 15px;
-} */
-
 .square {
   display: inline-block;
   margin: 3px;
@@ -147,12 +95,4 @@ button {
   margin-top: 20px;
   font-size: 20px;
   border-radius: 100px;
-}
-
-.recordX{
-
-}
-
-.recordY {
-
 }
