@@ -26,11 +26,11 @@ button {
 }
 
 .X {
-  background-image: url("img/X.png");
+  background-image: url("../img/X.png");
   background-size: 150px 150px;
 }
 
 .O {
-  background-image: url("img/O.png");
+  background-image: url("../img/O.png");
   background-size: 150px 150px;
 }

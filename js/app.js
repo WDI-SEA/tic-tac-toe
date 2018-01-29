@@ -23,9 +23,9 @@ var reset = function() {    //clear the game board
   for (var i = 0; i < resetBoard.length; i++) {
     player = 0;
     gameOver = false;
-    this.innerText = " ";
-    // resetBoard.classList.remove("X");
-    // resetBoard.classList.remove("O");
+    // this.innerText = " ";
+    resetBoard[i].classList.remove("X");
+    resetBoard[i].classList.remove("O");
   }
   startGame();
 };
@@ -39,69 +39,70 @@ var winGame = function() {  //switch gameOver to true, display winner message
   gameOver = true;
 };
 
-var turn = function() {  //check whose turn it is
+var turn = function(elm) {  //check whose turn it is
+
     if (player % 2 === 0) {
-        // nextplayer.textContent = "O";
-        // console.log("hi");
-        this.innerText = "X";// marker = "X";
-        // return "X";
+        nextplayer.textContent = "O";
+        //console.log(elm);
+        // elm.innerText = "X";// marker = "X";
+        return "X";
     } else {
-        // console.log("sup");
-        // nextplayer.textContent = "X";
-        this.innerText = "O";// marker = "O";
-        // return "O";
+        //console.log(elm);
+        nextplayer.textContent = "X";
+        // elm.innerText = "O";// marker = "O";
+        return "O";
     }
 };
 
 var checkForWinner = function() {  //check the 8 win condition combos
-  // var markBox = turn();
-  switch() {
-    case box1.innerText = "X" && box2.innerText = "X" && box3.innerText = "X":
+  var markBox = turn();
+  switch(true) {
+    case box1.classList.contains("X") && box2.classList.contains("X") && box3.classList.contains("X"):
     winGame();
     break;
-    case box4.innerText = "X" && box5.innerText = "X" && box6.innerText = "X":
+    case box4.classList.contains("X") && box5.classList.contains("X") && box6.classList.contains("X"):
     winGame();
     break;
-    case box7.innerText = "X" && box8.innerText = "X" && box9.innerText = "X":
+    case box7.classList.contains("X") && box8.classList.contains("X") && box9.classList.contains("X"):
     winGame();
     break;
-    case box1.innerText = "X" && box4.innerText = "X" && box7.innerText = "X":
+    case box1.classList.contains("X") && box4.classList.contains("X") && box7.classList.contains("X"):
     winGame();
     break;
-    case box2.innerText = "X" && box5.innerText = "X" && box8.innerText = "X":
+    case box2.classList.contains("X") && box5.classList.contains("X") && box8.classList.contains("X"):
     winGame();
     break;
-    case box3.innerText = "X" && box6.innerText = "X" && box9.innerText = "X":
+    case box3.classList.contains("X") && box6.classList.contains("X") && box9.classList.contains("X"):
     winGame();
     break;
-    case box1.innerText = "X" && box5.innerText = "X" && box9.innerText = "X":
+    case box1.classList.contains("X") && box5.classList.contains("X") && box9.classList.contains("X"):
     winGame();
     break;
-    case box3.innerText = "X" && box5.innerText = "X" && box7.innerText = "X":
+    case box3.classList.contains("X") && box5.classList.contains("X") && box7.classList.contains("X"):
     winGame();
     break;
-    case box1.innerText = "O" && box2.innerText = "O" && box3.innerText = "O":
+    case box1.classList.contains("O") && box2.classList.contains("O") && box3.classList.contains("O"):
     winGame();
     break;
-    case box4.innerText = "O" && box5.innerText = "O" && box6.innerText = "O":
+    case box4.classList.contains("O") && box5.classList.contains("O") && box6.classList.contains("O"):
     winGame();
     break;
-    case box7.innerText = "O" && box8.innerText = "O" && box9.innerText = "O":
+    case box7.classList.contains("O") && box8.classList.contains("O") && box9.classList.contains("O"):
     winGame();
     break;
-    case box1.innerText = "O" && box4.innerText = "O" && box7.innerText = "O":
+    case box1.classList.contains("O") && box4.classList.contains("O") && box7.classList.contains("O"):
     winGame();
     break;
-    case box2.innerText = "O" && box5.innerText = "O" && box8.innerText = "O":
+    case box2.classList.contains("O") && box5.classList.contains("O") && box8.classList.contains("O"):
     winGame();
     break;
-    case box3.innerText = "O" && box6.innerText = "O" && box9.innerText = "O":
+    case box3.classList.contains("O") && box6.classList.contains("O") && box9.classList.contains("O"):
     winGame();
     break;
-    case box1.innerText = "O" && box5.innerText = "O" && box9.innerText = "O":
+    case box1.classList.contains("O") && box5.classList.contains("O") && box9.classList.contains("O"):
     winGame();
     break;
-    case box3.innerText = "O" && box5.innerText = "O" && box7.innerText = "O":
+    case box3.classList.contains("O") && box5.classList.contains("O") && box7.classList.contains("O"):
     winGame();
     break;
   }
@@ -110,7 +111,7 @@ var checkForWinner = function() {  //check the 8 win condition combos
 var play = function() {
 
   if ((this.innerText !== "X") && (this.innerText !== "O") && (gameOver === false)) {
-    turn();
+    this.classList.add(turn(this));
     // console.log(this);
     checkForWinner();
     player++;
