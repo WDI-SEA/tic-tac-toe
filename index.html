@@ -3,12 +3,62 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <title>Rick and Morty Tic Tac Toe</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
 </head>
 <body>
-  <h1>Hello Front-End</h1>
+	<div class="container">
+    <div class="title">
+      <h1>Tic Tac <img class="portal" src="img/portalSmall.png"><img class="titleMorty" src="img/morty.png"></h1>
+    </div>
+		<div class="ui">
+      <label>
+        <input type="radio" name="gameType" value="easy">
+        <img class="picSelect" src="img/newJerry.gif" alt="Easy AI"></input>
+      </label>
+      <label>
+        <input type="radio" name="gameType" value="hard">
+        <img class="picSelect" src="img/newRick.gif" alt="Hard AI"></input>
+      </label>
+      <label>
+        <input type="radio" name="gameType" value="human">
+        <img src="img/2Player.gif" alt="2Players"></input>
+      </label>
+      <br />
+      <p id="turn">Please Select an Opponent!</p>
+      <button type="button" id="resetButton">Reset Game</button>
+      <br />
+      <br />
+		</div>
+    <div class="gameBack">
+      <div class="opponent1">
+        <img id= "opp1Img" src="img/meseeks.png">
+      </div>
+  		<div class="gameboard">
+  			<div class="row">
+  				<div class="square top left diag1"></div>
+  				<div class="square top cent"></div>
+  				<div class="square top right diag2"></div>
+  			</div>
 
+  			<div class="row">
+  				<div class="square mid left"></div>
+  				<div class="square mid cent diag1 diag2"></div>
+  				<div class="square mid right"></div>
+  			</div>
+
+  			<div class="row">
+  				<div class="square bot left diag2"></div>
+  				<div class="square bot cent"></div>
+  				<div class="square bot right diag1"></div>
+  			</div>
+  		</div>
+      <div class="opponent2">
+        <img id= "opp2Img" src="img/mrPoop.png">
+      </div>
+    </div>
+	</div>
   <script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>

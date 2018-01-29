@@ -1,3 +1,89 @@
-h1 {
-  color: purple;
+@keyframes fadeIn {
+    from {opacity: 0; display: none;}
+		to {opacity: 1; display: ;}
+}
+body{
+  font-family: 'Slabo 27px', serif;
+  color: white;
+	background: black;
+}
+h1{
+  font-size: 100px;
+}
+img{
+	vertical-align: middle;
+}
+p{
+	font-size: 35px;
+}
+label{
+  margin: 0 5%;
+}
+button{
+  margin-top: 2%;
+  font-size: 15px;
+  width: 200px;
+}
+.container{
+	position: relative;
+	width: 100%;
+	margin:auto;
+	text-align: center;
+}
+.title{
+  top: -70px;
+  left: 150px;
+  width: auto;
+  height: 260px;
+	position: relative;
+}
+.portal{
+	left: 30px;
+	position: relative;
+	transform: rotate(90deg);
+}
+.titleMorty{
+	right: 225px;
+  position: relative;
+	animation-name: fadeIn;
+	animation-duration: 5s;
+}
+.ui{
+	position: relative;
+}
+.gameBack{
+  position: relative;
+  background-attachment:fixed;
+  background-image: url("../img/gameBack.gif");
+}
+.opponent1{
+  position: relative;
+	margin: auto;
+	display: inline-block;
+}
+.opponent2{
+	margin: auto;
+	display: inline-block;
+}
+.gameboard{
+  bottom: 5%;
+  position: relative;
+  vertical-align: middle;
+	display: inline-block;
+	background: black;
+}
+.square{
+	display: inline-block;
+  background-image: url("../img/squareBack.jpg");
+  border: 2px solid black;
+	height: 100px;
+	width: 100px;
+}
+.row{
+
+}
+.winner{
+  animation-name: fadeIn;
+  animation-duration: 3s;
+	border: 2px solid red;
 }
