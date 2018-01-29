@@ -41,8 +41,6 @@ var boxClick = function() {
 
 //setting all scenarios in which a win could happen
 var checkWin = function() {
-
-  var  = boxClick();
 //set conditions for each win by row, column and diagonal
   if (boxClick.sq1.textContent === boxClick.sq2.textContent === boxClick.sq3.textContent) {
     console.log("win row 1");
