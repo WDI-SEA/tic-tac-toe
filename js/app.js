@@ -15,13 +15,15 @@ var addBoxClickListener = function() {
 		box[i].addEventListener('click', boxClick);
 	}
 };
-for(var i = 0; i < box.length; i++){
-
-var addBoxClickListener = function() {
-  	for(var i = 0; i < box.length; i++){
-  		box[i].addEventListener('click', boxClick);
-  	}
-  };
+// for(var i = 0; i < box.length; i++){
+//
+//   var addBoxClickListener = function() {
+//   	for(var i = 0; i < box.length; i++){
+//   		box[i].addEventListener('click', boxClick);
+//   	}
+//   };
+//   for(var i = 0; i < box.length; i++);
+// };
 
 document.addEventListener("DOMContentLoaded", function() {
 
