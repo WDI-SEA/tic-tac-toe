@@ -1,51 +1,38 @@
-
-h1 {
-background: linear-gradient(#6a82fb, #fc5c7d);
-background: 
-height: 180px;
-text-align: center;
-color: white;
-font: comic-sans;
-border: 5px solid black;
-}
-#container {
-height: 1500px;
-position: relative;
-background: linear-gradient(#fc5c7d, #6a82fb);
-}
-.box {
-background: white;
-  width: 200px;
-  height: 200px;
-  border: 1px solid black;
-  display: inline-block;
-  margin: 30px;
-  border-radius: 30px;
-}
-.box:hover {
-  background: yellow;
-}
-.apples{
-background-image: url(img/apples.jpeg);
-}
-.oranges {
-background-image: url(img/oranges.jpeg); 
-}
-.button {
-widows: 50px;
-border: 2px solid black;	
-}
-.RESET {
-widows: 50px;
-border: 2px solid black;
-}
 body {
+background: linear-gradient(#fc5c7d, #6a82fb);
 }
 div {
 text-align: center;
 }
 footer {
 text-align: left;
-color: white;
-
+}
+h1 {
+background-color: linear-gradient(#6a82fb, #fc5c7d); 
+height: 100px;
+text-align: center;
+border: 5px solid darkblue;
+}
+#container {
+/*height: 1500px;*/
+position: relative;
+}
+.box {
+background-color: white;
+  width: 200px;
+  height: 200px;
+  border: 1px solid black;
+  display: inline-block;
+  margin: 10px;
+  border-radius: 30px;
+}
+.box:hover {
+  background-color: yellow;
+}
+.button {
+widows: 50px;
+border: 2px solid black;	
+}
+.clicked {
+background-color: green;
 }
