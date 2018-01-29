@@ -42,7 +42,7 @@ h3 {
 	width: 55vw;
 	margin: 1vh auto 1vh auto;
 	text-align: center;
-	background: rgba(255, 255, 255, 0.4);
+	background: rgba(200, 200, 200, 0.4);
 	border: 2px solid black;
 
 }
@@ -63,13 +63,13 @@ h3 {
 	display: inline-block;
 	border: 2px solid teal;
 	width: 15vw;
-	height: 15vh;
-	font-size: 3em;	
+	height: 15vh;	
 	padding: 0;
 	margin: 0;
-	color: white;
-	text-align: center;
 	border-radius: 5px;
+}
+.row1 {
+	margin-top: 3vh;
 }
 .boxblue {
 	background-color: blue;
@@ -77,10 +77,10 @@ h3 {
 .boxgreen {
 	background-color: green;
 }
-
-.row1 .box {
-	margin-top: 3vh;
-
+.box p {
+	font-size: 4em;
+	margin: 2vh auto 0 auto;
+	color: black;
 }
 
 #topRight,#topMid,#topLeft {
@@ -106,6 +106,7 @@ h3 {
 	margin: 0 auto 0 auto;
 	border-radius: 0 0 7px 7px;
 	border: 3px solid teal;
+	border-style: none solid solid solid;
 }
 
 .reset {
@@ -117,32 +118,36 @@ h3 {
 
 .xwins {
 	position: absolute;
+	text-align: center;
 	-webkit-transform: rotate(90deg); /* Safari and Chrome */
     -moz-transform: rotate(90deg);   /* Firefox */
     -ms-transform: rotate(90deg);   /* IE 9 */
     -o-transform: rotate(90deg);   /* Opera */
     transform: rotate(90deg);
-    width: 40vw;
+    width: 30vw;
   	right: 70vw;
-    top: 60vh;
+    top: 50vh;
     font-weight: bold;
     font-size: 3em;
    	animation: blinker 1s linear infinite;
+   	background-color: rgba(255, 255, 255, 0.4);
 }
 
 .owins{
 	position: absolute;
-	-webkit-transform: rotate(90deg); /* Safari and Chrome */
-    -moz-transform: rotate(90deg);   /* Firefox */
-    -ms-transform: rotate(90deg);   /* IE 9 */
-    -o-transform: rotate(90deg);   /* Opera */
+	text-align: center;
+	-webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
     transform: rotate(90deg);
-    width: 40vw;
+    width: 30vw;
     right: 70vw;
-    top: 60vh;
+    top: 50vh;
     font-weight: bold;
     font-size: 3em;
     animation: blinker 1s linear infinite;
+    background-color: rgba(255, 255, 255, 0.4);
 }
 
 @keyframes blinker {  

@@ -9,12 +9,14 @@ var players = {
 		positions: []
 	}
 }
+
 var playerX = players["player1"]["player"];
 var playerO = players["player2"]["player"];
-var player1Positions = players.player1.positions;
-var player2Positions = players.player2.positions;
+var xPositions = players.player1.positions;
+var oPositions = players.player2.positions;
 var xturn = document.getElementById("xturn");
 var oturn = document.getElementById("oturn");
+
 var wins = [
 	["topRight", "topMid", "topLeft"], 
 	["right","mid","left"], 
@@ -78,8 +80,8 @@ var displayX = function() {
 
 var reset = function() {
 	//Empties players positions arrays
-	players.player1.positions.splice(0,players.player1.positions.length);
-	players.player2.positions.splice(0,players.player2.positions.length);
+	xPositions.splice(0,xPositions.length);
+	oPositions.splice(0,oPositions.length);
 
 	location.reload();
 	// var board = document.getElementsByClassName("board")[0].children;
@@ -92,18 +94,20 @@ var reset = function() {
 // using the players objects which holds the positions array
 var choice = function() {
 
-	if (checkForWin(player1Positions, wins) || checkForWin(player2Positions, wins)) {
+	if (checkForWin(xPositions, wins) || checkForWin(oPositions, wins)) {
 		alert("Hit Reset Button To Play Again!");
-	} else if (player1Positions.includes(this.id) || player2Positions.includes(this.id)) {
+	} else if (xPositions.includes(this.id) || oPositions.includes(this.id)) {
 		alert("choose another square!")
 	} else {
 		if (turn % 2 ===0) {
  			//Statement switches turns because X is always first 
-			this.textContent = playerX;
+			var xs = document.createElement('p');
+			xs.textContent = playerX
+			this.appendChild(xs);
 			this.classList.add("boxblue");
-			player1Positions.push(this.id);		
+			xPositions.push(this.id);		
 			turn++
-			var xWins = checkForWin(player1Positions, wins);
+			var xWins = checkForWin(xPositions, wins);
 			if (xWins){
  				displayX();
  				xturn.classList.add("none");
@@ -111,11 +115,13 @@ var choice = function() {
  				playerTurn(playerX);
  			}
  		} else {
- 			this.textContent = players["player2"]["player"];
+ 			var os = document.createElement('p');
+			os.textContent = playerO;
+			this.appendChild(os);
  			this.classList.add("boxgreen");
-			players["player2"]["positions"].push(this.id);			
+			oPositions.push(this.id);			
  			turn++
- 			var oWins = checkForWin(players.player2.positions, wins);
+ 			var oWins = checkForWin(oPositions, wins);
  			if (oWins){
  				displayO();
  				oturn.classList.add("none");
@@ -128,6 +134,25 @@ var choice = function() {
 		}
 	}
 }
+
+// var computer = function() {
+// 	var boxes = document.getElementsByClassName('box');
+// 	console.log(boxes);
+// 	var num = (Math.random());
+// 	console.log(num);
+//	count = 0
+// 	for(var i = 0;i<boxes.length;i++){
+// 		if (boxes[i].includes(classList('chosen'))){
+//			return;
+//		} else if (count === 1){
+//			return;
+//		} else {
+//			append "O";
+//			count++;
+//}
+// 	}
+// }
+//	computer();
 document.addEventListener("DOMContentLoaded", function() {
 	document.querySelector("#topRight").addEventListener("click", choice);
 	document.querySelector("#topMid").addEventListener("click", choice);
