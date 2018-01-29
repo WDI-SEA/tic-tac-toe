@@ -1,3 +1,103 @@
-h1 {
-  color: purple;
+html, body {
+  font-family: sans-serif;
+}
+
+#game-name {
+  transform: rotate(-90deg);
+  position: absolute;
+  font-size: 63px;
+  color: #fff;
+  margin: 270px 0px 0px -123px;
+  left: 0;
+
+}
+
+#container {
+  position: relative;
+  width: 360px;
+  margin: 0 auto;
+  text-align: center;
+  background: #437cad;
+  padding: 25px 100px;
+}
+
+#reset, #popup-reset {
+  background: #333;
+  color: #fff;
+  font-size: 18px;
+  border: none;
+  border-radius: 3px;
+  padding: 3px 25px;
+}
+
+h3 {
+  color: #fff;
+}
+
+.square.color1 {
+  background: #0DD397;
+}
+
+.square.color2 {
+  background: #7A06B9;
+}
+
+.square.border {
+  border: 1px solid red;
+}
+
+.flex-row {
+  width: 60vw;
+  display: flex;
+  flex-direction: row;
+}
+
+.square {
+  background: #000;
+  width: 100px;
+  height: 100px;
+  margin: 10px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 300%;
+  border-radius: 5px;
+}
+
+.radio-buttons {
+  display: inline-block;
+  margin: 0px 10px;
+  text-align: center;
+}
+
+input[type=radio]:checked + label {
+  background: red;
+}
+
+label {
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 20px;
+}
+
+#game-over {
+  display: none;
+  width: 300px;
+  top: 120px;
+  background-color: rgba(205, 133, 63, 0.8);
+  position: absolute;
+  left: 50%;
+  margin-left: -150px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  text-align: center;
+  border-radius: 5px;
+  color: white;
+  font-size: 2em;
+}
+
+#game-over.dis-block {
+  display: block !important;
 }
