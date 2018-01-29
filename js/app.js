@@ -1,18 +1,5 @@
 console.log("javascript running");
-//i've set the gameboard at the top of the doccument. now, i'm pulling out each of the 9 squares, and assigning variable to each, so i can match below for win conditions
 
-// var sq1 = (gameBoard[0].firstElementChild.className);
-// var sq2 = (gameBoard[1].firstElementChild.className);
-// var sq3 = (gameBoard[2].firstElementChild.className);
-// var sq4 = (gameBoard[3].firstElementChild.className);
-// var sq5 = (gameBoard[4].firstElementChild.className);
-// var sq6 = (gameBoard[5].firstElementChild.className);
-// var sq7 = (gameBoard[6].firstElementChild.className);
-// var sq8 = (gameBoard[7].firstElementChild.className);
-// var sq9 = (gameBoard[8].firstElementChild.className);
-
-//grab elements I need from DOM
-//gets all the divs holding the backgrounds for tiles
 var gameBoard = document.querySelectorAll("#gameboard > .box");
 var box = document.querySelectorAll('.box');
 //turn counter
@@ -52,18 +39,18 @@ var boxClick = function() {
     this.classList.add('O')};
     //remove event listener in here
     player = 'O'
-      if (turn >= 4 {
+      if (turn >= 4) {
         checkWin();
-      })
+      }
   } else {
     this.textContent= 'X';
     this.style.backgroundColor = 'black';
     if (!this.classList.contains("X") && !this.classList.contains("O")) {
     this.classList.add('X')};
     player = 'X'
-      if (turn >= 4 {
+      if (turn >= 4) {
         checkWin();
-      })
+      }
   }
 };
 
