@@ -6,9 +6,22 @@ var gameBoard = document.querySelectorAll("#gameboard > .box");
 var box = document.querySelectorAll('.box');
 //turn counter
 var turn = 0
-//reset button
-var resetBtn = document.getElementById('#reset')
-clearButton.addEventListener('click', resetBoard);
+
+var winnerText = document.getElementByClass('winnerText');
+
+// //reset board using reset button
+// var resetBoard = function() {
+//   for(var i = 0; i < box.length; i++){
+// 		box[i].innerHTML = '';
+//     this.style.backgroundColor('#4D9BA6');
+//     winnerText.textContent = " ";
+//     turn = 0;
+//   }
+// };
+//
+// //reset button
+// var resetButton = document.getElementById('#reset')
+// resetButton.addEventListener('click', resetBoard);
 
 //function to step 1. add turn counter +1 each time boxClick happens (each time we click)
 //step 2. once a box is clicked, the function will count even turns (turn%2===0) & switch to one color, odd turns are the "else" condition
@@ -29,10 +42,10 @@ var boxClick = function() {
 };
 
 
-//setting all scenarios in which a win could happen
+//master win function which includes all the winning combinations
 var checkWin = function() {
 
-  // i've set the gameboard at the top of the doccument. now, i'm pulling out each of the 9 squares, and assigning variable to each, so i can match below for win conditions
+  //i've set the gameboard at the top of the doccument. now, i'm pulling out each of the 9 squares, and assigning variable to each, so i can match below for win conditions
   // var sq1 = (gameBoard[0].firstElementChild.classN);
   // var sq2 = (gameBoard[1].firstElementChild.className);
   // var sq3 = (gameBoard[2].firstElementChild.className);
@@ -45,6 +58,7 @@ var checkWin = function() {
 
   var boxClick = gameboard.querySelectorAll('.box');
 
+    //created the win scenarios below to say if these boxes match innerText of 'x' or 'o' all 3 then this wins
     while (turn >= 3) {
       if (
           //row1
@@ -92,17 +106,6 @@ var displayWinner0 = function (){
   winnerText.textContent = '0';
   resetBoard();
 };
-
-//reset board using reset button
-var resetBoard = function () {
-  for(var i = 0; i < box.length; i++){
-		box[i].innerHTML = '';
-    this.style.backgroundColor('#4D9BA6');
-    winnerText.textContent = " ";
-    turn = 0;
-  }
-};
-
 
 // add event listener for all 9 boxes to be clicked. using loop for the class boxes
 var addBoxClickListener = function() {
