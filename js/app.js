@@ -18,5 +18,4 @@ document.addEventListener("DOMContentLoaded", function(){
  	document.getElementById("bRight").addEventListener("click", markBox);
  	document.getElementById("bMiddle").addEventListener("click", markBox);
  	document.getElementById("bLeft").addEventListener("click", markBox);
- 	// document.getElementById("resetButton").addEventListener("click",reset);
 })
