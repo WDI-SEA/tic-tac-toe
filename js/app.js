@@ -30,20 +30,21 @@ var boxClick = function() {
 var checkWin = function() {
 
   //i've set the gameboard at the top of the doccument. now, i'm pulling out each of the 9 squares, and assigning variable to each, so i can match below for win conditions
-  var sq1 = (gameBoard[0].firstElementChild.className);
-  var sq2 = (gameBoard[1].firstElementChild.className);
-  var sq3 = (gameBoard[2].firstElementChild.className);
-  var sq4 = (gameBoard[3].firstElementChild.className);
-  var sq5 = (gameBoard[4].firstElementChild.className);
-  var sq6 = (gameBoard[5].firstElementChild.className);
-  var sq7 = (gameBoard[6].firstElementChild.className);
-  var sq8 = (gameBoard[7].firstElementChild.className);
-  var sq9 = (gameBoard[8].firstElementChild.className);
+  // var sq1 = (gameBoard[0].firstElementChild.className);
+  // var sq2 = (gameBoard[1].firstElementChild.className);
+  // var sq3 = (gameBoard[2].firstElementChild.className);
+  // var sq4 = (gameBoard[3].firstElementChild.className);
+  // var sq5 = (gameBoard[4].firstElementChild.className);
+  // var sq6 = (gameBoard[5].firstElementChild.className);
+  // var sq7 = (gameBoard[6].firstElementChild.className);
+  // var sq8 = (gameBoard[7].firstElementChild.className);
+  // var sq9 = (gameBoard[8].firstElementChild.className);
+  var boxClick = querySelectorAll('.box');
 
     while (turnCount >= 3) {
       if (
           //row1
-          (sq1 === sq2 && sq2 === sq3)  ||
+          (.boxClick[0] === .boxClick[1] && .boxClick[1] === .boxClick[2])  ||
           //row 2
           (sq4 === sq5 && sq5 === sq6)  ||
           //row 3
@@ -73,6 +74,8 @@ var checkWin = function() {
       }
     }
 };
+
+//reset board using reset button #reset
 
 
 // add event listener for all 9 boxes to be clicked. using loop for the class boxes
