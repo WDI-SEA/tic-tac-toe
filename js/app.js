@@ -1,9 +1,7 @@
 var moveCount = 1;
-var moveCount2 = 0;
 
 var nextMove = function () {
 	moveCount ++;
-	moveCount2 ++;
 	};
 
 
@@ -44,7 +42,7 @@ var switchPlayer = function() {
 
 
 var boxes = [box1, box2, box3, box4, box5, box6, box7, box8, box9];
-console.log(boxes);
+
 
 
 ///-----------------------------------------------------------------game ending
@@ -106,9 +104,9 @@ var place = function() {
 };
 
 
-for (i = 0; boxes.length; i++) {
-	boxes[i].addEventListener('click', place, {once:true});
-};
+// for (i = 0; boxes.length; i++) {
+// 	boxes[i].addEventListener('click', place, {once:true});
+// };
 
 
 
