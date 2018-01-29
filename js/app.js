@@ -14,7 +14,7 @@ var turnP = document.getElementById('turnP');
 var xName = null;
 var oName = null;
 var onePlayerCheckBox = document.getElementById('onePlayerCheckBox');
-var computerButton = document.getElementById('computerButton');
+// var computerButton = document.getElementById('computerButton');
 var impossibleCheckBoxId = document.getElementById('impossibleCheckBoxId');
 var delay = null;
 var winHashOne = document.getElementsByClassName('winHashOne')[0];
@@ -263,7 +263,7 @@ var computerTurn = function() {
 };
 
 var computerPlay = function() {
-  if (computerTurn) {
+  if (!gameOver) {
     var computerBoxPlayed = null;
     var randNumKey = null;
     for (var i = 0; i < 1; i++) {
@@ -308,8 +308,8 @@ var playBox = function() {
   //LOGS FALSE BUT STILL PLAYS COMPUTER MOVE...WHY???
   console.log(computerTurn());
   //RUNNING COMPUTER PLAY STILL FREEZES BROWSER AFTER GAME OVER
-  if (computerTurn()) {
-      delay = setTimeout(computerPlay, 1000);
+  if (computerTurn() && !gameOver) {
+      delay = setTimeout(computerPlay, 750);
     }
   if (!boxesPlayed[this.id] && computerTurn && !gameOver) {
     boxesPlayed[this.id] = true;
@@ -377,7 +377,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   };
   nameButton.addEventListener('click', changeName);
-  computerButton.addEventListener('click', computerPlay);
+  // computerButton.addEventListener('click', computerPlay);
   resetButton.addEventListener('click', reset);
   gameBoard.addEventListener('click', spinBoard);
   boxArr = [];
