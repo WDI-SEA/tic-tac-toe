@@ -3,11 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+  <title>Tic Tac Toe</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-  <h1>Hello Front-End</h1>
+  <h1>Tic Tac Toe</h1>
+<div class="row1">
+  <div id="box1" class="box"></div>
+  <div id="box2" class="box"></div>
+  <div id="box3" class="box"></div>
+</div>
+
+<div class="row2">
+  <div id="box4" class="box"></div>
+  <div id="box5" class="box"></div>
+  <div id="box6" class="box"></div>
+</div>
+
+<div class="row3">
+  <div id="box7" class="box"></div>
+  <div id="box8" class="box"></div>
+  <div id="box9" class="box"></div>
+</div>
+<br />
+
+<div id="turnindicator">
+  <p>Next turn: <span id="nextplayer"></span></p>
+</div>
+<div>
+  <!--<p>The winner is: <span id="winner"></span></p>-->
+</div>
+
+<button type="button" value="Reset" id="reset">Reset</button>
 
   <script type="text/javascript" src="js/app.js"></script>
 </body>
