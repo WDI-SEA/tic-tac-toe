@@ -16,11 +16,8 @@ var turn = 0
 
 
 //check for win after each click, see function above
-var eachTurn = function(){
-  if(turn>=0){
-    checkWin();
-  }
-};
+checkWin();
+
 
 //function to step 1. add turn counter +1 each time boxClick happens (each time we click)
 //step 2. once a box is clicked, the function will count even turns (turn%2===0) & switch to one color, odd turns are the "else" condition
