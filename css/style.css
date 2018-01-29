@@ -6,15 +6,17 @@ body {
 h1 {
   color: #008000;
   font-size: 60px;
+  margin-top: 5px;
   margin-bottom: -2px;
 }
 
 #turnindicator {
-  margin-top: -5px;
+  margin-top: -35px;
+  font-size: 30px;
 }
 
 #reset {
-  margin-bottom: 5px;
+  margin-bottom: 15px;
 }
 
 .box {
