@@ -48,6 +48,8 @@ var redBox = {
 var player = 0;
 var boxPosition;
 var newPlayer;
+var delay = null;
+
 
 var newColor = null;
 
@@ -194,10 +196,10 @@ var win = function() {
 var checkForWin = function() {
 	if (topRowCountBlack === 3 || middleRowCountBlack === 3 || bottomRowCountBlack === 3 || leftColCountBlack === 3 || middlleColCountBlack === 3 || rightColCountBlack === 3 || leftDownDiagCountBlack === 3 || leftUpDiagCountBlack === 3)  {
 		newPlayer.textContent = "player 1 wins";
-		win();
+		delay = setTimeout(win, 800);
 	} else if (topRowCountRed === 3 || middleRowCountRed === 3 || bottomRowCountRed === 3 || leftColCountRed === 3 || middlleColCountRed === 3 || rightColCountRed === 3 || leftDownDiagCountRed === 3 || leftUpDiagCountRed === 3) {
 		newPlayer.textContent = "player 2 wins";
-		win();
+		delay = setTimeout(win, 800);
 	}
 
 };
@@ -229,6 +231,7 @@ var checkBox = function() {
 
 
 var reset = function() {
+	
 
 	for (var i = 0; i < winClassB.length; i++) {
 		winClassB[i].classList.remove("boxClickedBlack");
