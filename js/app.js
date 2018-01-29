@@ -7,9 +7,9 @@ var whosTurn;
 
 var displayCurrentPlay = function() {
   if (currentPlay % 2 === 0) {
-    whosTurn = "X's turn";
+    whosTurn = "(X's turn)";
   } else {
-    whosTurn = "O's turn"
+    whosTurn = "(O's turn)"
   }
   currentPlayElement.textContent = currentPlay + 1 + "  " + whosTurn;
 }
@@ -82,44 +82,51 @@ var checkIfWon = function() {
   // check to see if anyone has won yet
   if (squaresArr[0].textContent !== '' && squaresArr[0].textContent === squaresArr[1].textContent && squaresArr[1].textContent === squaresArr[2].textContent ) {
     setTimeout(function() {
-      alert(squaresArr[0].textContent + " Wins!!");
-      resetBoard();
+      document.querySelector('#game-over h1').textContent = squaresArr[0].textContent + " Wins!!";
+      document.getElementById('game-over').classList.add("dis-block");
     }, 400);
   } else if (squaresArr[3].textContent !== '' && squaresArr[3].textContent === squaresArr[4].textContent && squaresArr[4].textContent === squaresArr[5].textContent ) {
     setTimeout(function() {
-      alert(squaresArr[3].textContent + " Wins!!");
-      resetBoard();
+      document.querySelector('#game-over h1').textContent = squaresArr[3].textContent + " Wins!!";
+      document.getElementById('game-over').classList.add("dis-block");
     }, 400);
   } else if (squaresArr[6].textContent !== '' && squaresArr[6].textContent === squaresArr[7].textContent && squaresArr[7].textContent === squaresArr[8].textContent ) {
     setTimeout(function() {
-      alert(squaresArr[6].textContent + " Wins!!");
-      resetBoard();
+      document.querySelector('#game-over h1').textContent = squaresArr[6].textContent + " Wins!!";
+      document.getElementById('game-over').classList.add("dis-block");
     }, 400);
   } else if (squaresArr[0].textContent !== '' && squaresArr[0].textContent === squaresArr[4].textContent && squaresArr[4].textContent === squaresArr[8].textContent ) {
     setTimeout(function() {
-      alert(squaresArr[0].textContent + " Wins!!");
-      resetBoard();
+      document.querySelector('#game-over h1').textContent = squaresArr[0].textContent + " Wins!!";
+      document.getElementById('game-over').classList.add("dis-block");
     }, 400);
   } else if (squaresArr[2].textContent !== '' && squaresArr[2].textContent === squaresArr[4].textContent && squaresArr[4].textContent === squaresArr[6].textContent ) {
     setTimeout(function() {
-      alert(squaresArr[2].textContent + " Wins!!");
-      resetBoard();
+      document.querySelector('#game-over h1').textContent = squaresArr[2].textContent + " Wins!!";
+      document.getElementById('game-over').classList.add("dis-block");
     }, 400);
   } else if (squaresArr[0].textContent !== '' && squaresArr[0].textContent === squaresArr[3].textContent && squaresArr[3].textContent === squaresArr[6].textContent ) {
     setTimeout(function() {
-      alert(squaresArr[0].textContent + " Wins!!");
-      resetBoard();
+      document.querySelector('#game-over h1').textContent = squaresArr[0].textContent + " Wins!!";
+      document.getElementById('game-over').classList.add("dis-block");
     }, 400);
   } else if (squaresArr[1].textContent !== '' && squaresArr[1].textContent === squaresArr[4].textContent && squaresArr[4].textContent === squaresArr[7].textContent ) {
     setTimeout(function() {
-      alert(squaresArr[1].textContent + " Wins!!");
-      resetBoard();
+      document.querySelector('#game-over h1').textContent = squaresArr[1].textContent + " Wins!!";
+      document.getElementById('game-over').classList.add("dis-block");
     }, 400);
   } else if (squaresArr[2].textContent !== '' && squaresArr[2].textContent === squaresArr[5].textContent && squaresArr[5].textContent === squaresArr[8].textContent ) {
     setTimeout(function() {
-      alert(squaresArr[2].textContent + " Wins!!");
-      resetBoard();
+      document.querySelector('#game-over h1').textContent = squaresArr[2].textContent + " Wins!!";
+      document.getElementById('game-over').classList.add("dis-block");
     }, 400);
+  } else if (squaresArr[0].textContent !== '' && squaresArr[1].textContent !== '' && squaresArr[2].textContent !== '' && squaresArr[3].textContent !== '' && squaresArr[4].textContent !== '' && squaresArr[5].textContent !== '' && squaresArr[6].textContent !== '') {
+    if (squaresArr[7].textContent !== '' && squaresArr[8].textContent !== ''){
+      setTimeout(function() {
+        document.querySelector('#game-over h1').textContent = "It's a Draw!!";
+        document.getElementById('game-over').classList.add("dis-block");
+      }, 300);
+    }
   } // END -- check to see if anyone has won yet
 }
 
@@ -132,11 +139,11 @@ var resetBoard = function() {
     squaresArr[i].textContent = '';
     squaresArr[i].classList.remove('color1');
     squaresArr[i].classList.remove('color2');
+    document.getElementById('game-over').classList.remove("dis-block");
+    document.querySelector('#game-over h1').textContent = '';
     displayCurrentPlay();
     currentPlay = 0;
   }
 }
 resetButton.addEventListener('click', resetBoard, false);
-
-// Rotate the title <h1>
-document.getElementById('game-name').style.transform = "rotate(-90deg)";
+document.getElementById('popup-reset').addEventListener('click', resetBoard, false);
