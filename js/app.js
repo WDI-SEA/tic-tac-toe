@@ -1,6 +1,6 @@
 // document.addEventListener("DOMContentLoaded", function() {
 
-console.log('Hello javascript');
+// console.log('Hello javascript');
 
 var box1 = document.getElementById("box1");  //box ids for each square
 var box2 = document.getElementById("box2");
@@ -15,7 +15,6 @@ var box9 = document.getElementById("box9");
 var player = 0;
 var gameOver = false;
 var marker;
-// var winner = document.getElementById("winner");
 
 
 var reset = function() {    //clear the game board
@@ -23,7 +22,6 @@ var reset = function() {    //clear the game board
   for (var i = 0; i < resetBoard.length; i++) {
     player = 0;
     gameOver = false;
-    // this.innerText = " ";
     resetBoard[i].classList.remove("X");
     resetBoard[i].classList.remove("O");
   }
@@ -44,12 +42,10 @@ var turn = function(elm) {  //check whose turn it is
     if (player % 2 === 0) {
         nextplayer.textContent = "O";
         //console.log(elm);
-        // elm.innerText = "X";// marker = "X";
         return "X";
     } else {
         //console.log(elm);
         nextplayer.textContent = "X";
-        // elm.innerText = "O";// marker = "O";
         return "O";
     }
 };
