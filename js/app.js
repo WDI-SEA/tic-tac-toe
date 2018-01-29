@@ -1,8 +1,26 @@
 console.log("javascript running");
 
 //grab elements I need from DOM
+var sq1 = document.getElementById('sq1');
+var sq2 = document.getElementById('sq2');
+var sq3 = document.getElementById('sq3');
+var sq4 = document.getElementById('sq1');
+var sq5 = document.getElementById('sq2');
+var sq6 = document.getElementById('sq3');
+var sq7 = document.getElementById('sq1');
+var sq8 = document.getElementById('sq2');
+var sq9 = document.getElementById('sq3');
+
 var box = document.querySelectorAll('.box');
 var turn = 0
+
+
+//check for win after each click, see function above
+var eachTurn = function(){
+  if(turn>=0){
+    checkWin();
+  }
+};
 
 //function to step 1. add turn counter +1 each time boxClick happens (each time we click)
 //step 2. once a box is clicked, the function will count even turns (turn%2===0) & switch to one color, odd turns are the "else" condition
@@ -20,22 +38,17 @@ var boxClick = function() {
   console.log("clicked!");
 };
 
+
 //setting all scenarios in which a win could happen
 var checkWin = function() {
-  //pull all updated squares
-  var sq1 = document.getElementById('sq1');
-  var sq2 = document.getElementById('sq2');
-  var sq3 = document.getElementById('sq3');
 
+  var  = boxClick();
 //set conditions for each win by row, column and diagonal
-  if (sq1.textContent === sq2.textContent === sq3.textContent) {
+  if (boxClick.sq1.textContent === boxClick.sq2.textContent === boxClick.sq3.textContent) {
     console.log("win row 1");
-  } else {
-    console.log("lost row 1");
   }
 };
 
-console.log(sq1.textContent);
 
 // add event listener for all 9 boxes to be clicked. using loop for the class boxes
 var addBoxClickListener = function() {
@@ -46,5 +59,4 @@ var addBoxClickListener = function() {
 
 document.addEventListener("DOMContentLoaded", function() {
     addBoxClickListener();
-    checkWin();
 });
