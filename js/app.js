@@ -49,8 +49,8 @@ var boxClick = function() {
     this.textContent= 'O';
     this.style.backgroundColor = 'red';
     if (!this.classList.contains("O") && !this.classList.contains("X")) {
-    this.classList.add("O")};
-    //remove event listner
+    this.classList.add('O')};
+    //remove event listener in here
     player = 'O'
     if (turn >= 4 {
       checkWin();
@@ -59,62 +59,51 @@ var boxClick = function() {
     this.textContent= 'X';
     this.style.backgroundColor = 'black';
     if (!this.classList.contains("X") && !this.classList.contains("O")) {
-    this.classList.add("X")};
+    this.classList.add('X')};
     player = 'X'
     if (turn >= 4 {
       checkWin();
     })
   }
-  //making sure boxClick function is working - also logs number of clicks to verify
+  //making sure function is working
   console.log("clicked!");
 };
 
 
-//master win function which includes all the winning combinations
+//function that checks winning combinations
+
 
 var checkWin = function() {
+//matching two conditions: box does not include textContent and it's classList matches X
+  switch (true) {
+      case box[0].textContent !== '' && box[0].classList.contains('X') === box[1].textContent !== '' && box[1].classList.contains('X') === (box[2].textContent !== '' && box[2].classList.contains('X'):
+        winner();
+      break;
+      case box[3].textContent !== '' && box[3].classList.contains('X') === box[4].textContent !== '' && box[4].classList.contains('X') === (box[5].textContent !== '' && box[5].classList.contains('X'):
+        winner();
+      break;
+      case box[6].textContent !== '' && box[6].classList.contains('X') === box[7].textContent !== '' && box[7].classList.contains('X') === (box[8].textContent !== '' && box[8].classList.contains('X'):
+        winner();
+      break;
+      case box[0].textContent !== '' && box[0].classList.contains('X') === box[3].textContent !== '' && box[3].classList.contains('X') === (box[6].textContent !== '' && box[6].classList.contains('X'):
+        winner();
+      break;
+      case box[1].textContent !== '' && box[1].classList.contains('X') === box[4].textContent !== '' && box[4].classList.contains('X') === (box[7].textContent !== '' && box[7].classList.contains('X'):
+        winner();
+      break;
+      case box[2].textContent !== '' && box[2].classList.contains('X') === box[5].textContent !== '' && box[5].classList.contains('X') === (box[8].textContent !== '' && box[8].classList.contains('X'):
+        winner();
+      break;
+      case box[0].textContent !== '' && box[0].classList.contains('X') === box[4].textContent !== '' && box[4].classList.contains('X') === (box[8].textContent !== '' && box[8].classList.contains('X'):
+        winner();
+      break;
+      case box[2].textContent !== '' && box[2].classList.contains('X') === box[1].textContent !== '' && box[1].classList.contains('X') === (box[2].textContent !== '' && box[2].classList.contains('X'):
+        winner();
+      break;
+  }
+};
 
-  // var boxClick = gameboard.querySelectorAll('.box');
 
-    // row 1 modified match condition
-    (sq1.classList.contains(player) && sq2.classList.contains(player) && sq3.classList.contains(player))
-
-    box[0].textContent !'' && box[1].classList.contains('X') === (second arugument) === (third argument)
-    //created the win scenarios below to say if these boxes match innerText of 'x' or 'o' all 3 then this wins
-    // while (turn >= 3) {
-      if (
-          //row1
-          (boxClick[0].textContent === boxClick[1].innerText && boxClick[1].innerText === boxClick[2].innerText)  ||
-          //row 2
-          (boxClick[3].innerText === boxClick[4].innerText && boxClick[4].innerText === boxClick[5].innerText)  ||
-          //row 3
-          (boxClick[6].innerText === boxClick[7].innerText && boxClick[7].innerText === boxClick[8].innerText)  ||
-          //col 1
-          (boxClick[0].innerText === boxClick[3].innerText && boxClick[3].innerText === boxClick[6].innerText)  ||
-          //col 2
-          (boxClick[1].innerText === boxClick[4].innerText && boxClick[4].innerText === boxClick[7].innerText)  ||
-          //col 3
-          (boxClick[2].innerText === boxClick[5].innerText && boxClick[5].innerText === boxClick[8].innerText)  ||
-          //diag 1
-          (boxClick[0].innerText === boxClick[4].innerText && boxClick[4].innerText === boxClick[8].innerText)  ||
-          //diag 2
-          (boxClick[2].innerText === boxClick[4].innerText && boxClick[4].innerText === boxClick[6].innerText)
-        ) {
-          console.log("we have a winner!");
-            if (turn%2 === 0) {
-              displayWinnerX();
-              winner = 'O';
-              console.log('O wins!');
-            } else {
-              displayWinner0();
-              winner = 'X';
-              console.log('X wins!');
-            }
-          }
-      else {
-        console.log('no winner yet');
-      }
-    };
 
 // //display winner for X
 // var displayWinnerX = function (){
