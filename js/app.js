@@ -4,8 +4,11 @@ console.log("javascript running");
 //gets all the divs holding the backgrounds for tiles
 var gameBoard = document.querySelectorAll("#gameboard > .box");
 var box = document.querySelectorAll('.box');
+//turn counter
 var turn = 0
-
+//reset button
+var resetBtn = document.getElementById('#reset')
+clearButton.addEventListener('click', resetBoard);
 
 //function to step 1. add turn counter +1 each time boxClick happens (each time we click)
 //step 2. once a box is clicked, the function will count even turns (turn%2===0) & switch to one color, odd turns are the "else" condition
@@ -42,7 +45,7 @@ var checkWin = function() {
 
   var boxClick = gameboard.querySelectorAll('.box');
 
-    while (turnCount >= 3) {
+    while (turn >= 3) {
       if (
           //row1
           (boxClick[0].innerText === boxClick[1].innerText && boxClick[1].innerText === boxClick[2].innerText)  ||
@@ -90,14 +93,14 @@ var displayWinner0 = function (){
   resetBoard();
 };
 
-//reset board using reset button #reset
+//reset board using reset button
 var resetBoard = function () {
   for(var i = 0; i < box.length; i++){
 		box[i].innerHTML = '';
-    box[i].style.backgroundColor('#4D9BA6');}
-        winnerText.textContent = " ";
-        turn = 0;
-      }
+    this.style.backgroundColor('#4D9BA6');
+    winnerText.textContent = " ";
+    turn = 0;
+  }
 };
 
 
@@ -108,6 +111,8 @@ var addBoxClickListener = function() {
 	}
 };
 
+
 document.addEventListener("DOMContentLoaded", function() {
     addBoxClickListener();
+
 });
