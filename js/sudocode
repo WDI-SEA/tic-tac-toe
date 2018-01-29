@@ -1,0 +1,12 @@
+when a square is claimed by the user, find the coordinates and remove it from the 2D object.
+
+var board = {
+	1: [1, 2, 3],
+	2: [1, 2, 3],
+	3: [1, 2, 3]
+} 
+
+The computer follows these steps to select a random square:
+1. check how many 
+
+

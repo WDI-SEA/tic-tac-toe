@@ -1,3 +1,132 @@
+@font-face {
+   font-family: harryPotter;
+   src: url(harry_p/HARRYP__.TTF);
+}
+
+body {
+	text-align: center;
+	padding: 0;
+	margin: 0;
+	background-color: brown;
+	/*font-family: harryPotter;*/
+}
+
+header {
+	background: brown;
+	padding: 10px;
+	border-bottom: 3px solid black;
+}
+
+h1, h2 {
+	font-family: harryPotter;
+	font-weight: normal;
+	color: gold;
+	margin: 0;
+}
+
 h1 {
-  color: purple;
+	font-size: 5em;
+	
+}
+
+h2 {
+	font-size: 3em;
+}
+
+.row {
+	width: 308px;
+	height: 104px;
+	background: black;
+	padding: 0;
+	margin: 0;
+	/*font-family: sans-serif; Adding this breaks things. Why? */
+	vertical-align: top;
+}
+
+.square {
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	padding: 25px;
+	border: 0;
+	vertical-align: top; /*Why is this needed?*/
+	line-height: 50px;
+}
+
+.ai {
+	position: relative; 
+	bottom: 4px;
+	margin-left: 1%;
+}
+
+div[data-square="0"], div[data-square="2"], div[data-square="4"], div[data-square="6"], div[data-square="8"] {
+	background-color: #fffff0;
+	font-family: harryPotter;
+} 
+
+div[data-square="1"], div[data-square="3"], div[data-square="5"], div[data-square="7"] {
+	background-color: gray;
+	font-family: harryPotter;
+} 
+
+#boardRow {
+	padding: 2%;
+	border-bottom: 3px solid black;
+	background: url(../img/hogwarts.jpg);
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: top;
+}
+
+#board {
+	width: 308px;
+	height: 308px;
+	border: 2px solid black;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+#winnerBox {
+	display: none;
+	position: absolute;
+	top: 30%;
+	left: 33%;
+	width: 40%;
+	height: 45%;
+	background: url(../img/banner.svg);
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+	line-height: 125px;
+	font-weight: bold;
+	font-family: harryPotter;
+}
+
+#winner {
+	position: absolute;
+	left: 37%;
+	top: 13%;
+	font-size: 2em;
+}
+
+#gameControls {
+	padding-top: 1%;
+	font-family: harryPotter;
+	font-size: 2em;
+	background-color: brown;
+	color: gold;
+}
+
+#nextTurn {
+	margin-bottom: 1%;
+}
+
+#reset {
+	width: 20%;
+	padding: 0.5%;
+	margin-top: 1%;
+	font-family: harryPotter;
+	font-size: 1em;
+	background: gray;
+	border-color: gray;
 }
