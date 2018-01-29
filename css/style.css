@@ -1,10 +1,11 @@
 body {
   text-align: center;
   font-family: 'Varela Round', sans-serif;
+  background-color: #d6dbc3;
 }
 
 h1 {
-  color: #008000;
+  color: #4c7450;
   font-size: 60px;
   margin-top: 5px;
   margin-bottom: -2px;
@@ -17,6 +18,7 @@ h1 {
 
 #reset {
   margin-bottom: 15px;
+  margin-top: -5px;
 }
 
 .box {
