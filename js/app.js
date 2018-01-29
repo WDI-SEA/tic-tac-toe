@@ -29,8 +29,8 @@ var boxClick = function() {
 //setting all scenarios in which a win could happen
 var checkWin = function() {
 
-  //i've set the gameboard at the top of the doccument. now, i'm pulling out each of the 9 squares, and assigning variable to each, so i can match below for win conditions
-  // var sq1 = (gameBoard[0].firstElementChild.className);
+  // i've set the gameboard at the top of the doccument. now, i'm pulling out each of the 9 squares, and assigning variable to each, so i can match below for win conditions
+  // var sq1 = (gameBoard[0].firstElementChild.classN);
   // var sq2 = (gameBoard[1].firstElementChild.className);
   // var sq3 = (gameBoard[2].firstElementChild.className);
   // var sq4 = (gameBoard[3].firstElementChild.className);
@@ -39,32 +39,35 @@ var checkWin = function() {
   // var sq7 = (gameBoard[6].firstElementChild.className);
   // var sq8 = (gameBoard[7].firstElementChild.className);
   // var sq9 = (gameBoard[8].firstElementChild.className);
-  var boxClick = querySelectorAll('.box');
+
+  var boxClick = gameboard.querySelectorAll('.box');
 
     while (turnCount >= 3) {
       if (
           //row1
-          (.boxClick[0] === .boxClick[1] && .boxClick[1] === .boxClick[2])  ||
+          (boxClick[0].innerText === boxClick[1].innerText && boxClick[1].innerText === boxClick[2].innerText)  ||
           //row 2
-          (sq4 === sq5 && sq5 === sq6)  ||
+          (boxClick[3].innerText === boxClick[4].innerText && boxClick[4].innerText === boxClick[5].innerText)  ||
           //row 3
-          (sq7 === sq8 && sq8 === sq9)  ||
+          (boxClick[6].innerText === boxClick[7].innerText && boxClick[7].innerText === boxClick[8].innerText)  ||
           //col 1
-          (sq1 === sq4 && sq4 === sq7)  ||
+          (boxClick[0].innerText === boxClick[3].innerText && boxClick[3].innerText === boxClick[6].innerText)  ||
           //col 2
-          (sq2 === sq5 && sq5 === sq8)  ||
+          (boxClick[1].innerText === boxClick[4].innerText && boxClick[4].innerText === boxClick[7].innerText)  ||
           //col 3
-          (sq3 === sq6 && sq6 === sq9)  ||
+          (boxClick[2].innerText === boxClick[5].innerText && boxClick[5].innerText === boxClick[8].innerText)  ||
           //diag 1
-          (sq1 === sq5 && sq5 === sq9)  ||
+          (boxClick[0].innerText === boxClick[4].innerText && boxClick[4].innerText === boxClick[8].innerText)  ||
           //diag 2
-          (sq3 === sq5 && sq5=== sq7)
+          (boxClick[2].innerText === boxClick[4].innerText && boxClick[4].innerText === boxClick[6].innerText)
         ) {
           console.log("we have a winner!");
             if (turn%2 === 0) {
+              displayWinnerX();
               winner = 'O';
               console.log('O wins!');
             } else {
+              displayWinner0();
               winner = 'X';
               console.log('X wins!');
             }
@@ -75,7 +78,28 @@ var checkWin = function() {
     }
 };
 
+//display winner for X
+var displayWinnerX = function (){
+  winnerText.textContent = 'X';
+  resetBoard();
+};
+
+//display winner for 0
+var displayWinner0 = function (){
+  winnerText.textContent = '0';
+  resetBoard();
+};
+
 //reset board using reset button #reset
+var resetBoard = function () {
+  var clearBoxes = document.getElementsByClassName('box');
+  for (var i=0; i < clearBoxes.length; i++) {
+        clearBoxes[i].textContent.remove('X');
+        clearBoxes[i].textContent.remove('0');
+        winnerText.textContent = " ";
+        turn = 0;
+      }
+};
 
 
 // add event listener for all 9 boxes to be clicked. using loop for the class boxes

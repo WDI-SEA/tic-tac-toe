@@ -26,6 +26,14 @@ h1 {
   font-family: 'Coustard', serif;
 }
 
+.winner {
+  width: 300px;
+  margin: 0 auto;
+  text-align: center;
+  background-color: #4D9BA6;
+  color: white;
+}
+
 #buttonReset {
 	/* padding: 15px 60px; */
   text-align: center;
@@ -37,6 +45,6 @@ button {
   color: white;
   border: #4D9BA6 1px;
   margin: 30px;
-  padding: 10px 30px 10px 30px;
+  padding: 10px 30px 10px
   font-family: 'Coustard', serif;
 }
