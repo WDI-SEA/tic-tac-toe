@@ -3,6 +3,7 @@ var gameOver = false;
 var space = document.getElementsByClassName("square");
 var player = 1;
 var checkForWin = null;
+var resetSquares = null;
 
 var gameboard = ["pos0", "pos1", "pos2", "pos3", "pos4", "pos5", "pos6", "pos7", "pos8"];
 var movesX = [];
@@ -73,6 +74,10 @@ var checkForWin = function() {
     document.getElementById("instructions").textContent = "Black Wins!";
     return true;
   }
+  if (movesX.length === 5) {
+    document.getElementById("instructions").textContent = "It's A Draw";
+    return true;
+  }
 }
 
 var makeAMove = function() {
@@ -103,26 +108,22 @@ var makeAMove = function() {
         gameOver = true;
         document.getElementById("instructions").textContent = "It's a draw!";
         for (var j = 0; j < space.length; j++) {
-          space[j].removeEventListener("click", makeAMove);
       }
     };
   };
 
 
-
 var rematch = function() {
-  document.getElementById("instructions").textContent = "X, you go first"
+  document.getElementById("instructions").textContent = "Blue, you go first"
     var resetSquares = document.querySelectorAll(".square, .squareX, .squareO");
         for (var i = 0; i < resetSquares.length; i++){
         resetSquares[i].addEventListener("click", makeAMove);
         resetSquares[i].className = "square";
         movesX = [];
-        moves0 = [];
+        movesO = [];
         player = 1;
       }
-      var reset = document.getElementById("reset");
-          reset.onclick = rematch();
-    }
+    };
 
 document.addEventListener("DOMContentLoaded", function() {
   document.getElementById("pos0").addEventListener("click", makeAMove);
@@ -134,6 +135,7 @@ document.addEventListener("DOMContentLoaded", function() {
   document.getElementById("pos6").addEventListener("click", makeAMove);
   document.getElementById("pos7").addEventListener("click", makeAMove);
   document.getElementById("pos8").addEventListener("click", makeAMove);
+  document.getElementById("reset").addEventListener("click", rematch);
 
 
 });
