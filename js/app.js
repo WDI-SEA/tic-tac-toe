@@ -1,7 +1,7 @@
 console.log("javascript running");
 //i've set the gameboard at the top of the doccument. now, i'm pulling out each of the 9 squares, and assigning variable to each, so i can match below for win conditions
 
-// var sq1 = (gameBoard[0].firstElementChild.classN);
+// var sq1 = (gameBoard[0].firstElementChild.className);
 // var sq2 = (gameBoard[1].firstElementChild.className);
 // var sq3 = (gameBoard[2].firstElementChild.className);
 // var sq4 = (gameBoard[3].firstElementChild.className);
@@ -20,21 +20,23 @@ var turn = 0
 var player;
 
 //Winner text - haven't got this to work yet, as I'm still trying to get my win conditions to work correctly
-// var winnerText = document.getElementByClass('winnerText');
+var winnerText = document.getElementsByClassName('winnerText')[0];
 
-// //reset board using reset button
-// var resetBoard = function() {
-//   for(var i = 0; i < box.length; i++){
-// 		box[i].innerHTML = '';
-//     this.style.backgroundColor('#4D9BA6');
-//     winnerText.textContent = " ";
-//     turn = 0;
-//   }
-// };
+//reset board using reset button
+var resetBoard = function() {
+  for(var i = 0; i < box.length; i++){
+		box[i].innerHTML = '';
+    box[i].style.backgroundColor = '#4D9BA6';
+    winnerText.textContent = " ";
+    turn = 0;
+  }
+};
 //
 // //reset button
 // var resetButton = document.getElementById('#reset')
 // resetButton.addEventListener('click', resetBoard);
+
+//bigger question: innerHTML vs. textContent
 
 //function to step 1. add turn counter +1 each time boxClick happens (each time we click)
 //step 2. once a box is clicked, the function will count even turns (turn%2===0) & switch to one color, odd turns are the "else" condition
@@ -70,11 +72,12 @@ var checkWin = function() {
     // row 1 modified match condition
     (sq1.classList.contains(player) && sq2.classList.contains(player) && sq3.classList.contains(player))
 
+    item.classlist.textContent !'' && item.classList.textContent.contains(___) ===
     //created the win scenarios below to say if these boxes match innerText of 'x' or 'o' all 3 then this wins
     // while (turn >= 3) {
       if (
           //row1
-          (boxClick[0].innerText === boxClick[1].innerText && boxClick[1].innerText === boxClick[2].innerText)  ||
+          (boxClick[0].textContent === boxClick[1].innerText && boxClick[1].innerText === boxClick[2].innerText)  ||
           //row 2
           (boxClick[3].innerText === boxClick[4].innerText && boxClick[4].innerText === boxClick[5].innerText)  ||
           //row 3
@@ -109,13 +112,13 @@ var checkWin = function() {
 //display winner for X
 var displayWinnerX = function (){
   winnerText.textContent = 'X';
-  resetBoard();
+  // resetBoard();
 };
 
 //display winner for 0
 var displayWinner0 = function (){
-  winnerText.textContent = '0';
-  resetBoard();
+  winnerText.textContent = 'O';
+  // resetBoard();
 };
 
 // add event listener for all 9 boxes to be clicked. using loop for the class boxes
@@ -128,5 +131,4 @@ var addBoxClickListener = function() {
 
 document.addEventListener("DOMContentLoaded", function() {
     addBoxClickListener();
-
 });
