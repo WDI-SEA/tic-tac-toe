@@ -59,13 +59,15 @@ var swapImage = function() {
 		aiTurn = setTimeout(function () {
 			for (var i = 0; i < gameBoard.length; i++) {
 				var rando = Math.floor(Math.random()*9);
-				console.log(rando);
 				if ((gameBoard[rando].firstElementChild.className === "green") || (gameBoard[rando].firstElementChild.className === "red")) {
-
+					//dont do shit
 				} else {
 					gameBoard[rando].firstElementChild.className = "red";
 					gameBoard[rando].removeEventListener('click', swapImage);
+					turnRecord.style.color = "lightgreen";
+					turnRecord.innerText = "Rebellion's";
 					turnCount++;
+					checkIfWin();
 					break;
 				}		
 			}
