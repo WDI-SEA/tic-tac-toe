@@ -19,14 +19,42 @@ h1 {
   margin: 0 20px;
 }
 
+.radioButton {
+  cursor: pointer;
+}
+
+.reset {
+  position: relative;
+  top: 50px;
+  left: 180px;
+  height: 50px;
+  width: 7%;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.inputWrapBottom {
+  margin: 0 20px;
+  position: absolute;
+  left: 400px;
+}
+
+.turnText {
+  border: 1px solid black;
+  border-radius: 5px;
+  text-align: center;
+}
+
 .onePlayerBox {
   position: relative;
   left: 0px;
+  cursor: pointer;
 }
 
 .onePlayerButton {
   position: relative;
   left: 20px;
+  cursor: pointer;
 }
 
 #gameBoardImpossible:hover {

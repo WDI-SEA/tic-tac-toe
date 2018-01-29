@@ -26,12 +26,17 @@
     <button class="onePlayerButton" id="computerButton" type="button">Computer move</button>
   </div>
   <h3>Pick player 1's symbol</h3>
-  <input type="radio" name="pickSymbol" value="x" id="xSymbol" checked>
+  <input class="radioButton" type="radio" name="pickSymbol" value="x" id="xSymbol" checked>
   <label for="pickSymbol">x</label>
-  <input type="radio" name="pickSymbol" value="o" id="oSymbol">
+  <input class="radioButton" type="radio" name="pickSymbol" value="o" id="oSymbol">
   <label for="pickSymbol">o</label>
 
-  <button id="resetButton" type="button" name="reset">Reset</button>
+  <button class="reset" id="resetButton" type="button" name="reset">Reset</button>
+
+  <div class="inputWraps inputWrapBottom">
+    <h3>Who's turn</h3>
+    <p class="turnText" id="turnP">Next player</p>
+  </div>
 
   <p class="sideP">Click here to start game</p>
 

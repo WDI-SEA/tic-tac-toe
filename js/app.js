@@ -10,6 +10,7 @@ var losePId = document.getElementById('losePId');
 var nameInput1 = document.getElementById('nameInput1');
 var nameInput2 = document.getElementById('nameInput2');
 var nameButton = document.getElementById('nameButton');
+var turnP = document.getElementById('turnP');
 var xName = null;
 var oName = null;
 var onePlayerCheckBox = document.getElementById('onePlayerCheckBox');
@@ -215,6 +216,33 @@ switch (true) {
 
 };
 
+// var nextSymbol = function() {
+//   if (xSymbol.checked) {
+//     if (boxArr.length % 2 !== 0 && !onePlayerCheckBox.checked) {
+//       turnP.textcontent = xName;
+//       return 'x';
+//     } else if (boxArr.length % 2 === 0 && !onePlayerCheckBox.checked) {
+//       turnP.textcontent = oName;
+//       return 'o';
+//     } else if (boxArr.length % 2 !== 0 && onePlayerCheckBox.checked) {
+//       turnP.textcontent = xName;
+//       return 'x';
+//     }
+//   }
+//   if (oSymbol.checked) {
+//     if (boxArr.length % 2 !== 0 && !onePlayerCheckBox.checked) {
+//       turnP.textcontent = oName;
+//       return 'o';
+//     } else if (boxArr.length % 2 === 0 && !onePlayerCheckBox.checked) {
+//       turnP.textcontent = xName;
+//       return 'o';
+//     } else if (boxArr.length % 2 !== 0 && onePlayerCheckBox.checked) {
+//       turnP.textcontent = oName;
+//       return 'x';
+//     }
+//   }
+// };
+
 var nextSymbol = function() {
   if (xSymbol.checked) {
     return boxArr.length % 2 !== 0 ? 'x' : 'o';
@@ -279,9 +307,10 @@ var playBox = function() {
 
   //LOGS FALSE BUT STILL PLAYS COMPUTER MOVE...WHY???
   console.log(computerTurn());
-  // if (computerTurn) {
-  //     delay = setTimeout(computerPlay, 1000);
-  //   }
+  //RUNNING COMPUTER PLAY STILL FREEZES BROWSER AFTER GAME OVER
+  if (computerTurn()) {
+      delay = setTimeout(computerPlay, 1000);
+    }
   if (!boxesPlayed[this.id] && computerTurn && !gameOver) {
     boxesPlayed[this.id] = true;
     boxArr.push(this);
