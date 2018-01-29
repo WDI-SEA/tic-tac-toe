@@ -17,7 +17,7 @@ h1 {
 .box {
   width: 100px;
   height: 100px;
-  display:inline-block;
+  display: inline-block;
   margin: 10px;
   background-color: #4D9BA6;
 }
