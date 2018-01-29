@@ -9,61 +9,38 @@
   <link rel="icon" href="img/favicon.png" />
 </head>
 <body>
-  
+
 <div class="wrapper">
   <div class="name">
     <h1>tic tac toe</h1>
   </div>
 
     <div class="main">
-      <div class="turn recordX">
-        <h3>x's record</h3>
-      </div>
 
     <div class="gameboard">
       <div class="row">
-        <div class="square row1 col1 diag1">
-          <p class="clear"></p>
-        </div>
-        <div class="square row1 col2">
-          <p class="clear"></p>
-        </div>
-        <div class="square row1 col3 diag2">
-          <p class="clear"></p>
-        </div>
+        <div class="square" id="pos0"></div>
+        <div class="square" id="pos1"></div>
+        <div class="square" id="pos2"></div>
       </div>
       <div class="row">
-        <div class="square row2 col1">
-          <p class="clear"></p>
-        </div>
-        <div class="square row2 col2 diag1 diag2">
-          <p class="clear"></p>
-        </div>
-        <div class="square row2 col3">
-          <p class="clear"></p>
-        </div>
+        <div class="square" id="pos3"></div>
+        <div class="square" id="pos4"></div>
+        <div class="square" id="pos5"></div>
       </div>
       <div class="row">
-        <div class="square row3 col1 diag2">
-          <p class="clear"></p>
-        </div>
-        <div class="square row3 col2">
-          <p class="clear"></p>
-        </div>
-        <div class="square row3 col3 diag1">
-          <p class="clear"></p>
-        </div>
+        <div class="square" id="pos6"></div>
+        <div class="square" id="pos7"></div>
+        <div class="square" id="pos8"></div>
       </div>
-    </div>
-
-    <div class="turn recordO">
-      <h3>o's record</h3>
     </div>
 
   </div>
 
+  <div id="instructions">Blue, you go first!</div>
+
   <div class="reset">
-    <button type="button" name="reset">next round</button>
+    <button id="reset" type="button" name="reset">next round</button>
   </div>
 </div>
 
