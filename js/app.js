@@ -46,4 +46,5 @@ var addBoxClickListener = function() {
 
 document.addEventListener("DOMContentLoaded", function() {
     addBoxClickListener();
+    checkWin();
 });
