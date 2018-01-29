@@ -3,11 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <title>tic tac toe</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Varela+Round" rel="stylesheet">
+  <link rel="icon" href="img/favicon.png" />
 </head>
 <body>
-  <h1>Hello Front-End</h1>
+
+<div class="wrapper">
+  <div class="name">
+    <h1>tic tac toe</h1>
+  </div>
+
+    <div class="main">
+
+    <div class="gameboard">
+      <div class="row">
+        <div class="square" id="pos0"></div>
+        <div class="square" id="pos1"></div>
+        <div class="square" id="pos2"></div>
+      </div>
+      <div class="row">
+        <div class="square" id="pos3"></div>
+        <div class="square" id="pos4"></div>
+        <div class="square" id="pos5"></div>
+      </div>
+      <div class="row">
+        <div class="square" id="pos6"></div>
+        <div class="square" id="pos7"></div>
+        <div class="square" id="pos8"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="instructions">Blue, you go first!</div>
+
+  <div class="reset">
+    <button id="reset" type="button" name="reset">next round</button>
+  </div>
+</div>
 
   <script type="text/javascript" src="js/app.js"></script>
 </body>
