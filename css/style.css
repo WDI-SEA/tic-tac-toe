@@ -37,11 +37,3 @@ body{
 	display: inline-block;
 	background: black;
 }
-
-.boxClickedWin {
-	width: 100px;
-	height: 100px;
-	border: 2px solid purple;
-	display: inline-block;
-	background: green;
-}

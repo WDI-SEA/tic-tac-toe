@@ -50,6 +50,9 @@ var boxPosition;
 var newPlayer;
 var delay = null;
 
+var winClassB;
+var winClassR;
+var winClass;
 
 var newColor = null;
 
@@ -173,10 +176,6 @@ var tallyForWin = function(elementId) {
 		}
 	}
 };
-
-var winClassB;
-var winClassR;
-var winClass;
 
 var win = function() {
 	winClassB = document.querySelectorAll(".boxClickedBlack");
