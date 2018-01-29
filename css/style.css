@@ -1,3 +1,88 @@
-h1 {
-  color: purple;
+body {
+	text-align: center;
+	margin: 0;
+	padding: 0;
+	font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+h1 {
+  color: Black;
+  padding: 10px 0px 10px 0px;
+}
+
+#playername {
+	color: Blue;
+}
+
+#resetbutton {
+	height: 45px;
+	width: 90px;
+	margin: 10px auto;
+	padding: 3px 5px;
+	border: 3px solid black;
+	border-radius: 7px;
+	font-size: 28px;
+	}
+
+.box {
+	height: 150px;
+	width: 150px;
+	border: solid black 5px;
+	display: inline-block;
+	margin: -3px;
+	padding: 0px;
+}
+
+.row {
+	margin: 0 auto;
+
+	
+}
+
+#gameboard {
+	margin: 0;
+	
+	
+}
+
+#box1 {
+	position: relative;
+	vertical-align: top;
+	
+}
+
+#box2 {
+	position: relative;
+	vertical-align: top;
+	
+}
+#box3 {
+	position: relative;
+	vertical-align: top;
+	}
+#box4 {
+	position: relative;
+	vertical-align: top;
+		
+}
+#box5 {
+	position: relative;
+	vertical-align: top;
+		}
+#box6 {
+	position: relative;
+	vertical-align: top;
+		}
+#box7 {
+	position: relative;
+	vertical-align: top;
+	
+
+}
+#box8 {
+	position: relative;
+	vertical-align: top;
+		}
+#box9 {
+	position: relative;
+	vertical-align: top;
+		}
