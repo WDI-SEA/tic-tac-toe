@@ -23,6 +23,7 @@ var player;
 var winnerText = document.getElementsByClassName('winnerText')[0];
 
 //reset board using reset button
+//rest eent listnere
 var resetBoard = function() {
   for(var i = 0; i < box.length; i++){
 		box[i].innerHTML = '';
@@ -33,6 +34,7 @@ var resetBoard = function() {
 };
 //
 // //reset button
+//clear event listener
 // var resetButton = document.getElementById('#reset')
 // resetButton.addEventListener('click', resetBoard);
 
@@ -48,15 +50,20 @@ var boxClick = function() {
     this.style.backgroundColor = 'red';
     if (!this.classList.contains("O") && !this.classList.contains("X")) {
     this.classList.add("O")};
+    //remove event listner
     player = 'O'
-    checkWin();
+    if (turn >= 4 {
+      checkWin();
+    })
   } else {
     this.textContent= 'X';
     this.style.backgroundColor = 'black';
     if (!this.classList.contains("X") && !this.classList.contains("O")) {
     this.classList.add("X")};
     player = 'X'
-    checkWin();
+    if (turn >= 4 {
+      checkWin();
+    })
   }
   //making sure boxClick function is working - also logs number of clicks to verify
   console.log("clicked!");
@@ -67,12 +74,12 @@ var boxClick = function() {
 
 var checkWin = function() {
 
-  var boxClick = gameboard.querySelectorAll('.box');
+  // var boxClick = gameboard.querySelectorAll('.box');
 
     // row 1 modified match condition
     (sq1.classList.contains(player) && sq2.classList.contains(player) && sq3.classList.contains(player))
 
-    item.classlist.textContent !'' && item.classList.textContent.contains(___) ===
+    box[0].textContent !'' && box[1].classList.contains('X') === (second arugument) === (third argument)
     //created the win scenarios below to say if these boxes match innerText of 'x' or 'o' all 3 then this wins
     // while (turn >= 3) {
       if (
@@ -109,17 +116,17 @@ var checkWin = function() {
       }
     };
 
-//display winner for X
-var displayWinnerX = function (){
-  winnerText.textContent = 'X';
-  // resetBoard();
-};
-
-//display winner for 0
-var displayWinner0 = function (){
-  winnerText.textContent = 'O';
-  // resetBoard();
-};
+// //display winner for X
+// var displayWinnerX = function (){
+//   winnerText.textContent = 'X';
+//   // resetBoard();
+// };
+//
+// //display winner for 0
+// var displayWinner0 = function (){
+//   winnerText.textContent = 'O';
+//   // resetBoard();
+// };
 
 // add event listener for all 9 boxes to be clicked. using loop for the class boxes
 var addBoxClickListener = function() {
