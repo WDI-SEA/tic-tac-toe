@@ -31,7 +31,10 @@ button{
 	text-align: center;
 }
 .title{
-  left: 120px;
+  top: -70px;
+  left: 150px;
+  width: auto;
+  height: 260px;
 	position: relative;
 }
 .portal{
@@ -50,8 +53,7 @@ button{
 }
 .gameBack{
   position: relative;
-  background-size: ;
-  background-attachment: scroll;
+  background-attachment:fixed;
   background-image: url("../img/gameBack.gif");
 }
 .opponent1{
@@ -66,12 +68,14 @@ button{
 .gameboard{
   bottom: 5%;
   position: relative;
+  vertical-align: middle;
 	display: inline-block;
 	background: black;
 }
 .square{
 	display: inline-block;
   background-image: url("../img/squareBack.jpg");
+  border: 2px solid black;
 	height: 100px;
 	width: 100px;
 }
@@ -79,5 +83,7 @@ button{
 
 }
 .winner{
+  animation-name: fadeIn;
+  animation-duration: 3s;
 	border: 2px solid red;
 }
