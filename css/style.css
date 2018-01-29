@@ -5,6 +5,16 @@ body {
 
 h1 {
   color: #008000;
+  font-size: 60px;
+  margin-bottom: -2px;
+}
+
+#turnindicator {
+  margin-top: -5px;
+}
+
+#reset {
+  margin-bottom: 5px;
 }
 
 .box {
