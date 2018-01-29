@@ -9,7 +9,7 @@ background: white;
   height: 200px;
   border: 1px solid black;
   display: inline-block;
-  margin: 10px;
+  margin: 30px;
   border-radius: 30px;
 }
 .box:hover {
@@ -20,6 +20,9 @@ background-image: url(img/apples.jpeg);
 }
 .oranges {
 background-image: url(img/oranges.jpeg); 
+}
+.button {
+
 }
 body {
 }
