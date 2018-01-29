@@ -44,34 +44,37 @@ var sq7 = classes(gameBoard[6].firstElementChild.className);
 var sq8 = classes(gameBoard[7].firstElementChild.className);
 var sq9 = classes(gameBoard[8].firstElementChild.className);
 
-while (turnCount >= 3) {
-  if (
-      //row1
-      (sq1 === sq2 && sq2 === sq3)  ||
-      //row 2
-      (sq4 === sq5 && sq5 === sq6)  ||
-      //row 3
-      (sq7 === sq8 && sq8 === sq9)  ||
-      //col 1
-      (sq1 === sq4 && sq4 === sq7)  ||
-      //col 2
-      (sq2 === sq5 && sq5 === sq8)  ||
-      //col 3
-      (sq3 === sq6 && sq6 === sq9)  ||
-      //diag 1
-      (sq1 === sq5 && sq5 === sq9)  ||
-      //diag 2
-      (sq3 === sq5 && sq5=== sq7)
-    ) {
-      console.log("we have a winner!");
-      if (turn%2 === 0) {
-        winner = 'O'
-      } else {
-        winner = 'X'
-      }
-    }
-
+  while (turnCount >= 3) {
+    if (
+        //row1
+        (sq1 === sq2 && sq2 === sq3)  ||
+        //row 2
+        (sq4 === sq5 && sq5 === sq6)  ||
+        //row 3
+        (sq7 === sq8 && sq8 === sq9)  ||
+        //col 1
+        (sq1 === sq4 && sq4 === sq7)  ||
+        //col 2
+        (sq2 === sq5 && sq5 === sq8)  ||
+        //col 3
+        (sq3 === sq6 && sq6 === sq9)  ||
+        //diag 1
+        (sq1 === sq5 && sq5 === sq9)  ||
+        //diag 2
+        (sq3 === sq5 && sq5=== sq7)
+      ) {
+        console.log("we have a winner!");
+          if (turn%2 === 0) {
+            winner = 'O';
+            console.log('O wins!');
+          } else {
+            winner = 'X';
+            console.log('X' wins!);
+          }
+        }
     else {
+      console.log('no winner yet');
+    }
   }
 };
 

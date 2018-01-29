@@ -24,3 +24,8 @@ h1 {
   color: white;
   font-size: 50px;
 }
+
+.result {
+  width: 500px;
+  margin: 0 auto;
+}
