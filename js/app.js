@@ -4,12 +4,12 @@ console.log("javascript running");
 var sq1 = document.getElementById('sq1');
 var sq2 = document.getElementById('sq2');
 var sq3 = document.getElementById('sq3');
-var sq4 = document.getElementById('sq1');
-var sq5 = document.getElementById('sq2');
-var sq6 = document.getElementById('sq3');
-var sq7 = document.getElementById('sq1');
-var sq8 = document.getElementById('sq2');
-var sq9 = document.getElementById('sq3');
+var sq4 = document.getElementById('sq4');
+var sq5 = document.getElementById('sq5');
+var sq6 = document.getElementById('sq6');
+var sq7 = document.getElementById('sq7');
+var sq8 = document.getElementById('sq8');
+var sq9 = document.getElementById('sq9');
 
 var box = document.querySelectorAll('.box');
 var turn = 0
