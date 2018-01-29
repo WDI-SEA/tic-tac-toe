@@ -4,8 +4,6 @@ var nextMove = function () {
 	moveCount ++;
 	};
 
-
-
 var player = document.getElementById('playername');
 var reset = document.getElementById('resetbutton');
 
@@ -19,13 +17,11 @@ var box7 = document.getElementById('box7');
 var box8 = document.getElementById('box8');
 var box9 = document.getElementById('box9');
 
-
+var boxes = [box1, box2, box3, box4, box5, box6, box7, box8, box9];
 
 var resetGame = function() {
 	location.reload();
 };
-
-
 
 var switchPlayer = function() {
 	if (moveCount % 2 === 0) {
@@ -36,14 +32,6 @@ var switchPlayer = function() {
 		player.style.color = "blue";
 	};
 };
-
-
-
-
-
-var boxes = [box1, box2, box3, box4, box5, box6, box7, box8, box9];
-
-
 
 ///-----------------------------------------------------------------game ending
 
@@ -79,15 +67,6 @@ var didYouWin = function () {
 
 //-------------------------------------------------------------------------------
 
-
-
-
-
-
-
-
-
-
 var place = function() {
 	if (moveCount % 2 === 0) {
 		var markO = document.createElement('img');
@@ -103,12 +82,15 @@ var place = function() {
 	switchPlayer();
 };
 
+document.addEventListener("DOMContentLoaded", function() {
 
-// for (i = 0; boxes.length; i++) {
-// 	boxes[i].addEventListener('click', place, {once:true});
-// };
+	reset.addEventListener('click', resetGame, {once:false});
+	
+	for (i = 0; i < boxes.length; i++) {
+	boxes[i].addEventListener('click', place, {once:true});
+	}
 
-
+});
 
 // var place1 = function() {
 // 	if (moveCount % 2 === 0) {
@@ -265,14 +247,6 @@ var place = function() {
 
  
  
-document.addEventListener("DOMContentLoaded", function() {
 
-	reset.addEventListener('click', resetGame, {once:false});
-
-	for (i = 0; i < boxes.length; i++) {
-	boxes[i].addEventListener('click', place, {once:true});
-	}
-
-});
 
  
