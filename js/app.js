@@ -6,6 +6,7 @@ var gameBoard = document.querySelectorAll("#gameboard > .box");
 var box = document.querySelectorAll('.box');
 //turn counter
 var turn = 0
+var player;
 
 //Winner text - haven't got this to work yet, as I'm still trying to get my win conditions to work correctly
 // var winnerText = document.getElementByClass('winnerText');
@@ -32,10 +33,16 @@ var boxClick = function() {
   if (turn%2 === 0){
     this.textContent= 'O';
     this.style.backgroundColor = 'red';
+    if (!this.classList.contains("O") && !this.classList.contains("X")) {
+    this.classList.add("O")};
+    player = 'O'
     checkWin();
   } else {
     this.textContent= 'X';
     this.style.backgroundColor = 'black';
+    if (!this.classList.contains("X") && !this.classList.contains("O")) {
+    this.classList.add("X")};
+    player = 'X'
     checkWin();
   }
   //making sure boxClick function is working - also logs number of clicks to verify
@@ -59,8 +66,11 @@ var checkWin = function() {
 
   var boxClick = gameboard.querySelectorAll('.box');
 
+    // row 1 modified match condition
+    (sq1.classList.contains(player) && sq2.classList.contains(player) && sq3.classList.contains(player))
+
     //created the win scenarios below to say if these boxes match innerText of 'x' or 'o' all 3 then this wins
-    while (turn >= 3) {
+    // while (turn >= 3) {
       if (
           //row1
           (boxClick[0].innerText === boxClick[1].innerText && boxClick[1].innerText === boxClick[2].innerText)  ||
@@ -93,8 +103,7 @@ var checkWin = function() {
       else {
         console.log('no winner yet');
       }
-    }
-};
+    };
 
 //display winner for X
 var displayWinnerX = function (){
