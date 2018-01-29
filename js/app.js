@@ -17,35 +17,59 @@ var tieFighter = document.getElementById("ship1");
 var xWing = document.getElementById('ship2');
 var sithSaber = document.getElementById('saber');
 var rebSaber = document.getElementById('saber2');
+var yoda = document.getElementById('yoda');
 
-// //resets the animated ships to default
-// var tieTimeout = setTimeout(function () {
-// 		tieFighter.className = "invisShip";
-// 	}, 1000);
-// var xTimeout = setTimeout(function () {
-// 		xWing.className = "invisShip";
-// 	}, 1000);
-
-//audio tracks
+//audio tracks / sick jams / fire mixtape
 var tieFly = document.getElementById('fly');
 var tieShoot = document.getElementById('fire');
 
-//variable initialization for counter
+//variable initialization for turn tracker
 var turnCount = 0;
 
-//for all the images/squares
+//for all the images/squares for background changes
 var imgs = document.querySelectorAll(".image");
+
+//radio buttons
+var onePlayer = document.getElementById('onePlayer');
+var twoPlayer = document.getElementById('twoPlayer');
+
+//ai function
+var aiChosen = function () {
+	if (onePlayer.checked === true) {
+		aiTurn = setTimeout(function () {
+			for (var i = 0; i < gameBoard.length; i++) {
+				var rando = Math.floor(Math.random()*9);
+				if ((gameBoard[rando].firstElementChild.className === "green") || (gameBoard[rando].firstElementChild.className === "red")) {
+					//dont do shit, i swear to god i'll fight u 
+				} else {
+					gameBoard[rando].firstElementChild.className = "red";
+					gameBoard[rando].removeEventListener('click', swapImage);
+					turnRecord.style.color = "lightgreen";
+					turnRecord.innerText = "Rebellion's";
+					yoda.className = "shakeYoda";
+					turnCount++;
+					checkIfWin();
+					break;
+				}		
+			}
+		}, 1350); 
+		} else {
+	}
+}
+
 
 //this function is the move functionality, it swaps
 //the bg-image of the game board unit and alters the
 //span to show the player up. also adds to the turn count
 //which ultimately determines who's up w the main if/else
+//also animates yoda every turn
 var swapImage = function() {
 	if (turnCount%2 === 1) {
 		this.className = "red";
 		this.removeEventListener('click', swapImage);
 		turnRecord.style.color = "lightgreen";
 		turnRecord.innerText = "Rebellion's";
+		yoda.className = "shakeYoda";
 		checkIfWin();
 		turnCount++;
 	} else {
@@ -53,25 +77,9 @@ var swapImage = function() {
 		this.removeEventListener('click', swapImage);
 		turnRecord.style.color = "red";
 		turnRecord.innerText = "Sith's";
+		yoda.className = "shakeYoda";
 		turnCount++;
-		//to turn to single player, comment lines 56-71 out 
-		//and the timeout clear on 147
-		aiTurn = setTimeout(function () {
-			for (var i = 0; i < gameBoard.length; i++) {
-				var rando = Math.floor(Math.random()*9);
-				if ((gameBoard[rando].firstElementChild.className === "green") || (gameBoard[rando].firstElementChild.className === "red")) {
-					//dont do shit
-				} else {
-					gameBoard[rando].firstElementChild.className = "red";
-					gameBoard[rando].removeEventListener('click', swapImage);
-					turnRecord.style.color = "lightgreen";
-					turnRecord.innerText = "Rebellion's";
-					turnCount++;
-					checkIfWin();
-					break;
-				}		
-			}
-		}, 1350);
+		aiChosen()
 		checkIfWin();
 	}
 };
@@ -93,7 +101,7 @@ var classes = function (item) {
 	}		
 }
 
-//HECK 
+// OH HECK 
 //a very ugly conditional statement that runs while the 
 //turnCount is >=4. if any of the statements are true, then
 //it checks to see if the span color is green/red--if it's green
@@ -132,7 +140,7 @@ var checkIfWin = function() {
 	      (topR === midM && midM === botL) 
 	    ) {
 	      console.log("we have a winner!");
-	       if (turnRecord.style.color === "lightgreen") {
+	      if (turnRecord.style.color === "lightgreen") {
 	      	winner = 1;
 	      	sScore++;
 	      	console.log('sith wins');
@@ -146,7 +154,9 @@ var checkIfWin = function() {
 	      	rebSaber.className = "shakeSaber";
 	      }
 
-	      clearTimeout(aiTurn);
+	      if (onePlayer.checked === true) {
+	      	clearTimeout(aiTurn);
+	      }
 	      
 	      tieFly.play();
 	      var shootTimeout = setTimeout(function (){
@@ -155,6 +165,7 @@ var checkIfWin = function() {
 
 	      xWing.className = "animateX";
 	      tieFighter.className = "animateTie";
+	      
 	      for (var i = 0; i < 9; i++) {
 	      	imgs[i].removeEventListener('click', swapImage);
 	      }
@@ -187,12 +198,12 @@ var checkIfWin = function() {
 //and handles the classNames of the 
 //ships and sabers
 reset.onclick = function () {
-	for (var i=0; i < imgs.length; i++) {
+	for (var i = 0; i < imgs.length; i++) {
 		imgs[i].className = "image stars";
 		imgs[i].addEventListener("click", swapImage);
 	}
-	turnRecord.style.color="lightgreen";
-	turnRecord.innerText ="Rebellion's";
+	turnRecord.style.color = "lightgreen";
+	turnRecord.innerText = "Rebellion's";
 	words.innerHTML = "The " + "<span id='player'>Rebellion's</span>" + " turn, it is!";
 	words.style.color = "black";
 	words.style.fontWeight = 200;
@@ -202,8 +213,9 @@ reset.onclick = function () {
 	tieFighter.className = 'invisShip';
 	sithSaber.className = null;
 	rebSaber.className = null;
-	turnCount=0;
-	winner=0;
+	yoda.className = null;
+	turnCount = 0;
+	winner = 0;
 }
 
 

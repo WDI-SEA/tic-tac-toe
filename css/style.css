@@ -6,7 +6,7 @@ html, body {
 
 h1 {
 	color: black;
-	text-align:center;
+	text-align: center;
 	margin: 15px 0 30px 0;
 }
 
@@ -36,6 +36,10 @@ button:hover {
 	color: black;
 	border: 3px solid black;
 	padding: 12px 57px;
+}
+
+form {
+	margin: 0px 10px;
 }
 
 .left {
@@ -112,6 +116,10 @@ button:hover {
 	width: 200px;
 	margin-top: 150px;
 	margin-left: 100px;
+}
+
+.shakeYoda {
+	animation: 0.5s shake;
 }
 
 #bub {
