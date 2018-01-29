@@ -5,9 +5,9 @@ html, body {
 }
 
 h1 {
-  color: black;
-  text-align:center;
-  margin: 15px 0 30px 0;
+	color: black;
+	text-align:center;
+	margin: 15px 0 30px 0;
 }
 
 img {
@@ -286,7 +286,7 @@ button:hover {
 	border-left: 3px solid black;
 }
 
-@media (max-width:1000px) {
+@media (max-width:900px) {
   .left, .right {
     display: relative;
     width: 20%;
