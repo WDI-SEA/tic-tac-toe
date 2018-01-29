@@ -65,6 +65,7 @@ var markBox = function(elementId, boxClickedRedOrBlack, color) {
 
 var playerChange = function() {
 	player = player + 1;
+	console.log(player);
 };
 
 var playerGo = function() {
@@ -205,18 +206,19 @@ var checkForWin = function() {
 
 var checkBox = function() {
 	boxPosition = this.id;
-	console.log(boxPosition);
-	playerGo();
+	//console.log(boxPosition);
+	//playerGo();
 
 	if (!blackBox[boxPosition] && !redBox[boxPosition]) {
- 		//
  		if (player % 2) {
+ 			playerGo();
  			markBox(boxPosition, "boxClickedRed", "red");
 			blackBox[boxPosition] = true;
 			tallyForWin(boxPosition);
 			checkForWin();
 			playerChange();
  		} else {
+ 			playerGo();
  			markBox(boxPosition, "boxClickedBlack", "black");
 			redBox[boxPosition] = true;
 			tallyForWin(boxPosition);
