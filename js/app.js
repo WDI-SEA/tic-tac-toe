@@ -21,8 +21,6 @@ var rightColCountRed = 0;
 var leftDownDiagCountRed = 0;
 var leftUpDiagCountRed = 0;
 
-//var winClass = [];
-
 var blackBox = {
 	boxtopleft: false,
 	boxtopmiddle: false,
@@ -49,6 +47,7 @@ var redBox = {
 
 var player = 0;
 var boxPosition;
+var newPlayer;
 
 var newColor = null;
 
@@ -64,16 +63,13 @@ var playerChange = function() {
 };
 
 var playerGo = function() {
-	var newPlayer = document.getElementsByTagName("p")[0];
+	newPlayer = document.getElementsByTagName("p")[0];
 	if (player % 2) {
 		newPlayer.textContent = "first player go";
 	} else {
 		newPlayer.textContent = "second player go";
 	}
 };
-
-
-
 
 var tallyForWin = function(elementId) {
 	
@@ -197,10 +193,10 @@ var win = function() {
 
 var checkForWin = function() {
 	if (topRowCountBlack === 3 || middleRowCountBlack === 3 || bottomRowCountBlack === 3 || leftColCountBlack === 3 || middlleColCountBlack === 3 || rightColCountBlack === 3 || leftDownDiagCountBlack === 3 || leftUpDiagCountBlack === 3)  {
-		console.log("player 1 win");
+		newPlayer.textContent = "player 1 wins";
 		win();
 	} else if (topRowCountRed === 3 || middleRowCountRed === 3 || bottomRowCountRed === 3 || leftColCountRed === 3 || middlleColCountRed === 3 || rightColCountRed === 3 || leftDownDiagCountRed === 3 || leftUpDiagCountRed === 3) {
-		console.log("player 2 win");
+		newPlayer.textContent = "player 2 wins";
 		win();
 	}
 
@@ -209,10 +205,10 @@ var checkForWin = function() {
 var checkBox = function() {
 	boxPosition = this.id;
 	console.log(boxPosition);
-
+	playerGo();
 
 	if (!blackBox[boxPosition] && !redBox[boxPosition]) {
- 		playerGo();
+ 		//
  		if (player % 2) {
  			markBox(boxPosition, "boxClickedRed", "red");
 			blackBox[boxPosition] = true;
@@ -233,30 +229,21 @@ var checkBox = function() {
 
 
 var reset = function() {
-	//resetBoardB = document.querySelectorAll(".boxClickedBlack");
-	//console.log(winClassB);
+
 	for (var i = 0; i < winClassB.length; i++) {
-		//console.log(winClassB);
 		winClassB[i].classList.remove("boxClickedBlack");
 		winClassB[i].classList.add("box");
 		winClassB[i].style.background = "white"
-		//console.log(winClassB);
 	}
-	//winClassR = document.querySelectorAll(".boxClickedRed");
-	//console.log(winClassR);
+
 	for (var i = 0; i < winClassR.length; i++) {
-		//console.log(winClassR);
 		winClassR[i].classList.remove("boxClickedRed");
 		winClassR[i].classList.add("box");
 		winClassR[i].style.background = "white"
-		//console.log(winClassR);
 	}
-	//winClass = document.querySelectorAll(".box");
-	//console.log(winClass);
+
 	for (var i = 0; i < winClass.length; i++) {
-		//console.log(winClass);
 		winClass[i].style.background = "white"
-		//console.log(winClass);
 	}
 
 	for (position in blackBox) {
@@ -268,6 +255,7 @@ var reset = function() {
 		redBox[position] = false;
 	}
 
+	newPlayer.textContent = "first player go";
 
 	player = 0;
 
@@ -292,28 +280,8 @@ var reset = function() {
 
 	leftDownDiagCountRed = 0;
 	leftUpDiagCountRed = 0;
-
-
-
-
 };
 
-// console.log(topRowCountBlack);
-// console.log(middleRowCountBlack);
-// console.log(bottomRowCountBlack);
-// console.log(leftColCountBlack);
-// console.log(middlleColCountBlack);
-// console.log(rightColCountBlack);
-// console.log(leftDownDiagCountBlack);
-// console.log(leftUpDiagCountBlack);
-// console.log(topRowCountRed);
-// console.log(middleRowCountRed);
-// console.log(bottomRowCountRed);
-// console.log(leftColCountRed);
-// console.log(middlleColCountRed);
-// console.log(rightColCountRed);
-// console.log(leftDownDiagCountRed);
-// console.log(leftUpDiagCountRed);
 
 
 document.addEventListener("DOMContentLoaded", function() {
