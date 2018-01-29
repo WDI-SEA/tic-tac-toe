@@ -34,39 +34,55 @@ h1 {
 
 .row {
 	margin: 0 auto;
+
 	
 }
 
 #gameboard {
 	margin: 0;
 	
+	
 }
 
 #box1 {
 	position: relative;
+	vertical-align: top;
+	
 }
 
 #box2 {
 	position: relative;
+	vertical-align: top;
+	
 }
 #box3 {
 	position: relative;
-}
+	vertical-align: top;
+	}
 #box4 {
 	position: relative;
+	vertical-align: top;
+		
 }
 #box5 {
 	position: relative;
-}
+	vertical-align: top;
+		}
 #box6 {
 	position: relative;
-}
+	vertical-align: top;
+		}
 #box7 {
 	position: relative;
+	vertical-align: top;
+	
+
 }
 #box8 {
 	position: relative;
-}
+	vertical-align: top;
+		}
 #box9 {
 	position: relative;
-}
+	vertical-align: top;
+		}
