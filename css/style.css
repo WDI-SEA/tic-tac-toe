@@ -1,3 +1,28 @@
-h1 {
-  color: purple;
+#container {
+height: 1000px;
+position: relative;
+background: grey;
+}
+.box {
+background: white;
+  width: 200px;
+  height: 200px;
+  border: 1px solid black;
+  display: inline-block;
+  margin: 10px;
+  border-radius: 30px;
+}
+.box:hover {
+  background: yellow;
+}
+.apples{
+background-image: url(img/apples.jpeg);
+}
+.oranges {
+background-image: url(img/oranges.jpeg); 
+}
+body {
+}
+div {
+text-align: center;
 }
