@@ -23,9 +23,20 @@ h1 {
   vertical-align: middle;
   color: white;
   font-size: 50px;
+  font-family: 'Coustard', serif;
 }
 
-.result {
-  width: 500px;
-  margin: 0 auto;
+#buttonReset {
+	/* padding: 15px 60px; */
+  text-align: center;
+	/* margin: 30px 10px; */
+}
+
+button {
+  background-color: #4D9BA6;
+  color: white;
+  border: #4D9BA6 1px;
+  margin: 30px;
+  padding: 10px 30px 10px 30px;
+  font-family: 'Coustard', serif;
 }
