@@ -167,10 +167,12 @@ var flipImage = function(){
   //check the game to see if someone won
   if (gameBoard.moveCount > 9){
     newGame();
-  } else if (gameBoard.moveCount >= 4){
+  } else if (gameBoard.moveCount >= 4 && !gameBoard.gameEnd){
     checkGame();
+    currentPlayer();
+  } else {
+    currentPlayer();
   }
-  currentPlayer();
 }
 
 // create and load game pieces
@@ -194,8 +196,6 @@ var loadGamePieces = function(){
         var gamePiece = document.getElementById((i+1));
         gamePiece.setAttribute("src", gameBoard.src);
         gamePiece.addEventListener("click", flipImage);
-        // if called player forfited turn game forfit
-        currentPlayer();
       }
     }
   }
