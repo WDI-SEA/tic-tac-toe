@@ -1,3 +1,50 @@
+body {
+  text-align: center;
+  font-family: 'Varela Round', sans-serif;
+  background-color: #d6dbc3;
+}
+
 h1 {
-  color: purple;
+  color: #4c7450;
+  font-size: 60px;
+  margin-top: 5px;
+  margin-bottom: -2px;
+}
+
+#turnindicator {
+  margin-top: -35px;
+  font-size: 30px;
+}
+
+#reset {
+  margin-bottom: 15px;
+  margin-top: -5px;
+}
+
+.box {
+  height: 150px;
+  width: 150px;
+  border: 10px solid black;
+  display: inline-block;
+  margin: 0 auto;
+  color: black;
+  font-size: 30px;
+}
+
+button {
+  width: 100px;
+  height: 40px;
+  font-size: 30px;
+  font-weight: 2em;
+  font-family: 'Varela Round', sans-serif;
+}
+
+.X {
+  background-image: url("../img/X.png");
+  background-size: 150px 150px;
+}
+
+.O {
+  background-image: url("../img/O.png");
+  background-size: 150px 150px;
 }
