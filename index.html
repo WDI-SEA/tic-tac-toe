@@ -7,8 +7,36 @@
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-  <h1>Hello Front-End</h1>
-
-  <script type="text/javascript" src="js/app.js"></script>
+ 	<h1>Tic Tac Game</h1>
+  	<div>
+		<h3>Directions</h3>
+		<p class="directions">The object of Tic Tac Toe is to get three in a row. You play on a three by three game board. The first player is known as X and the second is O. Players alternate placing Xs and Os on the game board until either oppenant has three in a row or all nine squares are filled. </p>
+	</div>
+	<div class="turn">
+		<p id="xturn">Player 1 "X" Turn, CLICK ON A SQUARE!</p>
+		<p id="oturn" class="none">Player 2 O's Turn, CLICK ON A SQUARE!</p>
+	</div>
+	<span class="xwins none">X Wins!</span>
+	<span class="owins none">O Wins!</span>
+	<div class="board">
+		
+		<div id="topRight" class="box row1"></div>
+		<div id="topMid" class="box row1"></div>
+		<div id="topLeft" class="box row1"></div>
+		
+		
+		<div id="right" class="box"></div>
+		<div id="mid" class="box"></div>
+		<div id="left" class="box"></div>
+		
+		<div id="bottomRight" class="box"></div>
+		<div id="bottomMid" class="box"></div>
+		<div id="bottomLeft" class="box"></div>
+		
+	</div>
+	<span class="xwins toleft none">X Wins!</span>
+	<span class="owins toleft none">O Wins!</span>
+	<div class="buttondiv"><button type="button" class="reset">Reset</button></div>
+  	<script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>
