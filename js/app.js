@@ -59,9 +59,6 @@ var endGame = function(){
   for (var i = 0; i < el.length; i++){
     el[i].removeEventListener("click", flipImage);
   }
-  gameBoard.gameCount++;
-  var displayCount = document.getElementById("gameCount").textContent = gameBoard.gameCount;
-
   // update player score
   if (playerO.currentPlayer){
     playerO.score++;
