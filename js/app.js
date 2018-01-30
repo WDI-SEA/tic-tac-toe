@@ -194,6 +194,8 @@ var loadGamePieces = function(){
         var gamePiece = document.getElementById((i+1));
         gamePiece.setAttribute("src", gameBoard.src);
         gamePiece.addEventListener("click", flipImage);
+        // if called player forfited turn game forfit
+        currentPlayer();
       }
     }
   }
