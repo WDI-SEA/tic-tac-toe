@@ -1,3 +1,659 @@
+html,body {
+  margin:0 0 100px 0;
+  padding-left: 5px;
+}
+
 h1 {
   color: purple;
 }
+
+.inputWraps {
+  display: inline-block;
+}
+
+.inputWrapRight {
+  margin: 0 10px;
+}
+
+.inputWrapCheckBox {
+  margin: 0 20px;
+}
+
+.radioButton {
+  cursor: pointer;
+}
+
+.reset {
+  position: relative;
+  top: 50px;
+  left: 180px;
+  height: 50px;
+  width: 7%;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.inputWrapBottom {
+  margin: 0 20px;
+  position: absolute;
+  left: 400px;
+}
+
+.turnText {
+  border: 1px solid black;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.onePlayerBox {
+  position: relative;
+  left: 55px;
+  cursor: pointer;
+}
+
+.onePlayerButton {
+  position: relative;
+  left: 20px;
+  cursor: pointer;
+}
+
+#gameBoardImpossible:hover {
+  position: relative;
+  left: -1000px;
+}
+
+.sideP {
+  width: 20px;
+  display: inline-block;
+  position: absolute;
+  top: 260px;
+  left: 40px;
+}
+
+.gameBoard {
+  background-color: #A34C40;
+  height: 600px;
+  width: 75%;
+  position: relative;
+  top: 100px;
+  margin: 0 auto;
+  padding: 0.5%;
+  cursor: pointer;
+  z-index: 10;
+  transform: rotate(-90deg) scale(0.07);
+  transform-origin: top left;
+  transition: box-shadow 1.5s ease-in-out, transform 1s ease-in-out;
+}
+
+#gameBoardClicked {
+  cursor: default;
+  box-shadow: 0 0 8px 6px #3D1C18;
+  transform: rotate(0deg) scale(1);
+}
+
+.boardHash {
+  background-color: #428296;
+  display: inline-block;
+  z-index: 30;
+  position: relative;
+  border-radius: 50px;
+  box-shadow: 0 0 5px 2px #1B353D;
+}
+
+.vertHash {
+  height: 96%;
+  width: 1.5%;
+  top: 20px;
+}
+
+.leftHash {
+  left: 35%;
+}
+
+.rightHash {
+  left: 59.5%;
+}
+
+.horizontalHash {
+  height: 1.5%;
+  width: 85%;
+  transform: rotate(180deg);
+}
+
+.topHash {
+  top: -360px;
+  left: 4%;
+}
+
+.bottomHash {
+  top: -192px;
+  left: 8.5%;
+}
+
+.topRow, .midRow, .bottomRow {
+  background-color: transparent;
+  height: 28%;
+  margin: 1%;
+  padding: 1%;
+  position: relative;
+  top: -580px;
+  z-index: 20;
+}
+
+.square, .square p {
+  display: inline-block;
+}
+
+.square {
+  width: 25%;
+  margin: 1%;
+  text-align: center;
+  position: relative;
+  top: -3%;
+  left: 8%;
+  background-color: #dd7;
+  height: 99%;
+  border-radius: 13%;
+  z-index: 40;
+  cursor: pointer;
+  transition: font-size .5s, background .5s, box-shadow .5s, transform .5s;
+}
+
+.square p {
+  font-size: 120px;
+  position: absolute;
+  top: -70%;
+  left: 30%;
+  font-family: sans-serif;
+}
+
+[data-id="one"]:hover, [data-id="two"]:hover, [data-id="three"]:hover, [data-id="four"]:hover, [data-id="five"]:hover, [data-id="six"]:hover, [data-id="seven"]:hover, [data-id="eight"]:hover, [data-id="nine"]:hover {
+  font-size: 18px;
+  background: radial-gradient(circle, #FFFF9A 8%, #F5F583 65%);
+  cursor: pointer;
+}
+
+[data-id="one"]:hover {
+  box-shadow: 6px 6px 6px #2E2E19;
+  transform: translate(-10px, -10px) scale(1.05);
+}
+
+[data-id="two"]:hover {
+  box-shadow: 0 6px 6px #2E2E19;
+  transform: translate(0px, -10px) scale(1.05);
+}
+
+[data-id="three"]:hover {
+  box-shadow: -6px 6px 6px #2E2E19;
+  transform: translate(10px, -10px) scale(1.05);
+}
+
+[data-id="four"]:hover {
+  box-shadow: 6px 0px 6px #2E2E19;
+  transform: translate(-10px, 0px) scale(1.05);
+}
+
+[data-id="five"]:hover {
+  box-shadow: 0px 0px 7px 3px #2E2E19;
+  transform: translate(0px, 0px) scale(1.05);
+}
+
+[data-id="six"]:hover {
+  box-shadow: -6px 0px 6px #2E2E19;
+  transform: translate(10px, 0px) scale(1.05);
+}
+
+[data-id="seven"]:hover {
+  box-shadow: 6px -6px 6px #2E2E19;
+  transform: translate(-10px, 10px) scale(1.05);
+}
+
+[data-id="eight"]:hover {
+  box-shadow: 0 -6px 6px #2E2E19;
+  transform: translate(0px, 10px) scale(1.05);
+}
+
+[data-id="nine"]:hover {
+  box-shadow: -6px -6px 6px #2E2E19;
+  transform: translate(10px, 10px) scale(1.05);
+}
+
+#one, #two, #three, #four, #five, #six, #seven, #eight, #nine {
+  background-color: #A3A358;
+}
+
+#one {
+  box-shadow: -6px -6px 6px #3D3D21 inset;
+  transform: scale(.95) translate(5px, 5px);
+}
+
+#two {
+  box-shadow: 0px -6px 6px #3D3D21 inset;
+  transform: scale(.95) translate(5px, 5px);
+}
+
+#three {
+  box-shadow: 6px -6px 6px #3D3D21 inset;
+  transform: scale(.95) translate(5px, 5px); 
+}
+
+#four {
+  box-shadow: -6px 0px 6px #3D3D21 inset;
+  transform: scale(.95) translate(5px, 5px); 
+}
+
+#five {
+  box-shadow: 0px 0px 6px 5px #3D3D21 inset;
+  transform: scale(.95) translate(5px, 5px); 
+}
+
+#six {
+  box-shadow: 6px 0px 6px #3D3D21 inset;
+  transform: scale(.95) translate(5px, 5px); 
+}
+
+#seven {
+  box-shadow: -6px 6px 6px #3D3D21 inset;
+  transform: scale(.95) translate(5px, 5px); 
+}
+
+#eight {
+  box-shadow: 0px 6px 6px #3D3D21 inset;
+}
+
+#nine {
+  box-shadow: 6px 6px 6px #3D3D21 inset;
+  transform: scale(.95) translate(5px, 5px); 
+}
+
+#oneFlip {
+  animation: flip 2s .2s 1;
+}
+
+#twoFlip {
+  animation: flip 2s .4s 1;
+}
+
+#threeFlip {
+  animation: flip 2s .6s 1;
+}
+
+#fourFlip {
+  animation: flip 2s 1.2s 1;
+}
+
+#fiveFlip {
+  animation: flip 2s 1s 1;
+}
+
+#sixFlip {
+  animation: flip 2s .8s 1;
+}
+
+#sevenFlip {
+  animation: flip 2s 1.4s 1;
+}
+
+#eightFlip {
+  animation: flip 2s 1.6s 1;
+}
+
+#nineFlip {
+  animation: flip 2s 1.8s 1;
+}
+
+.winHash {
+  background-color: #591ED4;
+  z-index: 50;
+  height: 25px;
+  width: 65%;
+  position: absolute;
+  border-radius: 30%;
+  box-shadow: 0 0 7px 4px #220C52;
+  display: none;
+}
+
+.winHashOne, .winHashTwo, .winHashThree {
+    left: -900px;
+}
+
+.winHashFour, .winHashFive, .winHashSix {
+  transform: rotate(90deg);
+  top: -400px;
+}
+
+.winHashOne {
+  top: 430px;
+}
+
+.winHashTwo {
+  top: 620px;
+}
+
+.winHashThree {
+  top: 800px;
+}
+
+.winHashFour {
+  left: -2%;
+}
+
+.winHashFive {
+  left: 18%;
+}
+
+.winHashSix {
+  left: 37%;
+}
+
+.winHashSeven {
+  width: 85%;
+  top: -250px;
+  left: -900px;
+  transform: rotate(45deg);
+}
+
+.winHashEight {
+  width: 85%;
+  top: -250px;
+  left: 900px;
+  transform: rotate(-45deg);
+}
+
+#winHashOneBoard {
+  display: block;
+  transition: left 1s;
+  animation: hashOneSwoop .6s .2s 1 forwards;
+}
+
+#winHashTwoBoard {
+  display: block;
+  transition: left 1s;
+  animation: hashTwoSwoop .6s .2s 1 forwards;
+}
+
+#winHashThreeBoard {
+  display: block;
+  transition: left 1s;
+  animation: hashThreeSwoop .6s .2s 1 forwards;
+}
+
+#winHashFourBoard {
+  display: block;
+  transition: left 1s;
+  animation: hashFourSwoop .6s .2s 1 forwards;
+}
+
+#winHashFiveBoard {
+  display: block;
+  transition: left 1s;
+  animation: hashFiveSwoop .6s .2s 1 forwards;
+}
+
+#winHashSixBoard {
+  display: block;
+  transition: left 1s;
+  animation: hashSixSwoop .6s .2s 1 forwards;
+}
+
+#winHashSevenBoard {
+  display: block;
+  transition: left 1s;
+  animation: hashSevenSwoop .6s .2s 1 forwards;
+}
+
+#winHashEightBoard {
+  display: block;
+  transition: left 1s;
+  animation: hashEightSwoop .6s .2s 1 forwards;
+}
+
+.sign {
+  background-color: #40A356;
+  opacity: .95;
+  width: 50%;
+  height: 80px;
+  position: absolute;
+  top: 850px;
+  left: 230px;
+  text-align: center;
+  border-radius: 20px;
+  display: none;
+}
+
+#sign p {
+    opacity: .1;
+}
+
+.winSign {
+  font-family: 'Concert One', cursive;
+  font-weight: bold;
+}
+
+.winP {
+  position: relative;
+  top: -60px;
+  font-size: 60px;
+}
+
+.tieSign {
+  font-family: 'Prompt', sans-serif;
+}
+
+.tieP {
+  position: relative;
+  top: -50px;
+  font-size: 50px;
+}
+
+.loseSign {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 500;
+}
+
+.loseP {
+  position: relative;
+  top: -10px;
+  font-size: 34.5px;
+}
+
+#flipSign {
+  display: block;
+  animation: signFlip 2.3s .8s 1 both;
+}
+
+@keyframes flip {
+  53% {box-shadow: 0 0 10px 5px #2E2E19;
+        transform: scale(1.25) rotate(360deg);
+        background: radial-gradient(circle, #FFFF90 8%, #EBEB7E 65%);}
+  65% {box-shadow: 0 0 15px 6px #2E2E19;
+        transform: scale(1.35) rotate(360deg);
+        background: radial-gradient(circle, #FFFF90 8%, #EBEB7E 65%);}
+}
+
+@keyframes hashOneSwoop {
+  100% {top: 430px; left: 17%;}
+}
+
+@keyframes hashTwoSwoop {
+  100% {top: 620px; left: 17%;}
+}
+
+@keyframes hashThreeSwoop {
+  100% {top: 800px; left: 17%;}
+}
+
+@keyframes hashFourSwoop {
+  100% {  left: -2%; top: 610px;}
+}
+
+@keyframes hashFiveSwoop {
+  100% {  left: 18%; top: 610px;}
+}
+
+@keyframes hashSixSwoop {
+  100% { left: 37%; top: 610px;}
+}
+
+@keyframes hashSevenSwoop {
+  100% { top: 600px; left: 6%;}
+}
+
+@keyframes hashEightSwoop {
+  100% { top: 600px; left: 8%;}
+}
+
+
+
+@keyframes signFlip {
+  0% {transform: rotateX(180deg);}
+  20% {transform: translate(0px, 130px) rotateX(-100deg);}
+  28% {z-index: 100;}
+  55% {transform: translate(0px, -280px) scale(1.5);}
+  59% {box-shadow: 0px 0px 0px 0px;}
+  100% {transform: translate(0px, -260px);
+        z-index: 100;
+        box-shadow: 0px 0px 30px 7px #36361D}
+}
+
+/*TEST CODE*/
+/*TEST CODE*/
+/*TEST CODE*/
+/*TEST CODE*/
+
+.testDiv1 {
+  height: 200px;
+  width: 200px;
+  background-color: #dd7;
+  border-radius: 15px;
+  position: relative;
+  left: 100px;
+  text-align: center;
+  cursor: pointer;
+  transition: all .5s;
+}
+
+.testDiv1:hover {
+  box-shadow: 6px 6px 6px #333;
+  transform: translate(-10px, -10px) scale(1.05);
+  font-size: 18px;
+  background: radial-gradient(circle, #FFFF90 8%, #EBEB7E 65%); 
+}
+
+.testDiv2 {
+  height: 200px;
+  width: 200px;
+  background-color: #dd7;
+  border-radius: 15px;
+  position: relative;
+  left: 100px;
+  top: 50px;
+  cursor: pointer;
+  text-align: center;
+  transition: all .5s;
+  transform: perspective(1) scaleZ(1) rotateY(0deg);;
+}
+
+.testDiv2:hover {
+  box-shadow: -6px -6px 6px #474726 inset;
+  transform: scale(.95) translate(5px, 5px);
+  vertical-align: bottom;
+  font-size: 15px;
+  background-color: #C4C46A;
+}
+
+.testDiv3 {
+  height: 200px;
+  width: 200px;
+  background: #dd7;
+  border-radius: 15px;
+  position: relative;
+  left: 100px;
+  top: 100px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 1.25s ease-in;
+}
+
+.testDiv3:hover {
+  animation: flip 2.5s 1;
+ /* box-shadow: 0 0 8px 4px #333;
+  transform: scale(1.05) rotate(360deg);
+  font-size: 18px;
+  background: radial-gradient(circle, #FFFF90 8%, #EBEB7E 65%); */
+}
+
+.testDivHolder {
+  height: 500px;
+  width: 500px;
+  background: #dd7;
+  border-radius: 15px;
+  position: relative;
+  left: 500px;
+  top: -400px;
+  cursor: pointer;
+  text-align: center;
+  transform: rotate(-90deg) scale(0.1);
+  transform-origin: top left;
+  transition: all .7s ease-in-out;
+}
+
+.testDivHolder:hover {
+  box-shadow: 0 0 10px 2px #474726;
+  transform: rotate(0deg) scale(1);
+}
+
+.inDivHolder {
+  height: 20%;
+  width: 20%;
+  background: #bcd;
+  border-radius: 15px;
+  position: absolute;
+  cursor: pointer;
+  text-align: center;
+  transition: all .7s ease-in;
+}
+
+.firstInHolder {
+  top: 10%;
+  left: 10%;
+}
+
+.secondInHolder {
+  top: 40%;
+  left: 40%;
+}
+
+.thirdInHolder {
+  top: 70%;
+  left: 70%;
+}
+
+@keyframes flip {
+  0% {z-index: 150;}
+  53% {box-shadow: 0 0 10px 5px #2E2E19;
+        z-index: 150;
+        transform: scale(1.25) rotate(360deg);
+        background: radial-gradient(circle, #FFFF90 8%, #EBEB7E 65%);}
+  65% {z-index: 150;
+        box-shadow: 0 0 15px 6px #2E2E19;
+        transform: scale(1.35) rotate(360deg);
+        background: radial-gradient(circle, #FFFF90 8%, #EBEB7E 65%);}
+  100% {z-index: 150;}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

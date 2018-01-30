@@ -3,12 +3,105 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <title>Tic Tac Toe</title>
+  <link href="https://fonts.googleapis.com/css?family=Concert+One" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Prompt" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Orbitron:400,500" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-  <h1>Hello Front-End</h1>
+  <h1>Tic Tac Toe</h1>
+  <div class="inputWraps inputWrapLeft">
+    <h3>Player 1's name</h3>
+    <input id="nameInput1" type="text" name="nameInput1" placeholder="Scott">
+  </div>
+  <div class="inputWraps inputWrapRight">
+    <h3>Player 2's name</h3>
+    <input id="nameInput2" type="text" name="nameInput2" placeholder="Eva">
+  </div>
+  <button id="nameButton" type="button">Submit</button>
+  <div class="inputWraps inputWrapCheckBox">
+    <h3>One player mode</h3>
+    <input class="onePlayerBox" id="onePlayerCheckBox" type="checkbox" name="onePlayerCheckBox">
+    <!-- <button class="onePlayerButton" id="computerButton" type="button">Computer move</button> -->
+  </div>
+  <h3>Pick player 1's symbol</h3>
+  <input class="radioButton" type="radio" name="pickSymbol" value="x" id="xSymbol" checked>
+  <label for="pickSymbol">x</label>
+  <input class="radioButton" type="radio" name="pickSymbol" value="o" id="oSymbol">
+  <label for="pickSymbol">o</label>
 
+  <button class="reset" id="resetButton" type="button" name="reset">Reset</button>
+
+  <div class="inputWraps inputWrapBottom">
+    <h3>Who's turn</h3>
+    <p class="turnText" id="turnP">Next player</p>
+  </div>
+
+  <p class="sideP">Click here to start game</p>
+
+  <div class="gameBoard" id="impossible">
+
+    <div class="boardHash vertHash leftHash"></div>
+    <div class="boardHash vertHash rightHash"></div>
+    <div class="boardHash horizontalHash topHash"></div>
+    <div class="boardHash horizontalHash bottomHash"></div>
+
+    <div class="topRow">
+      <div class="one square" data-win="1">
+      </div>
+      <div class="two square" data-win="2">
+      </div>
+      <div class="three square" data-win="3">
+      </div>
+    </div>
+    <div class="midRow">
+      <div class="four square" data-win="4">
+      </div>
+      <div class="five square" data-win="5">
+      </div>
+      <div class="six square" data-win="6">
+      </div>
+    </div>
+    <div class="bottomRow">
+      <div class="seven square" data-win="7">
+      </div>
+      <div class="eight square" data-win="8">
+      </div>
+      <div class="nine square" data-win="9">
+      </div>
+    </div>
+  </div>
+
+  <div class="winHash winHashOne"></div>
+  <div class="winHash winHashTwo"></div>
+  <div class="winHash winHashThree"></div>
+  <div class="winHash winHashFour"></div>
+  <div class="winHash winHashFive"></div>
+  <div class="winHash winHashSix"></div>
+  <div class="winHash winHashSeven"></div>
+  <div class="winHash winHashEight"></div>
+
+  <div class="sign winSign">
+    <p class="winP" id="winPId"></p>
+  </div>
+  <div class="sign tieSign">
+    <p class="tieP" id="tiePId">Tie...womp womp</p>
+  </div>
+  <div class="sign loseSign">
+    <p class="loseP" id="losePId">Computer won...gg bro</p>
+  </div>
+
+<!-- 
+  <div class="testDiv1"><br><br>Test Div1!?</div>
+  <div class="testDiv2"><br><br>Test Div2!?</div>
+  <div class="testDiv3"><br><br>Test Div3!?</div>
+  <div class="testDivHolder">testDivHolder
+    <div class="inDivHolder firstInHolder">Div</div>
+    <div class="inDivHolder secondInHolder">Div</div>
+    <div class="inDivHolder thirdInHolder">Div</div>
+  </div>Win
+ -->
   <script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>
