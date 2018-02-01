@@ -41,7 +41,8 @@ var boxClick = function() {
     // this.removeEventListener('click', boxClick);
     // console.log('removed event listener');
     // if (turn >= 4) {
-    checkWin();
+    // checkWin();
+    checkWinX();
     // }
     // if (!this.classList.contains("O") && !this.classList.contains("X")) {
     // this.classList.add('O')};
@@ -52,7 +53,8 @@ var boxClick = function() {
     this.className += " X";
     console.log(this.className);
     // if (turn >= 4) {
-      checkWin();
+    // checkWin();
+    checkWinO();
     // }
     // if (!this.classList.contains("X") && !this.classList.contains("O")) {
     // this.classList.add('X')};
@@ -60,9 +62,8 @@ var boxClick = function() {
   }
 };
 
-
 Switch statment is formatted wrong - not pulling in variables
-var checkWin = function() {
+var checkWinX = //'x box array'
 //matching two conditions: box does not include textContent and it's classList matches X
 //matches 3 rows, 3 columns, 2 diagonals
   switch (true) {
