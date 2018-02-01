@@ -14,6 +14,7 @@ var resetBoard = function (){
   for(var i = 0; i < box.length; i++){
   		box[i].textContent = '';
       box[i].style.backgroundColor = '#4D9BA6';
+      box[i].addAttribute("class", "");
       winnerText.textContent = " ";
       turn = 0;
   }
@@ -33,24 +34,29 @@ winnerText.textContent = ('X Wins!')
 var boxClick = function() {
   turn++;
   if (turn%2 === 0){
-    this.textContent= 'O';
+    this.textContent = 'O';
     this.style.backgroundColor = 'red';
-    if (!this.classList.contains("O") && !this.classList.contains("X")) {
-    this.classList.add('O')};
-    //remove event listener in here
-    player = 'O'
-      if (turn >= 4) {
-        checkWin();
-      }
+    this.className += " O";
+    console.log(this.className);
+    // this.removeEventListener('click', boxClick);
+    // console.log('removed event listener');
+    if (turn >= 4) {
+      checkWin();
+    }
+    // if (!this.classList.contains("O") && !this.classList.contains("X")) {
+    // this.classList.add('O')};
+
   } else {
     this.textContent= 'X';
     this.style.backgroundColor = 'black';
-    if (!this.classList.contains("X") && !this.classList.contains("O")) {
-    this.classList.add('X')};
-    player = 'X'
-      if (turn >= 4) {
-        checkWin();
-      }
+    this.className += " X";
+    console.log(this.className);
+    if (turn >= 4) {
+      checkWin();
+    }
+    // if (!this.classList.contains("X") && !this.classList.contains("O")) {
+    // this.classList.add('X')};
+    // player = 'X'
   }
 };
 
@@ -111,7 +117,6 @@ var checkWin = function() {
       break;
   }
 };
-
 
 // add event listener for all 9 boxes to be clicked. using loop for the class boxes
 var addBoxClickListener = function() {
