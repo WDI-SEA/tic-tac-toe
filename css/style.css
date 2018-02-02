@@ -14,7 +14,6 @@ text-align: center;
 border: 5px solid darkblue;
 }
 #container {
-/*height: 1500px;*/
 position: relative;
 }
 .box {
@@ -29,7 +28,7 @@ background-color: white;
 .box:hover {
   background-color: yellow;
 }
-.button {
+#button {
 widows: 50px;
 border: 2px solid black;	
 }

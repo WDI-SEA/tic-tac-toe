@@ -2,12 +2,22 @@ console.log("hello front end");
 
 var player1 = false;
 var player2 = false;
+var winGame = [];
+var tLeft = document.getElementById("tLeft");
+var tMiddle = document.getElementById("tMiddle");
+var tRight = document.getElementById("tRight");
+var cLeft = document.getElementById("cLeft");
+var cMiddle = document.getElementById("cMiddle");
+var cRight = document.getElementById("cRight");
+var bLeft = document.getElementById("bLeft");
+var bMiddle = document.getElementById("bMiddle");
+var bRight = document.getElementById("bRight");
 
-// var turn = 0;
-// var gameResult = false;
-var markBox = function() {
-if (player1) {
-	// this.setAttribute("background-color", "red"); 
+
+
+
+var markBox = function () {	
+	if (player1) {
 	this.style.backgroundColor = "red"; 
 	console.log("clicked" + this);
 	player1 = false;
@@ -25,6 +35,41 @@ if (player1) {
 	//mark the box
 }
 
+switch (true) {
+  case 'tRight':
+  
+    console.log('we have a winner!');
+    break;
+  case (tLeft === tMiddle && tMiddle === tRight): 
+    console.log('we have a winner!');
+    break;
+  case (cLeft === cMiddle && cMiddle === cRight):  
+    console.log('we have a winner!');
+    break;
+  case (bLeft === bMiddle && bMiddle === bRight): 
+    console.log('we have a winner!');
+    break;
+  case (tLeft === cLeft && cLeft === bLeft):  
+    console.log('we have a winner!');
+    break;
+  case (tMiddle === cMiddle && cMiddle === bMiddle): 
+    console.log('we have a winner!');
+    break;
+  case (tRight === cRight && cRight === bRight):   
+    console.log('we have a winner!');
+    break;
+  case (tLeft === cMiddle && cMiddle === bRight): 
+    console.log('we have a winner!');
+    break;
+  case (bLeft === cMiddle && cMiddle === tRight): 
+    console.log('we have a winner!');
+    break;
+  default:
+    console.log('we have a draw!');
+}
+
+
+
 
 
 document.addEventListener("DOMContentLoaded", function(){
@@ -38,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function(){
  	document.getElementById("bMiddle").addEventListener("click", markBox);
  	document.getElementById("bLeft").addEventListener("click", markBox);
  	player1 = true;
-})
+});
 
 // if (player1) {
 // 	this.setAttribute("background-color", "red"); 
@@ -47,3 +92,4 @@ document.addEventListener("DOMContentLoaded", function(){
 // 	this.setAttribute("background-color", "green"); 
 // 	// do this for p2
 // }
+
