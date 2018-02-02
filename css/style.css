@@ -1,3 +1,50 @@
+html,body {
+  margin: 0;
+  padding: 0;
+  background: #052D3E;
+}
+
 h1 {
-  color: purple;
+  color: #4D9BA6;
+}
+
+#gameboard {
+  text-align: center;
+  position: relative;
+  padding: 50px 0 50px 0;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+  margin: 10px;
+  background-color: #4D9BA6;
+  vertical-align: middle;
+  color: white;
+  font-size: 50px;
+  font-family: 'Coustard', serif;
+}
+
+.winner {
+  width: 300px;
+  margin: 0 auto;
+  text-align: center;
+  background-color: #4D9BA6;
+  color: white;
+}
+
+#buttonReset {
+	/* padding: 15px 60px; */
+  text-align: center;
+	/* margin: 30px 10px; */
+}
+
+button {
+  background-color: #4D9BA6;
+  color: white;
+  border: #4D9BA6 1px;
+  margin: 30px;
+  padding: 10px 30px 10px
+  font-family: 'Coustard', serif;
 }

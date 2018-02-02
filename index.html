@@ -1,13 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <title>TIC TAC TOE</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Coustard" rel="stylesheet">
 </head>
+
 <body>
-  <h1>Hello Front-End</h1>
+
+  <div id="gameboard">
+    <div>
+      <div class="box" class="row1 col1 diag1" id="sq1"></div>
+      <div class="box" class="row1 col2" id="sq2"></div>
+      <div class="box" class="row1 col3 diag2" id="sq3"></div>
+    </div>
+    <div>
+      <div class="box" class="row2 col1" id="sq4"></div>
+      <div class="box" class="row2 col2 diag1 diag2" id="sq5"></div>
+      <div class="box" class="row2 col3"id="sq6"></div>
+    </div>
+    <div>
+      <div class="box" class="row3 col1 diag2" id="sq7"></div>
+      <div class="box" class="row3 col2" id="sq8"></div>
+      <div class="box" class="row3 col3 diag1"id="sq9"></div>
+    </div>
+  </div>
+
+  <div class="winner">
+      <div class="winnerInside">Winner is:</div>
+      <div class="winnerText"></div>
+  </div>
+
+  <div id="buttonReset">
+      <button type="button" id="reset">Reset& Play Again</button>
+  </div>
+
 
   <script type="text/javascript" src="js/app.js"></script>
 </body>
