@@ -53,13 +53,48 @@ var checkWin = function () { //example  ".row1"
 			console.log(currentScore);
 
 			if (currentScore === 3) {
-				setTimeout(function () {window.alert("Tree wins!")}, 50);
+				setTimeout(function () {
+					document.getElementById('results').textContent = ('Tree Wins!')
+				}, 50);
+				document.getElementById("a1").removeEventListener("click",placeKey);
+				document.getElementById("a2").removeEventListener("click",placeKey);
+				document.getElementById("a3").removeEventListener("click",placeKey);
+				document.getElementById("b1").removeEventListener("click",placeKey);
+				document.getElementById("b2").removeEventListener("click",placeKey);
+				document.getElementById("b3").removeEventListener("click",placeKey);
+				document.getElementById("c1").removeEventListener("click",placeKey);
+				document.getElementById("c2").removeEventListener("click",placeKey);
+				document.getElementById("c3").removeEventListener("click",placeKey);
 				return;
 			} if (currentScore === 6) {
-				setTimeout(function () {window.alert("Bird wins!")}, 50);
+				setTimeout(function () {
+					document.getElementById('results').textContent = ('Bird Wins!')
+				}, 50);
+				document.getElementById("a1").removeEventListener("click",placeKey);
+				document.getElementById("a2").removeEventListener("click",placeKey);
+				document.getElementById("a3").removeEventListener("click",placeKey);
+				document.getElementById("b1").removeEventListener("click",placeKey);
+				document.getElementById("b2").removeEventListener("click",placeKey);
+				document.getElementById("b3").removeEventListener("click",placeKey);
+				document.getElementById("c1").removeEventListener("click",placeKey);
+				document.getElementById("c2").removeEventListener("click",placeKey);
+				document.getElementById("c3").removeEventListener("click",placeKey);
+				return;	
+			} if (turn>=8) {
+				setTimeout(function () {
+					document.getElementById('results').textContent = ('Draw!')
+				}, 50);
+				document.getElementById("a1").removeEventListener("click",placeKey);
+				document.getElementById("a2").removeEventListener("click",placeKey);
+				document.getElementById("a3").removeEventListener("click",placeKey);
+				document.getElementById("b1").removeEventListener("click",placeKey);
+				document.getElementById("b2").removeEventListener("click",placeKey);
+				document.getElementById("b3").removeEventListener("click",placeKey);
+				document.getElementById("c1").removeEventListener("click",placeKey);
+				document.getElementById("c2").removeEventListener("click",placeKey);
+				document.getElementById("c3").removeEventListener("click",placeKey);
 				return;
-			
-		}
+			}
 }}
 
 
