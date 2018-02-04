@@ -26,14 +26,14 @@ var gameBoard = {
 
 //reset the game
 var newGame = function(){
+  if (gameBoard.match.length < 3){
+    gameBoard.drawCount++;
+    var displayDrawCount = document.getElementById("drawCount").textContent = gameBoard.drawCount;
+  }
   setMatch();
   playerO.plays = [];
   playerX.plays = [];
   gameBoard.gameEnd = false;
-  if (gameBoard.moveCount === 9 && gameBoard.match.length < 3){
-    gameBoard.drawCount++;
-    var displayDrawCount = document.getElementById("drawCount").textContent = gameBoard.drawCount;
-  }
   gameBoard.moveCount = 0;
   loadGamePieces();
   currentPlayer();
