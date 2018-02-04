@@ -20,6 +20,7 @@ var gameBoard = {
   moveCount: 0,
   gameEnd: false,
   gameCount: 0,
+  drawCount: 0,
   match: []
 };
 
@@ -29,11 +30,15 @@ var newGame = function(){
   playerO.plays = [];
   playerX.plays = [];
   gameBoard.gameEnd = false;
+  if (gameBoard.moveCount === 9 && gameBoard.match.length < 3){
+    gameBoard.drawCount++;
+    var displayDrawCount = document.getElementById("drawCount").textContent = gameBoard.drawCount;
+  }
   gameBoard.moveCount = 0;
-  gameBoard.gameCount++;
-  var displayCount = document.getElementById("gameCount").textContent = gameBoard.gameCount;
   loadGamePieces();
   currentPlayer();
+  gameBoard.gameCount++;
+  var displayCount = document.getElementById("gameCount").textContent = gameBoard.gameCount;
 };
 
 // set winning pieces
@@ -60,10 +65,10 @@ var endGame = function(){
     el[i].removeEventListener("click", flipImage);
   }
   // update player score
-  if (playerO.currentPlayer){
+  if (playerO.currentPlayer && gameBoard.match.length === 3){
     playerO.score++;
     var gameWon = document.getElementById("playerOScore").textContent = playerO.score;
-  } else if (playerX.currentPlayer) {
+  } else if (playerX.currentPlayer && gameBoard.match.length === 3) {
     playerX.score++;
     var gameWon = document.getElementById("playerXScore").textContent = playerX.score;
   }
