@@ -1,3 +1,37 @@
+body {
+background: linear-gradient(#fc5c7d, #6a82fb);
+}
+div {
+text-align: center;
+}
+footer {
+text-align: left;
+}
 h1 {
-  color: purple;
+background-color: linear-gradient(#6a82fb, #fc5c7d); 
+height: 100px;
+text-align: center;
+border: 5px solid darkblue;
+}
+#container {
+position: relative;
+}
+.box {
+background-color: white;
+  width: 200px;
+  height: 200px;
+  border: 1px solid black;
+  display: inline-block;
+  margin: 10px;
+  border-radius: 30px;
+}
+.box:hover {
+  background-color: yellow;
+}
+#button {
+widows: 50px;
+border: 2px solid black;	
+}
+.clicked {
+background-color: green;
 }
