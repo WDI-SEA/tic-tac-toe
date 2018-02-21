@@ -1,4 +1,6 @@
-//console.log('Javascript running.');
+// game-tic-tac-to.js
+// www.github.com/Ari_M
+
 //Start declaring variables
 var squares = document.getElementsByClassName('tile');
 var values = [];
@@ -6,22 +8,23 @@ var backgroundImage = document.querySelectorAll('.tile')
 var reset = document.querySelector('#reset');
 var turnValue = true;
 arrayCheck = [];
+
 //Declare functions
 var changeArrayValue = function () {
-	values = []
+	values = [];
 	for (var i = 0; i < squares.length; i++) {
 		var value = squares[i].getAttribute('data-value');
 		values.push(value);
 	}
 }
 var addX = function (box) {
-	box.style.backgroundImage = "url('img/x.png')";
+	box.style.backgroundImage = "url('images/x.png')";
 	box.setAttribute('data-value', 'x');
 	changeArrayValue();
 	winCondition(true);
 };
 var addO = function (box) {
-	box.style.backgroundImage = "url('img/o.jpg')";
+	box.style.backgroundImage = "url('images/o.jpg')";
 	box.setAttribute('data-value', 'o');
 	changeArrayValue();
 	winCondition(false);
@@ -31,22 +34,20 @@ var declareWinner = function(bool) {
 		document.getElementById("displayWinner").innerHTML = "X Wins!";
 	} else {
 		document.getElementById("displayWinner").innerHTML = "O Wins!";
-	}; for (let i = 0; i < squares.length; i++) {
+	}; 
+	for (let i = 0; i < squares.length; i++) {
 		var isClicked = squares[i];
 		isClicked.setAttribute("data-clicked", "true");
 	}
 };
 var checkDraw = function() {
 	for (var i = 0; i < squares.length; i++) {
-		boardCheck = squares[i].getAttribute('data-clicked');
+		var boardCheck = squares[i].getAttribute('data-clicked');
 	}
-		arrayCheck.push(boardCheck);
-		if (arrayCheck.length === squares.length) {
-			document.getElementById("displayWinner").innerHTML = "It's a draw";
-			console.log(boardCheck);
-		} else {
-			console.log("Waiting next move");
-		}
+	arrayCheck.push(boardCheck);
+	if (arrayCheck.length === squares.length) {
+		document.getElementById("displayWinner").innerHTML = "It's a draw";
+	}
 };
 var winCondition = function(bool) {
 		   if (values[0] === values[1] && values[0] === values[2] && values[1] === values[2]) {
@@ -70,10 +71,8 @@ var winCondition = function(bool) {
 		}
 }; 
 var playGame = function (box) {
-	//console.log('playGame run');
 	var isClicked = box.getAttribute("data-clicked");
-	if (isClicked === "true") {
-	} else {
+	if (isClicked === "false") {
 		box.setAttribute('data-clicked', 'true');
 		if(turnValue) {
 			turnValue = false;
@@ -84,17 +83,20 @@ var playGame = function (box) {
 		}
 	}
 };
-//Add Event Listeners
+
+// Add Event Listeners
 for (var i = 0; i < squares.length; i++) {
 	squares[i].addEventListener('click', function() {
 		playGame(this);
 	});
 }
+
+// Reset Button
 reset.addEventListener('click', function() {
 	arrayCheck = [];
 	for (let i = 0; i < backgroundImage.length; i++) {
 		var clear = backgroundImage[i];
-		clear.style.backgroundImage = "url('img/transparent.png')";
+		clear.style.backgroundImage = "url('images/transparent.png')";
 	}
 	for (let i = 0; i < squares.length; i++) {
 		var isClicked = squares[i];
