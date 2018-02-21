@@ -1,4 +1,4 @@
-// game-tic-tac-to.js
+// game-tic-tac-toe.js
 // www.github.com/Ari_M
 
 //Start declaring variables
@@ -10,26 +10,26 @@ var turnValue = true;
 arrayCheck = [];
 
 //Declare functions
-var changeArrayValue = function () {
+function changeArrayValue () {
 	values = [];
 	for (var i = 0; i < squares.length; i++) {
 		var value = squares[i].getAttribute('data-value');
 		values.push(value);
 	}
 }
-var addX = function (box) {
-	box.style.backgroundImage = "url('images/x.png')";
+function addX (box) {
+	box.style.backgroundImage = "url('img/x.png')";
 	box.setAttribute('data-value', 'x');
 	changeArrayValue();
 	winCondition(true);
 };
-var addO = function (box) {
-	box.style.backgroundImage = "url('images/o.jpg')";
+function addO (box) {
+	box.style.backgroundImage = "url('img/o.jpg')";
 	box.setAttribute('data-value', 'o');
 	changeArrayValue();
 	winCondition(false);
 };
-var declareWinner = function(bool) {
+function declareWinner(bool) {
 	if (bool === true) {
 		document.getElementById("displayWinner").innerHTML = "X Wins!";
 	} else {
@@ -40,7 +40,7 @@ var declareWinner = function(bool) {
 		isClicked.setAttribute("data-clicked", "true");
 	}
 };
-var checkDraw = function() {
+function checkDraw() {
 	for (var i = 0; i < squares.length; i++) {
 		var boardCheck = squares[i].getAttribute('data-clicked');
 	}
@@ -49,7 +49,7 @@ var checkDraw = function() {
 		document.getElementById("displayWinner").innerHTML = "It's a draw";
 	}
 };
-var winCondition = function(bool) {
+function winCondition(bool) {
 		   if (values[0] === values[1] && values[0] === values[2] && values[1] === values[2]) {
 		   	declareWinner(bool);
 		   } else if (values[3] === values[4] && values[3] === values[5] && values[4] === values[5]) {
@@ -70,7 +70,7 @@ var winCondition = function(bool) {
 		   	checkDraw();
 		}
 }; 
-var playGame = function (box) {
+function playGame(box) {
 	var isClicked = box.getAttribute("data-clicked");
 	if (isClicked === "false") {
 		box.setAttribute('data-clicked', 'true');
@@ -96,7 +96,7 @@ reset.addEventListener('click', function() {
 	arrayCheck = [];
 	for (let i = 0; i < backgroundImage.length; i++) {
 		var clear = backgroundImage[i];
-		clear.style.backgroundImage = "url('images/transparent.png')";
+		clear.style.backgroundImage = "url('img/transparent.png')";
 	}
 	for (let i = 0; i < squares.length; i++) {
 		var isClicked = squares[i];
