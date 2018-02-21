@@ -37,7 +37,6 @@ var declareWinner = function(bool) {
 	}
 };
 var checkDraw = function() {
-	//arrayCheck = [];
 	for (var i = 0; i < squares.length; i++) {
 		boardCheck = squares[i].getAttribute('data-clicked');
 	}
