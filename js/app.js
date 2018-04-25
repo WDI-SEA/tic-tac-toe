@@ -78,7 +78,7 @@ var endGame = function(){
 // check to see if game is over
 var gameOver = function(array){
   var arrayToCompare = Array.from(array);
-  arrayToCompare.sort();
+  // arrayToCompare.sort();
   arrayLength = arrayToCompare.length;
   // check the winning possibilities
   switch (arrayLength >= 3){
@@ -132,7 +132,7 @@ var checkGame = function(){
 
 // set currentPlayerStyle
 var currentPlayerStyle = function(){
-  if (playerO.currentPlayer){
+  if (playerX.currentPlayer){
     var notInPlay = document.getElementById("playerO");
     notInPlay.classList.remove("currentPlayer");
     var inPlay = document.getElementById("playerX");

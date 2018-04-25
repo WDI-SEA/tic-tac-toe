@@ -2,35 +2,38 @@ body {
   width: 80%;
   margin: 0 auto;
   padding: 0;
+  font-family: sans-serif;
 }
 h1 {
   color: purple;
-  margin-left: 50px;
 }
 h3 {
   color: purple;
   margin-top: 0;
-  /* font-size: .8em; */
 }
 .game {
   text-align: center;
   position: static;
-  /* margin: 5px; */
-  /* padding: 5px; */
 }
 .gameHeader {
+  width: 100%;
+  margin: 0 auto;
+}
+.gameHeader > div {
   display: inline-block;
-  margin: 1px;
-  /* padding: 5px; */
-  /* border: 1px solid; */
-
+}
+.gameControls {
+  width: 30%;
+}
+.gameControls > p {
+  margin-top: 0;
 }
 .gameControls button {
-  width: auto%;
-  height: 50px;
-  font-family: sans-serif;
+  width: auto;
+  height: 2em;
   font-size: 1em;
   background-color: lightblue;
+  margin: .25em 0;
 }
 .player {
   border: 1px solid;
@@ -38,7 +41,7 @@ h3 {
   width: 30%;
 }
 .player img {
-  width: 70%;
+  width: 60%;
   padding: 1px;
 }
 .currentPlayer {
@@ -80,7 +83,11 @@ h3 {
 }
 .score {
   font-weight: 800;
+  font-size: .8em;
 }
 footer {
   margin: 20px;
+}
+.disclamier {
+  font-size: .25em;
 }
