@@ -11,7 +11,7 @@ This week we have been learning about writing functions, working with loops, and
 
 We will be making a Tic Tac Toe game using all of these concepts.
 
-## Getting Started
+<!-- ## Getting Started
 
 * Fork and clone this repository.
 * Run `npm install` to install dependencies.
@@ -21,9 +21,10 @@ We will be making a Tic Tac Toe game using all of these concepts.
 * Before you even start working with JavaScript, construct the gameboard. The gameboard page should include the 3x3 grid (of divs), and at minimum a reset button. Using `id` and `class` on clickable elements will help you wire this up in JavaScript afterwards.
 * The JavaScript portion will be next
   * Select elements and attach functions via event listeners
-  * You will also need a variable to keep track of moves. This will be used to indicate whether or not to draw an `X` or an `O`
+  * You will also need a variable to keep track of moves. This will be used to indicate whether or not to draw an `X` or an `O` -->
 
 ## Requirements
+
 * A user should be able to click on different squares to make a move.
 * Every click will alternate between marking an `X` and `O`
 * Upon marking of an individual cell, use JavaScript to add a class to each cell to display separate colors.
@@ -33,15 +34,12 @@ We will be making a Tic Tac Toe game using all of these concepts.
 * After the necessary moves have been played, stop game and alert the winner if one player ends up winning with three in a row.
   * Hint: Determine a set of winning combinations. Check those combinations on the board contents after every move.
 
-**Have Fun** - The best way to learn is by playing with code. Let creativity guide you and try some experiments with JS and CSS and see what you can do.
+<!-- **Have Fun** - The best way to learn is by playing with code. Let creativity guide you and try some experiments with JS and CSS and see what you can do. -->
 
-## Bonuses
+## Next Steps
 
 * Add a simple AI to support one player vs computer mode. Note that randomly selecting a space would count as "simple". Try that and iterate from there.
-
-## Super Duper Bonus
-
-* Add an AI that can beat you every time with the mini-max algorithm.
+* Improve AI: Add an AI that can beat you every time with the mini-max algorithm.
 
 ---
 
