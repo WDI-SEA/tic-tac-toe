@@ -27,13 +27,15 @@ h3 {
 }
 .gameControls > p {
   margin-top: 0;
+  font-size: .8em;
 }
 .gameControls button {
   width: auto;
   height: 2em;
-  font-size: 1em;
+  font-size: .8em;
+  font-weight: 800;
   background-color: lightblue;
-  margin: .25em 0;
+  margin: .5em .25em 1em;
 }
 .player {
   border: 1px solid;
