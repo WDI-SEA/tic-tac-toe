@@ -1,3 +1,54 @@
-h1 {
-  color: purple;
+body {
+  font-family: 'Avenir Next',  Helvetica, Arial, sans-serif;
+  background-color: rgb(95, 98, 114);
+}
+
+#container {
+  width: 60%;
+  /* height: 90%; */
+  margin: 0 auto 10% auto;
+  background-color: rgb(0, 255, 8);
+  text-align: center;
+}
+
+#gamebox {
+  background-color: aqua;
+  margin: 2%;
+  /* height: 80%; */
+}
+
+#infobox, #resetbox {
+  background-color: steelblue;
+  padding: 2%;
+  display: inherit;
+}
+
+#gamefield {
+  /* padding: 4% 2%; */
+  text-align: center;
+  background: white;
+  position: relative;
+}
+
+.square {
+  background-color: red;
+  width: 28%;
+  padding-bottom: 28%;
+  margin: 2.51%;
+  float: left;
+  position: relative;
+} 
+
+.sqr-content {
+  position: absolute;
+  height: 90%;
+  width: 90%;
+  padding: 5%;
+}
+
+.p1-selected {
+  background-image: url('https://source.unsplash.com/?dark');
+  background-position: center;
+  background-size: cover;
+  background-color: black;
 }
