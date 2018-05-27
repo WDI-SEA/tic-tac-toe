@@ -86,7 +86,7 @@ button:active {
 
 }
 
-button.win {
+button .win {
   color: #adff2f;
   border: 1px solid #adff2f;
   font-weight: bold;
