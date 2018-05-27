@@ -49,6 +49,10 @@ body {
   
 } 
 
+.winning-combo {
+  border: 1px solid #adff2f;
+}
+
 .sqr-content {
   position: absolute;
   height: 90%;
@@ -85,4 +89,5 @@ button:active {
 button.win {
   color: #adff2f;
   border: 1px solid #adff2f;
+  font-weight: bold;
 }
