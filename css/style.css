@@ -1,3 +1,118 @@
-h1 {
-  color: purple;
+body {
+  background-color: #222;
 }
+
+.game-header {
+	width: 70%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.game-header p {
+	display: inline;
+	padding: 0 20px;
+	font-family: 'Open Sans';
+	font-size: 24px;
+	font-weight: 300;
+	color: white;
+}
+
+h1 {
+	font-family: 'Audiowide';
+	font-size: 62px;
+	margin-top: 0;
+	margin-bottom: 0;
+	text-transform: uppercase;
+  color: #ffc811;
+}
+
+h2 {
+	margin-top: 0;
+	margin-bottom: 60px;
+	font-size: 18px;
+	font-family: 'Open Sans';
+	font-weight: 300;
+	color: white;
+}
+
+button {
+	margin-top: 40px;
+  font-family: 'Open Sans';
+  font-size: 18px;
+  text-transform: uppercase;
+  background-color: #222;
+	color: white;
+	border: 1px solid white;
+  border-radius: 1em;
+  padding: 0 10px;
+}
+
+button:hover {
+	background-color: white;
+	border-color: black;
+	color: black;
+}
+
+.game-board {
+	height: 450px;
+	width: 450px;
+	margin: 2% auto;
+  display: grid;
+  /*test out variations of this:*/
+  grid-template-columns: auto auto auto;
+  font-family: 'Open Sans';
+  font-size: 56px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 150px;
+  color: white;
+}
+
+.row2 {
+  border-top: 4px solid white;
+  border-bottom: 4px solid white;
+}
+
+.col2 {
+	border-right: 4px solid white;
+	border-left: 4px solid white;
+}
+
+.row1,
+.row2,
+.row3 {
+	width: 150px;
+	height: 150px;
+}
+
+.button {
+	width: 70%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.banner {
+	display: none;
+}
+
+.win-banner {
+	width: 100%;
+	display: inline-block;
+  position: absolute;
+  margin: 0 auto;
+  top: 50%;
+  
+}
+
+.message {
+	width: 70%;
+	margin: 0 auto;
+	background-color: rgba(255, 255, 255, 0.9);
+	border-radius: 20px;
+	text-align: center;
+  font-family: 'Open Sans';
+  font-size: 100px;
+  color: black;
+  text-transform: uppercase;
+}
+
