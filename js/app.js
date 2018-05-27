@@ -91,21 +91,19 @@ var checkWinCondition = function(square,playerToken) {
 
         // grab html elements associated with the win condition
         var elements = document.getElementsByClassName(winCondition);
+        
+        // push values to squareValues array
         if (squareValues.length < 3){
-            
             for (let i = 0; i < elements.length; i++) {
-                squareValues.push(squares[elements[i].id]);
-                console.log(squareValues);
-                
-
+                squareValues.push(squares[elements[i].id]);        
                 if (squareValues.length === 3){
-                
+                    // reduce to find sum of 3 squares in a win condition
                     var rowValue = squareValues.reduce( function(acc, sum){
                         return acc + sum;
                     })
-                
+                    
+                    // check to see if rowValue is equal to 3, 30 or other
                     if (rowValue === winValues[playerToken]){
-                        // console.log('win');
                         endGame(winCondition, playerToken);
                     }
                     squareValues.length = 0;
@@ -113,9 +111,6 @@ var checkWinCondition = function(square,playerToken) {
             }
         }
 
-        
-        // console.log(elements);
-        
         // this is driving me crazy -- there has to be a way to just check if player token
         // class is contained in each of the elements in a given win class... but .every() 
         // can't be called on my classLists...
@@ -148,8 +143,6 @@ var checkWinCondition = function(square,playerToken) {
         //     squareValues.push(squares[id]);
         // })
 
-        // console.log(squareValues.reduce( function(acc, sum){ acc + sum}));
-
     })
     
 }
@@ -168,6 +161,8 @@ var capitalizePlayer = function(token){
 var playSquare = function() {
     // determine who is playing    
     var playerToken = checkPlayer(turn);
+    //update message in infobox
+    infoBox.textContent = capitalizePlayer(checkPlayer(turn + 1)) + "'s turn.";
     // check to see if square is free
     if (this.classList.contains('unselected')){
         // swap empty square for token
@@ -184,9 +179,7 @@ var playSquare = function() {
         // increment turn
         turn++
         
-        //update message in infobox
-        infoBox.textContent = capitalizePlayer(checkPlayer(turn)) + "'s turn.";
-        // console.log('playsquare', turn);
+
     }
 }
 
