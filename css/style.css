@@ -1,3 +1,53 @@
+body {
+  font-family: 'Exo', sans-serif;
+  background-color: beige;
+}
+
 h1 {
   color: purple;
+  text-align: center;
+  margin-top: 5%;
+}
+
+h2 {
+  text-align: center;
+  color: rgb(5, 170, 170);
+}
+
+div {
+  background-color: #d2d2d2;
+  text-align: center;
+}
+
+img {
+  margin: 5%;
+}
+
+.gameboard {
+  border: 3px solid black;
+  width: 60%;
+  margin: 5% auto;
+}
+
+.row {
+  /* padding: 5%;
+  margin: 5%; */
+}
+
+.box {
+  display: inline-block;
+  border: 1px solid black;
+  margin: 5%;
+}
+
+#row1 {
+
+}
+
+#row2 {
+
+}
+
+#row3 {
+
 }
