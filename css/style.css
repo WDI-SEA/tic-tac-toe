@@ -12,7 +12,6 @@ body {
 
 #container h1 {
   font-family: 'Berkshire Swash', cursive;
-  /* font-family: 'Patrick Hand SC', cursive; */
   letter-spacing: .5em;
   color: #f9ead6;
   font-size: 2.5em;
@@ -44,30 +43,31 @@ body {
   width: 25%;
   padding-bottom: 25%;
   margin: 2.76%;
-  border: 1px dashed #f9ead6;
   border-radius: 5px;
-  
-} 
-
-.winning-combo {
-  border: 1px solid #adff2f;
+  border: 1px;
+  border: 1px dashed rgba(249, 234, 214, 0.75);
 }
 
-.sqr-content {
-  position: absolute;
-  height: 90%;
-  width: 90%;
-  padding: 5%;
+.unselected {
+  border: 1px dashed #f9ead6;
+
 }
+
 
 .shroom {
   background-image: url('../img/mush.png');
   background-size: contain;
+  border: 1px dashed rgba(131, 191, 35, 0.5);
 }
 
 .snail {
   background-image: url('../img/snail.png');
   background-size: contain;
+  border: 1px dashed rgba(249, 234, 214, 0.5);
+}
+
+.winning-combo {
+  border: 1px solid #adff2f;
 }
 
 button {

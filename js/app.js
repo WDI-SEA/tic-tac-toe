@@ -175,12 +175,15 @@ var playSquare = function() {
         if (turn >= 5) {
             checkWinCondition(this, playerToken);
             // console.log('here');
-        }
+        } 
         // increment turn
         turn++
         
+        if (turn === 10){
+            infoBox.textContent = "Uh-oh, looks like a... snaaaailmate.";
+        }
 
-    }
+    } 
 }
 
 document.addEventListener('DOMContentLoaded', function() {
