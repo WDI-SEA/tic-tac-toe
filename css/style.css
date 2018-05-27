@@ -1,3 +1,24 @@
-h1 {
-  color: purple;
+.board {
+  max-width: 940px;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  border: 1px solid black;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.square {
+  height: 160px;
+  margin: 10px 1em;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: grey;
+  flex: 0 1 20%;
+}
+
+.scoreboard {
+  position: flex;
+  height: 160px;
+  width: 10%;
 }
