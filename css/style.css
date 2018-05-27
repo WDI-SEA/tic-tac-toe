@@ -2,9 +2,8 @@ body {
   background-color: #222;
 }
 
+/* ============== Game Title & Header Info ============= */
 .game-header {
-	width: 70%;
-	margin: 0 auto;
 	text-align: center;
 }
 
@@ -14,14 +13,16 @@ body {
 	font-family: 'Open Sans';
 	font-size: 24px;
 	font-weight: 300;
+	text-transform: uppercase;
 	color: white;
 }
 
 h1 {
-	font-family: 'Audiowide';
-	font-size: 62px;
 	margin-top: 0;
 	margin-bottom: 0;
+	font-family: 'Audiowide';
+	font-size: 62px;
+	font-weight: 400;
 	text-transform: uppercase;
   color: #ffc811;
 }
@@ -29,22 +30,29 @@ h1 {
 h2 {
 	margin-top: 0;
 	margin-bottom: 60px;
-	font-size: 18px;
 	font-family: 'Open Sans';
+	font-size: 18px;
 	font-weight: 300;
 	color: white;
 }
 
+/* ==================== Reset Button =================== */
+.button {
+	margin: 40px auto 0  auto;
+	width: 70%;
+	text-align: center;
+}
+
 button {
-	margin-top: 40px;
+  padding: 0 10px;
   font-family: 'Open Sans';
   font-size: 18px;
+  font-weight: 300;
   text-transform: uppercase;
   background-color: #222;
 	color: white;
 	border: 1px solid white;
   border-radius: 1em;
-  padding: 0 10px;
 }
 
 button:hover {
@@ -53,13 +61,13 @@ button:hover {
 	color: black;
 }
 
+/* ============== Game Board using Grid ============= */
 .game-board {
+	display: grid;
+  grid-template-columns: auto auto auto;
+  margin: 2% auto;
 	height: 450px;
 	width: 450px;
-	margin: 2% auto;
-  display: grid;
-  /*test out variations of this:*/
-  grid-template-columns: auto auto auto;
   font-family: 'Open Sans';
   font-size: 56px;
   text-align: center;
@@ -83,36 +91,5 @@ button:hover {
 .row3 {
 	width: 150px;
 	height: 150px;
-}
-
-.button {
-	width: 70%;
-	margin: 0 auto;
-	text-align: center;
-}
-
-.banner {
-	display: none;
-}
-
-.win-banner {
-	width: 100%;
-	display: inline-block;
-  position: absolute;
-  margin: 0 auto;
-  top: 50%;
-  
-}
-
-.message {
-	width: 70%;
-	margin: 0 auto;
-	background-color: rgba(255, 255, 255, 0.9);
-	border-radius: 20px;
-	text-align: center;
-  font-family: 'Open Sans';
-  font-size: 100px;
-  color: black;
-  text-transform: uppercase;
 }
 
