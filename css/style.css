@@ -6,7 +6,7 @@ body {
 #container {
   width: 50%;
   margin: 0 auto 2% auto;
-  padding: 0 2%;
+  padding: 2%;
   background-color: rgb(0, 255, 8);
   text-align: center;
 }
@@ -25,7 +25,9 @@ body {
   padding: 4% 2%;
   text-align: center;
   background:#555;
-  /* position: relative; */
+  background-image: url('../img/ground.png');
+  background-size: cover;
+  background-repeat: no-repeat;
   padding: 0 2.76%;
 }
 
@@ -34,7 +36,9 @@ body {
   width: 25%;
   padding-bottom: 25%;
   margin: 2.76%;
-  background-color: red;
+  border: 1px dashed antiquewhite;
+  border-radius: 5px;
+  
 } 
 
 .sqr-content {
@@ -45,9 +49,20 @@ body {
 }
 
 .p1-selected {
-  background-color: black;
+  /* background-color: black; */
+  background-image: url('../img/mush.png');
+  /* background-attachment: fixed; */
+  background-size: contain;
 }
 
 .p2-selected {
-  background-color: antiquewhite;
+  /* background-color: black; */
+  background-image: url('../img/snail.png');
+  /* background-attachment: fixed; */
+  background-size: contain;
+}
+
+button {
+  width: 90%;
+  padding: 10px;
 }
