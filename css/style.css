@@ -1,14 +1,21 @@
 body {
   font-family: 'Avenir Next',  Helvetica, Arial, sans-serif;
-  background-color: rgb(95, 98, 114);
+  background-color: #453726;
 }
 
 #container {
   width: 50%;
   margin: 0 auto 2% auto;
-  padding: 2%;
-  background-color: rgb(0, 255, 8);
+  padding: 0 2% 2% 2%;
   text-align: center;
+}
+
+#container h1 {
+  /* font-family: 'Berkshire Swash', cursive; */
+  font-family: 'Patrick Hand SC', cursive;
+  letter-spacing: .5em;
+  color: #906D41;
+  font-size: 2.5em;
 }
 
 #gamebox {
@@ -17,8 +24,9 @@ body {
 }
 
 #infobox, #resetbox {
-  background-color: steelblue;
+  background-color: #33503B;
   padding: 2%;
+  color: #adff2f;
 }
 
 #gamefield {
@@ -48,21 +56,32 @@ body {
   padding: 5%;
 }
 
-.p1-selected {
-  /* background-color: black; */
+.shroom {
   background-image: url('../img/mush.png');
-  /* background-attachment: fixed; */
   background-size: contain;
 }
 
-.p2-selected {
-  /* background-color: black; */
+.snail {
   background-image: url('../img/snail.png');
-  /* background-attachment: fixed; */
   background-size: contain;
 }
 
 button {
   width: 90%;
   padding: 10px;
+  border-radius: 5px;
+  background-color: #444;
+  color: #82BF23;
+  border: 1px solid #333;
+}
+
+button:active {
+  background-color: #555;
+  color: rgb(29, 142, 61);
+
+}
+
+button.win {
+  color: #adff2f;
+  border: 1px solid #adff2f;
 }
