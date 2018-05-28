@@ -5,35 +5,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Hello Front-End</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
-  <link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Monoton|Lobster" rel="stylesheet">
 </head>
 <body>
 
-	<div class="board-container">
-		
-		<div class="row">
-			<div class="row1-col1-diag1 box unmarked" data-id="0"><p></p></div><!--
-			--><div class="row1-col2 box unmarked" data-id="1"><p></p></div><!--
-			--><div class="row1-col3-diag2 box unmarked" data-id="2"><p></p></div>
+	<main>
+		<div class="front-page">
+			<div class="intro">
+				<h1>Tic Tac Toe</h1>
+				<div class="select-game">
+					<h2>Select Game</h2>
+					<button class="select-game-btn" id="one-player">1 Player</button>
+					<button class="select-game-btn" id="two-players">2 Players</button>
+				</div>
+				<div class="select-letter hide">
+					<h2>Select Letter</h2>
+					<button class="select-letter-btn" id="X">X</button>
+					<button class="select-letter-btn"id="O">O</button>
+				</div>
+			</div>
 		</div>
 
-		<div class="row">
-			<div class="row2-col1 box unmarked" data-id="3"><p></p></div><!--
-			--><div class="row2-col2-diag1-diag2 box unmarked" data-id="4"><p></p></div><!--
-			--><div class="row2-col3 box unmarked" data-id="5"><p></p></div>
+		<div class="game-page hide">
+			<h2>Tic Tac Toe</h2>
+			<div class="board-container">
+				
+				<div class="row">
+					<div class="row1-col1-diag1 box unmarked row1 col1" data-id="0"><p></p></div><!--
+					--><div class="row1-col2 box unmarked row1 col2" data-id="1"><p></p></div><!--
+					--><div class="row1-col3-diag2 box unmarked row1 col3" data-id="2"><p></p></div>
+				</div>
+
+				<div class="row">
+					<div class="row2-col1 box unmarked row2 col1" data-id="3"><p></p></div><!--
+					--><div class="row2-col2-diag1-diag2 box unmarked row2 col2" data-id="4"><p></p></div><!--
+					--><div class="row2-col3 box unmarked row2 col3" data-id="5"><p></p></div>
+				</div>
+
+				<div class="row">
+					<div class="row3-col1-diag2 box unmarked row3 col1" data-id="6"><p></p></div><!--
+					--><div class="row3-col2 box unmarked row3 col2" data-id="7"><p></p></div><!--
+					--><div class="row3-col3-diag1 box unmarked row3 col3" data-id="8"><p></p></div>
+				</div>
+
+			</div>
+
+			<button class="reset" onclick="reset()" type="button">RESET</button>
 		</div>
 
-		<div class="row">
-			<div class="row3-col1-diag2 box unmarked" data-id="6"><p></p></div><!--
-			--><div class="row3-col2 box unmarked" data-id="7"><p></p></div><!--
-			--><div class="row3-col3-diag1 box unmarked" data-id="8"><p></p></div>
-		</div>
-
-	</div>
-
-	<p id="winner"></p>
-
-	<button onclick="reset()" type="button">RESET</button>
+	</main>
 
   <script type="text/javascript" src="js/app.js"></script>
 </body>

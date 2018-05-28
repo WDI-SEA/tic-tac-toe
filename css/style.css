@@ -2,15 +2,97 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	font-family: Monoton;
+	color: #444;
+}
+
+html, body, main, .front-page {
+	height: 100%;
+}
+
+.front-page {
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
+.intro {
+	width: 50%;
+	min-width: 400px;
+	margin: 150px auto;
+	height: 500px;
+	padding-top: 150px;
+	border: 5px solid pink;
+	position: relative;
+}
+
+h1 {
+	font-size: 4em;
+	font-family: Lobster;
+	text-align: center;
+	color: pink;
+}
+
+h2 {
+	margin: 10px 0;
+}
+
+.select-game, .select-letter {
+	position: absolute;
+	text-align: center;
+	width: 100%;
+}
+
+.select-game {
+	z-index: 1000;
+}
+
+.select-letter {
+	transition: all 1s ease;
+	z-index: 1000;
+}
+
+button {
+	font-size: 2em;
+	padding: 5px 10px;
+	border: none;
+	background: none;
+	cursor: pointer;
+	outline: none;
+}
+
+button:hover {
+	color: #a0b3f9;
+}
+
+.game-page {
+	text-align: center;
+	transition: all 1s ease;
+}
+
+.game-page h2 {
+	font-family: lobster;
+	font-size: 3em;
+	padding: 30px;
+}
+
+.row3, .row2 {
+	border-top: 8px solid #fff;
+}
+
+.col3, .col2 {
+	border-left: 8px solid #fff;
 }
 
 .board-container {
-	text-align: center;
+	width: 45%;
+	min-width: 400px;
+	max-width: 500px;
+	margin: 0 auto;
 }
 
 .box {
-	width: 200px;
-	height: 200px;
+	width: 33.333%;
 	background-color: pink;
 	display: inline-block;
 	cursor: pointer;
@@ -18,7 +100,14 @@
 }
 
 .box p {
-	line-height: 200px;
-	font-family: Monoton;
 	font-size: 4em;
+}
+
+.reset {
+	margin-top: 30px;
+}
+
+.hide {
+	opacity: 0;
+	z-index: -1000;
 }

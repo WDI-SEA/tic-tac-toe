@@ -2,8 +2,8 @@ var player1Turn = true;
 var boxes = document.getElementsByClassName('box');
 var clickCount = 0;
 var boardOn = true;
-var player1 = 'X';
-var player2 = 'O';
+var player1, player2;
+var game;
 var unmarked = [];
 
 // win location objects
@@ -21,20 +21,20 @@ var winner = document.getElementById('winner');
 
 
 var gameWon = function(player) {
-	winner.textContent = player + ' wins!'
+
 
 	// turn off board
 	boardOn = false;
 };
 
 var gameTied = function() {
-	winner.textContent = 'Cat got it!'
 
 	// turn off board
 	boardOn = false;
 };
 
 var aiMove = function(locations, unmarkedIds) {
+	console.log(locations, diag2);
 	let boxToPlay;
 
 	// loop through potential location ids,
@@ -46,8 +46,10 @@ var aiMove = function(locations, unmarkedIds) {
 			}
 		}
 	});
+
 	if(boxToPlay) {
 		markBox(boxToPlay);
+		console.log('win/block');
 	} else {
 		let randomBox = unmarked[Math.floor(Math.random() * unmarked.length)];
 		markBox(randomBox);
@@ -55,9 +57,6 @@ var aiMove = function(locations, unmarkedIds) {
 };
 
 var aiLogic = function(player, comp) {
-
-	let canWin = false;
-	let shouldBlock = false;
 	let winLocations = [];
 	let blockLocations = [];
 	let unmarkedIds = [];
@@ -70,23 +69,19 @@ var aiLogic = function(player, comp) {
 
 	// see if any locations contain 2 comp marks
 	locationObjects.forEach(function(obj) {
-		if(obj[comp] === 2) {
+		if(obj[comp] === 2 && obj[player] === 0) {
 			winLocations.push(obj.boxIds);
-			canWin = true;
 		}
 
-		if(obj[player] === 2) {
+		if(obj[player] === 2 && obj[comp] === 0) {
 			blockLocations.push(obj.boxIds);
-			shouldBlock = true;
 		}
 	});
 
-	if(canWin) {
+	if(winLocations.length) {
 		aiMove(winLocations, unmarkedIds);
-		console.log('win')
-	} else if(shouldBlock) {
+	} else if(blockLocations.length) {
 		aiMove(blockLocations, unmarkedIds);
-		console.log('block');
 	} else {
 		let random = unmarkedBoxes[Math.floor(Math.random() * unmarkedBoxes.length)];
 		markBox(document.querySelector('[data-id="' + random.dataset.id + '"]'));
@@ -184,7 +179,8 @@ var markBox = function(box) {
 
 		player1Turn = !player1Turn;
 		// call ai after player1s turn
-		if(!player1Turn) {
+		
+		if(!player1Turn && game === 'one-player') {
 			let timeout = setTimeout(function(){
 				aiLogic(player1, player2);
 			}, 1000);
@@ -193,41 +189,69 @@ var markBox = function(box) {
 };
 
 var reset = function() {
-	// set every location object to 0
-	locationObjects.forEach(function(obj) {
-		for (let key in obj) {
-			obj[key] = 0;
-		}
-	});
-
-	// set clickCount to 0
+	player1Turn = true;
 	clickCount = 0;
-
-	// remove text from boxes
-	for (let box of boxes) {
+	boardOn = true;
+	unmarked = [];
+	locationArr = [];
+	locationObjects.forEach(function(obj) {
+		obj['X'] = 0;
+		obj['O'] = 0;
+	});
+	for(let box of boxes) {
 		box.children[0].textContent = '';
-	}
-
-	// add unmarked class
-	for (let box of boxes) {
 		box.classList.add('unmarked');
 	}
+};
 
-	// turn on board
-	boardOn = true;
-	player1Turn = true;
-	unmarked = boxes;
-	console.log(unmarked, boxes);
+var init = function(player) {
+	document.getElementsByClassName('front-page')[0].classList.add('hide');
+	document.getElementsByClassName('game-page')[0].classList.remove('hide');
+	if(player === 'X') {
+		player1 = 'X';
+		player2 = 'O';
+	} else {
+		player1 = 'O';
+		player2 = 'X';
+	}
+}
 
+var setHeights = function() {
+	for (let box of boxes) {
+		let boxWidth = box.offsetWidth;
+		box.style.height = boxWidth + 'px';
+
+		box.children[0].style.lineHeight = boxWidth + 'px';
+	}
 };
 
 document.addEventListener('DOMContentLoaded', function() {
 
 	console.log('DOM Loaded');
+	setHeights();
+	var selectGameBtns = document.getElementsByClassName('select-game-btn');
+	var selectLetterBtns = document.getElementsByClassName('select-letter-btn');
+	
 	for (let box of boxes) {
 		box.addEventListener('click', function() {
 			markBox(this);
 		});
 	}
+
+	for (let btn of selectGameBtns) {
+		btn.addEventListener('click', function() {
+			game = (this.id === 'one-player') ? 'one-player' : 'two-player';
+			document.getElementsByClassName('select-game')[0].classList.add('hide');
+			document.getElementsByClassName('select-letter')[0].classList.remove('hide');
+		});
+	}
+
+	for (let btn of selectLetterBtns) {
+		btn.addEventListener('click', function() {
+			init(this.id);
+		});
+	}
+
+	window.addEventListener('resize', setHeights);
 
 });
