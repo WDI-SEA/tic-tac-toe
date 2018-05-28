@@ -2,6 +2,7 @@
 
 var turn = null;
 var infoBox = null;
+var gameOver = null;
 
 var squares = {
     'one': 0,
@@ -19,6 +20,7 @@ var initGame = function() {
     // set turn count
     turn = 1;
     infoBox.textContent = "Get ready to rumble... slowly.";
+    gameOver = false;
     // console.log('initGame', turn);
     // show player and open squares to clickability
     setTimeout(function () {
@@ -63,6 +65,9 @@ var endGame = function(winCondition, playerToken) {
 
     // highlight reset button
     document.querySelector('#reset').classList.add('win');
+
+    // set gameOver to true
+    gameOver = true;
 
 }
 
@@ -170,7 +175,7 @@ var playSquare = function() {
    
         // add value to square object for win check
         playerToken === 'snail' ? squares[this.id]+= 1 : squares[this.id] += 10;
-        // console.log(turn);
+
         // check for win
         if (turn >= 5) {
             checkWinCondition(this, playerToken);
@@ -179,7 +184,7 @@ var playSquare = function() {
         // increment turn
         turn++
         
-        if (turn === 10){
+        if (turn === 10 && gameOver === false){
             infoBox.textContent = "Uh-oh, looks like a... snaaaailmate.";
         }
 
