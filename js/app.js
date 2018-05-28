@@ -16,12 +16,29 @@ var squares = {
     'nine': 0
 }
 
+// helper functions
+var checkPlayer = function (turn) {
+    return turn % 2 ? 'shroom' : 'snail';
+}
+
+var capitalizePlayer = function (token) {
+    var splitToken = token.split('');
+    splitToken[0] = splitToken[0].toUpperCase();
+    return splitToken.join('');
+}
+
+var chooseRandomSquare = function () {
+    // pull random square from squares object keys
+    return Object.keys(squares)[Math.floor(Math.random() * 9)];
+}
+
+// game logic
 var initGame = function() {
     // set turn count
     turn = 1;
     infoBox.textContent = "Get ready to rumble... slowly.";
     gameOver = false;
-    // console.log('initGame', turn);
+    
     // show player and open squares to clickability
     setTimeout(function () {
         // apply unselected to squares to open up clickability
@@ -115,53 +132,9 @@ var checkWinCondition = function(square,playerToken) {
                 }
             }
         }
-
-        // this is driving me crazy -- there has to be a way to just check if player token
-        // class is contained in each of the elements in a given win class... but .every() 
-        // can't be called on my classLists...
-        
-        // for (var i = 0; i < elements.length; i++){
-        //     squareValues.push(elements[i].classList.contains(playerToken));
-        //     if (squareValues.length === 3) {
-        //         winTest = squareValues.every( function(bool){
-        //             return bool;
-        //         })
-        //         console.log(winTest, i);
-                
-        //         // set i greater than elements.length to stop for loop
-        //         i = 5;
-        //     } 
-        // }
-
-        // var squaresToCheck = Array.from(elements);
-
-        // for (square of squaresToCheck) {
-        //     square.classList.contains(playerToken) ? console.log('win') : false; 
-        // }
-
-        // console.log(squaresToCheck[0].classList);
-
-        // for (let i = 0; i < elements.length; i ++){
-        //     console.log(elements[i].classList.contains('snail'));
-        // }
-        // squaresToCheck.forEach( function(id) {
-        //     squareValues.push(squares[id]);
-        // })
-
     })
     
 }
-
-var checkPlayer = function(turn) {
-    return turn % 2 ? 'shroom' : 'snail';
-}
-
-var capitalizePlayer = function(token){
-    var splitToken = token.split('');
-    splitToken[0] = splitToken[0].toUpperCase();
-    return splitToken.join('');
-}
-
 
 var playSquare = function() {
     // determine who is playing    
@@ -172,10 +145,10 @@ var playSquare = function() {
     if (this.classList.contains('unselected')){
         // swap empty square for token
         this.classList.replace('unselected', playerToken);
-   
+        
         // add value to square object for win check
         playerToken === 'snail' ? squares[this.id]+= 1 : squares[this.id] += 10;
-
+        
         // check for win
         if (turn >= 5) {
             checkWinCondition(this, playerToken);
@@ -184,11 +157,25 @@ var playSquare = function() {
         // increment turn
         turn++
         
+        // handle stalemate
         if (turn === 10 && gameOver === false){
             infoBox.textContent = "Uh-oh, looks like a... snaaaailmate.";
+            gameOver = true;
         }
-
+        
     } 
+}
+
+var playRandomSquare = function() {
+    console.log('playRandomSquare fired')
+    var squareChosen = document.getElementById(chooseRandomSquare());
+    
+    if (squareChosen.classList.contains('unselected')){
+        squareChosen.click();
+    } else if (gameOver !== true) {
+        console.log('Recursive call', squareChosen.id);
+        playRandomSquare();
+    }
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -198,7 +185,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     document.getElementById('reset').addEventListener('click', reset);  
     infoBox = document.querySelector('#infobox h2');
-
     
     initGame();
 })
