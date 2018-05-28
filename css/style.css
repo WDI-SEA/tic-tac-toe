@@ -1,3 +1,88 @@
+
+
+
+
+
+body {
+  background-image: url("https://i.ytimg.com/vi/il1itkvXbqo/maxresdefault.jpg");
+  background-repeat: no-repeat;
+  background-color: black;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.header {
+  margin: 3% auto;
+  text-align: center;
+  width: 800px;
+  color: yellow;
+  font-family: 'Righteous', cursive;
+
+}
+
 h1 {
-  color: purple;
+  font-size: 80px;
+  font-weight: normal;
+  line-height: 60px;
+  margin: 10px 0 20px;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 0 grey;
+  text-align: center;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: normal;
+  text-transform: uppercase;
+  margin: 50px 0px 10px 0px;
+  text-decoration: underline;
+}
+
+
+p {
+  margin: auto;
+}
+
+.Darth {
+  position: absolute;
+  left: 6%;
+  z-index: 10;
+}
+
+.Luke {
+  position: absolute;
+  right: 7%;
+  z-index: 10;
+}
+
+.maingame {
+  text-align: center;
+  z-index: 1;
+}
+
+.gameboard {
+  text-align: center;
+  width: 800px;
+  height: 600px;
+  margin: 25px auto;
+}
+
+.box {
+  display: inline-block;
+  position: relative;
+  margin: -3px;
+  width: 200px;
+  height: 200px;
+  border: 3px solid yellow;
+  background-color: black;
+}
+
+button {
+  margin: 25px auto 35px;
+  width: 300px;
+  height 40px;
+  font-family: 'Righteous', cursive;
+  font-size: 15px;
+  font-weight: 600;
+  color: black;
 }

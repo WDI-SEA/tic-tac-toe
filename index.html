@@ -3,11 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <title>Tic Tac Toe</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
 </head>
 <body>
-  <h1>Hello Front-End</h1>
+  <div class="header">
+  <h1>Tic Tac Toe</h1>
+  <h3>Instructions</h3>
+    <p>Welcome!  Tic Tac Toe is an age old game of creating combinations of "X's" and "O's" in the game grid.  A player can win by getting three of the same symbol in a row, vertically, horizontally, and diagonally.  Best of luck!</p>
+  </div>
+  <div class="Darth">
+      <img src="http://rs237.pbsrc.com/albums/ff168/morticia_cadaver/NerdAlert/vaderflow.gif~c200" alt="">
+  </div>
+  <div class="Luke">
+    <img src="https://media.giphy.com/media/eaOVovMMXoRjy/200.gif" alt="">
+  </div>
+    <div class="maingame">
+        <div class="gameboard">
+          <div class= "box" id="box1"></div>
+          <div class= "box" id="box2"></div>
+          <div class= "box" id="box3"></div>
+          <div class= "box" id="box4"></div>
+          <div class= "box" id="box5"></div>
+          <div class= "box" id="box6"></div>
+          <div class= "box" id="box7"></div>
+          <div class= "box" id="box8"></div>
+          <div class= "box" id="box9"></div>
+        </div>
+        <div class="resetbutton">
+          <button type="button">RESET</button>
+        </div>
+    </div>
+
+    <audio id="theme" src=""></audio>
+    <audio id="buzz" src=""></audio>
 
   <script type="text/javascript" src="js/app.js"></script>
 </body>
