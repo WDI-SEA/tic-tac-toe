@@ -4,43 +4,43 @@ body {
 
 /* ============== Game Title & Header Info ============= */
 .game-header {
-	text-align: center;
+  text-align: center;
 }
 
 .game-header p {
-	display: inline;
-	padding: 0 20px;
-	font-family: 'Open Sans';
-	font-size: 24px;
-	font-weight: 300;
-	text-transform: uppercase;
-	color: white;
+  display: inline;
+  padding: 0 20px;
+  font-family: 'Open Sans';
+  font-size: 24px;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: white;
 }
 
 h1 {
-	margin-top: 0;
-	margin-bottom: 0;
-	font-family: 'Audiowide';
-	font-size: 62px;
-	font-weight: 400;
-	text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: 'Audiowide';
+  font-size: 62px;
+  font-weight: 400;
+  text-transform: uppercase;
   color: #ffc811;
 }
 
 h2 {
-	margin-top: 0;
-	margin-bottom: 60px;
-	font-family: 'Open Sans';
-	font-size: 18px;
-	font-weight: 300;
-	color: white;
+  margin-top: 0;
+  margin-bottom: 60px;
+  font-family: 'Open Sans';
+  font-size: 18px;
+  font-weight: 300;
+  color: white;
 }
 
 /* ==================== Reset Button =================== */
 .button {
-	margin: 40px auto 0  auto;
-	width: 70%;
-	text-align: center;
+  margin: 40px auto 0  auto;
+  width: 70%;
+  text-align: center;
 }
 
 button {
@@ -50,24 +50,24 @@ button {
   font-weight: 300;
   text-transform: uppercase;
   background-color: #222;
-	color: white;
-	border: 1px solid white;
+  color: white;
+  border: 1px solid white;
   border-radius: 1em;
 }
 
 button:hover {
-	background-color: white;
-	border-color: black;
-	color: black;
+  background-color: white;
+  border-color: black;
+  color: black;
 }
 
 /* ============== Game Board using Grid ============= */
 .game-board {
-	display: grid;
+  display: grid;
   grid-template-columns: auto auto auto;
   margin: 2% auto;
-	height: 450px;
-	width: 450px;
+  height: 450px;
+  width: 450px;
   font-family: 'Open Sans';
   font-size: 56px;
   text-align: center;
@@ -82,14 +82,14 @@ button:hover {
 }
 
 .col2 {
-	border-right: 4px solid white;
-	border-left: 4px solid white;
+  border-right: 4px solid white;
+  border-left: 4px solid white;
 }
 
 .row1,
 .row2,
 .row3 {
-	width: 150px;
-	height: 150px;
+  width: 150px;
+  height: 150px;
 }
 
