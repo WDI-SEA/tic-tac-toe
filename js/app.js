@@ -1,24 +1,63 @@
 var turn = document.getElementById("turn");
 var boxes = document.querySelectorAll("#main div"), p1_or_p2 = 0;
-var player1 = "X"
-var player2 = "O"
-var player1pic = ""
-var player2pic = ""
+var player1 = "Ampharos"
+var player2 = "Azumarill"
+var player1pic = "⚡"
+var player2pic = "💧"
 
-turn.innerHTML = "Go " + player1 + "!";
+//setting up the game and setting initial value for the turn box
+function setupGame() {
+  turn.innerHTML = "Go " + player1 + "!";
 
+//event listener for clicks for each box
+  for (var i = 0; i < boxes.length; i++) {
+      boxes[i].onclick = function(){
+
+//cycles between players so they can play (prevents clicked box from being clicked again)
+    if (this.innerHTML !== player1pic && this.innerHTML !== player2pic) {
+        if(p1_or_p2%2 === 0) {
+          this.innerHTML = player1pic;
+          turn.innerHTML = "Go " + player2 + "!";
+          getWinner();
+          p1_or_p2 += 1;
+      } else {
+          this.innerHTML = player2pic;
+          turn.innerHTML = "Go " + player1 + "!";
+          getWinner();
+          p1_or_p2 += 1;
+        }
+      }
+    }
+
+  }
+}
+
+//gets the winner
 function selectWinnerBoxes(b1,b2,b3) {
   b1.classList.add("win");
   b2.classList.add("win");
   b3.classList.add("win");
-  turn.innerHTML = b1.innerHTML + " is the winner!";
-  turn.style.fontSize = "50px";
+
+//if the winning box has player 1's picture, then player1 wins. Else, player2
+//wins.
+
+  if (b1.innerHTML == player1pic){
+    turn.innerHTML = player1 + " wins!";
+  } else {
+    turn.innerHTML = player2 + " wins!";
+  }
+
+  for (var i = 0; i < boxes.length; i++) {
+      boxes[i].onclick = function(){};
+    };
 }
 
+
 function staleMate() {
-  turn.innerHTML = ":(";
-  turn.style.fontSize = "50px";
+  turn.innerHTML = "It's a draw!";
+  //turn.style.fontSize = "50px";
 }
+
 
 function getWinner() {
 
@@ -33,6 +72,7 @@ var box8 = document.getElementById("box8");
 var box9 = document.getElementById("box9");
 
  //all of the winning combos
+ //"if box 1 is not empty and box 1 is equal to box 2 and box 1 is equal to box 3, then it's a win for box 1,2,3."
 
   if(box1.innerHTML !== "" && box1.innerHTML === box2.innerHTML && box1.innerHTML === box3.innerHTML) {
     selectWinnerBoxes(box1,box2,box3);
@@ -58,50 +98,23 @@ var box9 = document.getElementById("box9");
     } else if (box3.innerHTML !== "" && box3.innerHTML === box5.innerHTML && box3.innerHTML === box7.innerHTML) {
       selectWinnerBoxes(box3,box5,box7);
 
+//If all boxes checked and no winning combos, then it's a stalemate
     } else if (p1_or_p2 == 8)  {
       staleMate();
   }
 
 }
 
-
-
-//event listener for clicks
-
-for (var i = 0; i < boxes.length; i++) {
-    boxes[i].onclick = function(){
-
-// preventing clicked box to be clicked again
-
-  if (this.innerHTML !== player1 && this.innerHTML !== player2) {
-      if(p1_or_p2%2 === 0) {
-        this.innerHTML = player1;
-        turn.innerHTML = "Go " + player2 + "!";
-        getWinner();
-        p1_or_p2 += 1;
-
-    } else {
-        this.innerHTML = player2;
-        turn.innerHTML = "Go " + player1 + "!";
-        getWinner();
-        p1_or_p2 += 1;
-      }
-    }
-  }
-
-}
-
-//reset the board and start click count to 0
-
+//resets the game
 function replay() {
 
   for (var i = 0; i < boxes.length; i++) {
     boxes[i].classList.remove("win");
     boxes[i].innerHTML = "";
-    turn.innerHTML = "Go " + player1 + "!";
-    turn.style.fontSize = "25px";
     p1_or_p2 = 0;
-
   }
+  setupGame();
 
 }
+//sets up game as soon as script finishes loading
+setupGame();

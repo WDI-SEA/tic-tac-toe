@@ -5,59 +5,143 @@
 .container {
   width: 450px;
   overflow: hidden;
-  margin: 50px auto 0 auto;
+  margin: 30px auto 0 auto;
+
 }
 
-h1 {
-  color: red;
-  width: 100%;
+.headerpic {
   display: block;
   text-align: center;
-  font-family: sans-serif;
-
+  margin: auto;
+  margin-top: 15px;
 }
+
 .container h2 {
   width: 100%;
   display: block;
   text-align: center;
-  font-family: sans-serif;
-  color: white;
-  font-size: 25px;
-  background: black;
+  font-family: 'VT323', monospace;
+  color: black;
+  font-size: 60px;
+  margin-top: 30px;
 }
 
 .container .box {
   float: left;
   width: 150px;
   height: 150px;
-  border: 1px solid #000;
+  border: 2px solid #415C9B;
+  border-radius: 4px;
   transition: all .25s ease-in-out;
-  font-family: sans-serif;
   font-size: 85px;
   text-align: center;
   line-height: 100px;
   cursor: pointer;
+  padding-top: 10px;
+  -webkit-filter: brightness(100%);
+
 }
 
 .container .box:hover {
-  background: black;
-  color: white;
+  -webkit-filter: brightness(150%);
+}
+
+button:hover {
+  background-color: #F5CE46;
+  border-color: #415C9B;
+  border-width: 3px;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+button:focus {
+  outline: 0;
 }
 
 button {
-  background: black;
-  color: #fff;
-  font-weight: bold;
-  border: 1px solid yellow;
+  background: white;
+  color: black;
+  border-radius: 6px;
   cursor: pointer;
   width: 200px;
   height: 40px;
-  font-size: 22px;
+  font-size: 32px;
   display: block;
-  margin: 10px auto
+  margin: 20px auto;
+  font-family: 'VT323', monospace;
 }
 
 .win {
-  background: blue;
+  background: #CA6065;
   color: white;
+}
+
+.player1 {
+  margin-top: 230px;
+  float: left;
+  height: 475px;
+  width: 425px;
+  margin-left: 50px;
+  -webkit-filter: drop-shadow(5px 5px 5px #222 );
+filter: drop-shadow(5px 5px 5px #222);
+
+}
+
+.player2 {
+  margin-top: 230px;
+  float: right;
+  height: 475px;
+  width: 425px;
+  margin-right: 50px;
+  -webkit-filter: drop-shadow(5px 5px 5px #222 );
+filter: drop-shadow(5px 5px 5px #222);
+}
+
+body {
+  background: url("../img/background.png");
+  background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 120%;
+}
+
+html, body {
+  height: 100%;
+
+}
+
+footer {
+  text-align: center;
+
+}
+
+a.effect-shine {
+  font-family: 'Pacifico', cursive;
+  text-decoration: none;
+  color: black;
+}
+
+.heart1 {
+  color: #ff66ff;
+  font-weight: bold;
+}
+
+.heart2 {
+  color: #6666ff;
+  font-weight: bold;
+}
+
+.effect-shine:hover {
+  -webkit-mask-image: linear-gradient(-75deg, rgba(0,0,0,.2) 30%, #000 50%, rgba(0,0,0,.2) 70%);
+  -webkit-mask-size: 200%;
+  animation: shine .75s infinite;
+}
+
+@-webkit-keyframes shine {
+  from {
+    -webkit-mask-position: 150%;
+  }
+
+  to {
+    -webkit-mask-position: -50%;
+  }
 }
