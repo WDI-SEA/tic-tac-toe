@@ -1,24 +1,60 @@
+body {
+  /* background-image: url("../img/appleiie.png"); */
+  background-color: #f4f3f1;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.h1 {
+  font-family: Courier, monospace;
+  color: #2e9a56;
+}
+
+.apple {
+  position: fixed;
+  width: 1200px;
+  height: 1180px;
+  top: 0;
+  left: 0;
+  background-image: url("../img/appleiie.png");
+  background-size: cover;
+}
+
 .board {
-  max-width: 940px;
+  position: relative;
+  width: 600px;
+  left: 2%;
+  top: 20%;
   margin: 0 auto;
   padding: 0;
   display: flex;
-  border: 1px solid black;
   flex-flow: row wrap;
   justify-content: center;
 }
 
 .square {
-  height: 160px;
+  height: 60px;
   margin: 10px 1em;
   padding-left: 10px;
   padding-right: 10px;
-  background-color: grey;
+  background-color: #3a3a32;
   flex: 0 1 20%;
 }
 
 .scoreboard {
-  position: flex;
+  font-family: Courier, monospace;
+  text-transform: uppercase;
+  position: fixed;
+  left: 0;
+  top: 10%;
   height: 160px;
   width: 10%;
+}
+
+.o {
+  background-color: green;
+}
+
+.x {
+  background-color: red;
 }
