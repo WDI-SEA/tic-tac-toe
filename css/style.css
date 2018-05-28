@@ -1,3 +1,24 @@
-h1 {
-  color: purple;
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.board-container {
+	text-align: center;
+}
+
+.box {
+	width: 200px;
+	height: 200px;
+	background-color: pink;
+	display: inline-block;
+	cursor: pointer;
+	vertical-align: top;
+}
+
+.box p {
+	line-height: 200px;
+	font-family: Monoton;
+	font-size: 4em;
 }
