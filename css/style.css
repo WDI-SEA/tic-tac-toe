@@ -5,9 +5,48 @@ body {
   background-attachment: fixed;
 }
 
-.h1 {
+a {
+  color: #2e9a56;
+}
+
+h1 {
   font-family: Courier, monospace;
   color: #2e9a56;
+}
+
+h3 {
+  font-family: Courier, monospace;
+  color: #2e9a56;
+  font-size: 12px;
+}
+
+.banner {
+  position: relative;
+  justify-content: center;
+  display: flex;
+  width: 600px;
+  left: 25%;
+  top: 25%;
+  font-family: Courier, monospace;
+  color: #2e9a56;
+  text-transform: uppercase;
+  background-color: rgba (58, 50, 50, 0);
+  z-index: 0;
+}
+
+.credits {
+  position: relative;
+  justify-content: center;
+  text-align: center;
+  display: flex;
+  width: 600px;
+  left: 0;
+  bottom: 5%;
+  font-family: Courier, monospace;
+  color: #2e9a56;
+  text-transform: uppercase;
+  background-color: #3a3a32;
+  z-index: 0;
 }
 
 .apple {
@@ -30,6 +69,7 @@ body {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
+  z-index: -1;
 }
 
 .square {
@@ -42,13 +82,25 @@ body {
 }
 
 .scoreboard {
+  position: relative;
+  justify-content: center;
+  display: flex;
+  width: 600px;
+  left: 30%;
+  top: 15%;
   font-family: Courier, monospace;
+  color: #2e9a56;
   text-transform: uppercase;
-  position: fixed;
-  left: 0;
-  top: 10%;
-  height: 160px;
-  width: 10%;
+}
+
+button {
+  font-family: Courier, monospace;
+  font-size: 18px;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 30px;
+  color: #2e9a56;
+  background-color: #3a3a32;
 }
 
 .o {

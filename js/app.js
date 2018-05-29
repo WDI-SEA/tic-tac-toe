@@ -29,6 +29,8 @@ var initGame = function() {
     [],
     []
   ];
+  document.getElementsByClassName('banner')[0].style.backgroundColor = 'rgba(0, 0, 0, 0)';
+  document.getElementsByClassName('banner')[0].textContent = ' ';
   document.getElementById('player').textContent = player;
   document.getElementById('turn').textContent = turn;
   let squares = document.getElementsByClassName('square');
@@ -54,9 +56,12 @@ var checkForWin = function() {
     (boardState[0] === boardState[4] && boardState[0] === boardState[8]) ||
     (boardState[2] === boardState[4] && boardState[2] === boardState[6])) {
     gameOver = true;
+    document.getElementsByClassName('banner')[0].style.backgroundColor = 'black';
     if (lastMove === 'x') {
+      document.getElementsByClassName('banner')[0].textContent = 'X Wins!';
       console.log('player 1 wins!');
     } else if (lastMove === 'o') {
+      document.getElementsByClassName('banner')[0].textContent = '0 Wins!';
       console.log('player 2 wins!');
     }
     var count = null;
@@ -70,7 +75,8 @@ var checkForWin = function() {
   }
   if (turn > 9 && !gameOver) {
     gameOver = true;
-    console.log('cat game');
+    document.getElementsByClassName('banner')[0].style.backgroundColor = 'black';
+    document.getElementsByClassName('banner')[0].textContent = 'Cat Game!';
     // other cat game effects
   }
 };
@@ -111,7 +117,7 @@ var makeMove = function() {
     }
 
     this.classList.add('occupied');
-    document.getElementById('player').textContent = player;
+    document.getElementById('player').textContent = player + '\ \ ';
     document.getElementById('turn').textContent = turn;
   }
 };
