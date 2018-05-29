@@ -31,6 +31,9 @@ var initGame = function() {
   ];
   document.getElementsByClassName('banner')[0].style.backgroundColor = 'rgba(0, 0, 0, 0)';
   document.getElementsByClassName('banner')[0].textContent = ' ';
+  document.getElementsByClassName('banner')[0].classList.remove('blink');
+  document.getElementsByTagName('button')[0].style.backgroundColor = 'rgba(0, 0, 0, 0)';
+  document.getElementsByTagName('button')[0].style.color = '#2e9a56';
   document.getElementById('player').textContent = player;
   document.getElementById('turn').textContent = turn;
   let squares = document.getElementsByClassName('square');
@@ -57,6 +60,9 @@ var checkForWin = function() {
     (boardState[2] === boardState[4] && boardState[2] === boardState[6])) {
     gameOver = true;
     document.getElementsByClassName('banner')[0].style.backgroundColor = '#3a3a32';
+    document.getElementsByClassName('banner')[0].classList.add('blink');
+    document.getElementsByTagName('button')[0].style.backgroundColor = 'rgba(46, 154, 86, .5)';
+    document.getElementsByTagName('button')[0].style.color = '#3a3a32';
     if (lastMove === 'x') {
       document.getElementsByClassName('banner')[0].textContent = 'X Wins!';
       console.log('player 1 wins!');
@@ -76,6 +82,9 @@ var checkForWin = function() {
   if (turn > 9 && !gameOver) {
     gameOver = true;
     document.getElementsByClassName('banner')[0].style.backgroundColor = '#3a3a32';
+    document.getElementsByClassName('banner')[0].classList.add('blink');
+    document.getElementsByTagName('button')[0].style.backgroundColor = 'rgba(46, 154, 86, .5)';
+    document.getElementsByTagName('button')[0].style.color = '#3a3a32';
     document.getElementsByClassName('banner')[0].textContent = 'Cat Game!';
     // other cat game effects
   }

@@ -6,6 +6,28 @@ body {
   background-size: cover;
   background-attachment: fixed;
 }
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+
+  49% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes fadeingrow {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
 
 a {
   color: #2e9a56;
@@ -43,7 +65,7 @@ button {
   width: 600px;
   font-size: 24px;
   left: 24.5%;
-  top: 47%;
+  top: 56%;
   color: #2e9a56;
   background-color: rgba (58, 50, 50, 0);
   z-index: 0;
@@ -116,13 +138,20 @@ button {
 }
 
 .o {
-  background-color: #8be8a9;
+  background-color: rgba(139, 232, 169, .5);
 }
 
 .x {
-  background-color: #2e9a56;
+  background-color: rgba(46, 154, 86, .5);
 }
 
 .bold {
   font-weight: bold;
+}
+
+.blink {
+  animation-delay: 0.22s;
+  animation-name: fadeingrow;
+  animation-duration: 0.5s;
+  animation-iteration-count: 3;
 }
