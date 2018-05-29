@@ -18,7 +18,6 @@ body {
 }
 
 #gamebox {
-  background-color: aqua;
   margin: 2%;
 }
 
@@ -38,6 +37,11 @@ body {
   padding: 0 2.76%;
 }
 
+#settingsbox {
+  padding: 5px;
+  background-color: #82BF23;
+}
+
 .square {
   display: inline-block;
   width: 25%;
@@ -45,7 +49,7 @@ body {
   margin: 2.76%;
   border-radius: 5px;
   border: 1px;
-  border: 1px dashed rgba(249, 234, 214, 0.75);
+  border: 1px dashed rgba(249, 234, 214, 0.5);
 }
 
 .unselected {
@@ -90,4 +94,8 @@ button .win {
   color: #adff2f;
   border: 1px solid #adff2f;
   font-weight: bold;
+}
+
+input[type=radio] {
+  margin: 20px 5px  20px 20px;
 }

@@ -11,8 +11,17 @@
   <div id="container">
       <h1> 🐌 Forest Fury 🍄</h1>
     <div id="gamebox">
+      <div id="settingsbox">
+        <form name="settings" action="POST" method="#">
+          <input type="radio" name="gamemode" value="One Player" checked/><label for="One" Player="">One Player</label>
+          <input type="radio" name="gamemode" value="Two Players"/><label for="One" Player="">Two Players</label>
+        </form>
+      </div>
+      <div id="resetbox">
+        <button id='onebutton' type="button">Start a New Game</button>
+      </div>
       <div id="infobox">
-        <h2> &nbsp;</h2>
+        <h2>...unleash the fury...</h2>
       </div>
       <div id="gamefield">
         <div class="top">
@@ -30,9 +39,6 @@
           <div id="eight" class="square row-3 col-2"></div>
           <div id="nine" class="square row-3 col-3 dia-1"></div>
         </div>  
-      </div>
-      <div id="resetbox">
-        <button id='reset' type="button">RESET</button>
       </div>
     </div>
   </div>

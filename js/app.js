@@ -2,7 +2,9 @@
 
 var turn = null;
 var infoBox = null;
+var oneButton = null;
 var gameOver = null;
+var gameMode = null;
 
 var squares = {
     'one': 0,
@@ -38,6 +40,9 @@ var initGame = function() {
     turn = 1;
     infoBox.textContent = "Get ready to rumble... slowly.";
     gameOver = false;
+
+    // set game mode
+    gameMode = document.forms['settings'].elements['gamemode'].value;
     
     // show player and open squares to clickability
     setTimeout(function () {
@@ -46,11 +51,11 @@ var initGame = function() {
             document.getElementById(square).classList.add('unselected');
         }
         infoBox.textContent = "Shroom makes the first move!";
-    }, 1000)
+    }, 500)
 }
 
 var reset = function() {
-    console.log('reset clicked');
+    // 
     for (let square in squares) {
         //reset values in object
         squares[square] = 0;
@@ -81,7 +86,7 @@ var endGame = function(winCondition, playerToken) {
     }
 
     // highlight reset button
-    document.querySelector('#reset').classList.add('win');
+    document.querySelector('#onebutton').classList.add('win');
 
     // set gameOver to true
     gameOver = true;
@@ -90,7 +95,7 @@ var endGame = function(winCondition, playerToken) {
 
 
 var checkWinCondition = function(square,playerToken) {
-    console.log('checkWin fires')
+    
     //check win conditions that correspond to classes included included in square
     var winValues = {
         snail: 3,
@@ -136,7 +141,20 @@ var checkWinCondition = function(square,playerToken) {
     
 }
 
+var playRandomSquare = function() {
+    // console.log('playRandomSquare fired')
+    var squareChosen = document.getElementById(chooseRandomSquare());
+    
+    if (squareChosen.classList.contains('unselected')){
+        squareChosen.click();
+    } else if (gameOver !== true) {
+        // console.log('Recursive call', squareChosen.id);
+        playRandomSquare();
+    }
+}
+
 var playSquare = function() {
+
     // determine who is playing    
     var playerToken = checkPlayer(turn);
     //update message in infobox
@@ -157,25 +175,18 @@ var playSquare = function() {
         // increment turn
         turn++
         
+        // ai?
+        if (gameMode === 'One Player' && checkPlayer(turn) === 'snail'){
+            setTimeout(playRandomSquare, 500);
+        }
+
         // handle stalemate
         if (turn === 10 && gameOver === false){
             infoBox.textContent = "Uh-oh, looks like a... snaaaailmate.";
             gameOver = true;
         }
-        
-    } 
-}
 
-var playRandomSquare = function() {
-    console.log('playRandomSquare fired')
-    var squareChosen = document.getElementById(chooseRandomSquare());
-    
-    if (squareChosen.classList.contains('unselected')){
-        squareChosen.click();
-    } else if (gameOver !== true) {
-        console.log('Recursive call', squareChosen.id);
-        playRandomSquare();
-    }
+    } 
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -183,8 +194,16 @@ document.addEventListener('DOMContentLoaded', function() {
     for (let square in squares){
         document.getElementById(square).addEventListener('click', playSquare);
     }
-    document.getElementById('reset').addEventListener('click', reset);  
+     
+    oneButton = document.getElementById('onebutton');
     infoBox = document.querySelector('#infobox h2');
+
+    oneButton.addEventListener('click', function(){
+        if (turn >= 1) {
+            reset();
+        } else {
+            initGame();
+        }
+    })
     
-    initGame();
 })
