@@ -73,3 +73,14 @@ var addClick = function() {
   // boxEight.addEventListener("click", fillBoxEight);
   // boxNine.addEventListener("click", fillBoxNine);
 };
+
+
+// 2D Array, to visually represent things
+
+let grid = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9]
+];
+
+grid[0][2]
