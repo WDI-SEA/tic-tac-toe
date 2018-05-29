@@ -3,12 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <title>Tic-Tac-Toe</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
-<body>
-  <h1>Hello Front-End</h1>
-
-  <script type="text/javascript" src="js/app.js"></script>
-</body>
+	<body>
+		  <header>
+		  	<h1 id="head">Tic-Tac-Toe</h1>
+		  </header>
+		  <h1 id="result"></h1>
+		  <section id="game">
+		  	<div id="tic">
+		  		<canvas id="canvas1" width="100" height="100"></canvas>
+		  		<canvas id="canvas2" width="100" height="100"></canvas>
+		  		<canvas id="canvas3" width="100" height="100"></canvas>
+		  		<br/>
+		  		<canvas id="canvas4" width="100" height="100"></canvas>
+		  		<canvas id="canvas5" width="100" height="100"></canvas>
+		  		<canvas id="canvas6" width="100" height="100"></canvas>
+		  		<br/>
+		  		<canvas id="canvas7" width="100" height="100"></canvas>
+		  		<canvas id="canvas8" width="100" height="100"></canvas>
+		  		<canvas id="canvas9" width="100" height="100"></canvas>
+		  	</div>
+		  	<div id="btn">
+		  		<button id="new">NEW GAME</button>
+		  	</div>
+		  	<div class="rules">
+		  		<h2>Rules</h2>
+		  		<p>Each player has to take turns.</p>
+		  		<p>The player who fills 3 consecutive rows first wins.</p>
+		  		<p>Start new game at any point.</p>
+		  	</div>
+		  	</section> 
+		<script type="text/javascript" src="js/app.js"></script>
+	</body>
 </html>

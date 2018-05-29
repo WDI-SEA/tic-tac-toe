@@ -1,3 +1,82 @@
-h1 {
-  color: purple;
+
+* {
+	padding: 0;
+	margin: 0;
+	font-family: 'Futura', sans-serif;
 }
+
+/* Background img */
+
+html {
+	background-image: url("https://cdn.pixabay.com/photo/2015/12/01/15/43/black-1072366_1280.jpg");
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+header {
+	text-align: center;
+	margin: 1px;
+	font-family: 'Futura', sans-serif;
+}
+
+#game {
+	text-align: center;
+	margin: 10px 0 10px 0;
+}
+
+
+
+#head {
+	font-size: 50px;
+	color: #fff;
+	margin-top: 140px;
+}
+
+#result {
+	font-size: 30px;
+	color: orange;
+	text-align: center;
+	margin-bottom: 5px;
+}
+
+canvas {
+	border: 1px solid #fff;
+	background-color: #fff;
+	box-shadow: 5px 5px 5px #000000;
+	margin: 3px 3px;
+	text-align: center;
+}
+
+h2 {
+	color: #fff;
+	font-size: 30px;
+}
+
+p {
+	line-height: 23px;
+	color: #fff;
+}
+
+button {
+	margin: 12px 0;
+	width: 90px;
+	padding: 3px;
+	font-weight: 550;
+	border: none;
+}
+
+canvas:hover {
+	background: #cecece;
+	border: none;
+}
+
+button:hover {
+	background: orange;
+}
+
+
+
+
+
+
+
