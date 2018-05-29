@@ -1,16 +1,18 @@
 console.log('Javascript is a go');
 
-var player1;
-var player2;
-var game = true;
 var currentPlayer = 'X';
 
+
+var gameBoard = [
+  [document.getElementById('box1'), document.getElementById('box2'), document.getElementById('box3')],
+  [document.getElementById('box4'), document.getElementById('box5'), document.getElementById('box6')],
+  [document.getElementById('box7'), document.getElementById('box8'), document.getElementById('box9')] 
+];
+
 var alertBox = document.getElementsByClassName("alertbox")[0];
-var topRow = document.getElementById("row1");
-var middleRow = document.getElementById("row2");
-var bottomRow = document.getElementById("row3");
 
 var boxElements = document.getElementsByClassName("box");
+
 for (var i=0; i<boxElements.length; i++) {
   boxElements[i].addEventListener("click",function(){
     if (this.textContent == 'X' || this.textContent == 'O') {
@@ -27,75 +29,73 @@ for (var i=0; i<boxElements.length; i++) {
       this.style.color = "yellow";
     }
     console.log("box clicked");
+    checkForWin();
   });
 }
 
-
-
 var checkForWin = function () {
-  // If all boxes in row 1 have an x, player 1 won
-    // topRow.children. ;
-      if (topRow.textContent == 'X') {
-        document.getElementsByClassName("alertbox")[0].textContent = "Player 1 won the game!";
-        document.getElementsByClassName("alertbox")[0].classList.remove("red");
-        document.getElementsByClassName("alertbox")[0].classList.add("green");    
-      } else if (topRow.textContent == 'O'){
-        // If all the boxes in row 1 have an o, player 2 won
-        document.getElementsByClassName("alertbox")[0].textContent = "Player 2 won the game!";
-        document.getElementsByClassName("alertbox")[0].classList.remove("red");
-        document.getElementsByClassName("alertbox")[0].classList.add("green"); 
-      } else {
-        return;
+  var winner;
+  // Check rows for a win
+  for (var i = 0; i < gameBoard.length; i++) {
+    if (gameBoard[i][0].textContent === gameBoard[i][1].textContent && gameBoard[i][1].textContent === gameBoard[i][2].textContent) {
+      if (gameBoard[i][0].textContent === 'X') {
+        // Player 1 has won
+        console.log("Player 1 has won due to row " + i);
+        updateMessage("Player 1");
+      } else if (gameBoard[i][0].textContent === 'O') {
+        // Player 2 has won
+        console.log("Player 2 has won due to row " + i);
+        updateMessage("Player 2");
       }
-  
+    }
+  }  
+  // Check Columns for a win
+  for (var i = 0; i < gameBoard.length; i++) {
+    if (gameBoard[0][i].textContent === gameBoard[1][i].textContent && gameBoard[1][i].textContent === gameBoard[2][i].textContent) {
+      if (gameBoard[0][i].textContent === 'X') {
+        // Player 1 has won
+        console.log("Player 1 has won due to column " + i);
+        updateMessage("Player 1");
+      } else if (gameBoard[0][i].textContent === 'O') {
+        // Player 2 has won
+        console.log("Player 2 has won due to column " + i);
+        updateMessage("Player 2");
+      }
+    }
+  }  
+  // Check Diagonal 1 for a win
+  if (gameBoard[0][0].textContent === gameBoard[1][1].textContent && gameBoard[1][1].textContent === gameBoard[2][2].textContent) {
+    if (gameBoard[0][0].textContent === 'X') {
+      // Player 1 has won
+      console.log("Player 1 has won due to diagonal column 1");
+      updateMessage("Player 1");
+    } else if (gameBoard[0][0].textContent === 'O') {
+      // Player 2 has won
+      console.log("Player 2 has won due to diagonal column 1");
+      updateMessage("Player 2");
+    }
+  }
+  // Check Diagonal 2 for a win
+  if (gameBoard[2][0].textContent === gameBoard[1][1].textContent && gameBoard[1][1].textContent === gameBoard[0][2].textContent) {
+    if (gameBoard[0][2].textContent === 'X') {
+      // Player 1 has won
+      console.log("Player 1 has won due to diagonal column 2");
+      updateMessage("Player 1");
+    } else if (gameBoard[0][2].textContent === 'O') {
+      // Player 2 has won
+      console.log("Player 2 has won due to diagonal column 2");
+      updateMessage("Player 2");
+    } 
+  }
 }
-checkForWin();
 
+var updateMessage = function(winner) {
+  alertBox.textContent = winner + " won the game!";
+  alertBox.classList.remove("red");
+  alertBox.classList.add("green");
+}
 
-// var initGame = function() {
-//   // This line empties the game array
-//   game.length = 0;
-  
-//   console.log(game);
-//   // document.getElementById("siren").play();
-// }
-
-
-
-
-
-
-
-// Reload Game
+// Reset Game Board
 document.getElementsByTagName("button")[0].addEventListener("click", function() {
   location.reload();
 });
-
-
-// 8 win conditions, earliest win on 5th move
-// Don't have to check all win conditions, depending on where you play
-// Potential class names: col 1/2/3 row 1/2/3 diag 1/2
-
-// Initial Game Board 
-//  Empty Board
-//  Player One Start message or Play vs. AI message
-//  Reset button
-//  Game audio?
-
-// Win Condition
-//  Play "win" audio?
-//  Display "win" message in notification div
-
-
-// Lose Condition
-//  Three x or o in a row
-
-// Reset Game Board
-
-// AI Opponent 
-
-// Icons for the game
-{/* <i class="fas fa-times"></i>
-<i class="far fa-circle"></i> */}
-
-//maybe replace the block with something like
