@@ -68,12 +68,29 @@ button:hover {
 .game-page {
 	text-align: center;
 	transition: all 1s ease;
+	min-width: 860px;
+	max-width: 1280px;
+	position: relative;
 }
 
 .game-page h2 {
 	font-family: lobster;
 	font-size: 3em;
 	padding: 30px;
+}
+
+.player1, .player2 {
+	font-size: 1.5em;
+}
+
+.player1 {
+	float: left;
+	margin: 40px 0 0 15%;
+}
+
+.player2 {
+	float: right;
+	margin: 40px 15% 0 0;
 }
 
 .row3, .row2 {
@@ -107,7 +124,79 @@ button:hover {
 	margin-top: 30px;
 }
 
+.game-over {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	margin-top: 170px;
+	padding-bottom: 80px;
+	display: none;
+}
+
+.game-over-blue {
+	background: #a0b3f9;
+	border-top: 8px solid #a0b3f9;
+	border-bottom: 8px solid #a0b3f9;
+}
+
+.game-over-blue .letter-winner {
+	color: #fff;
+}
+
+.game-over-blue .wins {
+	color: #fff;
+}
+
+.game-over-white {
+	background: #fff;
+	border-top: 8px dotted #a0b3f9;
+	border-bottom: 8px dotted #a0b3f9;
+}
+
+.game-over-white .letter-winner {
+	color: #a0b3f9;
+}
+
+.game-over-white .wins {
+	color: #a0b3f9;
+}
+
+.letter-winner {
+	font-size: 16em;
+	margin-bottom: -80px;
+}
+
+.wins {
+	font-size: 3em;
+	font-family: lobster;
+}
+
+.game-tied {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 2000;
+	text-align: center;
+	background: url(../img/explosion.jpg);
+	background-size: cover;
+	background-attachment: fixed;
+	display: none;
+
+}
+
+.game-tied .reset {
+	margin-top: 25%;
+	border: 10px solid #fff;
+	width: 200px;
+}
+
 .hide {
 	opacity: 0;
 	z-index: -1000;
 }
+
+.active, .active span {
+	color: #a0b3f9;
+}
+

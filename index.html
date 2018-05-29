@@ -27,7 +27,13 @@
 		</div>
 
 		<div class="game-page hide">
-			<h2>Tic Tac Toe</h2>
+			<header>
+				<p class="player1 active"></p>
+				<p class="player2"></p>
+				<h2>Tic Tac Toe</h2>
+			</header>
+			
+
 			<div class="board-container">
 				
 				<div class="row">
@@ -50,11 +56,18 @@
 
 			</div>
 
+			<div class="game-over game-over-blue">
+				<p class="letter-winner">X</p>
+				<p class="wins">wins!</p>
+			</div>
+
 			<button class="reset" onclick="reset()" type="button">RESET</button>
 		</div>
-
+		<div class="game-tied">
+			<button class="reset" onclick="reset()" type="button">RESET</button>
+		</div>
 	</main>
-
+	<audio id="explode" src="sounds/BldgExplode.wav"></audio>
   <script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>
