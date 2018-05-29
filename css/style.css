@@ -1,3 +1,61 @@
+body {
+  background: #b4ffd4;
+  color: maroon;
+}
+
 h1 {
-  color: purple;
+  text-align: center;
+  color: black;
+  /* position: inline-block; */
+}
+
+button {
+  display: block;
+  margin: 0 auto;
+}
+
+table {
+  text-align: center;
+}
+
+td {
+  text-align: center;
+  height:10em;
+  width: 10em;
+  border: 2px solid rebeccapurple;
+}
+
+.wrapper {
+  margin-left: 35vw;
+}
+
+.player {
+  display: inline-block;
+  font-size: 20px;
+  transition: transform .5s;
+  /* transform: scale(1.5); */
+  margin: 0 auto;
+}
+
+#player-one {
+  font-weight: bold;
+  transform: scale(1.5);
+
+}
+
+#player-two {
+  position: relative;
+  left: 12em;
+}
+
+#you-win-text {
+  margin: 0 auto;
+  font-size: 5em;
+  transform: scale(0);
+  transition: transform .5s;
+
+}
+
+#board {
+  margin: 0 auto;
 }
