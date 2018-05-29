@@ -2,21 +2,32 @@
 	font-family: 'Bowlby One SC', cursive;
 }
 
-.wrapper {
-
-}
 
 h1 {
-	font-size: 30px;
+	font-size: 36px;
 	text-align: center;
 	margin: 0;
 	padding: 0;
 }
 
+p {
+	font-size: 25px;
+}
+
 .top {
 	text-align: center;
 	margin-top: 0;
+	margin-bottom: 10px;
 	padding-top: 0;
+	margin-left: 10px;
+}
+
+#apple {
+	color: #c90606;
+}
+
+#orange {
+	color: #ff9000;
 }
 
 .box1 {
@@ -37,8 +48,9 @@ img {
 
 .instructions {
 	text-align: center;
-	font-size: 25px;
+	font-size: 27px;
 	margin-left: 10px;
+	margin-top: 20px;
 }
 
 button {
