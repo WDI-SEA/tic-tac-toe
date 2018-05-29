@@ -6,19 +6,6 @@ body {
   background-size: cover;
   background-attachment: fixed;
 }
-@keyframes blink {
-  0% {
-    opacity: 0;
-  }
-
-  49% {
-    opacity: 0;
-  }
-
-  50% {
-    opacity: 1;
-  }
-}
 @keyframes fadeingrow {
   0% {
     opacity: 0;
@@ -41,6 +28,7 @@ h1 {
 h2 {
   font-size: 18px;
   font-weight: normal;
+  margin: 5px;
 }
 
 h3 {
@@ -50,22 +38,22 @@ h3 {
 
 button {
   font-family: Courier, monospace;
-  color: #2e9a56;
+  color: #3a3a32;
   font-size: 18px;
-  background: rgba(61, 64, 57, 0);
+  background: rgba(46, 154, 86, .5);
   border: none;
   padding: 10px 20px;
   text-decoration: none;
 }
 
 .banner {
-  position: fixed;
+  position: absolute;
   justify-content: center;
   display: flex;
   width: 600px;
   font-size: 24px;
-  left: 24.5%;
-  top: 56%;
+  left: 27%;
+  top: 40%;
   color: #2e9a56;
   background-color: rgba (58, 50, 50, 0);
   z-index: 0;
