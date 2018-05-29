@@ -11,7 +11,7 @@ a {
 
 h1 {
   font-family: Courier, monospace;
-  color: #2e9a56;
+  color: #3a3a32;
 }
 
 h3 {
@@ -104,9 +104,9 @@ button {
 }
 
 .o {
-  background-color: green;
+  background-color: #8be8a9;
 }
 
 .x {
-  background-color: red;
+  background-color: #2e9a56;
 }
