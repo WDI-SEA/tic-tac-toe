@@ -7,50 +7,64 @@
   <title>Tic-Tac-Toe</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <link href="https://fonts.googleapis.com/css?family=Exo" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+    crossorigin="anonymous">
 </head>
 
 <body>
   <h1>Genevieve's Tic-Tac-Toe Game</h1>
-  <h2>Play Now!</h2>
+  <div id="alert" class="alertbox red">Player 1, make a move.</div>
+  <!-- Notifications to the player -->
   <div class="gameboard">
     <div class="row" id="row1">
-      <div class="box">
-        <img src="" alt="1" />
+      <div class="box" id="box1">&nbsp;
+        <!-- <i class="fas fa-times fa-6x hidden"></i>
+        <i class="far fa-circle fa-5x hidden"></i> -->
       </div>
-      <div class="box">
-        <img src="" alt="2" />
+      <div class="box" id="box2">&nbsp;
+        <!-- <i class="fas fa-times fa-6x hidden"></i>
+        <i class="far fa-circle fa-5x hidden"></i> -->
       </div>
-      <div class="box">
-        <img src="" alt="3" />
+      <div class="box" id="box3">&nbsp;
+        <!-- <i class="fas fa-times fa-6x hidden"></i>
+        <i class="far fa-circle fa-5x hidden"></i> -->
       </div>
     </div>
     <!-- row1 -->
     <div class="row" id="row2">
-      <div class="box">
-        <img src="" alt="4" />
+      <div class="box" id="box4">&nbsp;
+        <!-- <i class="fas fa-times fa-6x hidden"></i>
+        <i class="far fa-circle fa-5x hidden"></i> -->
       </div>
-      <div class="box">
-        <img src="" alt="5" />
+      <div class="box" id="box5">&nbsp;
+        <!-- <i class="fas fa-times fa-6x hidden"></i>
+        <i class="far fa-circle fa-5x hidden"></i> -->
       </div>
-      <div class="box">
-        <img src="" alt="6" />
+      <div class="box" id="box6">&nbsp;
+        <!-- <i class="fas fa-times fa-6x hidden"></i>
+        <i class="far fa-circle fa-5x hidden"></i> -->
       </div>
     </div>
     <!-- row2 -->
     <div class="row" id="row3">
-      <div class="box">
-        <img src="" alt="7" />
+      <div class="box" id="box7">&nbsp;
+        <!-- <i class="fas fa-times fa-6x hidden"></i>
+        <i class="far fa-circle fa-5x hidden"></i> -->
       </div>
-      <div class="box">
-        <img src="" alt="8" />
+      <div class="box" id="box8">&nbsp;
+        <!-- <i class="fas fa-times fa-6x hidden"></i>
+        <i class="far fa-circle fa-5x hidden"></i> -->
       </div>
-      <div class="box">
-        <img src="" alt="9" />
+      <div class="box" id="box9">&nbsp;
+        <!-- <i class="fas fa-times fa-6x hidden"></i>
+        <i class="far fa-circle fa-5x hidden"></i> -->
       </div>
     </div>
     <!-- row3 -->
+    <button type="reset" value="Reset the game">Reset the game</button>
   </div>
   <!-- gameboard -->
+
   <script type="text/javascript" src="js/app.js"></script>
 </body>
 
