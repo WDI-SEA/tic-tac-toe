@@ -56,7 +56,7 @@ var checkForWin = function() {
     (boardState[0] === boardState[4] && boardState[0] === boardState[8]) ||
     (boardState[2] === boardState[4] && boardState[2] === boardState[6])) {
     gameOver = true;
-    document.getElementsByClassName('banner')[0].style.backgroundColor = 'black';
+    document.getElementsByClassName('banner')[0].style.backgroundColor = '#3a3a32';
     if (lastMove === 'x') {
       document.getElementsByClassName('banner')[0].textContent = 'X Wins!';
       console.log('player 1 wins!');
@@ -75,7 +75,7 @@ var checkForWin = function() {
   }
   if (turn > 9 && !gameOver) {
     gameOver = true;
-    document.getElementsByClassName('banner')[0].style.backgroundColor = 'black';
+    document.getElementsByClassName('banner')[0].style.backgroundColor = '#3a3a32';
     document.getElementsByClassName('banner')[0].textContent = 'Cat Game!';
     // other cat game effects
   }
@@ -117,7 +117,7 @@ var makeMove = function() {
     }
 
     this.classList.add('occupied');
-    document.getElementById('player').textContent = player + '\ \ ';
+    document.getElementById('player').textContent = player;
     document.getElementById('turn').textContent = turn;
   }
 };
