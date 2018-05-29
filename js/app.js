@@ -8,6 +8,7 @@
 var gameOver;
 var player1;
 var player2;
+var player = false;
 var turn;
 var game = true;
 var boxesMarked = [];
@@ -22,57 +23,69 @@ var winCombos = [
   [0, 4, 8],
   [2, 4, 6]
 ];
+var listOfBoxes = {
+  box1: 0,
+  box2: 0,
+  box3: 0,
+  box4: 0,
+  box5: 0,
+  box6: 0,
+  box7: 0,
+  box8: 0,
+  box9: 0,
+};
+
+// add an unselected class to each box
+// for (key in listOfBoxes) {
+//   document.getElementById(key).classList.add('unselected');
+// }
 
 // if box is clicked, then box is marked
   var clickedBoxes = function() {
     //push box that has been clicked into array
     boxesMarked.push(this);
     // Deciding who's turn it is
-    if (player1 === true) {
-      document.getElementById("player").textContent = "1";
-    } else {
-      document.getElementById("player").textContent = "2";
-    }
-    player1 = !player1;
-    if(player1) {
-      this.textContent = "X";
+    // if (player === false) {
+    //   document.getElementById("player").textContent = "1";
+    // } else if (player === true){
+    //   document.getElementById("player").textContent = "2";
+    // }
+    // player1 = !player1;
+    if(player === false) {
+      if (listOfBoxes[this.id] === 0) {
+        console.log('clicked');
+        listOfBoxes[this.id] = 1;
+        document.getElementById("player").textContent = "2";
+        player = true;
+        this.textContent = "X";
+        console.log(this.id);
+      };
   } else {
+    if (listOfBoxes[this.id] === 0) {
+      console.log('clicked');
+      listOfBoxes[this.id] = 2;
+      document.getElementById("player").textContent = "1";
+      player = false;
       this.textContent = "O";
-  }
+      console.log(this.id);
+  }}
   console.log(boxesMarked.length);
   };
 
 // loop through aray when a box has been clicked
 for(var i = 0; i < boxes.length; i++) {
     boxes[i].addEventListener("click", clickedBoxes);
-}
-
-// prevent box from being clicked on again
-var dontRepeat = function() {
-  if (this.textContent === "X" || this.textContent === "O") {
-    boxes.removeEventListener("click", clickedBoxes);
-  }
-}
-
-
-// reset the board
-var initGame = function() {
-  boxesMarked.length = 0;
+    // console.log(this);
 }
 
 // reset tic tac toe board function
 var reset = function() {
-  gameOver = false;
-  var letters = document.getElementsByClassName("box")[0].children;
-  for(let i = 0; i < letters.length; i++) {
-    letters[i] = document.getElementById('box').textContent = '';
-  }
+  location.reload();
 }
 
 document.addEventListener("DOMContentLoaded", function() {
   console.log("DOM loaded");
   document.getElementById("reset").addEventListener("click", reset);
-  initGame();
 });
 
 
