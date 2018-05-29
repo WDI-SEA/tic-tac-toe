@@ -1,3 +1,141 @@
 h1 {
   color: purple;
 }
+
+/* .row1 {
+  width: 600px;
+  height: 200px;
+  border: 1px solid black;
+} */
+
+h1 {
+  text-align: center;
+  margin-top: 2em;
+}
+
+.turn {
+  text-align: center;
+  color: purple;
+}
+
+#player {
+  width: 50px;
+  height: 50px;
+  border: 2px solid black;
+  background-color: red;
+  color: black;
+  padding: .5em;
+}
+
+.tictactoebox {
+  margin-top: 2em;
+}
+
+.box {
+  font-size: 10em;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  margin: 0px;
+  padding: 0px;
+  /* font-family: 'Special Elite', cursive; */
+}
+
+.tictactoebox {
+  width: 640px;
+  margin: auto;
+  margin-top: 2em;
+  border-collapse: collapse;
+}
+
+.topbox1,
+.topbox2,
+.topbox3,
+.middlebox1,
+.middlebox2,
+.middlebox3,
+.bottombox1,
+.bottombox2,
+.bottombox3 {
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  border: 5px solid black;
+  margin: 0px;
+  padding: 0px;
+  vertical-align: top;
+  border-collapse: collapse;
+}
+
+.row1,
+.topbox1,
+.topbox2,
+.topbox3 {
+  border-top: 0px;
+}
+
+.row3,
+.bottombox1,
+.bottombox2,
+.bottombox3 {
+  border-bottom: none;
+}
+
+.row1,
+.row2,
+.row3 {
+  border-left: 0;
+  border-right: 0;
+}
+
+.topbox1,
+.middlebox1,
+.bottombox1 {
+  border-left: 0;
+}
+
+.topbox3,
+.middlebox3,
+.bottombox3 {
+  border-right: 0;
+}
+
+#box1,
+#box2,
+#box3,
+#box4,
+#box5,
+#box6,
+#box7,
+#box8,
+#box9 {
+  /* padding-top: 40px; */
+}
+
+.player-wins {
+  display: none;
+  width: 500px;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  top: 320px;
+  background-color: rgba(0, 0, 0, .8);
+  position: absolute;
+  left: 50%;
+  margin-left: -260px;
+  text-align: center;
+  border-radius: 5px;
+  color: white;
+  font-size: 2em;
+}
+
+.button {
+  text-align: center;
+  margin-top: 2em;
+}
+
+button {
+  width: 150px;
+  margin: 2em;
+  padding: 1em;
+  text-align: center;
+}
