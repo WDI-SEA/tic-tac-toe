@@ -1,17 +1,31 @@
 body {
-  background: #b4ffd4;
-  color: maroon;
+  background: #7bbd96;
+  padding: 0;
+  margin: 0;
 }
 
 h1 {
+  background: #4a223c;
   text-align: center;
-  color: black;
-  /* position: inline-block; */
+  color: #e0d9e2;
+  font-size: 10em;
+  margin: 0;
+  margin-bottom: .2em;
 }
 
 button {
   display: block;
   margin: 0 auto;
+  font-size: 2em;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  transition: box-shadow .5s;
+  background: lightgrey;
+}
+
+button:hover {
+  box-shadow: 0 0 .4em .1em rgba(0,0,0,.5);
 }
 
 table {
@@ -20,9 +34,20 @@ table {
 
 td {
   text-align: center;
-  height:10em;
-  width: 10em;
-  border: 2px solid rebeccapurple;
+  height: 175px;
+  width: 175px;
+  border: 10px solid #4f4780;
+  font-size: 7em;
+  padding: 0;
+  color: white;
+}
+
+td:hover {
+  background: #9effae;
+}
+
+td, button {
+  cursor: pointer;
 }
 
 .wrapper {
@@ -31,10 +56,11 @@ td {
 
 .player {
   display: inline-block;
-  font-size: 20px;
+  font-size: 28px;
   transition: transform .5s;
-  /* transform: scale(1.5); */
   margin: 0 auto;
+  margin-bottom: 2em;
+  color: #16569c;
 }
 
 #player-one {
@@ -45,7 +71,7 @@ td {
 
 #player-two {
   position: relative;
-  left: 12em;
+  left: 10em;
 }
 
 #you-win-text {
@@ -53,9 +79,16 @@ td {
   font-size: 5em;
   transform: scale(0);
   transition: transform .5s;
-
+  position: absolute;
+  top: 63vh;
+  left: 28vw;
+  color: #e0d9e2;
+  background: rgba(130, 68, 95, .9);
+  padding: .1em .2em;
+  box-shadow: 0 0 .5em rgba(0,0,0,.6);
 }
 
 #board {
   margin: 0 auto;
+  margin-bottom: 4em;
 }

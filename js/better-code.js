@@ -1,4 +1,6 @@
 
+// Things to review to make my code more DRY
+
 const one = document.getElementById("one");
 const two = document.getElementById("two");
 const three = document.getElementById("three");
@@ -50,3 +52,24 @@ var getElement = function(element) {
 }
 
 document.getElementById('board').addEventListener('click', getElement);
+
+
+
+// cleaning up addEventListener section
+var addClick = function() {
+  var boxes = [boxOne, boxTwo, boxThree, boxFour, boxFive, boxSix, boxSeven, boxEight, boxNine];
+  var fillBoxFunctions = [fillBoxOne, fillBoxTwo, fillBoxThree, fillBoxFour, fillBoxFive, fillBoxSix, fillBoxSeven, fillBoxEight, fillBoxNine];
+  for (var i = 0; i < boxes.length; i++) {
+    boxes[i].addEventListener("click", fillBoxFunctions[i]);
+  };
+
+  // boxOne.addEventListener("click", fillBoxOne);
+  // boxTwo.addEventListener("click", fillBoxTwo);
+  // boxThree.addEventListener("click", fillBoxThree);
+  // boxFour.addEventListener("click", fillBoxFour);
+  // boxFive.addEventListener("click", fillBoxFive);
+  // boxSix.addEventListener("click", fillBoxSix);
+  // boxSeven.addEventListener("click", fillBoxSeven);
+  // boxEight.addEventListener("click", fillBoxEight);
+  // boxNine.addEventListener("click", fillBoxNine);
+};

@@ -1,17 +1,14 @@
+const boxOne = document.getElementById("one");
+const boxTwo = document.getElementById("two");
+const boxThree = document.getElementById("three");
 
+const boxFour = document.getElementById("four");
+const boxFive = document.getElementById("five");
+const boxSix = document.getElementById("six");
 
-// used const b/c we do not want to change var one, two..etc
-const one = document.getElementById("one");
-const two = document.getElementById("two");
-const three = document.getElementById("three");
-
-const four = document.getElementById("four");
-const five = document.getElementById("five");
-const six = document.getElementById("six");
-
-const seven = document.getElementById("seven");
-const eight = document.getElementById("eight");
-const nine = document.getElementById("nine");
+const boxSeven = document.getElementById("seven");
+const boxEight = document.getElementById("eight");
+const boxNine = document.getElementById("nine");
 
 const button = document.getElementById("button");
 
@@ -19,7 +16,6 @@ const playerOne = document.getElementById("player-one");
 const playerTwo = document.getElementById("player-two");
 
 const youWinText = document.getElementById("you-win-text");
-
 
 var gamePiece = "X";
 
@@ -49,18 +45,18 @@ var playersTurn = function () {
   };
 };
 
+// cannot click in box once someone wins
 var endGame = function(){
-  one.removeEventListener("click", fillBoxOne);
-  two.removeEventListener("click", fillBoxTwo);
-  three.removeEventListener("click", fillBoxThree);
-  four.removeEventListener("click", fillBoxFour);
-  five.removeEventListener("click", fillBoxFive);
-  six.removeEventListener("click", fillBoxSix);
-  seven.removeEventListener("click", fillBoxSeven);
-  eight.removeEventListener("click", fillBoxEight);
-  nine.removeEventListener("click", fillBoxNine);
+  boxOne.removeEventListener("click", fillBoxOne);
+  boxTwo.removeEventListener("click", fillBoxTwo);
+  boxThree.removeEventListener("click", fillBoxThree);
+  boxFour.removeEventListener("click", fillBoxFour);
+  boxFive.removeEventListener("click", fillBoxFive);
+  boxSix.removeEventListener("click", fillBoxSix);
+  boxSeven.removeEventListener("click", fillBoxSeven);
+  boxEight.removeEventListener("click", fillBoxEight);
+  boxNine.removeEventListener("click", fillBoxNine);
 };
-
 
 var checkEndGame = function(){
   var b = boxStatus;
@@ -170,7 +166,7 @@ var checkEndGame = function(){
     };
     // Tie
   } else if (b.one !== false && b.two !== false && b.three !== false && b.four !== false && b.five !== false && b.six !== false && b.seven !== false && b.eight !== false && b.nine !== false) {
-    youWinText.textContent = "Sorry, there is no winner. Try Again."
+    youWinText.textContent = "No winner, play again"
     youWinText.style.transform = "scale(1)";
     endGame();
   } else {
@@ -188,125 +184,135 @@ var changeGamePiece = function() {
 };
 
 var fillBoxOne = function(){
+  // stops you from clicking a second time in the box
+  // boxStatus starts at false !boxStatus.one = true --> runs code
+  // boxStatus is either "X" or "O" !boxStatus.one = false --> doesn't run the code in the if
   if (!boxStatus.one) {
-    one.textContent = gamePiece;
+    boxOne.textContent = gamePiece;
     boxStatus.one = gamePiece;
     if (gamePiece === "X") {
-      one.style.backgroundColor = "plum";
+      boxOne.style.backgroundColor = "#6892f0";
     } else {
-      one.style.backgroundColor = "skyblue";
+      boxOne.style.backgroundColor = "#e3d874";
     }
     changeGamePiece();
   }
 };
+
 var fillBoxTwo = function(){
   if (!boxStatus.two) {
-    two.textContent = gamePiece;
+    boxTwo.textContent = gamePiece;
     boxStatus.two = gamePiece;
     if (gamePiece === "X") {
-      two.style.backgroundColor = "plum";
+      boxTwo.style.backgroundColor = "#6892f0";
     } else {
-      two.style.backgroundColor = "skyblue";
+      boxTwo.style.backgroundColor = "#e3d874";
     }
     changeGamePiece();
   }
 };
+
 var fillBoxThree = function(){
   if (!boxStatus.three) {
-    three.textContent = gamePiece;
+    boxThree.textContent = gamePiece;
     boxStatus.three = gamePiece;
     if (gamePiece === "X") {
-      three.style.backgroundColor = "plum";
+      boxThree.style.backgroundColor = "#6892f0";
     } else {
-      three.style.backgroundColor = "skyblue";
+      boxThree.style.backgroundColor = "#e3d874";
     }
     changeGamePiece();
   }
 };
+
 var fillBoxFour = function(){
   if (!boxStatus.four) {
-    four.textContent = gamePiece;
+    boxFour.textContent = gamePiece;
     boxStatus.four = gamePiece;
     if (gamePiece === "X") {
-      four.style.backgroundColor = "plum";
+      boxFour.style.backgroundColor = "#6892f0";
     } else {
-      four.style.backgroundColor = "skyblue";
+      boxFour.style.backgroundColor = "#e3d874";
     }
     changeGamePiece();
   }
 };
+
 var fillBoxFive = function(){
   if (!boxStatus.five) {
-    five.textContent = gamePiece;
+    boxFive.textContent = gamePiece;
     boxStatus.five = gamePiece;
     if (gamePiece === "X") {
-      five.style.backgroundColor = "plum";
+      boxFive.style.backgroundColor = "#6892f0";
     } else {
-      five.style.backgroundColor = "skyblue";
+      boxFive.style.backgroundColor = "#e3d874";
     }
     changeGamePiece();
   }
 };
+
 var fillBoxSix = function(){
   if (!boxStatus.six) {
-    six.textContent = gamePiece;
+    boxSix.textContent = gamePiece;
     boxStatus.six = gamePiece;
     if (gamePiece === "X") {
-      six.style.backgroundColor = "plum";
+      boxSix.style.backgroundColor = "#6892f0";
     } else {
-      six.style.backgroundColor = "skyblue";
+      boxSix.style.backgroundColor = "#e3d874";
     }
     changeGamePiece();
   }
 };
+
 var fillBoxSeven = function(){
   if (!boxStatus.seven) {
-    seven.textContent = gamePiece;
+    boxSeven.textContent = gamePiece;
     boxStatus.seven = gamePiece;
     if (gamePiece === "X") {
-      seven.style.backgroundColor = "plum";
+      boxSeven.style.backgroundColor = "#6892f0";
     } else {
-      seven.style.backgroundColor = "skyblue";
+      boxSeven.style.backgroundColor = "#e3d874";
     }
     changeGamePiece();
   }
 };
+
 var fillBoxEight = function(){
   if (!boxStatus.eight) {
-    eight.textContent = gamePiece;
+    boxEight.textContent = gamePiece;
     boxStatus.eight = gamePiece;
     if (gamePiece === "X") {
-      eight.style.backgroundColor = "plum";
+      boxEight.style.backgroundColor = "#6892f0";
     } else {
-      eight.style.backgroundColor = "skyblue";
+      boxEight.style.backgroundColor = "#e3d874";
     }
     changeGamePiece();
   }
 };
+
 var fillBoxNine = function(){
   if (!boxStatus.nine) {
-    nine.textContent = gamePiece;
+    boxNine.textContent = gamePiece;
     boxStatus.nine = gamePiece;
     if (gamePiece === "X") {
-      nine.style.backgroundColor = "plum";
+      boxNine.style.backgroundColor = "#6892f0";
     } else {
-      nine.style.backgroundColor = "skyblue";
+      boxNine.style.backgroundColor = "#e3d874";
     }
     changeGamePiece();
   }
 };
 
-
 var addClick = function() {
-  one.addEventListener("click", fillBoxOne);
-  two.addEventListener("click", fillBoxTwo);
-  three.addEventListener("click", fillBoxThree);
-  four.addEventListener("click", fillBoxFour);
-  five.addEventListener("click", fillBoxFive);
-  six.addEventListener("click", fillBoxSix);
-  seven.addEventListener("click", fillBoxSeven);
-  eight.addEventListener("click", fillBoxEight);
-  nine.addEventListener("click", fillBoxNine);
+  boxOne.addEventListener("click", fillBoxOne);
+  boxTwo.addEventListener("click", fillBoxTwo);
+  boxThree.addEventListener("click", fillBoxThree);
+  boxFour.addEventListener("click", fillBoxFour);
+  boxFive.addEventListener("click", fillBoxFive);
+  boxSix.addEventListener("click", fillBoxSix);
+  boxSeven.addEventListener("click", fillBoxSeven);
+  boxEight.addEventListener("click", fillBoxEight);
+  boxNine.addEventListener("click", fillBoxNine);
 };
 
 var reset = function() {
@@ -323,16 +329,15 @@ var reset = function() {
     nine: false
   }
   gamePiece = "X";
-  one.textContent = "";
-  two.textContent = "";
-  three.textContent = "";
-  four.textContent = "";
-  five.textContent = "";
-  six.textContent = "";
-  seven.textContent = "";
-  eight.textContent = "";
-  nine.textContent = "";
-  youWinText.textContent = "";
+  boxOne.textContent = "";
+  boxTwo.textContent = "";
+  boxThree.textContent = "";
+  boxFour.textContent = "";
+  boxFive.textContent = "";
+  boxSix.textContent = "";
+  boxSeven.textContent = "";
+  boxEight.textContent = "";
+  boxNine.textContent = "";
   youWinText.style.transform = "scale(0)";
 
   playerOne.style.fontWeight = "bold";
@@ -340,35 +345,17 @@ var reset = function() {
   playerTwo.style.fontWeight = "normal";
   playerTwo.style.transform = "scale(1)";
 
-  one.style.backgroundColor = "";
-  two.style.backgroundColor = "";
-  three.style.backgroundColor = "";
-  four.style.backgroundColor = "";
-  five.style.backgroundColor = "";
-  six.style.backgroundColor = "";
-  seven.style.backgroundColor = "";
-  eight.style.backgroundColor = "";
-  nine.style.backgroundColor = "";
+  boxOne.style.backgroundColor = "";
+  boxTwo.style.backgroundColor = "";
+  boxThree.style.backgroundColor = "";
+  boxFour.style.backgroundColor = "";
+  boxFive.style.backgroundColor = "";
+  boxSix.style.backgroundColor = "";
+  boxSeven.style.backgroundColor = "";
+  boxEight.style.backgroundColor = "";
+  boxNine.style.backgroundColor = "";
 };
 
 button.addEventListener("click", reset);
 
 addClick();
-
-
-
-
-
-
-
-
-// * Upon marking of an individual cell, use JavaScript to
-// add a class to each cell to display separate colors.
-
-// * Add a reset button that will clear the contents of the board.
-// * Display a message to indicate which turn is about to be played.
-
-// * After the necessary moves have been played,
-// stop game and alert the winner if one player ends up winning
- // with three in a row.
-//
