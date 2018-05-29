@@ -1,3 +1,25 @@
 h1 {
-  color: purple;
+	color: yellow;
+}
+.whole {
+	text-align: center;
+	background-color: blue; 
+}
+.box {
+  background-color: white;
+  display: inline-block;
+  width: 15%;
+  margin: 2px;
+  height: 200px;
+  background-size: cover;
+  /*background-attachment: fixed;*/
+}
+
+.reset {
+	background-color: blue;
+}
+
+#playerturn {
+	color: yellow;
+	font-size: 60px;
 }
