@@ -1,9 +1,9 @@
 // Global Variables
-var gameOver = false;
-var aiTest = false;
-var moveCount = 1;
-var gameBoard = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-var currentPlayer = 'X';
+var gameOver = false; // true when a game is won or 9 moves complete and nobody won
+var aiTest = false;   // whether this is a computer move or not
+var moveCount = 1;    // next move to be played on the board
+var gameBoard = [1, 2, 3, 4, 5, 6, 7, 8, 9]; // id's of squares on the board
+var currentPlayer = 'X'; // text content for input on click
 
 var resetGame = function() {
   gameOver = false;
@@ -80,13 +80,15 @@ var aiMove  = function() {
   aiSquare.setAttribute('data-id','played');
 
   aiSquare.textContent = currentPlayer;
-
-  //setTimeout(function() {aiSquare.style.color = 'white';}, 500);
-  
   checkForWin(aiSquare);
+
+  // when computer is done choosing, change back to player X
   currentPlayer = 'X';
   document.getElementById('player-status').textContent = "Your turn!"
+
+  // increment the move count after computer fills a square
   moveCount++;
+  document.getElementById('move-count').textContent = "Move: " + moveCount;
 };
 
 var clickSquare = function() {
@@ -99,7 +101,6 @@ var clickSquare = function() {
     if(moveCount >= 5) {
       checkForWin(this);
     }
-
     moveCount++;
 
     if (moveCount === 10 && gameOver === false) {
@@ -108,15 +109,9 @@ var clickSquare = function() {
     } 
     
     if(!gameOver) {
-      // make the computer take its turn
-      if(currentPlayer === 'X') {
-        currentPlayer = 'O';
-        document.getElementById('player-status').textContent = "AI's turn"
-        aiMove();
-      } else {
-        currentPlayer = 'X';
-        document.getElementById('player-status').textContent = "Your turn!"
-      }
+      currentPlayer = 'O';
+      document.getElementById('player-status').textContent = "AI's turn"
+      setTimeout(aiMove,800);
       document.getElementById('move-count').textContent = "Move: " + moveCount;
     }
   }
@@ -142,6 +137,7 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   document.getElementById('reset').addEventListener('click', resetGame);
+
   initGame();
 });
 
