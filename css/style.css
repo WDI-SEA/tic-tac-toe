@@ -6,6 +6,7 @@ h1 {
 	background-color: blue; 
 }
 .box {
+  vertical-align: top;
   background-color: white;
   display: inline-block;
   width: 15%;
