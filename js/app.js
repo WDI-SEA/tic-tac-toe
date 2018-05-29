@@ -1,7 +1,22 @@
 console.log('javascript running');
 
-var inputStart = [];
-var arr = [].slice.call(gameboard)
+var turn = null
+var boxes = ["box1", "box2", "box3", "box4", "box5", "box6", "box7", "box8", "box9"]
+
+var addLogo = function() {
+  if (turn % 2 === 0) {
+    this.classList.add("boxbackrebel");
+  } else {
+  this.classList.add("boxbackempire");
+}
+turn++
+  console.log("clicked!")
+}
+
+
+var arr = [].slice.call(document.getElementsByClassName("gameboard"));
+console.log(arr.length);
+
 var getWinner = function() {
   if (winnerIs('x')) {
   return 'x';
@@ -10,7 +25,7 @@ var getWinner = function() {
   }
   return null;
 }
-
+/*
 function boxInput(key) {
     switch(key) {
         case "box1": return "x";
@@ -23,11 +38,15 @@ function boxInput(key) {
         case "box8": return null;
         case "box9": return null;
         default : return null;
+        console.log(boxInput);
   }
 }
+*/
 
 var winnerIs = function(player) {
 return winsRow(player) || winsColumn(player) || winsDiagonal(player);
+    alert(WinnerIs);
+    console.log(winnerIs);
 }
 
 var winsRow = function(player) {
@@ -51,35 +70,33 @@ var allThree = function(player, boxInputOne, boxInputTwo, boxInputThree) {
 return (boxInputOne === player) && (boxInputTwo === player) && (boxInputThree === player);
 }
 
-
 var initGame = function () {
-  inputStart.length = 0;
-  for (let box in boxInput) {
-    if (inputStart = 0) {
-      inputStart.push(box);
+  turn = 1;
+
+    for (gameboard[arr[i]] = 0; i < 5; i++) {
+      console.log(gameboard[arr[i]].length);
+     {
+      gameboard.push(box);
+      console.log(inputStart.length);
     }
+    boxInput();
   }
 }
-console.log(inputStart);
-
-
-/*
-var endGame = function(win) {
-
-}
-
-var reset = function() {
-  gameOver = false;
-  var
-
-}
-*/
 
 document.addEventListener("DOMContentLoaded", function() {
   console.log("DOM loaded");
-  for (let box in boxInput) {
-    document.getElementsByClassName(gameboard).children.addEventListener('click', boxInput);
-}
-  document.getElementsByTagName("button")[0].addEventListener("click", reset);
+  boxes.forEach(function(box) {
+    document.getElementById(box).addEventListener('click', addLogo)
+  })});
+
+
+
+/*
+
+  document.addEventListener("")
+  document.getElementsByClassName('gameboard')[0].children;
+  for (let winnerIs in boxInput) {
+  document.getElementsByClassName("box")[0].addEventListener("click", getWinner);
   initGame();
-});
+}});
+*/

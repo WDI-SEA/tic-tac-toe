@@ -38,7 +38,6 @@ h3 {
   text-decoration: underline;
 }
 
-
 p {
   margin: auto;
 }
@@ -85,4 +84,18 @@ button {
   font-size: 15px;
   font-weight: 600;
   color: black;
+}
+
+.boxbackrebel {
+background-image: url('https://vignette.wikia.nocookie.net/disney/images/b/b4/Rebel_Alliance_logo.svg.png/revision/latest?cb=20170217081853');
+background-size: contain;
+
+}
+
+
+.boxbackempire {
+background-image: url('https://vignette.wikia.nocookie.net/empireatwar/images/4/44/1756_-_empire_insignia_logo_star_wars.png/revision/latest?cb=20150125035321');
+background-size: contain;
+background-color: blue;
+
 }
