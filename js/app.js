@@ -54,13 +54,13 @@ var initGame = function() {
     }, 500)
 }
 
+// function to reset game
 var reset = function() {
-    // 
     for (let square in squares) {
         //reset values in object
         squares[square] = 0;
-        //remove player tokens
-
+        
+        //remove player tokens & winning combo classes
         document.getElementById(square).classList.remove('snail');
         document.getElementById(square).classList.remove('shroom');
         if (document.getElementById(square).classList.contains('winning-combo')){
@@ -94,7 +94,7 @@ var endGame = function(winCondition, playerToken) {
 }
 
 
-var checkWinCondition = function(square,playerToken) {
+var checkWinCondition = function(square, playerToken) {
     
     //check win conditions that correspond to classes included included in square
     var winValues = {
@@ -133,6 +133,7 @@ var checkWinCondition = function(square,playerToken) {
                     if (rowValue === winValues[playerToken]){
                         endGame(winCondition, playerToken);
                     }
+                    // reset square values array
                     squareValues.length = 0;
                 }
             }
@@ -142,13 +143,12 @@ var checkWinCondition = function(square,playerToken) {
 }
 
 var playRandomSquare = function() {
-    // console.log('playRandomSquare fired')
     var squareChosen = document.getElementById(chooseRandomSquare());
     
+    // determine if random square is can be selected--if not, try again
     if (squareChosen.classList.contains('unselected')){
         squareChosen.click();
     } else if (gameOver !== true) {
-        // console.log('Recursive call', squareChosen.id);
         playRandomSquare();
     }
 }
@@ -157,8 +157,6 @@ var playSquare = function() {
 
     // determine who is playing    
     var playerToken = checkPlayer(turn);
-    //update message in infobox
-    infoBox.textContent = capitalizePlayer(checkPlayer(turn + 1)) + "'s turn.";
     // check to see if square is free
     if (this.classList.contains('unselected')){
         // swap empty square for token
@@ -167,17 +165,20 @@ var playSquare = function() {
         // add value to square object for win check
         playerToken === 'snail' ? squares[this.id]+= 1 : squares[this.id] += 10;
         
+        //update message in infobox
+        infoBox.textContent = capitalizePlayer(checkPlayer(turn+1)) + "'s turn.";
+
         // check for win
         if (turn >= 5) {
             checkWinCondition(this, playerToken);
-            // console.log('here');
         } 
+
         // increment turn
         turn++
         
-        // ai?
+        // if 1 player mode, wait half a second and let computer choose
         if (gameMode === 'One Player' && checkPlayer(turn) === 'snail'){
-            setTimeout(playRandomSquare, 500);
+            setTimeout(playRandomSquare, 750);
         }
 
         // handle stalemate
