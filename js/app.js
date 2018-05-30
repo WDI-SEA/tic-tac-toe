@@ -1,102 +1,72 @@
-console.log('javascript running');
+//console.log('javascript running');
 
-var turn = null
-var boxes = ["box1", "box2", "box3", "box4", "box5", "box6", "box7", "box8", "box9"]
+var row1 = document.getElementsByClassName('row1');
+var row2 = document.getElementsByClassName('row2');
+var row3 = document.getElementsByClassName('row3');
+var col1 = document.getElementsByClassName('col1');
+var col2 = document.getElementsByClassName('col2');
+var col3 = document.getElementsByClassName('col3');
+var diag1 = document.getElementsByClassName('diag1');
+var diag2 = document.getElementsByClassName('diag2');
+var turn = 'x';
+var boxes = ["box1", "box2", "box3", "box4", "box5", "box6", "box7", "box8", "box9"];
+
+var checkForWin = function (player) {
+//rows
+    if (row1[0].classList.contains(player) && row1[1].classList.contains(player) && row1[2].classList.contains(player)){
+      alert('Winnner is' + player);
+    }
+    if (row2[0].classList.contains(player) && row2[1].classList.contains(player) && row2[2].classList.contains(player)){
+      alert('Winnner is' + player);
+    }
+    if (row3[0].classList.contains(player) && row3[1].classList.contains(player) && row3[2].classList.contains(player)){
+      alert('Winnner is' + player);
+    }
+//columns
+    if (col1[0].classList.contains(player) && col1[1].classList.contains(player) && col1[2].classList.contains(player)){
+      alert('Winnner is' + player);
+    }
+    if (col2[0].classList.contains(player) && col2[1].classList.contains(player) && col2[2].classList.contains(player)){
+      alert('Winnner is' + player);
+    }
+    if (col3[0].classList.contains(player) && col3[1].classList.contains(player) && col3[2].classList.contains(player)){
+      alert('Winnner is' + player);
+    }
+//diags
+    if (diag1[0].classList.contains(player) && diag1[1].classList.contains(player) && diag1[2].classList.contains(player)){
+      alert('Winnner is' + player);
+    }
+    if (diag2[0].classList.contains(player) && diag2[1].classList.contains(player) && diag2[2].classList.contains(player)){
+      alert('Winnner is' + player);
+    }
+}
 
 var addLogo = function() {
-  if (turn % 2 === 0) {
+  //console.log(this.classList.contains('claim'))
+  if (turn === 'x' && !this.classList.contains('claim')) {
     this.classList.add("boxbackrebel");
-  } else {
-  this.classList.add("boxbackempire");
-}
-turn++
-  console.log("clicked!")
-}
-
-
-var arr = [].slice.call(document.getElementsByClassName("gameboard"));
-console.log(arr.length);
-
-var getWinner = function() {
-  if (winnerIs('x')) {
-  return 'x';
-  } if (winnerIs('o')) {
-  return 'o';
+    this.classList.add('claim');
+    this.classList.add('x');
+    checkForWin(turn);
+    turn = 'o';
   }
-  return null;
-}
-/*
-function boxInput(key) {
-    switch(key) {
-        case "box1": return "x";
-        case "box2": return "x";
-        case "box3": return "x";
-        case "box4": return null;
-        case "box5": return null;
-        case "box6": return null;
-        case "box7": return null;
-        case "box8": return null;
-        case "box9": return null;
-        default : return null;
-        console.log(boxInput);
-  }
-}
-*/
 
-var winnerIs = function(player) {
-return winsRow(player) || winsColumn(player) || winsDiagonal(player);
-    alert(WinnerIs);
-    console.log(winnerIs);
-}
-
-var winsRow = function(player) {
-return  allThree(player, boxInput('box1'), boxInput('box2'), boxInput('box3')) ||
-        allThree(player, boxInput('box4'), boxInput('box5'), boxInput('box6')) ||
-        allThree(player, boxInput('box7'), boxInput('box8'), boxInput('box9'));
-}
-
-var winsColumn = function(player) {
-return  allThree(player, boxInput('box1'), boxInput('box4'), boxInput('box7')) ||
-        allThree(player, boxInput('box2'), boxInput('box5'), boxInput('box8')) ||
-        allThree(player, boxInput('box3'), boxInput('box6'), boxInput('box9'));
-}
-
-var winsDiagonal = function(player) {
-return  allThree(player, boxInput('box1'), boxInput('box5'), boxInput('box9')) ||
-        allThree(player, boxInput('box3'), boxInput('box5'), boxInput('box7'));
-}
-
-var allThree = function(player, boxInputOne, boxInputTwo, boxInputThree) {
-return (boxInputOne === player) && (boxInputTwo === player) && (boxInputThree === player);
-}
-
-var initGame = function () {
-  turn = 1;
-
-    for (gameboard[arr[i]] = 0; i < 5; i++) {
-      console.log(gameboard[arr[i]].length);
-     {
-      gameboard.push(box);
-      console.log(inputStart.length);
-    }
-    boxInput();
+  if(turn === 'o' && !this.classList.contains('claim')) {
+    this.classList.add("boxbackempire");
+    this.classList.add('claim');
+    this.classList.add('o');
+    checkForWin(turn);
+    turn = 'x';
   }
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-  console.log("DOM loaded");
+  //console.log("DOM loaded");
   boxes.forEach(function(box) {
-    document.getElementById(box).addEventListener('click', addLogo)
-  })});
+  document.getElementById(box).addEventListener('click', addLogo);
+  })
+});
 
-
-
-/*
-
-  document.addEventListener("")
-  document.getElementsByClassName('gameboard')[0].children;
-  for (let winnerIs in boxInput) {
-  document.getElementsByClassName("box")[0].addEventListener("click", getWinner);
-  initGame();
-}});
-*/
+function myFunction() {
+    location.reload();
+}
