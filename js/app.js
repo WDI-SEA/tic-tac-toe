@@ -96,25 +96,22 @@ var checkForWinO = function() {
 
 //checks whos turn it is x or o and plays a turn. add 1 to the turns array to see whose turn it is next. 
 //changes the box it the appropriate object to true so you can check match
-if (!gameOver) {
-	var turn = function() {
-		if (!objectX[this.children[0].id] && !objectO[this.children[0].id]) {
-			console.log("the click worked");
-			if (turns.length % 2 == 0) {
-				this.children[0].src = "img/x.png";
-				turns.push(1);
-				objectX[this.children[0].id] = true;
-				document.getElementById('playerturn').innerText = "Turn: Player 2:O";
-				checkForWinX();
-			} else {
-				this.children[0].src = "img/o.png";
-				turns.push(1);
-				objectO[this.children[0].id] = true;
-				document.getElementById('playerturn').innerText = "Turn: Player 1:X";
-				checkForWinO();
-			}
+var turn = function() {
+	if (!objectX[this.children[0].id] && !objectO[this.children[0].id] && !gameOver) {
+		console.log("the click worked");
+		if (turns.length % 2 == 0) {
+			this.children[0].src = "img/x.png";
+			turns.push(1);
+			objectX[this.children[0].id] = true;
+			document.getElementById('playerturn').innerText = "Turn: Player 2:O";
+			checkForWinX();
+		} else {
+			this.children[0].src = "img/o.png";
+			turns.push(1);
+			objectO[this.children[0].id] = true;
+			document.getElementById('playerturn').innerText = "Turn: Player 1:X";
+			checkForWinO();
 		}
-
 	}
 }
 
