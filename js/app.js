@@ -12,28 +12,27 @@ var alertBox = document.getElementsByClassName("alertbox")[0];
 
 var boxElements = document.getElementsByClassName("box");
 
-// When Player 1 or 2 clicks on a box, an x or o will display. 
 // If an x is displayed, it's player 1's turn. If an o is displayed, it's player 2's turn.
-// var turn = function() {
-  for (var i=0; i<boxElements.length; i++) {
-    boxElements[i].addEventListener("click", function() {
-      if (this.textContent == 'X' || this.textContent == 'O') {
-        return;
-      }
-      this.textContent = currentPlayer;
-      if (currentPlayer == 'X') {
-        currentPlayer = 'O';
-        alertBox.textContent = "Player 2, make a move.";
-        this.style.color = "blue";
-      } else {
-        currentPlayer = 'X';
-        alertBox.textContent = "Player 1, make a move.";
-        this.style.color = "orange";
-      }
-      checkForWin();
-    }); 
+var turn = function() {
+  if (this.textContent == 'X' || this.textContent == 'O') {
+    return;
   }
-// }
+  this.textContent = currentPlayer;
+  if (currentPlayer == 'X') {
+    currentPlayer = 'O';
+    alertBox.textContent = "Player 2, make a move.";
+    this.style.color = "blue";
+  } else {
+    currentPlayer = 'X';
+    alertBox.textContent = "Player 1, make a move.";
+    this.style.color = "orange";
+  }
+  checkForWin();  
+}
+// When Player 1 or 2 clicks on a box, an x or o will display. 
+for (var i=0; i<boxElements.length; i++) {
+  boxElements[i].addEventListener("click", turn);
+} 
 // Check for all win conditions
 var checkForWin = function () {
   var winner;
@@ -89,7 +88,9 @@ var updateMessage = function(winner) {
   alertBox.textContent = winner + " won the game!";
   alertBox.classList.remove("red");
   alertBox.classList.add("green");
-  
+  for (var i=0; i<boxElements.length; i++) {
+    boxElements[i].removeEventListener("click", turn);
+  }
 }
 // Reset Game Board
 document.getElementsByTagName("button")[0].addEventListener("click", function() {

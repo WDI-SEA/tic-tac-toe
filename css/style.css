@@ -1,9 +1,10 @@
 body {
   font-family: 'Exo', sans-serif;
+  background-color: rebeccapurple;
 }
 
 h1 {
-  color: rebeccapurple;
+  color: #fff;
   text-align: center;
   margin-top: 5%;
 }
@@ -18,6 +19,7 @@ div{
   border: 3px solid black;
   width: 60%;
   border-radius: 5px;
+  box-shadow: 5px 5px rgb(79, 38, 121);
 }
 
 .row {
@@ -29,7 +31,8 @@ div{
   margin: 2%;
   width: 25%;
   height: 125px;
-  /* background-color: rgb(218, 221, 221); */
+  box-shadow: 3px 3px rgb(191, 194, 194);
+  border-radius: 3px;
   border: 2px solid black;
   text-align: center;
   font-size: 80px;
@@ -43,6 +46,7 @@ div{
   padding: 1%;
   border: 2px solid black;
   border-radius: 5px;
+  box-shadow: 3px 3px rgb(79, 38, 121);
 }
 
 .red {
