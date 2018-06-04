@@ -1,3 +1,126 @@
-h1 {
-  color: purple;
+h1 { 
+  color: #778899;
+  /*text-align: center;*/ 
+  font-family: 'Pacifico', cursive, 'Sans-Serif';
+  font-size: 40pt;
+  margin-left: 225px;
+
 }
+.gameBoard {
+	display: block;
+	/*border: 1px solid white*/
+	width: 306px;
+	height: 306px;
+	background-color: #6B8E23;
+	border: 6px outset #6B8E23; 
+	border-radius: 8px;
+	margin-top: 20px;
+	/*margin: 0 auto;*/
+/*	width: 300px;
+	height: 300px;
+	border: 8px ridge #777;
+	border-radius: 12px;*/
+	
+	margin-left: 200px;
+}
+.gameBoard > div {
+	display: inline-block;
+	position: relative;
+	margin: 0 auto;
+	/*margin-right: 2px;*/
+	margin-left: 2.5px;
+	margin-top: 1.5px;
+	/*margin-right: -1px;
+	margin-bottom: 1.5px;*/
+	border: solid white;
+	width: 90px;
+	height: 90px;
+	background: white;
+  	border-radius: 5px;
+  	vertical-align: top;
+
+	/*display: inline-flex;
+	width: 99px;
+	height: 99px;
+	border: 1px solid black;
+	margin-left: -2px;
+	margin-right: -2px;*/	
+}
+button {
+	font-family:'Pacifico', cursive, 'Sans-Serif';
+	margin-right: 200px;
+	margin-top: 0;
+	display: inline-block;
+	background-color: #ead61c;
+	border-radius: 5px;
+	height: 50px;
+	width: 100px;
+	font-size: 12pt;
+
+}
+h1 > div {
+
+}
+/*#gridOne {
+	display: inline-block;
+	width: 200px;
+	height: 200px;
+	border: 1px solid black;
+	margin: 0;
+}
+#gridTwo {
+	display: inline-block;
+	width: 200px;
+	height: 200px;
+	border: 1px solid black;
+	margin: 0;
+}
+#gridthree {
+	display: inline-block;
+	width: 200px;
+	height: 200px;
+	border: 1px solid black;
+	margin: 0;
+}
+#gridFour {
+	display: inline-block;
+	width: 200px;
+	height: 200px;
+	border: 1px solid black;
+	margin: 0;
+}
+#gridFive {
+	display: inline-block;
+	width: 200px;
+	height: 200px;
+	border: 1px solid black;
+	margin: 0;
+}
+#gridSix {
+	display: inline-block;
+	width: 200px;
+	height: 200px;
+	border: 1px solid black;
+	margin: 0;
+}
+#gridSeven {
+	display: inline-block;
+	width: 200px;
+	height: 200px;
+	border: 1px solid black;
+	margin: 0;
+}
+#gridEight {
+	display: inline-block;
+	width: 200px;
+	height: 200px;
+	border: 1px solid black;
+	margin: 0;
+}
+#gridNine {
+	display: inline-block;
+	width: 200px;
+	height: 200px;
+	border: 1px solid black;
+	margin: 0;
+}*/
