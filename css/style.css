@@ -1,3 +1,152 @@
+@font-face {
+    font-family: "Streamster";
+    src: url(../Streamster.ttf);
+}
+
+
+body{
+  margin: 0 auto;
+  text-align: center;
+  background-image: url("../img/bg.jpg");
+  background-size: cover;
+  font-family: "Streamster";
+}
+
 h1 {
-  color: purple;
+  color: #ff71ce;
+  font-size: 60px;
+  letter-spacing: 2px;
+  margin: 5px auto;
+
+}
+p{
+  font-family: Times;
+  font-size: 18px;
+  margin: 25px auto;
+}
+
+#topBox{
+  height: 70px;
+  width: 600px;
+  margin-top: 5px auto;
+  display: inline-block;
+}
+
+#dropdown{
+  height: 50px;
+  width: 180px;
+  font-size: 28px;
+  background: transparent;
+  border: none;
+  font-family: Times;
+}
+
+
+#player1{
+  height: 32px;
+  width: 180px;
+  display: inline-block;
+  font-size: 28px;
+  border-radius: 10px;
+  line-height: 40px;
+  font-family: Times;
+  padding-bottom: 10px;
+}
+
+#player1Score, #player2Score{
+  width: 100px;
+  display: inline-block;
+  font-size: 30px;
+  line-height: 40px;
+}
+
+
+table{
+  margin: auto;
+  border-collapse: collapse;
+  border-style: hidden;
+  font-size: 70px;
+  font-weight: bold;
+}
+
+td {
+  border: 8px solid black;
+  height: 150px;
+  width: 150px;
+  text-align: center;
+}
+
+button{
+  width: 150px;
+  padding: 2px;
+  margin: 25px;
+  border-radius: 10px;
+  background: rgba(255, 113, 206, 0.4);
+  color: #b967ff;
+  font-family: Times;
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+
+#hello{
+  z-index: 1;
+  display: inline-block;
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+
+}
+
+.draw{
+  height: 150px;
+  width: 500px;
+  position: absolute;
+  font-size: 70px;
+  bottom: 300px;
+  left: 150px;
+  color: #fffb96;
+  font-weight: bold;
+  letter-spacing: 6px;
+}
+
+.animate {
+  animation: 1s rainbowBorder infinite;
+}
+
+.colorChange{
+  animation: .5s rainbowText infinite;
+}
+@keyframes rainbowBorder{
+  0%{
+    border-bottom: 10px solid #ff71ce;
+  }
+  20%{
+    border-bottom: 10px solid #01cdfe;
+  }
+  40%{
+    border-bottom: 10px solid #05ffa1;
+  }
+  80%{
+    border-bottom: 10px solid #b967ff;
+  }
+  100%{
+    border-bottom: 10px solid #fffb96;
+  }
+}
+@keyframes rainbowText{
+  0%{
+    color:#ff71ce;
+  }
+  20%{
+    color:#01cdfe;
+  }
+  40%{
+    color:#05ffa1;
+  }
+  80%{
+    bcolor:#b967ff;
+  }
+  100%{
+    color:#fffb96;
+  }
 }
