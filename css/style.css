@@ -1,3 +1,95 @@
+body {
+  width: 80%;
+  margin: 0 auto;
+  padding: 0;
+  font-family: sans-serif;
+}
 h1 {
   color: purple;
+}
+h3 {
+  color: purple;
+  margin-top: 0;
+}
+.game {
+  text-align: center;
+  position: static;
+}
+.gameHeader {
+  width: 100%;
+  margin: 0 auto;
+}
+.gameHeader > div {
+  display: inline-block;
+}
+.gameControls {
+  width: 30%;
+}
+.gameControls > p {
+  margin-top: 0;
+  font-size: .8em;
+}
+.gameControls button {
+  width: auto;
+  height: 2em;
+  font-size: .8em;
+  font-weight: 800;
+  background-color: lightblue;
+  margin: .5em .25em 1em;
+}
+.player {
+  border: 1px solid;
+  padding: 3px;
+  width: 30%;
+}
+.player img {
+  width: 60%;
+  padding: 1px;
+}
+.currentPlayer {
+  background-color: lightgreen;
+}
+.gameboard {
+  position: relative;
+  top: 10px;
+  padding: 5px;
+  width: 350px;
+  margin: 0 auto;
+}
+/* style row1 */
+.row {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+.row img {
+  width: 100px;
+  height: 100px;
+}
+.middleRow {
+  border-color: black;
+  border-style: solid;
+  border-left: 2px;
+  border-right: 2px;
+}
+/* style col1 */
+.col {
+  border-color: black;
+  border-style: solid;
+  border-top: 2px;
+  border-bottom: 2px;
+}
+/* for the winner */
+.win {
+  background-color: lightgreen;
+}
+.score {
+  font-weight: 800;
+  font-size: .8em;
+}
+footer {
+  margin: 20px;
+}
+.disclamier {
+  font-size: .25em;
 }
