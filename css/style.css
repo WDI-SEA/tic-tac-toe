@@ -1,3 +1,113 @@
+html, body {
+	margin: 0;
+	padding: 0;
+}
+html{
+	background-color: #ccd9e5;
+}
+body {
+	text-align: center;
+}
 h1 {
-  color: purple;
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 70px;
+  font-weight: bold;
+  padding-bottom: 0px;
+  color: #839aaf;
+  margin-bottom: -80px;
+}
+.container{
+	width: 314px;
+	height: 309px;
+	background: #ccd9e5;
+	display: inline-block;
+	position: relative;
+	bottom: 80px;
+}
+.box{
+	width: 100px;
+	height: 100px;
+	background: #839aaf;
+	display: inline-block;
+	text-align: center;
+	cursor: pointer;
+}
+.X {
+	background-image: url('../img/slothX.jpg');
+	background-size: 100px 100px;
+	background-repeat: no-repeat;
+}
+.O {
+	background-image: url('../img/otterO.jpg');
+	background-size: 100px 100px;
+	background-repeat: no-repeat;
+}
+.pieceDisplay {
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+}
+#xGamePiece {
+	height: 200px;
+	width: 280px;
+	position: relative;
+	top: 100px;
+	padding: 0;
+}
+p {
+	position: relative;
+	font-family: 'Shadows Into Light', cursive;
+  	font-size: 30px;
+  	color: #839aaf;
+}
+#xPlayerAssignment {
+	bottom: 100px;
+}
+#oPlayerAssignment {
+	bottom: 80px;
+}
+#oGamePiece {
+	height: 200px;
+	width: 280px;
+	position: relative;
+	margin: 0;
+	padding: 0;
+}
+#button {
+	text-align: center;
+	border: none;
+	border-radius: 20px;
+	padding: 0.5em 1.5em;
+	margin: 10px;
+	background: #839aaf;
+	font-family: 'Shadows Into Light', cursive;
+	font-size: 25px;
+	font-weight: bold;
+	color: #56756d;
+	cursor: pointer;
+}
+#button:hover {
+	background: #7a1c1c;
+}
+.gamePlay {
+	margin-top: -50px;
+	height: 200px;
+}
+#playChange {
+	width: 300px;
+	height: 50px;
+	text-align: center;
+	display: inline-block;
+}
+#winner{
+	width: 300px;
+	height: 50px;
+	display: inline-block;
+	text-align: center;
+}
+.display {
+	text-align: right;
+	width: 300px;
+	height: 50px;
+	display: inline-block;
 }
