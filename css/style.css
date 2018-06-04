@@ -1,3 +1,82 @@
+html, body {
+	margin: 0;
+	padding: 0;
+}
+body {
+	text-align: center;
+}
 h1 {
   color: purple;
+  font-family: 'Righteous', cursive;
+  font-size: 45px;
+}
+table {
+	margin: 0 auto;
+	padding-top: 20px;
+	font-family: 'Righteous', cursive;
+	font-size: 24px;
+}
+th {
+	font-weight: normal;
+	color: gold;
+}
+td {
+	color: purple;
+}
+
+div.field {
+	vertical-align: top;
+}
+#turn {
+	font-family: 'Play', sans-serif;
+	font-size: 2em;
+	text-align: center;
+	margin: 0 auto;
+	text-decoration: underline;
+	margin-bottom: 1%;
+}
+#gameBoard {
+	height: 600px;
+	width: 600px;
+	margin: 0;
+	display: inline-block;
+}
+#resetButton {
+	font-family: 'Play', sans-serif;
+	font-size: 18px;
+	margin-top: 10px;
+}
+.row {
+	height: 120px;
+	width: 61.4%;
+	background-color: black;
+	margin: 0 auto;
+}
+.field {
+	height: 120px;
+	width: 120px;
+	background-color: rgba(211,211,211,1);
+	display: inline-block;
+	margin:0;
+	padding: 0;
+	line-height: 120px;
+	font-size: 120px;
+	font-family: 'Righteous', cursive;
+}
+.field:hover {
+	background-color: rgba(211,211,211,0.8);
+}
+.line1, .line2 {
+	border-bottom: 5px solid black;
+}
+.score {
+	padding-left: 20px;
+}
+.purple {
+	background-color: purple;
+	color: gold;
+}
+.gold {
+	background-color: gold;
+	color: purple;
 }
