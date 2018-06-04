@@ -1,3 +1,80 @@
-h1 {
-  color: purple;
+body {
+  margin:0px;
+  padding:0px;
+  text-align:center;
+  background-image: url("http://cdn.playbuzz.com/cdn/70f73a27-1d0a-439e-8174-66bf402c061f/1e112208-0501-4f78-acf6-0979fb1e0fd5.jpg");
+  background-repeat:no-repeat;
+  background-size:cover;
 }
+
+h1 {
+  font-family:'IM Fell English SC', serif;
+  font-weight: bold;
+  font-size: 60px;
+}
+
+#snitch {
+  position: absolute;
+  size: 50px;
+  margin-top: -500px;
+  margin-left: 500px;
+}
+
+#message {
+  font-size:25px;
+  font-family:'IM Fell English SC', serif;
+}
+
+#game {
+  width:1000px;
+  margin: 0 auto;
+}
+
+.row {
+  clear:both;
+  overflow:hidden;
+}
+
+.square {
+  display:inline-block;
+  padding: 20px;
+  padding-top:30px;
+  width:100px;
+  height:90px;
+  background:rgba(255,255,255,0.5);
+  border-radius: 25%;
+  border: 5px goldenrod double;
+  margin:2px;
+  margin-top:4px;
+  
+}
+
+
+.harry {
+  background-image:url("http://cdn.playbuzz.com/cdn/b804a498-9431-4ab3-8b3c-33d6ef24d160/fd4dd154-5163-44e8-83ed-8676d87072a5.jpg");
+    background-size:100%;
+    opacity:1;
+    border: 5px red double;
+}
+
+
+
+.draco {
+    background-image:url("http://vignette1.wikia.nocookie.net/the-mighty-slytherins/images/a/a3/DracoEID.jpg/revision/latest?cb=20150617073623");
+    background-size:100%;
+    opacity: 1;
+    border: 5px green double;
+}
+
+.reset {
+  text-align:center;
+  margin:15px;
+    padding: 10px;
+    font-size:15px;
+    font-weight:bold;
+    font-family:'IM Fell English SC', serif;
+    border-radius:20%;
+    background-color:goldenrod;
+}
+
+
