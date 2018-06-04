@@ -1,3 +1,92 @@
+body, div {
+	vertical-align: top;
+	text-align: center;
+	padding: 0;
+	margin: 0;
+	border:0;
+}
+
+body {
+	white-space: nowrap;
+	min-width: 1000px;
+	overflow-x: scroll;
+	overflow-x: hidden;
+}
+
+
 h1 {
-  color: purple;
+	display: inline-block;
+	background-color: #EAE7DC;
+	color: #E85A4F;
+  	text-align: center;
+  	line-height: 50px;
+	border: 3px solid white;
+	min-width: 964px;
+	height: 50px;
+	margin: 0;
+}
+
+hr {
+	display: inline-block;
+  	border-color: #8E8D8A;
+  	width: 640px;
+}
+
+.row {
+	text-align: center;
+	vertical-align: center;
+	line-height: 200px
+	width: 640px;
+	height: 200px;
+}
+
+.tile {
+	display: inline-block;
+	width: 200px;
+	height: 200px;
+}
+
+.verticalLine {
+	display: inline-block;
+  	background-color:  #8E8D8A;
+  	height:200px;
+  	width:2px;
+  	margin: 0 5px;
+}
+
+.sidebar{
+	display: inline-block;
+	background-color: #EAE7DC;
+	text-align: center;
+	height: 665px;
+	width: 300px;
+	margin: auto;
+}
+
+.gameboard{
+	display: inline-block;
+	background-color: #EAE7DC;
+	text-align: center;
+	vertical-align: center;
+	height: 665px;
+	width: 660px;
+	margin: auto;
+}
+
+aside p {
+	font-weight: bold;
+	font-size: 20px;
+	margin: 180px 0 20px 0;
+	color: #E85A4F;
+}
+
+#reset {
+	display: inline-block;
+	text-align: center;
+	margin:20px 0 0 0;
+}
+
+#emptyTop {
+	height: 10px;
+	width: 660px;
 }
