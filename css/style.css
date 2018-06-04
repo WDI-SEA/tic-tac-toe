@@ -1,3 +1,19 @@
+body{
+  text-align: center;
+  background-color: lightgrey;
+}
+.cell{
+  width: 150px;
+  height: 150px;
+  display: inline-block;
+  margin: 2px 0;
+  font-size: 60px;
+  line-height: 150px;
+  background-color: blue;
+  vertical-align: top;
+}
+
 h1 {
-  color: purple;
+  color: black;
+  text-align: center;
 }
