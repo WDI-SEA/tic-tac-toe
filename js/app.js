@@ -14,24 +14,25 @@ var button = document.getElementById("buttonOne")
 var marker =["X","O"];
 var turn = 0;
 var counter = 0;
-var eG = false
 
-function endGame(){
-	eG = true;
-	alert(marker[turn] + " is the winner");
-	reset();
+// var eG = false
 
-}
+// function endGame(){
+// 	// eG = true;
+// 	alert(marker[turn] + " is the winner");
+// 	reset();
+
+// }
 function reset(){
 	for(var i =0; i < box.length; i++){
 
 		box[i].innerText = "";
 
-	}
+		}
 
 	turn = 0;
 	counter = 0;
-	eG = false;
+	
 
 }
 
@@ -55,7 +56,7 @@ function xAndO(e){
 	console.log('claim')
 	console.log(e.target)
 	e.target.innerText = marker[turn];
-	winCondition()
+	winCondition(marker[turn])
 }
 	
 for(var i =0; i < box.length; i++){
@@ -68,33 +69,68 @@ for(var i =0; i < box.length; i++){
 	})
 }
 
-function winCondition() {
-	console.log(boxOne);
-	if (counter >= 5){
-		if (boxOne.innerText == boxTwo.innerText && boxThree.innerText == boxOne.innerText)
-			endGame()
-	
-		else if  (boxFour.innerText == boxFive.innerText && boxSix.innerText == boxFour.innerText)
-			endGame()
-		else if  (boxSeven.innerText == boxEight.innerText && boxNine.innerText == boxSeven.innerText) 
-			endGame()
-		else if  (boxOne.innerText == boxFour.innerText && boxSeven.innerText == boxOne.innerText) 
-			endGame()
-		else if (boxTwo.innerText == boxFive.innerText && boxEight.innerText == boxTwo.innerText) 
-			endGame()
-		else if 	(boxThree.innerText == boxSix.innerText && boxNine.innerText == boxThree.innerText) 
-			endGame()
-		else if	(boxOne.innerText == boxFive.innerText && boxNine.innerText == boxOne.innerText) 
-			endGame()
-		else if (boxThree.innerText == boxFive.innerText && boxSeven.innerText == boxSeven.innerText) 
-		 	endGame()
+function winCondition(player) {
+	console.log(player);
+	var resetOnEnd = function(){
+		for(var i =0; i < box.length; i++){
+
+		box[i].innerText = "";
 
 		}
-		
-		
-				
+		turn = 0;
+		counter = 0;
 
 	}
+	function endGame(){
+		alert(marker[turn] + " is the winner");
+		}
+
+
+	if (counter >= 5){
+		if (boxOne.innerText == player && boxTwo.innerText == player && boxThree.innerText == player){
+			endGame();
+			resetOnEnd();
+			console.log('win 1');
+		}
+	
+		else if  (boxFour.innerText == player && boxFive.innerText == player && boxSix.innerText == player){
+			endGame();
+			resetOnEnd();
+			console.log('win 2');
+		}
+		else if  (boxSeven.innerText == player && boxEight.innerText == player && boxNine.innerText == player){ 
+			endGame();
+			resetOnEnd();
+			console.log('win 3');
+		}
+		else if  (boxOne.innerText == player && boxFour.innerText == player && boxSeven.innerText == player){
+			endGame();
+			resetOnEnd();
+			console.log('win 4');
+		}
+		else if (boxTwo.innerText == player && boxFive.innerText == player && boxEight.innerText == player){
+			endGame();
+			resetOnEnd();
+			console.log('win 5');
+		}
+		else if 	(boxThree.innerText == player && boxSix.innerText == player && boxNine.innerText == player){
+			endGame();
+			resetOnEnd();
+			console.log('win 6');
+		}
+		else if	(boxOne.innerText == player && boxFive.innerText == player && boxNine.innerText == player) {
+			endGame();
+			resetOnEnd();
+			console.log('win 7');
+		}
+		else if (boxThree.innerText == player && boxFive.innerText == player && boxSeven.innerText == player) {
+		 	endGame();
+		 	resetOnEnd();
+		 	console.log('win 8');
+		}
+	}
+
+}
 
 	
 	// body...
