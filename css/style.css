@@ -1,3 +1,59 @@
-h1 {
-  color: purple;
+hr {
+	margin: 0 15%;
+}
+.board {
+	margin: 0 auto;
+	margin-top: 50px;
+	border-collapse:separate;
+    	border:solid black 1px;
+   	border-radius:6px;
+}
+.wins {
+	margin: 0 auto;
+	text-align: center;
+	color: grey;
+	font-size: 28px;
+}
+.wins td {
+	padding: 10px;
+}
+.board td {
+	border-left:solid black 1px;
+	border-top:solid black 1px;
+}
+.board tr:first-child td{
+	border-top: none;
+}
+.board td:first-child, th:first-child {
+	border-left: none;
+}
+.board td {
+	width: 100px;
+	height: 100px;
+}
+.header {
+	text-align: center;
+	padding: 20px;
+	background: grey;
+	color: white;
+	font-weight: bold;
+}
+.rules {
+	text-align: center;
+	padding: 20px;
+	color: grey;
+}
+.x{
+	background: url('../img/x.png');
+	background-size: cover;
+}
+.o {
+	background: url('../img/o.png');
+	background-size: cover;
+}
+#reset {
+	display: block;
+	width: 150px;
+	margin: 0 auto;
+	margin-top: 20px;
 }
