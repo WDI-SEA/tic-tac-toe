@@ -1,8 +1,8 @@
-
 //global variables for game
 var table =[];
 var toContinue = true;
 var turn = 'x';
+
 
 
 // Populates the table with the td elements from the document and adds listener for click
@@ -35,7 +35,6 @@ function playerClicked(){
 		}
 		turn = switchTurn(turn);
 	}
-	else {}
 }
 
 // Switches player turns 
@@ -45,7 +44,7 @@ function switchTurn(currentTurn){
 
 // Compares 3 tiles to see if they are all the same
 function compareTiles(tile1, tile2, tile3){
-	console.log(tile1.classNamem, tile2.className, tile3.className);
+	console.log(tile1.className, tile2.className, tile3.className);
 	if((tile1.className== tile2.className && tile1.className == tile3.className) && tile1.className != " ")
 		return true;
 	return false;
@@ -105,4 +104,7 @@ function win(){
 }
 
 populateTable();
+
+
+//------------------ AI ------------------------------//
 
