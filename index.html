@@ -5,9 +5,74 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Hello Front-End</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 </head>
 <body>
-  <h1>Hello Front-End</h1>
+	<div id="game">
+	  <h1>Tic Tac Toe</h1>
+		<div id="info-bar">
+			<table>
+			<tr>
+				<th>
+					X
+				</th>
+				<th>
+					O
+				</th>
+				<th>
+					TIE
+				</th>
+			</tr>
+			<tr>
+				<td id="xWins">
+					0
+				</td>
+				<td id="oWins">
+					0
+				</td>
+				<td id="ties">
+					0
+				</td>
+			</tr>
+		</table>
+	  <button id="reset">Start Game</button>
+	  <h2 id="update"> </h2>
+	</div>
+	<br>
+	  <div id="game-board">
+		  <div class="square" id="top-left">
+		  	<p>X</p>
+		  </div>
+		  <div class="square" id="top-center">	  	
+		  	<p></p>
+		  </div>
+		  <div class="square" id="top-right">	  
+		  	<p></p>
+		  </div><br>
+		  <div class="square" id="center-left">  
+		  	<p></p>
+		  </div>
+		  <div class="square" id="center-center">	  
+		  	<p>O</p>
+		  </div>
+		  <div class="square" id="center-right">	  	
+		  	<p></p>
+		  </div><br>
+		  <div class="square" id="bottom-left">	  	
+		  	<p></p>
+		  </div>
+		  <div class="square" id="bottom-center">
+		  	<p></p>
+		  </div>
+		  <div class="square" id="bottom-right">
+		  	<p>X</p>
+		  </div>
+		</div>
+	</div>
+	<audio id="click" src="./sounds/Click.wav"></audio>
+	<audio id="winMusic" src="./sounds/WinnerMusic.wav"></audio>
+	<audio id="tieSound" src="./sounds/ErrorSound.wav"></audio>
 
   <script type="text/javascript" src="js/app.js"></script>
 </body>

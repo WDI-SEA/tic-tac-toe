@@ -1,3 +1,84 @@
+
+body {
+	background-color: #c6cad1;
+}
+
 h1 {
-  color: purple;
+
+  color: navy;
+  font-size: 60px;
+  font-family: 'Architects Daughter', cursive;
+  margin-top: 20px;
+  margin-bottom: 7px;
+  text-align: center;
+}
+
+#game-board {
+	text-align: center;
+}
+
+#info-bar {
+	margin-left: 30%;
+}
+
+.square {
+	display: inline-block;
+	/*border: 2px solid black;*/
+	width: 200px;
+	height: 200px;
+	position: relative;
+    text-align: center;
+    background-color: white;
+    margin: 3px;
+
+}
+
+p {
+	position: absolute;
+    top: -10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 120px;
+    font-weight: bold;
+    color: navy;
+    font-family: 'Architects Daughter', cursive;
+
+}
+
+button {
+	font-size: 24px;
+	background-color: navy;
+	padding: 10px;
+	margin-right: 20px;
+	margin-left: 3px;
+	color: white;
+	font-family: 'Raleway', sans-serif;
+}
+
+h2 { 
+	display: inline; 
+	color: navy;
+	font-family: 'Raleway', sans-serif;
+}
+
+table {
+	display: inline;
+	color: navy;
+	font-size: 24px;
+	font-family: 'Raleway', sans-serif;
+	margin-right: 20px;
+	margin-left: 3px;
+
+}
+
+td {
+	border: 1px solid navy;
+	text-align: center;
+	padding: 6px;
+	background-color: navy;
+	color: white;
+}
+
+header {
+	margin-bottom: : 15px;
 }
