@@ -1,9 +1,12 @@
+.centered-heading {
+  text-align: center;
+}
 .game-board {
   background-color: blue;
   display: grid;
   grid-template-columns: 75px 75px 75px;
   grid-template-rows: 75px 75px 75px;
-  margin: 20px auto;
+  margin: 10px auto;
   /* set max-width to 3 times tile width */
   max-width: 225px;
 }
@@ -13,4 +16,43 @@
   background: linear-gradient(to bottom right, blue , purple);
   height: 75px;
   width: 75px;
+}
+
+.button {
+  /* created using https://css-tricks.com/examples/ButtonMaker/ */
+  border-top: 1px solid #96d1f8;
+  background: #65a9d7;
+  background: -webkit-gradient(linear, left top, left bottom, from(#3e779d), to(#65a9d7));
+  background: -webkit-linear-gradient(top, #3e779d, #65a9d7);
+  background: -moz-linear-gradient(top, #3e779d, #65a9d7);
+  background: -ms-linear-gradient(top, #3e779d, #65a9d7);
+  background: -o-linear-gradient(top, #3e779d, #65a9d7);
+  padding: 12.5px 25px;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  border-radius: 12px;
+  -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+  -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+  box-shadow: rgba(0,0,0,1) 0 1px 0;
+  text-shadow: rgba(0,0,0,.4) 0 1px 0;
+  color: white;
+  font-size: 14px;
+  font-family: Georgia, Serif;
+  text-decoration: none;
+  vertical-align: middle;
+  /* andres' code */
+  display: block;
+  margin: 10px auto;
+  cursor: pointer;
+}
+/* created using https://css-tricks.com/examples/ButtonMaker/ */
+.button:hover {
+  border-top-color: #28597a;
+  background: #28597a;
+  color: #ccc;
+}
+/* created using https://css-tricks.com/examples/ButtonMaker/ */
+.button:active {
+  border-top-color: #1b435e;
+  background: #1b435e;
 }
