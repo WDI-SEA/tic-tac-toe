@@ -3,7 +3,7 @@ h1 {
 }
 .whole {
 	text-align: center;
-	background-color: blue; 
+	background-color: blue;
 }
 .box {
   vertical-align: top;
@@ -23,4 +23,8 @@ h1 {
 #playerturn {
 	color: yellow;
 	font-size: 60px;
+}
+
+.scoreBoard {
+	color: white;
 }
