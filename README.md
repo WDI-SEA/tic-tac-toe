@@ -43,12 +43,11 @@
 ## Game Board
 
 * 3x3 tiles
-    * use a CSS grid?
-    * otherwise, we're talking 3 columns repeated 2 more times
-        * seems like this would be unwieldy code
-    * instructions say 3x3 grid of divs
-        * does this conflict with css grid?
-    * how to handle shared borders?
+    * use a CSS grid
+        * 1 parent div (board game)
+        * 9 child divs (tiles)
+    * tiles are numbered like a 2D array starting at 0,0
+        * 0,0 being represented as zero-zero
 
 ## Markers
 

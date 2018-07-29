@@ -1,3 +1,17 @@
 h1 {
   color: purple;
 }
+
+
+.game-board {
+  background-color: blue;
+  display: grid;
+  margin: 20px auto;
+  max-width: 60%;
+}
+
+.tile {
+  background-color: red;
+  height: 50px;
+  width: 50px;
+}
