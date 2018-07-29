@@ -48,6 +48,7 @@ function startNewGame() {
   };
   moves = 0;
   turn = 'X';
+  document.getElementById('turn').textContent = 'Player ' + turn;
   boxes.forEach(function (square) {
     square.innerHTML = EMPTY;
   });
@@ -55,12 +56,12 @@ function startNewGame() {
 
 //Checks for a win
 function win(clicked) {
-  // Get all cell classes
+  //Get all cell classes
   var memberOf = clicked.className.split(/\s+/);
   for (var i = 0; i < memberOf.length; i++) {
     var testClass = '.' + memberOf[i];
     var items = contains('#game ' + testClass, turn);
-    // winning condition: turn == N_SIZE
+    //winning condition: turn == N_SIZE
     if (items.length == N_SIZE) {
       return true;
     }
@@ -95,11 +96,10 @@ function set() {
   } else {
     turn = turn === 'X' ? 'O' : 'X';
     document.getElementById('turn').textContent = 'Player ' + turn;
+    if (turn === 'X') {
+        this.className += ' blueText ';
+	}
   }
 }
 
 init();
-
-function refresh() {
-	location.reload();
-}
