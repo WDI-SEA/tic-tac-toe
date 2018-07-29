@@ -6,6 +6,8 @@ h1 {
 .game-board {
   background-color: blue;
   display: grid;
+  grid-template-columns: cl1 10% cl2 10% cl3 10% cl4;
+  grid-template-rows: rl1 10% rl2 10% rl3 10% rl4;
   margin: 20px auto;
   max-width: 60%;
 }
@@ -14,4 +16,14 @@ h1 {
   background-color: red;
   height: 50px;
   width: 50px;
+}
+
+#zero-zero {
+  grid-column: rl1 / rl2;
+  grid-row: cl1 / cl2;
+}
+
+#zero-one {
+  grid-column: rl1 / rl2;
+  grid-row: cl2 / cl3;
 }
