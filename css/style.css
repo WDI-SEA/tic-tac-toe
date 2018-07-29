@@ -75,9 +75,24 @@ font-size: 0;
 
 .scoreboard-left-col {
   float: left;
+  background-color: purple;
+  padding: 20px;
 }
 
 .scoreboard-right-col {
   float: right;
+  background-color: cyan;
+  padding: 20px;
 }
 
+.scoreboard-scores {
+  background-color: blue;
+  margin: 0 auto;
+  max-width: 10%;
+}
+
+.scoreboard-players {
+  background-color: green;
+  margin: 0 auto;
+  max-width: 10%;
+}
