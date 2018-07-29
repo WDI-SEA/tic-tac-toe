@@ -48,6 +48,9 @@
         * 9 child divs (tiles)
     * tiles are numbered like a 2D array starting at 0,0
         * 0,0 being represented as zero-zero
+* tile dimensions
+    * auto size for wide screens
+    * 75px by 75px seems okay for mobile
 
 ## Markers
 

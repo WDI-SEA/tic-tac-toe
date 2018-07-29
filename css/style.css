@@ -1,25 +1,16 @@
-h1 {
-  color: purple;
-}
-
-
 .game-board {
   background-color: blue;
   display: grid;
-  grid-template-columns: 50px 50px 50px;
-  grid-template-rows: 50px 50px 50px;
+  grid-template-columns: 75px 75px 75px;
+  grid-template-rows: 75px 75px 75px;
   margin: 20px auto;
-  max-width: 60%;
+  /* set max-width to 3 times tile width */
+  max-width: 225px;
 }
 
 .tile {
+  /* TODO remove debugging tool: linear gradient */
   background: linear-gradient(to bottom right, blue , purple);
-  height: 50px;
-  width: 50px;
-}
-
-#zero-zero {
-}
-
-#zero-one {
+  height: 75px;
+  width: 75px;
 }
