@@ -88,11 +88,11 @@ font-size: 0;
 .scoreboard-scores {
   background-color: blue;
   margin: 0 auto;
-  max-width: 10%;
+  max-width: 20%;
 }
 
 .scoreboard-players {
   background-color: green;
   margin: 0 auto;
-  max-width: 10%;
+  max-width: 20%;
 }

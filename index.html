@@ -12,18 +12,28 @@
   <!-- display score -->
   <div class="scoreboard clearfix">
     <div class="scoreboard-players clearfix">
-      <h4 class="scoreboard-left-col">X</h4>
-      <h4 class="scoreboard-right-col">O</h4>
+      <h4 class="scoreboard-left-col">Player X</h4>
+      <h4 class="scoreboard-right-col">Player O</h4>
     </div>
     <div class="scoreboard-scores clearfix">
-      <p class="scoreboard-left-col" id="x-score">0</p>
-      <p class="scoreboard-right-col" id="y-score">0</p>
+      <p class="scoreboard-left-col" id="x-score">Points: 0</p>
+      <p class="scoreboard-right-col" id="y-score">Points: 0</p>
     </div>
   </div>
 
-  <!-- display message to indicate player turn -->
+  <!-- config and info section -->
+  <div class="config clearfix">
+    <!-- radio input for turning AI on or off -->
+    <form class="config-player-options">
+      <input type="radio" name="multiplayer" value="multi"
+                                             checked>Multiplayer</input>
+      <input type="radio" name="multiplayer" value="single">Singleplayer</input>
+    </form>
 
-  <!-- radio input for turning AI on or off -->
+    <!-- display message to indicate player turn -->
+    <p class="config-turn-order">X Player's Turn</p>
+  </div>
+
 
   <!-- game board -->
   <div class="gameboard">
