@@ -12,3 +12,48 @@
   <script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>
+
+
+<!DOCTYPE html>
+
+<head>
+	<link rel='stylesheet' href="style.css" type='text/css'>
+	<title>Maverick vs. Arya</title>
+</head>
+<body>
+	<h1>Tic Tac Dog</h1>
+
+	<div id='selection'>
+		Pick your dog:
+		<button class='mav' value='maverick' onclick='pOne(this)'>Maverick</button>
+		<button class='arya' value='arya' onclick='var pOne = arya'>Arya</button>
+	</div>	
+	<div id='result'>
+	</div>
+	<table id='board'>
+		<tr id='rowA' class='row'>
+			<td id='A1' class='box'> </td>
+			<td id='A2' class='box'> </td>
+			<td id='A3' class='box'> </td>
+		</tr>
+		<tr id='rowB' class='row'>
+			<td id='B1' class='box'> </td>
+			<td id='B2' class='box'> </td>
+			<td id='B3' class='box'> </td>
+		</tr>
+		<tr id='rowC' class='row'>
+			<td id='C1' class='box'> </td>
+			<td id='C2' class='box'> </td>
+			<td id='C3' class='box'> </td>
+		</tr>
+	</table>
+<audio id="bark" src='.sound/dog-bark.wav'></audio>
+<audio id="mavSound" src='./sound/mavDangerous.wav'></audio>
+<audio id="aryaSound" src='./sound/aryaIntro.wav'></audio>
+<audio id="clickSound" src='./sound/dog-bark.wav'></audio>
+<audio id="introSound" src='./sound/whoLetDogsOut.mp3'></audio>
+
+</body>
+<script src="app.js"></script>
+
+</html>

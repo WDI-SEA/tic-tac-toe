@@ -1,3 +1,96 @@
+html { 
+  background: url('img/backgroundshot.jpg') no-repeat center center fixed;
+  background-size: cover;
+  height: 100%;
+  overflow: hidden;
+}
+
+
+body {
+	font-family: 'Arial', sans-serif;
+	color: white;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+
+h1 {
+	font-size: 36px;
+}
+
+table {
+	width: 75%;
+	margin: auto;
+	margin-top: 20px;
+	font-family: 'Arial', sans-serif;
+	font-size: 70px;
+}
+
+td {
+	display: inline-block;
+	width: 100px;
+	height: 100px;
+	line-height: 100px;
+	border: none;
+	border-radius: 10%;
+	box-shadow: 0 .03em .08em rgba(0,0,0, 0.5);
+	margin: 8px;
+	background-image: url('./img/mav.jpg');
+
+}
+
+
+td:hover {
+	cursor: pointer;
+	background-color: purple;
+}
+
+.selected {
+	background-color: #FA6900;
+}
+
+tr {
+	list-style-type: none;
+	width: 500px;
+}
+
+button {
+	border: none;
+	background: transparent;
+	width: 100px;
+	height: 100px;
+	margin: .3em;
+	border-radius: 50%;
+}
+
+.mav:hover {
+
+	background-image: ('.mav.jpg');
+	background-size: 100px 100px;
+	max-height: 100%
+	max-width: 100%;
+	color: orange;
+}
+
+.arya:hover {
+	background-image: ('./img/arya.jpg');
+	background-size: 100px 100px;
+	max-width: 100%
+	max-height: 100%;
+	color: orange;
+}
+
+.seed {
+	background: #F38630;
+	color: white;
+}
+
+#result {
+	padding-top: 20px;
+	height: 40px;
+	font-size: 1.5em;
+}
+
 h1 {
   color: purple;
 }
