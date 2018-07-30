@@ -19,24 +19,30 @@
         </form>
       </div>
       <div class='score-card'>
-        <div class='player player1' id="x">
+         <div class='player player1'>
           <table class="xtable">
-            <tr >
-              <td class='type' id='x'>X</td>
-              <td class='score' id="x-score">-</td> 
+            <tr class='xrow'>
+              <td >
+                <button class='type' id="x">X</button>
+              </td>
+              <td >
+                <button class='score' id="xs">-</button>
+              </td> 
             </tr>
           </table>
         </div>
-        <div class='player player1' id="o">
+        <div class='player player2'>
           <table class="otable">
-            <tr >
-              <td class='type' id="o">O</td>
-              <td class='score' id="o-score">-</td> 
+            <tr class='orow'>
+              <td >
+                <button class='type' id="o">O</button>
+              </td>
+              <td >
+                <button class='score' id="os">-</button></h4></td> 
             </tr>
           </table>
 
         </div>
-      
       </div>
       
       <div class='start'>Start game or select player</div>
@@ -44,32 +50,40 @@
   <main>
       <div class='game'>
 
-        <div class="tables">
-          <table class="table1">
-            <tr class="row row1">
-              <td class='cell' id='cell-1'>1</td>
-              <td class='cell' id='cell-2'>2</td>
-              <td class='cell' id='cell-3'>3</td>
-            </tr>
-          </table>
-        </div>
-
-        <div class="tables">
-          <table class="table2">
-            <tr class="row row2">
-              <td class='cell' id='cell-4'>4</td>
-              <td class='cell' id='cell-5'>5</td>
-              <td class='cell' id='cell-6'>6</td>
-            </tr>
-          </table>
-        </div>
-
-        <div class="tables">
+        <div class="game-table">
           <table class="table3">
-            <tr class="row row3" id="x">
-              <td class='cell' id='cell-7'>7</td>
-              <td class='cell' id='cell-8'>8</td>
-              <td class='cell' id='cell-9'>9</td>
+            <tr class='row' id='row1'>
+              <td class='cell' id='cell-1'>
+                <button class='xo' id="xo1">X</button>
+              </td>
+              <td class='cell' id='cell-2'>
+                <button class='xo' id="xo2">X</button>
+              </td>
+              <td class='cell' id='cell-3'>
+                <button class='xo' id="xo3">X</button>
+              </td>
+            </tr>
+            <tr class='row' id='row2'>
+              <td class='cell' id='cell-4'>
+                <button class='xo' id="xo4">X</button>
+              </td>
+              <td class='cell' id='cell-5'>
+                <button class='xo' id="xo5">X</button>
+              </td>
+              <td class='cell' id='cell-6'>
+                <button class='xo' id="xo6">X</button>
+              </td>
+            </tr>
+            <tr class='row' id='row3'">
+              <td class='cell' id='cell-7'>
+                <button class='xo' id="xo7">X</button>
+              </td>
+              <td class='cell' id='cell-8'>
+                <button class='xo' id="xo8">X</button>
+              </td>
+              <td class='cell' id='cell-9'>
+                <button class='xo' id="xo9">X</button>
+              </td>
             </tr>
           </table>
         </div>
