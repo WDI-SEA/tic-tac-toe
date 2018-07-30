@@ -133,91 +133,27 @@ function checkVictory(player) {
   // check diagonals
   if (checkTriple(1, 4, 9, player)) {
     victory = true;
-    if (player === 'pX') {
-      scoreX++;
-      updateScore();
-    }
-    if (player === 'pO') {
-      scoreO++;
-      updateScore();
-    }
   }
   if (checkTriple(3, 2, 7, player)) {
     victory = true;
-    if (player === 'pX') {
-      scoreX++;
-      updateScore();
-    }
-    if (player === 'pO') {
-      scoreO++;
-      updateScore();
-    }
   }
   if (checkTriple(1, 1, 3, player)) {
     victory = true;
-    if (player === 'pX') {
-      scoreX++;
-      updateScore();
-    }
-    if (player === 'pO') {
-      scoreO++;
-      updateScore();
-    }
   }
   if (checkTriple(4, 1, 6, player)) {
     victory = true;
-    if (player === 'pX') {
-      scoreX++;
-      updateScore();
-    }
-    if (player === 'pO') {
-      scoreO++;
-      updateScore();
-    }
   }
   if (checkTriple(7, 1, 9, player)) {
     victory = true;
-    if (player === 'pX') {
-      scoreX++;
-      updateScore();
-    }
-    if (player === 'pO') {
-      scoreO++;
-      updateScore();
-    }
   }
   if (checkTriple(1, 3, 7, player)) {
     victory = true;
-    if (player === 'pX') {
-      scoreX++;
-      updateScore();
-    }
-    if (player === 'pO') {
-      scoreO++;
-      updateScore();
-    }
   }
   if (checkTriple(2, 3, 8, player)) {
     victory = true;
-    if (player === 'pX') {
-      scoreX++;
-      updateScore();
-    }
-    if (player === 'pO') {
-      scoreO++;
-      updateScore();
-    }
   }
   if (checkTriple(3, 3, 9, player)) {
     victory = true;
-    if (player === 'pX') {
-      scoreX++;
-      updateScore();
-    }
-    if (player === 'pO') {
-      scoreO++;
-      updateScore();
-    }
   }
   return victory;
 }
