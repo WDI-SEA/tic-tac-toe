@@ -8,7 +8,7 @@ var numTiles = 9;
 // scores
 //
 // store scores
-// dispplay scores
+// display scores
 
 //
 // player options
@@ -20,9 +20,18 @@ var numTiles = 9;
 //
 // game turns
 //
-// next turn
-// store turn count
 // display turn
+function displayTurn() {
+  ele = document.getElementById('player-turn');
+  if (turn % 2 === 0) {
+    ele.textContent = 'X player\'s turn';
+    ele.style.background = 'linear-gradient(to bottom right, cyan, teal)';
+  }
+  else {
+    ele.textContent = 'O player\'s turn';
+    ele.style.background = 'linear-gradient(to bottom right, yellow, red)';
+  }
+}
 
 //
 // gameboard
@@ -41,15 +50,27 @@ function removeTileListener(i) {
 }
 
 
-// TODO mark based upon turn
+// function to code for players picking a tile
 function mark() {
-  this.style.background = 'linear-gradient(to bottom right, cyan, teal)';
+  // if it is X's turn
+  if (turn % 2 === 0) {
+    this.style.background = 'linear-gradient(to bottom right, cyan, teal)';
+  }
+  // otherwise it's O's move
+  else {
+    this.style.background = 'linear-gradient(to bottom right, yellow, red)';
+  }
+  // remove ability to play this tile again
+  this.removeEventListener('click', mark);
+  // move over, so next turn begins
+  turn++;
+  displayTurn();
 }
 // check board conditions
 // store gameboard conditions
 
 //
-// get the game ready for play
+// make the game ready for play
 //
 function init() {
   turn = 0;
