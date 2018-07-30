@@ -3,11 +3,62 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <title>Andres' Tic-Tac-Toe</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-  <h1>Hello Front-End</h1>
+  <h1 class="centered-heading">Tic-Tac-Toe</h1>
+
+  <!-- display score -->
+  <div class="scoreboard clearfix">
+    <div class="scoreboard-players clearfix">
+      <h4 class="scoreboard-left-col">Player X</h4>
+      <h4 class="scoreboard-right-col">Player O</h4>
+    </div>
+    <div class="scoreboard-scores clearfix">
+      <p class="scoreboard-left-col" id="x-score">Points: 0</p>
+      <p class="scoreboard-right-col" id="y-score">Points: 0</p>
+    </div>
+  </div>
+
+  <!-- config and info section -->
+  <div class="config clearfix">
+    <!-- radio input for turning AI on or off -->
+    <form class="config-player-options">
+      <input type="radio" name="multiplayer" value="multi"
+                                             checked>Multiplayer</input>
+      <input type="radio" name="multiplayer" value="single">Singleplayer</input>
+    </form>
+
+    <!-- display message to indicate player turn -->
+    <p class="config-turn-order" id="player-turn">X Player's Turn</p>
+  </div>
+
+
+  <!-- game board -->
+  <div class="gameboard">
+    <div class="tile" id="tile-0" data-marker="">
+    </div>
+    <div class="tile" id="tile-1" data-marker="">
+    </div>
+    <div class="tile" id="tile-2" data-marker="">
+    </div>
+    <div class="tile" id="tile-3" data-marker="">
+    </div>
+    <div class="tile" id="tile-4" data-marker="">
+    </div>
+    <div class="tile" id="tile-5" data-marker="">
+    </div>
+    <div class="tile" id="tile-6" data-marker="">
+    </div>
+    <div class="tile" id="tile-7" data-marker="">
+    </div>
+    <div class="tile" id="tile-8" data-marker="">
+    </div>
+  </div>
+
+  <!-- reset button -->
+  <button class="button" id="reset-button">Reset</button>
 
   <script type="text/javascript" src="js/app.js"></script>
 </body>
