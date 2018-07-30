@@ -106,6 +106,7 @@ function resetBoard(){
 			table[i][j].className = " ";
 		}
 	}
+    turn = 'x';
 }
 
 function win(){
@@ -127,6 +128,7 @@ function getOptions(table){
                 open.push(table[i][j]);
         }
     }
+    return open;
 }
 
 
@@ -143,28 +145,29 @@ function tableEvaluator(table, player){
     else {
         var options = getOptions(table);
         var copy = deepCopy(table);
+        console.log(options);
         var possibleMoves = [];
         for(var i = 0; i < options.length; i++) {
             var move = {};
             move.coord = getCoord(options[i]);
             move.elem = copy[move.coord.x][move.coord.y];
             copy[move.coord.x][move.coord.y].className = player;
+            var res;
             if(player == 'o'){
-                var res = tableEvaluator(copy,'x');
+                res = tableEvaluator(copy,'x');
                 move.score = res.score;
             }
             else {
-                var res = tableEvaluator(copy,'o');
+                res = tableEvaluator(copy,'o');
                 move.score = res.score;
             }
             possibleMoves.push(move);
         }
 
         var bestMove;
-        
         if (player == 'x'){
             var bestScore = 10000;
-            for(var i = 0; i < possibleMoves.length; i++) {
+          for(var i = 0; i < possibleMoves.length; i++) {
                 if(possibleMoves[i].score < bestScore){
                     bestScore = possibleMoves[i].score;
                     bestMove = possibleMoves[i];
@@ -204,4 +207,5 @@ function deepCopy(table){
 function makeMove(){
     var move = tableEvaluator(table,'o');
     move.elem.className.add('o');
+    turn = 'x';
 }
