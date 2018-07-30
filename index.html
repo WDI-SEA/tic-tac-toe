@@ -5,10 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Hello Front-End</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Nanum+Brush+Script" rel="stylesheet">
 </head>
-<body>
-  <h1>Hello Front-End</h1>
-
+<body onload="startGame();">
+  <h2>Tic-Tac-Toe</h2>
+  <div id="message">Messages will go here</div>
+  <br>
+  <div id="game-board">
+	  <table border = "1" class="table">
+	  	<tr>
+	  		<td class="game-box" id="c1" onclick="nextMove(this);"></td>
+	  		<td class="game-box" id="c2" onclick="nextMove(this);"></td>
+	  		<td class="game-box" id="c3" onclick="nextMove(this);"></td>
+	  	</tr>
+	  	  	<tr>
+	  		<td class="game-box" id="c4" onclick="nextMove(this);"></td>
+	  		<td class="game-box" id="c5" onclick="nextMove(this);"></td>
+	  		<td class="game-box" id="c6" onclick="nextMove(this);"></td>
+	  	</tr>
+	  	  	<tr>
+	  		<td class="game-box" id="c7" onclick="nextMove(this);"></td>
+	  		<td class="game-box" id="c8" onclick="nextMove(this);"></td>
+	  		<td class="game-box" id="c9" onclick="nextMove(this);"></td>
+	  	</tr>
+	  </table>
+	</div>
+	<br>
+	<div id="button">
+		<button type="button" onclick="javascript:startGame();" >Restart</button>
+	</div>
   <script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>
