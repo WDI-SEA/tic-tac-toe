@@ -1,3 +1,68 @@
-h1 {
-  color: purple;
+header {
+	background-color: red;
+	margin-bottom: 10px;
+	padding: 20px;
+}
+
+body {
+	background-color: blue;
+	margin: 0;
+}
+
+table {
+	background-color: black;
+	position: relative;
+}
+td {
+	background-color: white;
+	border: 2px solid #333;
+	height: 100px;
+	width: 100px;
+	text-align: center;
+	vertical-align: middle;
+	font-family: "Comic Sans MS", cursive, sans-serif;
+	font-size: 70px;
+	cursor: pointer;
+}
+
+.endgame {
+	/*Need to fix the end game message, How to make dynamically displayed*/
+	display: none;
+	z-index: 2;
+	width: 500px;
+	top: 285px;
+	left: 35%;
+	background-color: rgba(207, 32, 32, 0.9);
+	position: absolute;
+	margin: auto;
+	border-radius: 5px;
+	font-size: 2em;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	text-align: center;
+}
+
+#main_title {
+  color: blue;
+  text-align: center;
+  margin: 5px;
+}
+
+#main_subtitle {
+	color: blue;
+	text-align: center;
+	margin: 5px;
+}
+
+.gameboard {
+	display: grid;
+	grid-template-columns: auto auto auto;
+	padding: 10px;
+}
+
+.box {
+	border: 1px solid rgba(0, 0, 0, 0.8);
+	padding: 20px;
+	font-size: 30px;
+	text-align: center;
 }
