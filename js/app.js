@@ -74,11 +74,47 @@ function checkCond() {
     return true;
   }
   // check if a player has won
-  else if (checkVictory()) {
+  else if (checkVictory('pX')) {
+    // X won
+    console.log('X has won');
+    // increase X's score
+    scoreX++;
+    updateScore();
+    // perform end game logic
+    gameOver('X has won the game!');
+    return true;
+  }
+  else if (checkVictory('pO')) {
+    // O won
+    console.log('O has won');
+    // increase O's score
+    scoreO++;
+    updateScore();
+    // perform end game logic
+    gameOver('O has won the game!');
     return true;
   }
   // game continues
   return false;
+}
+
+// returns true if player has a triple along that path
+function checkTriple(start, increment, end, player) {
+  var count = 0;
+  for (var i = start; i <= end; i += increment) {
+    // get tile
+    tile = document.getElementById('tile-' + (i - 1));
+    // compare tile's marker to player
+    if (tile.getAttribute('data-marker') === player) {
+      count++;
+    }
+  }
+  if (count === 3) {
+    return true;
+  }
+  else {
+    return false;
+  }
 }
 
 // diagonals
@@ -92,14 +128,98 @@ function checkCond() {
 // 1, 4, 7 start at 1, increment by 3
 // 2, 5, 8 start at 2, increment by 3
 // 3, 6, 9 start at 3, increment by 3
-function checkTriple(start, increment, end, player) {
-  // TODO
-  for (int i = start, i <= end, i += increment) {
+function checkVictory(player) {
+  victory = false;
+  // check diagonals
+  if (checkTriple(1, 4, 9, player)) {
+    victory = true;
+    if (player === 'pX') {
+      scoreX++;
+      updateScore();
+    }
+    if (player === 'pO') {
+      scoreO++;
+      updateScore();
+    }
   }
-}
-function checkVictory() {
-  updateScore();
-  return false;
+  if (checkTriple(3, 2, 7, player)) {
+    victory = true;
+    if (player === 'pX') {
+      scoreX++;
+      updateScore();
+    }
+    if (player === 'pO') {
+      scoreO++;
+      updateScore();
+    }
+  }
+  if (checkTriple(1, 1, 3, player)) {
+    victory = true;
+    if (player === 'pX') {
+      scoreX++;
+      updateScore();
+    }
+    if (player === 'pO') {
+      scoreO++;
+      updateScore();
+    }
+  }
+  if (checkTriple(4, 1, 6, player)) {
+    victory = true;
+    if (player === 'pX') {
+      scoreX++;
+      updateScore();
+    }
+    if (player === 'pO') {
+      scoreO++;
+      updateScore();
+    }
+  }
+  if (checkTriple(7, 1, 9, player)) {
+    victory = true;
+    if (player === 'pX') {
+      scoreX++;
+      updateScore();
+    }
+    if (player === 'pO') {
+      scoreO++;
+      updateScore();
+    }
+  }
+  if (checkTriple(1, 3, 7, player)) {
+    victory = true;
+    if (player === 'pX') {
+      scoreX++;
+      updateScore();
+    }
+    if (player === 'pO') {
+      scoreO++;
+      updateScore();
+    }
+  }
+  if (checkTriple(2, 3, 8, player)) {
+    victory = true;
+    if (player === 'pX') {
+      scoreX++;
+      updateScore();
+    }
+    if (player === 'pO') {
+      scoreO++;
+      updateScore();
+    }
+  }
+  if (checkTriple(3, 3, 9, player)) {
+    victory = true;
+    if (player === 'pX') {
+      scoreX++;
+      updateScore();
+    }
+    if (player === 'pO') {
+      scoreO++;
+      updateScore();
+    }
+  }
+  return victory;
 }
 
 // function to code for players picking a tile
