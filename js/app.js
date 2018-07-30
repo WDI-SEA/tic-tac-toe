@@ -94,11 +94,13 @@ function set() {
     alert('Draw');
     startNewGame();
   } else {
-    turn = turn === 'X' ? 'O' : 'X';
+  	if (turn === 'O') {
+  		this.style.color = 'blue';
+  	} else {
+  		this.style.color = 'red';
+  	}
+	turn = turn === 'X' ? 'O' : 'X';
     document.getElementById('turn').textContent = 'Player ' + turn;
-    if (turn === 'X') {
-        this.className += ' blueText ';
-	}
   }
 }
 
