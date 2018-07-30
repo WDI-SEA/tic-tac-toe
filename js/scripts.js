@@ -26,7 +26,8 @@ function populateTable(){
 
 // Executed when the player clicks, checks for win and changes turn
 function playerClicked(){
-	if(this.className == " "){
+    console.log("clicked!",turn);
+	if(this.className !='x' && this.className != 'o'){
 		this.className = turn;
 		setTimeout(500);
 		if(checkForWin(table,turn)){
@@ -58,36 +59,35 @@ function compareTiles(tile1, tile2, tile3,player){
 
 
 // Checks for 3 similar in a row 
-function checkForWin(table, player) {
+function checkForWin(tableIn, player) {
 	// Check for horizontal/verticle wins
 	for(var i = 0; i < 3; i++){
-		if(compareTiles(table[i][0],table[i][1],table[i][2],player)){
-            winner=table[i][0].classList.index(0);
+		if(compareTiles(tableIn[i][0],tableIn[i][1],tableIn[i][2],player)){
 			return true;
 		}
-		if(compareTiles(table[0][i], table[1][i], table[2][i],player)){
+		if(compareTiles(tableIn[0][i], tableIn[1][i], tableIn[2][i],player)){
 			return true;
 		}
 	}
 
 	// Check for diagonal wins
-	if(compareTiles(table[0][0], table[1][1], table[2][2], player)){
+	if(compareTiles(tableIn[0][0], tableIn[1][1], tableIn[2][2], player)){
 		return true;
 	}
-	else if (compareTiles(table[0][2],table[1][1],table[2][0],player)){
+	else if (compareTiles(tableIn[0][2],tableIn[1][1],tableIn[2][0],player)){
 		return true;
 	}
 
-	checkTie(table);
+	checkTie(tableIn);
 	return false;
 }
 
 // Checking for tie 
-function checkTie(table){
+function checkTie(tableIn){
 	var total = 0;
 	for(var i = 0; i < 3; i++){
 		for(var j = 0; j < 3; j++){
-			if(table[i][j].className != " ")
+			if(tableIn[i][j].className == 'x' || tableIn[i][j].className =='o')
 				total++;
 		}
 	}
@@ -103,7 +103,7 @@ function checkTie(table){
 function resetBoard(){
 	for(var i = 0; i < 3; i++){
 		for(var j = 0; j < 3; j++){
-			table[i][j].className = " ";
+			table[i][j].className = "";
 		}
 	}
     turn = 'x';
