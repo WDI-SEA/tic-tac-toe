@@ -25,6 +25,10 @@
 ## Options
 
 * reset
+    * reset score another option?
+* select mode
+    * multiplayer
+    * singleplayer
 
 ## Feedback
 
@@ -35,8 +39,10 @@
 
 ## Players
 
-* Two human players
-* One AI, one human
+* multiplayer
+    * two humans
+* singleplayer
+    * one AI, one human
 
 # Implementation
 

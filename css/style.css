@@ -60,7 +60,7 @@ font-size: 0;
 .config-player-options {
   background-color: yellow;
   display: inline;
-  margin: 0px 20px;
+  margin: 0 20px 0 0;
 }
 
 .config-turn-order {
