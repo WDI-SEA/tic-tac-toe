@@ -58,21 +58,9 @@ function removeTileListener(i) {
   tile.removeEventListener('click', mark);
 }
 
-// TODO determine if game is over
+// determine if game is over
 // returns true if game is over, else false
 function checkCond() {
-  // brute force: 8 checks, over 3 elements, per turn
-  // rows
-  // 1, 2, 3
-  // 4, 5, 6
-  // 7, 8, 9
-  // columns
-  // 1, 4, 7
-  // 2, 5, 8
-  // 3, 6, 9
-  // diagonals
-  // 1, 5, 9
-  // 7, 5, 3
   // check for draw
   if (turn !== 0 && turn % 8 === 0) {
     // it's a draw
@@ -85,12 +73,29 @@ function checkCond() {
     gameOver('It\'s a draw!');
     return true;
   }
-  // TODO one player wins
-  else if (false) {
-    updateScore();
+  // check if a player has won
+  else if (checkVictory()) {
     return true;
   }
   // game continues
+  return false;
+}
+
+// TODO implement functionality
+function checkVictory() {
+  // brute force: 8 checks, over 3 elements, per turn
+  // rows
+  // 1, 2, 3
+  // 4, 5, 6
+  // 7, 8, 9
+  // columns
+  // 1, 4, 7
+  // 2, 5, 8
+  // 3, 6, 9
+  // diagonals
+  // 1, 5, 9
+  // 7, 5, 3
+  updateScore();
   return false;
 }
 
