@@ -15,7 +15,15 @@ var numTiles = 9;
 //
 // get player options
 // turn AI on or off
-// TODO reset function instead of clear
+
+//
+// TODO reset
+//
+// remove listeners
+// remove marks
+// keep player selection (multi/single)
+// keep score
+// reset score when switching player select?
 
 //
 // game turns
@@ -49,25 +57,43 @@ function removeTileListener(i) {
   tile.removeEventListener('click', mark);
 }
 
+// TODO determine if game is over
+// store gameboard conditions?
+function checkCond() {
+  // check for victory
+  // check for draw
+}
 
 // function to code for players picking a tile
 function mark() {
   // if it is X's turn
   if (turn % 2 === 0) {
     this.style.background = 'linear-gradient(to bottom right, cyan, teal)';
+    this.setAttribute('data-marker', 'pX');
   }
   // otherwise it's O's move
   else {
     this.style.background = 'linear-gradient(to bottom right, yellow, red)';
+    this.setAttribute('data-marker', 'pO');
   }
+  // TODO check for win now
   // remove ability to play this tile again
   this.removeEventListener('click', mark);
   // move over, so next turn begins
   turn++;
   displayTurn();
 }
-// check board conditions
-// store gameboard conditions
+
+// remove player graphic on tile
+// remove player's data attrribute on tile
+function removeMarks(i) {
+  // get tile element
+  tile = document.getElementById('tile-' + i);
+  // clear tile's graphic
+  tile.style.background = 'linear-gradient(to bottom right, blue, purple)';
+  // clear tile's data marker
+  tile.setAttribute('data-marker', '');
+}
 
 //
 // make the game ready for play
@@ -85,10 +111,11 @@ function init() {
   resetBtn.addEventListener('click', clear);
 }
 
-// remove event listeners
+// clear all tiles
 function clear() {
   for (var i = 0; i < numTiles; i++) {
     removeTileListener(i);
+    removeMarks(i);
   }
 }
 
