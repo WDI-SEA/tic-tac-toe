@@ -211,7 +211,7 @@ const game = (() => {
 	let _scores = [0, 0]
 	const updateScores = () => {
 		playerScoreElements[0].textContent = _scores[0]
-		playerScoreElements[0].textContent = _scores[1]
+		playerScoreElements[1].textContent = _scores[1]
 	}
 
 	const isOver = () => _isOver
