@@ -1,5 +1,5 @@
 html { 
-  background: url('img/backgroundshot.jpg') no-repeat center center fixed;
+  background: url('../img/backgroundshot.jpg') no-repeat center center fixed;
   background-size: cover;
   height: 100%;
   overflow: hidden;
@@ -9,13 +9,15 @@ html {
 body {
 	font-family: 'Arial', sans-serif;
 	color: white;
+	font-size: 18px;
 	margin: 0;
 	padding: 0;
 	text-align: center;
 }
 
 h1 {
-	font-size: 36px;
+	font-size: 58px;
+	color: white;
 }
 
 table {
@@ -35,7 +37,7 @@ td {
 	border-radius: 10%;
 	box-shadow: 0 .03em .08em rgba(0,0,0, 0.5);
 	margin: 8px;
-	background-image: url('./img/mav.jpg');
+	background-image: url('../img/reset.png');
 
 }
 
@@ -63,17 +65,17 @@ button {
 	border-radius: 50%;
 }
 
-.mav:hover {
+#mav:hover {
 
-	background-image: ('.mav.jpg');
+	background-image: url('../img/mav.jpg');
 	background-size: 100px 100px;
 	max-height: 100%
 	max-width: 100%;
 	color: orange;
 }
 
-.arya:hover {
-	background-image: ('./img/arya.jpg');
+#arya:hover {
+	background-image: url('../img/arya.jpg');
 	background-size: 100px 100px;
 	max-width: 100%
 	max-height: 100%;
@@ -89,8 +91,4 @@ button {
 	padding-top: 20px;
 	height: 40px;
 	font-size: 1.5em;
-}
-
-h1 {
-  color: purple;
 }
