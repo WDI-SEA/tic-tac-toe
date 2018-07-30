@@ -39,16 +39,16 @@ function start() {
 
 function playerOne() {
 	gameIntro.pause();
-	playerIntro.pause()
-	playerIntro = document.getElementById('mavSound');
-	playerIntro.play();
+	playerIntroArya.pause();
+	playerIntroMav = document.getElementById('mavSound');
+	playerIntroMav.play();
 }
 
 function playerTwo() {
 	gameIntro.pause();
-	playerIntro.pause();
-	playerIntro = document.getElementById('aryaSound');
-	playerIntro.play();
+	playerIntroMav.pause();
+	playerIntroArya = document.getElementById('aryaSound');
+	playerIntroArya.play();
 }
 
 
