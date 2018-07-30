@@ -73,11 +73,25 @@ function checkCond() {
   // diagonals
   // 1, 5, 9
   // 7, 5, 3
-  // TODO relocate updateScore
-  updateScore();
-  return false;
-  // check for victory
   // check for draw
+  if (turn !== 0 && turn % 8 === 0) {
+    // it's a draw
+    console.log('draw detected');
+    // give both players +1 score, just to show off scoreboard
+    scoreX++;
+    scoreO++;
+    updateScore();
+    // perform end game logic
+    gameOver('It\'s a draw!');
+    return true;
+  }
+  // TODO one player wins
+  else if (false) {
+    updateScore();
+    return true;
+  }
+  // game continues
+  return false;
 }
 
 // function to code for players picking a tile
@@ -94,7 +108,7 @@ function mark() {
   }
   // check if the game is over
   if (checkCond()) {
-    // TODO perform game over cleanup
+    // game cleanup is performed by checkCond()
   }
   else {
     // remove ability to play this tile again
@@ -144,6 +158,8 @@ function clear() {
 //
 // game over
 //
+function gameOver(message) {
+}
 // cleanup (remove event listeners)
 // draw
 // X xor O victory
