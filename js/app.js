@@ -1,5 +1,13 @@
+document.addEventListener('DOMContentLoaded', function(){
+  console.log('Dom got loaded');
+
+  document.getElementById('start').addEventListener('click', startGame);
+  // document.getElementById('pause').addEventListener('click', startGame);
+  // document.getElementById('reset').addEventListener('click', startGame);
+});
 function startGame() {
 	document.turn = "X";
+	document.winner = null;
 
 	setMessage(document.turn + "'s turn!");
 }
@@ -9,7 +17,9 @@ function setMessage(msg) {
 }
 
 function nextMove(square) {
-	if (square.innerText == "") {
+	if (document.winner != null) {
+		setMessage(document.winner + " already won!!!");
+	} else if (square.innerText == "") {
 	square.innerText = document.turn;
 	switchTurn();
 	} else {
@@ -20,12 +30,15 @@ function nextMove(square) {
 function switchTurn() {
 	if (checkForWinner(document.turn)){
 		setMessage("Congratulations, " + document.turn + "! You win!!!");
+		document.winner = document.turn;
 	} else if (document.turn =="X"){
 		document.turn = "O";
+		setMessage(document.turn + "'s turn!");
 	} else {
 		document.turn = "X";
+		setMessage(document.turn + "'s turn!");
 	}
-	setMessage(document.turn + "'s turn!");
+	
 }
 
 function checkForWinner(move) {
