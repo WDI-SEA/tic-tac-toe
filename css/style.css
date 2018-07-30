@@ -1,3 +1,72 @@
+body{
+	text-align: center;
+}
+
 h1 {
+
   color: purple;
+}
+
+
+div{
+	text-align: center;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	margin:13px;
+	display: inline-block;
+}
+
+button{
+	font-size: 50px;
+	padding: 25px;
+}
+
+img{
+	padding:15px;
+}
+#board{
+	background-image: url("../img/tic-tac-toe-board.gif");
+	width: 700px;
+	height: 700px;
+}
+
+#tile1{
+	background: url("../img/c.png");
+}
+
+#tile2{
+	background: url("../img/c.png");
+}
+
+#tile3{
+	background: url("../img/c.png");
+}
+
+#tile4{
+	background: url("../img/c.png");
+}
+
+#tile5{
+	background: url("../img/c.png");
+}
+
+#tile6{
+	background: url("../img/c.png");
+}
+
+#tile7{
+	background: url("../img/c.png");
+}
+
+#tile8{
+	background: url("../img/c.png");
+}
+
+#tile9{
+	background: url("../img/c.png");
+}
+.tile{
+	width: 200px;
+	height:200px;
+	background:;
 }
