@@ -15,7 +15,8 @@ var numTiles = 9;
 //
 // get player options
 // turn AI on or off
-// reset
+// TODO reset function instead of clear
+
 //
 // game turns
 //
@@ -57,7 +58,10 @@ function init() {
   for (var i = 0; i < numTiles; i++) {
     addTileListener(i);
   }
-
+  // add event listener to reset button
+  // TODO change reset functionality to reset instead of clear
+  resetBtn = document.getElementById('reset-button');
+  resetBtn.addEventListener('click', clear);
 }
 
 // remove event listeners
