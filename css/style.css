@@ -67,7 +67,7 @@ button {
 	border-radius: 50%;
 }
 
-#mav:hover {
+#mavB:hover {
 
 	background-image: url('../img/mav.jpg');
 	background-size: 100px 100px;
@@ -76,7 +76,7 @@ button {
 	color: orange;
 }
 
-#arya:hover {
+#aryaB:hover {
 	background-image: url('../img/arya.jpg');
 	background-size: 100px 100px;
 	max-width: 100%

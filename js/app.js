@@ -1,6 +1,6 @@
 console.log('Hello frontend');
-var mavIntro;
-var aryaIntro;
+var playerIntroMav;
+var playerIntroArya;
 var gameIntro;
 var clickSound;
 var playerOne;
@@ -39,14 +39,12 @@ function start() {
 
 function playerOne() {
 	gameIntro.pause();
-	playerIntroArya.pause();
 	playerIntroMav = document.getElementById('mavSound');
 	playerIntroMav.play();
 }
 
 function playerTwo() {
 	gameIntro.pause();
-	playerIntroMav.pause();
 	playerIntroArya = document.getElementById('aryaSound');
 	playerIntroArya.play();
 }
