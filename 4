@@ -183,12 +183,14 @@ function tableEvaluator(table, player){
         }
     }
 }
+
 function getCoord(elem){
     return {
         x:elem.getAttribute('data-col'),
         y:elem.getAttribute('data-row')
     };
 }
+
 function deepCopy(table){
     var toReturn = [];
     for(var i = 0; i < 3; i++){

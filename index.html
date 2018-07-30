@@ -2,7 +2,6 @@
 <html>
 	<head>
 		<meta http-equiv="content-type" content="text/php; charset=utf-8" />
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 		<link href="css/style.css" type="text/css" rel="stylesheet">
     <title>Tic Tac Toe</title>
   </head>
@@ -28,19 +27,19 @@
 		</table>
 		<table class="board" id="tictac">
 			<tr>
-				<td></td>	
-				<td></td>
-				<td></td>
+				<td data-row="1" data-col="1"></td>	
+				<td data-row="1" data-col="2"></td>
+				<td data-row="1" data-col="3"></td>
 			</tr>
 			<tr>
-				<td></td>	
-				<td></td>
-				<td></td>
+				<td data-row="2" data-col="1"></td>
+				<td data-row="2" data-col="2"></td>
+				<td data-row="2" data-col="3"></td>
 			</tr>
 			<tr>
-				<td></td>	
-				<td></td>
-				<td></td>
+				<td data-row="3" data-col="1"></td>
+				<td data-row="3" data-col="2"></td>
+				<td data-row="3" data-col="3"></td>
 			</tr>
 		</table>
     <div class="buttons">
@@ -49,8 +48,6 @@
     </div>
   </body>
 	<script src="js/scripts.js"></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   <footer>
 	</footer>
 </html>
