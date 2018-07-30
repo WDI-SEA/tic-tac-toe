@@ -10,12 +10,14 @@ var twoTurns = [];
 var box = ["A1", "A2", "A3", "B1", "B2", "B3", "C1", "C2", "C3"];
 var clicked = [];
 var diagonalWin = [];
-var rowWin = [];
-var colWin = [];
+var rowWin = []; //figure out if I can do something cooler than regular expressions
+var colWin = []; //same as row
 
 document.addEventListener('DOMContentLoaded', function(){
 	console.log('DOM got loaded');
-	document.getElementById('selection').addEventListener('click', start);
+	document.getElementById('startB').addEventListener('click', start);
+	document.getElementById('mavB').addEventListener('click', playerOne);
+	document.getElementById('aryaB').addEventListener('click', playerTwo);
 });
 
 
@@ -33,6 +35,20 @@ function start() {
 	console.log('starting game');
 	gameIntro = document.getElementById('introSound');
 	gameIntro.play();
+}
+
+function playerOne() {
+	gameIntro.pause();
+	playerIntro.pause()
+	playerIntro = document.getElementById('mavSound');
+	playerIntro.play();
+}
+
+function playerTwo() {
+	gameIntro.pause();
+	playerIntro.pause();
+	playerIntro = document.getElementById('aryaSound');
+	playerIntro.play();
 }
 
 

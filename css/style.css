@@ -59,6 +59,8 @@ tr {
 button {
 	border: none;
 	background: transparent;
+	font-size: 18px;
+	color: white;
 	width: 100px;
 	height: 100px;
 	margin: .3em;
