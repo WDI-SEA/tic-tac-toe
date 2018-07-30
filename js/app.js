@@ -61,6 +61,18 @@ function removeTileListener(i) {
 // TODO determine if game is over
 // returns true if game is over, else false
 function checkCond() {
+  // brute force: 8 checks, over 3 elements, per turn
+  // rows
+  // 1, 2, 3
+  // 4, 5, 6
+  // 7, 8, 9
+  // columns
+  // 1, 4, 7
+  // 2, 5, 8
+  // 3, 6, 9
+  // diagonals
+  // 1, 5, 9
+  // 7, 5, 3
   // TODO relocate updateScore
   updateScore();
   return false;
