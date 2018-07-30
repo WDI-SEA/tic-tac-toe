@@ -158,12 +158,21 @@ function clear() {
 //
 // game over
 //
+// perform end game logic
 function gameOver(message) {
+  // remove board interaction
+  for (var i = 0; i < numTiles; i++) {
+    removeTileListener(i);
+  }
+  // display end game message
+  alert(message);
 }
-// cleanup (remove event listeners)
-// draw
-// X xor O victory
 
-// TODO JS wrapper for DOM loading
-// begin game after loading JS
-init();
+//
+// start game after DOM is loaded
+//
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('Begin Game');
+  // start game
+  init();
+});
