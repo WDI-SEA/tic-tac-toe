@@ -27,13 +27,12 @@ function populateTable(){
 // Executed when the player clicks, checks for win and changes turn
 function playerClicked(){
     console.log("clicked!",turn);
-	if(this.className !='x' && this.className != 'o'){
+	if(this.className !='x' && this.className != 'o' && document.getElementById('winner').innerHTML == ""){
 		this.className = turn;
 		setTimeout(500);
 		if(checkForWin(table,turn)){
-			alert("Player " + turn.toUpperCase() + " won!");	
 			win();
-			resetBoard();
+			//resetBoard();
 		}
         if(aiButton.checked){
             setTimeout(function(){},200);
@@ -93,8 +92,8 @@ function checkTie(tableIn){
 	}
 	if(total == 9)
 	{
-		alert("It's a tie!");
-		resetBoard();
+        document.getElementById('winner').innerHTML = "It's a tie!";
+		//resetBoard();
 	}
 }
 
@@ -107,6 +106,7 @@ function resetBoard(){
 		}
 	}
     turn = 'x';
+    document.getElementById('winner').innerHTML = "";
 }
 
 function win(){
@@ -114,6 +114,7 @@ function win(){
 	number = parseInt(number);
 	number++;
 	document.getElementById(turn).innerHTML = number;
+    document.getElementById('winner').innerHTML = turn.toUpperCase() + " has won!";
 }
 
 populateTable();
