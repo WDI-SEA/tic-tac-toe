@@ -6,9 +6,24 @@
   <title>Hello Front-End</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
-<body>
-  <h1>Hello Front-End</h1>
-
+<body onload="startGame();">
+  <h1>Tic Tac Toe Game</h1>
+  <div id="message">Messages will go here</div>
+  <table border>
+  	<tr>
+  		<td id="s1" class="square" onclick="nextMove(this);"></td>
+  		<td id="s2" class="square" onclick="nextMove(this);"></td>
+  		<td id="s3" class="square" onclick="nextMove(this);"></td>
+  	</tr>
+  		<td id="s4" class="square" onclick="nextMove(this);"></td>
+  		<td id="s5" class="square" onclick="nextMove(this);"></td>
+  		<td id="s6" class="square" onclick="nextMove(this);"></td>
+  	</tr>
+  		<td id="s7" class="square" onclick="nextMove(this);"></td>
+  		<td id="s8" class="square" onclick="nextMove(this);"></td>
+  		<td id="s9" class="square" onclick="nextMove(this);"></td>
+  	</tr>
+  </table>
   <script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>
