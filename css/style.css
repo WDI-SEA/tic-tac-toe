@@ -1,3 +1,43 @@
-h1 {
-  color: purple;
+body {
+  background-color: #c6cec6;
+  text-align: center;
+  font-family: 'Sunflower', sans-serif;
 }
+
+h1 {
+  color: black;
+  border-bottom: 5px bold black;
+  text-align: center;
+  position: relative;
+}
+
+.grid{
+	position: absolute;
+	margin-left: 32%;
+	border: 5px solid;
+	color: teal;
+	width: 500px;
+	text-align: center;
+	border-radius: 25px;
+	opacity: 0.8;
+}
+
+#message{
+	
+	position: relative;
+	font-size: 20pt;
+	text-align: center;
+
+}
+
+.square{
+	position: relative;
+	border: 3px solid;
+	height: 166px;
+	width: 166px;
+	font-size: 50pt;
+	text-align: center;
+	color: #333;
+	border-radius: 25px;
+}
+
