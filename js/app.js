@@ -19,8 +19,29 @@ function updateScore() {
 // turn AI on or off
 // reset score when switching player select?
 
+// TODO stupid AI
+function aiTurn() {
+  // ---begin while---
+  // while a tile hasn't been marked
+  // get a random number 1-9
+  // check if that tile is available`
+  // if available then set marked to true
+  // ---while over---
+  // mark tile
+}
 
+// TODO finish ticker and refractor mark()
+function tick() {
+  // if AI enabled && turn % 2 === 0
+  // then aiTurn()
+  // else do nothing
+  turn++;
+}
+
+
+//
 // restarts gameboard for play
+//
 function reset() {
   clear();
   init();
