@@ -1,4 +1,5 @@
 var startBoard;
+const cells = document.querySelectorAll('.box');
 const human = 'O';
 const computer = 'X';
 const winCombos = [
@@ -12,11 +13,49 @@ const winCombos = [
 	[3, 5, 7]
 ]
 
-const cells = document.querySelectorAll('.box');
+
 startGame();
 
 function startGame(){
 	document.querySelector(".endgame").style.display = "none";
 	startBoard = Array.from(Array(9).keys());
-	console.log(startBoard);
+	for (var i = 0; i < cells.length; i++) {
+		cells[i].innerText = '';
+		cells[i].addEventListener('click', userClick, false);
+		cells[i].addEventListener('click', doubleClick, true);
+		
+	}
 }
+
+function turn(squareId, player){
+	startBoard[squareId] = player;
+	document.getElementById(squareId).innerText = player;
+	for (var i = 0; i < cells.length; i++){
+		cells[i].addEventListener('click');
+	}
+}
+
+function userClick(square){
+	turn(square.target.id, human)
+	if (turn % 2 === 0){
+		return false
+	}
+	else {
+		return true
+	}
+}
+
+function doubleClick(square){
+	turn(square.target.id, computer)
+}
+
+// function playerTurn(){
+// 	if (clickNumber === 1){
+// 		userClick;
+// 		console.log('you clicked')
+// 	}
+// 	else {
+// 		doubleClick;
+// 		console.log('you clicked twice')
+// 	};
+// };
