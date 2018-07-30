@@ -53,19 +53,23 @@ font-size: 0;
 }
 
 .config {
-  background-color: orange;
+  background-color: black;
+  margin: 20px 0 0 0;
+  padding: 20px 0 20px 0;
   text-align: center;
 }
 
 .config-player-options {
-  background-color: yellow;
+  background-color: white;
   display: inline;
   margin: 0 20px 0 0;
+  padding: 10px;
 }
 
 .config-turn-order {
   background: linear-gradient(to bottom right, cyan, teal);
   display: inline;
+  padding: 10px;
 }
 
 .gameboard {
@@ -86,29 +90,29 @@ font-size: 0;
 }
 
 .scoreboard {
-  background-color: red;
+  background-color: darkgrey;
 }
 
 .scoreboard-left-col {
   float: left;
-  background-color: purple;
+  background: linear-gradient(to bottom right, cyan, teal);
   padding: 20px;
 }
 
 .scoreboard-right-col {
   float: right;
-  background-color: cyan;
+  background: linear-gradient(to bottom right, yellow, red);
   padding: 20px;
 }
 
 .scoreboard-scores {
-  background-color: blue;
+  background-color: darkcyan;
   margin: 0 auto;
   max-width: 20%;
 }
 
 .scoreboard-players {
-  background-color: green;
+  background-color: gold;
   margin: 0 auto;
   max-width: 20%;
 }
