@@ -1,48 +1,55 @@
 * {
 	box-sizing: border-box;
 }
+
 #gameBoard {
-	width: 350px;
-	height: 350px;
+	width: 50vw;
+	height: 50vw;
 	margin: 0 auto;
+	width: 50%;
 	border: 3px solid lightblue;
 	padding: 5px;
 	background-color: #307AC3;
 	color: #213F5E;
 }
+
 .square {
 	border-style: groove;
-    padding-bottom: 100px; 
+    padding-bottom: 31.5%; 
     height: 0;
     width:32%; 
     margin:0.5%;
     float:left; 
     display:block;
-    font-size: 100px;
-    text-align: center;
+    font-size: 300%
 }
+input {
+	width: 100px;
+	height: 100px;
+}
+
 .square:hover {
 	background-color: #ABC4DD;
 }
+
 .row:after {
 	content: "";
 	height: 33%
 	display: table;
 	clear: both;
 }
+#row {
+	max-height: 33%;
+	background-color: black;
+	border: 3px solid purple;
+}
+
 #bts {
 	text-align: center;
-}
-button {
-	margin: 5px;
-	font-size: 30px;
 }
 
 
 h1 {
   color: #213F5E;
   text-align: center;
-}
-p {
-	text-align: center;
 }
