@@ -1,29 +1,30 @@
 //
-// global variables
+// global variables will refresh on page refresh
 //
 var turn = 0;
 var numTiles = 9;
+var scoreX = 0;
+var scoreO = 0;
 
-//
-// scores
-//
-// store scores
-// display scores
+// display updated scores
+function updateScore() {
+  document.getElementById('x-score').textContent = 'Points: ' + scoreX;
+  document.getElementById('y-score').textContent = 'Points: ' + scoreO;
+}
 
 //
 // player options
 //
 // get player options
 // turn AI on or off
-
-//
-// TODO reset
-//
-// remove listeners
-// remove marks
-// keep player selection (multi/single)
-// keep score
 // reset score when switching player select?
+
+
+// restarts gameboard for play
+function reset() {
+  clear();
+  init();
+}
 
 //
 // game turns
@@ -58,8 +59,11 @@ function removeTileListener(i) {
 }
 
 // TODO determine if game is over
-// store gameboard conditions?
+// returns true if game is over, else false
 function checkCond() {
+  // TODO relocate updateScore
+  updateScore();
+  return false;
   // check for victory
   // check for draw
 }
@@ -76,12 +80,17 @@ function mark() {
     this.style.background = 'linear-gradient(to bottom right, yellow, red)';
     this.setAttribute('data-marker', 'pO');
   }
-  // TODO check for win now
-  // remove ability to play this tile again
-  this.removeEventListener('click', mark);
-  // move over, so next turn begins
-  turn++;
-  displayTurn();
+  // check if the game is over
+  if (checkCond()) {
+    // TODO perform game over cleanup
+  }
+  else {
+    // remove ability to play this tile again
+    this.removeEventListener('click', mark);
+    // move over, so next turn begins
+    turn++;
+    displayTurn();
+  }
 }
 
 // remove player graphic on tile
@@ -106,9 +115,8 @@ function init() {
     addTileListener(i);
   }
   // add event listener to reset button
-  // TODO change reset functionality to reset instead of clear
   resetBtn = document.getElementById('reset-button');
-  resetBtn.addEventListener('click', clear);
+  resetBtn.addEventListener('click', reset);
 }
 
 // clear all tiles
