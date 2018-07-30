@@ -20,18 +20,7 @@ winarray = [
 	 diag2 : [3,5,7]
 	}
 ];
-// var col1 = [1,2,3];
-// var col2 = [4,5,6];
-// var col3 = [7,8,9];
 
-// var row1 = [1,4,7];
-// var row2 = [2,5,8];
-// var row3 = [3,6,9];
-
-// var diag1 = [1,5,9];
-// var diag2 = [3,5,7];
-
-// var winarray = [col1, col2, col3,row1, row2, row3,diag1,diag2]
 
 document.addEventListener('DOMContentLoaded', function (){
 	//startCooseListner()
@@ -67,18 +56,9 @@ function start(){
 		var cell = 'cell-' + i;
 		document.getElementById(cell).addEventListener('click', clickCell);
 	};
-	document.getElementById('reset').textContent = " ";
 };
 
 function removeListners(){
-	// console.log(played);
-	// if (played.length===9){
-	// 		played.forEach(function(element){
-	// 			element = document.getElementById(element)
-	// 			element.textContent = ' ';
-	// 			});		
-	// };
-
 	played.forEach(function(element){
 		element = document.getElementById(element)
 		element.removeEventListener('click', clickCell);
@@ -131,17 +111,15 @@ function winceslls(){
 			var sum = 0;
 			combo.forEach(function(i) {
 				val = document.getElementById('cell-'+ i).getAttribute('val');
-				sum = val? sum + Number(val): sum;
+				sum = sum + Number(val);
 				if(sum === 6 ||sum === 15){
 					winner = document.getElementById('cell-'+i).textContent;
 					str = winner==='x'? 'xs':'os'
-					console.log(str);
 					updateScore = document.getElementById(str);
 					oldScore= updateScore.textContent;
 					newScore = oldScore==='-'? Number('1') : Number(oldScore) + 1;
 					updateScore.textContent = newScore;	
 					stopGame();
-					var sum = 0;
 				};
 			});
 		
@@ -155,11 +133,14 @@ function stopGame(){
 	played.forEach(function(element){
 		element = document.getElementById(element)
 			element.textContent = ' ';
+			element.setAttribute('val', 0);
 		});		
 
 	played = allCells;
 	removeListners();
 	document.getElementById('reset').textContent = 'RESTART GAME';
+	played = [];
+	start();
 };
 
 
