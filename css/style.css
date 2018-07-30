@@ -80,7 +80,7 @@ font-size: 0;
 
 .tile {
   /* TODO remove debugging tool: linear gradient */
-  background: linear-gradient(to bottom right, blue , purple);
+  background: linear-gradient(to bottom right, blue, purple);
   height: 75px;
   width: 75px;
 }
