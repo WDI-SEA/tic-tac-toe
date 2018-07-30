@@ -81,20 +81,23 @@ function checkCond() {
   return false;
 }
 
-// TODO implement functionality
+// diagonals
+// 1, 5, 9 start at 1, increment by 4
+// 3, 5, 7 start at 3, increment by 2
+// rows
+// 1, 2, 3 start at 1, increment by 1
+// 4, 5, 6 start at 4, increment by 1
+// 7, 8, 9 start at 7, increment by 1
+// columns
+// 1, 4, 7 start at 1, increment by 3
+// 2, 5, 8 start at 2, increment by 3
+// 3, 6, 9 start at 3, increment by 3
+function checkTriple(start, increment, end, player) {
+  // TODO
+  for (int i = start, i <= end, i += increment) {
+  }
+}
 function checkVictory() {
-  // brute force: 8 checks, over 3 elements, per turn
-  // rows
-  // 1, 2, 3 start at 1, increment by 1
-  // 4, 5, 6 start at 4, increment by 1
-  // 7, 8, 9 start at 7, increment by 1
-  // columns
-  // 1, 4, 7 start at 1, increment by 3
-  // 2, 5, 8 start at 2, increment by 3
-  // 3, 6, 9 start at 3, increment by 3
-  // diagonals
-  // 1, 5, 9 start at 1, increment by 4
-  // 3, 5, 7 start at 3, increment by 2
   updateScore();
   return false;
 }
