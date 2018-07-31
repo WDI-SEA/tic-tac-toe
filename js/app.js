@@ -17,7 +17,7 @@ function start(){
 		clearBox(num[i]);
 	}
 	document.turn = 'X';
-	setMessage(document.turn + 'is starting:');
+	setMessage(document.turn + ' is starting:');
 }
 function setMessage(m) {
 	document.getElementById('message').innerText = m;
@@ -29,7 +29,7 @@ function switchTurn(){
 		setMessage(document.turn + ", WON!")
 		document.winner = document.turn;
 	}else if (checkDraw(document.turn)){
-		setMessage("The game is Draw! ");
+		setMessage("The game is Draw! ");   // this should be in the next move function
 	}
 	else if (document.turn == 'X'){
 		document.turn = 'O';
@@ -52,28 +52,6 @@ function nextMove(square){
 function clearBox(number) {
 	document.getElementById(number).innerText = "";
 	document.winner = null;
-}
-function addWireListeners(){
-//	console.log('Adding event listeners to wires');
-var wireImages = document.querySelectorAll('#box img');
-//	console.log(wireImages);
-for (var i = 0; i < wireImages.length; i++){
-	wireImages[i].src = './img/uncut-'+ wireImages[i].id+'-wire.png';
-		// this decides wheather wire should be cut or not:
-		wireImages[i].setAttribute('data-cute', (Math.random() > 0.5).toString());
-		console.log(wireImages[i]);
-		wireImages[i].addEventListener('click', clickWire);
-	}
-	//if all false, that's not a great game reset: 
-	if(checkWin()){
-		start();
-	}
-}
-function removeWireListeners(){
-	var wireImages = document.querySelectorAll('#box img');
-	for (var i = 0; i < wireImages.length; i++){
-		wireImages[i].removeEventListener('click', clickWire);
-	}
 }
 function checkWin(move) {
 	var result = false;
