@@ -1,14 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
-  <link rel="stylesheet" type="text/css" href="css/style.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel='stylesheet' href="css/style.css" type='text/css'>
+	<title>Maverick vs. Arya</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-  <h1>Hello Front-End</h1>
+	<h1>Tic Tac Dogs</h1>
+	<h2>Maverick vs. Arya</h2>
+	<button id=startB onClick='start'>Start</button>
+	<div id='selection'>
+		Pick your dog:	
+		<button id='mavB' value='maverick' onclick='pOne(this)'>Maverick</button>
+		<button id='aryaB' value='arya' onclick='pOne(this)'>Arya</button>
+	</div>	
+	<div id='result'>
+	</div>
+	<table id='board'>
+		<tr id='row' class=''>
+			<td id='top' value='A1' onClick='currentCard(this)'> </td>
+			<td value='A2' class='box'> </td>
+			<td value='A3' class='box'> </td>
+		</tr>
+		<tr id='row' class=''>
+			<td value='B1' class='box'> </td>
+			<td value='B2' class='box'> </td>
+			<td value='B3' class='box'> </td>
+		</tr>
+		<tr id='row' class=''>
+			<td value='C1' class='box'> </td>
+			<td value='C2' class='box'> </td>
+			<td value='C3' class='box'> </td>
+		</tr>
+	</table>
+<audio id="bark" src='.sound/dog-bark.wav'></audio>
+<audio id="mavSound" src='./sound/mavDangerous.wav'></audio>
+<audio id="aryaSound" src='./sound/aryaIntro.wav'></audio>
+<audio id="clickSound" src='./sound/dog-bark.wav'></audio>
+<audio id="introSound" src='./sound/whoLetDogsOut.mp3'></audio>
 
-  <script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+</body>
+
+</html>
+
+
+<!-- <html>
+Add pauses while audio scrolls through
+<body>
+<input type='button' id="button1" value='first button' onclick="clickMe(this)"/>
+<input type='button' id="button2" value='second button' onclick="clickMe(this)"/>
+<input type='button' id="button3" value='third button' onclick="clickMe(this)"/>
+<input type='button' id="button4" value='fourth button' onclick="clickMe(this)"/>
+ 
+<script>
+function clickMe(e){
+ 
+    alert("You have clicked element id = "+e.id+" and button value = "+document.getElementById(e.id).value);
+ 
+}
+</script>
+ 
 </body>
 </html>
+
+
+<input type='button' id="button1" value='first button' onclick="clickMe(this)">
+<input type='button' id="button2" value='second button' onclick="clickMe(this)">	
+ -->
