@@ -1,9 +1,9 @@
-document.turn = null;
-document.winner = null;
+turn = 'X';
+winner = null;
 
 document.addEventListener('DOMContentLoaded',function(){
-	console.log("DOM got loaded");
-	document.addEventListener('click', setMessage('Please click Start'));
+	// console.log("DOM got loaded");
+	// document.addEventListener('click', setMessage('Please click Start'));
 	document.getElementById('start').addEventListener('click', start);
 	document.getElementById('reset').addEventListener('click', start);
 
@@ -16,42 +16,45 @@ function start(){
 	for (var i = 0; i <= 8; i++){
 		clearBox(num[i]);
 	}
-	document.turn = 'X';
-	setMessage(document.turn + ' is starting:');
+	turn = 'X';
+	setMessage(turn + ' is starting:');
 }
+
 function setMessage(m) {
 	document.getElementById('message').innerText = m;
 }
+
 //This function keeps track of who's turn:
 function switchTurn(){
 	// console.log("TURN");
-	if(checkWin(document.turn)){
-		setMessage(document.turn + ", WON!")
-		document.winner = document.turn;
-	}else if (checkDraw(document.turn)){
+	if(checkWin(turn)){
+		setMessage(turn + ", WON!")
+		winner = turn;
+	}else if (checkDraw(turn)){
 		setMessage("The game is Draw! ");   // this should be in the next move function
 	}
-	else if (document.turn == 'X'){
-		document.turn = 'O';
+	else if (turn == 'X'){
+		turn = 'O';
 	}else{
-		document.turn = 'X';
+		turn = 'X';
 	}
-	setMessage('It\'s '  + document.turn + ' turn now!' );
+	setMessage('It\'s '  + turn + ' turn now!' );
 }
+
 function nextMove(square){
-	if(document.winner != null){
-		setMessage(document.turn + " has won the game!")
+	if(winner != null){
+		setMessage(turn + " has won the game!")
 	}
 	else if (square.innerText == 'O' || square.innerText == 'X'){
 		setMessage('Please Pick another cell');
 	}else {
-		square.innerText = document.turn;
+		square.innerText = turn;
 		switchTurn();
 	}
 }
 function clearBox(number) {
 	document.getElementById(number).innerText = "";
-	document.winner = null;
+	winner = null;
 }
 function checkWin(move) {
 	var result = false;
