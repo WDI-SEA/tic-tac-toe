@@ -1,4 +1,28 @@
-
 h1 {
   color: purple;
+}
+
+#tic-tac-toe {
+	cell-spacing: 0px;
+	border-spacing: 0px;
+	border-collapse: separate;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	margin: 30px auto;
+}
+
+#tic-tac-toe td {
+	border: 2px solid purple;
+	height: 100px;
+	width: 100px;
+	text-align: center;
+	font: 200 60px;
+}
+
+#tic-tac-toe td.X {
+	color: #238EE1;
+}
+
+#tic-tac-toe td.O {
+	color: #FF1010;
 }
