@@ -1,6 +1,4 @@
 var turn=0;
-var X=1;
-var O=0;
 
 document.addEventListener("DOMContentLoaded", function(){
 	console.log("DOM got loaded");
@@ -27,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function(){
 		var tileimages = document.querySelectorAll("#board img");	
 
 		for(var i = 0; i < tileimages.length; i++){
-			tileimages[i].src = "../img/blank.jpg";
+			tileimages[i].src = "./img/blank.jpg";
 			console.log(tileimages[i]);
 			tileimages[i].addEventListener("click", clicktile);
 		}
@@ -36,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 	function clicktile(){
 		if(turn == "0"){
-			this.src = "../img/c.png";
+			this.src = "./img/c.png";
 			this.removeEventListener("click", clicktile);
 			document.getElementById(this.id).classList.add("X");
 			document.getElementById(this.id).classList.remove("tile");
@@ -49,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function(){
 			console.log(this.src);
 		}
 		else{
-			this.src = "../img/c-1.png";
+			this.src = "./img/c-1.png";
 			this.removeEventListener("click", clicktile);
 			document.getElementById(this.id).classList.add("O")
 			document.getElementById(this.id).classList.remove("tile");
