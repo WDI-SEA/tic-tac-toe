@@ -9,3 +9,7 @@ function startGame() {
 function setMessage(msg) {
 	document.getElementById("message").innerText = msg;
 }
+
+function nextMove(cell) {
+	cell.innerText = document.turn;
+}
