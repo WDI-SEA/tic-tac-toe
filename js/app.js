@@ -33,57 +33,62 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 	function clicktile(){
-		if(turn == "0"){
+		if(turn %2 == "0"){
 			this.src = "./img/c.png";
 			this.removeEventListener("click", clicktile);
 			document.getElementById(this.id).classList.add("X");
 			document.getElementById(this.id).classList.remove("tile");
-			console.log(this.classList)
-			turn=1;
 			document.getElementById("player").textContent = "Player O's turn";
 			if(checkwin()){
 				stopgame();
-			};
-			console.log(this.src);
+			}else if(turn === 8){
+				stopgame();
+				document.getElementById("player").textContent = "Player X and O tie";
+			}
 		}
 		else{
 			this.src = "./img/c-1.png";
 			this.removeEventListener("click", clicktile);
-			document.getElementById(this.id).classList.add("O")
+			document.getElementById(this.id).classList.add("O");
 			document.getElementById(this.id).classList.remove("tile");
-			console.log(this.classList);
-			turn=0;
 			document.getElementById("player").textContent = "Player X's turn";
 			if(checkwin()){
 				stopgame();
 			};
-			console.log(this.src)
 		}
+		turn++;
 	}
 
 	function removetileListeners(){
 		var tileimages = document.querySelectorAll("#board img");
 
 		for(var i = 0; i < tileimages.length; i++){
-			toileimages[i].removeEventListener("click", clicktile);
+			tileimages[i].removeEventListener("click", clicktile);
 		}
 	}
 
 		function checkwin(){
-			if((document.getElementById("tile1").classList) == (document.getElementById("tile2").classList) == (document.getElementById("tile3").classList) || (document.getElementById("tile4").classList) == (document.getElementById("tile5").classList) == (document.getElementById("tile6").classList) || (document.getElementById("tile7").classList) == (document.getElementById("tile8").classList) == (document.getElementById("tile9").classList) || (document.getElementById("tile1").classList) == (document.getElementById("tile4").classList) == (document.getElementById("tile7").classList) || (document.getElementById("tile2").classList) == (document.getElementById("tile5").classList) == (document.getElementById("tile8").classList) || (document.getElementById("tile3").classList) == (document.getElementById("tile6").classList) == (document.getElementById("tile9").classList) || (document.getElementById("tile1").classList) == (document.getElementById("tile5").classList) == (document.getElementById("tile9").classList) || (document.getElementById("tile3").classList) == (document.getElementById("tile5").classList) == (document.getElementById("tile7").classList)){
-				console.log("true");
+			if((document.getElementById("tile1").classList.value === document.getElementById("tile2").classList.value && document.getElementById("tile2").classList.value === document.getElementById("tile3").classList.value && document.getElementById("tile3").classList.value !== "tile") ||
+			 (document.getElementById("tile4").classList.value === document.getElementById("tile5").classList.value && document.getElementById("tile5").classList.value === document.getElementById("tile6").classList.value && document.getElementById("tile6").classList.value !== "tile") ||
+			  (document.getElementById("tile7").classList.value === document.getElementById("tile8").classList.value && document.getElementById("tile8").classList.value === document.getElementById("tile9").classList.value && document.getElementById("tile9").classList.value !== "tile") ||
+			   (document.getElementById("tile1").classList.value === document.getElementById("tile4").classList.value && document.getElementById("tile4").classList.value === document.getElementById("tile7").classList.value && document.getElementById("tile7").classList.value !== "tile") ||
+			    (document.getElementById("tile2").classList.value === document.getElementById("tile5").classList.value && document.getElementById("tile5").classList.value === document.getElementById("tile8").classList.value && document.getElementById("tile8").classList.value !== "tile") ||
+			     (document.getElementById("tile3").classList.value === document.getElementById("tile6").classList.value && document.getElementById("tile6").classList.value === document.getElementById("tile9").classList.value && document.getElementById("tile9").classList.value !== "tile") ||
+			      (document.getElementById("tile1").classList.value === document.getElementById("tile5").classList.value && document.getElementById("tile5").classList.value === document.getElementById("tile9").classList.value && document.getElementById("tile9").classList.value !== "tile") ||
+			       (document.getElementById("tile3").classList.value === document.getElementById("tile5").classList.value && document.getElementById("tile5").classList.value === document.getElementById("tile7").classList.value && document.getElementById("tile7").classList.value !== "tile")){
+				return true;
 			}
-			console.log("false");
+			return false;
 		}
 
 		function stopgame(){
 			removetileListeners()
 
-			if(turn == "1"){
-				document.getElementById("player").textContent = "Player X wins!";
+			if(turn %2 === 1){
+				document.getElementById("player").textContent = "Player O wins!";
 			}
 			else{
-				document.getElementById("player").textContent = "player O wins!";
+				document.getElementById("player").textContent = "Player X wins!";
 		}
 	}
 		console.log(document.getElementById("tile1").style.background);
