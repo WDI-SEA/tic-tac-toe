@@ -11,5 +11,20 @@ function setMessage(msg) {
 }
 
 function nextMove(cell) {
-	cell.innerText = document.turn;
+	if (cell.innerText == ""){
+		cell.innerText = document.turn;
+		switchTurn();
+	} else {
+		setMessage("That square is full.")
+	}
+}
+
+function switchTurn() {
+	if (document.turn == "X") {
+		document.turn = "O";
+	} else {
+		document.turn = "X";
+	}
+
+	setMessage("It's " + document.turn + "'s turn!");
 }
