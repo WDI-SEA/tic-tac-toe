@@ -10,22 +10,22 @@ document.addEventListener("DOMContentLoaded", function(){
 	function start(){
 		addtileListeners();
 
-		document.getElementById("tile1").style.background = "";
-		document.getElementById("tile2").style.background = "";
-		document.getElementById("tile3").style.background = "";
-		document.getElementById("tile4").style.background = "";
-		document.getElementById("tile5").style.background = "";
-		document.getElementById("tile6").style.background = "";
-		document.getElementById("tile7").style.background = "";
-		document.getElementById("tile8").style.background = "";
-		document.getElementById("tile9").style.background = "";
+		document.getElementById("tile1").style.background = "../img/blank.jpg";
+		document.getElementById("tile2").style.background = "../img/blank.jpg";
+		document.getElementById("tile3").style.background = "../img/blank.jpg";
+		document.getElementById("tile4").style.background = "../img/blank.jpg";
+		document.getElementById("tile5").style.background = "../img/blank.jpg";
+		document.getElementById("tile6").style.background = "../img/blank.jpg";
+		document.getElementById("tile7").style.background = "../img/blank.jpg";
+		document.getElementById("tile8").style.background = "../img/blank.jpg";
+		document.getElementById("tile9").style.background = "../img/blank.jpg";
 	}
 
 	function addtileListeners(){
 		var tileimages = document.querySelectorAll("#board img");	
 
 		for(var i = 0; i < tileimages.length; i++){
-			tileimages[i].src = "./img/blank.jpg";
+			// tileimages[i].src = ;
 			console.log(tileimages[i]);
 			tileimages[i].addEventListener("click", clicktile);
 		}
