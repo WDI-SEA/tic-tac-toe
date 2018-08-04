@@ -8,8 +8,8 @@
 </head>
 <body>
 	<header>
-		<h1 id="main_title">Spider Web</h1>
-		<h3 id="main_subtitle">Your friendly neighborhood Tic Tac Toe game!</h3>
+		<h1 class="title" id="main_title">Spider Web</h1>
+		<h3 class="title" id="main_subtitle">Your friendly neighborhood Tic Tac Toe game!</h3>
 	</header>
 
 	<!--<div class="gameboard">
@@ -26,19 +26,19 @@
 
 	<table align="center">
 		<tr>
-			<td class="box" id="1"></td>
-			<td class="box" id="2"></td>
-			<td class="box" id="3"></td>
+			<td class="box" id="1" onclick="selection(this)"></td>
+			<td class="box" id="2" onclick="selection(this)"></td>
+			<td class="box" id="3" onclick="selection(this)"></td>
 		</tr>
 		<tr>
-			<td class="box" id="4"></td>
-			<td class="box" id="5"></td>
-			<td class="box" id="6"></td>
+			<td class="box" id="4" onclick="selection(this)"></td>
+			<td class="box" id="5" onclick="selection(this)"></td>
+			<td class="box" id="6" onclick="selection(this)"></td>
 		</tr>
 		<tr>
-			<td class="box" id="7"></td>
-			<td class="box" id="8"></td>
-			<td class="box" id="9"></td>
+			<td class="box" id="7" onclick="selection(this)"></td>
+			<td class="box" id="8" onclick="selection(this)"></td>
+			<td class="box" id="9" onclick="selection(this)"></td>
 		</tr>
 	</table>
 
@@ -46,8 +46,10 @@
 		<div class="endscroll"></div>
 	</div>
 
-	<button onClick="startGame()">Play again!</button>
+	<button id="resetbtn">Play again!</button>
 
-  <script type="text/javascript" src="js/app.js"></script>
+<!--   <script type="text/javascript" src="js/app.js"></script>
+ -->
+<script src="./js/game.js"></script>
 </body>
 </html>

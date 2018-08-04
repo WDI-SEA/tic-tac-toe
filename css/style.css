@@ -25,6 +25,15 @@ td {
 	cursor: pointer;
 }
 
+.title {
+  color: white;
+  text-shadow:
+   -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+     1px 1px 0 #000;
+}
+
 .endgame {
 	/*Need to fix the end game message, How to make dynamically displayed*/
 	display: none;
@@ -66,3 +75,8 @@ td {
 	font-size: 30px;
 	text-align: center;
 }
+
+#resetbtn {
+	margin: 0 50%
+}
+
