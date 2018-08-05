@@ -13,14 +13,20 @@
 
 console.log("game.js is working")
 var playsMade = 0
-var gameGrid = document.getElementsByTagName("td");
-var hero = document.getElementsByClassName("spidey")
 var cellStatus = new Array();
-var occupied = new Array ();
+var occupied = [];
 var setPic;
-var image = document.createElement("img")
 var playerTurn = 0;
-// var boxNum = document.getElementbyId(index);
+var winCon = [
+	[0, 1, 2], 
+	[3, 4, 5], 
+	[6, 7, 8],
+	[0, 3, 6],
+	[1, 4, 7],
+	[2, 5, 8],
+	[0, 4, 8],
+	[2, 4, 6],
+	];
 
 document.addEventListener("DOMContentLoaded", function(){
 	console.log("dom content loaded");
@@ -32,16 +38,6 @@ document.addEventListener("DOMContentLoaded", function(){
 	
 });
 
-// function gameBoard(){
-// 	//makes board clickable 
-// 	for(var i = 0; i < gameGrid.length; i++){
-// 		var image = gameGrid[i].getElementsByClassName('spidey');
-// 		gameGrid[i].addEventListener("click", function(){
-// 			image[i].setAttribute('display', 'block');
-// 			console.log("Box was clicked");
-// 		})
-// 	}
-// } 
 
 function selection(tabNum){
 	console.log(playerTurn)
@@ -51,10 +47,6 @@ function selection(tabNum){
 		if(playerTurn % 2 == 0){
 			console.log("player 1");
 			setPic.innerHTML = "<img src='./img/spiderman_face.jpg' width='75' height='auto'>"
-			// image.setAttribute('src', './img/spiderman_face.jpg');
-			// image.setAttribute('width', '75px');
-			// image.setAttribute('height', 'auto');
-			// setPic.appendChild(image);
 			occupied[tabNum] = 'spidey'
 			document.getElementById('announcerbooth').innerHTML = "Playing Now: Venom!"
 			
@@ -62,10 +54,6 @@ function selection(tabNum){
 		} else {
 			console.log('player 2')
 			setPic.innerHTML = "<img src='./img/venom_face.jpg' width='75' height='auto'>"
-			// image.setAttribute('src', './img/venom_face.jpg');
-			// image.setAttribute('width', '75px');
-			// image.setAttribute('height', 'auto');
-			// setPic.appendChild(image);
 			occupied[tabNum] = 'venom'
 			document.getElementById('announcerbooth').innerHTML = "Playing Now: Spiderman!"
 			
@@ -84,7 +72,7 @@ function selection(tabNum){
 	playerTurn++;
 	cellStatus[tabNum] = true;
 	playsMade++;
-	checkWin(occupied[tabNum]);
+	checkWin();
 
 	if(playsMade >= 9){
 		console.log("It's a tie!")
@@ -94,8 +82,29 @@ function selection(tabNum){
 }
 
 function checkWin(hero){
-	console.log('Checking to see if ' + hero + ' won!')
+	//console.log('Checking to see if ' + hero + ' won!')
 	console.log (occupied)
+	for(var x = 0; x < winCon.length; x++){
+	if(//horizontal check
+		occupied[winCon[x][0]] == 'spidey' && occupied[winCon[x][1]] == 'spidey' && occupied[winCon[x][2]] == 'spidey'){
+		document.getElementById('announcerbooth').innerHTML = "Spiderman WINS!";
+		document.getElementById('reminder').innerHTML = "";
+		//document.removeEventListener('click', selection())
+	} 
+	else {
+		document.getElementById('reminder').innerHTML = "I can't believe they're still going!";
+	}
+
+	if(//horizontal check
+		occupied[winCon[x][0]] == 'venom' && occupied[winCon[x][1]] == 'venom' && occupied[winCon[x][2]] == 'venom'){
+		document.getElementById('announcerbooth').innerHTML = "Venom WINS!";
+		document.getElementById('reminder').innerHTML = "";
+	// 	//document.removeEventListener('click', selection())
+	 }
+	else {
+		document.getElementById('reminder').innerHTML = "I can't believe they're still going!";
+	}
+  }
 }
 
 
