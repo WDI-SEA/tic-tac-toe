@@ -56,6 +56,7 @@ function selection(tabNum){
 			// image.setAttribute('height', 'auto');
 			// setPic.appendChild(image);
 			occupied[tabNum] = 'spidey'
+			document.getElementById('announcerbooth').innerHTML = "Playing Now: Venom!"
 			
 
 		} else {
@@ -66,14 +67,35 @@ function selection(tabNum){
 			// image.setAttribute('height', 'auto');
 			// setPic.appendChild(image);
 			occupied[tabNum] = 'venom'
+			document.getElementById('announcerbooth').innerHTML = "Playing Now: Spiderman!"
 			
 		}
 	} else {
 		console.log('OCCUPIED!')
+		document.getElementById('announcerbooth').innerHTML = "You can't do that!";
+		playsMade--
+		playerTurn--
+		// if(playerTurn % 2 == 0){
+		// 	document.getElementById('reminder').innerHTML = "It's still Venom's turn!";
+		// } else {
+		// 	document.getElementById('reminder').innerHTML = "It's still Spiderman's turn!";
+		// }
 	}
 	playerTurn++;
 	cellStatus[tabNum] = true;
+	playsMade++;
+	checkWin(occupied[tabNum]);
+
+	if(playsMade >= 9){
+		console.log("It's a tie!")
+		document.getElementById('announcerbooth').innerHTML = "It's a draw!"
+	}
 		
+}
+
+function checkWin(hero){
+	console.log('Checking to see if ' + hero + ' won!')
+	console.log (occupied)
 }
 
 
