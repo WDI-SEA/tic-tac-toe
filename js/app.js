@@ -22,7 +22,7 @@ var cardUsed;
 console.log("Hi there");
 var cardsPlayable = document.querySelectorAll('.boardBtn');
 for (var i = 0; i < cardsPlayable.length; i++) {
-cardsPlayable[i].addEventListener('click', cardClick);
+  cardsPlayable[i].addEventListener('click', cardClick);
 }  
 
 function cardClick() {
@@ -93,12 +93,21 @@ function checkWin() {
     || (document.getElementById('A1').value == player && document.getElementById('B2').value == player && document.getElementById('C3').value == player)
     || (document.getElementById('A3').value == player && document.getElementById('B2').value == player && document.getElementById('C1').value == player)) {
     console.log(player + 'wins');
+    for (var i = 0; i < cardsPlayable.length; i++) {
+      cardsPlayable[i].removeEventListener('click', cardClick);
+      cardsPlayable[i].style.cursor = 'default'; 
+
+    }
   }
   else {
+    if (cardsNotPlayable.length === 9) {
+      console.log('It is a tie');
+    }
+    else {
     console.log('no winner yet');
+    }
   }
 }
-
 // function CardClick()
 //     player = 'Arya';
 //     cardInPlay = ' ';
