@@ -28,7 +28,7 @@ table {
 	font-size: 70px;
 }
 
-td {
+.boardBtn {
 	display: inline-block;
 	width: 100px;
 	height: 100px;
@@ -42,16 +42,15 @@ td {
 }
 
 
-td:hover {
+.boardBtn:hover {
 	cursor: pointer;
-	background-color: purple;
 }
 
 .selected {
 	background-color: #FA6900;
 }
 
-tr {
+.tr {
 	list-style-type: none;
 	width: 500px;
 }

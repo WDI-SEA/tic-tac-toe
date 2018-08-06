@@ -14,28 +14,43 @@
 	<button id=startB onClick='start'>Start</button>
 	<div id='selection'>
 		Pick your dog:	
-		<button id='mavB' value='maverick' onclick='pOne(this)'>Maverick</button>
-		<button id='aryaB' value='arya' onclick='pOne(this)'>Arya</button>
-	</div>	
+		<button id='mavB' value='maverick'>Maverick</button>
+		<button id='aryaB' value='arya'>Arya</button>
+
+<div id='boardButtons'>
+	<input type=button class='boardBtn' id='A1' value='box 1'>
+	<input type=button class='boardBtn' id='A2' value='box 2'>
+	<input type=button class='boardBtn' id='A3' value='box 3'>
+	  <br>
+	<input type=button class='boardBtn' id='B1' value='box 4'>
+	<input type=button class='boardBtn' id='B2' value='box 5'>
+	<input type=button class='boardBtn' id='B3' value='box 6'>
+	  <br>
+	<input type=button class='boardBtn' id='C1' value='box 7'>
+	<input type=button class='boardBtn' id='C2' value='box 8'>
+	<input type=button class='boardBtn' id='C3' value='box 9'>
+</div>
+
+	<!-- </div>	
 	<div id='result'>
 	</div>
 	<table id='board'>
-		<tr id='row' class=''>
-			<td id='top' value='A1' onClick='currentCard(this)'> </td>
-			<td value='A2' class='box'> </td>
-			<td value='A3' class='box'> </td>
+		<tr>
+			<td id='A' class='box' value='11'> </td>
+			<td id='B' class='box' value='12'> </td>
+			<td button id='A3' class='box' onclick="clickSquare('A3')"> </td>
 		</tr>
-		<tr id='row' class=''>
-			<td value='B1' class='box'> </td>
-			<td value='B2' class='box'> </td>
-			<td value='B3' class='box'> </td>
+		<tr>
+			<td button id='B1' class='box' onclick="clickSquare('B1')"> </td>
+			<td button id='B2' class='box' onclick="clickSquare('B2')"> </td>
+			<td button id='B3' class='box' onclick="clickSquare('B3')"> </td>
 		</tr>
-		<tr id='row' class=''>
-			<td value='C1' class='box'> </td>
-			<td value='C2' class='box'> </td>
-			<td value='C3' class='box'> </td>
+		<tr>
+			<td button id='C1' class='box' onclick="clickSquare('C1')"> </td>
+			<td button id='C2' class='box' onclick="clickSquare('C2')"> </td>
+			<td button id='C3' class='box' onclick="clickSquare('C3')"> </td>
 		</tr>
-	</table>
+	</table> -->
 <audio id="bark" src='.sound/dog-bark.wav'></audio>
 <audio id="mavSound" src='./sound/mavDangerous.wav'></audio>
 <audio id="aryaSound" src='./sound/aryaIntro.wav'></audio>
