@@ -28,7 +28,6 @@ td {
 }
 
 .title {
-  /*color: white;*/
   text-shadow:
    -1px -1px 0 #fff,  
     1px -1px 0 #fff,
@@ -37,7 +36,6 @@ td {
 }
 
 .endgame {
-	/*Need to fix the end game message, How to make dynamically displayed*/
 	display: none;
 	z-index: 2;
 	width: 500px;

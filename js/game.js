@@ -1,17 +1,3 @@
-// to do:
-// -add images to board
-// -rotate through images with multiple clicks (use an array of images to cycle through? Each click moves through one on the array)
-// -specify win conditions
-// -check for win conditions
-// -check for ties
-// -if win  or tie conditions, end game
-// -start game 
-// 	starts with blank board
-// 	allows clicking in boxes
-// -reset game
-// 	resets board to start game condition
-
-console.log("game.js is working")
 var board = document.getElementsByClassName('box');
 var playsMade = 0
 var cellStatus = [];
@@ -31,7 +17,6 @@ var winCon = [
 
 document.addEventListener("DOMContentLoaded", function(){
 	console.log("dom content loaded");
-	// gameBoard();
 	startGame();
 	for(var i = 0; i < 9; i++){
 		cellStatus[i] = false
@@ -81,11 +66,6 @@ function selection(tabNum){
 		document.getElementById('announcerbooth').innerHTML = "You can't do that!";
 		playsMade--;
 		playerTurn--;
-		// if(playerTurn % 2 == 0){
-		// 	document.getElementById('reminder').innerHTML = "It's still Venom's turn!";
-		// } else {
-		// 	document.getElementById('reminder').innerHTML = "It's still Spiderman's turn!";
-		// }
 	}
 	playerTurn++;
 	cellStatus[tabNum] = true;
@@ -96,27 +76,22 @@ function selection(tabNum){
 }
 
 function checkWin(hero){
-	//console.log('Checking to see if ' + hero + ' won!')
 	console.log (occupied)
 	for(var x = 0; x < winCon.length; x++){
 		if(occupied[winCon[x][0]] == 'spidey' && occupied[winCon[x][1]] == 'spidey' && occupied[winCon[x][2]] == 'spidey'){
 			document.getElementById('announcerbooth').innerHTML = "Spiderman WINS!";
 			document.getElementById('reminder').innerHTML = "";
 			endGame();
-			//document.removeEventListener('click', selection())
-		} 
-		else if (occupied[winCon[x][0]] == 'venom' && occupied[winCon[x][1]] == 'venom' && occupied[winCon[x][2]] == 'venom'){
+		} else if (occupied[winCon[x][0]] == 'venom' && occupied[winCon[x][1]] == 'venom' && occupied[winCon[x][2]] == 'venom'){
 			document.getElementById('announcerbooth').innerHTML = "Venom WINS!";
 			document.getElementById('reminder').innerHTML = "";
 			endGame();
-			//document.removeEventListener('click', selection())
-		 } else if (occupied[winCon[x][0]] == 'venom' && occupied[winCon[x][1]] == 'venom' && occupied[winCon[x][2]] == 'venom' || 'spidey'){
-		 	if(playsMade >= 9){
+		 } else if(playsMade >= 9){
 			console.log("It's a tie!")
 			document.getElementById('announcerbooth').innerHTML = "It's a draw!";
 			document.getElementById('reminder').innerHTML = "How so very anticlimatic!";
 			}
-		 }
+		
 	
 	}
 }
@@ -129,7 +104,6 @@ function endGame(){
 }
 
 function reset(){
-	//console.log('I reset the game')
 	playsMade = 0;
 	playerTurn = 0;
 	for(var i = 0; i < board.length; i++){
