@@ -33,6 +33,7 @@ function nextMove(cell){
 				begin = 0;
 			}else if(checkTie()){
 				alert('It\'s a tie game!!!');
+				begin = 0;
 			}else{
 			switchTurn();
 			}
