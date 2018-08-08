@@ -106,7 +106,7 @@ function checkWin() {
     // Diagonal Options
     || (document.getElementById('A1').value == player && document.getElementById('B2').value == player && document.getElementById('C3').value == player)
     || (document.getElementById('A3').value == player && document.getElementById('B2').value == player && document.getElementById('C1').value == player)) {
-    console.log(player + 'wins');
+    alert(player + ' Wins! Good dog!\nClick start to play again.');
     for (var i = 0; i < cardsPlayable.length; i++) {
       cardsPlayable[i].removeEventListener('click', cardClick);
       cardsPlayable[i].style.cursor = 'default'; 
@@ -115,7 +115,7 @@ function checkWin() {
   }
   else {
     if (cardsNotPlayable.length === 9) {
-      console.log('It is a tie');
+      alert('It is a tie!\nYou are both good dogs!\nClick Start to play again.');
     }
     else {
     console.log('no winner yet');

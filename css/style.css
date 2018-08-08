@@ -81,7 +81,7 @@ button {
 #mavB {
 
 	border: none;
-	background: transparent;
+	background-image: url('../img/mav.jpg');
 	font-size: 18px;
 	color: white;
 	width: 100px;
@@ -92,7 +92,7 @@ button {
 
 #aryaB {
 	border: none;
-	background: transparent;
+	background-image: url('../img/arya.jpg');
 	font-size: 18px;
 	color: white;
 	width: 100px;
