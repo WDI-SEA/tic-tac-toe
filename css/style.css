@@ -1,3 +1,110 @@
 h1 {
-  color: purple;
+  color: black;
+ /* position: absolute;*/
+  text-align: center;
+  font-size: 100px;
+  margin: 10px 0;
+  border: 10px solid black;
+  font-family: 'Source Sans Pro', sans-serif;
+
 }
+
+.container {
+	width: auto;
+	background-color: #1186bb;
+/*	position: relative;*/
+	margin: 0 auto;
+}
+
+.header-container {
+	position: relative;
+	margin: 0 auto;
+}
+
+#gameboard {
+	padding: 10px;
+	margin: 0 auto;
+	background-color: #1186bb;
+	width: 608px;
+}
+
+.square {
+	height: 200px;
+	width: 200px;
+	border: 2px solid black;
+	text-align: center;
+	font-size: 175px;
+	background-color: #eeeeee;
+	color: #333333;
+	font-family: 'Source Sans Pro', sans-serif;
+/*	justify-content: center; */
+}
+
+.row {
+	display: flex;
+
+}
+
+#top-row {
+	/*border-top: 2px solid black;*/
+	/*width: 600px;*/
+}
+
+#square1, #square2, #square3 {
+	border-bottom: 1px solid black;
+}
+
+#square4, #square5, #square6 {
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+}
+
+#square7, #square8, #square9 {
+	border-top: 1px solid black;
+}
+
+#square1, #square4, #square7 {
+	border-right: 1px solid black;
+}
+
+#square2, #square5, #square8 {
+	border-right: 1px solid black;
+	border-left: 1px solid black;
+}
+
+#square3, #square6, #square9 {
+	border-left: 1px solid black;
+}
+
+.squarex {
+	height: 200px;
+	width: 200px;
+	border: 2px solid black;
+	text-align: center;
+	font-size: 175px;
+	color: blue;
+}
+
+.squareo {
+	height: 200px;
+	width: 200px;
+	border: 2px solid black;
+	text-align: center;
+	font-size: 175px;
+	color: red;
+}
+
+.showWinMessage {
+	color: #eeeeee;
+	background-color: black;
+	font-size: 40px;
+	text-align: center;
+	z-index: 1;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-family: 'Source Sans Pro', sans-serif;
+	padding: 5px;
+}
+
