@@ -1,113 +1,40 @@
-body {
-	font-family: 'Fira Sans', sans-serif;
-	font-size: 14px;
-	margin: 0;
-}
+p {
+	color: green;
+	font-size: 20px;
+	}	
 
-h1 {
-  color: purple;
-}
-
-#container {
+.grid-container {
   display: grid;
-  grid-template-columns: auto 75px 10px 75px 75px 75px 10px 75px auto;
-  grid-template-rows: 100px 75px 75px 75px% auto;
+  grid-template-rows: 20px 200px 200px 200px;  
+  grid-template-columns: 1fr 10px 200px 200px 200px 10px 1fr;
   grid-template-areas:
-    "headRoom headRoom headRoom headRoom headRoom headRoom headRoom headRoom headRoom"
-    "gutterLeft quoteLeft gapLeft gA1n gA2 gA3p gapRight quoteRight gutterRight"
-    "gutterLeft avatarLeft gapLeft gB1 gB2pn gB3 gapRight avatarRight gutterRight"
-    "gutterLeft blankLeft gapLeft gC1p gC2 gC3n gapRight blankRight gutterRight"
-    "downUnder downUnder downUnder downUnder buttonSpace downUnder downUnder downUnder downUnder";
+  	'heady heady heady heady heady heady heady'
+    'bnkLft noL r1c1 r1c2 r1c3 noR bnkRght'
+    'bnkLft noL r2c1 r2c2 r2c3 noR bnkRght'
+    'bnkLft noL r3c1 r3c2 r3c3 noR bnkRght';
+  grid-gap: 5px;
+  background-color: #2196F3;
+  padding: 5px;
 }
-
-#headRoom {
-	grid-area: headRoom;
-	background-color: white;
-}
-
-#gameGrid {
-	grid-area: gA1n gA2 gA3p gB1 gB2pn gB3 gC1p gC2 gC3n;
-}
-
-#quoteLeft {
-	grid-area: quoteLeft;
-	background-color: pink;
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 5px 0;
+  font-size: 30px;
 
 }
 
-#quoteRight {
-	grid-area: quoteRight;
-	background-color: hotpink;
-
-}
-
-#avatarLeft {
-	grid-area: avatarLeft;
-	background-color: yellow;
-
-}
-
-#avatarRight {
-	grid-area: avatarRight;
-	background-color: orange;
-
-}
-
-#idA1n {
-	grid-area: gA1n;
-	background-color: #FF530D;
-
-}
-
-#idA2 {
-	grid-area: A2;
-	background-color: #FF0000;
-
-}
-
-#idA3p {
-	grid-area: gA3p;
-	background-color: #FF0DFF;
-
-}
-
-#idB1 {
-	grid-area: gB1;
-	background-color: #FF8153;
-
-}
-
-#idB2pn {
-	grid-area: gB2pn;
-	background-color: #FF5F6B;
-}
-
-#idB3 {
-	grid-area: gB3;
-	background-color: #F853FF;
-
-}
-
-#idC1p {
-	grid-area: gC1p;
-	background-color: #FFA98D;
-}
-
-#idC2 {
-	grid-area: gC2;
-	background-color: #FF9AAA;
-
-}
-
-#idC3n {
-	grid-area: gC3n;
-	background-color: #F58DFF;
-}
-
-#gButtonSpace {
-	grid-area: buttonSpace;
-	background-color: lightblue;
-}
-
-
-
+#headSpace {grid-area: heady;}
+#A1n { grid-area: r1c1; }
+#A2 { grid-area: r1c2; }
+#A3p { grid-area: r1c3; }
+#B1 { grid-area: r2c1; }
+#B2pn { grid-area: r2c2; }
+#B3 { grid-area: r2c3; }
+#C1p { grid-area: r3c1; }
+#C2 { grid-area: r3c2; }
+#C3n { grid-area: r3c3; }
+#gutterL { grid-area: noL; }
+#gutterR { grid-area: noR; }
+#blankLeft { grid-area: bnkLft; }
+#blankRight { grid-area: bnkRght; }
