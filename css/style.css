@@ -1,3 +1,99 @@
+body{
+	text-align: center;
+	margin: 0 auto;
+}
+
 h1 {
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 40px;
+  font-weight: bold;
   color: purple;
 }
+
+.wrapper{
+	width: 100%;
+	height: 800px;
+	margin: 0 auto;
+}
+
+.gameboard{
+	display: grid;
+	grid-gap: 5px 5px;
+	margin: 0 auto;
+	width: 500px;
+	height: 500px;
+	cursor: pointer;
+}
+
+.endGame{
+	display: none; /*not displaying until later*/
+	width: 200px;
+	background-color: gray;
+	margin: 0 auto;
+	padding: 20px 100px;
+	text-align: center;
+	color: white;
+	font-size: 2em;
+}
+
+.reset{
+	background-color: white;
+	border: 2px solid blue;
+	font-family: 'Indie Flower', cursive;
+	font-size: 25px;
+}
+
+#one, #two, #three, #four, #five, #six, #seven, #eight, #nine{
+	width: 150px;
+	height: 150px;
+	border: 3px solid purple;
+}
+
+#one{
+	grid-column: 1;
+	grid-row: 1;
+}
+
+#two{
+	grid-column: 2;
+	grid-row: 1;
+}
+
+#three{
+	grid-column: 3;
+	grid-row: 1;
+}
+
+#four{
+	grid-column: 1;
+	grid-row: 2;
+}
+
+#five{
+	grid-column: 2;
+	grid-row: 2;
+}
+
+#six{
+	grid-column: 3;
+	grid-row: 2;
+}
+
+#seven{
+	grid-column: 1;
+	grid-row: 3;
+}
+
+#eight{
+	grid-column: 2;
+	grid-row: 3;
+}
+
+#nine{
+	grid-column: 3;
+	grid-row: 3;
+}
+
+
+
+
