@@ -43,20 +43,29 @@ function stopGame(messageContent){
 	document.getElementById("message").textContent = messageContent;
 }
 
-function winAnswers(){
+function winAnswers(marksArray){
+	marksArray = [];
 	while (initialBoard != ''){
 	for(var i = 0; i < winCombos.length; i++){
 			var val = winCombos[i];
-		if(val[0] === val[1] === val[2] === true){
-			console.log("win");
-		}
-		else{
-			console.log("lose");
-		}
-	}
-		// for(var j = 0; j < winCombos[i].length; j++){
-		// 	var innerVal = winCombos[i][j];
+			var valWins = 0;
+				 for(var j = 0; j < winCombos[i].length; j++){
+		 		var innerVal = winCombos[i[j]];
+		 			if(marksArray.indexOf(winCombos[i[j]])!=-1){
+		 				valWins++;
+		 			}
+		 			if(valWins === 3){
+		 				stopGame("you won");
+		 				console.log("win");
+		 			}
+				}
+		// if(val[0] === val[1] === val[2] === true){
+		// 	console.log("win");
 		// }
+		// else{
+		// 	console.log("lose");
+		// }
+	}
 	}
 }
 
