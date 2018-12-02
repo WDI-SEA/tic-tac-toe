@@ -1,11 +1,10 @@
-p {
-	color: green;
-	font-size: 20px;
+body {
+	font-family: Fira-Sans, Helvetica, sans-serif;
 	}	
 
 .grid-container {
   display: grid;
-  grid-template-rows: 20px 200px 200px 200px;  
+  grid-template-rows: 50px 200px 200px 200px;  
   grid-template-columns: 1fr 10px 200px 200px 200px 10px 1fr;
   grid-template-areas:
   	'heady heady heady heady heady heady heady'
@@ -13,15 +12,12 @@ p {
     'bnkLft noL r2c1 r2c2 r2c3 noR bnkRght'
     'bnkLft noL r3c1 r3c2 r3c3 noR bnkRght';
   grid-gap: 5px;
-  background-color: #2196F3;
-  padding: 5px;
+  background-color: white;
 }
 .grid-container > div {
-  background-color: rgba(255, 255, 255, 0.8);
-  text-align: center;
-  padding: 5px 0;
-  font-size: 30px;
-
+/*  background-color: beige;
+*/  text-align: center;
+  font-size: 15px;
 }
 
 #headSpace {grid-area: heady;}
@@ -38,3 +34,4 @@ p {
 #gutterR { grid-area: noR; }
 #blankLeft { grid-area: bnkLft; }
 #blankRight { grid-area: bnkRght; }
+
