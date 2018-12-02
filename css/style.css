@@ -23,6 +23,8 @@ h1 {
 	width: 500px;
 	height: 500px;
 	cursor: pointer;
+	color: pink;
+	font-size: 30px;
 }
 
 .endGame{

@@ -1,9 +1,10 @@
 document.addEventListener("DOMContentLoaded", function(){
 	// document.getElementById("reset").addEventListener("click", playGame);
+playGame();
 });
 var initialBoard;
-const player1 = 'O';
-const player2 = 'X';
+var currentPlayer;
+var player1 = 1;
 const winCombos = [
 	[0, 1, 2],
 	[3, 4, 5],
@@ -15,7 +16,6 @@ const winCombos = [
 	[2, 4, 6]
 ];
 const cells = document.querySelectorAll('.cell');
-playGame();
 
 function playGame(){
 	document.querySelector(".endGame").style.display = "none";
@@ -27,14 +27,16 @@ function playGame(){
 	}	
 }
 
-function turnClick(){	
-	document.getElementById(target.id).innerText = "O"; //target.id refers cells[i]
+function turnClick(event){	
+	if (player1 == true){
+	document.getElementById(event.target.id).innerText = "O"; //target.id refers cells[i]
+// console.log("this is what the event's grabbing", event.target); //for checking
+	player1 = 0; 
+	} else {
+		document.getElementById(event.target.id).innerText = "X";
+		player1 = 1;
+	}
 }
-
-// function turn(boxId, player){
-// 	initialBoard[boxId] = player;
-// 	document.getElementById("boxId").innerText = player;
-// }
 
 function stopGame(messageContent){
 	//different message pops ("win"/"lost")
@@ -42,13 +44,32 @@ function stopGame(messageContent){
 }
 
 function winAnswers(){
-	// if()
-
+	while (initialBoard != ''){
+	for(var i = 0; i < winCombos.length; i++){
+			var val = winCombos[i];
+		if(val[0] === val[1] === val[2] === true){
+			console.log("win");
+		}
+		else{
+			console.log("lose");
+		}
+	}
+		// for(var j = 0; j < winCombos[i].length; j++){
+		// 	var innerVal = winCombos[i][j];
+		// }
+	}
 }
+
+	
+// }
 function winTheGame(){
-	stopGame('You won!');
+	stopGame("You won!");
+}
+
+function tieTheGame(){
+	stopGame("You both suck!")
 }
 
 function loseTheGame(){
-	stopGame('Boo, You lost!');
+	stopGame("Boo, You lost!");
 }
