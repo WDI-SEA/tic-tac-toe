@@ -9,15 +9,7 @@ var squareEight = 8;
 var squareNine = 9;
 var winner = document.querySelector('.winMessage');
 var turn = 1;
-document.querySelector('#square1').addEventListener('click', playSquare1);
-document.querySelector('#square2').addEventListener('click', playSquare2);
-document.querySelector('#square3').addEventListener('click', playSquare3);
-document.querySelector('#square4').addEventListener('click', playSquare4);
-document.querySelector('#square5').addEventListener('click', playSquare5);
-document.querySelector('#square6').addEventListener('click', playSquare6);
-document.querySelector('#square7').addEventListener('click', playSquare7);
-document.querySelector('#square8').addEventListener('click', playSquare8);
-document.querySelector('#square9').addEventListener('click', playSquare9);
+addListeners();
 
 
 
@@ -25,6 +17,41 @@ document.addEventListener('DOMContentLoaded',function(){
 //Make the gameboard clear with clickable squares
 	clearBoard();
 });
+
+function reset(){
+	squareOne = 1;
+	squareTwo = 2;
+	vsquareThree = 3;
+	squareFour = 4;
+	squareFive =5;
+	squareSix = 6;
+	squareSeven = 7;
+	squareEight = 8; 
+	squareNine = 9;
+}
+
+function addListeners(){
+	document.querySelector('#square1').addEventListener('click', playSquare1);
+	document.querySelector('#square2').addEventListener('click', playSquare2);
+	document.querySelector('#square3').addEventListener('click', playSquare3);
+	document.querySelector('#square4').addEventListener('click', playSquare4);
+	document.querySelector('#square5').addEventListener('click', playSquare5);
+	document.querySelector('#square6').addEventListener('click', playSquare6);
+	document.querySelector('#square7').addEventListener('click', playSquare7);
+	document.querySelector('#square8').addEventListener('click', playSquare8);
+	document.querySelector('#square9').addEventListener('click', playSquare9);
+}
+function removeListeners(){
+	document.querySelector('#square1').removeEventListener('click', playSquare1);
+	document.querySelector('#square2').removeEventListener('click', playSquare2);
+	document.querySelector('#square3').removeEventListener('click', playSquare3);
+	document.querySelector('#square4').removeEventListener('click', playSquare4);
+	document.querySelector('#square5').removeEventListener('click', playSquare5);
+	document.querySelector('#square6').removeEventListener('click', playSquare6);
+	document.querySelector('#square7').removeEventListener('click', playSquare7);
+	document.querySelector('#square8').removeEventListener('click', playSquare8);
+	document.querySelector('#square9').removeEventListener('click', playSquare9);
+}
 
 function playSquare1() {
 	if(turn%2 == 0){
@@ -277,15 +304,7 @@ function checkWin(){
 function xWinsTheGame(){
 	winner.classList.add('showWinMessage');
 	winner.textContent = 'Player X has won the game! Click to restart.';
-	document.querySelector('#square1').removeEventListener('click', playSquare1);
-	document.querySelector('#square2').removeEventListener('click', playSquare2);
-	document.querySelector('#square3').removeEventListener('click', playSquare3);
-	document.querySelector('#square4').removeEventListener('click', playSquare4);
-	document.querySelector('#square5').removeEventListener('click', playSquare5);
-	document.querySelector('#square6').removeEventListener('click', playSquare6);
-	document.querySelector('#square7').removeEventListener('click', playSquare7);
-	document.querySelector('#square8').removeEventListener('click', playSquare8);
-	document.querySelector('#square9').removeEventListener('click', playSquare9);
+	removeListeners();
 	//Make the win message clickable to restart the game
 	document.querySelector('.winMessage').addEventListener('click',clearBoard);
 }
@@ -293,15 +312,7 @@ function xWinsTheGame(){
 function oWinsTheGame(){
 	winner.classList.add('showWinMessage');
 	winner.textContent = 'Player O has won the game! Click to restart.';
-	document.querySelector('#square1').removeEventListener('click', playSquare1);
-	document.querySelector('#square2').removeEventListener('click', playSquare2);
-	document.querySelector('#square3').removeEventListener('click', playSquare3);
-	document.querySelector('#square4').removeEventListener('click', playSquare4);
-	document.querySelector('#square5').removeEventListener('click', playSquare5);
-	document.querySelector('#square6').removeEventListener('click', playSquare6);
-	document.querySelector('#square7').removeEventListener('click', playSquare7);
-	document.querySelector('#square8').removeEventListener('click', playSquare8);
-	document.querySelector('#square9').removeEventListener('click', playSquare9);
+	removeListeners();
 	//Make the win message clickable to restart the game
 	document.querySelector('.winMessage').addEventListener('click',clearBoard);
 }
@@ -310,25 +321,9 @@ function clearBoard(){
 	var allSquares = document.querySelectorAll('.square')
 	for(var i = 0; i<allSquares.length; i++){
 	allSquares[i].textContent = '';
-	document.querySelector('#square1').addEventListener('click', playSquare1);
-	document.querySelector('#square2').addEventListener('click', playSquare2);
-	document.querySelector('#square3').addEventListener('click', playSquare3);
-	document.querySelector('#square4').addEventListener('click', playSquare4);
-	document.querySelector('#square5').addEventListener('click', playSquare5);
-	document.querySelector('#square6').addEventListener('click', playSquare6);
-	document.querySelector('#square7').addEventListener('click', playSquare7);
-	document.querySelector('#square8').addEventListener('click', playSquare8);
-	document.querySelector('#square9').addEventListener('click', playSquare9);
+	addListeners();
 	}
-	squareOne = 1;
-	squareTwo = 2;
-	squareThree = 3;
-	squareFour = 4;
-	squareFive =5;
-	squareSix = 6;
-	squareSeven = 7;
-	squareEight = 8; 
-	squareNine = 9;
+	reset();
 	winner.classList.remove('showWinMessage');
 	winner.textContent = '';
 	//Make the win message clickable to restart the game
