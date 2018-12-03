@@ -68,6 +68,7 @@ div[clicked-o="true"] {
   padding: 5px 15px;
   margin: 20px auto;
   background: #FFFFFF;
+  font-size: 40px;
 }
 
 .button {
@@ -78,6 +79,7 @@ div[clicked-o="true"] {
   color: #FFFFFF;
   border: none;
   padding: 5px 20px;
+  letter-spacing: 2px;
 }
 
 p {
@@ -144,6 +146,8 @@ p {
   .whose-move {
     margin: 0 20px;
     order: 1;
+    font-size: 24px;
+    letter-spacing: 2px;
   }
 
   .side-panel p {

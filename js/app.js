@@ -1,5 +1,7 @@
 // here be me global variables
 var t3boxes = document.querySelectorAll(".t3box");
+var whoseMove = document.querySelector(".whose-move");
+
 var t3Grid = {
     row1: [t3boxes[0], t3boxes[1], t3boxes[2]],
     row2: [t3boxes[3], t3boxes[4], t3boxes[5]],
@@ -10,7 +12,6 @@ var t3Grid = {
     diagonal1: [t3boxes[0], t3boxes[4], t3boxes[8]],
     diagonal2: [t3boxes[2], t3boxes[4], t3boxes[6]]
 }
-var numOfClicks = 0;
 var counters = [    
     xPanel = {
         img : document.querySelector("#x-panel[img]"),
@@ -24,8 +25,9 @@ var counters = [
         Losses : document.querySelector("#o-losses span"),
         Draws : document.querySelector("#o-draw span")
     }];
+
+var numOfClicks = 0;
 var xWins = oWins = ties = 0;
-var whoseMove = document.querySelector(".whose-move");
 
 document.addEventListener("DOMContentLoaded", function(){
     // DOM stuff here
