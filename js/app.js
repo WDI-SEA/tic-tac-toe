@@ -23,7 +23,6 @@ var cells = document.querySelectorAll('.cell');
 
 
 function playGame(){
-	// document.querySelector(".endGame").style.display = "none";
 	initialBoard = Array.from(Array(9).keys());
 	for(i = 0; i < cells.length; i++){
 	cells[i].innerText = '';
@@ -67,16 +66,22 @@ function winCheck(oMarks, xMarks, winCombos){
 			 				console.log(oWins);
 			 			}
 			 			if(oWins === 3){
-			 				playGame();
-			 				alert("O wins!");
+			 				var oAlert = setTimeout(function(){
+			 					alert("O wins!");
+			 					playGame();
+			 				}, 250);
+			 				
 			 			}
 			 			if(xMarks.includes(winCombos[i][j])){
 			 				xWins++;
 			 				console.log(xWins);
 			 			}	 			
 			 			if(xWins === 3){
-			 				playGame();
-			 				alert("X wins!");
+			 				var xAlert = setTimeout(function(){
+			 					alert("X wins!");
+			 					playGame();
+			 				}, 250);
+			 				
 			 			}
 			 			}
 			 		}

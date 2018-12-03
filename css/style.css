@@ -44,7 +44,7 @@ h1 {
 #one, #two, #three, #four, #five, #six, #seven, #eight, #nine{
 	width: 150px;
 	height: 150px;
-	border: 3px solid purple;
+	border: 5px solid purple;
 }
 
 #one{
