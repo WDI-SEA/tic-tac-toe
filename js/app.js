@@ -14,15 +14,12 @@ const getPlayer = function() {
 	} else {
 		currentPlayer = 'toe';
 	};
+	var avatarImage = "img/" + currentPlayer +"_turn.png";
+	var avatarImageId = currentPlayer + "Avatar";
+	document.getElementById(avatarImageId).src = avatarImage;
+
 }
 getPlayer();
-console.log('the starting player is', currentPlayer);
-
-var avatarImage = "img/" + currentPlayer +"_turn.png";
-var avatarImageId = currentPlayer + "Avatar";
-
-document.getElementById(avatarImageId).src = avatarImage;
-
 
 //starting values for all of the cells----------------------
 
@@ -40,7 +37,7 @@ let allTheCellsArray = [
 
 //scoreCard array . . . ticTac=index 0, toe=index 1 ---------
 
-const scoreCard = [[
+let scoreCard = [[
 0, //index 0 = ticTac's A row score
 0, //index 1 = ticTac's B row score
 0, //index 2 = ticTac's C row score
@@ -240,6 +237,8 @@ document.getElementById("B3").addEventListener('click', clickedCell);
 document.getElementById("C1p").addEventListener('click', clickedCell);
 document.getElementById("C2").addEventListener('click', clickedCell);
 document.getElementById("C3n").addEventListener('click', clickedCell);
+document.getElementById("reStart").addEventListener('click', clearTheBoard);
+
 // document.getElementById("toeAvatar").addEventListener('click', clickedAvatar);
 // document.getElementById("ticTacAvatar").addEventListener('click', clickedAvatar);
 
@@ -295,3 +294,83 @@ if(winner === 'toe') {
 
 	};
 };
+
+function clearTheBoard() {
+	var toeAvatarImage = "img/toe_blank.png";
+	var avatarImage = 'toeAvatar';
+	document.getElementById(avatarImage).src = toeAvatarImage;
+
+	var ticTacAvatarImage = "img/ticTac_blank.png";
+	var avatarImage = 'ticTacAvatar';
+	document.getElementById(avatarImage).src = ticTacAvatarImage;
+
+	allTheCellsArray = [
+	['A1n',	'', 'A', '1', 'n', '0' ],
+	['A2',	'', 'A', '2', '0', '0'],
+	['A3p',	'', 'A', '3', '0', 'p'],
+	['B1',	'', 'B', '1', '0', '0'],
+	['B2np', '', 'B', '2', 'n', 'p'],
+	['B3',	'', 'B', '3', '0', '0'],
+	['C1p',	'', 'C', '1', '0', 'p'],
+	['C2',	'', 'C', '2', '0', '0'],
+	['C3n', '', 'C', '3', 'n', '0']
+	];
+
+	scoreCard = [[
+	0, //index 0 = ticTac's A row score
+	0, //index 1 = ticTac's B row score
+	0, //index 2 = ticTac's C row score
+	0, //index 3 = ticTac's 1 column score
+	0, //index 4 = ticTac's 2 column score
+	0, //index 5 = ticTac's 3 column score
+	0, //index 6 = ticTac's n-slope score
+	0, //index 7 = ticTac's p-slope score
+	], [
+	0, //index 0 = toe's A row score
+	0, //index 1 = toe's B row score
+	0, //index 2 = toe's C row score
+	0, //index 3 = toe's 1 column score
+	0, //index 4 = toe's 2 column score
+	0, //index 5 = toe's 3 column score
+	0, //index 6 = toe's n-slope score
+	0, //index 7 = toe's p-slope score
+	]];
+
+	var imageVar = "img/T.png";
+	var mugga = "A1n_img";
+	document.getElementById(mugga).src = imageVar;
+
+	var imageVar = "img/i_lc.png";
+	var targetId = 'A2_img';
+	document.getElementById(targetId).src = imageVar;
+
+	var imageVar = "img/C.png";
+	var targetId = 'A3p_img';
+	document.getElementById(targetId).src = imageVar;
+
+	var imageVar = "img/t_lc.png";
+	var targetId = 'B1_img';
+	document.getElementById(targetId).src = imageVar;
+
+	var imageVar = "img/A.png";
+	var targetId = 'B2np_img';
+	document.getElementById(targetId).src = imageVar;
+
+	var imageVar = "img/c_lc.png";
+	var targetId = 'B3_img';
+	document.getElementById(targetId).src = imageVar;
+
+	var imageVar = "img/T.png";
+	var targetId = 'C1p_img';
+	document.getElementById(targetId).src = imageVar;
+
+	var imageVar = "img/o_lc.png";
+	var targetId = 'C2_img';
+	document.getElementById(targetId).src = imageVar;
+
+	var imageVar = "img/E.png";
+	var targetId = 'C3n_img';
+	document.getElementById(targetId).src = imageVar;
+	
+getPlayer();
+}

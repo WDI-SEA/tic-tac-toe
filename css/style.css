@@ -1,7 +1,5 @@
-body {
-	font-family: Fira-Sans, Helvetica, sans-serif;
-	text-align: center;
-	}	
+body { ctext-align: center; }	
+
 
 .grid-container {
   display: grid;
@@ -17,7 +15,14 @@ body {
   text-align: center;
 }
 
-#headSpace { grid-area: heady; display: block;}
+#headSpace { 
+	grid-area: heady; 
+	display: block;
+	text-align: center;
+}
+
+#reStart { padding: 20px 0 0 0; }
+
 #A1n { grid-area: r1c1; }
 #A2 { grid-area: r1c2; }
 #A3p { grid-area: r1c3; }
