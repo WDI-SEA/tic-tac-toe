@@ -28,6 +28,7 @@ function reset(){
 	squareSeven = 7;
 	squareEight = 8; 
 	squareNine = 9;
+	turn = 0;
 }
 
 function addListeners(){
@@ -297,6 +298,12 @@ function checkWin(){
 		//diagonal two
 		(squareThree == squareFive && squareFive == squareSeven && squareSeven == 'O')){
 		oWinsTheGame();
+	} else if (turn == 9) {
+		var showTie = document.querySelector('.winMessage');
+		showTie.classList.add('showWinMessage');
+		showTie.textContent = 'It is a tie! Click to restart.'
+		removeListeners();
+		document.querySelector('.winMessage').addEventListener('click',clearBoard);
 	}
 };
 

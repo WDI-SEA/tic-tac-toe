@@ -6,7 +6,6 @@ body {
 
 h1 {
   color: black;
- /* position: absolute;*/
   text-align: center;
   font-size: 100px;
   margin: 0;
@@ -18,7 +17,6 @@ h1 {
 .container {
 	width: auto;
 	background-color: #1186bb;
-/*	position: relative;*/
 	margin: 0 auto;
 }
 
@@ -43,18 +41,12 @@ h1 {
 	background-color: #eeeeee;
 	color: #333333;
 	font-family: 'Source Sans Pro', sans-serif;
-/*	justify-content: center; */
 }
 
 .row {
 	display: flex;
-
 }
 
-#top-row {
-	/*border-top: 2px solid black;*/
-	/*width: 600px;*/
-}
 
 #square1, #square2, #square3 {
 	border-bottom: 1px solid black;
@@ -82,24 +74,6 @@ h1 {
 	border-left: 1px solid black;
 }
 
-/*.squarex {
-	height: 200px;
-	width: 200px;
-	border: 2px solid black;
-	text-align: center;
-	font-size: 175px;
-	color: blue;
-}
-
-.squareo {
-	height: 200px;
-	width: 200px;
-	border: 2px solid black;
-	text-align: center;
-	font-size: 175px;
-	color: red;
-}*/
-
 .showWinMessage {
 	color: #eeeeee;
 	background-color: black;
@@ -113,4 +87,6 @@ h1 {
 	font-family: 'Source Sans Pro', sans-serif;
 	padding: 5px;
 }
+
+
 
