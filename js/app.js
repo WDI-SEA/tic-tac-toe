@@ -107,7 +107,7 @@ function checkTie() {
 	if (dougs.length + dans.length === 9) {
 		document.getElementById("results").innerHTML = "It's a TIE!";
 		document.getElementById("results").style.color = "red";
-		
+	}
 	// if (dougs.length === 5 && dougsPoints < 3) {
 	// 	definePlayer = true;
 	// 	stopGame();
