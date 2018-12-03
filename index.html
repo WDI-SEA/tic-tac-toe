@@ -3,11 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <title>Tic-Tac-Toe</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Sedgwick+Ave" rel="stylesheet">
 </head>
-<body>
-  <h1>Hello Front-End</h1>
+<body onload="startGame()">
+  <h1>Tic Tac Toe</h1>
+  <div id="playerMsg"></div>
+  <div class="gameboard">
+  <div class="square" onClick="move(this)" id="s1"></div>
+  <div class="square" onClick="move(this)" id="s2"></div>
+  <div class="square" onClick="move(this)" id="s3"></div>
+  <div class="square" onClick="move(this)" id="s4"></div>
+  <div class="square" onClick="move(this)" id="s5"></div>
+  <div class="square" onClick="move(this)" id="s6"></div>
+  <div class="square" onClick="move(this)" id="s7"></div>
+  <div class="square" onClick="move(this)" id="s8"></div>
+  <div class="square" onClick="move(this)" id="s9"></div>
+</div>
+	<a href="javascript: startGame();" id="restart">Start Over!</a>
 
   <script type="text/javascript" src="js/app.js"></script>
 </body>

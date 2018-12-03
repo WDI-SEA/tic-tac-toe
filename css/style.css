@@ -1,3 +1,44 @@
-h1 {
-  color: purple;
+body {
+	background: black;
+	width: 325px;
+	margin: 0 auto;
 }
+
+h1 {
+  color: white;
+  text-align: center;
+  font-size: 50px;
+  font-family: 'Sedgwick Ave', cursive;
+}
+
+#playerMsg {
+	font-family: 'Indie Flower', cursive;
+	font-size: 18px;
+	color: white;
+}
+.gameboard{
+	display: grid;
+	grid-template-columns: repeat(3, 100px);
+	grid-template-rows: repeat(3, 100px);
+	justify-content: center;
+	margin: 0 auto;
+	grid-gap: 10px;
+}
+
+.square {
+	font-size: 50px;
+	text-align: center;
+	padding: 20px
+	border: 1px solid rgba(0,0,0,0);
+	background-color: #EAF2EF;
+	border-radius: 10px;
+	font-family: 'Indie Flower', cursive;
+}
+
+#restart {
+	font-family: 'Indie Flower', cursive;
+	font-size: 18px;
+	text-decoration: none;
+	color: white;
+}
+
