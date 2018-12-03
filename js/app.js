@@ -5,6 +5,7 @@ let currentPlayer = '';
 const ticTacState = 'neutral';
 const toeState = 'neutral';
 
+
 //function to randomly assign initial player-----------------
 
 const getPlayer = function() {
@@ -165,15 +166,16 @@ let clickedCell = function(event) {
 
 		//check for a winner
 
+
 		for(q = 0; q < 8; q++) {
 			if(scoreCard[0][q] === 3) {
-				console.log('ticTac WINS!!!!!!');
+				//console.log('ticTac WINS!!!!!!');
 				gameOver('ticTac');
 			}
 		};
 		for(q = 0; q < 8; q++) {
 			if(scoreCard[1][q] === 3) {
-				console.log('toe WINS!!!!!!');
+				//console.log('toe WINS!!!!!!');
 				gameOver('toe');
 			}
 		};
@@ -182,15 +184,15 @@ let clickedCell = function(event) {
 			// shut down listeners
 			// display tie messages w/ avatars
 
-		let emptyCellCount = 0;
-		for (z = 0; z < allTheCellsArray.length; z++) {
-			if (allTheCellsArray[z][1] === '') {
-				emptyCellCount++;
+			let emptyCellCount = 0;
+			for (z = 0; z < allTheCellsArray.length; z++) {
+				if (allTheCellsArray[z][1] === '') {
+					emptyCellCount++;
+				};
 			};
-		};
-		if (emptyCellCount === 0) {
-			console.log('GAME TIED!');
-		}
+			if (emptyCellCount === 0) {
+				console.log('GAME TIED!');
+			};
 
 		//turn off the avatar "my turn" for current player
 
@@ -251,8 +253,7 @@ function clickedAvatar(event) {
 }
 
 function gameOver(winner) {
-	console.log('the game is over');
-
+	console.log('the game is over,', winner, 'wins');
 
 	//remove the event listeners
 	document.getElementById("A1n").removeEventListener('click', clickedCell);
