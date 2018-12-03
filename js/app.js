@@ -146,6 +146,16 @@ let clickedCell = function(event) {
 
 		//check for a winner
 
+		for(q = 0; q < 8; q++) {
+			if(scoreCard[0][q] === 3) {
+				console.log('ticTac WINS!!!!!!');
+			}
+		};
+		for(q = 0; q < 8; q++) {
+			if(scoreCard[1][q] === 3) {
+				console.log('toe WINS!!!!!!');
+			}
+		};
 
 		//check for a tie (if tie, do the following)
 			// shut down listeners
