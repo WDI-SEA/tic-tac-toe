@@ -14,6 +14,7 @@ console.log('Hello frontend');
 
 document.getElementById("start").addEventListener("click", start)
 
+
 function start() {
 	resetGame();
 	addBoxListeners();
@@ -103,21 +104,21 @@ function checkWin() {
 }
 
 function checkTie() {
-	if (dougs.length === 5) {
-		checkWin();
-		definePlayer = true;
-		stopGame();
+	if (dougs.length + dans.length === 9) {
 		document.getElementById("results").innerHTML = "It's a TIE!";
 		document.getElementById("results").style.color = "red";
-		console.log(definePlayer);
-	} else if (dans.length ===5) {
-		checkWin();
-		definePlayer = false;
-		stopGame();
-		document.getElementById("results").innerHTML = "It's a TIE!";
-		document.getElementById("results").style.color = "red";
-		console.log(definePlayer);
-	}
+		
+	// if (dougs.length === 5 && dougsPoints < 3) {
+	// 	definePlayer = true;
+	// 	stopGame();
+	// 	document.getElementById("results").innerHTML = "It's a TIE!";
+	// 	document.getElementById("results").style.color = "red";
+	// } else if (dans.length ===5 && dansPoints < 3) {
+	// 	definePlayer = false;
+	// 	stopGame();
+	// 	document.getElementById("results").innerHTML = "It's a TIE!";
+	// 	document.getElementById("results").style.color = "red";
+	// }
 }
 
 // stop the game if there's been a winner
