@@ -1,7 +1,9 @@
 h1 {
-  color: purple;
-  background-color: lightgray;
-  margin-top: 2px;
+	font-family: "Baloo Bhai";
+	font-size: 40px;
+    color: white;
+  	background-color: lightgray;
+  	margin-top: 1px;
 }
 
 body {
@@ -11,7 +13,7 @@ body {
 .container {
 	display: flex;
 	flex-direction: column;
-	height: 600px;
+	height: 650px;
 	background-color: lightgray;
 	justify-content: center;
 	padding: 40px;
@@ -30,17 +32,27 @@ body {
 
 #one, #two, #three,
 #four, #five, #six {
-	border-bottom: 4px solid black;
+	border-bottom: 4px solid white;
 }
 
 #one, #four, #seven,
 #two, #five, #eight {
-	border-right: 4px solid black;
+	border-right: 4px solid white;
 }
 
 #start {
-	margin: 30px 40%;
-	border: 2px solid black;
+	margin: 20px 40% 0;
+	color: white;
+	border: 2px solid white;
+	font-family: "Baloo Bhai";
+	font-size: 20px;
+}
+
+#results {
+	margin: 30px 40% 0;
+	color: white;
+	font-family: "Baloo Bhai";
+	font-size: 25px;
 }
 
 .dougie {
@@ -55,6 +67,9 @@ body {
 	background-repeat: no-repeat;
 }
 
+#start:hover {
+	background-color: green;
+}
 /*
 #one, #nine{
 	background-image: url("/img/dp.jpg");
