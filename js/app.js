@@ -166,24 +166,27 @@ let clickedCell = function(event) {
 
 		//check for a winner
 
+		var nextSteps = 'finish turn';
 
 		for(q = 0; q < 8; q++) {
 			if(scoreCard[0][q] === 3) {
-				//console.log('ticTac WINS!!!!!!');
+				console.log('ticTac WINS!!!!!!');
+				nextSteps = 'ticTac wins';
 				gameOver('ticTac');
 			}
 		};
 		for(q = 0; q < 8; q++) {
 			if(scoreCard[1][q] === 3) {
-				//console.log('toe WINS!!!!!!');
+				console.log('toe WINS!!!!!!');
+				nextSteps = 'toe wins';
 				gameOver('toe');
 			}
 		};
 
 		//check for a tie (if tie, do the following)
-			// shut down listeners
-			// display tie messages w/ avatars
+		// display tie messages w/ avatars
 
+		if(nextSteps === 'finish turn') { 
 			let emptyCellCount = 0;
 			for (z = 0; z < allTheCellsArray.length; z++) {
 				if (allTheCellsArray[z][1] === '') {
@@ -192,35 +195,34 @@ let clickedCell = function(event) {
 			};
 			if (emptyCellCount === 0) {
 				console.log('GAME TIED!');
+				tiedGame();
+				nextSteps = 'tied game';
 			};
-
-		//turn off the avatar "my turn" for current player
-
-
-		var avatarImage = "img/" + currentPlayer +"_blank.png";
-		var avatarImageId = currentPlayer + "Avatar";
-
-		document.getElementById(avatarImageId).src = avatarImage;
-
-
-		//switch current player
-		if (currentPlayer === 'ticTac') {
-			currentPlayer = 'toe';
-			console.log('current player switched to', currentPlayer);
-			console.log('');
-		} else {
-			currentPlayer = 'ticTac';
-			console.log('current player switched to', currentPlayer);
-			console.log('');
 		};
 
-		//change the avatar for the new currrent player
+		if(nextSteps === 'finish turn') {
+			var avatarImage = "img/" + currentPlayer +"_blank.png";
+			var avatarImageId = currentPlayer + "Avatar";
+			document.getElementById(avatarImageId).src = avatarImage;
 
-		var avatarImage = "img/" + currentPlayer +"_turn.png";
-		var avatarImageId = currentPlayer + "Avatar";
+			//switch current player
+			if (currentPlayer === 'ticTac') {
+				currentPlayer = 'toe';
+				console.log('current player switched to', currentPlayer);
+				console.log('');
+			} else {
+				currentPlayer = 'ticTac';
+				console.log('current player switched to', currentPlayer);
+				console.log('');
+			};
 
-		document.getElementById(avatarImageId).src = avatarImage;
+			//change the avatar for the new currrent player
 
+			var avatarImage = "img/" + currentPlayer +"_turn.png";
+			var avatarImageId = currentPlayer + "Avatar";
+
+			document.getElementById(avatarImageId).src = avatarImage;
+		}
 
 	}; //end of else statement tasks
 
@@ -238,19 +240,27 @@ document.getElementById("B3").addEventListener('click', clickedCell);
 document.getElementById("C1p").addEventListener('click', clickedCell);
 document.getElementById("C2").addEventListener('click', clickedCell);
 document.getElementById("C3n").addEventListener('click', clickedCell);
-document.getElementById("toeAvatar").addEventListener('click', clickedAvatar);
-document.getElementById("ticTacAvatar").addEventListener('click', clickedAvatar);
+// document.getElementById("toeAvatar").addEventListener('click', clickedAvatar);
+// document.getElementById("ticTacAvatar").addEventListener('click', clickedAvatar);
 
 
 
+function tiedGame() {
+	var ticTacAvatarImage = "img/ticTac_tie.png";
+	var avatarImage = 'ticTacAvatar';
+	document.getElementById(avatarImage).src = ticTacAvatarImage;
 
+	var toeAvatarImage = "img/toe_tie.png";
+	var avatarImage = 'toeAvatar';
+	document.getElementById(avatarImage).src = toeAvatarImage;
+}
 
 
 // stuff that gotta happen when an avatar is clicked
 
-function clickedAvatar(event) {
-	console.log("you clicked on " + this.id);
-}
+// function clickedAvatar(event) {
+// 	console.log("you clicked on " + this.id);
+// }
 
 function gameOver(winner) {
 	console.log('the game is over,', winner, 'wins');
@@ -265,7 +275,23 @@ function gameOver(winner) {
 	document.getElementById("C1p").removeEventListener('click', clickedCell);
 	document.getElementById("C2").removeEventListener('click', clickedCell);
 	document.getElementById("C3n").removeEventListener('click', clickedCell);
-	document.getElementById("toeAvatar").removeEventListener('click', clickedAvatar);
-	document.getElementById("ticTacAvatar").removeEventListener('click', clickedAvatar);
 
-}
+if(winner === 'toe') {
+		var ticTacAvatarImage = "img/ticTac_blank.png";
+		var avatarImage = 'ticTacAvatar';
+		document.getElementById(avatarImage).src = ticTacAvatarImage;
+
+		var toeAvatarImage = "img/toe_wins.png";
+		var avatarImage = 'toeAvatar';
+		document.getElementById(avatarImage).src = toeAvatarImage;
+	} else {
+		var ticTacAvatarImage = "img/ticTac_wins.png";
+		var avatarImage = 'ticTacAvatar';
+		document.getElementById(avatarImage).src = ticTacAvatarImage;
+
+		var toeAvatarImage = "img/toe_blank.png";
+		var avatarImage = 'toeAvatar';
+		document.getElementById(avatarImage).src = toeAvatarImage;
+
+	};
+};
