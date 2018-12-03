@@ -1,3 +1,69 @@
 h1 {
   color: purple;
+  background-color: lightgray;
+  margin-top: 2px;
 }
+
+body {
+	text-align: center;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	height: 600px;
+	background-color: lightgray;
+	justify-content: center;
+	padding: 40px;
+}
+.row {
+	display: flex;
+	width: 600px;
+	height: 400px;
+	margin: auto;
+}
+
+.box {
+	width: 100%;
+	background-color: lightgray;
+}
+
+#one, #two, #three,
+#four, #five, #six {
+	border-bottom: 4px solid black;
+}
+
+#one, #four, #seven,
+#two, #five, #eight {
+	border-right: 4px solid black;
+}
+
+#start {
+	margin: 30px 40%;
+	border: 2px solid black;
+}
+
+#dougie {
+	background-image: url("/img/dougie.jpg");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+
+#dp {
+	background-image: url("/img/dp.jpg");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+
+/*
+#one, #nine{
+	background-image: url("/img/dp.jpg");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+
+#three, #six {
+	background-image: url("/img/dougie.jpg");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}*/
