@@ -3,12 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <title>idothestamping</title>
 </head>
-<body>
-  <h1>Hello Front-End</h1>
 
-  <script type="text/javascript" src="js/app.js"></script>
+<div class="title">
+<h1>Tic Tac Toe</h1>
+
+  <form class="menu" id="">
+  <!-- mabye x or o player choice -->
+  <!-- maybe menu for start/ reset -->
+  </form>
+
+<!-- maybe div for game status WIN/LOSS annoucement -->
+
+<!--   <div class="mainContainer noDisplay" id="gameBox"> -->
+    <!-- class-"name displayNone" for text removal -->
+<!--   	<div class="flexBox1" id="one">flexBox1</div>
+  	<div class="flexBox2" id="two">flexBox2</div>
+  	<div class="flexBox3" id="three">flexBox3</div>
+
+  	<div class="flexBox4" id="four">flexBox4</div>
+  	<div class="flexBox5" id="five">flexBox5</div>
+  	<div class="flexBox6" id="six">flexBox6</div>
+
+    <div class="flexBox7" id="seven">flexBox7</div>
+    <div class="flexBox8" id="eight">flexBox8</div>
+    <div class="flexBox9" id="nine">flexBox9</div>
+  </div> -->
+
+<body>
+  <div class="mainContainer" id="gameBox" value="0">
+    <button class="flexBox1" id="one" value="0" onclick="clickButton(this.value)"></button>
+    <button class="flexBox1" id="two" value="1" onclick="clickButton(this.value)"></button>
+    <button class="flexBox1" id="three" value="2" onclick="clickButton(this.value)"></button>
+    <button class="flexBox1" id="four" value="3" onclick="clickButton(this.value)"></button>
+    <button class="flexBox1" id="five" value="4" onclick="clickButton(this.value)"></button>
+    <button class="flexBox1" id="six" value="5" onclick="clickButton(this.value)"></button> 
+    <button class="flexBox1" id="seven" value="6" onclick="clickButton(this.value)"></button>
+    <button class="flexBox1" id="eight" value="7" onclick="clickButton(this.value)"></button>
+    <button class="flexBox1" id="nine" value="8" onclick="clickButton(this.value)"></button>
+  </div>
 </body>
+  <script type="text/javascript" src="js/app.js"></script>
 </html>
+
+
