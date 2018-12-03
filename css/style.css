@@ -43,13 +43,13 @@ body {
 	border: 2px solid black;
 }
 
-#dougie {
+.dougie {
 	background-image: url("/img/dougie.jpg");
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
 }
 
-#dp {
+.dp {
 	background-image: url("/img/dp.jpg");
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
