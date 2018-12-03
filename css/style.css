@@ -8,7 +8,7 @@ body {
   grid-template-rows: 100px 175px 175px 175px;  
   grid-template-columns: 1fr 175px 175px 175px 1fr;
   grid-template-areas:
-  	'heady heady heady heady heady'
+  	'bnkLft heady heady heady bnkRght'
     'bnkLft r1c1 r1c2 r1c3 bnkRght'
     'bnkLft r2c1 r2c2 r2c3 bnkRght'
     'bnkLft r3c1 r3c2 r3c3 bnkRght';
@@ -17,8 +17,7 @@ body {
   text-align: center;
 }
 
-
-#headSpace { grid-area: heady;}
+#headSpace { grid-area: heady; display: block;}
 #A1n { grid-area: r1c1; }
 #A2 { grid-area: r1c2; }
 #A3p { grid-area: r1c3; }
@@ -29,20 +28,21 @@ body {
 #C2 { grid-area: r3c2; }
 #C3n { grid-area: r3c3; }
 
+/*#A1n_img { visibility: hidden; }
+*/
 #blankLeft { 
 	display: flex;
 	grid-area: bnkLft; 
 	align-items: center;
 	justify-content: center;
 }
+
 #blankRight { 
 	display: flex;
 	grid-area: bnkRght; 
 	align-items: center;
 	justify-content: center;
-
 }
-
 
 .avatar {
 

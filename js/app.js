@@ -84,6 +84,19 @@ let clickedCell = function(event) {
 		console.log('cell now occupied by', allTheCellsArray[currentCellArrayLocation][1], '!');
 		console.log('get ready for some score keeping!');
 
+
+		if (currentPlayer === 'ticTac') {
+			var avatarSrc = "img/ticTac_neutral.png";
+		} else {
+			var avatarSrc = "img/toe_neutral.png";
+		};
+
+		var imageId = allTheCellsArray[currentCellArrayLocation][0] + "_img";
+		console.log(imageId);
+
+		document.getElementById(imageId).src = avatarSrc;
+
+
 		//establish a numeric value for the current player for use in scoreCard index navigation
 		if (currentPlayer === 'ticTac') {
 			var playerIndex = 0;
@@ -91,7 +104,7 @@ let clickedCell = function(event) {
 			var playerIndex = 1;
 		};
 
-		// increment relevant ABC123np numbers in relevent scorecard. 
+		// increment  ABC123np numbers in scoreCard array ------- 
 		switch (allTheCellsArray[currentCellArrayLocation][2]) {
 			case 'A':
 				scoreCard[playerIndex][0]++;
@@ -149,11 +162,13 @@ let clickedCell = function(event) {
 		for(q = 0; q < 8; q++) {
 			if(scoreCard[0][q] === 3) {
 				console.log('ticTac WINS!!!!!!');
+				gameOver('ticTac');
 			}
 		};
 		for(q = 0; q < 8; q++) {
 			if(scoreCard[1][q] === 3) {
 				console.log('toe WINS!!!!!!');
+				gameOver('toe');
 			}
 		};
 
@@ -211,4 +226,23 @@ document.getElementById("ticTacAvatar").addEventListener('click', clickedAvatar)
 
 function clickedAvatar(event) {
 	console.log("you clicked on " + this.id);
+}
+
+function gameOver(winner) {
+	console.log('the game is over');
+
+
+	//remove the event listeners
+	document.getElementById("A1n").removeEventListener('click', clickedCell);
+	document.getElementById("A2").removeEventListener('click', clickedCell);
+	document.getElementById("A3p").removeEventListener('click', clickedCell);
+	document.getElementById("B1").removeEventListener('click', clickedCell);
+	document.getElementById("B2np").removeEventListener('click', clickedCell);
+	document.getElementById("B3").removeEventListener('click', clickedCell);
+	document.getElementById("C1p").removeEventListener('click', clickedCell);
+	document.getElementById("C2").removeEventListener('click', clickedCell);
+	document.getElementById("C3n").removeEventListener('click', clickedCell);
+	document.getElementById("toeAvatar").removeEventListener('click', clickedAvatar);
+	document.getElementById("ticTacAvatar").removeEventListener('click', clickedAvatar);
+
 }
