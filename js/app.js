@@ -59,6 +59,7 @@ let scoreCard = [[
 
 
 
+
 //all the things that gotta happen when a cell gets clicked -----
 
 let clickedCell = function(event) {
@@ -203,17 +204,20 @@ let clickedCell = function(event) {
 
 //event listeners!-------------------------------------------
 
-document.getElementById("A1n").addEventListener('click', clickedCell);
-document.getElementById("A2").addEventListener('click', clickedCell);
-document.getElementById("A3p").addEventListener('click', clickedCell);
-document.getElementById("B1").addEventListener('click', clickedCell);
-document.getElementById("B2np").addEventListener('click', clickedCell);
-document.getElementById("B3").addEventListener('click', clickedCell);
-document.getElementById("C1p").addEventListener('click', clickedCell);
-document.getElementById("C2").addEventListener('click', clickedCell);
-document.getElementById("C3n").addEventListener('click', clickedCell);
-document.getElementById("reStart").addEventListener('click', clearTheBoard);
+function getListeners() {
+	document.getElementById("A1n").addEventListener('click', clickedCell);
+	document.getElementById("A2").addEventListener('click', clickedCell);
+	document.getElementById("A3p").addEventListener('click', clickedCell);
+	document.getElementById("B1").addEventListener('click', clickedCell);
+	document.getElementById("B2np").addEventListener('click', clickedCell);
+	document.getElementById("B3").addEventListener('click', clickedCell);
+	document.getElementById("C1p").addEventListener('click', clickedCell);
+	document.getElementById("C2").addEventListener('click', clickedCell);
+	document.getElementById("C3n").addEventListener('click', clickedCell);
+	document.getElementById("reStart").addEventListener('click', clearTheBoard);
+};
 
+getListeners();
 
 function tiedGame() {
 	var ticTacAvatarImage = "img/ticTac_tie.png";
@@ -335,4 +339,7 @@ function clearTheBoard() {
 	document.getElementById(targetId).src = imageVar;
 
 getPlayer();
+
+getListeners();
+
 }
