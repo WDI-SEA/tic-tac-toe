@@ -1,3 +1,152 @@
-h1 {
-  color: purple;
+.container {
+  display: flex;
+  justify-content: column;
+}
+
+body {
+  text-align: center;
+  font-family: 'Amatic SC', bold;
+  background: #fff6e9;
+}
+
+.title {
+  margin: 40px 0;
+  font-size: 50px;
+}
+
+img {
+  max-width: 70px;
+}
+
+div[clicked-x="true"] {
+  background: #ffc0cb;
+  background-image: url("/img/x.png");
+  background-size: 100px 100px;
+}
+
+div[clicked-o="true"] {
+  background: #20b2aa;
+  background-image: url("/img/o.png");
+  background-size: 100px 100px;
+}
+
+#panels-and-board {
+  display: flex;
+  align-content: space-around;
+  justify-content: center;
+}
+
+.side-panel {
+  padding: 20px 5px;
+  margin: 10px 5px;
+  width: 150px;
+  border: 2px solid black;
+}
+
+.t3grid {
+  display: flex;
+  flex-flow: row wrap;
+  width: 350px;
+  height: 350px;
+  justify-content: center;
+  align-content: center;
+  padding: 0 5px;
+  margin: 10px 0;
+  border: 2px solid black;
+}
+
+.t3box {
+  width: 100px;
+  height: 100px;
+  border: 2px solid black;
+  background: #fffcf5;
+}
+
+.whose-move {
+  display: inline-block;
+  border: 2px solid black;
+  padding: 5px 15px;
+  margin: 20px auto;
+  background: #FFFFFF;
+}
+
+.button {
+  margin: 10px auto;
+  font-family: 'Amatic SC', bold;
+  font-size: 160%;
+  background: #eeaa16;
+  color: #FFFFFF;
+  border: none;
+  padding: 5px 20px;
+}
+
+p {
+  font-size: 140%;
+}
+
+@media(max-width: 650px) {
+ #panels-and-board {
+    display: flex;
+    align-content: space-around;
+    justify-content: center;
+    flex-flow: row wrap;
+    border-style: none;
+  }
+
+  .title {
+    margin: 10px auto;
+    font-size: 30px;
+  }
+  
+  #o-panel {
+    order: 3;
+    justify-self: flex-end;
+    margin: 0 auto;
+    border-style: none;
+  }
+
+  #x-panel {
+    order: 2;
+    margin: 0 auto;
+    border-style: none;
+  }
+
+  .side-panel {
+    padding: 15px 5px;
+    margin: 5px;
+    width: 100px;
+    justify-content: center;
+  }
+  
+  .t3grid {
+    display: flex;
+    flex-flow: row wrap;
+    width: 225px;
+    height: 225px;
+    justify-content: center;
+    align-content: center;
+    padding: 5px 5px;
+    margin: 5px;
+    order: 1;
+    border-style: none;
+  }
+  
+  .t3box {
+    width: 70px;
+    height: 70px;
+    background-size: 100%; 
+  }
+
+  div[clicked="true"] {
+    background-size: 100%;
+  }
+
+  .whose-move {
+    margin: 0 20px;
+    order: 1;
+  }
+
+  .side-panel p {
+    margin: 5px 0;
+  }
 }

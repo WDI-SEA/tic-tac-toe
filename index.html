@@ -3,12 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <title>T3</title>
+  <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-  <h1>Hello Front-End</h1>
-
+  <header class="title">Tic-Tac-Toe</header>
+  <div id="panels-and-board">
+      <div class="side-panel" id="x-panel">
+          <img src="/img/x.png" alt="a large X">
+          <p class="win-tracker" id="x-wins">Wins: <span>0</span></p>
+          <p class="loss-tracker" id="x-losses">Losses: <span>0</span></p>
+          <p class="draw-tracker" id="x-draw">Draws: <span>0</span></p>
+        </div>
+        <div class="t3grid">
+          <div class="t3box" clicked-x="false" clicked-o="false" clicked="false" id="t1"></div>
+          <div class="t3box" clicked-x="false" clicked-o="false" clicked="false" id="t2"></div>
+          <div class="t3box" clicked-x="false" clicked-o="false" clicked="false" id="t3"></div>
+          <div class="t3box" clicked-x="false" clicked-o="false" clicked="false" id="t4"></div>
+          <div class="t3box" clicked-x="false" clicked-o="false" clicked="false" id="t5"></div>
+          <div class="t3box" clicked-x="false" clicked-o="false" clicked="false" id="t6"></div>
+          <div class="t3box" clicked-x="false" clicked-o="false" clicked="false" id="t7"></div>
+          <div class="t3box" clicked-x="false" clicked-o="false" clicked="false" id="t8"></div>
+          <div class="t3box" clicked-x="false" clicked-o="false" clicked="false" id="t9"></div>
+        </div>
+        <div class="side-panel" id="o-panel">
+            <img src="/img/o.png" alt="a large O">
+            <p class="win-tracker" id="o-wins">Wins: <span>0</span></p>
+            <p class="loss-tracker" id="o-losses">Losses: <span>0</span></p>
+            <p class="draw-tracker" id="o-draw">Draws: <span>0</span></p>
+        </div>
+  </div>
+  <p class="whose-move">It's X's move</p> </br>
+  <button class="button" id="try-again">Try Again</button> </br>
+  <button class="button" id="clear-game">Clear Game</button>
   <script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>
