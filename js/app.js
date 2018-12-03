@@ -262,42 +262,24 @@ function playSquare9() {
 };
 
 function checkWin(){
-	if(
-		//top row
-		(squareOne == squareTwo && squareTwo == squareThree && squareOne == 'X') ||
+	if(	//top row
+		(squareOne == squareTwo && squareTwo == squareThree) ||
 		//middle row
-		(squareFour == squareFive && squareFive == squareSix && squareSix == 'X') ||
+		(squareFour == squareFive && squareFive == squareSix) ||
 		//bottom row
-		(squareSeven == squareEight && squareEight == squareNine && squareNine == 'X') || 
+		(squareSeven == squareEight && squareEight == squareNine) || 
 		//left column
-		(squareOne == squareFour && squareFour == squareSeven && squareSeven == 'X') ||
+		(squareOne == squareFour && squareFour == squareSeven) ||
 		//middle column
-		(squareTwo == squareFive && squareFive == squareEight && squareEight == 'X') ||
+		(squareTwo == squareFive && squareFive == squareEight) ||
 		//right column
-		(squareThree == squareSix && squareSix == squareNine && squareNine == 'X') ||
+		(squareThree == squareSix && squareSix == squareNine) ||
 		//diagonal one
-		(squareOne == squareFive && squareFive == squareNine && squareNine == 'X') ||
+		(squareOne == squareFive && squareFive == squareNine) ||
 		//diagonal two
-		(squareThree == squareFive && squareFive == squareSeven && squareSeven == 'X')){
-		xWinsTheGame();
-	} else if(
-		//top row
-		(squareOne == squareTwo && squareTwo == squareThree && squareOne == 'O') ||
-		//middle row
-		(squareFour == squareFive && squareFive == squareSix && squareSix == 'O') ||
-		//bottom row
-		(squareSeven == squareEight && squareEight == squareNine && squareNine == 'O') || 
-		//left column
-		(squareOne == squareFour && squareFour == squareSeven && squareSeven == 'O') ||
-		//middle column
-		(squareTwo == squareFive && squareFive == squareEight && squareEight == 'O') ||
-		//right column
-		(squareThree == squareSix && squareSix == squareNine && squareNine == 'O') ||
-		//diagonal one
-		(squareOne == squareFive && squareFive == squareNine && squareNine == 'O') ||
-		//diagonal two
-		(squareThree == squareFive && squareFive == squareSeven && squareSeven == 'O')){
-		oWinsTheGame();
+		(squareThree == squareFive && squareFive == squareSeven)){
+		var win = true; 
+		checkWhoWon();
 	} else if (turn == 9) {
 		var showTie = document.querySelector('.winMessage');
 		showTie.classList.add('showWinMessage');
@@ -307,18 +289,17 @@ function checkWin(){
 	}
 };
 
-
-function xWinsTheGame(){
-	winner.classList.add('showWinMessage');
-	winner.textContent = 'Player X has won the game! Click to restart.';
-	removeListeners();
-	//Make the win message clickable to restart the game
-	document.querySelector('.winMessage').addEventListener('click',clearBoard);
+function checkWhoWon (){
+	if (turn%2 != 0) {
+		winsTheGame('X');
+	} else {
+		winsTheGame('O');
+	}
 }
 
-function oWinsTheGame(){
+function winsTheGame(player){
 	winner.classList.add('showWinMessage');
-	winner.textContent = 'Player O has won the game! Click to restart.';
+	winner.textContent = 'Player '+player+' has won the game! Click to restart.';
 	removeListeners();
 	//Make the win message clickable to restart the game
 	document.querySelector('.winMessage').addEventListener('click',clearBoard);
