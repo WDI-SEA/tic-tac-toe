@@ -17,6 +17,12 @@ const getPlayer = function() {
 getPlayer();
 console.log('the starting player is', currentPlayer);
 
+var avatarImage = "img/" + currentPlayer +"_turn.png";
+var avatarImageId = currentPlayer + "Avatar";
+
+document.getElementById(avatarImageId).src = avatarImage;
+
+
 //starting values for all of the cells----------------------
 
 let allTheCellsArray = [
@@ -186,6 +192,14 @@ let clickedCell = function(event) {
 			console.log('GAME TIED!');
 		}
 
+		//turn off the avatar "my turn" for current player
+
+
+		var avatarImage = "img/" + currentPlayer +"_blank.png";
+		var avatarImageId = currentPlayer + "Avatar";
+
+		document.getElementById(avatarImageId).src = avatarImage;
+
 
 		//switch current player
 		if (currentPlayer === 'ticTac') {
@@ -197,6 +211,14 @@ let clickedCell = function(event) {
 			console.log('current player switched to', currentPlayer);
 			console.log('');
 		};
+
+		//change the avatar for the new currrent player
+
+		var avatarImage = "img/" + currentPlayer +"_turn.png";
+		var avatarImageId = currentPlayer + "Avatar";
+
+		document.getElementById(avatarImageId).src = avatarImage;
+
 
 	}; //end of else statement tasks
 
