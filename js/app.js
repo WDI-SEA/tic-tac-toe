@@ -10,7 +10,6 @@ var dansPoints = 0;
 
 
 document.addEventListener("DOMContentLoaded", function() {
-console.log('Hello frontend');
 
 document.getElementById("start").addEventListener("click", start)
 
@@ -35,7 +34,7 @@ function clicked() {
 		//record the o click
 		dans.push(this.id);
 		// add a class name so that the box will change the background image
-		this.classList.add("dp");
+		this.classList.add("dd");
 		// turn off the event listener so I can't click the same box again
 		this.removeEventListener("click", clicked);
 		definePlayer = true;
@@ -80,7 +79,7 @@ function resetGame(){
 	// resets all the boxes back to blank's
 	for(var i = 0; i < allBoxes.length; i++) {
 		allBoxes[i].classList.remove("dougie");
-		allBoxes[i].classList.remove("dp");
+		allBoxes[i].classList.remove("dd");
 	}
 	stopGame();
 	document.getElementById("results").style.color = "white";
@@ -89,13 +88,13 @@ function resetGame(){
 
 function checkWin() {
 	if (dougsPoints === 3) {
-		document.getElementById("results").innerHTML = "DOUG WINS!";
+		document.getElementById("results").innerHTML = "ARCHMAESTER WINS!";
 		document.getElementById("results").style.color = "green";
 		// set this winning player to go first next
 		definePlayer = true;
 		stopGame();
 	} else if (dansPoints === 3) {
-		document.getElementById("results").innerHTML = "DAN WINS!";
+		document.getElementById("results").innerHTML = "DANGER WINS!";
 		document.getElementById("results").style.color = "blue";
 		// set this winnging player to go first next
 		definePlayer = false;
