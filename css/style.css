@@ -1,20 +1,93 @@
-.col {
-	display: inline-block;
-	width: 200px;
-	height: 200px;
-	margin: 10px;
-	border: 5px white;
-	background-color: black;
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 
-.col:hover {
+body {
+	display: flex;
+	background: black;
+	color: black;
+	font-family: 'Nunito', sans-serif;
+}
+
+.container {
+	display: flex;
+	margin: 0 auto;
+	flex-wrap: wrap;
+	width: 30%;
+}
+
+header {
+	text-align: center;
+	margin: 0 auto;
+	width: 100%;
+	margin-top: 50px;
+}
+
+header h1 {
+	font-weight: 100;
+	font-size: 50px;
+	color: white;
+}
+
+#game-board {
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 25px;
+	margin: 30px auto;
+	border: 2px solid white;
+	width: 100%;
 	background-color: red;
 }
-/*
-.container {
-	width: 600px;
-	height: 600px;
-	margin-left: auto;
-	margin-right: auto;
 
-}*/
+.grid-item {
+	text-align: center;
+	border: 2px solid white;
+	width: 33.33%;
+	height: 0;
+	padding-bottom: 33.33%;
+	color: white;
+	font-family: 'Nunito', sans-serif;
+	font-size: 50px;
+}
+
+.grid-item h1 {
+	margin: 0 auto;
+	margin-top: 15%;
+	cursor: pointer;
+}
+
+.game-over {
+	width: 100%;
+	display: flex;
+}
+
+#victory-message {
+	width: 50%;
+	font-size: 25px;
+	line-height: 25px;
+	padding-top: 14px;
+	color: white;
+}
+
+.play-again {
+	width: 50%;
+	line-height: 25px;
+	font-size: 25px;
+	color: white;	
+}
+
+.play-again button {
+	color: black;
+	background-color: white;
+	border: 0;
+	font-size: 25px;
+	line-height: 25px;
+	padding: 15px;
+	border-radius: 15px;
+	float: right;
+}
+
+.play-again button:hover {
+	background-color: white;

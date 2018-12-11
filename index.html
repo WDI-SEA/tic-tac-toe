@@ -7,31 +7,21 @@
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-  <!-- <h1>Hello Front-End</h1> -->
-
   <div class="container">
-  	<div class="table">
-
-  		<div class="col" id="1">1</div>
-  		<div class="col" id="2">2</div>
-  		<div class="col" id="3">3</div>
-  		<div class="col" id="4">4</div>
-  		<div class="col" id="5">5</div>
-  		<div class="col" id="6">6</div>
-  		<div class="col" id="7">7</div>
-  		<div class="col" id="8">8</div>
-  		<div class="col" id="9">9</div>
-
-  </div> 	
-
-  <div id="scores">
-  	<p id="px">Player X</p>
-  	<p id="po">player O</p>
-  	<p id="scorex">0</p>
-  	<p id="scoreo">0</p>
-
-
-
+			<header>
+				<h1>TIC-TAC-TOE</h1><br>
+			</header>
+			<div id="game-board">
+			</div>
+			<div class="game-over">
+				<div id="victory-message">
+					<!--Victory message goes here-->
+				</div>
+				<div class="play-again">
+					<button onclick="gamePlay.resetGame();">Reset</button>
+				</div>
+			</div>			
+		</div>
 
   <script type="text/javascript" src="js/app.js"></script>
 </body>
