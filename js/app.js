@@ -2,15 +2,6 @@ console.log("Hello frontend");
 
 // selectors
 var cells = document.querySelectorAll(".cell");
-// rows, cols, dias
-// var row1 = document.getElementsByClassName("row1");
-// var row2 = document.getElementsByClassName("row2");
-// var row3 = document.getElementsByClassName("row3");
-// var col1 = document.getElementsByClassName("col1");
-// var col2 = document.getElementsByClassName("col2");
-// var col3 = document.getElementsByClassName("col3");
-// var dia1 = document.getElementsByClassName("dia1");
-// var dia2 = document.getElementsByClassName("dia2");
 
 // win combos
 const winCombos = [
@@ -35,19 +26,26 @@ var gameOver = false;
 
 // endGame
 var endGame = function() {
-  // remove all click listnener
-  //display winner, draw
+  // remove all click listener
+  // display winner, draw
   // bonus: add score
+  console.log("end game");
+  cells.forEach(function(cell) {
+    cell.removeEventListener("click", clickCell);
+  });
 };
 
 // declareWin
 var declareWin = function() {
   if (movesCount > 8) {
     console.log("Tie");
+    endGame();
   } else if (isPlayerOne) {
     console.log("Player One Won");
+    endGame();
   } else if (!isPlayerOne) {
     console.log("Player Two Won");
+    endGame();
   }
 };
 
@@ -88,13 +86,22 @@ var clickCell = function() {
   if (movesCount > 8) declareWin(); // if last move
 };
 
-cells.forEach(function(cell) {
-  cell.addEventListener("click", clickCell);
-});
-
 // initGame
 var initGame = function() {
   // reset variables
+  isPlayerOne = true;
+  movesCount = 0;
+  markX.length = 0;
+  markO.length = 0;
+  gameOver = false;
+
   // reset cell content
-  // add click™ listeners to cells
+  // add click listeners to cells
+
+  cells.forEach(function(cell) {
+    cell.textContent = "";
+    cell.addEventListener("click", clickCell);
+  });
 };
+
+initGame();
