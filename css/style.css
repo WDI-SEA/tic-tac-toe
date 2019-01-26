@@ -1,3 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 h1 {
   color: purple;
+}
+
+#gameboard {
+  /* border: 2px solid black; */
+  width: 600px;
+  height: 600px;
+  margin: 0 auto;
+  padding: 10px;
+
+  text-align: center;
+}
+
+.cell {
+  margin: 3px;
+  padding: 0;
+  border: 2px solid blue;
+  display: inline-block;
+  width: 31%;
+  height: 31%;
+
+  align-items: center;
+  vertical-align: middle;
 }
