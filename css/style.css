@@ -2,13 +2,19 @@ body {
   text-align: center;
 }
 
-.wrapper {
+main {
   margin: 0 auto;
   width: 1000px;
-  border: 2px solid black;
+  border: 2px solid gray;
 }
 
-.row {
+.unplayed {
+  display: none;
+}
+
+.X, .Oh {
+  display: block;
+  line-height: 299px;
 }
 
 .box {
@@ -16,13 +22,39 @@ body {
   overflow: hidden;
   width: 300px;
   height: 300px;
-  border: 2px solid black;
   margin: 4px;
+  border: 2px solid gray;
+  border-radius: 5px;
 }
 
-.box > p {
+.box > span {
   font-size: 40px;
   font-weight: 600;
-  padding-top:25%;
-  
 }
+
+
+.scrn {
+  position: fixed;
+  left:0;
+  top:0;
+}
+
+.rsc {
+  display: block;
+  position: fixed;
+  width: 150px;
+  height: 150px;
+  background-color: rgba(00,00,00,1)
+}
+
+.rsc1, .rsc2, .rsc3, .rsc4, .rsc5 {
+  top: 0;
+  left: 0;
+}
+
+.rsc6, .rsc7, .rsc8 .rsc9 {
+  top: 0;
+  right: 0;
+
+}
+
