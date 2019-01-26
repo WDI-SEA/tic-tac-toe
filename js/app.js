@@ -4,6 +4,8 @@ console.log("Hello frontend");
 var cells = document.querySelectorAll(".cell");
 var resetBtn = document.querySelector(".reset");
 var turnIndicator = document.querySelector(".turn");
+var spanX = document.querySelector(".score-x");
+var spanO = document.querySelector(".score-o");
 
 // win combos
 var winCombos = [
@@ -23,6 +25,8 @@ var movesCount = 0;
 var markX = [];
 var markO = [];
 // var gameOver = false;
+var xScore = 0;
+var oScore = 0;
 
 // FUNCTIONS
 
@@ -35,6 +39,7 @@ var endGame = function() {
   cells.forEach(function(cell) {
     cell.removeEventListener("click", clickCell);
   });
+  updateScore();
   isPlayerOne = !isPlayerOne; // swap players game
 };
 
@@ -46,9 +51,11 @@ var declareWin = function() {
     endGame();
   } else if (isPlayerOne) {
     console.log("Player One Won");
+    xScore++;
     endGame();
   } else if (!isPlayerOne) {
     console.log("Player Two Won");
+    oScore++;
     endGame();
   }
 };
@@ -78,6 +85,12 @@ var updateTurn = function() {
   } else {
     turnIndicator.textContent = "O turn";
   }
+};
+
+// updateScore
+var updateScore = function() {
+  spanX.textContent = `${xScore}`;
+  spanO.textContent = `${oScore}`;
 };
 
 // clickCell, event callback
