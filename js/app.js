@@ -2,9 +2,11 @@ console.log("Hello frontend");
 
 // selectors
 var cells = document.querySelectorAll(".cell");
+var resetBtn = document.querySelector(".reset");
+var turnIndicator = document.querySelector(".turn");
 
 // win combos
-const winCombos = [
+var winCombos = [
   [0, 1, 2],
   [3, 4, 5],
   [6, 7, 8],
@@ -20,7 +22,7 @@ var isPlayerOne = true;
 var movesCount = 0;
 var markX = [];
 var markO = [];
-var gameOver = false;
+// var gameOver = false;
 
 // FUNCTIONS
 
@@ -33,12 +35,14 @@ var endGame = function() {
   cells.forEach(function(cell) {
     cell.removeEventListener("click", clickCell);
   });
+  isPlayerOne = !isPlayerOne; // swap players game
 };
 
 // declareWin
 var declareWin = function() {
   if (movesCount > 8) {
     console.log("Tie");
+    isPlayerOne = !isPlayerOne; // swap players game
     endGame();
   } else if (isPlayerOne) {
     console.log("Player One Won");
@@ -53,7 +57,7 @@ var declareWin = function() {
 // * @param: markX or markO
 var checkWin = function(arr) {
   if (arr.length >= 3) {
-    //check if marker array === one of the win combo[array]
+    // check if marker array === one of the win combo[array]
     winCombos.forEach(function(combo) {
       if (
         arr.includes(combo[0]) &&
@@ -64,6 +68,15 @@ var checkWin = function(arr) {
         declareWin();
       }
     });
+  }
+};
+
+// updateTurn
+var updateTurn = function() {
+  if (isPlayerOne) {
+    turnIndicator.textContent = "X turn";
+  } else {
+    turnIndicator.textContent = "O turn";
   }
 };
 
@@ -82,6 +95,7 @@ var clickCell = function() {
     isPlayerOne = true;
   }
   this.removeEventListener("click", clickCell);
+  updateTurn();
   movesCount++;
   if (movesCount > 8) declareWin(); // if last move
 };
@@ -89,19 +103,20 @@ var clickCell = function() {
 // initGame
 var initGame = function() {
   // reset variables
-  isPlayerOne = true;
   movesCount = 0;
   markX.length = 0;
   markO.length = 0;
-  gameOver = false;
+  // gameOver = false;
 
   // reset cell content
   // add click listeners to cells
-
   cells.forEach(function(cell) {
     cell.textContent = "";
     cell.addEventListener("click", clickCell);
   });
+
+  updateTurn();
+  resetBtn.addEventListener("click", initGame);
 };
 
 initGame();

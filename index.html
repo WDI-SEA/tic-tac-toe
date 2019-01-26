@@ -11,9 +11,16 @@
   </head>
 
   <body>
-    <h1>Hello Front-End</h1>
+    <header><h1>Tic Tac Toe</h1></header>
+
     <main>
-      <div id="gameboard">
+      <div class="panel">
+        <div class="score"><span class="score-x">0</span></div>
+        <div class="turn">Turn Indicator</div>
+        <div class="score"><span class="score-o">0</span></div>
+      </div>
+
+      <div id="gameboard" class="gameboard">
         <div id="0" class="cell"></div>
         <div id="1" class="cell"></div>
         <div id="2" class="cell"></div>
@@ -24,7 +31,8 @@
         <div id="7" class="cell"></div>
         <div id="8" class="cell"></div>
       </div>
-      <div id="controls"><button>Reset</button></div>
+
+      <div id="controls"><button class="reset">Reset</button></div>
     </main>
 
     <script type="text/javascript" src="js/app.js"></script>

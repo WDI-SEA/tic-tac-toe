@@ -11,8 +11,44 @@ h1 {
 body {
   text-align: center;
 }
+main {
+  max-width: 1140px;
+  margin: 0 auto;
+}
 
-#gameboard {
+/* Game Panel ------------------------------------- */
+
+.panel {
+  border: 1px solid blue;
+  max-width: 50%;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.panel div {
+  /* display: inline-block; */
+  align-self: center;
+}
+
+.panel .score {
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 20%;
+  padding: 10px;
+
+  font-size: 2rem;
+}
+
+.panel .turn {
+  margin: 0 auto;
+}
+
+/* Game Board ------------------------------------- */
+
+.gameboard {
   /* border: 2px solid black; */
   width: 600px;
   height: 600px;
@@ -34,7 +70,9 @@ body {
   vertical-align: middle;
 }
 
-#controls button {
+/* Game Controls ---------------------------------- */
+
+.reset {
   font-size: 1.5rem;
   padding: 5px 30px;
   border-radius: 5px;
