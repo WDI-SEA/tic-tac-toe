@@ -8,6 +8,10 @@ h1 {
   color: purple;
 }
 
+body {
+  text-align: center;
+}
+
 #gameboard {
   /* border: 2px solid black; */
   width: 600px;
@@ -28,4 +32,10 @@ h1 {
 
   align-items: center;
   vertical-align: middle;
+}
+
+#controls button {
+  font-size: 1.5rem;
+  padding: 5px 30px;
+  border-radius: 5px;
 }
