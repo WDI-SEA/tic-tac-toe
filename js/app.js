@@ -35,7 +35,6 @@ var endGame = function() {
   // remove all click listener
   // display winner, draw
   // bonus: add score
-  console.log("end game");
   cells.forEach(function(cell) {
     cell.removeEventListener("click", clickCell);
   });
@@ -95,7 +94,6 @@ var updateScore = function() {
 
 // clickCell, event callback
 var clickCell = function() {
-  console.log(this.id + " is clicked");
   if (isPlayerOne) {
     this.textContent = "X";
     markX.push(parseInt(this.id)); // keep track of marked x
