@@ -1,5 +1,3 @@
-console.log("Hello frontend");
-
 // selectors
 var cells = document.querySelectorAll(".cell");
 var resetBtn = document.querySelector(".reset");
@@ -66,8 +64,6 @@ var updateWinner = function(condition) {
 // endGame
 var endGame = function() {
   // remove all click listener
-  // display winner, draw
-  // bonus: add score
   cells.forEach(function(cell) {
     cell.removeEventListener("click", clickCell);
   });
@@ -76,24 +72,21 @@ var endGame = function() {
 };
 
 // declareWin
-var declareWin = function() {
-  gameOver = true;
-  if (movesCount > 8) {
+var declareWin = function(condition) {
+  if (condition === "draw") {
     console.log("Tie");
     updateWinner("draw");
     isPlayerOne = !isPlayerOne; // swap players next game
-    endGame();
   } else if (isPlayerOne) {
     console.log("Player One Won");
-    updateWinner("");
+    updateWinner();
     xScore++;
-    endGame();
   } else if (!isPlayerOne) {
     console.log("Player Two Won");
-    updateWinner("");
+    updateWinner();
     oScore++;
-    endGame();
   }
+  endGame();
 };
 
 // checkWin
@@ -108,6 +101,7 @@ var checkWin = function(arr) {
         arr.includes(combo[2])
       ) {
         // console.log("found", arr, combo);
+        gameOver = true;
         declareWin();
       }
     });
@@ -130,7 +124,7 @@ var clickCell = function() {
   this.removeEventListener("click", clickCell);
   updateTurn();
   movesCount++;
-  if (movesCount > 8) declareWin(); // if last move
+  if (movesCount > 8 && gameOver === false) declareWin("draw"); // if last move && not Game over
 };
 
 // initGame

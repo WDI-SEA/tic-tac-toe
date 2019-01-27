@@ -18,6 +18,7 @@ body {
     url("/img/tic-tac-toe.png");
   font-family: "Mitr", sans-serif;
 }
+/* Background image from www.toptal.com/designers/subtlepatterns/ */
 
 /* Layout ----------------------------------------- */
 
@@ -145,19 +146,16 @@ h1 {
 .two {
   border-top: 0;
 }
-
 .zero,
 .three,
 .six {
   border-left: 0;
 }
-
 .two,
 .five,
 .eight {
   border-right: 0;
 }
-
 .six,
 .seven,
 .eight {
@@ -177,6 +175,6 @@ h1 {
   font-size: 1.5rem;
   padding: 5px 30px;
   margin: 10px auto 0;
-  border-radius: 5px;
+  border-radius: 10px;
   box-shadow: 12px 15px 20px 0 rgba(0, 0, 0, 0.6);
 }
