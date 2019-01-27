@@ -1,3 +1,27 @@
-h1 {
-  color: purple;
+h5, h6 {
+  color: rgb(0, 0, 0);
+}
+
+.box {
+  width: 150px;
+  height: 150px;
+  background-color: orange;
+  display: inline-block;
+  margin: 10px;
+  vertical-align: top;
+  text-align: center;
+}
+
+main {
+  text-align:center;
+  vertical-align:top;
+  color: black;
+  font-size: 100px;
+}
+
+button {
+  text-align:center;
+  width: 200px;
+  height: 50px;
+  font-size: 20px;
 }

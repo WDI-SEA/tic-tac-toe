@@ -3,12 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <title>Tic Tac Toe</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-  <h1>Hello Front-End</h1>
-
+<main id="tictactoe">
+  <h5>Tic Tac Toe</h5>
+  <h6 id="turns">Player X's turn</h6>
+  <div class="row1">
+    <div id="zero" class="box row1 col1 diag1"></div>
+    <div id="one" class="box row1 col2"></div>
+    <div id="two" class="box row1 col3 diag2"></div>
+  <div>
+  <div class="row2"> 
+    <div id="three" class="box row2 col1"></div>
+    <div id="four" class="box row2 col2 diag1 diag2"></div>
+    <div id="five" class="box row2 col3"></div>
+  </div> 
+  <div class="row3"> 
+    <div id="six" class="box row3 col1 diag2"></div>
+    <div id="seven" class="box row3 col2"></div>
+    <div id="eight" class="box row3 col1 diag1"></div>
+  </div>
+  <button id="button">RESET</button>
+</main>
   <script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>
