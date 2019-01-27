@@ -1,3 +1,81 @@
 h1 {
-  color: purple;
+  color:red;  
+  font-size: 50px; 
+  text-align: center;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
+
+.players-score {
+  width: 45%;
+  margin: 10px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+  background: gold; 
+  color: orange;
+  font-size: 20px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.players-score .vs {
+  font-size: 2.5em;
+}
+
+.players-score div:nth-child(2) {
+  font-size: 2.5em;
+}
+
+
+
+
+.message {
+  font-size: 1.5em;
+  text-align: center;
+  padding: 2em 1em 1em 1em;
+}
+
+
+}
+.layout{
+  width: 600px;
+  margin: 2em auto;
+
+}
+.gameboard{
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto auto;
+  margin: auto;
+  margin-bottom: 100px;
+  display: grid;
+  width: 600px;
+  height: 600px;
+  padding: 10px;
+  justify-content: center;
+}
+
+.cell{
+  border: 3px solid red;
+  padding: 100px 100px 100px 100px;
+  padding-bottom: 20px;
+  text-align: center;
+  font-size: 15px;
+}
+
+.btn--reset {
+  display: none;
+}
+
+.btn {
+  display: block;
+  margin: 2rem auto;
+  padding: 3px;
+  border: 1px solid red;
+  border-radius: 4px;
+  background:gold; 
+  color:whitesmoke; 
+  transition: all 0.5s ease-in-out;
+}
+
+
+
