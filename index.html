@@ -3,12 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <title>Tic Tac Toe</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
 </head>
 <body>
-  <h1>Hello Front-End</h1>
-
+  <header>
+    <h1>Tic Tac Toe</h1>
+  </header>
+  <div class = "board">
+    <div class = "square r1 c1 d1" id = "0"></div>
+    <div class = "square r1 c2" id = "1"></div>
+    <div class = "square r1 c3 d2" id = "2"></div>
+    <div class = "square r2 c1" id = "3"></div>
+    <div class = "square r2 c2 d1 d2" id = "4"></div>
+    <div class = "square r2 c3" id = "5"></div>
+    <div class = "square r3 c1 d2" id = "6"></div>
+    <div class = "square r3 c2" id = "7"></div>
+    <div class = "square r3 c3 d1" id = "8"></div>
+  </div>
+  <div class = "score">
+    <p class = "p1">Player One: </p>
+    <p class = "p2">Player Two: </p>
+    <button>Reset</button>
+  </div>
+  <div class = "instructions">
+    <h2>Instructions</h2>
+    <p>Lead your army in crushing the enemy forces. Three X's or O's in a row will secure victory.</br> Let battle commence!!!</p>
+  </div>
   <script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>
