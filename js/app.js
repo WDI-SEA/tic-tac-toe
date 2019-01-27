@@ -4,6 +4,7 @@ console.log("Hello frontend");
 var cells = document.querySelectorAll(".cell");
 var resetBtn = document.querySelector(".reset");
 var turnIndicator = document.querySelector(".turn");
+var spanWinner = document.querySelector(".winner");
 var spanX = document.querySelector(".score-x");
 var spanO = document.querySelector(".score-o");
 
@@ -28,11 +29,39 @@ var isPlayerOne = true;
 var movesCount = 0;
 var markX = [];
 var markO = [];
-// var gameOver = false;
+var gameOver = false;
 var xScore = 0;
 var oScore = 0;
 
 // FUNCTIONS
+
+// updateTurn
+var updateTurn = function() {
+  if (!gameOver) {
+    if (isPlayerOne) {
+      turnIndicator.innerHTML = xMarker;
+    } else {
+      turnIndicator.innerHTML = oMarker;
+    }
+  }
+};
+
+// updateScore
+var updateScore = function() {
+  spanX.textContent = `${xScore}`;
+  spanO.textContent = `${oScore}`;
+};
+
+// updateWinner
+var updateWinner = function(condition) {
+  if (condition === "draw") {
+    spanWinner.textContent = "Draw!";
+    spanWinner.classList.add("blinking");
+  } else {
+    spanWinner.textContent = "Winner!";
+    spanWinner.classList.add("blinking");
+  }
+};
 
 // endGame
 var endGame = function() {
@@ -43,21 +72,25 @@ var endGame = function() {
     cell.removeEventListener("click", clickCell);
   });
   updateScore();
-  isPlayerOne = !isPlayerOne; // swap players game
+  isPlayerOne = !isPlayerOne; // swap players next game
 };
 
 // declareWin
 var declareWin = function() {
+  gameOver = true;
   if (movesCount > 8) {
     console.log("Tie");
-    isPlayerOne = !isPlayerOne; // swap players game
+    updateWinner("draw");
+    isPlayerOne = !isPlayerOne; // swap players next game
     endGame();
   } else if (isPlayerOne) {
     console.log("Player One Won");
+    updateWinner("");
     xScore++;
     endGame();
   } else if (!isPlayerOne) {
     console.log("Player Two Won");
+    updateWinner("");
     oScore++;
     endGame();
   }
@@ -79,21 +112,6 @@ var checkWin = function(arr) {
       }
     });
   }
-};
-
-// updateTurn
-var updateTurn = function() {
-  if (isPlayerOne) {
-    turnIndicator.innerHTML = xMarker;
-  } else {
-    turnIndicator.innerHTML = oMarker;
-  }
-};
-
-// updateScore
-var updateScore = function() {
-  spanX.textContent = `${xScore}`;
-  spanO.textContent = `${oScore}`;
 };
 
 // clickCell, event callback
@@ -118,16 +136,19 @@ var clickCell = function() {
 // initGame
 var initGame = function() {
   // reset variables
+  gameOver = false;
   movesCount = 0;
   markX.length = 0;
   markO.length = 0;
-  // gameOver = false;
 
   // reset cell content
   // add click listeners to cells
   cells.forEach(function(cell) {
     cell.textContent = "";
     cell.addEventListener("click", clickCell);
+
+    // remove blink
+    spanWinner.classList.remove("blinking");
   });
 
   updateTurn();
