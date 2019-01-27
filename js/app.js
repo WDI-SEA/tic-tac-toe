@@ -7,6 +7,10 @@ var turnIndicator = document.querySelector(".turn");
 var spanX = document.querySelector(".score-x");
 var spanO = document.querySelector(".score-o");
 
+// player markers
+var xMarker = `<i class="far fa-times-circle red"></i>`;
+var oMarker = `<i class="far fa-dot-circle blue"></i>`;
+
 // win combos
 var winCombos = [
   [0, 1, 2],
@@ -80,9 +84,9 @@ var checkWin = function(arr) {
 // updateTurn
 var updateTurn = function() {
   if (isPlayerOne) {
-    turnIndicator.textContent = "X turn";
+    turnIndicator.innerHTML = xMarker;
   } else {
-    turnIndicator.textContent = "O turn";
+    turnIndicator.innerHTML = oMarker;
   }
 };
 
@@ -95,12 +99,12 @@ var updateScore = function() {
 // clickCell, event callback
 var clickCell = function() {
   if (isPlayerOne) {
-    this.textContent = "X";
+    this.innerHTML = xMarker;
     markX.push(parseInt(this.id)); // keep track of marked x
     checkWin(markX); // check for match
     isPlayerOne = false; // change turn
   } else {
-    this.textContent = "O";
+    this.innerHTML = oMarker;
     markO.push(parseInt(this.id));
     checkWin(markO);
     isPlayerOne = true;

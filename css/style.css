@@ -37,6 +37,18 @@ main {
 h1 {
   color: purple;
 }
+
+.far {
+  font-size: 7em;
+}
+
+.red {
+  color: red;
+}
+
+.blue {
+  color: blue;
+}
 /* Game Panel ------------------------------------- */
 
 .panel {
@@ -68,6 +80,10 @@ h1 {
   margin: 0 auto;
 }
 
+.panel .turn .far {
+  font-size: 4em;
+}
+
 /* Game Board ------------------------------------- */
 
 .gameboard {
@@ -94,8 +110,9 @@ h1 {
   width: 30%;
   height: 30%;
 
-  text-align: center;
-  vertical-align: middle;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Game Controls ---------------------------------- */
