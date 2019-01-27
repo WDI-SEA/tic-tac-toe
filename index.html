@@ -7,9 +7,26 @@
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
+<div class="toolbar">
+    <div class="toolbar-item"><span>Tic-Tac-Toe</span></div> 
+    <div class="toolbar-item"><span>AI</span></div>
+    <div class="toolbar-item"><span>RESET</span></div>
+    <div class="toolbar-item scorebox">
+      <div class="scorebox-content__X">X: 0</div>
+      <div class="scorebox-content__Oh">O: 0</div>
+    </div>
+</div>
+
+
   
-  <h1>Tic Tac Toe</h1>
   <main class="wrapper">
+      <div class="alert-wrapper">
+          <div class="alert show alertX"> <p>Player X may select a box<span>&times;</span></p></div>
+          <div class="alert hide alertOh"><p>Player O may select a box</p><span>&times;</span></div>
+          <div class="alert hide alertCats"><p> Cat's game!</p><span>&times;</span></div>
+          <div class="alert hide alertWin"> <p>You win!</p> <span>&times;</span></div>
+      </div>
+
     <div class="row row1">
       <div id="a" class="box">
         <span class="unplayed">X</span>
@@ -54,13 +71,11 @@
     </div>
   </main>
 
-  s
+
+
+
   <div class="scrn">
-    <div class="scorebox">
-        <div class="scorebox-content"><h1>Scorebox</h1></div>
-        <div class="scorebox-content"></div>
-        <div class="scorebox-content"></div>
-    </div>
+
     <div class="rsc rsc1"></div>
     <div class="rsc rsc2"></div>
     <div class="rsc rsc3"></div>

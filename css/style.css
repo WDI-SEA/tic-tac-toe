@@ -1,11 +1,18 @@
+body * {
+  border: 2px solid red;
+}
+
 body {
   text-align: center;
 }
 
+div {
+  box-sizing: border-box;
+}
+
 main {
-  margin: 0 auto;
-  width: 1000px;
-  border: 2px solid gray;
+  margin: 250px auto;
+  width: max-content;
 }
 
 .unplayed {
@@ -14,14 +21,14 @@ main {
 
 .X, .Oh {
   display: block;
-  line-height: 299px;
+  line-height: 199px;
 }
 
 .box {
   display: inline-block;
   overflow: hidden;
-  width: 300px;
-  height: 300px;
+  width: 200px;
+  height: 200px;
   margin: 4px;
   border: 2px solid gray;
   border-radius: 5px;
@@ -30,6 +37,67 @@ main {
 .box > span {
   font-size: 40px;
   font-weight: 600;
+}
+
+.alert-wrapper {
+  display: block;
+  text-align: left;
+  overflow: hidden;
+  width: 100%;
+  line-height: 60px;
+}
+
+.alert p span {
+  float: right;
+  padding-right: 40px;
+  cursor: pointer;
+}
+.alertX {
+  background-color: #f44336;
+}
+.alertO {
+  background-color: #2196F3;
+}
+.alertCats {
+  background-color: #ff9800;
+}
+.alertWin {
+  background-color: #4CAF50;
+}
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+.toolbar {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  top: 0;
+  height: 100px;
+  width: 100%;
+}
+.toolbar-item {
+  display: inline-block;
+  width: 120px;
+  padding: .2em;
+  border-right: 2px solid gray;
+  border-bottom: 2px solid gray;
+  line-height: 99px;
+}
+
+.toolbar-item:hover {
+  background-color: rgb(150,150,150)
+}
+
+.scorebox {
+  height: 99px;
+}
+.scorebox > * {
+  line-height: initial;
 }
 
 
@@ -41,20 +109,14 @@ main {
 
 .rsc {
   display: block;
-  position: fixed;
+  position: absolute;
   width: 150px;
   height: 150px;
-  background-color: rgba(00,00,00,1)
+  background-color: rgba(00,00,00,1);
+  top: -151px;
+  left: -151px;
 }
 
-.rsc1, .rsc2, .rsc3, .rsc4, .rsc5 {
-  top: 0;
-  left: 0;
-}
-
-.rsc6, .rsc7, .rsc8 .rsc9 {
-  top: 0;
-  right: 0;
+.box-border {
 
 }
-

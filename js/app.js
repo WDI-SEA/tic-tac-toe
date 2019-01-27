@@ -1,15 +1,37 @@
 console.log('Hello frontend');
 
 var xTurn = true;
+var simpleAI = false;
+var minimaxiAi = false;
 
 var wins = ['abc', 'def', 'ghi', 'adg', 'beh', 'cfi', 'aei', 'gec']
 var playerX = '';
 var playerOh = '';
 var catsGameRscs;
 
+var scoreElX = document.querySelector('.scorebox-content__X')
+var scoreElOh = document.querySelector('.scorebox-content__Oh')
+
 var playerXScore = 0;
 var playerOhScore = 0;
 
+function notifyTurn() {
+    document.querySelector('alert').forEach(alert => {
+        alert.className = alert.className.replace('show', 'hide')
+    })
+    if (xTurn) {
+        let x = document.querySelector('.alertX')
+        x.className = x.className.replace('hide', 'show')
+    } else {
+        let o = document.querySelector('.alertOh')
+        o.className = o.className.replace('hide', 'show')
+    }
+}
+document.querySelectorAll('.alert span').forEach(span => {
+    addEventListener('click', event => {
+        event.target.parentElement.parentElement.className = event.target.parentElement.parentElement.className.replace('show', 'hide')
+    });
+});
 
 function currentPlayer() {
     if (xTurn) {
@@ -18,6 +40,7 @@ function currentPlayer() {
         return playerOh
     }
 }
+
 function pick(event) {
     if (xTurn) {
         playerX += event.target.id;
@@ -31,7 +54,7 @@ function pick(event) {
     event.target.removeEventListener('click', pick);
     checkGame()
     xTurn = !xTurn;
-    console.log('xTurn: ', xTurn);
+    notifyTurn()
     
 }
 
@@ -41,6 +64,11 @@ function catsGame() {
     // 
 
 }
+// document.querySelectorAll('.alert .unhide').addEventListener('click', event => {
+//         console.log(event.target);
+//     });
+// });
+
 
 function gameOver(xTurn) {
     if (xTurn) {
@@ -50,7 +78,8 @@ function gameOver(xTurn) {
         console.log('Oh wins it! Woohoo!');
         playerOhScore++;
     }
-    document.querySelector('.scorebox').children[1].textContent = `X:${playerXScore} || O:${playerOhScore}`
+    scoreElOh.textContent = `O:${playerOhScore}`
+    scoreElX.textContent = `X:${playerXScore}`
     console.log(`Current score: X:${playerXScore} || O:${playerOhScore}`)
     document.querySelectorAll('.box').forEach(box => {
         box.removeEventListener('click', pick);
@@ -59,23 +88,27 @@ function gameOver(xTurn) {
 
 function checkGame() {
     console.log('checking game')
-    for (let win of wins) {
-        let count = 0;
-        //console.log(`checking ${win}`)
-            for (let letr of win) {
-                //console.log(`Count is ${count}, checking ${letr} ${currentPlayer()}`)
-                if (currentPlayer().includes(letr)) {
-                    count += 1;
-                    if (count === 3) {
-                        return gameOver(xTurn)
+    if (playerOh.length + playerX.length < 5) {
+        console.log('Win not possible')
+    } else {
+        for (let win of wins) {
+            let count = 0;
+            //console.log(`checking ${win}`)
+                for (let letr of win) {
+                    //console.log(`Count is ${count}, checking ${letr} ${currentPlayer()}`)
+                    if (currentPlayer().includes(letr)) {
+                        count += 1;
+                        if (count === 3) {
+                            return gameOver(xTurn)
+                        }
                     }
                 }
-            }
+        }
+        if (playerX.length + playerOh.length > 8) {
+            catsGame()
+        }
+        console.log('No victory yet!')
     }
-    if (playerX.length + playerOh.length > 8) {
-        catsGame()
-    }
-    console.log('No victory yet!')
 }
 
 
@@ -128,3 +161,49 @@ function reset() {
 }
 
 gameStart()
+
+function chooseRandom() {
+    let boxCodex = 'abcdefghi'
+    
+    let choice = Math.floor(Math.random() * 9)
+
+    document.querySelector(`#${boxCodex[choice]}`).click()
+}
+
+function chooseMiniMaxi() {
+
+}
+
+function animateRsc(rsc) {
+     // Original JavaScript code by Chirp Internet: www.chirp.com.au
+     // Please acknowledge use of this code by including this header.
+    let scrnHeight = window.innerWidth;
+    let scrnWidth = window.innerHeight;
+
+    let rscWidth = rsc.offsetWidth;
+    let rscHeight = rsc.offsetHeight;
+    let start = null;
+    let duration = 5;
+    let gridSize = 1000;
+
+    function step(timestamp) {
+        console.log('stepping')
+        if (!start) {
+            start = timestamp
+        }
+
+        progress = (timestamp - start) / 1000 / duration //this is a value between 0 and 1
+        let x = progress * scrnWidth/gridSize;
+        let y = x/2;
+
+
+        rsc.style.left = Math.min(scrnWidth, x * gridSize) + "px";
+        rsc.style.top = (gridSize * y) + "px"
+
+        if (progress >= 1) {
+            start = null;
+        }
+        requestAnimationFrame(step)
+    }
+    window.requestAnimationFrame(step)
+}
