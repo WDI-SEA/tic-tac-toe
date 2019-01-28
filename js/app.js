@@ -12,7 +12,7 @@ var btnReset = document.querySelector(".btn--reset");
 
 // var playerOneScore = document.querySelector('.player-onescore'); 
 // var playerTwoScore = document.querySelector('.player-twoscore'); 
-// // not working becuase there was a bug. So I took it out of the system. 
+// // not working becuase there was a bug. So I took it out of the system. There might be remenants of this throughout the JS. 
 
 
 
@@ -24,8 +24,8 @@ var gameboard = (() =>{
         "", "", "",
         "", "", ""  ]; 
 
-
-var init = function(){
+//adding the turn count. "i++"
+var init = function(){   
 
     for(var i = 0; i < cellsArr.length; i++){
         cellsArr[i].textContent= ""; 
@@ -38,7 +38,7 @@ var init = function(){
 
 //^^^^above is the functionality of the game board and to check if space has been taken while rotating the X players. ^^^^ 
 // establish players 
-var player = (marker) =>{
+var player = (marker) => {  
     var score = 0;
     return {marker, score};
 
@@ -65,11 +65,11 @@ var gameController = (() => {
             board [cellNb - 1] = currentPlayer.marker; 
 
             gameWon = checkForWin(board);
-                //checking to see if a user has won
+            //trigger if a user has won.  
                 if (gameWon === true){
 
                     msgDiv.textContent = `${currentPlayer.marker} won!`;
-                    currentPlayer.score += 1; 
+                    currentPlayer.score += 1; //adding 1 point to the player who has won. Supposed to go up by one. 
 
                     displayScore() 
                     //removed event from gameboard 
@@ -130,7 +130,7 @@ function checkForWin(board){
         return true
     }
 
-    //check columns
+    //check columns to see matches
 
     else if (checkRow(0,3,6,board)){
         return true
@@ -142,7 +142,7 @@ function checkForWin(board){
         return true
     }
 
-    //check for diagnals 
+    //check for diagnals to see matches 
     else if (checkRow(0,4,8,board)){
         return true
     }
@@ -174,12 +174,17 @@ gameboard.init();
     cellsArr.forEach(cell => cell.addEventListener("click", gameController.nextMove)); 
 }); 
 
+
+// starts the game. 
 btnStart.addEventListener("click", function(){
     gameboardDiv.style.display = "grid"; 
     gameboard.init(); 
+
+
 btnStart.style.display = "none";
 btnReset.style.display = "block";
-cellsArr.forEach(cell=> cell.addEventListener("click", gameController.nextMove));
+cellsArr.forEach(cell=>cell.addEventListener("click", gameController.nextMove));
 }); 
+
 
 gameController.displayScore; 
