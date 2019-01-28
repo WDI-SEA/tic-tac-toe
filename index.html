@@ -1,14 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <title>Tic Tac Toe!</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Schoolbell" rel="stylesheet">
 </head>
 <body>
-  <h1>Hello Front-End</h1>
+  <h1 class = "fAndS">Tic Tac Toe</h1>
+  <h2 class = "turns"></h2>
+  <p class = "wins">wins</p>
+  
+  <main>
 
+  <section id="ttt">
+    <div id = "zero" class="r1c1d1"></div>
+    <div id = "one" class="r1c2"></div>
+    <div id = "two" class="r1c3d2"></div>
+    <div id = "three" class="r2c1"></div>
+    <div id = "four" class="r2c2d1d2"></div>
+    <div id = "five" class="r2c3"></div>
+    <div id = "six" class="r3c1d2"></div>
+    <div id = "seven" class="r3c2"></div>
+    <div id = "eight" class="r3c3d2"></div>
+  </section>
+  
+</main>
+    <svg>
+      <defs>
+        <filter id="displacementFilter">
+            <feTurbulence type="fractalNoise" baseFrequency=".03" numOctaves="4" seed="1.5" result="noise" />
+            <feDisplacementMap in2="noise" in="SourceAlpha" scale="9" />
+          </filter>
+        </defs>
+      </svg>
+      
+      
+      <svg>
+        <defs>
+          <filter id="gaussianBlur">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="7" result="shadow"/>
+            <feOffset in="shadow" dx="1" dy="2" result="shadow" />
+            <feBlend in="SourceGraphic" in2="shadow" />
+          </filter>
+    </defs>
+  </svg>
   <script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>

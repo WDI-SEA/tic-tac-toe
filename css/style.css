@@ -1,3 +1,82 @@
-h1 {
-  color: purple;
+body {
+  height: 400px;
+  font-size: 3rem;
+  font-family: 'Schoolbell', cursive;
+  filter: url(#displacementFilter);
+  filter: url(#gaussianBlur);
+  text-align: center;
+  position: absolute;
+}
+
+h1{
+  color: rgb(0, 0, 0);
+  font-size: 5rem;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0 auto;
+}
+
+/* .anim-typewriter{
+  animation: typewriter 1s steps(100) .5s 1, ease,
+             blinkTextCursor 0ms steps(10) infinite normal;
+}
+
+@keyframes typewriter{
+  from{ 
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}  */
+.fAndS{
+  animation-duration: 1s;
+  animation-name: fadeAndScale;
+  animation-timing-function: cubic-bezier(.7,.55,.6,.59);
+}
+@keyframes fadeAndScale {
+  from {
+    opacity: 0;
+    transform: scale(.3, .3);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
+}
+
+
+
+main {
+  height: 60%;
+  padding: 20px 40px;
+}
+div {
+  width: 1.5em;
+  height: 1.5em;
+  font-size: 10rem;
+  overflow: hidden;
+}
+
+#ttt {
+	display: grid;
+	grid-template-columns: repeat(3,5em);
+	grid-template-rows: repeat(3,5em);
+}
+
+#ttt > * {
+  filter: url(#displacementFilter);
+  border: 1px solid black;
+	border-width: 0 .05em .05em 0;
+	display: flex; /* flex styling to center content in divs */
+	align-items: center;
+	justify-content: center;
+}
+#ttt > *:nth-of-type(3n)  {
+  border-right-width: 0;
+}
+#ttt > *:nth-of-type(n+7) {
+  border-bottom-width: 0;
 }
