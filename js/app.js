@@ -37,36 +37,35 @@ document.addEventListener("DOMContentLoaded",function(){
 //reset button and click counter
 document.getElementById("button").addEventListener('click', reset);
 document.getElementById("tictactoe").addEventListener('click', function(){
-    count+=1;
     if ( count === 9 && gameOn === true){
         document.getElementById("turns").textContent = "This game is a draw!";
         gameOn = false;
     }
-      
+    
 })
 //check for win and prints winner
 var checkWin1 = function(){
     winCombos.forEach(function(combo) {
-
-            if (
-                playerX.includes(combo[0]) &&
-                playerX.includes(combo[1]) &&
-                playerX.includes(combo[2])
-                ) {
+        
+        if (
+            playerX.includes(combo[0]) &&
+            playerX.includes(combo[1]) &&
+            playerX.includes(combo[2])
+            ) {
                 document.getElementById("turns").textContent = "Player X Wins!";
                 gameOn = false;
-                }
+            }
             });
-    }
+        }
 var checkWin2 = function(){
     winCombos.forEach(function(combo) {
-            if (
-                playerO.includes(combo[0]) &&
-                playerO.includes(combo[1]) &&
-                playerO.includes(combo[2])
+        if (
+            playerO.includes(combo[0]) &&
+            playerO.includes(combo[1]) &&
+            playerO.includes(combo[2])
                 ) {
-                document.getElementById("turns").textContent = "Player O Wins!";
-                 gameOn = false;
+                    document.getElementById("turns").textContent = "Player O Wins!";
+                    gameOn = false;
                 }
             });
         }
@@ -92,4 +91,6 @@ var checkWin2 = function(){
                 checkWin2();
                 count+=1;            
             } 
-};
+        };
+        
+        
