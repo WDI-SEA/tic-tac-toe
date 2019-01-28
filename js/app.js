@@ -17,146 +17,7 @@ var scoreElOh = document.querySelector('.scorebox-content__Oh')
 
 var playerXScore = 0;
 var playerOhScore = 0;
-function computeNextMove() {
-    myMove = xTurn || false;
-    var numNodes = 0;
-    var board = convertBoard(playerX, playerOh)
-    function convertBoard() {
-        let input = 'abcdefghi'.split('')
-        let output = []
-        for (let i = 0; i < input.length; i++) {
-                if (playerX.includes(input[i])) {
-                    output.push(true)
-                } else {
-                    output.push(null)
-                }
-            }
-        for (let i = 0; i < input.length; i++) {
-            if (playerOh.includes(input[i])) {
-                output.splice(i, 1, false)
-            }
-        }
-        console.info(output)
-        input = output;
-        output = [
-            [null,null,null],
-            [null,null,null],
-            [null,null,null]
-        ]
-        let a = 0
-        for (let i = 0; i < 3; i++) {
-            for (let j = 0; j < 3; j++) {
-                console.log('output[i%3][i%3]', output[i%3][j%3], 'input[i]', input[i], i%3, j%3, a)
-                output[i%3][j%3] = input[a];
-                a++
-            }
-        }
-        console.info(output)
-        return output
-    }
-    function getWinner(board) {
-        vals = [true, false];       //[playerx, playerO]
-        var allNotNull = true;      
-        for (var k = 0; k < vals.length; k++) { // loop for x, loop for o
-            var value = vals[k];
-        
-
-            var diagonalComplete1 = true;
-            var diagonalComplete2 = true;
-            for (var i = 0; i < 3; i++) {
-                if (board[i][i] !== value) {    // [0,0] [1,1] [2,2]
-                    diagonalComplete1 = false;
-                }
-                if (board[2 - i][i] !== value) {// [2,0] [1,1] [0,2]
-                    diagonalComplete2 = false;
-                }
-                var rowComplete = true;
-                var colComplete = true;
-                for (var j = 0; j < 3; j++) {
-                    if (board[i][j] !== value) { // [0,0] [1,1] [2,2] on first time through loop
-                        rowComplete = false;
-                    }
-                    if (board[j][i] !== value) {
-                        colComplete = false;
-                    }
-                    if (board[i][j] === null) {
-                        allNotNull = false;
-                    }
-                }
-                if (rowComplete || colComplete) {
-                    return value ? 1 : 0;
-                }
-            }
-        if (diagonalComplete1 || diagonalComplete2) {
-            return value ? 1 : 0;
-        }
-    }
-    if (allNotNull) {
-        return -1;
-    }
-    return null;
-}
-
-    function restartGame() {
-        board = [
-                [null,null,null],
-                [null,null,null],
-                [null,null,null]
-            ];
-            myMove = false;
-    }
-
-
-
-    function recursiveMinimax(board, player) {
-        numNodes++;
-        var winner = getWinner(board);
-        if (winner !== null) {
-            switch(winner) {
-                case 1:
-                    // AI wins
-                    return [1, board];
-                case 0:
-                    // opponent wins
-                    return [-1, board];
-                case -1:
-                    // Tie
-                    return [0, board];
-            }
-        } else {
-            // Next states
-            var nextVal = null;
-            var nextBoard = null;
-
-            for (var i = 0; i < 3; i++) {
-                for (var j = 0; j < 3; j++) {
-                    if (board[i][j] == null) {
-                        board[i][j] = player;
-                        var value = recursiveMinimax(board, !player)[0];
-                        if ((player && (nextVal == null || value > nextVal)) || (!player && (nextVal == null || value < nextVal))) {
-                            nextBoard = board.map(arr => {
-                                return arr.slice();
-                            });
-                            nextVal = value
-                        }
-                        board[i][j] = null;
-                    }
-                }
-            }
-            return [nextVal, nextBoard]
-        }
-    }
-    function makeMove() {
-        board = minimaxMove(board);
-        console.log(numNodes);
-        console.info(board)
-        return board
-    }
-    function minimaxMove(board) {
-        numNodes = 0;
-        return recursiveMinimax(board, true)[1],
-    }
-}
+var numNodes = 0;
 
 function fadeIn(element, msDuration) {
     let start;
@@ -193,48 +54,43 @@ function notifyTurn() {
     })
     if (xTurn) {
         fadeIn(document.querySelector('.alertX'))
+    } else if (minimaxAi) {
+        fadeIn(document.querySelector('.alert-minimax'))
+            setTimeout(function() {parseBoard(getNewBoard(convertBoard()))}, 3000)
+        } else if (simpleAI) {
+        fadeIn(document.querySelector('.alert-simpleAI'))
+        setTimeout(chooseRandom, 3000)
     } else {
         fadeIn(document.querySelector('.alertOh'))
-
     }
 }
 function chooseRandom() {
     let boxCodex = 'abcdefghi'
-    
-    let choice = Math.floor(Math.random() * 9)
-
-    document.querySelector(`#${boxCodex[choice]}`).click()
-}
-function chooseMinimax() {
-
+    let choice = function randomBox() { 
+        let num = Math.floor(Math.random() * 9);
+        console.log('num', num, 'letr', boxCodex[num])
+        if ((playerX.includes(boxCodex[num])) || playerOh.includes(boxCodex[num])) {
+            return randomBox;
+        } else {
+            return num
+        }
+    }
+    document.getElementById(`${boxCodex[choice()]}`).click()
 }
 function pick(event) {
     event.stopPropagation();
     gameInProgress = true;
-    if (simpleAI) {
-
-
-
-
-
-
-
-
-
+    if (xTurn) {
+        playerX += event.target.id;
+        show(event.target.children[0]);
+        console.log(playerX)
     } else {
-        if (xTurn) {
-            playerX += event.target.id;
-            show(event.target.children[0]);
-            console.log(playerX)
-        } else {
-            playerOh += event.target.id;
-            show(event.target.children[1]);
-            console.log(playerOh)
-        }
+        playerOh += event.target.id;
+        show(event.target.children[1]);
+        console.log(playerOh)
     }
-
     event.target.removeEventListener('click', pick);
-    checkGame()    
+    checkGame()
 }
 function gameIsCats() {
     document.querySelector('.game').style.visibility = 'hidden';
@@ -258,16 +114,16 @@ function gameIsCats() {
     }
 }
 function gameOver(xTurn) {
-    let winText = ' won! Good game, thank you for playing. Press <escape> for options.'
+    let winText = ' won! Good game, thank you for playing. Press <em>Escape</em> for options.'
     let a = document.querySelector('.alertWin');
     document.querySelectorAll('.alert').forEach(alert => {
         alert.className = alert.className.replace('show', 'hide')
     });
     if (xTurn) {
-        a.textContent = 'Player X' + winText;
+        a.innerHTML = 'Player X' + winText;
         playerXScore++;
     } else {
-        a.textContent = 'Player O' + winText;
+        a.innerHTML = 'Player O' + winText;
         playerOhScore++;
     }
     a.className = a.className.replace('hide', 'show')
@@ -277,6 +133,8 @@ function gameOver(xTurn) {
     document.querySelectorAll('.box').forEach(box => {
         box.removeEventListener('click', pick);
     })
+    gameInProgress = false;
+
 }
 function currentPlayer() {
     if (xTurn) {
@@ -365,13 +223,17 @@ function animateRsc(rsc) {
         if (!catsGame) {
             console.log('removing resize listener')
             window.removeEventListener('resize', listenForResize)
+            document.querySelectorAll('.rsc').forEach(rsc => {
+                rsc.remove()
+            })
+            setTimeout(loadRscImg, 4000)
+
             return "cat's game is over" //fadeOut(element) or resetRsc(rsc)
         }
         requestAnimationFrame(moveStep)
     }
     window.requestAnimationFrame(moveStep)
 }
-
 function activateBoxes() {
     // starting game
     console.log("Starting tic-tac-toe! Player X may begin.")
@@ -380,7 +242,6 @@ function activateBoxes() {
         box.addEventListener('click', pick);
     });
 }
-
 function loadRscImg() {
     ('loading rsc')
     let rscWindow = document.querySelector('.rsc-window')
@@ -390,7 +251,6 @@ function loadRscImg() {
         rsc.onload = function() {
             console.log('onload')
             resolve(catsGameRsc.push(rsc))
-
         }
         rsc.onerror = function(error) {
 
@@ -401,7 +261,6 @@ function loadRscImg() {
         rscWindow.appendChild(rsc)
     })
 }
-
 function interactionToggle(event) {
     if (event.key === 'Escape') {
         let interactWindow = document.querySelector('.interaction-window');
@@ -414,6 +273,142 @@ function interactionToggle(event) {
                 show(document.querySelector('#new-game'));
             }
         }
+    }
+}
+function convertBoard() {
+    input ='abcdefghi'.split('').map(char => {
+      if (playerX.includes(char)) {
+        return true;
+      } else if (playerOh.includes(char)) {
+        return false;
+      } else {
+        return null;
+      }
+    })
+    output = [[null,null,null],[null,null,null],[null,null,null]]
+    let a = 0
+    for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+            output[i%3][j%3] = input[a];
+            a++
+        }
+    }
+    return output
+}
+function getWinner(board) {
+    // from https://blog.vivekpanyam.com/how-to-build-an-ai-that-wins-the-basics-of-minimax-search/
+    // thank you vivek!
+        vals = [true, false];       //[playerx, playerO]
+        var allNotNull = true;      
+        for (var k = 0; k < vals.length; k++) { // loop for x, loop for o
+            var value = vals[k];
+        
+
+            var diagonalComplete1 = true;
+            var diagonalComplete2 = true;
+            for (var i = 0; i < 3; i++) {
+                if (board[i][i] != value) {    // [0,0] [1,1] [2,2]
+                    diagonalComplete1 = false;
+                }
+                if (board[2 - i][i] != value) {// [2,0] [1,1] [0,2]
+                    diagonalComplete2 = false;
+                }
+                var rowComplete = true;
+                var colComplete = true;
+                for (var j = 0; j < 3; j++) {
+                    if (board[i][j] != value) { // [0,0] [1,1] [2,2] on first time through loop
+                        rowComplete = false;
+                    }
+                    if (board[j][i] != value) {
+                        colComplete = false;
+                    }
+                    if (board[i][j] == null) {
+                        allNotNull = false;
+                    }
+                }
+                if (rowComplete || colComplete) {
+                    return value ? 1 : 0;
+                }
+            }
+        if (diagonalComplete1 || diagonalComplete2) {
+            return value ? 1 : 0;
+        }
+    }
+    if (allNotNull) {
+        return -1;
+    }
+    return null;
+}
+function recursiveMinimax(board, player) {
+    // from https://blog.vivekpanyam.com/how-to-build-an-ai-that-wins-the-basics-of-minimax-search/
+    // thank you vivek!
+    numNodes++;
+    var winner = getWinner(board);
+    if (winner !== null) {
+        switch(winner) {
+            case 1:
+                // AI wins
+                return [1, board];
+                console.log('win')
+            case 0:
+                // opponent wins
+                return [-1, board];
+                console.log('loss')
+            case -1:
+                // Tie
+                return [0, board];
+                console.log('cats')
+        }
+    } else {
+        // Next states
+        var nextVal = null;
+        var nextBoard = null;
+
+        for (var i = 0; i < 3; i++) {
+            for (var j = 0; j < 3; j++) {
+                if (board[i][j] == null) {
+                    board[i][j] = player;
+                    var value = recursiveMinimax(board, !player)[0];
+                    if ((player && (nextVal == null || value > nextVal)) || (!player && (nextVal == null || value < nextVal))) {
+                        nextBoard = board.map(arr => {
+                            return arr.slice();
+                        });
+                        nextVal = value
+                    }
+                    board[i][j] = null;
+                }
+            }
+        }
+        return [nextVal, nextBoard]
+    }
+}
+function getNewBoard() {
+    board = convertBoard()
+    newBoard = recursiveMinimax(board, xTurn)
+    console.log('Finished compute. Number of nodes:', numNodes)
+    console.table(newBoard[1])
+    return newBoard[1]
+
+}
+function parseBoard(board) {
+    let inputBoard = board.reduce((previous, current) => {
+        return previous.concat(current)
+    }, [])
+    let i = 0;
+    let string = 'abcdefghi';
+    while (i < 9) {
+        if (inputBoard[i] !== null) {
+            if (!playerX.includes(string[i]) && !playerOh.includes(string[i])) {
+//                if (inputBoard[i] === true) {
+//                    console.log('clicking for X')
+//                    document.getElementById(string[i]).click();
+                if (inputBoard[i] === false) {
+                    console.log('clicking for Oh')
+                    document.getElementById(string[i]).click();
+                }       
+            }
+        }
+        i++
     }
 }
 function playButton() {
@@ -439,6 +434,8 @@ function simpleAIButton(event) {
     if (simpleAI) {
         event.target.classList.add('active')
         window.removeEventListener('keydown', interactionToggle)
+        minimaxAi = false;
+        document.getElementById('minimax-ai').classList.remove('active')
     } else {
         event.target.classList.remove('active')
         window.addEventListener('keydown', interactionToggle)
@@ -446,11 +443,29 @@ function simpleAIButton(event) {
     
 }
 
+function minimaxAIButton(event) {
+    minimaxAi = !minimaxAi;
+    if (minimaxAi) {
+        event.target.classList.add('active')
+        window.removeEventListener('keydown', interactionToggle)
+        simpleAI = false;
+        document.getElementById('simple-ai').classList.remove('active')
+    } else {
+        event.target.classList.remove('active')
+        window.addEventListener('keydown', interactionToggle)
+    }
+    
+}
 document.getElementById('play').addEventListener('click', playButton);
 document.getElementById('new-game').addEventListener('click', playNewGameButton);
 document.getElementById('simple-ai').addEventListener('click', simpleAIButton);
+document.getElementById('minimax-ai').addEventListener('click', minimaxAIButton);
 document.getElementById('reset-score').addEventListener('click', resetScoreButton);
 
+setTimeout(loadRscImg, 4000)
+setTimeout(loadRscImg, 4000)
+setTimeout(loadRscImg, 4000)
+setTimeout(loadRscImg, 4000)
 setTimeout(loadRscImg, 4000)
 setTimeout(loadRscImg, 4000)
 setTimeout(loadRscImg, 4000)

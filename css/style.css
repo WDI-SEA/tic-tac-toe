@@ -18,6 +18,7 @@ main {
   height: 100%;
   background-color: gray;
   border-radius: 5px;
+  background-image: url('../img/congruent_outline.png')
 }
 .interaction-window-flexbox {
   display: flex;
@@ -57,7 +58,9 @@ main {
   width: 100%;
   margin: 5px 0 0 5px;
   background-color: white;
+  box-sizing: border-box;
 }
+
 .scorebox {
   display: flex;
   justify-content: space-evenly;
@@ -99,11 +102,8 @@ main {
 .alertX {
   background-color: #f44336;
 }
-.alertOh {
+.alertOh, .alert-minimax, .alert-simpleAI {
   background-color: #2196F3;
-}
-.alertCats {
-  background-color: #ff9800;
 }
 .alertWin {
   background-color: #4CAF50;

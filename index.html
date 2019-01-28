@@ -14,7 +14,7 @@
                 <div class="interactive-item new-game"><div id="new-game" class="interaction-window__button hide">new game</div></div>
                 <div class="interactive-item play"><div id="play" class="interaction-window__button">play tic-tac-toe</div></div>
                 <div class="interactive-item simple-ai"><div id="simple-ai" class="interaction-window__button">play against simple ai</div></div>
-                <div class="interactive-item minimaxi-ai"><div id="minimaxi-ai" class="interaction-window__button">play against minimaxi algorithm</div></div>
+                <div class="interactive-item minimax-ai"><div id="minimax-ai" class="interaction-window__button">play against minimax algorithm</div></div>
                 <div class="interactive-item ai-plays-x"><div id="ai-plays-x" class="interaction-window__button hide">ai-plays-x</div></div>
                 <div class="interactive-item reset-score"><div id="reset-score" class="interaction-window__button">reset player scores</div></div>
                 <div class="interactive-item scorebox">
@@ -29,6 +29,8 @@
       <div class="alert-wrapper">
           <div class="alert hide alertX"> <p>Player X may select a box</p></div>
           <div class="alert hide alertOh"><p>Player O may select a box</p></div>
+          <div class="alert hide alert-minimax"><p>The minimax is thinking. Hold on a moment...</p></div>
+          <div class="alert hide alert-simpleAI"><p>The simple ai is thinking. Hold on a moment...</p></div>
           <div class="alert hide alertCats"><p> Cat's game!</p></div>
           <div class="alert hide alertWin"> <p>You win!</p> </div>
       </div>
