@@ -5,8 +5,7 @@ var cellsArr = Array.from(cells);
 
 var startBtn = document.querySelector('.start-btn');
 var resetBtn = document.querySelector('.reset-btn');
-var playerOneScore = document.querySelector('player-one.score');
-var playerTwoScore = document.querySelector('player-two.score');
+
 
 var msg = document.querySelector('.message');
 
@@ -54,7 +53,7 @@ var playerTwo = player("O");
                     msg.textContent = `${currentPlayer.marker} won!`;
                     currentPlayer.score += 1;
                     // +=
-                    displayScore();
+                    
 
                     cellsArr.forEach(cell => cell.removeEventListener('click', gameController.nextMove));
 
@@ -127,10 +126,6 @@ var playerTwo = player("O");
             return false;
         }
     }
-    function displayScore() {
-        playerOneScore.textContent = playerOne.score
-        playerTwoScore.textContent = playerTwo.score
-    };
         return {nextMove};
 
  })();
@@ -152,5 +147,4 @@ var playerTwo = player("O");
      cellsArr.forEach(cell => cell.addEventListener('click', gameController.nextMove));
  });
 
- gameController.displayScore();
 
