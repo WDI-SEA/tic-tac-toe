@@ -41,7 +41,7 @@ var isComputerPlayer = false;
 computerBtn.addEventListener("click", function() {
   this.classList.toggle("active");
   isComputerPlayer = !isComputerPlayer;
-  isPlayerOne = true;
+  // isPlayerOne = true;
   // console.log(isComputerPlayer);
   initGame(); //reset game when changing mode
 });
@@ -153,8 +153,9 @@ var clickCell = function() {
       isPlayerOne = false; // change turn
 
       // console.log(foo);
-
-      computerMove();
+      if (!gameOver) {
+        computerMove();
+      }
     }
   } else {
     if (isPlayerOne) {
@@ -196,6 +197,10 @@ var initGame = function() {
 
   updateTurn();
   resetBtn.addEventListener("click", initGame);
+  // if computer & player2
+  if (isComputerPlayer && !isPlayerOne) {
+    computerMove();
+  }
 };
 
 initGame();
