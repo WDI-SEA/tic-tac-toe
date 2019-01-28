@@ -1,8 +1,8 @@
 var playerX = [];
 var playerO = [];
 var reset = function(){
-        location.reload();
-    };
+    location.reload();
+};
 var count = 0; 
 
 winCombos = [
@@ -27,6 +27,13 @@ var gameboard = {
     8 : true,
     9 : true
 };
+document.addEventListener("DOMContentLoaded",function(){
+    for ( var space in gameboard){
+        document.getElementById(space).addEventListener('click', markBox);
+        gameOn = true;
+        //win logic
+    }
+})
 //reset button and click counter
 document.getElementById("button").addEventListener('click', reset);
 document.getElementById("tictactoe").addEventListener('click', function(){
@@ -37,7 +44,7 @@ document.getElementById("tictactoe").addEventListener('click', function(){
     }
       
 })
-//page loads and waits for input
+//check for win and prints winner
 var checkWin1 = function(){
     winCombos.forEach(function(combo) {
 
@@ -46,24 +53,24 @@ var checkWin1 = function(){
                 playerX.includes(combo[1]) &&
                 playerX.includes(combo[2])
                 ) {
-              document.getElementById("turns").textContent = "Player X Wins!";
-              gameOn = false;
+                document.getElementById("turns").textContent = "Player X Wins!";
+                gameOn = false;
                 }
             });
-        }
-    var checkWin2 = function(){
-        winCombos.forEach(function(combo) {
+    }
+var checkWin2 = function(){
+    winCombos.forEach(function(combo) {
             if (
                 playerO.includes(combo[0]) &&
                 playerO.includes(combo[1]) &&
                 playerO.includes(combo[2])
                 ) {
-                    document.getElementById("turns").textContent = "Player O Wins!";
-                    gameOn = false;
+                document.getElementById("turns").textContent = "Player O Wins!";
+                 gameOn = false;
                 }
             });
         }
-        //Toggles between players and fills with correct mark
+        //Toggles between players and fills with correct mark then checks for win
         var markBox = function(){
             if ( gameOn === true && count % 2 !== 1 && document.getElementById(this.id).classList.contains("unmarked") ){
                 //player x marks the box
@@ -73,6 +80,7 @@ var checkWin1 = function(){
                 console.log(playerX);
                 document.getElementById(this.id).classList.remove("unmarked");
                 checkWin1();
+                count+=1;
             } 
             if ( gameOn === true && count % 2 === 1 && document.getElementById(this.id).classList.contains("unmarked")){      
                 //player y marks the box
@@ -81,13 +89,7 @@ var checkWin1 = function(){
                 playerO.push(this.id);
                 console.log(playerO);
                 document.getElementById(this.id).classList.remove("unmarked");
-                checkWin2();            
+                checkWin2();
+                count+=1;            
             } 
 };
-document.addEventListener("DOMContentLoaded",function(){
-    for ( var space in gameboard){
-        document.getElementById(space).addEventListener('click', markBox);
-        gameOn = true;
-        //win logic
-    }
-})
