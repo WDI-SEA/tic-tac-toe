@@ -1,5 +1,5 @@
 console.log('Hello frontend');
-// cited source from another user on git hub. I was using it as an example. 
+// cited source from amultiple users on git hub. I was using it as an example. 
 
 //user functions// 
 var msgDiv = document.querySelector('.message');
@@ -10,20 +10,19 @@ var cellsArr = Array.from(cell);
 var btnStart = document.querySelector(".btn--start"); 
 var btnReset = document.querySelector(".btn--reset"); 
 
-var playerOneScore = document.querySelector('.player-onescore'); 
-var playerTwoScore = document.querySelector('.player-twoscore'); 
+// var playerOneScore = document.querySelector('.player-onescore'); 
+// var playerTwoScore = document.querySelector('.player-twoscore'); 
+// // not working becuase there was a bug. So I took it out of the system. 
 
 
 
-// thought it might help if i broke the display down in rows and colums so i can visually see the gameboard
+// thought it might help if i broke the display down in rows and colums so i can visually see the gameboard and functions. 
 
 var gameboard = (() =>{
     var display = 
     [   "", "", "", 
         "", "", "",
-        "", "", "" 
-
-                    ]; 
+        "", "", ""  ]; 
 
 
 var init = function(){
@@ -45,7 +44,7 @@ var player = (marker) =>{
 
 }
 
-//user index 
+//user index of X & O 
 var playerOne = player("X"); 
 var playerTwo = player("O");
 
@@ -66,7 +65,7 @@ var gameController = (() => {
             board [cellNb - 1] = currentPlayer.marker; 
 
             gameWon = checkForWin(board);
-                //checking to see if you have won
+                //checking to see if a user has won
                 if (gameWon === true){
 
                     msgDiv.textContent = `${currentPlayer.marker} won!`;
@@ -105,7 +104,7 @@ var gameController = (() => {
     return currentPlayer; 
 }   
 
-//Win Conditions below 
+//Win Conditions below that are required below 
 
 function checkRow(a,b,c, board){
     var winingRow = false;
@@ -150,7 +149,7 @@ function checkForWin(board){
     else if (checkRow(2,4,6,board)){
         return true
     }
-    // keep playing if not connected 
+    // keep playing if no matches are found 
 
     else{
         return false
@@ -166,11 +165,11 @@ function displayScore(){
 // this is where the clicks come in to play. This will trigger the rest of the game. 
 
 btnReset.addEventListener("click", function(){
-    //reset game mechanism 
-
+    
 gameboard.display = ["","","",
-  "","","", 
- "","",""];
+                     "","","", 
+                     "","",""];
+                     //display board 
 gameboard.init(); 
     cellsArr.forEach(cell => cell.addEventListener("click", gameController.nextMove)); 
 }); 

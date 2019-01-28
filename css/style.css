@@ -1,5 +1,4 @@
-*,
-*::before,
+
 *::after {
   box-sizing: border-box;
 }
@@ -29,11 +28,6 @@ h1 {
 }
 
 .players-score .vs {
-  font-size: 3em;
-  text-align: center;
-}
-
-.players-score div:nth-child(2) {
   font-size: 3em;
   text-align: center;
 }
