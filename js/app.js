@@ -154,7 +154,9 @@ var clickCell = function() {
 
       // console.log(foo);
       if (!gameOver) {
-        computerMove();
+        setTimeout(function() {
+          computerMove();
+        }, 900);
       }
     }
   } else {
