@@ -7,86 +7,79 @@
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-<div class="toolbar">
-    <div class="toolbar-item"><span>Tic-Tac-Toe</span></div> 
-    <div class="toolbar-item"><span>AI</span></div>
-    <div class="toolbar-item"><span>RESET</span></div>
-    <div class="toolbar-item scorebox">
-      <div class="scorebox-content__X">X: 0</div>
-      <div class="scorebox-content__Oh">O: 0</div>
-    </div>
-</div>
-
-
-  
   <main class="wrapper">
-      <div class="alert-wrapper">
-          <div class="alert show alertX"> <p>Player X may select a box<span>&times;</span></p></div>
-          <div class="alert hide alertOh"><p>Player O may select a box</p><span>&times;</span></div>
-          <div class="alert hide alertCats"><p> Cat's game!</p><span>&times;</span></div>
-          <div class="alert hide alertWin"> <p>You win!</p> <span>&times;</span></div>
-      </div>
+      <div class="interaction-window show">
+        <div class="interaction-window-flexbox">
+            <div class="interaction-window-content">
+                <div class="interactive-item new-game"><div id="new-game" class="interaction-window__button hide">new game</div></div>
+                <div class="interactive-item play"><div id="play" class="interaction-window__button">play tic-tac-toe</div></div>
+                <div class="interactive-item simple-ai"><div id="simple-ai" class="interaction-window__button">play against simple ai</div></div>
+                <div class="interactive-item minimaxi-ai"><div id="minimaxi-ai" class="interaction-window__button">play against minimaxi algorithm</div></div>
+                <div class="interactive-item ai-plays-x"><div id="ai-plays-x" class="interaction-window__button hide">ai-plays-x</div></div>
+                <div class="interactive-item reset-score"><div id="reset-score" class="interaction-window__button">reset player scores</div></div>
+                <div class="interactive-item scorebox">
+                    <div class="scorebox-content__X">X: 0</div>
+                    <div class="scorebox-content__Oh">O: 0</div>
+                  </div>
+            </div>    
+        </div>
 
-    <div class="row row1">
-      <div id="a" class="box">
-        <span class="unplayed">X</span>
-        <span class="unplayed">O</span>
       </div>
-      <div id="b" class="box">
-        <span class="unplayed">X</span>
-        <span class="unplayed">O</span>
+    <div class="game">
+      <div class="alert-wrapper">
+          <div class="alert hide alertX"> <p>Player X may select a box</p></div>
+          <div class="alert hide alertOh"><p>Player O may select a box</p></div>
+          <div class="alert hide alertCats"><p> Cat's game!</p></div>
+          <div class="alert hide alertWin"> <p>You win!</p> </div>
       </div>
-      <div id="c" class="box">
-        <span class="unplayed">X</span>
-        <span class="unplayed">O</span>
+      <div class="row row1">
+        <div id="a" class="box">
+          <span class="hide">X</span>
+          <span class="hide">O</span>
+        </div>
+        <div id="b" class="box">
+          <span class="hide">X</span>
+          <span class="hide">O</span>
+        </div>
+        <div id="c" class="box">
+          <span class="hide">X</span>
+          <span class="hide">O</span>
+        </div>
+      </div> 
+      <div id="" class="row row2">
+        <div id="d" class="box">
+          <span class="hide">X</span>
+          <span class="hide">O</span>
+        </div>
+        <div id="e" class="box">
+          <span class="hide">X</span>
+          <span class="hide">O</span>
+        </div>
+        <div id="f" class="box">
+          <span class="hide">X</span>
+          <span class="hide">O</span>
+        </div>
       </div>
-    </div> 
-    <div id="" class="row row2">
-      <div id="d" class="box">
-        <span class="unplayed">X</span>
-        <span class="unplayed">O</span>
-      </div>
-      <div id="e" class="box">
-        <span class="unplayed">X</span>
-        <span class="unplayed">O</span>
-      </div>
-      <div id="f" class="box">
-        <span class="unplayed">X</span>
-        <span class="unplayed">O</span>
-      </div>
-    </div>
-    <div id="" class="row row3">
-      <div id="g" class="box">
-        <span class="unplayed">X</span>
-        <span class="unplayed">O</span>
-      </div>
-      <div id="h" class="box">
-        <span class="unplayed">X</span>
-        <span class="unplayed">O</span>
-      </div>
-      <div id="i" class="box">
-        <span class="unplayed">X</span>
-        <span class="unplayed">O</span>
+      <div id="" class="row row3">
+        <div id="g" class="box">
+          <span class="hide">X</span>
+          <span class="hide">O</span>
+        </div>
+        <div id="h" class="box">
+          <span class="hide">X</span>
+          <span class="hide">O</span>
+        </div>
+        <div id="i" class="box">
+          <span class="hide">X</span>
+          <span class="hide">O</span>
+        </div>
       </div>
     </div>
   </main>
 
-
-
-
-  <div class="scrn">
-
-    <div class="rsc rsc1"></div>
-    <div class="rsc rsc2"></div>
-    <div class="rsc rsc3"></div>
-    <div class="rsc rsc4"></div>
-    <div class="rsc rsc5"></div>
-    <div class="rsc rsc6"></div>
-    <div class="rsc rsc7"></div>
-    <div class="rsc rsc8"></div>
-    <div class="rsc rsc9"></div>
+  <div class="rsc-window hide">
+      <div class="main-rsc hide"></div>
   </div>
-
 
 
   <script type="text/javascript" src="js/app.js"></script>
