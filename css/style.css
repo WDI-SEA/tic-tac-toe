@@ -1,8 +1,18 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body{
+  background: #2A363B;   
+}
+
 h1 {
-  color:red;  
+  color: #FECEA8; 
   font-size: 50px; 
   text-align: center;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family: cursive;
 }
 
 .players-score {
@@ -12,27 +22,31 @@ h1 {
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
   justify-items: center;
-  background: gold; 
-  color: orange;
-  font-size: 20px;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  background-color:#FF847C;
+  font-size: 25px;
+  font-family: cursive;
+  color: #FECEA8;
 }
 
 .players-score .vs {
-  font-size: 2.5em;
+  font-size: 3em;
+  text-align: center;
 }
 
 .players-score div:nth-child(2) {
-  font-size: 2.5em;
+  font-size: 3em;
+  text-align: center;
 }
 
 
 
 
 .message {
-  font-size: 1.5em;
+  font-size: 3em;
   text-align: center;
-  padding: 2em 1em 1em 1em;
+  padding: 10px;
+  color: #99B898; 
+  font-family: cursive;
 }
 
 
@@ -46,20 +60,21 @@ h1 {
   grid-template-columns: auto auto auto;
   grid-template-rows: auto auto auto;
   margin: auto;
-  margin-bottom: 100px;
   display: grid;
   width: 600px;
   height: 600px;
-  padding: 10px;
+  padding: 30px;
   justify-content: center;
 }
 
 .cell{
-  border: 3px solid red;
+  border: 4px solid #FECEA8;   
   padding: 100px 100px 100px 100px;
   padding-bottom: 20px;
-  text-align: center;
-  font-size: 15px;
+  font-size: 35px;
+  box-sizing: border-box;
+  color: #FF847C; 
+  font-family: cursive;
 }
 
 .btn--reset {
@@ -70,10 +85,10 @@ h1 {
   display: block;
   margin: 2rem auto;
   padding: 3px;
-  border: 1px solid red;
+  border: 1px solid
   border-radius: 4px;
-  background:gold; 
-  color:whitesmoke; 
+  background-color: #99B898; 
+  color: white;  
   transition: all 0.5s ease-in-out;
 }
 
