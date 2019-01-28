@@ -1,7 +1,6 @@
 // state variables
 let gameOver = false;
 let turn = 0;
-let draw = false;
 
 // winning combo arrays
  let xTiles = [];
@@ -51,6 +50,16 @@ let diag2o = 0;
 let xTurn = 0;
 let oTurn = 0;
 
+// initialize game
+let initGame = function () {
+document.addEventListener('DOMContentLoaded', function() {
+    console.log("init game");
+    for (let box in checked) {
+    document.getElementById(box).addEventListener('click', checkBox);
+}})};
+
+initGame();
+
 // create end game function
 
 let endGame = function () {
@@ -61,11 +70,11 @@ let endGame = function () {
     } else if (xTurn > oTurn) {
         console.log("X WON");
         message.textContent = "X WINS";
-        scoreX.textContent += 1;
+        scoreX.textContent++;
     }   else {
         console.log("O WINS")
         message.textContent = "O WINS";
-        scoreO.textContent += 1;
+        scoreO.textContent++;
     }}
 
 // check for a win after five turns
@@ -128,6 +137,11 @@ let checkStatus = function () {
         }  }  }  }
 
 
+// let cpuPlayer = function () {
+     //write AI function here
+// }
+
+
 let checkBox = function () {
 if (!checked[this.id] && !gameOver ) {
   if (turn % 2 === 0) {
@@ -156,15 +170,47 @@ if (!checked[this.id] && !gameOver ) {
 
     } } }
 
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log("DOM LOADED");
-        for (let box in checked) {
-            document.getElementById(box).addEventListener('click', checkBox);
-        }});
-
 let resetButton = document.querySelector('button');
 let resetPage = function () {
     window.location.reload();
 }
 
-resetButton.addEventListener('click', resetPage);
+let resetGame = function () {
+    console.log("In reset game function");
+    for (let key in checked) {
+    checked[key] = false;
+    document.getElementById(key).textContent = "";
+}
+    console.log(checked)
+    row1x = 0;
+    row2x = 0;
+    row3x = 0;
+    col1x = 0;
+    col2x = 0;
+    col3x = 0;
+    diag1x = 0;
+    diag2x = 0;
+    row1o = 0;
+    row2o = 0;
+    row3o = 0;
+    col1o = 0;
+    col2o = 0;
+    col3o = 0;
+    diag1o = 0;
+    diag2o = 0;
+    xTiles.length = 0;
+    oTiles.length = 0;
+    message.textContent = '"TIC TAC TOE"';
+    gameOver = false;
+    turn = 0;
+    initGame();
+}
+
+resetButton.addEventListener('click', resetGame);
+
+
+
+// THINGS TO ADD
+
+// ACTUAL RESET FUNCTION
+// AI FUNCTION / AI FUNCTION W MINI MAX
