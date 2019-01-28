@@ -3,11 +3,44 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <title>Owen's Tic Tac Toe</title>
+  <link href='https://fonts.googleapis.com/css?family=Actor' rel='stylesheet'>
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
+
 <body>
-  <h1>Hello Front-End</h1>
+  <h1>Tic-Tac-Toe</h1>
+
+  
+
+  <div id="scoreboard">
+    <div id="xScore"></div>
+      <div id="innerScoreboard">
+        <div id="turn"></div>
+        <div id="winner"></div>
+        <button id="reset">reset</button>
+      </div>
+    <div id="oScore"></div>
+  </div>
+
+  <div class="board">
+    <div id = '0' class="tile row1 col1 diag1"> </div>
+    <div id = '1' class="tile row1 col2"> </div>
+    <div id = '2' class="tile row1 col3 diag2"> </div>
+
+    <div id = '3' class="tile row2 col1"> </div>
+    <div id = '4' class="tile row2 col2 diag1 diag2"> </div>
+    <div id = '5' class="tile row2 col3"> </div>
+
+    <div id = '6' class="tile row3 col1 diag2"> </div>
+    <div id = '7' class="tile row3 col2"> </div>
+    <div id = '8' class="tile row3 col3 diag1"> </div>
+  </div>
+
+  <div id="buttons">
+    <button id="playComputer">vs AI?</button>
+    <button id="playUser">vs User?</button>
+  </div>
 
   <script type="text/javascript" src="js/app.js"></script>
 </body>

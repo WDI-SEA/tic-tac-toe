@@ -1,3 +1,121 @@
 h1 {
-  color: purple;
+  color: #EBEEEC;
+  font-variant: small-caps;
+  font-size: 5em;
+  margin: 0 auto;
+  padding: 10px 0;
+  font-weight: 900;
+  text-shadow: rgb(0, 0, 0) 5px 5px 5px;
+}
+
+body {
+  text-align: center;
+  background-image: url('https://static.vecteezy.com/system/resources/previews/000/151/791/large_2x/falling-numbers-matrix-background-vector.jpg');
+  font-family: 'Actor';
+  color: #EBEEEC;
+  vertical-align: top;
+}
+
+.board {
+  width: 560px;
+  height: 560px;
+  margin: 0 auto;
+}
+
+.tile {
+  display: inline-block;
+  border: 2px solid #EBEEEC;
+  width: 175px;
+  height: 175px;
+  border-radius: 7px;
+  background-color: rgba(109, 109, 109, 0.72);
+  font-size: 9em;
+}
+
+div {
+  vertical-align: top;
+}
+
+button {
+  width: 170px;
+  height: 30px;
+  vertical-align: top;
+  font-variant: small-caps;
+  background-color: rgba(26, 26, 26, 0.9);
+  color: #EBEEEC;
+  border-radius: 5px;
+  letter-spacing: .1em;
+}
+
+#reset {
+  margin: 15px 0 10px 0;
+  display: inline-block;
+}
+
+#buttons {
+  width: 540px;
+  display: inline-block;
+  text-align: center;
+  margin: 0 auto;
+}
+
+#playComputer, #playUser  {
+  margin: 0 auto;
+  width: 170px;
+}
+
+#innerScoreboard {
+  width: 200px;
+  display: inline-block;
+}
+
+#winner, #turn {
+  font-size: 2em;
+  font-variant: small-caps;
+  height: 30px;
+  letter-spacing: .1em;
+  width: 210px;
+  text-align: center;
+  display: inline-block;
+  font-weight: 900;
+}
+
+#xScore, #oScore {
+  width: 120px;
+  height: 120px;
+  text-align: center;
+  font-size: 5em;
+  display: inline-block;
+  vertical-align: top;
+  font-variant: small-caps;
+  background-color: rgba(26, 26, 26, 0.9);
+  color: #EBEEEC;
+  border-radius: 5px;
+  letter-spacing: .1em;
+  margin-bottom: 20px;
+  border: 2px solid #EBEEEC;
+}
+
+#scoreboard {
+  width: 545px;
+  margin: 0 auto;
+  display: inline-block;
+  background-color: rgba(26, 26, 26, 0.5);
+  border-radius: 5px;
+}
+
+#xScore {
+  float: left;
+}
+
+#playComputer {
+  float: left;
+}
+
+#oScore {
+  float: right;
+}
+
+#playUser {
+  float: right;
 }
