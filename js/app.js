@@ -131,7 +131,7 @@ var checkWin = function(arr) {
 // else cells[rand].click()
 var computerMove = function() {
   while (true) {
-    var randnum = Math.floor(Math.random() * 8);
+    var randnum = Math.floor(Math.random() * 9);
     if (!markX.includes(randnum) && !markO.includes(randnum)) break;
   }
 
@@ -141,6 +141,10 @@ var computerMove = function() {
   markO.push(randnum);
   checkWin(markO);
   isPlayerOne = true;
+
+  cells[randnum].removeEventListener("click", clickCell);
+  updateTurn();
+  movesCount++;
 };
 
 // clickCell, event callback
