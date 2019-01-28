@@ -1,3 +1,30 @@
+body {
+  text-align: center;
+}
+
 h1 {
-  color: purple;
+  color: rgb(105, 78, 105);
+}
+
+
+.gameboard {
+  width: 600px;
+  height: 600px;
+  margin: 0 auto;
+  vertical-align: top;
+  
+}
+
+
+
+#one, #two, #three, #four, #five, #six, #seven, #eight, #nine {
+  width: 192px;
+  height: 192px;
+  border: solid 2px rgb(173, 127, 157);
+  display: inline-block;
+  line-height: 192px;
+  font-size: 50px;
+  margin: 0px 0px 2px 0px;
+  padding: 0px;
+  vertical-align: top;
 }
