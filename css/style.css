@@ -16,6 +16,7 @@ body {
       rgba(0, 0, 0, 0.6)
     ),
     url("/img/tic-tac-toe.png");
+  background-attachment: fixed;
   font-family: "Mitr", sans-serif;
 }
 /* Background image from www.toptal.com/designers/subtlepatterns/ */
@@ -45,7 +46,8 @@ h1 {
   margin-top: 15px;
 }
 
-.far {
+.far,
+.fas {
   font-size: 6.8em;
 }
 
@@ -167,14 +169,53 @@ h1 {
 .controls {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-content: center;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 15px 0 20px;
 }
 
-.reset {
+.controls button {
   font-size: 1.5rem;
-  padding: 5px 30px;
-  margin: 10px auto 0;
-  border-radius: 10px;
+  padding: 5px;
+  /* margin: 0 auto; */
   box-shadow: 12px 15px 20px 0 rgba(0, 0, 0, 0.6);
+
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+}
+
+.controls .fas {
+  font-size: 2.5rem;
+}
+
+.button-holder {
+  border: 3px solid #333;
+  width: 120px;
+  height: 84px;
+  border-radius: 40px;
+  padding: 0;
+
+  background-color: #777;
+  box-shadow: 12px 15px 20px 0 rgba(0, 0, 0, 0.6);
+
+  transition: all 300ms ease-in-out;
+}
+
+.button-holder .computer {
+  width: 77px;
+  height: 77px;
+  color: #777;
+  box-shadow: none;
+
+  transition: all 300ms ease-in-out;
+}
+
+.button-holder.active {
+  background-color: #00acee;
+  text-align: right;
+}
+
+.button-holder.active > .computer {
+  color: #00acee;
 }

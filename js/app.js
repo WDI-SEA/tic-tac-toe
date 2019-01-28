@@ -6,6 +6,8 @@ var spanWinner = document.querySelector(".winner");
 var spanX = document.querySelector(".score-x");
 var spanO = document.querySelector(".score-o");
 
+var computerBtn = document.querySelector(".button-holder");
+
 // player markers
 var xMarker = `<i class="far fa-times-circle red"></i>`;
 var oMarker = `<i class="far fa-dot-circle blue"></i>`;
@@ -31,7 +33,18 @@ var gameOver = false;
 var xScore = 0;
 var oScore = 0;
 
+var isComputerPlayer = false;
+
 // FUNCTIONS
+
+// computer button toggle
+computerBtn.addEventListener("click", function() {
+  this.classList.toggle("active");
+  isComputerPlayer = !isComputerPlayer;
+  isPlayerOne = true;
+  // console.log(isComputerPlayer);
+  initGame(); //reset game when changing mode
+});
 
 // updateTurn
 var updateTurn = function() {
@@ -108,19 +121,55 @@ var checkWin = function(arr) {
   }
 };
 
+// AI controller
+// if computer
+//  human click -> comp move
+
+//comp move
+// random 0-8
+// if markX.includes(rand) && markO.includes(rand), random again
+// else cells[rand].click()
+var computerMove = function() {
+  while (true) {
+    var randnum = Math.floor(Math.random() * 8);
+    if (!markX.includes(randnum) && !markO.includes(randnum)) break;
+  }
+
+  console.log(randnum, markX, markO);
+
+  cells[randnum].innerHTML = oMarker;
+  markO.push(randnum);
+  checkWin(markO);
+  isPlayerOne = true;
+};
+
 // clickCell, event callback
 var clickCell = function() {
-  if (isPlayerOne) {
-    this.innerHTML = xMarker;
-    markX.push(parseInt(this.id)); // keep track of marked x
-    checkWin(markX); // check for match
-    isPlayerOne = false; // change turn
+  if (isComputerPlayer) {
+    if (isPlayerOne) {
+      this.innerHTML = xMarker;
+      markX.push(parseInt(this.id)); // keep track of marked x
+      checkWin(markX); // check for match
+      isPlayerOne = false; // change turn
+
+      // console.log(foo);
+
+      computerMove();
+    }
   } else {
-    this.innerHTML = oMarker;
-    markO.push(parseInt(this.id));
-    checkWin(markO);
-    isPlayerOne = true;
+    if (isPlayerOne) {
+      this.innerHTML = xMarker;
+      markX.push(parseInt(this.id)); // keep track of marked x
+      checkWin(markX); // check for match
+      isPlayerOne = false; // change turn
+    } else {
+      this.innerHTML = oMarker;
+      markO.push(parseInt(this.id));
+      checkWin(markO);
+      isPlayerOne = true;
+    }
   }
+
   this.removeEventListener("click", clickCell);
   updateTurn();
   movesCount++;
