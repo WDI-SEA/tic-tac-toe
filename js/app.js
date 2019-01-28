@@ -56,26 +56,26 @@ function notifyTurn() {
         fadeIn(document.querySelector('.alertX'))
     } else if (minimaxAi) {
         fadeIn(document.querySelector('.alert-minimax'))
-            setTimeout(function() {parseBoard(getNewBoard(convertBoard()))}, 3000)
-        } else if (simpleAI) {
+        setTimeout(function() {parseBoard(getNewBoard(convertBoard()))}, 1500)
+    } else if (simpleAI) {
         fadeIn(document.querySelector('.alert-simpleAI'))
-        setTimeout(chooseRandom, 3000)
+        setTimeout(chooseRandom, 1500)
     } else {
         fadeIn(document.querySelector('.alertOh'))
     }
 }
 function chooseRandom() {
-    let boxCodex = 'abcdefghi'
-    let choice = function randomBox() { 
+    let boxCodex = 'abcdefghi';
+    let choice = randomBox()
+    function randomBox() { 
         let num = Math.floor(Math.random() * 9);
-        console.log('num', num, 'letr', boxCodex[num])
         if ((playerX.includes(boxCodex[num])) || playerOh.includes(boxCodex[num])) {
-            return randomBox;
+            return randomBox();
         } else {
             return num
         }
     }
-    document.getElementById(`${boxCodex[choice()]}`).click()
+    document.getElementById(`${boxCodex[choice]}`).click()
 }
 function pick(event) {
     event.stopPropagation();
