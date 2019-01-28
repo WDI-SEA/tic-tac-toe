@@ -1,5 +1,15 @@
 console.log('Hello frontend');
-// cited source from amultiple users on git hub. I was using it as an example. 
+
+//bugs still not fixed 
+    // box's shifting when inputting 
+    // player score traces still in code but removed from HTML 
+    // once a player has one they still have the ability to fill the remaining gird with X or O. 
+
+
+
+
+
+// source from amultiple users on git hub. I was using it as an example. 
 
 //user functions// 
 var msgDiv = document.querySelector('.message');
@@ -10,8 +20,8 @@ var cellsArr = Array.from(cell);
 var btnStart = document.querySelector(".btn--start"); 
 var btnReset = document.querySelector(".btn--reset"); 
 
-// var playerOneScore = document.querySelector('.player-onescore'); 
-// var playerTwoScore = document.querySelector('.player-twoscore'); 
+var playerOneScore = document.querySelector('.player-onescore'); 
+var playerTwoScore = document.querySelector('.player-twoscore'); 
 // // not working becuase there was a bug. So I took it out of the system. There might be remenants of this throughout the JS. 
 
 
@@ -58,6 +68,7 @@ var gameController = (() => {
         var board = gameboard.display;
         var gameWon; 
             if (e.target.textContent === "") {
+                console.log("this is what we clicked",e.target.textContent)
                 e.target.textContent = currentPlayer.marker;
 
                 //updating the gameboard 
@@ -73,7 +84,7 @@ var gameController = (() => {
 
                     displayScore() 
                     //removed event from gameboard 
-                    cellsArr.forEach(cell => cell.removeEventListner("click", gameController.nextMove)); 
+                    cellsArr.forEach(cell => cell.removeEventListener("click", gameController.nextMove)); 
                  } // Draw Checker 
                     else if (gameWon === false && board.includes("") === false) {
                         msgDiv.textContent = "It's a tie!"; 
