@@ -3,12 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <title>Tic Tac Toe</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet">
 </head>
 <body>
-  <h1>Hello Front-End</h1>
-
-  <script type="text/javascript" src="js/app.js"></script>
+  <h1 class="greeting">"TIC TAC TOE"</h1>
+  <div class="scorebox1"></div>
+  <main>
+    <div id="one" class="row1 col1 diag1"></div>
+    <div id="two" class="row1 col2"></div>
+    <div id="three" class="row1 diag2 col3"></div>
+    <div id="four" class="row2 col1"></div>
+    <div id="five" class="row2 diag1 diag2 col2"></div>
+    <div id="six" class="row2 col3"></div>
+    <div id="seven" class="row3 col1 diag2"></div>
+    <div id="eight" class="row3 col2"></div>
+    <div id="nine" class="row3 diag1 col3"></div>
+  </main>
+  <div class="scorebox2"></div>
+<footer>Created by Garrett Moore 2019<button>RESET</button></footer>
+<script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>
