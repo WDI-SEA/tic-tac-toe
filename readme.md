@@ -52,3 +52,4 @@ We will be making a Tic Tac Toe game using all of these concepts.
 ## Licensing
 1. All content is licensed under a CC-BY-NC-SA 4.0 license.
 2. All software code is licensed under GNU GPLv3. For commercial use or alternative licensing, please contact legal@ga.co.
+# tic-tac-toe

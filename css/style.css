@@ -1,3 +1,94 @@
+body {
+  background-color: pink;
+}
+
 h1 {
-  color: purple;
+  color: teal;
+  text-align: center;
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 35px;
+}
+
+p {
+  color: teal;
+  font-family: 'Shadows Into Light', cursive;
+  text-align: center;
+  font-size: 25px;
+}
+
+div {
+  width: 125px;
+  height: 125px;
+  display: grid;
+  border: 5px solid white;
+  border-radius: 50%;
+  align-items: center
+}
+
+.gameBoard {
+  position: absolute;
+  display: grid;
+  right: 20%;
+  left: 0%;
+  margin: 0 auto;
+  border-radius: 50%;
+  display: grid;
+  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+	text-align:  center;
+	vertical-align:  middle;
+  font-family: 'Shadows Into Light', cursive;
+  color: teal;
+	font-size:  90px;
+	cursor: pointer;
+}
+  
+button {
+  position: absolute;
+  background-color: white;
+  color: teal;
+  border-color: teal;
+  font-family: 'Shadows Into Light', cursive;
+  width: 200px;
+  padding: 10px;
+  font-size: 20px;
+  border: 10px;
+}
+
+.startGame {
+  position: absolute;
+  display: inline-block;
+  right: 20%;
+  left: 0%;
+  width: 0px;
+  height:0px;
+}
+
+.endGame {
+  display: inline-block;
+  display: none;
+  width: 200px;
+  top: 120px;
+  background-color: teal;
+  position: absolute;
+  left: 50%;
+  margin-left: -100px;
+  padding: 50px 0;
+  text-align: center;
+  border-radius: 5px;
+  color: white;
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 20px;
+}
+
+.declareWinner {
+  color: teal;
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 20px;
+  display: none;
+
+}
+
+playerOne, playerTwo {
+font-family: 'Shadows Into Light', cursive;
+font-size: 50px;
 }
