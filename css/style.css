@@ -1,3 +1,111 @@
+/*
+//////////////////////////
+/////MEDIA QUERY PLAN/////
+//////////////////////////
+
+    *****MOBILE*****
+      _____________
+      |           |
+      |   Game    |
+      |           |
+      |___________|
+      |msg/prompts|
+      |T1     T2  |
+      |score score|
+      |o-s options|
+      |___________|
+
+    *****MIDSIZE*****
+    __________________
+    |          |T1 T2|
+    |   Game   |score|
+    |          | opt |
+    |__________| ion |
+    |msg/prompts     |
+    |________________|
+
+    *****LARGE*****
+  ______________________
+  |         |T1 T2     |
+  |  Game   |score     |
+  |         |          |
+  |_________|  options |
+  |msg/prompt  galore  |
+  |                    |
+  |____________________|
+*/
+
+body {
+  text-align: center;
+}
 h1 {
   color: purple;
+}
+.pagecontentsholder {
+  display: flex;
+  justify-content: center;
+}
+/*Take out background-color for final product*/
+.tictactoe {
+  border: 1px solid black;
+  display: grid;
+  grid-template-columns: [vline1] 1fr [vline2] 1fr [vline3] 1fr [vline4];
+  grid-template-rows: [hline1] 1fr [hline2] 1fr [hline3] 1fr [hline4];
+  background-color: hotpink;
+  width: 100%;
+  padding-top: auto;
+}
+.item {
+  width: 100%;
+  height: 100%;
+  font-size: 4em;
+}
+.item:hover {
+  background-color: darkgrey;
+  color: white;
+}
+.one {
+  grid-column: 1;
+  grid-row: 1;
+  background-color: red;
+}
+.two {
+  grid-column: 2;
+  grid-row: 1;
+  background-color: orange;
+}
+.three {
+  grid-column: 3;
+  grid-row: 1;
+  background-color: yellow;
+}
+.four {
+  grid-column: 3;
+  grid-row: 2;
+  background-color: chartreuse;
+}
+.five {
+  grid-column: 3;
+  grid-row: 3;
+  background-color: green;
+}
+.six {
+  grid-column: 2;
+  grid-row: 3;
+  background-color: skyblue;
+}
+.seven {
+  grid-column: 1;
+  grid-row: 3;
+  background-color: blue;
+}
+.eight {
+  grid-column: 1;
+  grid-row: 2;
+  background-color: rebeccapurple;
+}
+.nine {
+  grid-column: 2;
+  grid-row: 2;
+  background-color: purple;
 }
