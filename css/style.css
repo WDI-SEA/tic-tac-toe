@@ -36,29 +36,40 @@
 */
 
 body {
+  margin: 0;
   text-align: center;
 }
 h1 {
+  font-size: 7vw;
   color: purple;
+  margin: 0;
 }
 .pagecontentsholder {
   display: flex;
   justify-content: center;
 }
-/*Take out background-color for final product*/
+.tictactoeholder {
+  background-color: red;
+  width: 30%;
+  padding-top: 30%;
+  position: relative;
+}
 .tictactoe {
   border: 1px solid black;
   display: grid;
   grid-template-columns: [vline1] 1fr [vline2] 1fr [vline3] 1fr [vline4];
   grid-template-rows: [hline1] 1fr [hline2] 1fr [hline3] 1fr [hline4];
-  background-color: hotpink;
   width: 100%;
-  padding-top: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
 .item {
   width: 100%;
   height: 100%;
-  font-size: 4em;
+  font-size: 8vw;
 }
 .item:hover {
   background-color: darkgrey;
