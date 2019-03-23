@@ -22,7 +22,9 @@ function addMarkListenersToSquares() {
 }
 
 function removeMarkListenersFromSquares() {
-
+	for (var i = 0; i < squares.length; i++) {
+		squares[i].removeEventListener('click', markSquare);
+	}
 }
 
 function markSquare() {
@@ -33,11 +35,94 @@ function markSquare() {
 	jackImage.src = "./img/Jack.png";
 	if (whosTurn === "nick") {
 		this.appendChild(nickImage)
+		this.setAttribute('data-marked', "nick")
 	} else if (whosTurn === "jack") {
 		this.appendChild(jackImage)
+		this.setAttribute('data-marked', "jack")
 	}
 	this.removeEventListener('click', markSquare);
+	if (checkWinCondition() === "nick") {
+		nickWin()
+	} else if (checkWinCondition() === "jack") {
+		jackWin();
+	}
 	changeTurn();
+}
+
+function checkWinCondition() {
+	if (squares[0].getAttribute('data-marked') === "nick" &&
+		squares[1].getAttribute('data-marked') === "nick" &&
+		squares[2].getAttribute('data-marked') === "nick") {
+		return "nick";
+	} else if (squares[3].getAttribute('data-marked') === "nick" &&
+		squares[4].getAttribute('data-marked') === "nick" &&
+		squares[5].getAttribute('data-marked') === "nick") {
+		return "nick";
+	} else if (squares[6].getAttribute('data-marked') === "nick" &&
+		squares[7].getAttribute('data-marked') === "nick" &&
+		squares[8].getAttribute('data-marked') === "nick") {
+		return "nick";
+	} else if (squares[0].getAttribute('data-marked') === "nick" &&
+		squares[3].getAttribute('data-marked') === "nick" &&
+		squares[6].getAttribute('data-marked') === "nick") {
+		return "nick";
+	} else if (squares[1].getAttribute('data-marked') === "nick" &&
+		squares[4].getAttribute('data-marked') === "nick" &&
+		squares[7].getAttribute('data-marked') === "nick") {
+		return "nick";
+	} else if (squares[2].getAttribute('data-marked') === "nick" &&
+		squares[5].getAttribute('data-marked') === "nick" &&
+		squares[8].getAttribute('data-marked') === "nick") {
+		return "nick";
+	} else if (squares[0].getAttribute('data-marked') === "nick" &&
+		squares[4].getAttribute('data-marked') === "nick" &&
+		squares[8].getAttribute('data-marked') === "nick") {
+		return "nick";
+	} else if (squares[2].getAttribute('data-marked') === "nick" &&
+		squares[4].getAttribute('data-marked') === "nick" &&
+		squares[6].getAttribute('data-marked') === "nick") {
+		return "nick";
+	} else if (squares[0].getAttribute('data-marked') === "jack" &&
+		squares[1].getAttribute('data-marked') === "jack" &&
+		squares[2].getAttribute('data-marked') === "jack") {
+		return "jack";
+	} else if (squares[3].getAttribute('data-marked') === "jack" &&
+		squares[4].getAttribute('data-marked') === "jack" &&
+		squares[5].getAttribute('data-marked') === "jack") {
+		return "jack";
+	} else if (squares[6].getAttribute('data-marked') === "jack" &&
+		squares[7].getAttribute('data-marked') === "jack" &&
+		squares[8].getAttribute('data-marked') === "jack") {
+		return "jack";
+	} else if (squares[0].getAttribute('data-marked') === "jack" &&
+		squares[3].getAttribute('data-marked') === "jack" &&
+		squares[6].getAttribute('data-marked') === "jack") {
+		return "jack";
+	} else if (squares[1].getAttribute('data-marked') === "jack" &&
+		squares[4].getAttribute('data-marked') === "jack" &&
+		squares[7].getAttribute('data-marked') === "jack") {
+		return "jack";
+	} else if (squares[2].getAttribute('data-marked') === "jack" &&
+		squares[5].getAttribute('data-marked') === "jack" &&
+		squares[8].getAttribute('data-marked') === "jack") {
+		return "jack";
+	} else if (squares[0].getAttribute('data-marked') === "jack" &&
+		squares[4].getAttribute('data-marked') === "jack" &&
+		squares[8].getAttribute('data-marked') === "jack") {
+		return "jack";
+	} else if (squares[2].getAttribute('data-marked') === "jack" &&
+		squares[4].getAttribute('data-marked') === "jack" &&
+		squares[6].getAttribute('data-marked') === "jack") {
+		return "jack";
+	} 
+}
+
+function nickWin() {
+	console.log("nickWin");
+}
+
+function jackWin() {
+	console.log("jackWin")
 }
 
 function changeTurn() {
