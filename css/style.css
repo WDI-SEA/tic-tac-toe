@@ -2,6 +2,12 @@ h1 {
 	text-transform: uppercase;
 	color: white;
 }
+
+img {
+	width: 120px;
+	height: 120px;
+}
+
 .container-all {
 	display: flex;
 	flex-direction: column;
@@ -21,18 +27,29 @@ h1 {
 		justify-content: space-around;
 		align-items: center;
 		width: 800px;
-		height: 500px;
+		height: 600px;
 		background-color: brown;
 	}
 
 		.container-left {
 			display: flex;
+			flex-direction: column;
 			justify-content: space-around;
 			align-items: center;
 			width: 400px;
-			height: 400px;
+			height: 500px;
 			background-color: black;
 		}
+
+			.container-whos-turn {
+				display: flex;
+				justify-content: space-around;
+				width: 380px;
+				height: 80px;
+				background-color: white;
+
+
+			}
 
 			.container-board {
 				display: flex;
@@ -50,13 +67,17 @@ h1 {
 					background-color: hotpink;
 				}
 
+				.box:hover {
+					background-color: wheat;
+				}
+
 		.container-right {
 			display: flex;
 			flex-direction: column;
 			justify-content: space-around;
 			align-items: center;
 			width: 200px;
-			height: 400px;
+			height: 500px;
 			background-color: orange;
 		}
 			.container-ai-human {
@@ -76,7 +97,7 @@ h1 {
 			.container-w-l {
 				display: flex;
 				width: 180px;
-				height: 160px;
+				height: 260px;
 				background-color: rebeccapurple;
 			}
 
@@ -86,3 +107,29 @@ h1 {
 		width: 100%;
 		background-color: chartreuse;
 	}
+
+
+/*.class-1 {
+	display: flex;
+}
+
+	.class-2 {
+		display: flex;
+	}
+
+		.class-3 {
+			display: flex;
+		}
+
+			.class-4 {
+				display: flex;
+			}
+
+	.class-5 {
+		display: flex;
+	}
+
+		.class-6 {
+			display: flex;
+		}
+*/
