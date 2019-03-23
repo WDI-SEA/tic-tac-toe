@@ -1,3 +1,88 @@
 h1 {
-  color: purple;
+	text-transform: uppercase;
+	color: white;
 }
+.container-all {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: blue;
+}
+
+	.container-title {
+		display: flex;
+		justify-content: center;
+		width: 100%;
+		background-color: red;
+	}
+
+	.container-mid {
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		width: 800px;
+		height: 500px;
+		background-color: brown;
+	}
+
+		.container-left {
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+			width: 400px;
+			height: 400px;
+			background-color: black;
+		}
+
+			.container-board {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: space-between;
+				align-content: space-between;;
+				width: 380px;
+				height: 380px;
+				background-color: yellow;
+			}
+
+				.box {
+					width: 120px;
+					height: 120px;
+					background-color: hotpink;
+				}
+
+		.container-right {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-around;
+			align-items: center;
+			width: 200px;
+			height: 400px;
+			background-color: orange;
+		}
+			.container-ai-human {
+				display: flex;
+				width: 180px;
+				height: 80px;
+				background-color: green;
+			}
+
+			.container-reset {
+				display: flex;
+				width: 180px;
+				height: 80px;
+				background-color: grey;
+			}
+
+			.container-w-l {
+				display: flex;
+				width: 180px;
+				height: 160px;
+				background-color: rebeccapurple;
+			}
+
+	.container-footer {
+		display: flex;
+		justify-content: center;
+		width: 100%;
+		background-color: chartreuse;
+	}
