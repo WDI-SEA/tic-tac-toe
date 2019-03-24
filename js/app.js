@@ -1,4 +1,3 @@
-console.log('Hello frontend');
 // A user should be able to click on different squares to make a move.
 // Every click will alternate between marking an X and O
 // Upon marking of an individual cell, use JavaScript to add a class to each cell to display the separate players.
@@ -45,6 +44,8 @@ function markSquare() {
 		nickWin()
 	} else if (checkWinCondition() === "jack") {
 		jackWin();
+	} else if (checkWinCondition() === "draw") {
+		draw();
 	}
 	changeTurn();
 }
@@ -114,7 +115,17 @@ function checkWinCondition() {
 		squares[4].getAttribute('data-marked') === "jack" &&
 		squares[6].getAttribute('data-marked') === "jack") {
 		return "jack";
-	} 
+	} else if (squares[0].getAttribute('data-marked') &&
+		squares[1].getAttribute('data-marked') &&
+		squares[2].getAttribute('data-marked') &&
+		squares[3].getAttribute('data-marked') &&
+		squares[4].getAttribute('data-marked') &&
+		squares[5].getAttribute('data-marked') &&
+		squares[6].getAttribute('data-marked') &&
+		squares[7].getAttribute('data-marked') &&
+		squares[8].getAttribute('data-marked')) {
+		return "draw"
+	}
 }
 
 function nickWin() {
@@ -123,6 +134,10 @@ function nickWin() {
 
 function jackWin() {
 	console.log("jackWin")
+}
+
+function draw() {
+	console.log("draw")
 }
 
 function changeTurn() {
