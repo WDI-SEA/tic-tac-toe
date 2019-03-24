@@ -7,12 +7,21 @@
 // Display a message to indicate which turn is about to be played.
 // Detect draw conditions (ties/cat's game)
 // Detect winner: Stop game and declare the winner if one player ends up getting three in a row.
-var nick, jack
+var party
 // establish who's turn it is
 var whosTurn = "nick"
 // identify squares on game board
 var squares = document.querySelectorAll('#game-board .box')
 // 
+function randomizeStart() {
+	if (Math.random() > .5) {
+		whosTurn = "nick";
+	} else {
+		whosTurn = "jack";
+	}
+	document.getElementById('whos-turn').textContent = whosTurn + " starts this round";
+}
+
 function addMarkListenersToSquares() {
 	// add event listener to each square
 	for (var i = 0; i < squares.length; i++) {
@@ -48,6 +57,10 @@ function markSquare() {
 		jackWin();
 	} else if (checkWinCondition() === "draw") {
 		draw();
+	}
+	// Display "Start Over" text
+	if (checkWinCondition()) {
+		document.getElementById('reset').textContent = "Start Over";
 	}
 	changeTurn();
 }
@@ -130,12 +143,19 @@ function checkWinCondition() {
 	}
 }
 
+var nickScore = 0
+var jackScore = 0
+
 function nickWin() {
 	console.log("nickWin");
+	nickScore++;
+	document.getElementById('nick-score').textContent = nickScore;
 }
 
 function jackWin() {
 	console.log("jackWin")
+	jackScore++;
+	document.getElementById('jack-score').textContent = jackScore;
 }
 
 function draw() {
@@ -143,12 +163,36 @@ function draw() {
 }
 
 function changeTurn() {
-	if (whosTurn === "nick") {
+	if (!checkWinCondition() && whosTurn === "nick") {
 		whosTurn = "jack";
-	} else if (whosTurn === "jack") {
+	} else if (!checkWinCondition() && whosTurn === "jack") {
 		whosTurn = "nick";
 	}
-	document.getElementById('whos-turn').textContent = whosTurn + "'s move";
+	if (checkWinCondition() === "draw") {
+		document.getElementById('whos-turn').style.fontSize = "40px"
+		document.getElementById('whos-turn').textContent = "You both suck";
+	} else if (checkWinCondition()) {
+		document.getElementById('whos-turn').style.fontSize = "50px"
+		document.getElementById('whos-turn').textContent = whosTurn + " wins!";
+	} else {
+		document.getElementById('whos-turn').textContent = whosTurn + "'s move";
+	}
+} 
+
+function reset() {
+	console.log("clear")
+	for (var i = 0; i < squares.length; i++) {
+		// Get the <ul> element with id="myList"
+		while (squares[i].hasChildNodes()) {
+			squares[i].removeChild(squares[i].firstChild)
+		}
+		squares[i].removeAttribute('data-marked')
+		addMarkListenersToSquares()
+		document.getElementById('whos-turn').style.fontSize = "30px"
+		randomizeStart() 
+	}
 }
-document.getElementById('whos-turn').textContent = whosTurn + " starts this round";
+
+document.getElementById('reset').addEventListener('click', reset)
+randomizeStart()
 addMarkListenersToSquares()

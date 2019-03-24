@@ -19,41 +19,51 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 
-
-
-
+@font-face {
+	font-family: chalk1;
+	src: url("./fonts/chalk1.ttf")
+}
 
 h1 {
+	font-family: chalk1;
+	font-size: 60px;
+	text-transform: uppercase;
+	color: white;
+}
+
+#reset, h2 {
+	font-family: chalk1;
+	font-size: 30px;
 	text-transform: uppercase;
 	color: white;
 }
 
 img {
-	width: 120px;
-	height: 120px;
+	width: 140px;
+	height: 140px;
 }
 
 .container-all {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	background-color: blue;
+	background-image: url("../img/Chalkboard.jpg");
 }
 
 	.container-title {
 		display: flex;
 		justify-content: center;
+		align-items: center;	
 		width: 100%;
-		background-color: red;
+		height: 80px;
 	}
 
 	.container-mid {
 		display: flex;
 		justify-content: space-around;
 		align-items: center;
-		width: 800px;
-		height: 600px;
-		background-color: brown;
+		width: 1200px;
+		height: 580px;
 	}
 
 		.container-left {
@@ -61,21 +71,20 @@ img {
 			flex-direction: column;
 			justify-content: space-around;
 			align-items: center;
-			width: 400px;
-			height: 500px;
-			background-color: black;
+			width: 600px;
+			height: 580px;
 		}
 
 			.container-whos-turn {
+				font-family: chalk1;
+				font-size: 30px;
 				display: flex;
 				justify-content: space-around;
 				align-items: center;
 				width: 380px;
 				height: 80px;
-				background-color: grey;
+				color: white;
 				text-transform: uppercase;
-
-
 			}
 
 			.container-board {
@@ -83,58 +92,105 @@ img {
 				flex-wrap: wrap;
 				justify-content: space-between;
 				align-content: space-between;;
-				width: 380px;
-				height: 380px;
-				background-color: yellow;
+				width: 500px;
+				height: 500px;
 			}
+				.mid {
+					border-top: 10px solid white;
+					border-bottom: 10px solid white;
+				}
+
+				.middle {
+					border-left: 10px solid white;
+					border-right: 10px solid white;	
+				}
 
 				.box {
-					width: 120px;
-					height: 120px;
-					background-color: hotpink;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					width: 160px;
+					height: 160px;
 				}
 
-				.box:hover {
+/*				.box:hover {
 					background-color: wheat;
-				}
+				}*/
 
 		.container-right {
 			display: flex;
 			flex-direction: column;
 			justify-content: space-around;
 			align-items: center;
-			width: 200px;
-			height: 500px;
+			width: 400px;
+			height: 580px;
 			background-color: orange;
 		}
 			.container-ai-human {
 				display: flex;
-				width: 180px;
-				height: 80px;
+				width: 300px;
+				height: 120px;
 				background-color: green;
 			}
 
 			.container-reset {
 				display: flex;
-				width: 180px;
-				height: 80px;
+				justify-content: center;
+				align-items: center;
+				width: 300px;
+				height: 120px;
 				background-color: grey;
 			}
 
 			.container-w-l {
 				display: flex;
-				width: 180px;
-				height: 260px;
+				flex-wrap: wrap;
+				width: 300px;
+				height: 320px;
 				background-color: rebeccapurple;
 			}
+
+				.names {
+					display: flex;
+					justify-content: space-around;
+					align-items: center;
+					width: 300px;
+					height: 80px;
+					font-size: 30px;
+				}
+
+				.nick-score {
+					font-family: chalk1;
+					font-size: 50px;
+					color: white;	
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					width: 145px;
+					height: 230px;
+					border-top: 10px solid white;
+					border-right: 10px solid white;
+				} 
+
+				.jack-score {
+					font-family: chalk1;
+					font-size: 50px;
+					color: white;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					width: 145px;
+					height: 230px;
+					border-top: 10px solid white;
+				}
 
 	.container-footer {
 		display: flex;
 		justify-content: center;
+		align-items: center;
 		width: 100%;
-		background-color: chartreuse;
+		height: 80px;
 	}
-
 
 /*.class-1 {
 	display: flex;
