@@ -41,8 +41,10 @@ function markSquare() {
 	}
 	this.removeEventListener('click', markSquare);
 	if (checkWinCondition() === "nick") {
-		nickWin()
+		removeMarkListenersFromSquares();
+		nickWin();
 	} else if (checkWinCondition() === "jack") {
+		removeMarkListenersFromSquares();
 		jackWin();
 	} else if (checkWinCondition() === "draw") {
 		draw();
@@ -124,7 +126,7 @@ function checkWinCondition() {
 		squares[6].getAttribute('data-marked') &&
 		squares[7].getAttribute('data-marked') &&
 		squares[8].getAttribute('data-marked')) {
-		return "draw"
+		return "draw";
 	}
 }
 
@@ -146,6 +148,7 @@ function changeTurn() {
 	} else if (whosTurn === "jack") {
 		whosTurn = "nick";
 	}
+	document.getElementById('whos-turn').textContent = whosTurn + "'s move";
 }
-
+document.getElementById('whos-turn').textContent = whosTurn + " starts this round";
 addMarkListenersToSquares()

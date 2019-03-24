@@ -69,9 +69,11 @@ img {
 			.container-whos-turn {
 				display: flex;
 				justify-content: space-around;
+				align-items: center;
 				width: 380px;
 				height: 80px;
-				background-color: white;
+				background-color: grey;
+				text-transform: uppercase;
 
 
 			}
