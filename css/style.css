@@ -14,13 +14,16 @@ body{
 h1, h2, h4, h6{
 	margin: 14px 0;
 	line-height: 0px;
+	font-family: 'Open Sans Condensed', sans-serif;
 }
 p{
 	margin: 0;
+	font-family: 'Open Sans Condensed', sans-serif;
 }
+textarea, select, input, button { outline: none; }
 #gameBoard{
-	border:1px solid red;
-	background-color: red;
+	border:1px solid #aaa;
+	background-color: #aaa;
 	/*with room for boarders*/
 	width:303px;
 	height:303px;
@@ -28,7 +31,7 @@ p{
 	flex-wrap: wrap;
 	justify-content: space-around;
 	box-shadow: 3px 3px 6px #888;
-	border-radius: 5px;
+	/*border-radius: 5px;*/
 
 }
 #titleH1 {
@@ -64,15 +67,19 @@ p{
 	width:302px;
 	height:50px;
 	display:flex;
-	justify-content: flex-start;
+	justify-content: center;
 	align-content: center;
 }
 .titleBox h1{
 	align-self: center;
+	font-family: 'Open Sans Condensed', sans-serif;
+	color: #555;
+    font-size: 20px;
+
 }
 .lowerThird{
-	border:1px solid blue;
-	background-color: blue;
+	/*border:1px solid blue;*/
+	/*background-color: blue;*/
 	width:;
 	height:50px;
 	display:flex;
@@ -80,14 +87,21 @@ p{
 	align-content: center;
 }
 .resetBox{
-	border:1px solid green;
-	background-color: green;
+	/*border:1px solid green;*/
+	/*background-color: green;*/
 	width:100px;
 	height:50;
+
 }
+#reset{
+	width:100px;
+	border:1px solid #aaa;
+}
+
 .scoreBox{
 	border:1px solid white;
 	background-color: white;
 	width:100px;
 	height:50px;
+	z-index: -1;
 }

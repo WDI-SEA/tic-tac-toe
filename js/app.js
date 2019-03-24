@@ -91,7 +91,7 @@ function changeTile(i){
 		//check win
 			console.log("passing player 1 to check---------")
 			console.log(player1)
-			checkWinHC(player1, "Player 1");
+			checkWinHC(player1, "player1");
 		
 	} else {
 		console.log("Player 2 clicked:",this.id)
@@ -123,7 +123,7 @@ function changeTile(i){
 			
 			console.log("passing player 2 to check---------")
 			console.log(player2)
-			checkWinHC(player2, "Player 2");
+			checkWinHC(player2, "player2");
 			//console.log(player2.some(checkWinHC));
 	}
 	// total moves
@@ -187,10 +187,21 @@ function checkWinHC(player, playerTurn){
 
 function playerWins(player){
 	console.log('playerWins RAN')
-	document.getElementById("titleH1").textContent= player + " WINS!"
+	console.log(player)
+	if(player=="player1"){
+		wins1 += 1
+		document.getElementById("titleH1").textContent= "PLAYER 1 WINS!";
+		document.getElementById("player1Wins").textContent= "Player 1: " + wins1;
+	}else{
+		wins2 = wins2 + 1
+		console.log("wins 2=", wins2)
+		document.getElementById("titleH1").textContent= "PLAYER 2 WINS!";
+		document.getElementById("player2Wins").textContent= "Player 2: " + wins2;
 
+	}
+	
+	//shut off the tiles
 	for (var i = 0; i < countTiles.length; i++){
-		
 		countTiles[i].removeEventListener("click", changeTile);
 	}
 
