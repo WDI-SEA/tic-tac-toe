@@ -4,49 +4,67 @@ document.addEventListener('DOMContentLoaded', function() {
   newMatchButton.addEventListener("click", newMatchEvents);
 })
 
-var isXsTurn = true;
+var ame = "\u96E8"
+var arashi = "\u5D50";
+var doro = "\u6CE5"
+var ha = "\u8449";
+var hana = "\u83EF"
+var hinata = "\u967D"
+var honoo = "\u708E";
+var iwa = "\u5CA9";
+var mori = "\u68EE"
+var sora = "\u7a7a"
+var taki = "\u6EDD";
+var uzu = "\u6E26";
+var yuki = "\u96EA";
+
+var numTiles = 9;
+var whoseTurn = 0;
+var numPlayers = 2;
+var player001 = {
+  char: yuki,
+  score: 0,
+  flippedIds: []
+}
+var player002 = {
+  char: hana,
+  score: 0,
+  flippedIds: []
+}
+var players = [
+  player001,
+  player002
+]
 
 function turnChange() {
-  console.log("runnin'");
-  console.log("isXsTurn was", isXsTurn);
-  if (isXsTurn) {
-    isXsTurn = false;
+  console.log("whoseTurn was", whoseTurn);
+  if (whoseTurn < numPlayers - 1) {
+    whoseTurn += 1;
   } else {
-    isXsTurn = true;
+    whoseTurn = 0;
   }
-  console.log("isXsTurn is now", isXsTurn);
+  console.log("whoseTurn is now", whoseTurn);
 }
 
+
+
 var cellClickedEvents = function() {
+  //MAKE CELL UNCLICKABLE
+  this.removeEventListener("click", cellClickedEvents);
+
   //MARK BOX CLICKED
-  turnChange();
-  console.log("Cell", this.getAttribute("id"), "has been clicked. Changing from", this.getAttribute("data-turn"));
-
-  //MARK HTML DATA AS CLICKED
-  this.setAttribute("data-turn", "true");
-
-  console.log("now", this.getAttribute("data-turn"));
+  markCellClicked(this);
 
   //DISPLAY X OR O MARK IN CELL
-
+  displayXO(this);
 
   //ADD CELL ID TO X'S OR O'S MARKED ARRAY
+  addCellToMarkedArray(this);
 
-  //PASS ARG TO REPRESENT TEAM X OR Y
-  if (isXsTurn) {
-    checkWinCondition();
-  } else {
-    checkWinCondition();
-  }
   //CHECK FOR WIN CONDITION
+  checkGameEndCondition(whoseTurn);
 
-
-  //MAKE CELL UNCLICKABLE
-
-
-  //MAKE IT WHOMEVER"S TURN
-  turnChange;
-  console.log("HIIIII");
+  turnChange();
 }
 
 //COME BACK AND OPTIMIZE
@@ -59,12 +77,6 @@ var c6 = document.getElementById("c6");
 var c7 = document.getElementById("c7");
 var c8 = document.getElementById("c8");
 var c9 = document.getElementById("c9");
-
-console.log("Hello frontend");
-console.log(c1.getAttribute("data-turn"));
-
-
-
 
 //DO WHEN "NEW MATCH" BUTTON CLICKED
 function newMatchEvents() {
@@ -83,42 +95,65 @@ function newMatchEvents() {
   c9.addEventListener("click", cellClickedEvents);
 }
 
-function markCellClicked() {
-  console.log("Cell", this.getAttribute("id"), "has been clicked. Changing from");
-  console.log(this.getAttribute("data-turn"));
-
+function markCellClicked(selectedTile) {
+  console.log("Cell", selectedTile.getAttribute("id"), "has been clicked. Changing from", selectedTile.getAttribute("data-turn"));
 
   //MARK HTML DATA AS CLICKED
-  this.setAttribute("data-turn", "true")
+  selectedTile.setAttribute("data-turn", "true")
 
-  console.log(this, "now", this.getAttribute("data-turn"));
+  console.log("now", selectedTile.getAttribute("data-turn"));
 }
 
-function displayXO() {
-
+function displayXO(selectedTile) {
+  selectedTile.textContent = players[whoseTurn].char;
 }
 
-function addCellToMarkedArray(isXsTurn) {
-
+function addCellToMarkedArray(selectedTile) {
+  console.log("add to " + players[whoseTurn].char + "'s array");
+  players[whoseTurn].flippedIds.push(Number(selectedTile.getAttribute("id").slice(1,selectedTile.getAttribute("id").length)));
+  console.log(players[whoseTurn].flippedIds);
 }
 
-function checkWinCondition() {
+function checkGameEndCondition() {
+  console.log("brb checking if someone won");
+  var markedCellCount = 0;
+  console.log("markedCellCount", markedCellCount);
 
+  //checks for current player's win
+  if (players[whoseTurn]) {
+    //check for presence of two opposite corner marks
+
+    //return;
+  } else {
+    //check for three in a row hor or vert
+
+  }
+  for (i = 0; i < numPlayers; i++) {
+    console.log(players[i].flippedIds.length);
+    markedCellCount = markedCellCount + (players[i].flippedIds.length);
+    console.log("After adding " + players[i].char + "'s score, total is " + markedCellCount);
+  }
+  if (markedCellCount === 9) {
+    endGame(-1);
+  }
 }
 
-function endGame() {
-  console.log("Game end under way");
-
+function endGame(victorNo) {
   //MAKE ALL CELLS UNCLICKABLE
 
 
-  //DISPLAY WIN MESSAGE
+  console.log("All cells now unclickable");
+  console.log("Game end under way");
 
+  if (victorNo === -1) {
+    console.log("DRAW RATS");
+  } else {
+    console.log("Congrats on win, Team", players[victorNo].char);
+    //DISPLAY WIN MESSAGE
 
-  //ADD TO SCORE OF WINNING TEAM
+    //ADD TO SCORE OF WINNING TEAM
 
+  }
 }
 
-
-
-console.log(c1.getAttribute("data-turn"));
+console.log("c1 marked is", c1.getAttribute("data-turn"));

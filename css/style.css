@@ -117,8 +117,16 @@ h1 {
 .item {
   width: 100%;
   height: 100%;
-  font-size: 8vw;
+  font-size: 19vw;
+  display: flex;
+  justify-content: center;
   align-items: center;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
 }
 .item:hover {
   background-color: darkgrey;
@@ -179,15 +187,15 @@ input {
   padding: 10px;
   width: 47%;
   font-size: 5vw;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 .start {
-  color: darkred;
+  color: white;
   background-color: red;
   border-color: darkred;
 }
 .clearscore {
-  color: darkblue;
+  color: white;
   background-color: blue;
   border-color: darkblue;
 }
