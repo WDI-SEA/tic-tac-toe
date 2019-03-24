@@ -2,13 +2,14 @@
 body{
 	/*border:1px solid red;*/
 	background-color: #aaa;
-	width:99%;
+	/*background-image: url('../img/nickback1600.jpg');
+	background-position: center;
+	background-repeat: no-repeat;*/
 	height:98vh;
 	padding: 0px;
 	display:flex;
 	justify-content: center;
 	align-content: center;
-
 }
 
 h1, h2, h4, h6{
@@ -32,11 +33,12 @@ textarea, select, input, button { outline: none; }
 	justify-content: space-around;
 	box-shadow: 3px 3px 6px #888;
 	/*border-radius: 5px;*/
-
 }
-#titleH1 {
-
-
+#titleH1{
+}
+#reset{
+	width:100px;
+	border:1px solid #aaa;
 }
 .container{
 	align-self: center;
@@ -47,7 +49,6 @@ textarea, select, input, button { outline: none; }
 	/*height:468px;*/
 	/*flex-flow: column;*/
 	/*justify-content: space-around;*/
-
 }
 .gameTile{
 	/*border: 1px solid #333;*/
@@ -58,7 +59,6 @@ textarea, select, input, button { outline: none; }
 	display:flex;
 	justify-content: center;
 	align-content: center;
-
 }
 
 .titleBox{
@@ -75,7 +75,6 @@ textarea, select, input, button { outline: none; }
 	font-family: 'Open Sans Condensed', sans-serif;
 	color: #555;
     font-size: 20px;
-
 }
 .lowerThird{
 	/*border:1px solid blue;*/
@@ -91,11 +90,6 @@ textarea, select, input, button { outline: none; }
 	/*background-color: green;*/
 	width:100px;
 	height:50;
-
-}
-#reset{
-	width:100px;
-	border:1px solid #aaa;
 }
 
 .scoreBox{

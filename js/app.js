@@ -5,6 +5,8 @@ var player1 = [];
 var player2 = [];
 wins1 = 0;
 wins2 = 0;
+player1Color="red"
+player2Color="blue"
 
 //Assign objects on the board
 assignClicks();
@@ -21,47 +23,39 @@ function sortNumber(a,b) {
 //assign click events
 function assignClicks (){
 	//reset values
-	turn = 1;
-	tiles = [];
-	player1 = [];
-	player2 = [];
-	document.getElementById("titleH1").textContent= "Player 1's Turn"
+		turn = 1;
+		tiles = [];
+		player1 = [];
+		player2 = [];
+		document.getElementById("titleH1").textContent= "Player 1's Turn"
+		document.getElementById("titleH1").style.color= player1Color
 
 	//get how many tiles
-	countTiles = document.getElementsByClassName("gameTile");
-	console.log("creating",countTiles.length,"tiles.")
+		countTiles = document.getElementsByClassName("gameTile");
+		console.log("creating",countTiles.length,"tiles.")
 	
 	//loop through how many tiles
-	for (var i = 0; i < countTiles.length; i++){
-		var obj = {};
-		obj['id'] = i
-		
-		//initiall sets player to null
-		obj['player'] = null
-		tiles.push(obj);
+		for (var i = 0; i < countTiles.length; i++){
+			var obj = {};
+			obj['id'] = i
+			
+			//initiall sets player to null
+			obj['player'] = null
+			tiles.push(obj);
 
-		//assign id to div
-		countTiles[i].setAttribute('id', i)
-		//add event listener
-		countTiles[i].addEventListener("click", changeTile);
-		countTiles[i].style.backgroundColor = "white"
-		countTiles[i].innerText =""
-	}
-	console.log(tiles)
+			//assign id to div
+			countTiles[i].setAttribute('id', i)
+			//add event listener
+			countTiles[i].addEventListener("click", changeTile);
+			countTiles[i].style.backgroundColor = "white"
+			countTiles[i].innerText =""
+		}
+		console.log(tiles)
 };
 
-//when clicked
-	//don't need to check it, because i'm removing click events when activated
-	// function clickedTile (turn){
-
-	// }	
-	// change contents of gameTile to correct player can pass whos turn it is into this function? function clickTile(turn)
 function changeTile(i){
-
 	
 	//check who's turn it is - could probably make into it's own function that returns the number and sets these things
-	//check to make sure it's not a cats cradle
-
 
 	if (turn === 1){
 		console.log("Player 1 clicked:",this.id)
@@ -70,8 +64,8 @@ function changeTile(i){
 			this.removeEventListener("click", changeTile)
 
 		//mark tile
-			this.innerText= "x"
-			this.style.backgroundColor ="red"
+			// this.getElementsByTagName("p").innerText= "x"
+			this.style.backgroundColor =player1Color
 
 		//store the tile player and adds to players array
 			this.setAttribute('player', '1')
@@ -83,6 +77,7 @@ function changeTile(i){
 			
 		//display turn at top 
 			document.getElementById("titleH1").textContent= "Player 2's Turn"
+			document.getElementById("titleH1").style.color= "blue"
 		
 		//console log
 			console.log("player:",this.getAttribute('player'))
@@ -100,7 +95,7 @@ function changeTile(i){
 			this.removeEventListener("click", changeTile)
 		
 		//mark tile
-			this.innerText= "o"
+			//this.getElementsByTagName.innerText= "o"
 			this.style.backgroundColor ="blue"
 
 		//store the tile player adds to players array
@@ -113,7 +108,8 @@ function changeTile(i){
 
 		//display turn at top 
 			document.getElementById("titleH1").textContent= "Player 1's Turn"
-		
+			document.getElementById("titleH1").style.color= player1Color
+			
 			
 		//console log
 			console.log("player:",this.getAttribute('player'))
@@ -124,20 +120,10 @@ function changeTile(i){
 			console.log("passing player 2 to check---------")
 			console.log(player2)
 			checkWinHC(player2, "player2");
-			//console.log(player2.some(checkWinHC));
 	}
 	// total moves
-	console.log('total moves:', player1.length+player2.length)
+	//console.log('total moves:', player1.length+player2.length)
 
-	//check to see if this is a win
-
-
-	//move this to END of the win checker
-	if (player1.length + player2.length === tiles.length) {
-	
-	//display so at top 
-		document.getElementById("titleH1").textContent= "YOU BOTH SUCK"
-		} 
 };
 
 function checkWinHC(player, playerTurn){
@@ -170,13 +156,17 @@ function checkWinHC(player, playerTurn){
     	console.log(playerTurn,"GOT A WIN: VERTICAL 1")
     	playerWins(playerTurn);
 
-    }
-    else if (player.includes('2') && player.includes('5') && player.includes('7')==true) {
+    }else if (player.includes('2') && player.includes('5') && player.includes('8')==true) {
     	console.log(playerTurn,"GOT A WIN: VERTICAL 2")
     	playerWins(playerTurn);
 
-    }
-    else {
+    } else if(player1.length + player2.length === tiles.length) {
+	
+	//display so at top 
+		document.getElementById("titleH1").textContent= "YOU BOTH SUCK"
+		document.getElementById("titleH1").style.color= "purple"
+		
+	} else {
     	console.log("NO WINNER")
     }
 
@@ -191,12 +181,14 @@ function playerWins(player){
 	if(player=="player1"){
 		wins1 += 1
 		document.getElementById("titleH1").textContent= "PLAYER 1 WINS!";
-		document.getElementById("player1Wins").textContent= "Player 1: " + wins1;
+		document.getElementById("titleH1").style.color= player1Color
+		document.getElementById("player1Wins").textContent= "Player 1: "+'\xa0' + wins1;
 	}else{
 		wins2 = wins2 + 1
 		console.log("wins 2=", wins2)
 		document.getElementById("titleH1").textContent= "PLAYER 2 WINS!";
-		document.getElementById("player2Wins").textContent= "Player 2: " + wins2;
+		document.getElementById("titleH1").style.color= "blue"
+		document.getElementById("player2Wins").textContent= "Player 2: "+ '\xa0' + wins2;
 
 	}
 	
