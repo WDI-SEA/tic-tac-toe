@@ -2,32 +2,57 @@ document.addEventListener('DOMContentLoaded', function() {
   //add event handler for start/reset button
   var newMatchButton = document.getElementById("newmatchbutton");
   newMatchButton.addEventListener("click", newMatchEvents);
-})
+});
 
-var ame = "\u96E8"
+var ame = "\u96E8";
 var arashi = "\u5D50";
-var doro = "\u6CE5"
+var awa = "\u6CE1";
+var chi = "\u5730";
+var doro = "\u6CE5";
 var ha = "\u8449";
-var hana = "\u83EF"
-var hinata = "\u967D"
+var hana = "\u83EF";
+var hara = "\u539F";
+var hatake = "\u7551";
+var hayashi = "\u6797";
+var hikari = "\u5149";
+var hinata = "\u967D";
+var homura = "\u7114";
 var honoo = "\u708E";
+var hyou = "\u96F9";
 var iwa = "\u5CA9";
-var mori = "\u68EE"
-var sora = "\u7a7a"
+var izumi = "\u6CC9";
+var kaminari = "\u96F7";
+var kiri = "\u9727";
+var kumo = "\u96F2";
+var mizu = "\u6C34";
+var moe = "\u71C3";
+var mori = "\u68EE";
+var nami = "\u6CE2";
+var numa = "\u6CBC";
+var sakura = "\u685C";
+var shimo = "\u971C";
+var sora = "\u7a7a";
+var suna = "\u7802";
 var taki = "\u6EDD";
+var tsuchi = "\u571F";
 var uzu = "\u6E26";
+var yama = "\u5C71";
 var yuki = "\u96EA";
-
+var chars = [
+  ame, arashi, awa, chi, doro, ha, hana, hara, hatake, hayashi, hikari, hinata, homura, honoo, hyou, iwa, izumi, kaminari, kiri, kumo, mizu, moe, mori, nami, numa, sakura, shimo, sora, suna, taki, tsuchi, uzu, yama, yuki
+]
 var numTiles = 9;
 var whoseTurn = 0;
 var numPlayers = 2;
 var player001 = {
-  char: yuki,
+  char: shimo,
+  teamColor: "red",
   score: 0,
   flippedIds: []
 }
 var player002 = {
-  char: hana,
+  char: homura,
+  teamColor: "blue",
   score: 0,
   flippedIds: []
 }
@@ -35,6 +60,11 @@ var players = [
   player001,
   player002
 ]
+//CELL DATA HOLDERS -- DATUM POSITION CORRESPONDS TO CELL NUMBER
+var cellData = [];
+for (i = 0; i < numTiles; i++) {
+  cellData.push(undefined);
+}
 
 function turnChange() {
   console.log("whoseTurn was", whoseTurn);
@@ -110,8 +140,14 @@ function displayXO(selectedTile) {
 
 function addCellToMarkedArray(selectedTile) {
   console.log("add to " + players[whoseTurn].char + "'s array");
-  players[whoseTurn].flippedIds.push(Number(selectedTile.getAttribute("id").slice(1,selectedTile.getAttribute("id").length)));
+
+  var selectedTileNo = Number(selectedTile.getAttribute("id").slice(1,selectedTile.getAttribute("id").length));
+  //ADD TO PLAYER'S SELECTED TILES ARRAY
+  players[whoseTurn].flippedIds.push(selectedTileNo);
   console.log(players[whoseTurn].flippedIds);
+  //CHANGE CELL DATA ARRAY ITEM TO REFLECT WHICH PLAYER OWNS CELL
+  cellData[selectedTileNo - 1] = whoseTurn;
+  console.log("Cell " + selectedTileNo + " owned by players[" + (cellData[selectedTileNo - 1]) + "].");
 }
 
 function checkGameEndCondition() {
@@ -120,27 +156,80 @@ function checkGameEndCondition() {
   console.log("markedCellCount", markedCellCount);
 
   //checks for current player's win
-  if (players[whoseTurn]) {
-    //check for presence of two opposite corner marks
-
-    //return;
-  } else {
-    //check for three in a row hor or vert
-
+  switch (true) {
+    case (
+      cellData[0] === whoseTurn && cellData[1] === whoseTurn && cellData[2] === whoseTurn
+    ):
+    endGame(whoseTurn);
+    return;
+      break;
+    case (
+      cellData[3] === whoseTurn && cellData[4] === whoseTurn && cellData[5] === whoseTurn
+    ):
+    endGame(whoseTurn);
+    return;
+      break;
+    case (
+      cellData[6] === whoseTurn && cellData[7] === whoseTurn && cellData[8] === whoseTurn
+    ):
+    endGame(whoseTurn);
+    return;
+      break;
+    case (
+      cellData[0] === whoseTurn && cellData[3] === whoseTurn && cellData[6] === whoseTurn
+    ):
+    endGame(whoseTurn);
+    return;
+      break;
+    case (
+      cellData[1] === whoseTurn && cellData[4] === whoseTurn && cellData[7] === whoseTurn
+    ):
+    endGame(whoseTurn);
+    return;
+      break;
+    case (
+      cellData[2] === whoseTurn && cellData[5] === whoseTurn && cellData[8] === whoseTurn
+    ):
+    endGame(whoseTurn);
+    return;
+      break;
+    case (
+      cellData[0] === whoseTurn && cellData[4] === whoseTurn && cellData[8] === whoseTurn
+    ):
+    endGame(whoseTurn);
+    return;
+      break;
+    case (
+      cellData[2] === whoseTurn && cellData[4] === whoseTurn && cellData[6] === whoseTurn
+    ):
+    endGame(whoseTurn);
+    return;
+      break;
+    default: console.log("no win do nothing");
   }
   for (i = 0; i < numPlayers; i++) {
     console.log(players[i].flippedIds.length);
     markedCellCount = markedCellCount + (players[i].flippedIds.length);
-    console.log("After adding " + players[i].char + "'s score, total is " + markedCellCount);
+    console.log("After adding " + players[i].char + "'s cells, total marked cells is " + markedCellCount);
   }
   if (markedCellCount === 9) {
     endGame(-1);
+    return;
   }
 }
 
 function endGame(victorNo) {
   //MAKE ALL CELLS UNCLICKABLE
-
+  //COME BACK AND OPTIMIZE
+  c1.removeEventListener("click", cellClickedEvents);
+  c2.removeEventListener("click", cellClickedEvents);
+  c3.removeEventListener("click", cellClickedEvents);
+  c4.removeEventListener("click", cellClickedEvents);
+  c5.removeEventListener("click", cellClickedEvents);
+  c6.removeEventListener("click", cellClickedEvents);
+  c7.removeEventListener("click", cellClickedEvents);
+  c8.removeEventListener("click", cellClickedEvents);
+  c9.removeEventListener("click", cellClickedEvents);
 
   console.log("All cells now unclickable");
   console.log("Game end under way");
@@ -151,7 +240,11 @@ function endGame(victorNo) {
     console.log("Congrats on win, Team", players[victorNo].char);
     //DISPLAY WIN MESSAGE
 
+
     //ADD TO SCORE OF WINNING TEAM
+    players[victorNo].score = players[victorNo].score + 1;
+    console.log("Team", players[victorNo].char, "score now", players[victorNo].score);
+    //DISPLAY NEW SCORE ON BOARD
 
   }
 }

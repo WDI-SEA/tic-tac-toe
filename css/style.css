@@ -97,17 +97,19 @@ h1 {
   height: ;
 }
 .tictactoeholder {
-  background-color: red;
+  background-color: black;
   width: 100%;
   padding-top: 100%;
   position: relative;
 }
 .tictactoe {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   display: grid;
   grid-template-columns: [vline1] 1fr [vline2] 1fr [vline3] 1fr [vline4];
   grid-template-rows: [hline1] 1fr [hline2] 1fr [hline3] 1fr [hline4];
   width: 100%;
+  grid-column-gap: 2vw;
+  grid-row-gap: 2vw;
   position: absolute;
   top: 0;
   left: 0;
@@ -148,18 +150,18 @@ h1 {
   background-color: yellow;
 }
 .four {
-  grid-column: 3;
+  grid-column: 1;
   grid-row: 2;
   background-color: chartreuse;
 }
 .five {
-  grid-column: 3;
-  grid-row: 3;
+  grid-column: 2;
+  grid-row: 2;
   background-color: green;
 }
 .six {
-  grid-column: 2;
-  grid-row: 3;
+  grid-column: 3;
+  grid-row: 2;
   background-color: skyblue;
 }
 .seven {
@@ -168,13 +170,13 @@ h1 {
   background-color: blue;
 }
 .eight {
-  grid-column: 1;
-  grid-row: 2;
+  grid-column: 2;
+  grid-row: 3;
   background-color: rebeccapurple;
 }
 .nine {
-  grid-column: 2;
-  grid-row: 2;
+  grid-column: 3;
+  grid-row: 3;
   background-color: hotpink;
 }
 input {
