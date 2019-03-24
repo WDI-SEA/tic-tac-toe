@@ -3,9 +3,20 @@ var tiles = [];
 var turn = 1;
 var player1 = [];
 var player2 = [];
-//functions I think I'll need
+wins1 = 0;
+wins2 = 0;
+
+//Assign objects on the board
 assignClicks();
+
+//assign the reset click - which triggers the assignClicks function
 document.getElementById("reset").addEventListener("click", assignClicks)
+
+//used to sort player1[] & player2[] clicked tiles
+function sortNumber(a,b) {
+        return a - b;
+    }
+
 
 //assign click events
 function assignClicks (){
@@ -15,7 +26,7 @@ function assignClicks (){
 	player1 = [];
 	player2 = [];
 	document.getElementById("titleH1").textContent= "Player 1's Turn"
-	
+
 	//get how many tiles
 	countTiles = document.getElementsByClassName("gameTile");
 	console.log("creating",countTiles.length,"tiles.")
@@ -61,11 +72,11 @@ function changeTile(i){
 		//mark tile
 			this.innerText= "x"
 			this.style.backgroundColor ="red"
+
 		//store the tile player and adds to players array
 			this.setAttribute('player', '1')
 			player1.push(this.id)
 			console.log(player1)
-			// console.log(this)
 		
 		//change turn
 			turn = 2;
@@ -76,8 +87,12 @@ function changeTile(i){
 		//console log
 			console.log("player:",this.getAttribute('player'))
 			console.log('')
-			
 
+		//check win
+			console.log("passing player 1 to check---------")
+			console.log(player1)
+			checkWinHC(player1, "Player 1");
+		
 	} else {
 		console.log("Player 2 clicked:",this.id)
 		
@@ -91,8 +106,8 @@ function changeTile(i){
 		//store the tile player adds to players array
 			this.setAttribute('player', '2')
 			player2.push(this.id)
-			console.log(player2)
-
+			console.log("after push",player2)
+	
 		//change turn
 			turn = 1;
 
@@ -104,41 +119,80 @@ function changeTile(i){
 			console.log("player:",this.getAttribute('player'))
 			console.log('')
 
-
+		//check win
 			
+			console.log("passing player 2 to check---------")
+			console.log(player2)
+			checkWinHC(player2, "Player 2");
+			//console.log(player2.some(checkWinHC));
 	}
 	// total moves
 	console.log('total moves:', player1.length+player2.length)
 
 	//check to see if this is a win
-	checkWin();
-		
-
-}
-
-function checkWin(){
 
 
-		//move this to END of the win checker
-		if (player1.length + player2.length === tiles.length) {
-		
-		//display so at top 
-			document.getElementById("titleH1").textContent= "YOU BOTH SUCK"
+	//move this to END of the win checker
+	if (player1.length + player2.length === tiles.length) {
+	
+	//display so at top 
+		document.getElementById("titleH1").textContent= "YOU BOTH SUCK"
 		} 
+};
 
-}
+function checkWinHC(player, playerTurn){
+	var currentPlayer = player
+	console.log(playerTurn)
+    if (player.includes('0') && player.includes('4') && player.includes('8')==true) {
+    	console.log(playerTurn,"GOT A WIN: DIAGONAL 0")
+    	playerWins(playerTurn);
+    } else if (player.includes('2') && player.includes('4') && player.includes('6')==true) {
+    	console.log(playerTurn,"GOT A WIN: DIAGONAL 1")
+    	playerWins(playerTurn);
 
-function clearTiles (){
+    }else if (player.includes('0') && player.includes('1') && player.includes('2')==true) {
+    	console.log(playerTurn,"GOT A WIN: HORIZONTAL 0")
+    	playerWins(playerTurn);
 
-	//for loop through the tiles and set inner text, background color and owner
+    }else if (player.includes('3') && player.includes('4') && player.includes('5')==true) {
+    	console.log(playerTurn,"GOT A WIN: HORIZONTAL 1")
+    	playerWins(playerTurn);
+
+    }else if (player.includes('6') && player.includes('7') && player.includes('8')==true) {
+    	console.log(playerTurn,"GOT A WIN: HORIZONTAL 2")
+    	playerWins(playerTurn);
+
+    }else if (player.includes('0') && player.includes('3') && player.includes('6')==true) {
+    	console.log(playerTurn,"GOT A WIN: VERTICAL 0")
+    	playerWins(playerTurn);
+
+    }else if (player.includes('1') && player.includes('4') && player.includes('7')==true) {
+    	console.log(playerTurn,"GOT A WIN: VERTICAL 1")
+    	playerWins(playerTurn);
+
+    }
+    else if (player.includes('2') && player.includes('5') && player.includes('7')==true) {
+    	console.log(playerTurn,"GOT A WIN: VERTICAL 2")
+    	playerWins(playerTurn);
+
+    }
+    else {
+    	console.log("NO WINNER")
+    }
 
 
-			this.innerText= "o"
-			this.style.backgroundColor ="blue"
-}
+
+};
 
 
-//win(turn)
-	//increase win counter(turn)
+function playerWins(player){
+	console.log('playerWins RAN')
+	document.getElementById("titleH1").textContent= player + " WINS!"
 
-//keep track of who's turn it is?  indicate it
+	for (var i = 0; i < countTiles.length; i++){
+		
+		countTiles[i].removeEventListener("click", changeTile);
+	}
+
+};
+
