@@ -41,18 +41,22 @@ var yuki = "\u96EA";
 var chars = [
   ame, arashi, awa, chi, doro, ha, hana, hara, hatake, hayashi, hikari, hinata, homura, honoo, hyou, iwa, izumi, kaminari, kiri, kumo, mizu, moe, mori, nami, numa, sakura, shimo, sora, suna, taki, tsuchi, uzu, yama, yuki
 ]
+var colorScheme = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
+
+
+console.log(chars.length);
 var numTiles = 9;
 var whoseTurn = 0;
 var numPlayers = 2;
 var player001 = {
-  char: shimo,
-  teamColor: "red",
+  char: chars[Math.round(Math.random() * 34)],
+  teamColor: colorScheme[Math.round(Math.random() * 12)],
   score: 0,
   flippedIds: []
 }
 var player002 = {
-  char: homura,
-  teamColor: "blue",
+  char: chars[Math.round(Math.random() * 34)],
+  teamColor: colorScheme[Math.round(Math.random() * 12)],
   score: 0,
   flippedIds: []
 }
@@ -129,9 +133,12 @@ function markCellClicked(selectedTile) {
   console.log("Cell", selectedTile.getAttribute("id"), "has been clicked. Changing from", selectedTile.getAttribute("data-turn"));
 
   //MARK HTML DATA AS CLICKED
-  selectedTile.setAttribute("data-turn", "true")
-
+  selectedTile.setAttribute("data-turn", "true");
   console.log("now", selectedTile.getAttribute("data-turn"));
+
+  //CHANGE COLOR OF CLICKED CELL TO TEAM COLOR
+  selectedTile.classList.remove("unmarked");
+  selectedTile.classList.add("colorOpt" + players[whoseTurn].teamColor);
 }
 
 function displayXO(selectedTile) {
@@ -208,7 +215,7 @@ function checkGameEndCondition() {
     default: console.log("no win do nothing");
   }
   for (i = 0; i < numPlayers; i++) {
-    console.log(players[i].flippedIds.length);
+    // console.log(players[i].flippedIds.length);
     markedCellCount = markedCellCount + (players[i].flippedIds.length);
     console.log("After adding " + players[i].char + "'s cells, total marked cells is " + markedCellCount);
   }
@@ -239,7 +246,7 @@ function endGame(victorNo) {
   } else {
     console.log("Congrats on win, Team", players[victorNo].char);
     //DISPLAY WIN MESSAGE
-
+    document.getElementById("alertcenter").textContent = "Congrats on win, Team " + players[victorNo].char;
 
     //ADD TO SCORE OF WINNING TEAM
     players[victorNo].score = players[victorNo].score + 1;
@@ -248,5 +255,3 @@ function endGame(victorNo) {
 
   }
 }
-
-console.log("c1 marked is", c1.getAttribute("data-turn"));

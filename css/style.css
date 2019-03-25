@@ -130,55 +130,105 @@ h1 {
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none;
 }
-.item:hover {
-  background-color: darkgrey;
+.unmarked {
+  background-color: #f4f4f4;
+}
+.listener-on:hover {
+  background-color: grey;
   color: white;
 }
 .one {
   grid-column: 1;
   grid-row: 1;
-  background-color: red;
 }
 .two {
   grid-column: 2;
   grid-row: 1;
-  background-color: orange;
 }
 .three {
   grid-column: 3;
   grid-row: 1;
-  background-color: yellow;
 }
 .four {
   grid-column: 1;
   grid-row: 2;
-  background-color: chartreuse;
 }
 .five {
   grid-column: 2;
   grid-row: 2;
-  background-color: green;
 }
 .six {
   grid-column: 3;
   grid-row: 2;
-  background-color: skyblue;
 }
 .seven {
   grid-column: 1;
   grid-row: 3;
-  background-color: blue;
 }
 .eight {
   grid-column: 2;
   grid-row: 3;
-  background-color: rebeccapurple;
 }
 .nine {
   grid-column: 3;
   grid-row: 3;
-  background-color: hotpink;
 }
+.colorOpt1 {
+  color: #4f92ff;
+  background-color: #28549b;
+}
+.colorOpt2 {
+  color: #97e5cc;
+  background-color: #3b6356;
+}
+.colorOpt3 {
+  color: #3e7577;
+  background-color: #affcff;
+}
+.colorOpt4 {
+  color: #c4ab99;
+  background-color: #724728;
+}
+.colorOpt5 {
+  color: #c4b2bc;
+  background-color: #775567;
+}
+.colorOpt6 {
+  color: #a4ff77;
+  background-color: #3bb200;
+}
+.colorOpt7 {
+  color: #910079;
+  background-color: #ffaaf0;
+}
+.colorOpt8 {
+  color: #ffffff;
+  background-color: #619199;
+}
+.colorOpt9 {
+  color: #8e8e26;
+  background-color: #ffff8e;
+}
+.colorOpt10 {
+  color: #565656;
+  background-color: #d1d1d1;
+}
+.colorOpt11 {
+  color: #990000;
+  background-color: #ff8989;
+}
+.colorOpt12 {
+  color: #ff9696;
+  background-color: #ce0000;
+}
+.colorOpt13 {
+  color: #87691b;
+  background-color: #e8cd84;
+}
+.alertcenter {
+
+}
+.alert
 input {
 
 }
