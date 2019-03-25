@@ -1,15 +1,10 @@
-// A user should be able to click on different squares to make a move.
-// Every click will alternate between marking an X and O
-// Upon marking of an individual cell, use JavaScript to add a class to each cell to display the separate players.
-// A cell should not be able to be replayed once marked.
-// You should not be able to click remaining empty cells after the game is over.
-// Add a reset button that will clear the contents of the board.
-// Display a message to indicate which turn is about to be played.
-// Detect draw conditions (ties/cat's game)
-// Detect winner: Stop game and declare the winner if one player ends up getting three in a row.
-var party
+
+var aiTurnBuffer
 // establish who's turn it is
-var whosTurn = "nick"
+var whosTurn, startingPlayer
+var nickScore = 0
+var jackScore = 0
+var aiStarted = false
 // identify squares on game board
 var squares = document.querySelectorAll('#game-board .box')
 // 
@@ -19,6 +14,7 @@ function randomizeStart() {
 	} else {
 		whosTurn = "jack";
 	}
+	startingPlayer = whosTurn
 	document.getElementById('whos-turn').textContent = whosTurn + " starts this round";
 }
 
@@ -32,6 +28,48 @@ function addMarkListenersToSquares() {
 function removeMarkListenersFromSquares() {
 	for (var i = 0; i < squares.length; i++) {
 		squares[i].removeEventListener('click', markSquare);
+	}
+}
+
+function addListenersToVsCpu() {
+	document.getElementById('ai-human').addEventListener('click', computerMarkSquare);
+}
+
+function computerMarkSquare() {
+	console.log("I have no friends");
+	aiStarted = true
+	if (!checkWinCondition()) {
+		var randomSquare = Math.floor(Math.random() * 9)
+		var nickImage = document.createElement('img');
+		nickImage.src = "./img/Nick.png";
+		var jackImage = document.createElement('img');
+		jackImage.src = "./img/Jack.png";
+		while (squares[randomSquare].getAttribute('data-marked')) {
+			randomSquare = Math.floor(Math.random() * 9)
+		}
+		if (whosTurn === "nick") {
+			squares[randomSquare].appendChild(nickImage)
+			squares[randomSquare].setAttribute('data-marked', "nick")
+		} else if (whosTurn === "jack") {
+			squares[randomSquare].appendChild(jackImage)
+			squares[randomSquare].setAttribute('data-marked', "jack")
+		} 
+		squares[randomSquare].removeEventListener('click', markSquare);
+		if (checkWinCondition() === "nick") {
+			removeMarkListenersFromSquares();
+			nickWin();
+		} else if (checkWinCondition() === "jack") {
+			removeMarkListenersFromSquares();
+			jackWin();
+		} else if (checkWinCondition() === "draw") {
+			draw();
+		}
+		// Display "Start Over" text
+		if (checkWinCondition()) {
+			document.getElementById('reset').textContent = "Start Over";
+			document.getElementById('reset').addEventListener('click', reset)
+		}
+		changeTurn();
 	}
 }
 
@@ -61,8 +99,12 @@ function markSquare() {
 	// Display "Start Over" text
 	if (checkWinCondition()) {
 		document.getElementById('reset').textContent = "Start Over";
+		document.getElementById('reset').addEventListener('click', reset)
 	}
 	changeTurn();
+	if (aiStarted === true) {
+		setTimeout(computerMarkSquare, 700)
+	}
 }
 
 function checkWinCondition() {
@@ -143,9 +185,6 @@ function checkWinCondition() {
 	}
 }
 
-var nickScore = 0
-var jackScore = 0
-
 function nickWin() {
 	console.log("nickWin");
 	nickScore++;
@@ -193,6 +232,6 @@ function reset() {
 	}
 }
 
-document.getElementById('reset').addEventListener('click', reset)
 randomizeStart()
 addMarkListenersToSquares()
+addListenersToVsCpu()
