@@ -1,7 +1,5 @@
-
 var aiTurnBuffer
-// establish who's turn it is
-var whosTurn, startingPlayer
+var whosTurn
 var nickScore = 0
 var jackScore = 0
 var aiStarted = false
@@ -14,7 +12,6 @@ function randomizeStart() {
 	} else {
 		whosTurn = "jack";
 	}
-	startingPlayer = whosTurn
 	document.getElementById('whos-turn').textContent = whosTurn + " starts this round";
 }
 
@@ -32,6 +29,7 @@ function removeMarkListenersFromSquares() {
 }
 
 function addListenersToVsCpu() {
+	// Makes the "I have no friends" button clickable
 	document.getElementById('ai-human').addEventListener('click', computerMarkSquare);
 }
 
@@ -40,20 +38,26 @@ function removeListenersToVsCpu() {
 }
 
 function computerMarkSquare() {
+	// Remove "I have no friends" button
 	removeListenersToVsCpu()
 	document.getElementById('simple-ai').textContent = ""
+	// Tell the computer that it's playing after each of my turns
 	aiStarted = true
 	if (!checkWinCondition()) {
-		var randomSquare = Math.floor(Math.random() * 9)
+		// Create images
 		var nickImage = document.createElement('img');
 		nickImage.src = "./img/Nick.png";
 		var jackImage = document.createElement('img');
 		jackImage.src = "./img/Jack.png";
+		// Pick a random square
+		var randomSquare = Math.floor(Math.random() * 9)
+		// Keep picking a square until you find one that is unmarked
 		while (squares[randomSquare].getAttribute('data-marked')) {
 			randomSquare = Math.floor(Math.random() * 9)
 		}
+		// Mark the square for each player and play their sound
 		if (whosTurn === "nick") {
-			document.getElementById('nick2').play()
+			document.getElementById('nick1').play()
 			squares[randomSquare].appendChild(nickImage)
 			squares[randomSquare].setAttribute('data-marked', "nick")
 		} else if (whosTurn === "jack") {
@@ -61,17 +65,17 @@ function computerMarkSquare() {
 			squares[randomSquare].appendChild(jackImage)
 			squares[randomSquare].setAttribute('data-marked', "jack")
 		} 
+		// Make the square unclickable
 		squares[randomSquare].removeEventListener('click', markSquare);
+		// Check for win
 		if (checkWinCondition() === "nick") {
-			removeMarkListenersFromSquares();
 			nickWin();
 		} else if (checkWinCondition() === "jack") {
-			removeMarkListenersFromSquares();
 			jackWin();
 		} else if (checkWinCondition() === "draw") {
 			draw();
 		}
-		// Display "Start Over" text
+		// If the game is over , display "Start Over" text and reset score text
 		if (checkWinCondition()) {
 			document.getElementById('reset').textContent = "Start Over";
 			document.getElementById('reset').addEventListener('click', reset);
@@ -84,13 +88,14 @@ function computerMarkSquare() {
 }
 
 function markSquare() {
-	// Determine appropriate marker and add it to the clicked square
+	// Create images
 	var nickImage = document.createElement('img');
 	nickImage.src = "./img/Nick.png";
 	var jackImage = document.createElement('img');
 	jackImage.src = "./img/Jack.png";
+	// Mark the square for each player and play their sound
 	if (whosTurn === "nick") {
-		document.getElementById('nick2').play()
+		document.getElementById('nick1').play()
 		this.appendChild(nickImage)
 		this.setAttribute('data-marked', "nick")
 	} else if (whosTurn === "jack") {
@@ -98,17 +103,17 @@ function markSquare() {
 		this.appendChild(jackImage)
 		this.setAttribute('data-marked', "jack")
 	}
+	// Make square unclickable
 	this.removeEventListener('click', markSquare);
+	// Check for win
 	if (checkWinCondition() === "nick") {
-		removeMarkListenersFromSquares();
 		nickWin();
 	} else if (checkWinCondition() === "jack") {
-		removeMarkListenersFromSquares();
 		jackWin();
 	} else if (checkWinCondition() === "draw") {
 		draw();
 	}
-	// Display "Start Over" text
+	// If the game is over , display "Start Over" text and reset score text
 	if (checkWinCondition()) {
 		document.getElementById('reset').textContent = "Start Over";
 		document.getElementById('reset').addEventListener('click', reset);
@@ -118,6 +123,7 @@ function markSquare() {
 
 	}
 	changeTurn();
+	// Tell the computer it's their turn
 	if (aiStarted === true) {
 		setTimeout(computerMarkSquare, 1800);
 	}
@@ -202,41 +208,48 @@ function checkWinCondition() {
 	}
 }
 
+function endGame() {
+	removeMarkListenersFromSquares();
+}
+
 function nickWin() {
-	console.log("nickWin");
+	endGame();
 	nickScore++;
 	document.getElementById('nick-score').textContent = nickScore;
 }
 
 function jackWin() {
-	console.log("jackWin")
+	endGame();
 	jackScore++;
 	document.getElementById('jack-score').textContent = jackScore;
 }
 
 function draw() {
-	console.log("draw")
+	endGame();
 }
 
 function changeTurn() {
+	// See if any win conditions are met
 	if (!checkWinCondition() && whosTurn === "nick") {
 		whosTurn = "jack";
 	} else if (!checkWinCondition() && whosTurn === "jack") {
 		whosTurn = "nick";
 	}
 	if (checkWinCondition() === "draw") {
+		// Change message to draw
 		document.getElementById('whos-turn').style.fontSize = "40px"
 		document.getElementById('whos-turn').textContent = "You both suck";
 	} else if (checkWinCondition()) {
+		// Change message to winner's
 		document.getElementById('whos-turn').style.fontSize = "50px"
 		document.getElementById('whos-turn').textContent = whosTurn + " wins!";
 	} else {
+		// If the game isn't over, display who's turn it is
 		document.getElementById('whos-turn').textContent = whosTurn + "'s move";
 	}
 } 
 
 function reset() {
-	console.log("clear")
 	for (var i = 0; i < squares.length; i++) {
 		while (squares[i].hasChildNodes()) {
 			squares[i].removeChild(squares[i].firstChild)
@@ -249,8 +262,8 @@ function reset() {
 	document.getElementById('reset').textContent = "";
 	document.getElementById('reset').removeEventListener('click', reset);
 	document.getElementById('simple-ai').textContent = "I have no friends";
-	aiStarted= false
 	addListenersToVsCpu();
+	aiStarted = false
 }
 
 function resetScore() {

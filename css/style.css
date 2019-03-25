@@ -113,10 +113,6 @@ img {
 					height: 160px;
 				}
 
-/*				.box:hover {
-					background-color: wheat;
-				}*/
-
 		.container-right {
 			display: flex;
 			flex-direction: column;
@@ -124,14 +120,12 @@ img {
 			align-items: center;
 			width: 400px;
 			height: 580px;
-/*			background-color: orange;
 */		}
 			.container-w-l {
 				display: flex;
 				flex-wrap: wrap;
 				width: 300px;
 				height: 260px;
-				/*background-color: rebeccapurple;*/
 			}
 
 				.names {
@@ -174,7 +168,6 @@ img {
 				align-items: center;
 				width: 300px;
 				height: 90px;
-/*				background-color: green;
 */			}
 
 			.container-reset {
@@ -183,7 +176,6 @@ img {
 				align-items: center;
 				width: 300px;
 				height: 90px;
-				/*background-color: grey;*/
 			}
 
 			.container-reset-score {
@@ -202,28 +194,3 @@ img {
 		width: 100%;
 		height: 80px;
 	}
-
-/*.class-1 {
-	display: flex;
-}
-
-	.class-2 {
-		display: flex;
-	}
-
-		.class-3 {
-			display: flex;
-		}
-
-			.class-4 {
-				display: flex;
-			}
-
-	.class-5 {
-		display: flex;
-	}
-
-		.class-6 {
-			display: flex;
-		}
-*/
