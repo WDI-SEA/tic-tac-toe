@@ -46,6 +46,7 @@ function assignClicks (){
 
 			//assign id to div
 			countTiles[i].setAttribute('id', i)
+			
 			//add event listener
 			countTiles[i].addEventListener("click", changeTile);
 			countTiles[i].style.backgroundColor = "white"
@@ -67,7 +68,6 @@ function changeTile(whosTurn){
 			this.removeEventListener("click", changeTile)
 
 		//mark tile
-			// this.getElementsByTagName("p").innerText= "x"
 			this.style.backgroundColor =player1Color
 
 		//store the tile player and adds to players array
@@ -98,7 +98,6 @@ function changeTile(whosTurn){
 			this.removeEventListener("click", changeTile)
 		
 		//mark tile
-			//this.getElementsByTagName.innerText= "o"
 			this.style.backgroundColor ="blue"
 
 		//store the tile player adds to players array
@@ -113,19 +112,17 @@ function changeTile(whosTurn){
 			document.getElementById("titleH1").textContent= "Player 1's Turn"
 			document.getElementById("titleH1").style.color= player1Color
 			
-			
 		//console log
 			console.log("player:",this.getAttribute('player'))
 			console.log('')
 
 		//check win
-			
 			console.log("passing player 2 to check---------")
 			console.log(player2)
 			checkWinHC(player2, "player2");
 	}
 	// total moves
-	//console.log('total moves:', player1.length+player2.length)
+	console.log('total moves:', player1.length+player2.length)
 
 };
 
@@ -166,7 +163,6 @@ function checkWinHC(player, playerTurn){
     	playerWins(playerTurn);
 
     } else if(player1.length + player2.length === tiles.length) {
-	
 	//display at top if player 1 and 2's lengths equal the total number of tiles
 		document.getElementById("titleH1").textContent= "YOU BOTH SUCK"
 		document.getElementById("titleH1").style.color= "purple"
@@ -174,24 +170,20 @@ function checkWinHC(player, playerTurn){
 	} else {
     	console.log("NO WINNER")
     }
-
 };
 
 function playerWins(player){
-	console.log('playerWins RAN')
-	console.log(player)
 	if(player=="player1"){
 		wins1 += 1
 		document.getElementById("titleH1").textContent= "PLAYER 1 WINS!";
-		document.getElementById("titleH1").style.color= player1Color
+		document.getElementById("titleH1").style.color= player1Color;
 		document.getElementById("player1Wins").textContent= "Player 1: "+'\xa0' + wins1;
 	}else{
 		wins2 = wins2 + 1
 		console.log("wins 2=", wins2)
 		document.getElementById("titleH1").textContent= "PLAYER 2 WINS!";
-		document.getElementById("titleH1").style.color= "blue"
+		document.getElementById("titleH1").style.color= player1Color;
 		document.getElementById("player2Wins").textContent= "Player 2: "+ '\xa0' + wins2;
-
 	}
 	//shut off the tiles
 	for (var i = 0; i < countTiles.length; i++){
