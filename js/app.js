@@ -35,8 +35,13 @@ function addListenersToVsCpu() {
 	document.getElementById('ai-human').addEventListener('click', computerMarkSquare);
 }
 
+function removeListenersToVsCpu() {
+	document.getElementById('ai-human').removeEventListener('click', computerMarkSquare);	
+}
+
 function computerMarkSquare() {
-	console.log("I have no friends");
+	removeListenersToVsCpu()
+	document.getElementById('simple-ai').textContent = ""
 	aiStarted = true
 	if (!checkWinCondition()) {
 		var randomSquare = Math.floor(Math.random() * 9)
@@ -69,9 +74,10 @@ function computerMarkSquare() {
 		// Display "Start Over" text
 		if (checkWinCondition()) {
 			document.getElementById('reset').textContent = "Start Over";
-			document.getElementById('reset').addEventListener('click', reset)
+			document.getElementById('reset').addEventListener('click', reset);
 			document.getElementById('reset-score').textContent = "Reset Score";
-			document.getElementById('reset-score').addEventListener('click', resetScore)
+			document.getElementById('reset-score').addEventListener('click', resetScore);
+			addListenersToVsCpu();
 		}
 		changeTurn();
 	}
@@ -105,15 +111,17 @@ function markSquare() {
 	// Display "Start Over" text
 	if (checkWinCondition()) {
 		document.getElementById('reset').textContent = "Start Over";
-		document.getElementById('reset').addEventListener('click', reset)
+		document.getElementById('reset').addEventListener('click', reset);
 		document.getElementById('reset-score').textContent = "Reset Score";
-		document.getElementById('reset-score').addEventListener('click', resetScore)
+		document.getElementById('reset-score').addEventListener('click', resetScore);
+		addListenersToVsCpu();
 
 	}
 	changeTurn();
 	if (aiStarted === true) {
-		setTimeout(computerMarkSquare, 2000)
+		setTimeout(computerMarkSquare, 1800);
 	}
+	document.getElementById('simple-ai').textContent = "";
 }
 
 function checkWinCondition() {
@@ -230,7 +238,6 @@ function changeTurn() {
 function reset() {
 	console.log("clear")
 	for (var i = 0; i < squares.length; i++) {
-		// Get the <ul> element with id="myList"
 		while (squares[i].hasChildNodes()) {
 			squares[i].removeChild(squares[i].firstChild)
 		}
@@ -239,13 +246,20 @@ function reset() {
 		document.getElementById('whos-turn').style.fontSize = "30px"
 		randomizeStart() 
 	}
+	document.getElementById('reset').textContent = "";
+	document.getElementById('reset').removeEventListener('click', reset);
+	document.getElementById('simple-ai').textContent = "I have no friends";
 	aiStarted= false
+	addListenersToVsCpu();
 }
+
 function resetScore() {
 	nickScore = 0;
 	document.getElementById('nick-score').textContent = "";
 	jackScore = 0;
 	document.getElementById('jack-score').textContent = "";
+	document.getElementById('reset-score').textContent = "";
+	document.getElementById('reset-score').removeEventListener('click', resetScore);
 }
 
 randomizeStart()
