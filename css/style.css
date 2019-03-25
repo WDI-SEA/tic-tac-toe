@@ -28,8 +28,6 @@ textarea, select, input, button { outline: none; }
 	justify-content: space-around;
 	box-shadow: 3px 3px 6px #888;
 }
-#titleH1{
-}
 #reset{
 	width:100px;
 	border:1px solid #aaa;
@@ -47,7 +45,6 @@ textarea, select, input, button { outline: none; }
 	justify-content: center;
 	align-content: center;
 }
-
 .titleBox{
 	width:302px;
 	height:50px;
@@ -71,7 +68,6 @@ textarea, select, input, button { outline: none; }
 	width:100px;
 	height:50;
 }
-
 .scoreBox{
 	border:1px solid white;
 	background-color: white;

@@ -1,12 +1,12 @@
 console.log("let's do this");
 var tiles = [];
-var turn = 1;
 var player1 = [];
 var player2 = [];
+var turn = 1;
 wins1 = 0;
 wins2 = 0;
-player1Color="red"
-player2Color="blue"
+player1Color="red";
+player2Color="blue";
 
 //Assign objects on the board
 assignClicks();
@@ -14,7 +14,9 @@ assignClicks();
 //assign the reset click - which triggers the assignClicks function
 document.getElementById("reset").addEventListener("click", assignClicks)
 
-//used to sort player1[] & player2[] clicked tiles
+//used to sort player1[] & player2[] clicked tiles 
+//this was needed for a failed method of dynamically checking win conditions
+//Not needed now
 function sortNumber(a,b) {
         return a - b;
     }
@@ -55,6 +57,8 @@ function assignClicks (){
 function changeTile(whosTurn){
 	
 	//check who's turn it is - could probably make into it's own function that returns the number and sets these things
+	//would need to run a who's turn if statement first, then pass through the turn variable and what tile it is
+	//I would no longer be able to use "this.", because it's got a step between
 
 	if (turn === 1){
 		console.log("Player 1 clicked:",this.id)
@@ -128,6 +132,8 @@ function changeTile(whosTurn){
 function checkWinHC(player, playerTurn){
 	var currentPlayer = player
 	console.log(playerTurn)
+
+	//Used .includes(#) method to search array for these contents
     if (player.includes('0') && player.includes('4') && player.includes('8')==true) {
     	console.log(playerTurn,"GOT A WIN: DIAGONAL 0")
     	playerWins(playerTurn);
@@ -161,7 +167,7 @@ function checkWinHC(player, playerTurn){
 
     } else if(player1.length + player2.length === tiles.length) {
 	
-	//display so at top 
+	//display at top if player 1 and 2's lengths equal the total number of tiles
 		document.getElementById("titleH1").textContent= "YOU BOTH SUCK"
 		document.getElementById("titleH1").style.color= "purple"
 
@@ -187,7 +193,6 @@ function playerWins(player){
 		document.getElementById("player2Wins").textContent= "Player 2: "+ '\xa0' + wins2;
 
 	}
-	
 	//shut off the tiles
 	for (var i = 0; i < countTiles.length; i++){
 		countTiles[i].removeEventListener("click", changeTile);
