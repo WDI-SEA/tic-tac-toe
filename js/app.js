@@ -55,8 +55,8 @@ var player001 = {
   flippedIds: []
 }
 var player002 = {
-  char: chars[Math.round(Math.random() * 33)],
-  teamColor: colorScheme[Math.round(Math.random() * 12)],
+  char: chars[Math.ceil(Math.random() * 33)],
+  teamColor: colorScheme[Math.ceil(Math.random() * 13)],
   score: 0,
   flippedIds: []
 }
@@ -72,12 +72,16 @@ for (i = 0; i < numTiles; i++) {
 
 function turnChange() {
   console.log("whoseTurn was", whoseTurn);
+  var whoseTurnDisplayElem = document.getElementById("whoseturndisplay");
+  whoseTurnDisplayElem.classList.remove("colorOpt" + players[whoseTurn].teamColor);
   if (whoseTurn < numPlayers - 1) {
     whoseTurn += 1;
   } else {
     whoseTurn = 0;
   }
   console.log("whoseTurn is now", whoseTurn);
+  whoseTurnDisplayElem.textContent = "Team " + players[whoseTurn].char + "'s turn";
+  whoseTurnDisplayElem.classList.add("colcolorOpt" + players[whoseTurn].teamColor);
 }
 
 
@@ -114,7 +118,7 @@ var c9 = document.getElementById("c9");
 
 //DO WHEN "NEW MATCH" BUTTON CLICKED
 function newMatchEvents() {
-  console.log("New match has begun");
+  console.log("New match has begun HELLOOOOOOOOOOOO");
   for (i = 0; i < numTiles; i++) {
     cellData.pop();
   }
@@ -125,8 +129,12 @@ function newMatchEvents() {
   //TRIGGER WHOSETURN DISPLAY
   var whoseTurnDisplayElem = document.getElementById("whoseturndisplay");
   whoseTurnDisplayElem.textContent = ("Team " + players[whoseTurn].char + "'s turn");
-  console.log("Team " + players[whoseTurn].char + "'s color is colorOpt" + players[whoseTurn].teamColor);
-  whoseTurnDisplayElem.classList.add("colcolorOpt" + players[whoseTurn].teamColor)
+
+  //WHOSETURN COLOR TS
+  console.log("Team " + players[whoseTurn].char + "'s color is colorOpt" + players[whoseTurn].teamColor + " and the class is " + whoseTurnDisplayElem.classList);
+  console.log("TO CHANGE CLASS FROM " + whoseTurnDisplayElem.classList + " to NEW");
+  whoseTurnDisplayElem.classList.remove("colorOpt" + players[whoseTurn].teamColor)
+  whoseTurnDisplayElem.classList.add("cololorOpt" + players[whoseTurn].teamColor);
 
   var alertcenter = document.getElementById("alertcenter");
   alertcenter.textContent = "";
@@ -167,17 +175,6 @@ function newMatchEvents() {
       console.log(players[i].flippedIds);
     }
   }
-
-
-
-  //CHANGE BACK FLIPPED VALUES OF ELEMENTS
-  // for (h = 0; h < numTiles; h++) {
-  //   var hCell = document.getElementById("c" + (h + 1));
-  //   console.log(hCell);
-  //   hCell.setAttribute("data-turn", "false");
-  //   console.log(hCell.getAttribute("data-turn"));
-  //   hCell.classList.remove("colorOpt" + players[whoseTurn].teamColor);
-  // }
 
   //MAKE EVENT LISTENERS ON ALL CELLS
   //COME BACK AND OPTIMIZE
