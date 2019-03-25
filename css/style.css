@@ -31,7 +31,7 @@ h1 {
 	color: white;
 }
 
-#reset, h2 {
+#reset, #reset-score, h2 {
 	font-family: chalk1;
 	font-size: 30px;
 	text-transform: uppercase;
@@ -126,29 +126,11 @@ img {
 			height: 580px;
 /*			background-color: orange;
 */		}
-			.container-ai-human {
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				width: 300px;
-				height: 120px;
-/*				background-color: green;
-*/			}
-
-			.container-reset {
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				width: 300px;
-				height: 120px;
-				/*background-color: grey;*/
-			}
-
 			.container-w-l {
 				display: flex;
 				flex-wrap: wrap;
 				width: 300px;
-				height: 320px;
+				height: 260px;
 				/*background-color: rebeccapurple;*/
 			}
 
@@ -157,7 +139,7 @@ img {
 					justify-content: space-around;
 					align-items: center;
 					width: 300px;
-					height: 80px;
+					height: 60px;
 					font-size: 30px;
 				}
 
@@ -168,10 +150,10 @@ img {
 					display: flex;
 					justify-content: center;
 					align-items: center;
-					width: 145px;
-					height: 230px;
-					border-top: 10px solid white;
-					border-right: 10px solid white;
+					width: 147px;
+					height: 200px;
+					border-top: 6px solid white;
+					border-right: 6px solid white;
 				} 
 
 				.jack-score {
@@ -181,10 +163,37 @@ img {
 					display: flex;
 					justify-content: center;
 					align-items: center;
-					width: 145px;
-					height: 230px;
-					border-top: 10px solid white;
+					width: 147px;
+					height: 200px;
+					border-top: 6px solid white;
 				}
+
+			.container-ai-human {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: 300px;
+				height: 90px;
+/*				background-color: green;
+*/			}
+
+			.container-reset {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: 300px;
+				height: 90px;
+				/*background-color: grey;*/
+			}
+
+			.container-reset-score {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: 300px;
+				height: 90px;
+			}
+
 
 	.container-footer {
 		display: flex;

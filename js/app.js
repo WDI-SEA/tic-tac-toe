@@ -48,9 +48,11 @@ function computerMarkSquare() {
 			randomSquare = Math.floor(Math.random() * 9)
 		}
 		if (whosTurn === "nick") {
+			document.getElementById('nick2').play()
 			squares[randomSquare].appendChild(nickImage)
 			squares[randomSquare].setAttribute('data-marked', "nick")
 		} else if (whosTurn === "jack") {
+			document.getElementById('jack1').play()	
 			squares[randomSquare].appendChild(jackImage)
 			squares[randomSquare].setAttribute('data-marked', "jack")
 		} 
@@ -68,6 +70,8 @@ function computerMarkSquare() {
 		if (checkWinCondition()) {
 			document.getElementById('reset').textContent = "Start Over";
 			document.getElementById('reset').addEventListener('click', reset)
+			document.getElementById('reset-score').textContent = "Reset Score";
+			document.getElementById('reset-score').addEventListener('click', resetScore)
 		}
 		changeTurn();
 	}
@@ -80,9 +84,11 @@ function markSquare() {
 	var jackImage = document.createElement('img');
 	jackImage.src = "./img/Jack.png";
 	if (whosTurn === "nick") {
+		document.getElementById('nick2').play()
 		this.appendChild(nickImage)
 		this.setAttribute('data-marked', "nick")
 	} else if (whosTurn === "jack") {
+		document.getElementById('jack1').play()
 		this.appendChild(jackImage)
 		this.setAttribute('data-marked', "jack")
 	}
@@ -100,10 +106,13 @@ function markSquare() {
 	if (checkWinCondition()) {
 		document.getElementById('reset').textContent = "Start Over";
 		document.getElementById('reset').addEventListener('click', reset)
+		document.getElementById('reset-score').textContent = "Reset Score";
+		document.getElementById('reset-score').addEventListener('click', resetScore)
+
 	}
 	changeTurn();
 	if (aiStarted === true) {
-		setTimeout(computerMarkSquare, 700)
+		setTimeout(computerMarkSquare, 2000)
 	}
 }
 
@@ -230,6 +239,13 @@ function reset() {
 		document.getElementById('whos-turn').style.fontSize = "30px"
 		randomizeStart() 
 	}
+	aiStarted= false
+}
+function resetScore() {
+	nickScore = 0;
+	document.getElementById('nick-score').textContent = "";
+	jackScore = 0;
+	document.getElementById('jack-score').textContent = "";
 }
 
 randomizeStart()
