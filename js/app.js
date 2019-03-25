@@ -43,19 +43,17 @@ var chars = [
 ]
 var colorScheme = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
 
-
-console.log(chars.length);
 var numTiles = 9;
 var whoseTurn = 0;
 var numPlayers = 2;
 var player001 = {
-  char: chars[Math.round(Math.random() * 34)],
+  char: chars[Math.round(Math.random() * 33)],
   teamColor: colorScheme[Math.round(Math.random() * 12)],
   score: 0,
   flippedIds: []
 }
 var player002 = {
-  char: chars[Math.round(Math.random() * 34)],
+  char: chars[Math.round(Math.random() * 33)],
   teamColor: colorScheme[Math.round(Math.random() * 12)],
   score: 0,
   flippedIds: []
@@ -116,6 +114,30 @@ var c9 = document.getElementById("c9");
 function newMatchEvents() {
   console.log("New match has begun");
 
+
+  //RESET MARKED CELLS ARRAY
+  for (i = 0; i < players.length; i++) {
+    for (j = 0; j < players[i].flippedIds.length; j++) {
+      //cell number only
+      var resetCellNo = players[i].flippedIds.pop();
+      var resetCellElem = document.getElementById("c" + resetCellNo);
+      resetCellElem.setAttribute("data-turn", "false");
+      console.log(resetCellNo, resetCellElem.getAttribute("data-turn"));
+      resetCellElem.classList.remove("colorOpt" + players[i].teamColor);
+      resetCellElem.classList.add("unmarked");
+    }
+    console.log(players[i].flippedIds);
+  }
+
+  //CHANGE BACK FLIPPED VALUES OF ELEMENTS
+  // for (h = 0; h < numTiles; h++) {
+  //   var hCell = document.getElementById("c" + (h + 1));
+  //   console.log(hCell);
+  //   hCell.setAttribute("data-turn", "false");
+  //   console.log(hCell.getAttribute("data-turn"));
+  //   hCell.classList.remove("colorOpt" + players[whoseTurn].teamColor);
+  // }
+
   //MAKE EVENT LISTENERS ON ALL CELLS
   //COME BACK AND OPTIMIZE
   c1.addEventListener("click", cellClickedEvents);
@@ -160,7 +182,7 @@ function addCellToMarkedArray(selectedTile) {
 function checkGameEndCondition() {
   console.log("brb checking if someone won");
   var markedCellCount = 0;
-  console.log("markedCellCount", markedCellCount);
+  console.log("before check, markedCellCount", markedCellCount);
 
   //checks for current player's win
   switch (true) {
@@ -243,10 +265,17 @@ function endGame(victorNo) {
 
   if (victorNo === -1) {
     console.log("DRAW RATS");
+    var alertCtrElem = document.getElementById("alertcenter");
+    alertCtrElem.textContent = "DRAW. RATS.";
+    alertCtrElem.classList.remove("noalerts");
+    alertCtrElem.classList.add("draw");
   } else {
     console.log("Congrats on win, Team", players[victorNo].char);
     //DISPLAY WIN MESSAGE
-    document.getElementById("alertcenter").textContent = "Congrats on win, Team " + players[victorNo].char;
+    var alertCtrElem = document.getElementById("alertcenter");
+    alertCtrElem.textContent = "Congrats on the win, Team " + players[victorNo].char;
+    alertCtrElem.classList.remove("noalerts");
+    alertCtrElem.classList.add("alertWinner");
 
     //ADD TO SCORE OF WINNING TEAM
     players[victorNo].score = players[victorNo].score + 1;
@@ -254,4 +283,5 @@ function endGame(victorNo) {
     //DISPLAY NEW SCORE ON BOARD
 
   }
+  markedCellCount = 0;
 }

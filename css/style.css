@@ -84,7 +84,7 @@ body {
   text-align: center;
 }
 h1 {
-  font-size: 7vw;
+  font-size: 10vw;
   color: purple;
   margin: 9px;
 }
@@ -94,7 +94,6 @@ h1 {
 }
 .gameconsole {
   width: 70%;
-  height: ;
 }
 .tictactoeholder {
   background-color: black;
@@ -226,7 +225,24 @@ h1 {
   background-color: #e8cd84;
 }
 .alertcenter {
-
+  margin-top: 3vw;
+  margin-bottom: 3vw;
+  background-color: darkgrey;
+  padding: 2vw;
+}
+.noalerts {
+  height: 4vw;
+}
+.alertWinner {
+  background-color: green;
+  border: 1vw solid darkgreen;
+  font-size: 1.4em;
+  font-weight: 100;
+  color: white;
+}
+.draw {
+  background-color: yellow;
+  border: 1vw solid #8c8c00;
 }
 .alert
 input {
