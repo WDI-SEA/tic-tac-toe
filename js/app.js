@@ -1,4 +1,3 @@
-var aiTurnBuffer
 var whosTurn
 var nickScore = 0
 var jackScore = 0
