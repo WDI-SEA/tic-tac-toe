@@ -121,6 +121,13 @@ function newMatchEvents() {
   for (i = 0; i < numTiles; i++) {
     cellData.push(undefined);
   }
+
+  //TRIGGER WHOSETURN DISPLAY
+  var whoseTurnDisplayElem = document.getElementById("whoseturndisplay");
+  whoseTurnDisplayElem.textContent = ("Team " + players[whoseTurn].char + "'s turn");
+  console.log("Team " + players[whoseTurn].char + "'s color is colorOpt" + players[whoseTurn].teamColor);
+  whoseTurnDisplayElem.classList.add("colcolorOpt" + players[whoseTurn].teamColor)
+
   var alertcenter = document.getElementById("alertcenter");
   alertcenter.textContent = "";
   console.log("lastOutcome =", lastOutcome);
@@ -307,6 +314,10 @@ function endGame(victorNo) {
   console.log("All cells now unclickable");
   console.log("Game end under way");
 
+  //REMOVE WHOSETURN DISPLAY
+  var whoseTurnDisplayElem = document.getElementById("whoseturndisplay");
+  whoseTurnDisplayElem.classList.remove("colorOpt" + whoseTurn);
+  whoseTurnDisplayElem.textContent = "";
 
 
   if (victorNo === -1) {

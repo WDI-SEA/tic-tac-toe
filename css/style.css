@@ -92,6 +92,12 @@ h1 {
   display: flex;
   justify-content: center;
 }
+.whoseturndisplay {
+  margin-top: 3vw;
+  margin-bottom: 3vw;
+  padding: 2vw;
+  font-size: 7vw;
+}
 .gameconsole {
   width: 70%;
 }
@@ -246,8 +252,8 @@ h1 {
 .draw {
   background-color: yellow;
   border: 1vw solid #8c8c00;
+  color: black;
 }
-.alert
 input {
 
 }
