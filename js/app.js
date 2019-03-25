@@ -19,7 +19,6 @@ function sortNumber(a,b) {
         return a - b;
     }
 
-
 //assign click events
 function assignClicks (){
 	//reset values
@@ -53,7 +52,7 @@ function assignClicks (){
 		console.log(tiles)
 };
 
-function changeTile(i){
+function changeTile(whosTurn){
 	
 	//check who's turn it is - could probably make into it's own function that returns the number and sets these things
 
@@ -165,15 +164,12 @@ function checkWinHC(player, playerTurn){
 	//display so at top 
 		document.getElementById("titleH1").textContent= "YOU BOTH SUCK"
 		document.getElementById("titleH1").style.color= "purple"
-		
+
 	} else {
     	console.log("NO WINNER")
     }
 
-
-
 };
-
 
 function playerWins(player){
 	console.log('playerWins RAN')
@@ -196,6 +192,4 @@ function playerWins(player){
 	for (var i = 0; i < countTiles.length; i++){
 		countTiles[i].removeEventListener("click", changeTile);
 	}
-
 };
-
