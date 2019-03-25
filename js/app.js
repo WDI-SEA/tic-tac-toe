@@ -43,6 +43,8 @@ var chars = [
 ]
 var colorScheme = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
 
+var roundNo = 0;
+var lastOutcome = -2;
 var numTiles = 9;
 var whoseTurn = 0;
 var numPlayers = 2;
@@ -113,21 +115,53 @@ var c9 = document.getElementById("c9");
 //DO WHEN "NEW MATCH" BUTTON CLICKED
 function newMatchEvents() {
   console.log("New match has begun");
-
-
-  //RESET MARKED CELLS ARRAY
-  for (i = 0; i < players.length; i++) {
-    for (j = 0; j < players[i].flippedIds.length; j++) {
-      //cell number only
-      var resetCellNo = players[i].flippedIds.pop();
-      var resetCellElem = document.getElementById("c" + resetCellNo);
-      resetCellElem.setAttribute("data-turn", "false");
-      console.log(resetCellNo, resetCellElem.getAttribute("data-turn"));
-      resetCellElem.classList.remove("colorOpt" + players[i].teamColor);
-      resetCellElem.classList.add("unmarked");
-    }
-    console.log(players[i].flippedIds);
+  for (i = 0; i < numTiles; i++) {
+    cellData.pop();
   }
+  for (i = 0; i < numTiles; i++) {
+    cellData.push(undefined);
+  }
+  var alertcenter = document.getElementById("alertcenter");
+  alertcenter.textContent = "";
+  console.log("lastOutcome =", lastOutcome);
+  switch (true) {
+    case (lastOutcome + 1):
+    console.log("removing winner class");
+    alertcenter.classList.remove("alertWinner");
+      break;
+    case lastOutcome === -1:
+    alertcenter.classList.remove("draw");
+      break;
+    default:
+  }
+  alertcenter.classList.add("noalerts");
+
+  roundNo++;
+  console.log(roundNo);
+  //RESET MARKED CELLS ARRAY
+  if (roundNo !== 1) {
+    for (i = 0; i < players.length; i++) {
+      console.log("resetting Team " + players[i].char + "'s flippedIds " + players[i].flippedIds.length);
+      for (j = players[i].flippedIds.length; j > 0; j--) {
+        console.log(players[i].flippedIds);
+        //cell number only
+        var resetCellNo = players[i].flippedIds.pop();
+        console.log(players[i].flippedIds, resetCellNo);
+        var resetCellElem = document.getElementById("c" + resetCellNo);
+        resetCellElem.setAttribute("data-turn", "false");
+        console.log("made cell", resetCellNo, resetCellElem.getAttribute("data-turn"));
+        console.log("attempting to remove", resetCellNo, "color class colorOpt" + players[i].teamColor);
+        resetCellElem.classList.remove("colorOpt" + players[i].teamColor);
+        console.log("attempting to add color class 'unmarked'");
+        resetCellElem.classList.add("unmarked");
+        resetCellElem.textContent = "";
+        console.log(players[i].flippedIds.length);
+      }
+      console.log(players[i].flippedIds);
+    }
+  }
+
+
 
   //CHANGE BACK FLIPPED VALUES OF ELEMENTS
   // for (h = 0; h < numTiles; h++) {
@@ -189,48 +223,56 @@ function checkGameEndCondition() {
     case (
       cellData[0] === whoseTurn && cellData[1] === whoseTurn && cellData[2] === whoseTurn
     ):
+    console.log("WIN CELLS 1 2 3");
     endGame(whoseTurn);
     return;
       break;
     case (
       cellData[3] === whoseTurn && cellData[4] === whoseTurn && cellData[5] === whoseTurn
     ):
+    console.log("WIN CELLS 4 5 6");
     endGame(whoseTurn);
     return;
       break;
     case (
       cellData[6] === whoseTurn && cellData[7] === whoseTurn && cellData[8] === whoseTurn
     ):
+    console.log("WIN CELLS 7 8 9");
     endGame(whoseTurn);
     return;
       break;
     case (
       cellData[0] === whoseTurn && cellData[3] === whoseTurn && cellData[6] === whoseTurn
     ):
+    console.log("WIN CELLS 1 4 7");
     endGame(whoseTurn);
     return;
       break;
     case (
       cellData[1] === whoseTurn && cellData[4] === whoseTurn && cellData[7] === whoseTurn
     ):
+    console.log("WIN CELLS 2 5 8");
     endGame(whoseTurn);
     return;
       break;
     case (
       cellData[2] === whoseTurn && cellData[5] === whoseTurn && cellData[8] === whoseTurn
     ):
+    console.log("WIN CELLS 3 6 9");
     endGame(whoseTurn);
     return;
       break;
     case (
       cellData[0] === whoseTurn && cellData[4] === whoseTurn && cellData[8] === whoseTurn
     ):
+    console.log("WIN CELLS 1 5 9");
     endGame(whoseTurn);
     return;
       break;
     case (
       cellData[2] === whoseTurn && cellData[4] === whoseTurn && cellData[6] === whoseTurn
     ):
+    console.log("WIN CELLS 3 5 7");
     endGame(whoseTurn);
     return;
       break;
@@ -248,6 +290,8 @@ function checkGameEndCondition() {
 }
 
 function endGame(victorNo) {
+  lastOutcome = victorNo;
+  console.log("after team", victorNo, "win, lastOutcome =", lastOutcome);
   //MAKE ALL CELLS UNCLICKABLE
   //COME BACK AND OPTIMIZE
   c1.removeEventListener("click", cellClickedEvents);
@@ -262,6 +306,8 @@ function endGame(victorNo) {
 
   console.log("All cells now unclickable");
   console.log("Game end under way");
+
+
 
   if (victorNo === -1) {
     console.log("DRAW RATS");

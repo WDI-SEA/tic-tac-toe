@@ -132,6 +132,9 @@ h1 {
 .unmarked {
   background-color: #f4f4f4;
 }
+.unmarked:hover {
+
+}
 .listener-on:hover {
   background-color: grey;
   color: white;
@@ -227,11 +230,11 @@ h1 {
 .alertcenter {
   margin-top: 3vw;
   margin-bottom: 3vw;
-  background-color: darkgrey;
   padding: 2vw;
 }
 .noalerts {
   height: 4vw;
+  background-color: darkgrey;
 }
 .alertWinner {
   background-color: green;
@@ -267,7 +270,22 @@ input {
   background-color: blue;
   border-color: darkblue;
 }
-
+.nameP1 {
+  grid-column: 1;
+  grid-row: 1;
+}
+.nameP2 {
+  grid-column: 2;
+  grid-row: 1;
+}
+.scoreP1 {
+  grid-column: 1;
+  grid-row: 2;
+}
+.scoreP2 {
+  grid-column: 1;
+  grid-row: 1;
+}
 
 
 
