@@ -1,0 +1,306 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+margin: 0;
+padding: 0;
+border: 0;
+font-size: 100%;
+font: inherit;
+vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+display: block;
+}
+body {
+line-height: 1;
+}
+ol, ul {
+list-style: none;
+}
+blockquote, q {
+quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+content: '';
+content: none;
+}
+table {
+border-collapse: collapse;
+border-spacing: 0;
+}
+
+/*
+//////////////////////////
+/////MEDIA QUERY PLAN/////
+//////////////////////////
+
+    *****MOBILE*****
+      _____________
+      |           |
+      |   Game    |
+      |           |
+      |___________|
+      |msg/prompts|
+      |T1     T2  |
+      |score score|
+      |o-s options|
+      |___________|
+
+    *****MIDSIZE*****
+    __________________
+    |          |T1 T2|
+    |   Game   |score|
+    |          | opt |
+    |__________| ion |
+    |msg/prompts     |
+    |________________|
+
+    *****LARGE*****
+  ______________________
+  |         |T1 T2     |
+  |  Game   |score     |
+  |         |          |
+  |_________|  options |
+  |msg/prompt  galore  |
+  |                    |
+  |____________________|
+*/
+
+body {
+  margin: 0;
+  text-align: center;
+}
+h1 {
+  font-size: 10vw;
+  color: purple;
+  margin: 9px;
+}
+.pagecontentsholder {
+  display: flex;
+  justify-content: center;
+}
+.whoseturndisplay {
+  margin-top: 3vw;
+  margin-bottom: 3vw;
+  padding: 2vw;
+  font-size: 7vw;
+}
+.gameconsole {
+  width: 70%;
+}
+.tictactoeholder {
+  background-color: black;
+  width: 100%;
+  padding-top: 100%;
+  position: relative;
+}
+.tictactoe {
+  /* border: 1px solid black; */
+  display: grid;
+  grid-template-columns: [vline1] 1fr [vline2] 1fr [vline3] 1fr [vline4];
+  grid-template-rows: [hline1] 1fr [hline2] 1fr [hline3] 1fr [hline4];
+  width: 100%;
+  grid-column-gap: 2vw;
+  grid-row-gap: 2vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.item {
+  width: 100%;
+  height: 100%;
+  font-size: 19vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
+}
+.unmarked {
+  background-color: #f4f4f4;
+}
+.unmarked:hover {
+
+}
+.listener-on:hover {
+  background-color: grey;
+  color: white;
+}
+.one {
+  grid-column: 1;
+  grid-row: 1;
+}
+.two {
+  grid-column: 2;
+  grid-row: 1;
+}
+.three {
+  grid-column: 3;
+  grid-row: 1;
+}
+.four {
+  grid-column: 1;
+  grid-row: 2;
+}
+.five {
+  grid-column: 2;
+  grid-row: 2;
+}
+.six {
+  grid-column: 3;
+  grid-row: 2;
+}
+.seven {
+  grid-column: 1;
+  grid-row: 3;
+}
+.eight {
+  grid-column: 2;
+  grid-row: 3;
+}
+.nine {
+  grid-column: 3;
+  grid-row: 3;
+}
+.colorOpt1 {
+  color: #4f92ff;
+  background-color: #28549b;
+}
+.colorOpt2 {
+  color: #97e5cc;
+  background-color: #3b6356;
+}
+.colorOpt3 {
+  color: #3e7577;
+  background-color: #affcff;
+}
+.colorOpt4 {
+  color: #c4ab99;
+  background-color: #724728;
+}
+.colorOpt5 {
+  color: #c4b2bc;
+  background-color: #775567;
+}
+.colorOpt6 {
+  color: #a4ff77;
+  background-color: #3bb200;
+}
+.colorOpt7 {
+  color: #910079;
+  background-color: #ffaaf0;
+}
+.colorOpt8 {
+  color: #ffffff;
+  background-color: #619199;
+}
+.colorOpt9 {
+  color: #8e8e26;
+  background-color: #ffff8e;
+}
+.colorOpt10 {
+  color: #565656;
+  background-color: #d1d1d1;
+}
+.colorOpt11 {
+  color: #990000;
+  background-color: #ff8989;
+}
+.colorOpt12 {
+  color: #ff9696;
+  background-color: #ce0000;
+}
+.colorOpt13 {
+  color: #87691b;
+  background-color: #e8cd84;
+}
+.alertcenter {
+  margin-top: 3vw;
+  margin-bottom: 3vw;
+  padding: 2vw;
+}
+.noalerts {
+  height: 4vw;
+  background-color: darkgrey;
+}
+.alertWinner {
+  background-color: green;
+  border: 1vw solid darkgreen;
+  font-size: 1.4em;
+  font-weight: 100;
+  color: white;
+}
+.draw {
+  background-color: yellow;
+  border: 1vw solid #8c8c00;
+  color: black;
+}
+input {
+
+}
+.button {
+  margin: 1%;
+  border: 3px solid;
+  border-radius: 4px;
+  padding: 10px;
+  width: 47%;
+  font-size: 5vw;
+  /* font-weight: bold; */
+}
+.start {
+  color: white;
+  background-color: red;
+  border-color: darkred;
+}
+.clearscore {
+  color: white;
+  background-color: blue;
+  border-color: darkblue;
+}
+.nameP1 {
+  grid-column: 1;
+  grid-row: 1;
+}
+.nameP2 {
+  grid-column: 2;
+  grid-row: 1;
+}
+.scoreP1 {
+  grid-column: 1;
+  grid-row: 2;
+}
+.scoreP2 {
+  grid-column: 1;
+  grid-row: 1;
+}
+.scoreboard {
+  display: none;
+}
+
+
+
+
+
+
+footer {
+  padding-top: 50px;
+}

@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+  newMatchEvents();
   //add event handler for start/reset button
   var newMatchButton = document.getElementById("newmatchbutton");
   newMatchButton.addEventListener("click", newMatchEvents);
@@ -40,48 +41,65 @@ var yama = "\u5C71";
 var yuki = "\u96EA";
 var chars = [
   ame, arashi, awa, chi, doro, ha, hana, hara, hatake, hayashi, hikari, hinata, homura, honoo, hyou, iwa, izumi, kaminari, kiri, kumo, mizu, moe, mori, nami, numa, sakura, shimo, sora, suna, taki, tsuchi, uzu, yama, yuki
-]
-var colorScheme = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
+];
+const NUM_OFFERED_COLOR_SCHEMES = 13;
+var colorScheme = [];
+for (var i = 0; i < NUM_OFFERED_COLOR_SCHEMES; i++) {
+  colorScheme.push(i + 1);
+}
+
+var numPlayers = 2;
+var numPlayersNextRound = 2;
+var gamePlayers = [];
+
+class Player {
+  constructor(char, teamColor, score, flippedIds) {
+    this.char = char;
+    this.teamColor = teamColor;
+    this.score = score;
+    this.flippedIds = flippedIds;
+  }
+}
+
+//   char: chars[Math.ceil(Math.random() * 33)],
+//   teamColor: colorScheme[Math.ceil(Math.random() * 12)],
+function initializeGame(numPlayers) {
+  var unchosenColors = [];
+  for (var i = 0; i < numPlayers; i++) {
+    var newPlayer = new Player(chars[i], colorScheme[i], 0, []);
+    players.push(newPlayer);
+  }
+}
 
 var roundNo = 0;
 var lastOutcome = -2;
-var numTiles = 9;
+var cellsNum = 9;
+var cellsAll = [];
 var whoseTurn = 0;
-var numPlayers = 2;
-var player001 = {
-  char: chars[Math.round(Math.random() * 33)],
-  teamColor: colorScheme[Math.round(Math.random() * 12)],
-  score: 0,
-  flippedIds: []
-}
-var player002 = {
-  char: chars[Math.ceil(Math.random() * 33)],
-  teamColor: colorScheme[Math.ceil(Math.random() * 13)],
-  score: 0,
-  flippedIds: []
-}
-var players = [
-  player001,
-  player002
-]
-//CELL DATA HOLDERS -- DATUM POSITION CORRESPONDS TO CELL NUMBER
+
+console.log(`cellsAll = ${cellsAll}`);
+
+var players = [];
+// CELL DATA HOLDERS -- DATUM POSITION CORRESPONDS TO CELL NUMBER
 var cellData = [];
-for (i = 0; i < numTiles; i++) {
+for (i = 0; i < cellsNum; i++) {
   cellData.push(undefined);
 }
+
+initializeGame(numPlayers);
 
 function turnChange() {
   console.log("whoseTurn was", whoseTurn);
   var whoseTurnDisplayElem = document.getElementById("whoseturndisplay");
-  whoseTurnDisplayElem.classList.remove("colorOpt" + players[whoseTurn].teamColor);
+  whoseTurnDisplayElem.classList.remove(`colorOpt${players[whoseTurn].teamColor}`);
   if (whoseTurn < numPlayers - 1) {
     whoseTurn += 1;
   } else {
     whoseTurn = 0;
   }
-  console.log("whoseTurn is now", whoseTurn);
-  whoseTurnDisplayElem.textContent = "Team " + players[whoseTurn].char + "'s turn";
-  whoseTurnDisplayElem.classList.add("colcolorOpt" + players[whoseTurn].teamColor);
+  console.log(`whoseTurn is now ${whoseTurn}`);
+  whoseTurnDisplayElem.textContent = `Team ${players[whoseTurn].char}'s turn`;
+  whoseTurnDisplayElem.classList.add(`colorOpt${players[whoseTurn].teamColor}`);
 }
 
 
@@ -101,92 +119,81 @@ var cellClickedEvents = function() {
 
   //CHECK FOR WIN CONDITION
   checkGameEndCondition(whoseTurn);
-
-  turnChange();
+  if (lastOutcome === -2) {
+    turnChange();
+  }
 }
 
 //COME BACK AND OPTIMIZE
-var c1 = document.getElementById("c1");
-var c2 = document.getElementById("c2");
-var c3 = document.getElementById("c3");
-var c4 = document.getElementById("c4");
-var c5 = document.getElementById("c5");
-var c6 = document.getElementById("c6");
-var c7 = document.getElementById("c7");
-var c8 = document.getElementById("c8");
-var c9 = document.getElementById("c9");
+for (var i = 0; i < cellsNum; i++) {
+  var cellToListen = document.getElementById(`c${i + 1}`);
+  cellsAll.push(cellToListen);
+}
+console.log(`cellsAll = ${cellsAll}`);
 
 //DO WHEN "NEW MATCH" BUTTON CLICKED
 function newMatchEvents() {
   console.log("New match has begun HELLOOOOOOOOOOOO");
-  for (i = 0; i < numTiles; i++) {
+  for (i = 0; i < cellsNum; i++) {
     cellData.pop();
   }
-  for (i = 0; i < numTiles; i++) {
+  for (i = 0; i < cellsNum; i++) {
     cellData.push(undefined);
   }
 
   //TRIGGER WHOSETURN DISPLAY
   var whoseTurnDisplayElem = document.getElementById("whoseturndisplay");
-  whoseTurnDisplayElem.textContent = ("Team " + players[whoseTurn].char + "'s turn");
+  whoseTurnDisplayElem.textContent = (`Team ${players[whoseTurn].char}'s turn`);
 
   //WHOSETURN COLOR TS
-  console.log("Team " + players[whoseTurn].char + "'s color is colorOpt" + players[whoseTurn].teamColor + " and the class is " + whoseTurnDisplayElem.classList);
-  console.log("TO CHANGE CLASS FROM " + whoseTurnDisplayElem.classList + " to NEW");
-  whoseTurnDisplayElem.classList.remove("colorOpt" + players[whoseTurn].teamColor)
-  whoseTurnDisplayElem.classList.add("cololorOpt" + players[whoseTurn].teamColor);
+  console.log(`Team ${players[whoseTurn].char}'s color is colorOpt${players[whoseTurn].teamColor} and the class is ${whoseTurnDisplayElem.classList}`);
+  console.log(`TO CHANGE CLASS FROM ${whoseTurnDisplayElem.classList} to NEW`);
+  whoseTurnDisplayElem.classList.add(`colorOpt${players[whoseTurn].teamColor}`);
 
   var alertcenter = document.getElementById("alertcenter");
   alertcenter.textContent = "";
   console.log("lastOutcome =", lastOutcome);
   switch (true) {
-    case (lastOutcome + 1):
+    case (lastOutcome + 1) > 0:
     console.log("removing winner class");
     alertcenter.classList.remove("alertWinner");
       break;
-    case lastOutcome === -1:
+    case (lastOutcome + 1) === 0:
     alertcenter.classList.remove("draw");
       break;
     default:
   }
   alertcenter.classList.add("noalerts");
 
+  lastOutcome = -2;
+
   roundNo++;
   console.log(roundNo);
   //RESET MARKED CELLS ARRAY
   if (roundNo !== 1) {
     for (i = 0; i < players.length; i++) {
-      console.log("resetting Team " + players[i].char + "'s flippedIds " + players[i].flippedIds.length);
+      console.log(`resetting Team ${players[i].char}'s flippedIds ${players[i].flippedIds.length}`);
       for (j = players[i].flippedIds.length; j > 0; j--) {
         console.log(players[i].flippedIds);
         //cell number only
         var resetCellNo = players[i].flippedIds.pop();
         console.log(players[i].flippedIds, resetCellNo);
-        var resetCellElem = document.getElementById("c" + resetCellNo);
-        resetCellElem.setAttribute("data-turn", "false");
-        console.log("made cell", resetCellNo, resetCellElem.getAttribute("data-turn"));
-        console.log("attempting to remove", resetCellNo, "color class colorOpt" + players[i].teamColor);
-        resetCellElem.classList.remove("colorOpt" + players[i].teamColor);
-        console.log("attempting to add color class 'unmarked'");
-        resetCellElem.classList.add("unmarked");
-        resetCellElem.textContent = "";
+        var resetCellElem = document.getElementById(cellsAll[resetCellNo]);
+        console.log(cellsAll[resetCellNo - 1]);
+        cellsAll[resetCellNo - 1].setAttribute("data-turn", "false");
+        cellsAll[resetCellNo - 1].classList.remove(`colorOpt${players[i].teamColor}`)
+        cellsAll[resetCellNo - 1].classList.add("unmarked");
+        cellsAll[resetCellNo - 1].textContent = "";
         console.log(players[i].flippedIds.length);
       }
       console.log(players[i].flippedIds);
     }
   }
 
-  //MAKE EVENT LISTENERS ON ALL CELLS
-  //COME BACK AND OPTIMIZE
-  c1.addEventListener("click", cellClickedEvents);
-  c2.addEventListener("click", cellClickedEvents);
-  c3.addEventListener("click", cellClickedEvents);
-  c4.addEventListener("click", cellClickedEvents);
-  c5.addEventListener("click", cellClickedEvents);
-  c6.addEventListener("click", cellClickedEvents);
-  c7.addEventListener("click", cellClickedEvents);
-  c8.addEventListener("click", cellClickedEvents);
-  c9.addEventListener("click", cellClickedEvents);
+  // MAKE EVENT LISTENERS ON ALL CELLS
+  for (var i = 0; i < cellsNum; i++) {
+    (cellsAll[i]).addEventListener("click", cellClickedEvents);
+  }
 }
 
 function markCellClicked(selectedTile) {
@@ -296,24 +303,23 @@ function checkGameEndCondition() {
 function endGame(victorNo) {
   lastOutcome = victorNo;
   console.log("after team", victorNo, "win, lastOutcome =", lastOutcome);
+
+  //UPDATE SCORE
+  var victorScore = document.querySelectorAll("#scoreboard scoreP" + victorNo);
+  console.log(victorScore);
+
   //MAKE ALL CELLS UNCLICKABLE
-  //COME BACK AND OPTIMIZE
-  c1.removeEventListener("click", cellClickedEvents);
-  c2.removeEventListener("click", cellClickedEvents);
-  c3.removeEventListener("click", cellClickedEvents);
-  c4.removeEventListener("click", cellClickedEvents);
-  c5.removeEventListener("click", cellClickedEvents);
-  c6.removeEventListener("click", cellClickedEvents);
-  c7.removeEventListener("click", cellClickedEvents);
-  c8.removeEventListener("click", cellClickedEvents);
-  c9.removeEventListener("click", cellClickedEvents);
+  for (var i = 0; i < cellsNum; i++) {
+    (cellsAll[i]).removeEventListener("click", cellClickedEvents);
+  }
 
   console.log("All cells now unclickable");
   console.log("Game end under way");
 
   //REMOVE WHOSETURN DISPLAY
+  console.log();
   var whoseTurnDisplayElem = document.getElementById("whoseturndisplay");
-  whoseTurnDisplayElem.classList.remove("colorOpt" + whoseTurn);
+  whoseTurnDisplayElem.classList.remove("colorOpt" + players[whoseTurn].teamColor);
   whoseTurnDisplayElem.textContent = "";
 
 
@@ -334,8 +340,11 @@ function endGame(victorNo) {
     //ADD TO SCORE OF WINNING TEAM
     players[victorNo].score = players[victorNo].score + 1;
     console.log("Team", players[victorNo].char, "score now", players[victorNo].score);
+    console.log("victorNo =" + (victorNo + 1));
     //DISPLAY NEW SCORE ON BOARD
-
+    var winningPlayerScore = document.getElementById("s" + (victorNo + 1));
+    console.log("winningPlayerScore =" + winningPlayerScore);
+    winningPlayerScore.textContent = players[victorNo].score;
   }
   markedCellCount = 0;
 }

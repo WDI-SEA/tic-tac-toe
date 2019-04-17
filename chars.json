@@ -1,0 +1,141 @@
+[
+  {
+    "unicode" : "\u96E8",
+    "meaning" : "rain",
+    "romanized" : "ame"
+  },{
+    "unicode" : "\u5D50",
+    "meaning" : "storm",
+    "romanized" : "arashi"
+  },{
+    "unicode" : "\u6CE1",
+    "meaning" : "bubble",
+    "romanized" : "awa"
+  },{
+    "unicode" : "\u5730",
+    "meaning" : "land",
+    "romanized" : "chi"
+  },{
+    "unicode" : "\u6CE5",
+    "meaning" : "mud",
+    "romanized" : "doro"
+  },{
+    "unicode" : "\u8449",
+    "meaning" : "leaf",
+    "romanized" : "ha"
+  },{
+    "unicode" : "u83EF",
+    "meaning" : "flower",
+    "romanized" : "hana"
+  },{
+    "unicode" : "\u539F",
+    "meaning" : "field",
+    "romanized" : "hara"
+  },{
+    "hatake" : "\u7551",
+    "unicode" : "\u7551",
+    "meaning" : "rice field",
+    "romanized" : "hatake"
+  },{
+    "unicode" : "\u6797",
+    "meaning" : "woods",
+    "romanized" : "hayashi"
+  },{
+    "unicode" : "\u5149",
+    "meaning" : "light",
+    "romanized" : "hikari"
+  },{
+    "unicode" : "\u967D",
+    "meaning" : "sun",
+    "romanized" : "hinata"
+  },{
+    "unicode" : "\u7114",
+    "meaning" : "fire",
+    "romanized" : "homura"
+  },{
+    "unicode" : "\u708E",
+    "meaning" : "flame",
+    "romanized" : "honoo"
+  },{
+    "hyou" : "\u96F9",
+    "unicode" : "\u96F9",
+    "meaning" : "hail",
+    "romanized" : "hyou"
+  },{
+    "unicode" : "\u5CA9",
+    "meaning" : "boulder",
+    "romanized" : "iwa"
+  },{
+    "unicode" : "\u6CC9",
+    "meaning" : "spring",
+    "romanized" : "izumi"
+  },{
+    "unicode" : "\u96F7",
+    "meaning" : "thunder",
+    "romanized" : "kaminari"
+  },{
+    "unicode" : "\u9727",
+    "meaning" : "fog",
+    "romanized" : "kiri"
+  },{
+    "unicode" : "\u96F2",
+    "meaning" : "cloud",
+    "romanized" : "kumo"
+  },{
+    "unicode" : "\u6C34",
+    "meaning" : "water",
+    "romanized" : "mizu"
+  },{
+    "unicode" : "\u71C3",
+    "meaning" : "burn",
+    "romanized" : "moe"
+  },{
+    "unicode" : "\u68EE",
+    "meaning" : "forest",
+    "romanized" : "mori"
+  },{
+    "unicode" : "\u6CE2",
+    "meaning" : "wave",
+    "romanized" : "nami"
+  },{
+    "unicode" : "\u6CBC",
+    "meaning" : "swamp",
+    "romanized" : "numa"
+  },{
+    "unicode" : "\u685C",
+    "meaning" : "cherry blossom",
+    "romanized" : "sakura"
+  },{
+    "unicode" : "\u971C",
+    "meaning" : "frost",
+    "romanized" : "shimo"
+  },{
+    "unicode" : "\u7a7a",
+    "meaning" : "sky",
+    "romanized" : "sora"
+  },{
+    "unicode" : "\u7802",
+    "meaning" : "sand",
+    "romanized" : "suna"
+  },{
+    "unicode" : "\u6EDD",
+    "meaning" : "waterfall",
+    "romanized" : "taki"
+  },{
+    "unicode" : "\u571F",
+    "meaning" : "earth",
+    "romanized" : "tsuchi"
+  },{
+    "unicode" : "\u6E26",
+    "meaning" : "vortex",
+    "romanized" : "uzu"
+  },{
+    "unicode" : "\u5C71",
+    "meaning" : "mountain",
+    "romanized" : "yama"
+  },{
+    "unicode" : "\u96EA",
+    "meaning" : "snow",
+    "romanized" : "yuki"
+  }
+]

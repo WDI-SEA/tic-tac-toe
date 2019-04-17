@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Tic-Tac-Talligraphy</title>
-  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" media="screen and (min-width: 501px)" type="text/css" href="css/widescreen.css">
+  <link rel="stylesheet" media="screen and (max-width: 500px)" type="text/css" href="css/smallscreen.css">
 </head>
 <body>
   <header>
@@ -40,18 +41,20 @@
         </div>
       </div>
       <div class="scoreboardholder">
-        <div class="scoreboard">
-          <div class="p1">
-
+        <div id="scoreboard" class="scoreboard">
+          <div class="nameP1">
+            Team <span id="t1">1</span>
           </div>
-          <div class="p2">
-
+          <div class="nameP2">
+            Team <span id="t2">2</span>
           </div>
-          <div class="">
-
+          <div class="scoreP1">
+            <span id="s1">0</span>
+          </div>
+          <div class="scoreP2">
+            <span id="s2">0</span>
           </div>
         </div>
-
       </div>
     </div>
   </main>
