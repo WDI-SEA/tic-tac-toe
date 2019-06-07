@@ -1,10 +1,115 @@
-h1 {
-  color: purple;
-}
 
-.grid {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  background-color: #2196F3;
-  padding: 10px;
+html, body {
+  background-color: floralwhite;
+  margin: 0;
+  padding: 0;
+  }
+  header {
+    background: peachpuff;
+    padding-top:5px;
+    padding-bottom:5px;
+    color: green;
+    text-align: center;
+    font-size: 35px;
+    font-family: 'Kavoon', cursive;
+    height: 120px;
 }
+h1 {
+  margin: 0;
+  line-height: 120px;
+}
+  .container {
+    /*border: black solid 2px;*/
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 50vw;
+    margin: 1.2em auto 0.4em auto;
+  }
+  .score {
+    /* border: black solid 2px; */
+    background-color: yellow;
+    border: black solid 1.5px;
+    border-radius: 5px;
+    padding: 5px 8px;
+  }
+  .display {
+    text-align: center;
+  }
+    .grid {
+      display: grid;
+      margin: auto;
+      grid-template-rows: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+      background-color: yellow;
+      padding: 10px;
+      width: 30vw;
+      height: 30vw;
+      border-radius: 5px;
+    }
+    .grid-item {
+      border: black solid 2px;
+    }
+    button {
+      margin: 1em 1em 0 0;
+      background-color: #4CAF50; /* Green */
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      border-radius: 6px;
+      font-weight: bold;
+      /* border: rgb(228, 228, 228) solid 2px; */
+      
+    }
+      
+    #player1 {
+      font-weight: bold;
+    /* position: relative;
+    margin: 1em 1em 0 0;
+    float: left;
+    text-align: center; */
+  }
+    #player2 { 
+      font-weight: bold;
+    /* position: relative;
+    float: right;
+    text-align: center;
+    background-color: green;
+    text-size: x-large; */
+    
+    }
+    .buttondiv {
+      /* background-color: black; */
+      margin: auto;
+      width: 30vw;
+      text-align: center;
+    }
+.O {
+  background: url('../img/circle.png');
+  background-size: contain;
+}
+.X {
+  background: url('../img/cross.png');
+  background-size: contain;
+}
+#message {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  font-size: 25px;
+}
+.display {
+  font-weight: bold;
+  border: black solid 1px;
+  padding: 3px 0;
+  border-radius: 3px;
+  margin-top: 3px;
+}
+  
+
+
+
