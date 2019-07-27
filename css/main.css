@@ -36,3 +36,11 @@ div {
   font-size: 25px;
 }
 
+#board-postion-23 {
+  background-color: red;
+}
+
+.button {
+  border: 1px solid black;
+}
+
