@@ -1,0 +1,38 @@
+@import "./resets.css";
+
+body {
+  width: 960px;
+  margin: 0 auto;
+}
+
+header {
+  padding: 20px;
+  text-align: center;
+}
+
+main {
+  width: 100%;
+}
+
+h1 {
+  color: orange;
+  padding: 20px;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+div {
+  border: 1px solid lightgray;
+
+}
+
+.game-board {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto auto;
+}
+
+.board-position {
+  text-align: center;
+  font-size: 25px;
+}
+
