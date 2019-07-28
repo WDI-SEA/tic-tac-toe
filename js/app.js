@@ -116,7 +116,6 @@ function checkWin() {
 
 
 function draw() {
-	console.log("No one wins");
 	endGame();
 
 	//change message to show nobody won
