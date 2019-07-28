@@ -1,3 +1,126 @@
+body {
+	text-align: center;
+	font-size: 40px;
+}
+
 h1 {
   color: purple;
 }
+
+
+button {
+	margin-top: 20px;
+}
+
+
+#gameboard {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr;
+
+	grid-template-areas: 
+	"tl tm tr"
+	"ml mm mr"
+	"bl bm br";
+	justify-content: center;
+	align-items: center;
+}
+
+
+#box1 {
+	/*display: flex;
+	justify-content: center;
+	align-items: center;*/
+	grid-area: "tl";
+
+	border-right: 1px solid black;
+	border-bottom: 1px solid black;
+
+}
+
+#box2 {
+	/*display: flex;
+	justify-content: center;
+	align-items: center;*/
+	grid-area: "tm";
+	border-bottom: 1px solid black;
+	border-right: 1px solid black;
+
+}
+
+#box3 {
+	/*display: flex;
+	justify-content: center;
+	align-items: center;*/
+	grid-area: "tr";
+	border-bottom: 1px solid black;
+
+}
+
+#box4 {
+	/*display: flex;
+	justify-content: center;
+	align-items: center;*/
+	grid-area: "ml";
+	border-right: 1px solid black;
+	border-bottom: 1px solid black;
+
+}
+
+#box5 {
+	/*display: flex;
+	justify-content: center;
+	align-items: center;*/
+	grid-area: "mm";
+	border-bottom: 1px solid black;
+	border-right: 1px solid black;
+
+}
+
+#box6 {
+	/*display: flex;
+	justify-content: center;
+	align-items: center;*/
+	grid-area: "mr";
+	border-bottom: 1px solid black;
+
+}
+
+#box7 {
+	/*display: flex;
+	justify-content: center;
+	align-items: center;*/
+	grid-area: "bl";
+	border-right: 1px solid black;
+
+}
+
+#box8 {
+	/*display: flex;
+	justify-content: center;
+	align-items: center;*/
+	grid-area: "bm";
+	border-right: 1px solid black;
+
+}
+
+#box9 {
+	/*display: flex;
+	justify-content: center;
+	align-items: center;*/
+	grid-area: "br";
+}
+
+.row1 {
+	border-bottom: 1px solid black;
+	margin: 0 250px;
+}
+
+.row2 {
+	border-bottom: 1px solid black;
+	margin: 0 250px;
+}
+
+
+
+
