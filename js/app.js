@@ -1,110 +1,70 @@
 // global variable
-let playerOne = 0;
-let playerTwo = 0;
-let currentPlayer = "X";
+let turn = 1;
+let currentPlayer = "x";
 let playerOneSelections = [];
 let playerTwoSelections = [];
 let gameOver = false;
 let lastClicked = ''; //stores box clicked > switch to a number value
+
+
+// gloabl selector of the boxes
 var positions = document.querySelectorAll("#gameBoard div");
-// console.log(positions);
-var winArray = [[1, 2, 3], [4, 5, 6], [7, 8, 9], 
-                [1, 4, 7], [2, 5, 8], [3, 6, 9],                                [1, 5, 9], [7, 5, 3]]; //all the possible win combos
+console.log(positions);
+//winning combinations
+var winArray = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]; //all the possible win combos
 
 
+// removeListener();
 
-// ============== a better way of getting and setting selectors ==============//
+// ====== a better way of getting and setting selectors ========//
 function load() {
     boxListener();
     // this function is called at the bottom
 }
 
+// listens for boxes clicked
 function boxListener() {
      // grab all the boxes to add listeners
      var positions = document.querySelectorAll(".box");
      // check for positions
-     console.log(positions.length);
      for (var i = 0; i < positions.length; i++) {
-         positions[i].addEventListener('click', doesSomething);
+         positions[i].addEventListener('click', boxClicked);
      }
  }
 
- function doesSomething () {
-     console.log('somethig was clicked');
- }
-// ==================== ends here ===========================================//
-
-// use a for(of) loop to go through
-
-function addPositionListeners(){
-	// var positions = document.querySelectorAll("#gameBoard span");
-
- 	for (var i = 0; i < positions.length; i++) {
-		positions[i].addEventListener("click", boxClicked)
-	}
-}
-
 // SET LISTENER FOR EACH BOX WHEN CLICKED 
-function clickedBox(value) {
-    lastClicked = [];
-    if (document.getElementById(value)) {
-        console.log("here: " + value);
-        lastClicked = lastClicked.push(value);
-        
-        }
-        else {
-            // console.log('nothing');
-       }    
-}
-clickedBox();
-
 function boxClicked(value) {
     if (currentPlayer === "X") {
         this.classList.add('imageX');
-        console.log(`player 2 clicked ` + lastClicked);
-        playerOne+= 1;
+        console.log(`player 2 clicked `);
         currentPlayer = "O";
     } 
     else {
         this.classList.add('imageO');
-        console.log(`player 1 clicked ` + lastClicked );
-        playerTwo+= 1;
+        console.log(`player 1 clicked ` );
         currentPlayer = "X"
     }
-    load();
+    // Increment turn counter
+    turn+= 1
+    // this.removeListener('click', boxClicked);
 }
 
-// create a function checks for a win
+// remove box listener after clicked
+// function removeListener() {
+//     var positions = document.querySelectorAll(".box");
+//     for (var i = 0; i < positions.length; i++) {
+//         positions[i].removeEventListener('click', boxClicked);
+//     }
+// }
+
+// create a function checks for a win (think about using class.contains)
 function gameWin() {
-//   add code here
+
 }
 
 // create a function sets the game-over event
 function isGameOver() {
-   document.getElementById("message").textContent = "Play again?"
+	document.getElementById("message").textContent = "Play again?"
 }
 
-load() 
-
-// SELECTORS ===== (DONT NEED THIS ANYMORE)
-// var gameBoard = document.getElementById('gameBoard');
-// var topLeft = document.getElementById('top-left');
-// var topMiddle = document.getElementById('top-middle');
-// var topRight = document.getElementById('top-right');
-// var middleLeft = document.getElementById('mid-left');
-// var middleMiddle = document.getElementById('mid-middle');
-// var middleRight = document.getElementById('mid-right');
-// var bottomLeft = document.getElementById('bot-left');
-// var bottomMiddle = document.getElementById('bot-middle');
-// var bottomRight = document.getElementById('bot-right');
-
-// Add function that checks selected box ==== (DONT NEED THIS ANYMORE)
-// topLeft.addEventListener('click', boxClicked);
-// topMiddle.addEventListener('click', boxClicked);
-// topRight.addEventListener('click', boxClicked);
-// middleLeft.addEventListener('click', boxClicked);
-// middleMiddle.addEventListener('click', boxClicked);
-// middleRight.addEventListener('click', boxClicked);
-// bottomLeft.addEventListener('click', boxClicked);
-// bottomMiddle.addEventListener('click', boxClicked);
-// bottomRight.addEventListener('click', boxClicked);
+load();
