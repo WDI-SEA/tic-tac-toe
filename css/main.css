@@ -29,6 +29,7 @@ div {
 .game-board {
   display: grid;
   grid-template-columns: auto auto auto auto auto auto auto;
+  grid-template-rows: auto auto auto auto auto auto;
 }
 
 .board-position {
@@ -36,9 +37,6 @@ div {
   font-size: 25px;
 }
 
-#board-postion-23 {
-  background-color: red;
-}
 
 .button {
   border: 1px solid black;
