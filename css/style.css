@@ -1,3 +1,153 @@
+body {
+	background-color: black;
+}
+
 h1 {
-  color: purple;
+  color: chartreuse;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: .20em;
+  text-shadow: 0 0 20px blue;
+}
+
+p {
+	font-size: 24px;
+	letter-spacing: .02em;
+	color: white;
+	text-align: center;
+	text-transform: uppercase;
+	text-shadow: 0 0 20px blue;
+}
+
+#players {
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+	padding-top: 15px;
+}
+
+input {
+	color: chartreuse;
+	text-transform: uppercase;
+	letter-spacing: .03em;
+	margin-right: 5px;
+	justify-content: center;
+	text-shadow: 0 0 20px blue;
+	display: inline-block;
+}
+
+#playerProfileOne {
+	display: flex;
+	justify-content: center;
+	margin: 0 auto;
+	width: 176px;
+	display: inline;
+}
+
+#playerProfileTwo {
+	display: flex;
+	justify-content: center;
+	display: inline;
+}
+
+#game-clock {
+	color: chartreuse;
+	background-color: rgba(255,255,255, 0.5);
+	margin: 0 auto;
+	padding: 10px;
+	text-transform: uppercase;
+	border: 20px solid blue;
+	width: 118px;
+	font-size: 36px;
+	margin-top: 20px;
+}
+
+.game-board-grid {
+	cursor: pointer;
+	display: grid;
+	grid-template-rows: 180px 180px 180px;
+	grid-template-columns: 180px 180px 180px;
+	justify-content: center;
+	margin: 10px;
+}
+
+.columnOneRowOne {
+	background-color: white;
+	border: 1px solid red;
+	display: flex;
+	justify-content: center;
+}
+
+.columnOneRowTwo {
+	background-color: white;
+	border: 1px solid red;
+	display: flex;
+	justify-content: center;
+}
+
+.columnOneRowThree {
+	background-color: white;
+	border: 1px solid red;
+	display: flex;
+	justify-content: center;
+}
+
+.columnTwoRowOne {
+	background-color: white;
+	border: 1px solid red;
+	display: flex;
+	justify-content: center;
+}
+
+.columnTwoRowTwo {
+	background-color: white;
+	border: 1px solid red;
+	display: flex;
+	justify-content: center;
+}
+
+.columnTwoRowThree {
+	background-color: white;
+	border: 1px solid red;
+	display: flex;
+	justify-content: center;
+}
+
+.columnThreeRowOne {
+	background-color: white;
+	border: 1px solid red;
+	display: flex;
+	justify-content: center;
+}
+
+.columnThreeRowTwo {
+	background-color: white;
+	border: 1px solid red;
+	display: flex;
+	justify-content: center;
+}
+
+.columnThreeRowThree {
+	background-color: white;
+	border: 1px solid red;
+	display: flex;
+	justify-content: center;
+}
+
+button {
+	display: flex;
+	justify-content: center;
+	background-color: rgba(255,255,255, 0.5);
+	margin: 0 auto;
+	padding: 10px;
+	text-transform: uppercase;
+	border: 20px solid blue;
+	width: 176px;
+}
+
+.start-stop-reset {
+	display: flex;
+	font-size: 20px;
+	justify-content: center;
+}
 }
