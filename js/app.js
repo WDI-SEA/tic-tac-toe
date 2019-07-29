@@ -2,9 +2,10 @@ console.log('Hello frontend');
 
 let time, interval;
 document.addEventListener('DOMContentLoaded', function() {
-document.getElementById('start').addEventListener('click', start);
-document.getElementById('stop').addEventListener('click', stop);
-document.getElementById('reset').addEventListener('click', reset);
+	document.getElementById('start').addEventListener('click', start);
+	document.getElementById('stop').addEventListener('click', stop);
+	document.getElementById('reset').addEventListener('click', reset);
+	// let grid = document.getElementByClassName('grid');
 });
 
 function start() {
@@ -41,14 +42,14 @@ function countDown() {
 		document.getElementById('game-clock').style.color = 'purple';
 	}
 	else if (time <= 0) {
+	}
+}
 	//LOSE THE GAME - RAN OUT OF TIME
-	countDown();	
+	// countDown();	
 
 function loseGame() {
 	endGame('You Ran Out Of Time');
 	document.getElementById('start').textContent = 'Timed-Out. Play Again?'
-
-
 };
 
 let gameWinningPossibilities = [];
@@ -58,16 +59,17 @@ let currentPlayer = 0;
 let playerProfileOne = 0;
 let playerProfileTwo = 0;
 let ultimateWin = 3;
-function allConditions() {
-	gameWinningPossibilities.push([1, 2, 3]);
-	gameWinningPossibilities.push([4, 5, 6]);
-	gameWinningPossibilities.push([7, 8, 9]);
-	gameWinningPossibilities.push([2, 5, 8]);
-	gameWinningPossibilities.push([3, 6, 9]);
-	gameWinningPossibilities.push([1, 5, 9]);
-	gameWinningPossibilities.push([3, 5, 7]);
 
-let emptyGrid = document.querySelectorAll('.game-board-grid');
+gameWinningPossibilities.push([1, 2, 3]);
+gameWinningPossibilities.push([4, 5, 6]);
+gameWinningPossibilities.push([7, 8, 9]);
+gameWinningPossibilities.push([2, 5, 8]);
+gameWinningPossibilities.push([3, 6, 9]);
+gameWinningPossibilities.push([1, 5, 9]);
+gameWinningPossibilities.push([3, 5, 7]);
+
+
+let emptyGrid = document.querySelectorAll('.grid');
 for (let i = 0; i < emptyGrid.length; i++) {
 	emptyGrid[i].addEventListener('click', xAndO);
 	console.log(emptyGrid[i]);
@@ -84,22 +86,20 @@ function winner() {
 	return true;
 }
 
-//let xAndO = function(e) {
-	//if (currentPlayer == 0) {
-		//this.innerHTML = "X";
-		//playerProfileOneSelections.push(parseInt(this.id));
-		//playerProfileOneSelections.sort(function(a, b)){
-			//return a - b
+function xAndO(e) {
+	if (currentPlayer == 0) {
+		this.innerHTML = "X";
+		currentPlayer = 1;
 
-	//}
-//}
-	//else {
-		//this.innerHTML = "O";
-		//playerProfileTwoSolections.push(parseInt)(this.id);
-		//playerProfileTwoSolections.sort(function(a, b)) {
-			//return a - b
-	//}
-//}
+	}
+	else {
+		this.innerHTML = "O";
+		currentPlayer = 0;
+		// playerProfileTwoSolections.push(parseInt)(this.id);
+		// playerProfileTwoSolections.sort(function(a, b)) {
+		// 	return a - b
+	}
+}
 
 function endGame() {
 	clearInterval(interval);
