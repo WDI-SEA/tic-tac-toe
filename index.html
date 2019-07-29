@@ -3,12 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <title>Tic-Tac-Toe</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
+
+  <style>
+  	.gameboard .box{cursor: pointer;}
+  	.gameboard .box:hover{background: rgba(10, 10, 10, 0.5); color: #fff}
+  </style>
 </head>
 <body>
-  <h1>Hello Front-End</h1>
-
-  <script type="text/javascript" src="js/app.js"></script>
+	<div>
+  		<div id="heading">
+  			<h1>Tic Tac Toe</h1>
+  		</div>
+  		<div class="gameboard" id="main">
+  			<div class="box" id="box1"></div>
+  			<div class="box" id="box2"></div>
+  			<div class="box" id="box3"></div>
+  			<div class="box" id="box4"></div>
+  			<div class="box" id="box5"></div>
+  			<div class="box" id="box6"></div>
+  			<div class="box" id="box7"></div>
+  			<div class="box" id="box8"></div>
+  			<div class="box" id="box9"></div>
+		</div>
+		<div>
+  		<p id="message">Welcome to Tic Tac Toe! Press on any square to begin.</p>
+  		<button id="reset">Play</button>
+ 		</div>
+ 	</div>
+ 	
+  	<script type="text/javascript" src="./java.js"></script>
 </body>
 </html>

@@ -1,3 +1,42 @@
 h1 {
   color: purple;
+  text-align: center;
+  font-size: 50px;
 }
+
+p {
+	text-align: center;
+}
+
+
+.gameboard {
+    display: grid;
+    grid-template-rows: 200px 200px 200px;
+    grid-template-columns: 200px 200px 200px;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  background-color: pink;
+}
+
+.box {
+  background: #444;
+  border: 1px solid #555;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #AAA;
+}
+
+#message {
+	font-size: 36px;
+	background: linear-gradient(to bottom right, pink, blue);
+}
+
+#reset {
+	font-size: 18px;
+	padding: 10px;
+}
+
