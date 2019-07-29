@@ -1,14 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Hello Front-End</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
+
 <body>
-  <h1>Hello Front-End</h1>
+  <h1>Tic-Tac-Toe!</h1>
+  <form>
+  <table>
+    <tr class="one">
+      <td  class="cells" id="topLeft"></td>
+      <td class="cells" id="topCenter"></td>
+      <td class="cells" id="topRight"></td>
+    </tr>
+    <tr class="two">
+      <td class="cells" id="middleLeft"></td>
+      <td class="cells" id="middleCenter"></td>
+      <td class="cells" id="middleRight"></td>
+    </tr>
+    <tr class="three">
+      <td class="cells" id="bottomLeft"></td>
+      <td class="cells" id="bottomCenter"></td>
+      <td class="cells" id="bottomRight"></td>
+    </tr>
+  </table>
+  <div class="endGame">
+    <div class="text"></div>
+  </div>
+  <div>
+    <button id="reset" onclick="startGame()">Reset</button>
+  </div>
+  </form>
+  
+
+
 
   <script type="text/javascript" src="js/app.js"></script>
 </body>
+
 </html>

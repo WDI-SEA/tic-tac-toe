@@ -1,3 +1,71 @@
 h1 {
+  text-align: center;
   color: purple;
 }
+
+body {
+  text-align: center;
+}
+
+td {
+  border: 2px solid black;
+  height: 100px;
+  width: 100px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 70px;
+  cursor: pointer;
+}
+
+table{
+  border-collapse: collapse; 
+  border: none;
+}
+
+
+
+/* td {
+  width: 100px;
+  height: 100px;
+}
+
+table {
+  margin: 5px auto;
+}
+
+#topLeft {
+  border-bottom: 2px solid black;
+}
+
+#topCenter{
+  border-right: 2px solid black;
+  border-left: 2px solid black;
+}
+
+#topRight {
+  border-bottom: 2px solid black;
+}
+
+#middleCenter {
+   border: 2px solid black
+}
+
+#bottomLeft {
+  border-top: 2px solid black;
+}
+
+#bottomCenter {
+  border-right: 2px solid black;
+  border-left: 2px solid black;
+}
+
+#bottomRight {
+  border-top: 2px solid black;
+}
+
+#reset {
+  font-size: 18px;
+  padding: 12px;
+  margin: 20%;
+
+} */
