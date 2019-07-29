@@ -1,55 +1,71 @@
 body {
   text-align: center;
   background-color: rgb(177, 167, 167);
+  
 }
 h1 {
   color: purple;
 }
 
-#game-board {
+#gameBoard {
   display: grid;
-  height: 500px;
-  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 550px;
+  width: 550px;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
-  border: 2px solid red;
+  border: 2px dotted white; 
 }
 
 #top-left {
   border: 2px solid yellow;
-
+  border-top: 0;
+  border-left: 0;
 }
 #top-middle {
   border: 2px solid pink;
-
+  border-top: 0;
 }
 #top-right {
   border: 2px solid orange;
-
+  border-top: 0;
+  border-right: 0;
+  
 }
 #mid-left {
   border: 2px solid blue;
-
+  border-left: 0;
+  
 }
 #mid-middle{
   border: 2px solid gray;
+  
 }
 #mid-right{
   border: 2px solid purple;
+  border-right: 0;
 }
 #bot-left{
   border: 2px solid brown;
+  border-left: 0;
+  border-bottom: 0;
 }
 #bot-middle{
   border: 2px solid red;
+  border-bottom: 0;
 }
 #bot-right{
   border: 2px solid rgb(231, 231, 11);
+  border-bottom: 0;
+  border-right: 0;
 }  
 
 .imageX {
-  background-image: url('/img/placeholder-X.png');
+  background-image: url('/img/image-X.png');
+  background-size: 100% 20vh;
 }
 .imageO {
-  background-image: url('/img/placeholder-O.png');
+  background-image: url('/img/image-O..png');
+  background-size: 100% 20vh;
 }
