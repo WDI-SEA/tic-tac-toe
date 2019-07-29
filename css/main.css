@@ -21,24 +21,29 @@ h1 {
   font-weight: bold;
 }
 
-div {
-  border: 1px solid lightgray;
+#victory {
+  font-size: 40px;
+  font-weight: bold;
 
 }
-
 .game-board {
   display: grid;
   grid-template-columns: auto auto auto auto auto auto auto;
   grid-template-rows: auto auto auto auto auto auto;
+  border: 1px solid lightgray;
 }
 
 .board-position {
   text-align: center;
-  font-size: 25px;
+  font-size: 15px;
+  padding: 20px;
+  border: 1px solid lightgray;
 }
 
 
 .button {
   border: 1px solid black;
+  padding: 15px;
+  font-size: 15px;
 }
 
