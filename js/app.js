@@ -1,7 +1,6 @@
 console.log('Hello frontend');
 
 let time, interval;
-let grid = document.querySelectorAll('game-board-grid');
 document.addEventListener('DOMContentLoaded', function() {
 document.getElementById('start').addEventListener('click', start);
 document.getElementById('stop').addEventListener('click', stop);
@@ -43,7 +42,7 @@ function countDown() {
 	}
 	else if (time <= 0) {
 	//LOSE THE GAME - RAN OUT OF TIME
-	loseGame();	
+	countDown();	
 
 function loseGame() {
 	endGame('You Ran Out Of Time');
@@ -52,7 +51,7 @@ function loseGame() {
 
 };
 
-let bucketArray = [];
+let gameWinningPossibilities = [];
 let bucketOneArray = [];
 let bucketTwoArray = [];
 let currentPlayer = 0;
@@ -85,22 +84,22 @@ function winner() {
 	return true;
 }
 
-let xAndO = function(e) {
-	if (currentPlayer == 0) {
-		this.innerHTML = "X";
-		playerProfileOneSelections.push(parseInt(this.id));
-		playerProfileOneSelections.sort(function(a, b)){
-			return a - b
+//let xAndO = function(e) {
+	//if (currentPlayer == 0) {
+		//this.innerHTML = "X";
+		//playerProfileOneSelections.push(parseInt(this.id));
+		//playerProfileOneSelections.sort(function(a, b)){
+			//return a - b
 
-	}
-}
-	else {
-		this.innerHTML = "O";
-		playerProfileTwoSolections.push(parseInt)(this.id);
-		playerProfileTwoSolections.sort(function(a, b)) {
-			return a - b
-	}
-}
+	//}
+//}
+	//else {
+		//this.innerHTML = "O";
+		//playerProfileTwoSolections.push(parseInt)(this.id);
+		//playerProfileTwoSolections.sort(function(a, b)) {
+			//return a - b
+	//}
+//}
 
 function endGame() {
 	clearInterval(interval);
@@ -108,5 +107,3 @@ function endGame() {
 
 
 endGame();
-}
-}
