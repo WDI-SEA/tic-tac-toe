@@ -1,3 +1,86 @@
 h1 {
-  color: purple;
+  color: white;
+  text-align: center;
+}
+
+body {
+  background-color: black;
+}
+main {
+  display:grid;
+  grid-column: 1fr 1fr 1fr;
+  grid-row: 1fr 1fr 1fr;
+  grid-template-areas:
+
+      "top-left top-center top-right"
+      "mid-left mid-center mid-right"
+      "bottom-left bottom-center  bottom-right";
+}
+
+p {
+  font-size: 36px
+  color: white;
+}
+
+.square{
+  height: 25vh;
+  width: 100%;
+}
+
+#top-left {
+  grid-area: top-left;
+  border-right: 1.5px solid white;
+  border-bottom: 1.5px solid white;
+}
+
+#top-center {
+  grid-area: top-center;
+  border-left: 1.5px solid white;
+  border-bottom: 1.5px solid white;
+  border-right: 1.5px solid white;
+}
+
+#top-right {
+  grid-area: top-right;
+  border-left: 1.5px solid white;
+  border-bottom: 1.5px solid white;
+}
+
+#mid-left {
+  grid-area: mid-left;
+  border-top: 1.5px solid white;
+  border-right: 1.5px solid white;
+  border-bottom: 1.5px solid white;
+}
+
+#mid-center {
+  grid-area: mid-center;
+  border: 1.5px solid white;
+}
+
+#mid-right {
+  grid-area: mid-right;
+  border-top: 1.5px solid white;
+  border-left: 1.5px solid white;
+  border-bottom: 1.5px solid white;
+
+}
+
+#bottom-left {
+  grid-area: bottom-left;
+  border-top: 1.5px solid white;
+  border-right: 1.5px solid white;
+}
+
+#bottom-center {
+  grid-area: bottom-center;
+  border-left: 1.5px solid white;
+  border-top: 1.5px solid white;
+  border-right: 1.5px solid white;
+}
+
+#bottom-right {
+  grid-area: bottom-right;
+  border-left: 1.5px solid white;
+  border-top: 1.5px solid white;
 }

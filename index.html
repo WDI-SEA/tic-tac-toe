@@ -3,12 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <title>Kobe's Tic-Tac-Toe</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-  <h1>Hello Front-End</h1>
-
+  <header>
+    <h1>Tic-Tac-Toe</h1>
+  </header>
+  <main id="game-board">
+    <div class="square top lDiagonal leftC" id="top-left"></div>
+    <div class="square top midVert" id="top-center"></div>
+    <div class="square top rDiagonal rightC" id="top-right"></div>
+    <div class="square mid leftC" id="mid-left"></div>
+    <div class="square mid lDiagonal rDiagonal midVert" id="mid-center"></div>
+    <div class="square mid rightC" id="mid-right"></div>
+    <div class="square leftC bottom lDiagonal" id="bottom-left"></div>
+    <div class="square bottom midVert" id="bottom-center"></div>
+    <div class="square rightC bottom rDiagonal" id="bottom-right"></div>
+  </main>
+  <footer>
+    <button id="reset">Start</button>
+    <p id="message"></p>
+  </footer>
+  </div>
   <script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>
