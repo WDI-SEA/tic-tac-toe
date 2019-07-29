@@ -1,3 +1,52 @@
-h1 {
-  color: purple;
+html,body{
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.board{
+  margin: 0 auto;
+  padding: inherit;
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+}
+.column{
+  padding: inherit;
+  width: 100px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.square{
+  padding: inherit;
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.empty-spot{
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+  background-color: white;
+}
+.red-player{
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+  background-color: red;
+}
+.yellow-player{
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+  background-color: yellow;
 }
