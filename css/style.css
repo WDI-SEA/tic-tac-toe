@@ -1,8 +1,8 @@
 body {
   text-align: center;
   background-color: rgb(177, 167, 167);
-  
 }
+
 h1 {
   color: purple;
 }
@@ -18,44 +18,44 @@ h1 {
   border: 5px dotted white; 
 }
 
-#top-left {
+#t1 {
   border: 2px solid yellow;
   border-top: 0;
   border-left: 0;
 }
-#top-middle {
+#t2 {
   border: 2px solid pink;
   border-top: 0;
 }
-#top-right {
+#t3 {
   border: 2px solid orange;
   border-top: 0;
   border-right: 0;
   
 }
-#mid-left {
+#m1 {
   border: 2px solid blue;
   border-left: 0;
   
 }
-#mid-middle{
+#m2{
   border: 2px solid whitesmoke;
   
 }
-#mid-right{
+#m3{
   border: 2px solid purple;
   border-right: 0;
 }
-#bot-left{
+#b1{
   border: 2px solid rgb(107, 235, 107);
   border-left: 0;
   border-bottom: 0;
 }
-#bot-middle{
+#b2{
   border: 2px solid red;
   border-bottom: 0;
 }
-#bot-right{
+#b3{
   border: 2px solid rgb(17, 177, 218);
   border-bottom: 0;
   border-right: 0;
@@ -68,4 +68,9 @@ h1 {
 .imageO {
   background-image: url('/img/image-O..png');
   background-size: 100% 20vh;
+}
+#message {
+  background-color: black;
+  color: white:
+  text-weight: 800;
 }
