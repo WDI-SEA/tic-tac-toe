@@ -62,11 +62,11 @@ h1 {
 }  
 
 .imageX {
-  background-image: url('/img/image-X.png');
+  background-image: url('../img/image-X.png');
   background-size: 100% 20vh;
 }
 .imageO {
-  background-image: url('/img/image-O..png');
+  background-image: url('../img/image-O..png');
   background-size: 100% 20vh;
 }
 #message {

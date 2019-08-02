@@ -1,70 +1,49 @@
 // GLOBAL VARIABLES
 let turn = 1;
 let currentPlayer = "X";
-let playerX = [];
-let playerO = [];
-var score;
-var imgSrc;
+let imgSrc;
 let gameOver = false;
 
 //======================DOM SELECTORS AND CALL FUNCTIONS======================//
 var positions = document.querySelectorAll("#gameBoard div");
 console.log(positions);
-load();
 
+document.getElementById('reset-button').addEventListener('click', resetGame);
+
+setGameBoard();
 
 // ==================CHECK WINS AND/OR DRAW======================//
-
+// 
 function getClass(index) {
     return positions[index].getAttribute("class");
 }
 
-function checkWin() {
-    if ((getClass(0) == 'box imageX' && getClass(1) == 'box imageX' && getClass(2) == 'box imageX') || (getClass(0) == 'box imageO' && getClass(1) == 'box imageO' && getClass(2) == 'box imageO')) {
-        this.removeEventListener('click', boxClicked);
-        // document.getElementById('message').innerHTML = 'We have a winner!';
-    } else if ((getClass(3) == 'box imageX' && getClass(4) == 'box imageX' && getClass(5) == 'box imageX') || (getClass(3) == 'box imageO' && getClass(4) == 'box imageO' && getClass(5) == 'box imageO')) {
-        // alert('Ladies and Gentlemen, we have a winner!');
-        removeEventListener('click', boxClicked);
-    } else if ((getClass(6) == 'box imageX' && getClass(7) == 'box imageX' && getClass(8) == 'box imageX') || (getClass(6) == 'box imageO' && getClass(7) == 'box imageO' && getClass(8) == 'box imageO')) {
-        alert('Ladies and Gentlmen, we have a winner!');
-        removeEventListener('click', boxClicked);
-    } else if ((getClass(0) == 'box imageX' && getClass(4) == 'box imageX' && getClass(8) == 'box imageX') || (getClass(0) == 'box imageO' && getClass(4) == 'box imageO' && getClass(8) == 'box imageO')) {
-        alert('Ladies and Gentlmen, we have a winner!');
-        removeEventListener('click', boxClicked);
-    } else if ((getClass(2) == 'box imageX' && getClass(4) == 'box imageX' && getClass(6) == 'box imageX') || (getClass(2) == 'box imageO' && getClass(4) == 'box imageO' && getClass(6) == 'box imageO')) {
-        alert('Ladies and Gentlmen, we have a winner!');
-        removeEventListener('click', boxClicked);
-    } else if ((getClass(0) == 'box imageX' && getClass(3) == 'box imageX' && getClass(6) == 'box imageX') || (getClass(0) == 'box imageO' && getClass(3) == 'box imageO' && getClass(6) == 'box imageO')) {
-        alert('Ladies and Gentlmen, we have a winner!');
-        removeEventListener('click', boxClicked);
-    } else if ((getClass(1) == 'box imageX' && getClass(4) == 'box imageX' && getClass(7) == 'box imageX') || (getClass(1) == 'box imageO' && getClass(4) == 'box imageO' && getClass(7) == 'box imageO')) {
-        alert('Ladies and Gentlmen, we have a winner!');
-        removeEventListener('click', boxClicked);
-    } else if ((getClass(2) == 'box imageX' && getClass(5) == 'box imageX' && getClass(8) == 'box imageX') || (getClass(2) == 'box imageO' && getClass(5) == 'box imageO' && getClass(8) == 'box imageO')) {
-        alert('Ladies and Gentlmen, we have a winner!');
-        removeEventListener('click', boxClicked);
+function checkWin(playerClass) {
+    if ((getClass(0) == 'box ' + playerClass && getClass(1) == 'box ' + playerClass && getClass(2) == 'box ' + playerClass) ) {
+        return true;
+    } else if (getClass(3) == 'box ' + playerClass && getClass(4) == 'box ' + playerClass && getClass(5) == 'box ' + playerClass) {
+        return true;
+    } else if (getClass(6) == 'box ' + playerClass && getClass(7) == 'box ' + playerClass && getClass(8) == 'box ' + playerClass) {
+        return true;
+    } else if (getClass(0) == 'box ' + playerClass && getClass(4) == 'box ' + playerClass && getClass(8) == 'box ' + playerClass) {
+        return true;
+    } else if (getClass(2) == 'box ' + playerClass && getClass(4) == 'box ' + playerClass && getClass(6) == 'box ' + playerClass) {
+        return true;
+    } else if (getClass(0) == 'box ' + playerClass && getClass(3) == 'box ' + playerClass && getClass(6) == 'box ' + playerClass) {
+        return true;
+    } else if (getClass(1) == 'box ' + playerClass && getClass(4) == 'box ' + playerClass && getClass(7) == 'box ' + playerClass) {
+        return true;
+    } else if (getClass(2) == 'box ' + playerClass && getClass(5) == 'box ' + playerClass && getClass(8) == 'box ' + playerClass) {
+        return true;
     }
-    else {
-        draw();
-    }
-        removeEventListener('click', boxClicked);
-        document.getElementById('message').innerHTML = 'We have a winner!';
+    return false;
 }
-
-
-function draw() {
-    // alert("its a draw");
-    resetGame();
-}
-
+        
 
 // ==================ADD EVENT LISTENERS======================//
 
-function boxListener() {
-    // grab all the boxes to add listeners
+function setGameBoard() {
     var positions = document.querySelectorAll(".box");
-    // check for positions
     for (var i = 0; i < positions.length; i++) {
         positions[i].addEventListener('click', boxClicked);  
     }
@@ -83,43 +62,42 @@ function isGameOver() {
 	document.getElementById("message").innerText = "Play again?"
 }
 function resetGame() {
-    // set listener for reset button
-    // var newGame = document.getElementById('newGame');
-    // newGame.addEventListener("click", boxClicked);
-    document.getElementById('reset-button').addEventListener('click', load);
- }
+    document.getElementById('reset-button').addEventListener('click', resetGame);
+    document.getElementById("message").innerText = "";
+    turn = 1;
+    
+    var positions = document.querySelectorAll(".box");
+    for (var i = 0; i < positions.length; i++) {
+        positions[i].classList.remove('imageX') 
+        positions[i].classList.remove('imageO') 
+    }
+    setGameBoard()
+}
 
 
 // ===================== GAME STATE =============================//
 
 function boxClicked() {
-    if (currentPlayer === "X") {
-        this.classList.add('imageX');// gets the id of box clicked
-        var positionClicked = this.getAttribute('id'); // this pushed id-value into player array
-        playerX.push(positionClicked);
-        // set the img to compare
-        imgSrc = this.getAttribute('class');
-        console.log(imgSrc);
-        console.log("player X array: ", playerX);
-        currentPlayer = "O";
-    } 
-    else {
-        this.classList.add('imageO');
-        var positionClicked = this.getAttribute('id');
-        playerO.push(positionClicked);
-        console.log("player O array: ", playerO);
-        currentPlayer = "X"
-    }
-    turn+= 1
-    if(playerO.length || playerX.length == 3) {
-        checkWin()
-    }
-    else {
-        console.log('lololol')
-    }
+    this.classList.add('image' + currentPlayer);
     this.removeEventListener('click', boxClicked);
-}
+    turn += 1
 
-function load() {
-    boxListener(); 
+    if(checkWin('image' + currentPlayer) ){
+    
+        // checkWin(currentPlayer);
+        document.getElementById("message").innerText = "Looks like we have a winner! Great job Player" + currentPlayer + "!" ;
+   
+        removeEventListener();
+        
+        
+    }
+    else if(turn > 9){
+        document.getElementById("message").innerText = "That sucks. We have a draw!";
+
+        removeEventListener()
+        
+    } 
+    
+    
+    currentPlayer = currentPlayer == 'O'? 'X': 'O'; // if current player = O than assign X otherwise assign O
 }
