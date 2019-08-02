@@ -44,12 +44,15 @@ const validMoves= {
     "6,5": ["5,5", "5,4", "6,4"]
 }
 var currentPlayer
+var spotsInRow = 0
 document.addEventListener('DOMContentLoaded', function(){
     createBoard()
 })
 
 const createBoard = () => {
+    console.log('here')
     gamePieces.board = document.getElementById('board')
+    gamePieces.display = document.getElementById('display')
     gamePieces.columns = []
     currentPlayer = 'red-player'
     for(let columnIdx=0; columnIdx<7; columnIdx++){
@@ -67,15 +70,33 @@ const createBoard = () => {
             gamePieces[element.id] = element
         }
         gamePieces.board.append(columnDiv)
-        // gamePieces.columns.push(columnDiv)
         gamePieces[`column${columnIdx}`] = Array.from(columnDiv.childNodes).reverse()
         document.getElementById(`column${columnIdx}`).addEventListener('click', handleColumnClick)
     }
-    console.log(gamePieces)
+    let display = document.createElement('h1')
+    let button = document.createElement('input')
+    button.type = 'submit'
+    button.value = 'RESET GAME'
+    button.addEventListener('click',function(){
+        while(gamePieces.board.firstChild){
+            gamePieces.board.removeChild(gamePieces.board.firstChild)
+        }   
+        while(gamePieces.display.firstChild){
+            gamePieces.display.removeChild(gamePieces.display.firstChild)
+        }
+        gamePieces.button
+        createBoard()
+    })
+    display.textContent = currentPlayer.replace('-',' ').toUpperCase() + "'S TURN"
+    gamePieces.display.append(display)
+    gamePieces.display.append(button)
+
+
 }
 
 const dropPiece = (event) => {
     let column = gamePieces[event.currentTarget.id]
+    let spaceCount = 0
     for(space of column){
         let spot = space.childNodes[0]
         if(spot.classList.contains('empty-spot')){
@@ -90,31 +111,26 @@ const dropPiece = (event) => {
                 checkWinner(space.id)
                 return
             }
+            spaceCount++
         }
+    }
+    if(spaceCount>=6){
+        column.removeEventListener('click')
     }
 }
 
 const checkWinner = (spaceId) => {
-    var spotsInRow = 0
-    let originX = spaceId.split(',')[0]
-    let originY = spaceId.split(',')[1]
+    let originX = parseInt(spaceId.split(',')[0])
+    let originY = parseInt(spaceId.split(',')[1])
     let spaceMoves = validMoves[spaceId]
     for(move of spaceMoves){
-        let X = move.split(',')[0]
-        let Y = move.split(',')[1]
+        let X = parseInt(move.split(',')[0])
+        let Y =parseInt( move.split(',')[1])
         if(gamePieces[`${X},${Y}`].childNodes[0].classList.contains(`${currentPlayer}`)){
             spotsInRow++
             traverseLine(X-originX,Y-originY,X,Y)
+            spotsInRow = 0
         }
-        else{
-            console.log(currentPlayer)
-            console.log(`False:${X},${Y}`)
-        }
-    }
-    console.log('\n')
-    if(spotsInRow>=4){
-        console.log(`${currentPlayer} is winner.`)
-        return
     }
     if(currentPlayer==='red-player'){
         currentPlayer = 'yellow-player'
@@ -125,7 +141,7 @@ const checkWinner = (spaceId) => {
 }
 
 const handleColumnClick = (event) => {
-    let spot = dropPiece(event)
+    dropPiece(event)
 }
 
 const computeValidMoves = () => {
@@ -162,14 +178,31 @@ const computeValidMoves = () => {
     console.log(validMoves)
 }
 
-const traverseLine = (slopeX,slopeY,X,Y) => {
-    if(gamePieces[`${X+slopeX},${Y+slopeY}`])
-        if(gamePieces[`${X+slopeX},${Y+slopeY}`].childNodes[0].classList.contains(`${currentPlayer}`)){
-            spotsInRow++
-            traverseLine(slopeX,slopeY,X+slopeX,Y+slopeY)
-        }
-        else{
-            spotsInRow = 0
-            return
-        }
+const declareWinner = () =>{
+    console.log(`${currentPlayer} is the winner!`)
+    removeColumnListeners()
 }
+
+const removeColumnListeners = () => {
+    for(let i=0;i<7;i++){
+        document.getElementById(`column${i}`).removeEventListener('click')
+    }
+}
+
+const traverseLine = (slopeX,slopeY,X,Y) => {
+    let spot = gamePieces[`${X+slopeX},${Y+slopeY}`]
+    if(spot){
+        if(spot.childNodes[0].classList.contains(`${currentPlayer}`)){
+            spotsInRow++
+            if(spotsInRow>=3){
+                declareWinner()
+                return
+            }
+            else{
+                traverseLine(slopeX,slopeY,X+slopeX,Y+slopeY)
+            }
+        }
+    }
+    return
+}
+
