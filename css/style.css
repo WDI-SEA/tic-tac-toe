@@ -7,8 +7,7 @@ body {
   text-align: center;
   margin-left: auto;
   margin-right: auto;
-  /*background-image: url("https://images.petsbest.com/marketing/blog/puppy-kitten-common-health-issues.jpg");*/
-  background-size: cover;
+ 
   background-attachment: fixed;
 }
 h1 {
@@ -30,20 +29,15 @@ h1 {
   grid-template-rows: 200px 200px 200px;
   grid-template-columns: 200px 200px 200px;
   grid-template-areas:
-    "a11 a12 a13"
-    "a21 a22 a23"
-    "a31 a32 a33";
+    "a11 a12 a13 a14"
+    "a21 a22 a23 a24"
+    "a31 a32 a33 a34";
 }
 #a11 {
   grid-area: a11;
   border: 2px solid black;
   border-radius: 10px 0 0 0;
   background-color: rgba(255,255,255,0.5);
-  /*
-  background-image: url("../img/puppy.jpg");
-  background-size: cover;
-  background-attachment: fixed;
-  */
 }
 #a12 {
   grid-area: a12;
