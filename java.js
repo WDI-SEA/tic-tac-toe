@@ -1,18 +1,8 @@
 document.addEventListener('DOMContentLoaded', function(){
-	document.getElementById('reset').addEventListener('click', getWinner);
+	document.getElementById('reset').addEventListener('click', restartGame);
 });
 
-/*function start () {
-	// Welcome message
-	document.getElementById('message').textContent = "Welcome to Tic Tac Toe! Let's get started! Player 1, click the square in which you would like to start";
-	
-	// Change button text to "restart game"
-	this.textContent = 'Restart Game';
-
-	// Set up event listeners for boxes
-	//removeBoxListeners();
-	//addBoxListeners();
-}*/
+var winner = false;
 
 function getWinner () {
 	var box1 = document.getElementById("box1"),
@@ -28,36 +18,47 @@ function getWinner () {
 	// Get all possibilities and display winning message
 
 	if (box1.innerHTML !== "" && box1.innerHTML === box2.innerHTML && box1.innerHTML === box3.innerHTML) {
-		console.log("WIN!");
-		youWon(box1, box2, box3);
+		message.innerHTML=box1.innerHTML + " WON! CONGRATS!";
+		winner = true;
+		console.log(winner);
 	}
 	else if (box4.innerHTML !== "" && box4.innerHTML === box5.innerHTML && box4.innerHTML === box6.innerHTML) {
-		console.log("WIN!");
-		youWon(box4, box5, box6);
+		message.innerHTML=box4.innerHTML + " WON! CONGRATS!";
+		winner = true;
+		console.log(winner);
 	}
 	else if (box7.innerHTML !== "" && box7.innerHTML === box8.innerHTML && box7.innerHTML === box9.innerHTML) {
-		console.log("WIN!");
-		youWon(box7, box8, box9);
+		message.innerHTML=box7.innerHTML + " WON! CONGRATS!";
+		winner = true;
+		console.log(winner);
 	}
 	else if (box1.innerHTML !== "" && box1.innerHTML === box4.innerHTML && box1.innerHTML === box7.innerHTML) {
-		console.log("WIN!");
-		youWon(box1, box4, box7);
+		message.innerHTML=box1.innerHTML + " WON! CONGRATS!";
+		winner = true;
+		console.log(winner);
 	}
 	else if (box2.innerHTML !== "" && box2.innerHTML === box5.innerHTML && box2.innerHTML === box8.innerHTML) {
-		console.log("WIN!");
-		youWon(box2, box5, box8);
+		message.innerHTML=box2.innerHTML + " WON! CONGRATS!";
+		winner = true;
+		console.log(winner);
 	}
 	else if (box3.innerHTML !== "" && box3.innerHTML === box6.innerHTML && box3.innerHTML === box9.innerHTML) {
-		console.log("WIN!");
-		youWon(box3, box6, box9);
+		message.innerHTML=box3.innerHTML + " WON! CONGRATS!";
+		winner = true;
+		console.log(winner);
 	}
 	else if (box1.innerHTML !== "" && box1.innerHTML === box5.innerHTML && box1.innerHTML === box9.innerHTML) {
-		console.log("WIN!");
-		youWon(box1, box5, box9);
+		message.innerHTML=box1.innerHTML + " WON! CONGRATS!";
+		winner = true;
+		console.log(winner);
 	}
 	else if (box3.innerHTML !== "" && box3.innerHTML === box5.innerHTML && box3.innerHTML === box7.innerHTML) {
-		console.log("WIN!");
-		youWon(box3, box5, box7);
+		message.innerHTML=box3.innerHTML + " WON! CONGRATS!";
+		winner = true;
+		console.log(winner);
+	} else if (X_or_O === 9 && winner == false) {
+		message.innerHTML= "ITS A DRAW! Play again?";
+		console.log("ITS A DRAW");
 	}
 }
 
@@ -68,41 +69,35 @@ for(var i = 0; i < boxes.length; i++){
 	boxes[i].onclick = function() {
 		document.getElementById('reset').textContent = 'Play again?';
 		// inhitbits player from clicking on box twice
-		if(this.innerHTML !== "X" && this.innerHTML !== "O") {
+		if(this.innerHTML !== "X" && this.innerHTML !== "O" && winner == false) {
 			if (X_or_O%2 == 0) {
 				console.log(X_or_O);
 				this.innerHTML = "X";
 				message.innerHTML = "O turn now";
-				getWinner();
 				X_or_O += 1;
-			}
+				getWinner();
+			} 
 			else{
 				console.log(X_or_O);
 				this.innerHTML = "O";
 				message.innerHTML = "X turn now";
-				getWinner();
 				X_or_O += 1;
+				getWinner();
 			} 
 		}
 	}
 }
 
-function youWon(b1, b2, b3){
-	b1.classList.add("WIN");
-	b2.classList.add("WIN");
-	b3.classList.add("WIN");
-	message.innerHTML=b1.innerHTML + " WON! CONGRATS!";
-}
 
 // restart the game
 function restartGame () {
-	reset.onclick = function(){
-		for(var i = 0; i < boxes.length; i++){
-        	boxes[i].innerHTML = "";
-        	message.innerHTML = "Player one, please select a spot on the grid";
-        	// Change button text to "restart game"
-			reset.textContent = 'Restart Game';
-		}
+	for(var i = 0; i < boxes.length; i++){
+        boxes[i].innerHTML = "";
+        message.innerHTML = "Player one, please select a spot on the grid";
+        // Change button text to "restart game"
+		reset.textContent = 'Restart Game';
+		winner = false;
+		X_or_O = 0;
 	}
 }
 
