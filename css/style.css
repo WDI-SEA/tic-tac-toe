@@ -6,11 +6,18 @@ margin: 0 auto;
 h1 {
   color: purple;
 }
-/* #button {
+#button {
 	display: flex;
-	margin: center;
+	margin: 0 auto;
+	justify-content: space-around;
 	text-align: center;
-} */
+	width: 100%;
+	cursor: pointer;
+} 
+img {
+	height: 150px;
+	width: auto;
+}
 #grid {
   margin: auto;
   padding: 10;
@@ -22,8 +29,9 @@ h1 {
     "box1 box2 box3"
     "box4 box5 box6"
     "box7 box8 box9";
-	max-height: 75vh;
-	width: 75vw;
+	height: 75vh;
+	width: 75vh;
+	cursor: pointer;
 	
 
 }
