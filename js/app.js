@@ -1,89 +1,125 @@
-// global variable
+// GLOBAL VARIABLES
 let turn = 1;
 let currentPlayer = "X";
 let playerX = [];
+let playerO = [];
 var score;
+var imgSrc;
 let gameOver = false;
-// let cell = []; //stores box clicked > switch to a number value
 
-
-// gloabl selector of the boxes
+//======================DOM SELECTORS AND CALL FUNCTIONS======================//
 var positions = document.querySelectorAll("#gameBoard div");
 console.log(positions);
-//winning combinations
-var winArray = [['t1', 't2', 't3'], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]; //all the possible win combos
+load();
 
 
-// create a function checks for a win (think about using classList.contains)
-function checkDraw() {
+// ==================CHECK WINS AND/OR DRAW======================//
+
+function getClass(index) {
+    return positions[index].getAttribute("class");
 }
 
-
-// display id of box clicked on console.
-function addCellEventListener() {
-    var cell = document.getElementById('gameBoard');
-    var cellId = cell.getAttribute('id');
-    console.log(cellId);
-    for (var i = 0; i < cellId.length; i++) {
-    console.log(cell);
+function checkWin() {
+    if ((getClass(0) == 'box imageX' && getClass(1) == 'box imageX' && getClass(2) == 'box imageX') || (getClass(0) == 'box imageO' && getClass(1) == 'box imageO' && getClass(2) == 'box imageO')) {
+        this.removeEventListener('click', boxClicked);
+        // document.getElementById('message').innerHTML = 'We have a winner!';
+    } else if ((getClass(3) == 'box imageX' && getClass(4) == 'box imageX' && getClass(5) == 'box imageX') || (getClass(3) == 'box imageO' && getClass(4) == 'box imageO' && getClass(5) == 'box imageO')) {
+        // alert('Ladies and Gentlemen, we have a winner!');
+        removeEventListener('click', boxClicked);
+    } else if ((getClass(6) == 'box imageX' && getClass(7) == 'box imageX' && getClass(8) == 'box imageX') || (getClass(6) == 'box imageO' && getClass(7) == 'box imageO' && getClass(8) == 'box imageO')) {
+        alert('Ladies and Gentlmen, we have a winner!');
+        removeEventListener('click', boxClicked);
+    } else if ((getClass(0) == 'box imageX' && getClass(4) == 'box imageX' && getClass(8) == 'box imageX') || (getClass(0) == 'box imageO' && getClass(4) == 'box imageO' && getClass(8) == 'box imageO')) {
+        alert('Ladies and Gentlmen, we have a winner!');
+        removeEventListener('click', boxClicked);
+    } else if ((getClass(2) == 'box imageX' && getClass(4) == 'box imageX' && getClass(6) == 'box imageX') || (getClass(2) == 'box imageO' && getClass(4) == 'box imageO' && getClass(6) == 'box imageO')) {
+        alert('Ladies and Gentlmen, we have a winner!');
+        removeEventListener('click', boxClicked);
+    } else if ((getClass(0) == 'box imageX' && getClass(3) == 'box imageX' && getClass(6) == 'box imageX') || (getClass(0) == 'box imageO' && getClass(3) == 'box imageO' && getClass(6) == 'box imageO')) {
+        alert('Ladies and Gentlmen, we have a winner!');
+        removeEventListener('click', boxClicked);
+    } else if ((getClass(1) == 'box imageX' && getClass(4) == 'box imageX' && getClass(7) == 'box imageX') || (getClass(1) == 'box imageO' && getClass(4) == 'box imageO' && getClass(7) == 'box imageO')) {
+        alert('Ladies and Gentlmen, we have a winner!');
+        removeEventListener('click', boxClicked);
+    } else if ((getClass(2) == 'box imageX' && getClass(5) == 'box imageX' && getClass(8) == 'box imageX') || (getClass(2) == 'box imageO' && getClass(5) == 'box imageO' && getClass(8) == 'box imageO')) {
+        alert('Ladies and Gentlmen, we have a winner!');
+        removeEventListener('click', boxClicked);
     }
-    cell.addEventListener('click', load);
-
-}
-addCellEventListener();
-// ====== efficient way of getting/setting selectors ========//
-function load() {
-    boxListener();
-}
-
-// listens for boxes clicked
-function boxListener() {
-     // grab all the boxes to add listeners
-     var positions = document.querySelectorAll(".box");
-     // check for positions
-     for (var i = 0; i < positions.length; i++) {
-         positions[i].addEventListener('click', boxClicked);
-     }
- }
-//  get 
-
-
-// SET LISTENER FOR EACH BOX WHEN CLICKED 
-function boxClicked(value) {
-    if (currentPlayer === "X") {
-        this.classList.add('imageX');
-        // gets the id of box clicked
-        var positionClicked = this.getAttribute('id');
-        // this pushed id-value into player array
-        playerX.push(positionClicked);
-        console.log(playerX);
-        console.log(`playerX clicked: ${playerX}`);
-        console.log(`player 2 clicked `);
-        currentPlayer = "O";
-    } 
     else {
-        this.classList.add('imageO');
-        var positionClicked = this.getAttribute('id');
-        console.log(positionClicked);
-        console.log(`player 1 clicked `, positionClicked);
-        currentPlayer = "X"
+        draw();
     }
-    // Increment turn counter
-    turn+= 1
-    this.removeEventListener('click', boxClicked);
+        removeEventListener('click', boxClicked);
+        document.getElementById('message').innerHTML = 'We have a winner!';
 }
 
 
-// remove box listener after clicked
+function draw() {
+    // alert("its a draw");
+    resetGame();
+}
+
+
+// ==================ADD EVENT LISTENERS======================//
+
+function boxListener() {
+    // grab all the boxes to add listeners
+    var positions = document.querySelectorAll(".box");
+    // check for positions
+    for (var i = 0; i < positions.length; i++) {
+        positions[i].addEventListener('click', boxClicked);  
+    }
+}
+
+// ====================END-GAME STATE ======================//
+
 function removeEventListener() {
     var positions = document.querySelectorAll(".box");
     for (var i = 0; i < positions.length; i++) {
         positions[i].removeEventListener('click', boxClicked);
     }
 }
-
 // create a function sets the game-over event
 function isGameOver() {
-	document.getElementById("message").textContent = "Play again?"
+	document.getElementById("message").innerText = "Play again?"
 }
-load();
+function resetGame() {
+    // set listener for reset button
+    // var newGame = document.getElementById('newGame');
+    // newGame.addEventListener("click", boxClicked);
+    document.getElementById('reset-button').addEventListener('click', load);
+ }
+
+
+// ===================== GAME STATE =============================//
+
+function boxClicked() {
+    if (currentPlayer === "X") {
+        this.classList.add('imageX');// gets the id of box clicked
+        var positionClicked = this.getAttribute('id'); // this pushed id-value into player array
+        playerX.push(positionClicked);
+        // set the img to compare
+        imgSrc = this.getAttribute('class');
+        console.log(imgSrc);
+        console.log("player X array: ", playerX);
+        currentPlayer = "O";
+    } 
+    else {
+        this.classList.add('imageO');
+        var positionClicked = this.getAttribute('id');
+        playerO.push(positionClicked);
+        console.log("player O array: ", playerO);
+        currentPlayer = "X"
+    }
+    turn+= 1
+    if(playerO.length || playerX.length == 3) {
+        checkWin()
+    }
+    else {
+        console.log('lololol')
+    }
+    this.removeEventListener('click', boxClicked);
+}
+
+function load() {
+    boxListener(); 
+}
