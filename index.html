@@ -8,35 +8,25 @@
 </head>
 <body>
   <h1>tic tac toe</h1>
-  <p>2 Player System<br>15 seconds per play<br>pick your x's and o's<br>get to 3 in a row</p>
-<div class="start-stop-reset">
-  <button id="start">start game</button>
-  <button id="stop">stop game</button>
-  <button id="reset">reset game</button>
-</div>
+  <p>2 Player System<br>get to 3 in a row</p>
+  <h3 id="winner-message"></h3>
 
-<form id="players">
-  <input type="text" name="playerProfileOne" placeholder="Choose your name here"><br>
-  <input type="submit" name="submitOne">
-
-  <input type="text" name="playerProfileTwo" placeholder="Choose your name here"><br>
-  <input type="submit" name="submitTwo">
-</form>
-  <div>
-      <p id="game-clock">15</p>
-  </div>  
-
-  <div class="game-board-grid">
-  	<div class="grid columnOneRowOne" id="Coro"></div>
-  	<div class="grid columnOneRowTwo" id="cort"></div>
-  	<div class="grid columnOneRowThree" id="corth"></div>
-  	<div class="grid columnTwoRowOne" id="ctro"></div>
-  	<div class="grid columnTwoRowTwo" id="ctrt"></div>
-  	<div class="grid columnTwoRowThree"id="ctrth"></div>
-  	<div class="grid columnThreeRowOne" id="cthro"></div>
-  	<div class="grid columnThreeRowTwo" id="cthrt"></div>
-  	<div class="grid columnThreeRowThree" id="cthrth"></div>
+  <div> 
+  <p id="player-switch"></p>
   </div>
+  <div class="game-board-grid">
+  	<div class="grid" id="0"></div>
+  	<div class="grid" id="1"></div>
+  	<div class="grid" id="2"></div>
+  	<div class="grid" id="3"></div>
+  	<div class="grid" id="4"></div>
+  	<div class="grid" id="5"></div>
+  	<div class="grid" id="6"></div>
+  	<div class="grid" id="7"></div>
+  	<div class="grid" id="8"></div>
+  </div>
+
+    <button id="resetgame">reset</button>
   <script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>

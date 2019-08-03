@@ -71,68 +71,21 @@ input {
 	margin: 10px;
 }
 
-.columnOneRowOne {
+.grid {
 	background-color: white;
 	border: 1px solid red;
 	display: flex;
 	justify-content: center;
 }
 
-.columnOneRowTwo {
-	background-color: white;
-	border: 1px solid red;
-	display: flex;
-	justify-content: center;
+.green {
+	background-color: green;
 }
 
-.columnOneRowThree {
-	background-color: white;
-	border: 1px solid red;
-	display: flex;
-	justify-content: center;
+.blue {
+	background-color: blue;
 }
 
-.columnTwoRowOne {
-	background-color: white;
-	border: 1px solid red;
-	display: flex;
-	justify-content: center;
-}
-
-.columnTwoRowTwo {
-	background-color: white;
-	border: 1px solid red;
-	display: flex;
-	justify-content: center;
-}
-
-.columnTwoRowThree {
-	background-color: white;
-	border: 1px solid red;
-	display: flex;
-	justify-content: center;
-}
-
-.columnThreeRowOne {
-	background-color: white;
-	border: 1px solid red;
-	display: flex;
-	justify-content: center;
-}
-
-.columnThreeRowTwo {
-	background-color: white;
-	border: 1px solid red;
-	display: flex;
-	justify-content: center;
-}
-
-.columnThreeRowThree {
-	background-color: white;
-	border: 1px solid red;
-	display: flex;
-	justify-content: center;
-}
 
 button {
 	display: flex;
@@ -149,5 +102,17 @@ button {
 	display: flex;
 	font-size: 20px;
 	justify-content: center;
+}
+
+#playerswitch {
+	background-color: white;
+}
+#winner-message {
+	color: chartreuse;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: .20em;
+  text-shadow: 0 0 20px blue;
+}
 }
 }
