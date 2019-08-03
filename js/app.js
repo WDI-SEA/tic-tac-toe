@@ -61,16 +61,21 @@ for (let i = 0; i < emptyGrid.length; i++) {
 	console.log(emptyGrid[i]);
 }
 
-function canGameContinue() {
-//loop through the empty grid
+function checkForDraw() {
+	//variable to store boxes clicked
+	var boxesClicked = 0;
+
+	//loop through the empty grid
 	for (let i = 0; i < emptyGrid.length; i++) {
 		//if an empty box is checked; game can continue
-		if (emptyGrid[i].getAttribute('game-board-grid') === 'true') {
-
-			return false;
+		if (emptyGrid[i].textContent !== '') {
+			boxesClicked++;
 		}	
 	}
-	return true;
+	if (boxesClicked === 9 && gameOver === false) {
+		gameOver = true;
+		winnerMessage.textContent = "CAT GAME";
+	}
 }
 
 function xAndO(e) {
@@ -81,9 +86,10 @@ function xAndO(e) {
 			console.log(this.id);
 			bucketOneArray[this.id] = true;
 			checkForWin();
+			checkForDraw();
 			currentPlayer = 1;
 			newParagraph.textContent = "Player Two Has A Turn";
-			console.log(bucketOneArray);
+			console.log("Player X:", bucketOneArray);
 			//store the clicked div into variable
 			//bucketOneArray[e.target.id] = true;
 
@@ -93,9 +99,10 @@ function xAndO(e) {
 			console.log(this.id);
 			bucketTwoArray[this.id] = true;
 			checkForWin();
+			checkForDraw();
 			currentPlayer = 0;
 			newParagraph.textContent = "Back to Player One";
-			console.log(bucketTwoArray);
+			console.log("Player O:", bucketTwoArray);
 		}
 	}	
 }
@@ -140,12 +147,13 @@ function checkForWin() {
 
 function winGame() {
 	winnerMessage.textContent = "We have a Winner";
+
+	gameOver = true;
 }					
-//winnerMessage.textContent = "We have a Winner";
-					
+
 				
 //if the total trues are equal to nine, we have a draw
-		
+
 			
 
 
@@ -158,13 +166,15 @@ function winGame() {
 
 	
 
+//remove event listeners
+
+
+//players cannot continue to click after game is won
 
 
 
 
-
-
-
+//You should not be able to click remaining empty cells after the game is over.
 
 
 	
@@ -182,6 +192,11 @@ function resetGame() {
 	}
 	//set gameOver back to false
 	gameOver = false;
+	// reset buckets back to false
+	bucketOneArray = [false, false, false, false, false, false, false, false, false];
+	bucketTwoArray = [false, false, false, false, false, false, false, false, false];
+	// reset "we have a winner"/"Cat game" message
+	winnerMessage.textContent = "Start Over?";
 }	
 
 let resetButton = document.getElementById('resetgame');
