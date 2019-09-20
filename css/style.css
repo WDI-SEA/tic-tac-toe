@@ -1,3 +1,86 @@
-h1 {
-  color: purple;
+body{
+	text-align: center;
+	margin: auto;
+	background: linear-gradient(to right, #bbd2c5, #536976);
 }
+
+h1 {
+  font-size: 50px;
+  font-weight: bold;
+
+}
+
+.cell{
+	width: 150px;
+	height: 150px;
+	border: 5px solid black;
+}
+
+.gameboard{
+	display: grid;
+	grid-gap: 5px 5px;
+	margin: auto auto;
+	width: 500px;
+	height: 500px;
+	color: black;
+	font-size: 70px;
+	line-height: 150px;
+}
+
+#reset{
+	border: 2px solid black;
+	color: black;
+	font-size: 40px;
+	border-radius: 10px;
+}
+
+
+#one{
+	grid-column: 1;
+	grid-row: 1;
+}
+
+#two{
+	grid-column: 2;
+	grid-row: 1;
+}
+
+#three{
+	grid-column: 3;
+	grid-row: 1;
+}
+
+#four{
+	grid-column: 1;
+	grid-row: 2;
+}
+
+#five{
+	grid-column: 2;
+	grid-row: 2;
+}
+
+#six{
+	grid-column: 3;
+	grid-row: 2;
+}
+
+#seven{
+	grid-column: 1;
+	grid-row: 3;
+}
+
+#eight{
+	grid-column: 2;
+	grid-row: 3;
+}
+
+#nine{
+	grid-column: 3;
+	grid-row: 3;
+}
+
+
+
+
+
