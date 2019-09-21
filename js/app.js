@@ -32,7 +32,15 @@ const winCombos = [
 ];
 function turnClick(event){
 	if(event.target.textContent.length === 1){
-		alert("You clicked this box already, are you trying to cheat?!");
+		if (moves % 2 === 0){
+			message.style.color = "black";
+			message.textContent = 'WOAH WOAH WOAH HEY NOW, DO NOT DO THAT X';
+
+		}
+		else{
+			message.textContent = 'WOAH WOAH WOAH HEY NOW, DO NOT DO THAT O';
+			message.style.color = "black";
+		}
 	}
 	if (event.target.textContent.length === 0){
 		
@@ -70,7 +78,7 @@ function winCheck(oClick, xClick, winCombos){
 			}
             if(oWins === 3){
 				setTimeout(function(){
-					reset();}, 2000);
+					reset();}, 3000);
 				message.style.fontSize = "200px";
 				for(i = 0; i < cells.length; i++){
 						cells[i].textContent = "";
@@ -88,7 +96,7 @@ function winCheck(oClick, xClick, winCombos){
 			}	 			
 			if(xWins === 3){
 				setTimeout(function(){
-				reset();}, 2000);
+				reset();}, 3000);
 				message.style.fontSize = "200px";
 				for(i = 0; i < cells.length; i++){
 					cells[i].textContent = "";
@@ -103,7 +111,7 @@ function winCheck(oClick, xClick, winCombos){
 			}
 			if (moves === 9 && xWins !== 3 && oWins !== 3) {
 				setTimeout(function(){
-					reset();},2000);
+					reset();},3000);
 				message.style.fontSize = "200px";
 				for(i = 0; i < cells.length; i++){
 						cells[i].textContent = "";
@@ -125,7 +133,7 @@ function reset(){
     oClick = new Array();
 	moves = 0;
 	message.textContent = "X's Turn";
-	message.style.fontSize = "45px";
+	message.style.fontSize = "50px";
 	message.style.color = "#ff2e63";
 	h1.style.color="#ff2e63";
 }
