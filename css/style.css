@@ -1,3 +1,30 @@
+body {
+    text-align: center;
+}
+
+div {
+    display: inline-block;
+    vertical-align: top;
+}
+
 h1 {
-  color: purple;
+    color: purple;
+}
+
+button {
+    padding: 10px;
+    display: block;
+    margin: 10px auto;
+}
+
+.whole-board {
+    border: 1px solid black;
+    width: 300px;
+}
+
+.game-tile {
+    width: 80px;
+    height: 80px;
+    border: 1px solid black;
+    margin: 10px 5px;
 }
