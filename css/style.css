@@ -1,125 +1,90 @@
-html, body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Raleway', sans-serif;
+body{
+  background-color: yellow;
+  
 }
-body {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
- 
-  background-attachment: fixed;
-}
-h1 {
-  color: rgb(48, 46, 46);
-  font-size: 50px;
-}
-#title {
-  border: 1px double rgb(48, 46,46);
-  margin: 10px auto;
-  padding: 5px;
-}
-#subtitle {
- 
-}
-#gridbox {
+#container{
   display: grid;
-  justify-content: center;
-  grid-gap: 2px;
-  grid-template-rows: 200px 200px 200px;
-  grid-template-columns: 200px 200px 200px;
-  grid-template-areas:
-    "a11 a12 a13 a14"
-    "a21 a22 a23 a24"
-    "a31 a32 a33 a34";
+  height: 100vh;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas: 
+  "b1 b2 b3"
+  "b4 b5 b6"
+  "b7 b8 b9";
+  cursor: pointer;
 }
-#a11 {
-  grid-area: a11;
-  border: 2px solid black;
-  border-radius: 10px 0 0 0;
-  background-color: rgba(255,255,255,0.5);
-}
-#a12 {
-  grid-area: a12;
-  border: 2px solid black;
-  background-color: rgba(255,255,255,0.5);
-}
-#a13 {
-  grid-area: a13;
-  border: 2px solid black;
-  border-radius: 0 10px 0 0; 
-  background-color: rgba(255,255,255,0.5);
-}
-#a21 {
-  grid-area: a21;
-  border: 2px solid black;
-  background-color: rgba(255,255,255,0.5);
-}
-#a22 {
-  grid-area: a22;
-  border: 2px solid black;
-  background-color: rgba(255,255,255,0.5);
-}
-#a23 {
-  grid-area: a23;
-  border: 2px solid black;
-  background-color: rgba(255,255,255,0.5);
-}
-#a31 {
-  grid-area: a31;
-  border: 2px solid black;
-  border-radius: 0 0 0 10px;
-  background-color: rgba(255,255,255,0.5);
-}
-#a32 {
-  grid-area: a32;
-  border: 2px solid black;
-  background-color: rgba(255,255,255,0.5);
-}
-#a33 {
-  grid-area: a33;
-  border: 2px solid black;
-  border-radius: 0 0 10px 0;
-  background-color: rgba(255,255,255,0.5);
-}
-#scores {
-  display: grid;
-  justify-content: center;
-  grid-template-rows: 100px;
-  grid-template-columns: 1fr 1fr;
-  grid-template-areas:
-    "score1 score2";
-}
-#score1 {
-  grid-area: score1;
-  border: 1px solid rgb(48, 46,46);
-  background-color: rgba(255,255,255,0.5); 
+#box1{
+  border-bottom: solid 2px black;
+  border-right: solid 2px black;
+  grid-area: b1;
   text-align: center;
-  font-size: 30px;
+  padding-top: 28%;
+  font-size: 40px;
 }
-#score2 {
-  grid-area: score2;
-  border: 1px solid rgb(48, 46,46);
-  background-color: rgba(255,255,255,0.5); 
+#box2{
+  border-right: solid 2px black;
+  border-bottom: solid 2px black;
+  border-left: solid 2px black;
+  grid-area: b2;
   text-align: center;
-  font-size: 30px;
+  padding-top: 28%;
+  font-size: 40px;
 }
-#gridbox {
-  margin: 10px;
+#box3{
+  border-left: solid 2px black;
+  border-bottom: solid 2px black;
+  grid-area: b3;
+  text-align: center;
+  padding-top: 28%;
+  font-size: 40px;
 }
-#newgame {
-  font-size: 20px;
-  margin: 5px;
-  padding: 5px;
-  border-radius: 10px;
-  border: 1px solid rgb(48, 46,46);
+#box4{
+  border-top: solid 2px black;
+  border-bottom: solid 2px black;
+  border-right: solid 2px black;
+  grid-area: b4;
+  text-align: center;
+  padding-top: 28%;
+  font-size: 40px;
 }
-#reset {
-  font-size: 20px;
-  margin: 5px;
-  padding: 5px;
-  border-radius: 10px;
-  border: 1px solid rgb(48, 46,46);
+#box5{
+  border: solid 2px black;
+  grid-area: b5;
+  text-align: center;
+  padding-top: 28%;
+  font-size: 40px;
 }
-#gamemessage {
+#box6{
+  border-left: solid 2px black;
+  border-bottom: solid 2px black;
+  border-top: solid 2px black;
+  grid-area: b6;
+  text-align: center;
+  padding-top: 28%;
+  font-size: 40px;
+}
+#box7{
+  border-right: solid 2px black;
+  border-top: solid 2px black;
+  grid-area: b7;
+  text-align: center;
+  padding-top: 28%;
+  font-size: 40px;
+}
+#box8{
+  border-top: solid 2px black;
+  border-left: solid 2px black;
+  border-right: solid 2px black;
+  grid-area: b8;
+  text-align: center;
+  padding-top: 28%;
+  font-size: 40px;
+}
+#box9{
+  border-top: solid 2px black;
+  border-left: solid 2px black;
+  grid-area: b9;
+  text-align: center;
+  padding-top: 28%;
+  font-size: 40px;
 }
