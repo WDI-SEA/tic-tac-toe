@@ -92,14 +92,17 @@ function winCheck(oClick, xClick, winCombos){
 				}
 				
 			}
-			
-		
 			if (moves === 9 && xWins !== 3 && oWins !== 3) {
 				setTimeout(function(){
-					reset();},500);
+					reset();},2000);
+				message.style.fontSize = "200px";
+				for(i = 0; i < cells.length; i++){
+						cells[i].textContent = "";
+						cells[i].style.background = "transparent";
+						cells[i].style.display = "none";
+				}
 				message.textContent = "Tie Game!";
-	
-		}		
+			}		
 	}
 }
 function reset(){
