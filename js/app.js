@@ -1,22 +1,24 @@
-document.addEventListener("DOMContentLoaded", function(){
-begin();
-});
-var initialBoard;
+
 var moves = 0;
 var xClick = [];
 var oClick = [];
-
-var cells = document.querySelectorAll('.cell');
+var cells = document.querySelectorAll('.gameSection');
+var xName = "X's Turn"
+var oName = "O's Turn"
+var message = document.getElementById("message");
 
 
 function begin(){
-	initialBoard = Array.from(Array(9).keys());
 	for(i = 0; i < cells.length; i++){
 		cells[i].textContent = "";
 		cells[i].addEventListener("click", turnClick)
-		document.getElementById("reset").addEventListener("click", reset);
 	}
+	document.getElementById("reset").addEventListener("click", reset);
+	message.textContent = "X's Turn";
 }
+
+begin();
+
 const winCombos = [
 	["one", "two", "three"],
 	["four", "five", "six"],
@@ -39,6 +41,7 @@ function turnClick(event){
 			document.getElementById(event.target.id).textContent = "X";
 			document.getElementById(event.target.id).style.background = "#902500";
 			moves++;
+			message.textContent = "O's Turn";
 		}
 		else{
 			oClick.push(event.target.id);
@@ -46,14 +49,10 @@ function turnClick(event){
 			document.getElementById(event.target.id).textContent = "O";
 			document.getElementById(event.target.id).style.background = "#002590";
 			moves++;
+			message.textContent = "X's Turn";
 		}
 	}
-	winCheck(oClick, xClick, winCombos);
-	if (moves === 9 ){
-        alert("🐱🐱🐱Game!");
-        reset();
-	}
-}
+	winCheck(oClick, xClick, winCombos);}
 
 function winCheck(oClick, xClick, winCombos){
 	for(var i = 0; i < winCombos.length; i++){
@@ -65,10 +64,15 @@ function winCheck(oClick, xClick, winCombos){
 					console.log(oWins);
 			}
             if(oWins === 3){
-				var oAlert = setTimeout(function(){
-					alert("O wins!");
-					reset();}, 500);
-                            			
+				setTimeout(function(){
+					reset();}, 2000);
+					message.style.fontSize = "200px";
+					for(i = 0; i < cells.length; i++){
+						cells[i].textContent = "";
+						cells[i].style.background = "transparent";
+						cells[i].style.display = "none";
+					}
+					message.textContent = "O Wins!!";
             }
             
 			if(xClick.includes(winCombos[i][j])){
@@ -76,23 +80,36 @@ function winCheck(oClick, xClick, winCombos){
                     console.log(xWins);
 			}	 			
 			if(xWins === 3){
-				var xAlert = setTimeout(function(){
-					alert("X wins!");
-					reset();}, 500);
-                         
-            }
-             
-		}
+				setTimeout(function(){
+				reset();}, 2000);
+				message.style.fontSize = "200px";
+				for(i = 0; i < cells.length; i++){
+					cells[i].textContent = "";
+					cells[i].style.background = "transparent";
+					cells[i].style.display = "none";
+				}
+				message.textContent = "X Wins!!";
+				}
+				
+			}
+			
+		
+			if (moves === 9 && xWins !== 3 && oWins !== 3) {
+				setTimeout(function(){
+					reset();},500);
+				message.textContent = "Tie Game!";
+	
+		}		
 	}
 }
 function reset(){
-            for(i = 0; i < cells.length; i++){
-                cells[i].textContent = "";
-                cells[i].style.background = "transparent";
-            }
-                xClick = new Array();
-                oClick = new Array();
-                moves = 0;
-            }
-
-
+	for(i = 0; i < cells.length; i++){
+		cells[i].textContent = "";
+		cells[i].style.background = "transparent";
+		cells[i].style.display = "";}
+    xClick = new Array();
+    oClick = new Array();
+	moves = 0;
+	message.textContent = "X's Turn";
+	message.style.fontSize = "45px"
+}

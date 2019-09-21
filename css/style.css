@@ -1,30 +1,44 @@
 body{
 	text-align: center;
 	margin: auto;
-	background: linear-gradient(to right, #bbd2c5, #536976);
+	background: linear-gradient(to right, #ed213a, #93291e)
 }
 
 h1 {
-  font-size: 50px;
+  font-size: 70px;
   font-weight: bold;
+  margin-bottom: 10px;
+  margin-top: 0px;
 
 }
-
-.cell{
-	width: 150px;
-	height: 150px;
+button {
+	margin: 25px;
+}
+.gameSection{
 	border: 5px solid black;
-}
+	justify-items: center;
+} 
 
 .gameboard{
 	display: grid;
-	grid-gap: 5px 5px;
+	grid-gap: 20px 20px;
 	margin: auto auto;
 	width: 500px;
 	height: 500px;
 	color: black;
 	font-size: 70px;
 	line-height: 150px;
+	grid-template-columns: repeat(3,150px);
+	grid-template-rows: repeat(3,150px);
+}
+
+#message {
+	color:black;
+	font-size: 45px;
+	margin: 20px;
+	border-top: 2px solid black;
+	border-bottom: 2px solid black;
+	text-align:center;	
 }
 
 #reset{
@@ -35,50 +49,6 @@ h1 {
 }
 
 
-#one{
-	grid-column: 1;
-	grid-row: 1;
-}
-
-#two{
-	grid-column: 2;
-	grid-row: 1;
-}
-
-#three{
-	grid-column: 3;
-	grid-row: 1;
-}
-
-#four{
-	grid-column: 1;
-	grid-row: 2;
-}
-
-#five{
-	grid-column: 2;
-	grid-row: 2;
-}
-
-#six{
-	grid-column: 3;
-	grid-row: 2;
-}
-
-#seven{
-	grid-column: 1;
-	grid-row: 3;
-}
-
-#eight{
-	grid-column: 2;
-	grid-row: 3;
-}
-
-#nine{
-	grid-column: 3;
-	grid-row: 3;
-}
 
 
 
