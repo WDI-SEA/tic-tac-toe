@@ -58,7 +58,7 @@ function checkWinner(move){
 } console.log("check for check winner");
 
 
-//call getBox and compare values. 
+//call getBox and compare to the rows of the gameboard.
 function checkRow(a, b, c, move){
     var result = false;
     if(getBox(a) == move && getBox(b) == move && getBox(c) == move){
@@ -67,7 +67,7 @@ function checkRow(a, b, c, move){
     return result;
 }
 
-//return value of element ("x" or "o")
+//return individual boxes
 function getBox(number){
     return document.getElementById("num"+number).innerHTML;
 }
