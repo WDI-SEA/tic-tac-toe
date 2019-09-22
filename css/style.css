@@ -1,75 +1,55 @@
 body {
-	background-color: black;
+	background-color:cornsilk;
 }
 
 h1 {
-  color: chartreuse;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: .20em;
-  text-shadow: 0 0 20px blue;
+	color: crimson;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+button {
+	display: flex;
+	justify-content: center;
+	background-color: grey;
+	margin: 0 auto;
+	text-transform: uppercase;
+	border: 5px solid blue;
+	width: 125px;
+}
+
+.gameboard {
+	width: 320px;
+	height: 320px;
+	margin: 0 auto;
+}
+
+.row {
+	height: 100px;
+}
+
+.columns {
+	height:  100px;
+	width: 100px;
+	float: left;
+	font-size: 30px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.border-a {
+	border-bottom: 5px solid black;
+}
+
+.border-b {
+	border-right: 5px solid black;
 }
 
 p {
-	font-size: 24px;
-	letter-spacing: .02em;
-	color: white;
-	text-align: center;
-	text-transform: uppercase;
-	text-shadow: 0 0 20px blue;
-}
-
-#players {
-	margin: 0 auto;
-	display: flex;
-	justify-content: center;
-	padding-top: 15px;
-}
-
-input {
-	color: chartreuse;
-	text-transform: uppercase;
-	letter-spacing: .03em;
-	margin-right: 5px;
-	justify-content: center;
-	text-shadow: 0 0 20px blue;
 	display: inline-block;
 }
 
-#playerProfileOne {
-	display: flex;
-	justify-content: center;
-	margin: 0 auto;
-	width: 176px;
-	display: inline;
-}
 
-#playerProfileTwo {
-	display: flex;
-	justify-content: center;
-	display: inline;
-}
-
-#game-clock {
-	color: chartreuse;
-	background-color: rgba(255,255,255, 0.5);
-	margin: 0 auto;
-	padding: 10px;
-	text-transform: uppercase;
-	border: 20px solid blue;
-	width: 118px;
-	font-size: 36px;
-	margin-top: 20px;
-}
-
-.game-board-grid {
-	cursor: pointer;
-	display: grid;
-	grid-template-rows: 180px 180px 180px;
-	grid-template-columns: 180px 180px 180px;
-	justify-content: center;
-	margin: 10px;
-}
 
 .grid {
 	background-color: white;
@@ -87,22 +67,8 @@ input {
 }
 
 
-button {
-	display: flex;
-	justify-content: center;
-	background-color: rgba(255,255,255, 0.5);
-	margin: 0 auto;
-	padding: 10px;
-	text-transform: uppercase;
-	border: 20px solid blue;
-	width: 176px;
-}
 
-.start-stop-reset {
-	display: flex;
-	font-size: 20px;
-	justify-content: center;
-}
+
 
 #playerswitch {
 	background-color: white;
