@@ -1,35 +1,36 @@
-
+//Variables
 var moves = 0;
 var xClick = [];
 var oClick = [];
-var cells = document.querySelectorAll('.gameSection');
-var xName = "X's Turn"
-var oName = "O's Turn"
-var message = document.getElementById("message");
-var h1 = document.querySelector('h1');
-
+var cells = document.querySelectorAll(`.gameSection`);
+var xName = `X's Turn`;
+var oName = `O's Turn`;
+var message = document.getElementById(`message`);
+var h1 = document.querySelector(`h1`);
+//Function to start and add event listeners
 function begin(){
 	for(i = 0; i < cells.length; i++){
 		cells[i].textContent = "";
-		cells[i].addEventListener("click", turnClick)
+		cells[i].addEventListener(`click`, turnClick)
 	}
-	document.getElementById("reset").addEventListener("click", reset);
-	message.textContent = "X's Turn";
-	message.style.color = "#ff2e63";
+	document.getElementById(`reset`).addEventListener(`click`, reset);
+	message.textContent = `X's Turn`;
+	message.style.color = `#ff2e63`;
 }
 
 begin();
 
 const winCombos = [
-	["one", "two", "three"],
-	["four", "five", "six"],
-	["seven", "eight", "nine"],
+	[`one`, `two`, `three`],
+	[`four`, `five`, `six`],
+	[`seven`, "eight", "nine"],
 	["one", "four", "seven"],
 	["two", "five", "eight"],
 	["three", "six", "nine"],
 	["one", "five", "nine"],
 	["three", "five", "seven"]
 ];
+
 function turnClick(event){
 	if(event.target.textContent.length === 1){
 		if (moves % 2 === 0){
@@ -124,6 +125,7 @@ function winCheck(oClick, xClick, winCombos){
 			}		
 	}
 }
+
 function reset(){
 	for(i = 0; i < cells.length; i++){
 		cells[i].textContent = "";
