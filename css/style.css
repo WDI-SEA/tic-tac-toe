@@ -1,3 +1,54 @@
 h1 {
   color: purple;
+  text-align: center;
+}
+
+
+ /* .boxes {
+ background-color: lightsalmon;
+height: 100px;
+width: 100px;
+margin: 0 auto;
+display: inline-block;
+vertical-align: top; 
+ text-align: center;
+}  */
+
+.boxes {
+  margin: 0 auto;
+  font-size: 20px;
+}
+
+/* .boxes div:hover{
+  background-color:grey;
+} */
+
+.row1 div{
+  background-color: lightskyblue;
+  display: inline-block;
+  height: 100px;
+  width: 100px;
+}
+
+.row2 div{
+  background-color:lightsalmon;
+  display: inline-block;
+  height: 100px;
+  width: 100px;
+}
+
+.row3 div{
+  background-color:lightgreen;
+  display: inline-block;
+  height: 100px;
+  width: 100px;
+}
+
+h2{
+  color: black;
+  text-align: center;
+}
+button{
+  text-align: center;
+  
 }

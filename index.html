@@ -6,9 +6,41 @@
   <title>Hello Front-End</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
-<body>
-  <h1>Hello Front-End</h1>
 
-  <script type="text/javascript" src="js/app.js"></script>
+<body onload="startGame();">
+ 
+  <h1>Let the Tic-Tac-Toe Begin!</h1> 
+  <h2 id="message"> X</h2>
+
+  <div class="boxes">
+    <div class="row1">
+      <div id="num0" onClick="nextMove(this)">T</div>
+      <div id="num1" onClick="nextMove(this)">i</div>
+      <div id="num2" onClick="nextMove(this)">c</div>
+    </div>
+    <div class="row2">
+      <div class="num3" onClick="nextMove(this)">T</div>
+      <div class="num4" onClick="nextMove(this)">a</div>
+      <div class="num5" onClick="nextMove(this)">c</div>
+    </div>
+    <div class="row3">
+      <div class="num6" onClick="nextMove(this)">T</div>
+      <div class="num7" onClick="nextMove(this)">o</div>
+      <div class="num8" onClick="nextMove(this)">e</div>
+    </div>
+    
+  </div>
+  
+  <div id="button">
+    <button>Reset</button>
+  </div>
+
+  
+
+
+
+
+  
 </body>
+<script type="text/javascript" src="js/app.js"></script>
 </html>
