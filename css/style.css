@@ -30,6 +30,12 @@ button {
     cursor: pointer;
 }
 
-.game-tile:hover {
-    color: gray;
+@media (hover: hover) {
+    .gametile:hover {
+        background: yellow;
+    }
+}
+
+.winner {
+    background-color: red;
 }
