@@ -8,15 +8,15 @@ var oName = `O's Turn`;
 var message = document.getElementById(`message`);
 var h1 = document.querySelector(`h1`);
 //Function to start and add event listeners
-function begin(){
-	for(i = 0; i < cells.length; i++){
-		cells[i].textContent = "";
-		cells[i].addEventListener(`click`, turnClick)
-	}
-	document.getElementById(`reset`).addEventListener(`click`, reset);
-	message.textContent = `X's Turn`;
-	message.style.color = `#ff2e63`;
-}
+// function begin(){
+// 	for(i = 0; i < cells.length; i++){
+// 		cells[i].textContent = "";
+// 		cells[i].addEventListener(`click`, turnClick)
+// 	}
+	
+// 	message.textContent = `X's Turn`;
+// 	message.style.color = `#ff2e63`;
+// }
 
 begin();
 
@@ -79,7 +79,7 @@ function winCheck(oClick, xClick, winCombos){
 			}
             if(oWins === 3){
 				setTimeout(function(){
-					reset();}, 3000);
+					begin();}, 2000);
 				message.style.fontSize = "200px";
 				for(i = 0; i < cells.length; i++){
 						cells[i].textContent = "";
@@ -97,7 +97,7 @@ function winCheck(oClick, xClick, winCombos){
 			}	 			
 			if(xWins === 3){
 				setTimeout(function(){
-				reset();}, 3000);
+				begin();}, 2000);
 				message.style.fontSize = "200px";
 				for(i = 0; i < cells.length; i++){
 					cells[i].textContent = "";
@@ -112,7 +112,7 @@ function winCheck(oClick, xClick, winCombos){
 			}
 			if (moves === 9 && xWins !== 3 && oWins !== 3) {
 				setTimeout(function(){
-					reset();},3000);
+					begin();},2000);
 				message.style.fontSize = "200px";
 				for(i = 0; i < cells.length; i++){
 						cells[i].textContent = "";
@@ -126,11 +126,14 @@ function winCheck(oClick, xClick, winCombos){
 	}
 }
 
-function reset(){
+function begin(){
 	for(i = 0; i < cells.length; i++){
 		cells[i].textContent = "";
 		cells[i].style.background = "transparent";
-		cells[i].style.display = "";}
+		cells[i].style.display = "";
+		cells[i].addEventListener(`click`, turnClick);
+	}
+	document.getElementById(`reset`).addEventListener(`click`, begin);
     xClick = new Array();
     oClick = new Array();
 	moves = 0;
