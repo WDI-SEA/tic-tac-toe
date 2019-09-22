@@ -22,9 +22,14 @@ button {
     width: 300px;
 }
 
-.game-tile {
+.gametile {
     width: 80px;
     height: 80px;
     border: 1px solid black;
     margin: 10px 5px;
+    cursor: pointer;
+}
+
+.game-tile:hover {
+    color: gray;
 }
