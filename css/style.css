@@ -1,3 +1,72 @@
 h1 {
   color: purple;
 }
+
+.outer-wrapper {
+  margin-top: 2vw;
+  margin-left: 25vw;
+  margin-right: 25vw;
+  margin-bottom: 2vw;
+}
+
+header {
+  text-align:center;
+}
+
+.game {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.div1 { 
+  grid-area: 1 / 1 / 2 / 2; 
+  background:blue;
+  height:200px;
+  width:auto;
+}
+
+.div2 {
+  grid-area: 1 / 2 / 2 / 3; 
+  background:greenyellow;
+}
+
+.div3 { 
+  grid-area: 1 / 3 / 2 / 4;
+  background:purple;
+}
+
+.div4 {
+   grid-area: 2 / 1 / 3 / 2;
+   background:pink;
+}
+
+.div5 { 
+  grid-area: 2 / 2 / 3 / 3;
+  background:chartreuse;
+}
+
+.div6 { 
+  grid-area: 2 / 3 / 3 / 4; 
+  background:yellow;
+}
+
+.div7 {
+  grid-area: 3 / 1 / 4 / 2;
+  background:red;
+}
+
+.div8 { 
+  grid-area: 3 / 2 / 4 / 3;
+  background:tan;
+}
+
+.div9 { 
+  grid-area: 3 / 3 / 4 / 4;
+  background:red;
+}
+
+
+
