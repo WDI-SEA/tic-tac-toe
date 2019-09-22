@@ -8,6 +8,13 @@ h1 {
 	text-transform: uppercase;
 }
 
+h2 {
+	color: crimson;
+	text-align: center;
+	text-transform: uppercase;
+	text-shadow: 0 0 20px black;
+}
+
 button {
 	display: flex;
 	justify-content: center;
@@ -15,7 +22,7 @@ button {
 	margin: 0 auto;
 	text-transform: uppercase;
 	border: 5px solid blue;
-	width: 125px;
+	width: 130px;
 }
 
 .gameboard {
@@ -78,7 +85,7 @@ p {
   text-align: center;
   text-transform: uppercase;
   letter-spacing: .20em;
-  text-shadow: 0 0 20px blue;
+  
 }
 }
 }

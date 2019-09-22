@@ -1,20 +1,28 @@
 console.log('Hello frontend');
 
 //global variables
-//allow all the columns to be accessed
-var columnClick = document.getElementsByClassName('columns')
-console.log(columnClick)
-
-
+var playersArray = ['Player X', 'Player O']
 //set up a variable to start a turn counter at 0 and toggle between x and o clicks
 var counter = 0;
+//set up a variable to count clicks. When the total is 9, we have a draw
+var clicks = 0;
 
+//allow all the columns to be accessed
+var columnClick = document.getElementsByClassName('columns')
+//allow reset button to be activated
+var resetButton = document.getElementById('reset').addEventListener('click', resetGame)
+//allow start button to be activated
+
+
+
+//create function that accesses the gameboard through class 'column'
 var accessGame = function () {
 	//loop through all the columnClicks
 	for (let i = 0; i < columnClick.length; i++) {
 		//add an event listenter for each click
-		columnClick[i].addEventListener('click', placePieces)
-		//set Attributes for 'data-x' and 'data-o' initialize them to false.
+		columnClick[i].addEventListener('click', addXsAndOs)
+		//set Attributes for 'data-x' and 'data-o' initialize them to false. 
+		//This sets conditions for a win or draw
 		columnClick[i].setAttribute('data-x', 'false')
 		columnClick[i].setAttribute('data-o', 'false')
 
@@ -22,86 +30,55 @@ var accessGame = function () {
 			columnClick[i].removeChild(columnClick[i].firstChild)
 		}
 	}
+	clearGame()
 }
 accessGame()
-function placePieces () {
+
+
+
+
+//create function to add an x or an o
+function addXsAndOs () {
     if (counter === 0 || counter % 2 === 0) {
-      var pieceX = document.createElement('p');
-      pieceX.textContent = "X";
-      pieceX.alignText = 'center';
-      pieceX.style.color = 'black';
-      this.append(pieceX);
-      //remove the ability to add to the boxes
-      this.removeEventListener('click', placePieces);
+      var paragraphElementX = document.createElement('p')
+      paragraphElementX.textContent = "X"
+      paragraphElementX.alignText = 'center'
+      paragraphElementX.style.color = 'black'
+      this.append(paragraphElementX)
+      //remove the ability to continue to click on the same spot
+      this.removeEventListener('click', addXsAndOs)
       //set boolean for endgame logic
-      this.setAttribute('data-x', 'true');
-      this.setAttribute('data-board', 'true');
-      counter++;
+      this.setAttribute('data-x', 'true')
+      this.setAttribute('data-board', 'true')
+	  counter++
+	  clicks++
+	  console.log(clicks)
+	  var playerMessageO = document.getElementById('player-message').textContent = `${playersArray[1]} has a turn`
+	  console.log(playerMessageO)
       //I want to check to win after each piece is placed.
-      winQuery();
-      //checkDraw();
+      winQuery()
+	  //drawQuery()
     }
     else {
       //placePieceO();
-      var pieceO = document.createElement('p')
-      pieceO.textContent = "O";
-      pieceO.style.color = 'black';
-      this.append(pieceO);
+      var paragraphElementO = document.createElement('p')
+      paragraphElementO.textContent = "O";
+      paragraphElementO.style.color = 'black';
+      this.append(paragraphElementO);
       this.setAttribute('data-o', 'true')
       //This is telling the draw function that a board slot is full.
       this.setAttribute('data-board', 'true')
-      this.removeEventListener('click', placePieces);
-      counter++
+      this.removeEventListener('click', addXsAndOs)
+	  counter++
+	  clicks++
+	  console.log(clicks)
+	  var playerMessageX = document.getElementById('player-message').textContent = `Back to ${playersArray[0]}`
+
       //I want to check to win after each piece is placed.
-      winQuery();
+	  winQuery()
+	  //drawQuery()
     }
 }
-
-
-
-// var clickXsOrOs = function(e) {
-// 	if(counter == 0 || counter % 2 == 0) {
-// 		var paragraphElementX = document.createElement('p')
-// 		paragraphElementX.textContent = 'X'
-// 		paragraphElementX.style.textAlign = 'center';
-// 		columnClick.appendChild(paragraphElementX)
-		
-// 		counter++
-// 		//remove the eventlistener once it has been clicked
-// 		this.removeEventListener('click', clickXsOrOs)
-// 		//set up boolean true or false for winQuery
-// 		this.setAttribute('data-x', 'true')
-// 		this.setAttribute('data-board', 'true')
-// 		winQuery()
-// 	} else {
-// 		var paragraphElementO = document.createElement('p')
-// 		paragraphElementO.textContent = 'O'
-// 		paragraphElementO.style.textAlign = 'center'
-// 		columnClick.appendChild(paragraphElementO)
-	
-// 		counter++
-		
-		//set up boolean true or false for winQuery
-// 		this.setAttribute('data-o', 'true')
-// 		this.setAttribute('data-board', 'true')
-// 		//remove the eventlistener once it has been clicked
-// 		this.removeEventListener('click', clickXsOrOs)
-// 		winQuery()
-// 	}
-// }
-// clickXsOrOs()
-
-
-// var clickO = function(e) {
-// 	var gameboardAccessO = document.querySelector('.gameboard')
-// 	gameboardAccessO.addEventListener('click', function(e) {
-// 	console.log('o marks the spot')
-	
-// 	})
-// }
-
-// clickX()
-// clickO()
 
 //game logic. Grab elementsByTagName to set an if/else statement that checks if
 //each box has data in it(getAttribute('data-x').  if it is truthy, then that counts as a win)
@@ -127,6 +104,7 @@ var winQuery = function() {
 		(leftDiagonalQuery[0].getAttribute('data-x') === 'true' && leftDiagonalQuery[1].getAttribute('data-x') === 'true' && leftDiagonalQuery[2].getAttribute('data-x') === 'true') ||
 		(rightDiagonalQuery[0].getAttribute('data-x') === 'true' && rightDiagonalQuery[1].getAttribute('data-x') === 'true' && rightDiagonalQuery[2].getAttribute('data-x') === 'true')) {
 			console.log('add up the wins for x')
+			document.getElementById('player-message').textContent = `The Winner is ${playersArray[0]}`
 		} 
 		else if 
 		((topRowQuery[0].getAttribute('data-o') === 'true' && topRowQuery[1].getAttribute('data-o') === 'true' && topRowQuery[2].getAttribute('data-o') === 'true') ||
@@ -138,16 +116,49 @@ var winQuery = function() {
 		(leftDiagonalQuery[0].getAttribute('data-o') === 'true' && leftDiagonalQuery[1].getAttribute('data-o') === 'true' && leftDiagonalQuery[2].getAttribute('data-o') === 'true') ||
 		(rightDiagonalQuery[0].getAttribute('data-o') === 'true' && rightDiagonalQuery[1].getAttribute('data-o') === 'true' && rightDiagonalQuery[2].getAttribute('data-o') === 'true')) {
 			console.log('add up the wins for o')
-		} 
-
+			document.getElementById('player-message').textContent = `The Winner is ${playersArray[1]}`
 	} 
 
+}
 
-//function to initiate the game
-//which starts with an 'x'
-// var ticTacToe = function() {
+var drawQuery = function () {
+	//the same for loop as above for the gameboard
+	for (let i = 0; i < columnClick.length; i++) {
+		if (clicks === 9) {
+			document.getElementById('winner-message').textContent = 'We Have A Tie'
+		}
+	}
+}
+drawQuery()
+
+
+// //create a function to clear game
+// function clearGame () {
+// 	for(let i = 0; i < columnClick.length; i++) {
+// 	columnClick[i].setAttribute('data-board', 'false')
+// 	console.log(clearGame)
+// 	}
+// }
+
+//reset button. removes the textContent elements
+
+function resetGame () {
+	//a for loop again to go through the boardgame
+	for (let i = 0; i < columnClick.length; i++) {
+		//clear addXsAndOx
+		var resetGame = columnClick[i].textContent = ''
+		document.getElementById('player-message').textContent = ''
+	}
+}
+resetGame()
+
+
+	// var resetGame = columnClick[i].removeEventListener('click', addXsAndOs)
+	// columnClick[i].setAttribute('data-x', 'false')
+	// columnClick[i].setAttribute('data-o', 'false')
+
 	
-
+////----first attempt. Not apart of 2nd
 // }
 //global variables
 // var playerOne;
