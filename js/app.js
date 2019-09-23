@@ -1,12 +1,5 @@
 console.log('Hello frontend');
 
-// var currentScreen = document.querySelector('.current-screen')
-// var winScreen = document.querySelector('.win-screen')
-// var tieScreen = document.querySelector('.tie-screen')
-
-// document.addEventListener('click', function(e) {
-// 	winScreen.style.display = 'block'
-// })
 //global variables
 var playersArray = ['Player X', 'Player O']
 //set up a variable to start a turn counter at 0 and toggle between x and o clicks
@@ -18,21 +11,18 @@ var clicks = 0;
 var columnClick = document.getElementsByClassName('columns')
 //allow reset button to be activated
 var resetButton = document.getElementById('reset')
-//allow start button to be activated
-
-
 
 //create function that accesses the gameboard through class 'column'
 var accessGame = function () {
 	//loop through all the columnClicks
 	for (let i = 0; i < columnClick.length; i++) {
-		//add an event listenter for each click
+		//add an event listener for each click
 		columnClick[i].addEventListener('click', addXsAndOs)
 		//set Attributes for 'data-x' and 'data-o' initialize them to false. 
 		//This sets conditions for a win or draw
 		columnClick[i].setAttribute('data-x', 'false')
 		columnClick[i].setAttribute('data-o', 'false')
-
+		//if a click event has happened, remove the ability to click again on same column
 		if (columnClick[i].getAttribute('data-board') === 'true') {
 			columnClick[i].removeChild(columnClick[i].firstChild)
 		}
@@ -45,47 +35,47 @@ accessGame()
 
 //create function to add an x or an o
 function addXsAndOs () {
-    if (counter === 0 || counter % 2 === 0) {
-      var paragraphElementX = document.createElement('p')
-      paragraphElementX.textContent = "X"
-      paragraphElementX.alignText = 'center'
-	  paragraphElementX.style.color = 'black'
-	  paragraphElementX.style.fontSize = '40px'
-      this.append(paragraphElementX)
+if (counter === 0 || counter % 2 === 0) {
+    var paragraphElementX = document.createElement('p')
+    paragraphElementX.textContent = "X"
+    paragraphElementX.alignText = 'center'
+	paragraphElementX.style.color = 'black'
+	paragraphElementX.style.fontSize = '40px'
+    this.append(paragraphElementX)
       //remove the ability to continue to click on the same spot
-      this.removeEventListener('click', addXsAndOs)
-      //set boolean for endgame logic
-      this.setAttribute('data-x', 'true')
-      this.setAttribute('data-board', 'true')
-	  counter++
-	  clicks++
-	  console.log(clicks)
-	  var playerMessageO = document.getElementById('player-message').textContent = `${playersArray[1]} has a turn`
-	  console.log(playerMessageO)
-      //I want to check to win after each piece is placed.
-      winQuery()
-	  drawQuery()
+    this.removeEventListener('click', addXsAndOs)
+      //set boolean for game logic
+    this.setAttribute('data-x', 'true')
+    this.setAttribute('data-board', 'true')
+	counter++
+	clicks++
+	console.log(clicks)
+	var playerMessageO = document.getElementById('player-message').textContent = `${playersArray[1]} has a turn`
+	console.log(playerMessageO)
+      //I want to check to win after each column is clicked.
+	winQuery()
+	  //I want to check draw after each column is clicked
+	drawQuery()
 
     }
     else {
-      //placePieceO();
-      var paragraphElementO = document.createElement('p')
-      paragraphElementO.textContent = "O";
-	  paragraphElementO.style.color = 'black';
-	  paragraphElementO.style.fontSize = '40px'
-      this.append(paragraphElementO);
-      this.setAttribute('data-o', 'true')
+    var paragraphElementO = document.createElement('p')
+    paragraphElementO.textContent = "O";
+	paragraphElementO.style.color = 'black';
+	paragraphElementO.style.fontSize = '40px'
+    this.append(paragraphElementO);
+    this.setAttribute('data-o', 'true')
       //This is telling the draw function that a board slot is full.
-      this.setAttribute('data-board', 'true')
-      this.removeEventListener('click', addXsAndOs)
-	  counter++
-	  clicks++
-	  console.log(clicks)
-	  var playerMessageX = document.getElementById('player-message').textContent = `Back to ${playersArray[0]}`
+    this.setAttribute('data-board', 'true')
+    this.removeEventListener('click', addXsAndOs)
+	counter++
+	clicks++
+	console.log(clicks)
+	var playerMessageX = document.getElementById('player-message').textContent = `Back to ${playersArray[0]}`
 
       //I want to check to win after each piece is placed.
-	  winQuery()
-	  drawQuery()
+	winQuery()
+	drawQuery()
     }
 }
 
@@ -100,9 +90,13 @@ var winQuery = function() {
 	let leftColumnQuery = document.getElementsByClassName('left-column')
 	let middleColumnQuery = document.getElementsByClassName('middle-column')
 	let rightColumnQuery = document.getElementsByClassName('right-column')
+	//middle vertical access
+	let middleVerticalQuery = document.getElementsByClassName('middle-vertical')
 	//diagonal access
-	let leftDiagonalQuery = document.getElementsByClassName('left-diagonal')
-	let rightDiagonalQuery = document.getElementsByClassName('right-diagonal')
+	let leftTopDiagonalQuery = document.getElementsByClassName('left-top-diagonal')
+	let leftBottomDiagonalQuery = document.getElementsByClassName('left-bottom-diagonal')
+	let rightTopDiagonalQuery = document.getElementsByClassName('right-top-diagonal')
+	let rightBottomDiagonalQuery = document.getElementsByClassName('right-bottom-diagonal')
 
 	if ((topRowQuery[0].getAttribute('data-x') === 'true' && topRowQuery[1].getAttribute('data-x') === 'true' && topRowQuery[2].getAttribute('data-x') === 'true') ||
 		(middleRowQuery[0].getAttribute('data-x') === 'true' && middleRowQuery[1].getAttribute('data-x') === 'true' && middleRowQuery[2].getAttribute('data-x') === 'true') ||
@@ -110,8 +104,11 @@ var winQuery = function() {
 		(leftColumnQuery[0].getAttribute('data-x') === 'true' && leftColumnQuery[1].getAttribute('data-x') === 'true' && leftColumnQuery[2].getAttribute('data-x') === 'true') ||
 		(middleColumnQuery[0].getAttribute('data-x') === 'true' && middleColumnQuery[1].getAttribute('data-x') === 'true' && middleColumnQuery[2].getAttribute('data-x') === 'true') ||
 		(rightColumnQuery[0].getAttribute('data-x') === 'true' && rightColumnQuery[1].getAttribute('data-x') === 'true' && rightColumnQuery[2].getAttribute('data-x') === 'true') ||
-		(leftDiagonalQuery[0].getAttribute('data-x') === 'true' && leftDiagonalQuery[1].getAttribute('data-x') === 'true' && leftDiagonalQuery[2].getAttribute('data-x') === 'true') ||
-		(rightDiagonalQuery[0].getAttribute('data-x') === 'true' && rightDiagonalQuery[1].getAttribute('data-x') === 'true' && rightDiagonalQuery[2].getAttribute('data-x') === 'true')) {
+		(leftTopDiagonalQuery[0].getAttribute('data-x') === 'true' && leftTopDiagonalQuery[1].getAttribute('data-x') === 'true' && leftTopDiagonalQuery[2].getAttribute('data-x') === 'true') ||
+		(rightTopDiagonalQuery[0].getAttribute('data-x') === 'true' && rightTopDiagonalQuery[1].getAttribute('data-x') === 'true' && rightTopDiagonalQuery[2].getAttribute('data-x') === 'true') ||
+		(leftBottomDiagonalQuery[0].getAttribute('data-x') === 'true' && leftBottomDiagonalQuery[1].getAttribute('data-x') === 'true' && leftBottomDiagonalQuery[2].getAttribute('data-x') === 'true') ||
+		(rightBottomDiagonalQuery[0].getAttribute('data-x') === 'true' && rightBottomDiagonalQuery[1].getAttribute('data-x') === 'true' && rightBottomDiagonalQuery[2].getAttribute('data-x') === 'true') ||
+		(middleVerticalQuery[0].getAttribute('data-x') === 'true' && middleVerticalQuery[1].getAttribute('data-x') === 'true' && middleVerticalQuery[2].getAttribute('data-x') === 'true')) {
 			console.log('add up the wins for x')
 			document.getElementById('player-message').textContent = `${playersArray[0]} is the WINNER`
 		} 
@@ -122,8 +119,11 @@ var winQuery = function() {
 		(leftColumnQuery[0].getAttribute('data-o') === 'true' && leftColumnQuery[1].getAttribute('data-o') === 'true' && leftColumnQuery[2].getAttribute('data-o') === 'true') ||
 		(middleColumnQuery[0].getAttribute('data-o') === 'true' && middleColumnQuery[1].getAttribute('data-o') === 'true' && middleColumnQuery[2].getAttribute('data-o') === 'true') ||
 		(rightColumnQuery[0].getAttribute('data-o') === 'true' && rightColumnQuery[1].getAttribute('data-o') === 'true' && rightColumnQuery[2].getAttribute('data-o') === 'true') ||
-		(leftDiagonalQuery[0].getAttribute('data-o') === 'true' && leftDiagonalQuery[1].getAttribute('data-o') === 'true' && leftDiagonalQuery[2].getAttribute('data-o') === 'true') ||
-		(rightDiagonalQuery[0].getAttribute('data-o') === 'true' && rightDiagonalQuery[1].getAttribute('data-o') === 'true' && rightDiagonalQuery[2].getAttribute('data-o') === 'true')) {
+		(leftTopDiagonalQuery[0].getAttribute('data-o') === 'true' && leftTopDiagonalQuery[1].getAttribute('data-o') === 'true' && leftTopDiagonalQuery[2].getAttribute('data-o') === 'true') ||
+		(rightTopDiagonalQuery[0].getAttribute('data-o') === 'true' && rightTopDiagonalQuery[1].getAttribute('data-o') === 'true' && rightTopDiagonalQuery[2].getAttribute('data-o') === 'true') ||
+		(leftBottomDiagonalQuery[0].getAttribute('data-o') === 'true' && leftBottomDiagonalQuery[1].getAttribute('data-o') === 'true' && leftBottomDiagonalQuery[2].getAttribute('data-o') === 'true') ||
+		(rightBottomDiagonalQuery[0].getAttribute('data-o') === 'true' && rightBottomDiagonalQuery[1].getAttribute('data-o') === 'true' && rightBottomDiagonalQuery[2].getAttribute('data-o') === 'true') ||
+		(middleVerticalQuery[0].getAttribute('data-o') === 'true' && middleVerticalQuery[1].getAttribute('data-o') === 'true' && middleVerticalQuery[2].getAttribute('data-o') === 'true')) {
 			console.log('add up the wins for o')
 			document.getElementById('player-message').textContent = `${playersArray[1]} is the WINNER`
 	} 
@@ -141,39 +141,13 @@ var drawQuery = function () {
 }
 drawQuery()
 
-
-// //create a function to clear game
-// function clearGame () {
-// 	for(let i = 0; i < columnClick.length; i++) {
-// 	columnClick[i].setAttribute('data-board', 'false')
-// 	console.log(clearGame)
-// 	}
-// }
-
 //reset button. removes the textContent elements
 
 function resetGame () {
-	//a for loop again to go through the boardgame
-	//for (let i = 0; i < columnClick.length; i++) {
-		//clear addXsAndOx
-		// var resetGame = columnClick[i].textContent = ''
-		// document.getElementById('player-message').textContent = ''
-		location.reload()
-	}
-//}
+	location.reload()
+}
 resetButton.addEventListener('click', resetGame)
 
-
-// var winScreen = function (newScreen) {
-// 	if (newScreen)
-// }
-
-
-	// var resetGame = columnClick[i].removeEventListener('click', addXsAndOs)
-	// columnClick[i].setAttribute('data-x', 'false')
-	// columnClick[i].setAttribute('data-o', 'false')
-
-	
 ////----first attempt. Not apart of 2nd
 // }
 //global variables

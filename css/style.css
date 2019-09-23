@@ -41,7 +41,6 @@ button {
 	height:  100px;
 	width: 100px;
 	float: left;
-	font-size: 30px;
 	text-align: center;
 	vertical-align: middle;
 }
@@ -60,12 +59,12 @@ p {
 
 
 
-.grid {
+/* .grid {
 	background-color: white;
 	border: 1px solid red;
 	display: flex;
 	justify-content: center;
-}
+} */
 
 /* .green {
 	background-color:;
