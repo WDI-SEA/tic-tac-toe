@@ -26,7 +26,7 @@ var CPUActive = 0;
 var open = [];
 var rand = 0;
 
-// Game board objects
+// Game board objects used in all decision making and square availability
 
 const gameBoardObj = [{
         id: 0,
