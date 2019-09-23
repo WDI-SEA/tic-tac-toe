@@ -1,5 +1,5 @@
 body {
-	background-color:cornsilk;
+	background-color: rgba(24, 23, 23, 0.548);
 	font-family: 'Mansalva', cursive;
 }
 
@@ -7,6 +7,7 @@ h1 {
 	color: crimson;
 	text-align: center;
 	text-transform: uppercase;
+	font-size: 50px;
 }
 
 h2 {
@@ -19,10 +20,11 @@ h2 {
 button {
 	display: flex;
 	justify-content: center;
-	background-color: grey;
+	background-color: crimson;
+	color: whitesmoke;
 	margin: 0 auto;
 	text-transform: uppercase;
-	border: 5px solid blue;
+	border: 5px solid black;
 
 }
 
