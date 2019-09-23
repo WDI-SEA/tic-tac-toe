@@ -1,5 +1,12 @@
 console.log('Hello frontend');
 
+// var currentScreen = document.querySelector('.current-screen')
+// var winScreen = document.querySelector('.win-screen')
+// var tieScreen = document.querySelector('.tie-screen')
+
+// document.addEventListener('click', function(e) {
+// 	winScreen.style.display = 'block'
+// })
 //global variables
 var playersArray = ['Player X', 'Player O']
 //set up a variable to start a turn counter at 0 and toggle between x and o clicks
@@ -42,7 +49,8 @@ function addXsAndOs () {
       var paragraphElementX = document.createElement('p')
       paragraphElementX.textContent = "X"
       paragraphElementX.alignText = 'center'
-      paragraphElementX.style.color = 'black'
+	  paragraphElementX.style.color = 'black'
+	  paragraphElementX.style.fontSize = '40px'
       this.append(paragraphElementX)
       //remove the ability to continue to click on the same spot
       this.removeEventListener('click', addXsAndOs)
@@ -57,12 +65,14 @@ function addXsAndOs () {
       //I want to check to win after each piece is placed.
       winQuery()
 	  drawQuery()
+
     }
     else {
       //placePieceO();
       var paragraphElementO = document.createElement('p')
       paragraphElementO.textContent = "O";
-      paragraphElementO.style.color = 'black';
+	  paragraphElementO.style.color = 'black';
+	  paragraphElementO.style.fontSize = '40px'
       this.append(paragraphElementO);
       this.setAttribute('data-o', 'true')
       //This is telling the draw function that a board slot is full.
@@ -93,7 +103,7 @@ var winQuery = function() {
 	//diagonal access
 	let leftDiagonalQuery = document.getElementsByClassName('left-diagonal')
 	let rightDiagonalQuery = document.getElementsByClassName('right-diagonal')
-		
+
 	if ((topRowQuery[0].getAttribute('data-x') === 'true' && topRowQuery[1].getAttribute('data-x') === 'true' && topRowQuery[2].getAttribute('data-x') === 'true') ||
 		(middleRowQuery[0].getAttribute('data-x') === 'true' && middleRowQuery[1].getAttribute('data-x') === 'true' && middleRowQuery[2].getAttribute('data-x') === 'true') ||
 		(bottomRowQuery[0].getAttribute('data-x') === 'true' && bottomRowQuery[1].getAttribute('data-x') === 'true' && bottomRowQuery[2].getAttribute('data-x') === 'true') ||
@@ -124,6 +134,7 @@ var drawQuery = function () {
 	//the same for loop as above for the gameboard
 	for (let i = 0; i < columnClick.length; i++) {
 		if (clicks === 9) {
+			document.getElementById('player-message').textContent = ''
 			document.getElementById('winner-message').textContent = 'We Have A Tie'
 		}
 	}
@@ -151,6 +162,11 @@ function resetGame () {
 	}
 //}
 resetButton.addEventListener('click', resetGame)
+
+
+// var winScreen = function (newScreen) {
+// 	if (newScreen)
+// }
 
 
 	// var resetGame = columnClick[i].removeEventListener('click', addXsAndOs)
