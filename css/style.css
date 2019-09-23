@@ -1,5 +1,10 @@
 body {
     text-align: center;
+    height: 100vh;
+    background: #003973;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #E5E5BE, #003973);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #E5E5BE, #003973); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    font-family: 'Nunito', sans-serif;
 }
 
 div {
@@ -9,12 +14,21 @@ div {
 
 h1 {
     color: purple;
+    display: inline-block;
+    font-family: 'Mansalva', cursive;
+    font-size: 4.5em;
+    margin: 0 0 .6em 0;
 }
 
 button {
-    padding: 10px;
+    padding: 10px 15px;
     display: block;
     margin: 10px auto;
+    font-size: 15px;
+    background-color: rgba(117, 223, 117, 0);
+    border: none;
+    cursor: pointer;
+    font-size: 30px;
 }
 
 .whole-board {
@@ -28,14 +42,43 @@ button {
     border: 1px solid black;
     margin: 10px 5px;
     cursor: pointer;
+    font-size: 5em;
+    color: white;
+    font-family: 'Mansalva', cursive;
+}
+
+.winner {
+    background-color: rgb(62, 78, 226);
+}
+
+.score {
+    padding: 10px;
+    font-size: 2em;
+}
+
+#player1 {
+    float: left;
+    margin: 15px 0 0 10px;
+}
+
+#player2 {
+    float: right;
+    margin: 15px 10px 0 0;
+}
+
+#display {
+    font-size: 40px;
+    margin-top: 20px;
 }
 
 @media (hover: hover) {
     .gametile:hover {
-        background: yellow;
+        background: #A9B9E5;
     }
 }
 
-.winner {
-    background-color: red;
+@media (max-width: 500px) {
+    h1 {
+        font-size: 25px;
+    }
 }

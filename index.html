@@ -5,10 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Tic-Tac-Toe</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Mansalva|Nunito&display=swap" rel="stylesheet">
 </head>
 <body>
+
+    <div class="score" id="player1">Player 1 wins: 0</div>
+    <div class="score" id="player2">Player 2 wins: 0</div>
+
     <h1>Tic-Tac-Toe</h1>
     <h2 id="display">Start Game!</h2>
+
     <div class="whole-board">
         <div class="gametile" id="0"> </div>
         <div class="gametile" id="1"> </div>
@@ -23,7 +29,7 @@
         <div class="gametile" id="7"> </div>
     </div>
 
-    <button id="reset">Reset</button>
+    <button id="reset">Restart</button>
 
     <script type="text/javascript" src="js/main.js"></script>
 </body>
