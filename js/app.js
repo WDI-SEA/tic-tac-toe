@@ -1,19 +1,21 @@
 //Variables
 var moves = 0;
-var xClick = [];
-var oClick = [];
+var xClick;
+var oClick;
 var cells = document.querySelectorAll(".gameSection");
 var xName = "X's Turn";
 var oName = "O's Turn";
 var message = document.getElementById("message");
 var h1 = document.querySelector("h1");
 //Function to start and add event listeners/reset
+begin();
+
 function begin(){
 	for(i = 0; i < cells.length; i++){
 		cells[i].textContent = "";
 		cells[i].style.background = `transparent`;
 		cells[i].style.display = "";
-		cells[i].addEventListener("click", turnClick);
+		cells[i].addEventListener("click", turnClick)
 	}
 	document.getElementById("reset").addEventListener("click", begin);
     xClick = new Array();
@@ -25,7 +27,6 @@ function begin(){
 	h1.style.color=`#ff2e63`;
 }
 
-begin();
 //Win Combinations
 const winCombos = [
 	[`one`, `two`, `three`],
@@ -38,7 +39,7 @@ const winCombos = [
 	[`three`, `five`, `seven`]
 ];
 //Click function / checking who is going to click and if the space has been clicked already
-//Wincheck
+//Wincheck after each click
 function turnClick(event){
 	if(event.target.textContent.length === 1){
 		if (moves % 2 === 0){
