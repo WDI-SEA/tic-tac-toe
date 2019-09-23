@@ -3,7 +3,6 @@
 /*
 Explicitly enable mixed code (including pre-ES5) with this
 special directive. 
-
 Strict mode:
 - catches some common coding bloopers, throwing exceptions.
 - Prevents, or throws errors, when relatively "unsafe" actions
@@ -26,11 +25,9 @@ const startScreen = document.getElementById("start"),
   x = "url(img/x.svg)",
   /*
   Permutator will check for any combination of, say, 012:
-
   Permutations of 0, 1, 2:
   012, 120, 201,
   210, 021, 102
-
   There are 6 permuations for each of the 8 winning combinations.
   Instead of making an array of 48 combinations and then checking
   for any one of those, I decided to create a function which takes
@@ -139,10 +136,6 @@ function unhighlightSquare() {
 
 // Pick Square
 function pickSquare() {
-  const boxFilled1 = document.getElementsByClassName("box-filled-1")[0],
-    boxFilled2 = document.getElementsByClassName("box-filled-2")[0];
-  let square = board;
-
   squares.addEventListener("click", (e) => {
     const gameplay = () => {
       checkWinner();
@@ -172,29 +165,29 @@ function checkWinner() {
   checked against a regular expression. If any of the winning
   combinations are found then announce the winner of the game.
   */
-  let permutator = (inputArr) => {
+  let permutator = (arr1) => {
     let result = [];
-    const permute = (arr, m = []) => {
+    const permutate = (arr2, arr3 = []) => {
       // Push the array of permutations into the 'results' array
-      if (arr.length === 0) {
-        result.push(m)
+      if (arr2.length === 0) {
+        result.push(arr3);
       /*
       If the array is not empty then append the newer
       moves after the older moves.
       */
       } else {
-        for (let i = 0; i < arr.length; i++) {
-          let curr = arr.slice();
-          let next = curr.splice(i, 1);
-          permute(curr.slice(), m.concat(next))
+        for (let i = 0; i < arr2.length; i++) {
+          let num = arr2.slice(),
+            nextNum = num.splice(i, 1);
+          permutate(num.slice(), arr3.concat(nextNum));
         }
       }
     }
     /*
-    Pass the 'inputArr' input parameter into the
-    'permute' function
+    Pass the 'arr1' input parameter into the
+    'permutate' function
     */
-    permute(inputArr)
+    permutate(arr1);
     return result;
   },
   // Pass each player's moves into the permutator
@@ -206,11 +199,6 @@ function checkWinner() {
   */
   player1Win = "false",
   player2Win = "false";
-
-  // Demonstration
-  console.log(`Winning Combinations: ${wins}`);
-  console.log(`Player 1 Moves: ${player1Score}`);
-  console.log(`Player 2 Moves: ${player2Score}`);
 
   // Iterate through the array of winning combinations
   wins.forEach(win => {
@@ -256,6 +244,10 @@ function checkWinner() {
       showScreen(finishScreen);
     }
   });
+  // Demonstration
+  console.log(`🏆 Winning Combinations: ${wins} 🏆`);
+  console.log(`🙂 Player Ⅰ \n Moves: ${player1Move} \n Permutations: ${player1Score} \n Win: ${player1Win}`);
+  console.log(`🙂 Player ⅠⅠ \n Moves: ${player2Move} \n Permutations: ${player2Score} \n Win: ${player2Win}`);
 }
 
 // Start a new game
