@@ -21,6 +21,18 @@ body, .screen-win-one, .screen-win-two, .screen-win-tie {
   }
 }
 
+header img {
+  width: 240px;
+  height: auto;
+  margin-bottom: 80px;
+}
+.logo-sm {
+  display: block;
+  width: 100px;
+  height: auto;
+  margin: 20px auto 0;
+}
+
 ul {
   margin: 0;
   padding: 0;
@@ -43,9 +55,11 @@ h2 {
 .button {
   background: #fff;
   border-radius: 4px;
+  width: 240px;
+  padding: 15px 10px;
+  margin: 20px 0 20px;
   box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
   display: inline-block;
-  padding: 1.25em 3em;
   text-decoration: none;
   -webkit-transition: 0.25s ease;
   transition: 0.25s ease; }
@@ -102,9 +116,11 @@ h2 {
       background: #54D17A }
     .screen-win-one p:before {
       content: "o";
+      color: #FFA000;
       top: 1.75rem; }
     .screen-win-two p:before {
       content: "×";
+      color: #3688C3;
       top: 4.5rem; }
 
 .board {
@@ -168,11 +184,12 @@ h2 {
 input[type="text"] {
   color: #000;
   font-family: "Montserrat", sans-serif;
-  font-size: 1.5em;
-  text-align: center;
-  padding: 10px 0;
-  width: 186.219px;
-  margin: -10px 0 20px;
+  font-size: 1.2em;
+  padding: 10px;
+  width: 240px;
+  border: none;
+  border-radius: 4px;
+  margin: 20px 0 20px;
 }
 
 #playerTwo {

@@ -246,8 +246,8 @@ function checkWinner() {
   });
   // Demonstration
   console.log(`🏆 Winning Combinations: ${wins} 🏆`);
-  console.log(`🙂 Player Ⅰ \n Moves: ${player1Move} \n Permutations: ${player1Score} \n Win: ${player1Win}`);
-  console.log(`🙂 Player ⅠⅠ \n Moves: ${player2Move} \n Permutations: ${player2Score} \n Win: ${player2Win}`);
+  console.log(`🙂 ${printName1.textContent} \n Moves: ${player1Move} \n Permutations: ${player1Score} \n Win: ${player1Win}`);
+  console.log(`🙂 ${printName2.textContent} \n Moves: ${player2Move} \n Permutations: ${player2Score} \n Win: ${player2Win}`);
 }
 
 // Start a new game
