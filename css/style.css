@@ -1,10 +1,13 @@
 body{
   background-color: yellow;
+  text-align: center;
+
   
 }
 #container{
   display: grid;
-  height: 100vh;
+  height: 400px;
+  width: 400px;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   grid-template-areas: 
@@ -12,6 +15,9 @@ body{
   "b4 b5 b6"
   "b7 b8 b9";
   cursor: pointer;
+  margin: 150px auto;
+  
+
 }
 #box1{
   border-bottom: solid 2px black;
@@ -87,4 +93,13 @@ body{
   text-align: center;
   padding-top: 28%;
   font-size: 40px;
+}
+#wonMessage {
+  font-size: 40px;
+  padding: 0;
+  margin: 0;
+  height: 0;
+}
+#reset {
+  margin: 0;
 }
