@@ -1,4 +1,4 @@
-//Define variables local variables
+//Global variables
 
 var turnNotification = document.getElementById('turn-notif');
 var gameDiv = document.getElementById('game-board');
@@ -107,12 +107,16 @@ const gameBoardObj = [{
     }
 ];
 
+//Function used to create board as first step in program
+
 function createBoard() {
     for (i = 0; i < gameBoardObj.length; i++){
         createGrid(i);
     }
 }
-    
+   
+// Hands off to this function that creates relationship with DOM objects and object array.
+
 function createGrid(num) {
     var newDivItem = document.createElement("div");
     newDivItem.setAttribute("id", gameBoardObj[num].id);
@@ -131,6 +135,8 @@ function createGrid(num) {
     }
 }
 
+//Makes initial decision on how to handle user moves
+
 function moveConditionizer(num) {
     if(count % 2 === 1) {
         move(num, 'p1')
@@ -139,10 +145,14 @@ function moveConditionizer(num) {
     }
 }
 
+//Starts decision making on how CPU handles moves
+
 function CPUConditionizer(num){
     move(num, 'p1');
     CPUMoveChoice();
 }
+
+//CPU makes choices based on availability
 
 function CPUMoveChoice() {
     Object.keys(gameBoardObj).forEach(function (sq) {
@@ -157,9 +167,13 @@ function CPUMoveChoice() {
     }, 1000);
 }
 
+//Function that creates random index value for CPU moves
+
 function getRandomArrValue(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
 }
+
+//Move logic that is shared between user and CPU
    
 function move(num, player) {
     var gb = gameBoardObj[num];
@@ -383,6 +397,8 @@ function move(num, player) {
     };
 }
 
+//Logic used to check for game match - Win, Lose or draw.
+
 function checkForMatch() {
     if((totalBlkCol1 === 3 || totalBlkCol2 === 3 || totalBlkCol3 === 3) || (totalBlkDiag1 === 3 || totalBlkDiag2 === 3) || (totalBlkRow1 === 3 || totalBlkRow2 === 3 || totalBlkRow3 === 3) ){
         // alert("Black Wins");
@@ -398,6 +414,8 @@ function checkForMatch() {
         turnNotification.style.backgroundColor = "blue";
     }
 }
+
+//Function used to reset game board
 
 function activateReset() {
     resetBtn.onclick = function() {
@@ -496,6 +514,8 @@ function activateReset() {
         }
     }
 }
+
+//Initalized functions and events that are active on DOM ready
 
 createBoard();
 activateReset();
