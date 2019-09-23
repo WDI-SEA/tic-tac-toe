@@ -7,6 +7,7 @@ var xName = "X's Turn";
 var oName = "O's Turn";
 var message = document.getElementById("message");
 var h1 = document.querySelector("h1");
+
 //Function to start and add event listeners/reset
 begin();
 
