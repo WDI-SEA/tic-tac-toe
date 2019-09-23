@@ -10,7 +10,7 @@ var clicks = 0;
 //allow all the columns to be accessed
 var columnClick = document.getElementsByClassName('columns')
 //allow reset button to be activated
-var resetButton = document.getElementById('reset').addEventListener('click', resetGame)
+var resetButton = document.getElementById('reset')
 //allow start button to be activated
 
 
@@ -30,7 +30,6 @@ var accessGame = function () {
 			columnClick[i].removeChild(columnClick[i].firstChild)
 		}
 	}
-	clearGame()
 }
 accessGame()
 
@@ -57,7 +56,7 @@ function addXsAndOs () {
 	  console.log(playerMessageO)
       //I want to check to win after each piece is placed.
       winQuery()
-	  //drawQuery()
+	  drawQuery()
     }
     else {
       //placePieceO();
@@ -76,7 +75,7 @@ function addXsAndOs () {
 
       //I want to check to win after each piece is placed.
 	  winQuery()
-	  //drawQuery()
+	  drawQuery()
     }
 }
 
@@ -104,7 +103,7 @@ var winQuery = function() {
 		(leftDiagonalQuery[0].getAttribute('data-x') === 'true' && leftDiagonalQuery[1].getAttribute('data-x') === 'true' && leftDiagonalQuery[2].getAttribute('data-x') === 'true') ||
 		(rightDiagonalQuery[0].getAttribute('data-x') === 'true' && rightDiagonalQuery[1].getAttribute('data-x') === 'true' && rightDiagonalQuery[2].getAttribute('data-x') === 'true')) {
 			console.log('add up the wins for x')
-			document.getElementById('player-message').textContent = `The Winner is ${playersArray[0]}`
+			document.getElementById('player-message').textContent = `${playersArray[0]} is the WINNER`
 		} 
 		else if 
 		((topRowQuery[0].getAttribute('data-o') === 'true' && topRowQuery[1].getAttribute('data-o') === 'true' && topRowQuery[2].getAttribute('data-o') === 'true') ||
@@ -116,7 +115,7 @@ var winQuery = function() {
 		(leftDiagonalQuery[0].getAttribute('data-o') === 'true' && leftDiagonalQuery[1].getAttribute('data-o') === 'true' && leftDiagonalQuery[2].getAttribute('data-o') === 'true') ||
 		(rightDiagonalQuery[0].getAttribute('data-o') === 'true' && rightDiagonalQuery[1].getAttribute('data-o') === 'true' && rightDiagonalQuery[2].getAttribute('data-o') === 'true')) {
 			console.log('add up the wins for o')
-			document.getElementById('player-message').textContent = `The Winner is ${playersArray[1]}`
+			document.getElementById('player-message').textContent = `${playersArray[1]} is the WINNER`
 	} 
 
 }
@@ -144,13 +143,14 @@ drawQuery()
 
 function resetGame () {
 	//a for loop again to go through the boardgame
-	for (let i = 0; i < columnClick.length; i++) {
+	//for (let i = 0; i < columnClick.length; i++) {
 		//clear addXsAndOx
-		var resetGame = columnClick[i].textContent = ''
-		document.getElementById('player-message').textContent = ''
+		// var resetGame = columnClick[i].textContent = ''
+		// document.getElementById('player-message').textContent = ''
+		location.reload()
 	}
-}
-resetGame()
+//}
+resetButton.addEventListener('click', resetGame)
 
 
 	// var resetGame = columnClick[i].removeEventListener('click', addXsAndOs)
