@@ -168,7 +168,6 @@ function move(num, player) {
         gb.row1 = true;
         gb.diag1 = true;
         if (player === 'p1') {
-            checkForMatch();
             gb.activeRed = true;
             square[num].innerHTML = `<p class="player-red">X</p>`;
             count ++;
@@ -177,8 +176,8 @@ function move(num, player) {
             totalRedRow1++;
             turnNotification.textContent = "Black Turn";
             turnNotification.style.backgroundColor = "black";
-        }else if (player === 'p2') {
             checkForMatch();
+        }else if (player === 'p2') {
             gb.activeBlack = true;
             square[num].innerHTML = `<p class="player-blk">O</p>`;
             count ++;
@@ -187,6 +186,7 @@ function move(num, player) {
             totalBlkRow1++;
             turnNotification.textContent = "Red Turn";
             turnNotification.style.backgroundColor = "red";
+            checkForMatch();
         }
     }if (gb.id === 1) {
         gb.col2 = true;
@@ -197,18 +197,18 @@ function move(num, player) {
             count ++;
             totalRedCol2++;
             totalRedRow1++;
-            checkForMatch();
             turnNotification.textContent = "Black Turn";
             turnNotification.style.backgroundColor = "black";
+            checkForMatch();
         }else if (player === 'p2') {
             gb.activeBlack = true;
             square[num].innerHTML = `<p class="player-blk">O</p>`;
             count ++;
             totalBlkCol2++;
             totalBlkRow1++;
-            checkForMatch();
             turnNotification.textContent = "Red Turn";
             turnNotification.style.backgroundColor = "red";
+            checkForMatch();
         }
     }if (gb.id === 2) {
         gb.col3 = true;
@@ -221,9 +221,9 @@ function move(num, player) {
             totalRedCol3++;
             totalRedDiag2++;
             totalRedRow1++;
-            checkForMatch();
             turnNotification.textContent = "Black Turn";
             turnNotification.style.backgroundColor = "black";
+            checkForMatch();
         }else if (player === 'p2') {
             gb.activeBlack = true;
             square[num].innerHTML = `<p class="player-blk">O</p>`;
@@ -231,15 +231,15 @@ function move(num, player) {
             totalBlkCol3++;
             totalBlkDiag2++;
             totalBlkRow1++;
-            checkForMatch();
             turnNotification.textContent = "Red Turn";
             turnNotification.style.backgroundColor = "red";
+            checkForMatch();
         }
     }if (gb.id === 3) {
         gb.col1 = true;
         gb.row2 = true;
         if (player === 'p1') {
-            checkForMatch();
+
             gb.activeRed = true;
             square[num].innerHTML = `<p class="player-red">X</p>`;
             count ++;
@@ -247,8 +247,8 @@ function move(num, player) {
             totalRedRow2++;
             turnNotification.textContent = "Black Turn";
             turnNotification.style.backgroundColor = "black";
-        }else if (player === 'p2') {
             checkForMatch();
+        }else if (player === 'p2') {
             gb.activeBlack = true;
             square[num].innerHTML = `<p class="player-blk">O</p>`;
             count ++;
@@ -256,6 +256,7 @@ function move(num, player) {
             totalBlkRow2++;
             turnNotification.textContent = "Red Turn";
             turnNotification.style.backgroundColor = "red";
+            checkForMatch();
         }
     }if (gb.id === 4) {
         gb.col2 = true;
@@ -270,9 +271,9 @@ function move(num, player) {
             totalRedRow2++;
             totalRedDiag1++;
             totalRedDiag2++;
-            checkForMatch();
             turnNotification.textContent = "Black Turn";
             turnNotification.style.backgroundColor = "black";
+            checkForMatch();
         }else if (player === 'p2') {
             gb.activeBlack = true;
             square[num].innerHTML = `<p class="player-blk">O</p>`;
@@ -281,9 +282,9 @@ function move(num, player) {
             totalBlkRow2++;
             totalBlkDiag1++;
             totalBlkDiag2++;
-            checkForMatch();
             turnNotification.textContent = "Red Turn";
-            turnNotification.style.backgroundColor = "red";   
+            turnNotification.style.backgroundColor = "red";
+            checkForMatch();
         }
     }if (gb.id === 5) {
         gb.col3 = true;
@@ -294,18 +295,18 @@ function move(num, player) {
             count ++;
             totalRedCol3++;
             totalRedRow2++;
-            checkForMatch();
             turnNotification.textContent = "Black Turn";
             turnNotification.style.backgroundColor = "black";
+            checkForMatch();
         }else if (player === 'p2') {
             gb.activeBlack = true;
             square[num].innerHTML = `<p class="player-blk">O</p>`;
             count ++;
             totalBlkCol3++;
             totalBlkRow2++;
-            checkForMatch();
             turnNotification.textContent = "Red Turn";
             turnNotification.style.backgroundColor = "red";
+            checkForMatch();
         }
     }if (gb.id === 6) {
         gb.col1 = true;
@@ -318,9 +319,9 @@ function move(num, player) {
             totalRedCol1++;
             totalRedRow3++;
             totalRedDiag2++;
-            checkForMatch();
             turnNotification.textContent = "Black Turn";
             turnNotification.style.backgroundColor = "black";
+            checkForMatch();
         }else if (player === 'p2') {
             gb.activeBlack = true;
             square[num].innerHTML = `<p class="player-blk">O</p>`;
@@ -328,9 +329,9 @@ function move(num, player) {
             totalBlkCol1++;
             totalBlkRow3++;
             totalBlkDiag2++;
-            checkForMatch();
             turnNotification.textContent = "Red Turn";
             turnNotification.style.backgroundColor = "red";
+            checkForMatch();
         }
     }if (gb.id === 7) {
         gb.col2 = true;
@@ -341,18 +342,18 @@ function move(num, player) {
             count ++;
             totalRedCol2++;
             totalRedRow3++;
-            checkForMatch();
             turnNotification.textContent = "Black Turn";
             turnNotification.style.backgroundColor = "black";
+            checkForMatch();
         }else if (player === 'p2') {
             gb.activeBlack = true;
             square[num].innerHTML = `<p class="player-blk">O</p>`;
             count ++;
             totalBlkCol2++;
             totalBlkRow3++;
-            checkForMatch();
             turnNotification.textContent = "Red Turn";
             turnNotification.style.backgroundColor = "red";
+            checkForMatch();
         }
     }if (gb.id === 8) {
         gb.col3 = true;
@@ -365,9 +366,9 @@ function move(num, player) {
             totalRedCol3++;
             totalRedRow3++;
             totalRedDiag1++;
-            checkForMatch();
             turnNotification.textContent = "Black Turn";
             turnNotification.style.backgroundColor = "black";
+            checkForMatch();
         }else if (player === 'p2') {
             gb.activeBlack = true;
             square[num].innerHTML = `<p class="player-blk">O</p>`;
@@ -375,26 +376,26 @@ function move(num, player) {
             totalBlkCol3++;
             totalBlkRow3++;
             totalBlkDiag1++;
-            checkForMatch();
             turnNotification.textContent = "Red Turn";
             turnNotification.style.backgroundColor = "red";
+            checkForMatch();
         }
     };
 }
 
 function checkForMatch() {
     if((totalBlkCol1 === 3 || totalBlkCol2 === 3 || totalBlkCol3 === 3) || (totalBlkDiag1 === 3 || totalBlkDiag2 === 3) || (totalBlkRow1 === 3 || totalBlkRow2 === 3 || totalBlkRow3 === 3) ){
-        alert("Black Wins");
+        // alert("Black Wins");
             turnNotification.textContent = "Game Over, Black Wins";
-            turnNotification.style.backgroundColor = "black";
+            turnNotification.style.backgroundColor = "blue";
     }else if((totalRedCol1 === 3 || totalRedCol2 === 3 || totalRedCol3 === 3) || (totalRedDiag1 === 3 || totalRedDiag2 === 3) || (totalRedRow1 === 3 || totalRedRow2 === 3 || totalRedRow3 === 3) ){
-        alert("Red Wins");
+        // alert("Red Wins");
         turnNotification.textContent = "Game Over, Red Wins";
-        turnNotification.style.backgroundColor = "black";
+        turnNotification.style.backgroundColor = "blue";
     }else if (count === 10) {
-        alert("It's a Tie");
+        // alert("It's a Tie");
         turnNotification.textContent = "Tie Game, Try again";
-        turnNotification.style.backgroundColor = "black";
+        turnNotification.style.backgroundColor = "blue";
     }
 }
 
