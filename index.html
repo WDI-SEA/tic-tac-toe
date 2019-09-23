@@ -3,23 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <title>Tic Tac Toe</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
-<body>
-  <header>
-      <h1>Tic Tac Toe</h1>
-      <nav>
-        <a href="#">Instructions</a>
-        <a href="#">Game Reset</a>
-      </nav>
-  </header>
-  <main class="outer-wrapper">
-    <section id="game-board" class="game"></section>
-  </main> 
-  <footer>
-    <p>This is a footer</p>
-  </footer>
+<body class="full-width">
+  <div class="video-block">
+    <video id="video" class="video-bkgrd" autoplay loop controls muted>
+        <source src="video/tik-tok.webm" type="video/webm"></source>
+    </video>
+      <div class="content-block">
+        <header>
+            <div class="block-inline">
+              <button>Reset Game</button>
+            </div>
+            <div class="block-inline">
+              <h1>Tic Tac Toe</h1>
+              <nav>
+                <a href="#">Instructions</a>
+                <a href="#">Game Reset</a>
+              </nav>
+            </div>
+            <div class="block-inline">
+              <label class="switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+              </label>
+            </div>  
+          </header>
+          <main class="outer-wrapper">
+            <section id="game-board" class="game"></section>
+          </main> 
+          <footer class="footer">
+            <p>This is a footer</p>
+          </footer>
+      </div>    
+  </div>    
   <script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>

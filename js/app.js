@@ -1,10 +1,10 @@
 //Define variables local variables
 
 let gameDiv = document.getElementById("game-board");
-const square = document.getElementsByTagName("div");
+const square = document.getElementById("game-board").childNodes;
 let xImg = 'img/x.png';
 let oImg = 'img/o.png';
-var count = 0;
+var count = 1;
 var openRedMoves = 0;
 var derp = [];
 var totalRedCol1 = 0;
@@ -159,50 +159,215 @@ function createGrid(num) {
     newDivItem.setAttribute("id", gameBoardObj[num].id);
     newDivItem.setAttribute("class", gameBoardObj[num].tempID);
     gameDiv.appendChild(newDivItem);
-    redMove(num);
-}
-    
-function redMove(num) {
-    square[num].onclick = function () {
-        square[num].textContent = "X";
-        gameBoardObj[num].col = true;
-        gameBoardObj[num].row = true;
-        checkForMatch(num);
+    square[num].onclick = function() {
+        if (gameBoardObj[num].activeBlack === true || gameBoardObj[num].activeRed === true) {
+            alert("Pick another square")
+        }else {
+            moveConditionizer(num)
+        }
     }
 }
-
-function checkForMatch(num) {
-    gameBoardObj.forEach(prop => {
-        if(prop.col1 === true && activeRed === true ){
-            totalRedCol1++
-        }if(prop.col2 === true && activeRed === true ) {
-            totalRedCol2++
-        }if(prop.col3 === true && activeRed === true ){
-            totalRedCol3++
-        }if(prop.row1 === true && activeRed === true ){
-            totalRedRow1++
-        }if(prop.row2 === true && activeRed === true ) {
-            totalRedRow2++
-        }if(prop.row2 === true && activeRed === true ) {
-            totalRedRow3++
-        }if(prop.diag1 === true && activeRed === true ) {
-            totalRedDiag1++
-        }if(prop.diag3 === true && activeRed === true ) {
-            totalRedDiag2++
+function moveConditionizer(num) {
+    if(count % 2 === 1) {
+        move(num, 'p1')
+    }else if(count % 2 === 0) {
+        move(num, 'p2')
+    }
+}    
+   
+function move(num, player) {
+    var gb = gameBoardObj[num];
+    if (gb.id === 1) {
+        gb.col1 = true;
+        gb.row1 = true;
+        gb.diag1 = true;
+        if (player === 'p1') {
+            gb.activeRed = true;
+            square[num].textContent = "X";
+            count ++;
+            totalRedCol1++;
+            totalRedDiag1++;
+            totalRedRow1++;
+            checkForMatch();
+        }else if (player === 'p2') {
+            gb.activeBlack = true;
+            square[num].textContent = "O";
+            count ++;
+            totalBlkCol1++;
+            totalBlkDiag1++;
+            totalBlkRow1++;
+            checkForMatch();
         }
-    });
-    // // if (totalCol >= 3 && activeRed) {
-    // //     alert('Game Over')
-    // // }else if(totalRow >= 3) {
-    // //     alert('Game Over')
-    // // }else if(totalDiag >= 3) {
-    // //     alert('Game Over')
-    // // }else {
-    // //     gameBoardObj[num].CPUMove();
-    // //     totalRow = 0;
-    // //     totalCol = 0;
-    // //     totalDiag = 0;
-    // }
+    }if (gb.id === 2) {
+        gb.col2 = true;
+        gb.row1 = true;
+        if (player === 'p1') {
+            gb.activeRed = true;
+            square[num].textContent = "X";
+            count ++;
+            totalRedCol2++;
+            totalRedRow1++;
+            checkForMatch();
+        }else if (player === 'p2') {
+            gb.activeBlack = true;
+            square[num].textContent = "O";
+            count ++;
+            totalBlkCol2++;
+            totalBlkRow1++;
+            checkForMatch();
+        }
+    }if (gb.id === 3) {
+        gb.col3 = true;
+        gb.row1 = true;
+        gb.diag2 = true;
+        if (player === 'p1') {
+            gb.activeRed = true;
+            square[num].textContent = "X"
+            count ++;
+            totalRedCol3++;
+            totalRedDiag2++;
+            totalRedRow1++;
+            checkForMatch();
+        }else if (player === 'p2') {
+            gb.activeBlack = true;
+            square[num].textContent = "O"
+            count ++;
+            totalBlkCol3++;
+            totalBlkDiag2++;
+            totalBlkRow1++;
+            checkForMatch();
+        }
+    }if (gb.id === 4) {
+        gb.col1 = true;
+        gb.row2 = true;
+        if (player === 'p1') {
+            gb.activeRed = true;
+            square[num].textContent = "X";
+            count ++;
+            totalRedCol1++;
+            totalRedRow2++;
+            checkForMatch();
+        }else if (player === 'p2') {
+            gb.activeBlack = true;
+            square[num].textContent = "O";
+            count ++;
+            totalBlkCol1++;
+            totalBlkRow2++;
+            checkForMatch();
+        }
+    }if (gb.id === 5) {
+        gb.col2 = true;
+        gb.row2 = true;
+        gb.diag1 = true;
+        gb.diag2 = true;
+        if (player === 'p1') {
+            gb.activeRed = true;
+            square[num].textContent = "X";
+            count ++;
+            totalRedCol2++;
+            totalRedRow2++;
+            totalRedDiag1++;
+            totalRedDiag2++;
+            checkForMatch();
+        }else if (player === 'p2') {
+            gb.activeBlack = true;
+            square[num].textContent = "O";
+            count ++;
+            totalBlkCol2++;
+            totalBlkRow2++;
+            totalBlkDiag1++;
+            totalBlkDiag2++;
+            checkForMatch();     
+        }
+    }if (gb.id === 6) {
+        gb.col3 = true;
+        gb.row2 = true;
+        if (player === 'p1') {
+            gb.activeRed = true;
+            square[num].textContent = "X";
+            count ++;
+            totalRedCol3++;
+            totalRedRow2++;
+            checkForMatch();
+        }else if (player === 'p2') {
+            gb.activeBlack = true;
+            square[num].textContent = "O";
+            count ++;
+            totalBlkCol3++;
+            totalBlkRow2++;
+            checkForMatch();
+        }
+    }if (gb.id === 7) {
+        gb.col1 = true;
+        gb.row3 = true;
+        gb.diag2 = true;
+        if (player === 'p1') {
+            gb.activeRed = true;
+            square[num].textContent = "X";
+            count ++;
+            totalRedCol1++;
+            totalRedRow3++;
+            totalRedDiag2++;
+            checkForMatch();
+        }else if (player === 'p2') {
+            gb.activeBlack = true;
+            square[num].textContent = "O";
+            count ++;
+            totalBlkCol1++;
+            totalBlkRow3++;
+            totalBlkDiag2++;
+            checkForMatch();
+        }
+    }if (gb.id === 8) {
+        gb.col2 = true;
+        gb.row3 = true;
+        if (player === 'p1') {
+            gb.activeRed = true;
+            square[num].textContent = "X";
+            count ++;
+            totalRedCol2++;
+            totalRedRow3++;
+            checkForMatch();
+        }else if (player === 'p2') {
+            gb.activeBlack = true;
+            square[num].textContent = "O";
+            count ++;
+            totalBlkCol2++;
+            totalBlkRow3++;
+            checkForMatch();
+        }
+    }if (gb.id === 9) {
+        gb.col3 = true;
+        gb.row3 = true;
+        gb.diag1 = true;
+        if (player === 'p1') {
+            gb.activeRed = true;
+            square[num].textContent = "X";
+            count ++;
+            totalRedCol3++;
+            totalRedRow3++;
+            totalRedDiag1++;
+            checkForMatch();
+        }else if (player === 'p2') {
+            gb.activeBlack = true;
+            square[num].textContent = "O";
+            count ++;
+            totalBlkCol3++;
+            totalBlkRow3++;
+            totalBlkDiag1++;
+            checkForMatch();
+        }
+    };
+}
+
+function checkForMatch() {
+    if((totalBlkCol1 === 3 || totalBlkCol2 === 3 || totalBlkCol3 === 3) || (totalBlkDiag1 === 3 || totalBlkDiag2 === 3) || (totalBlkRow1 === 3 || totalBlkRow2 === 3 || totalBlkRow3 === 3) ){
+        alert("Black Wins");
+    }else if((totalRedCol1 === 3 || totalRedCol2 === 3 || totalRedCol3 === 3) || (totalRedDiag1 === 3 || totalRedDiag2 === 3) || (totalRedRow1 === 3 || totalRedRow2 === 3 || totalRedRow3 === 3) ){
+        alert("Red Wins");
+    }else if (count === 9) {
+        alert("It's a Tie")
+    }
 }
 
 createBoard()
