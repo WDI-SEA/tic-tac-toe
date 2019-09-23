@@ -17,29 +17,78 @@ function setMessage(msg){
 
 
 
-function nextMove(boxes){
-    if(boxes.textContent=' '){
-        boxes.textContent = turn;
-        switchTurn();
-    } else {
-        setMessage("Hey! No Cheating!")
-    }
-}
 
+
+var clickBox = document.getElementsByClass("boxes");
+clickBox.addEventListener("click", function(e){
+    console.log("anything");
+})
+
+
+// clickBox.addEventListener('click', function( event, boxes{
+//     if(boxes.textContent===0){
+//                  boxes.textContent = turn;
+//                  switchTurn();
+//              } else {
+//                  setMessage("Hey! No Cheating!")
+//              }
+//          }
+// )
+
+// var clickBox = document.getElementsByClassName("boxes")
+// clickBox.addEventListener('click', function(event){
+//     for (var i = 0; i < clickBox.length; i++){    
+//     }
+// })
+
+// clickBox.addEventListener('click', function(event){
+//         event.stopPropagation();
+//         console.log("something worked");
+
+// first iteration 
+// var nextMove = document.getElementsByClassName("boxes");
+// for (var i = 0; i < nextMove.length; i++){
+//     if boxes[i] === 0; {
+//         switchTurn();
+//     } else {
+//         setMessage("🛑✋! Stop!")
+//     }
+// }
+
+// What I started with 
+// function nextMove(boxes){
+//     if(boxes.textContent=' '){
+//         boxes.textContent = turn;
+//         switchTurn();
+//     } else {
+//         setMessage("Hey! No Cheating!")
+//     }
+// }
+
+// function switchTurn(){
+//     if(checkWinner(turn = true)){
+//         setMessage("Congratulations " + turn + ", you won!")
+//     } else if (checkWinner(turn = false)){
+//         if(turn = player1){
+//             turn = player2;
+//             setMessage("It's " + turn + "'s turn")
+//         } else {
+//             turn = player1;
+//             setMessage("It's " + turn + "'s turn")
+//         }   
+//     }
+// }
 
 function switchTurn(){
-    if(checkWinner(turn = true)){
-        setMessage("Congratulations " + turn + ", you won!")
-    } else if (checkWinner(turn = false)){
-        if(turn = player1){
-            turn = player2;
-            setMessage("It's " + turn + "'s turn")
+    if (turn = player1){
+        turn = player2;
+        setMessage("It's " + turn + "'s turn")
         } else {
             turn = player1;
             setMessage("It's " + turn + "'s turn")
         }   
-    }
 }
+
 
 
 function checkWinner(move){
@@ -55,10 +104,10 @@ function checkWinner(move){
             result = true;
         }
         return result;
-} console.log("check for check winner");
+} 
 
 
-//call getBox and compare to the rows of the gameboard.
+//call getBox and compare to the rows of the gameboard. 
 function checkRow(a, b, c, move){
     var result = false;
     if(getBox(a) == move && getBox(b) == move && getBox(c) == move){
@@ -67,7 +116,7 @@ function checkRow(a, b, c, move){
     return result;
 }
 
-//return individual boxes
+//return value in individual bozes
 function getBox(number){
     return document.getElementById("num"+number).innerHTML;
 }
