@@ -1,33 +1,40 @@
 h1 {
-  color: rgb(126, 11, 126);
+  /* color: rgb(126, 11, 126); */
+  color: red;
   text-align: center;
 }
 
+h2{
+  color: black;
+  text-align: center;
+}
 
- /* .boxes {
- background-color: lightsalmon;
-height: 100px;
-width: 100px;
-margin: 0 auto;
-display: inline-block;
-vertical-align: top; 
- text-align: center;
-}  */
+button{
+  text-align: center;
+  
+}
+
+.row1, .row2, .row3{
+  vertical-align: top;
+}
 
 .boxes {
   margin: 0 auto;
   font-size: 20px;
+  vertical-align: top;
 }
 
-/* .boxes div:hover{
-  background-color:grey;
-} */
+p{
+  margin: 0px;
+  display: inline;
+}
 
 .row1 div{
   background-color: lightskyblue;
   display: inline-block;
   height: 100px;
   width: 100px;
+  vertical-align: top;
 }
 
 .row2 div{
@@ -35,6 +42,7 @@ vertical-align: top;
   display: inline-block;
   height: 100px;
   width: 100px;
+  vertical-align: top;
 }
 
 .row3 div{
@@ -42,13 +50,7 @@ vertical-align: top;
   display: inline-block;
   height: 100px;
   width: 100px;
+  vertical-align: top;
 }
 
-h2{
-  color: black;
-  text-align: center;
-}
-button{
-  text-align: center;
-  
-}
+
