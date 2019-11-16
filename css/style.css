@@ -1,3 +1,91 @@
-h1 {
-  color: purple;
+html,
+body {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+body {
+  background-size: 100vw 100vh;
+}
+#menu {
+  width: 100vw;
+  height: 30vh;
+  background-color: orange;
+  position: absolute;
+  top: 0vh;
+  text-align: center;
+  
+  
+}
+#board {
+  width: 91vw;
+  height: 91vh;
+  background-color: #777;
+  display: inline-block;
+  border: 5px solid black;
+  margin-top: 30vh;
+  border-radius: 5px;
+} 
+.space {
+
+}
+#topleft {
+  width: 30vw;
+  height: 30vh;
+  display: inline-block;
+  background-color: blue;
+}
+#topmid {
+  width: 30vw;
+  height: 30vh;
+  display: inline-block;
+  background-color: red;
+}
+#topright {
+  width: 30vw;
+  height: 30vh;
+  display: inline-block;
+  background-color: green;
+}
+#midleft {
+  width: 30vw;
+  height: 30vh;
+  display: inline-block;
+  background-color: yellow;
+}
+#midmid {
+  width: 30vw;
+  height: 30vh;
+  display: inline-block;
+  background-color: purple;
+}
+#midright {
+  width: 30vw;
+  height: 30vh;
+  display: inline-block;
+  background-color: turquoise;
+}
+#botleft {
+  width: 30vw;
+  height: 30vh;
+  display: inline-block;
+  background-color: brown;
+}
+#botright {
+  width: 30vw;
+  height: 30vh;
+  display: inline-block;
+  background-color: 
+}
+#botmid {
+  width: 30vw;
+  height: 30vh;
+  display: inline-block;
+  background-color: black;
+}
+#botright {
+  width: 30vw;
+  height: 30vh;
+  display: inline-block;
+  background-color: pink;
 }
