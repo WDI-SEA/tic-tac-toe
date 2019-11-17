@@ -10,14 +10,15 @@
 <body background="./img/background.jpg">
   <h1>Tic-Tac-Toe</h1>
   
-  <h2>Instructions</h2>
-  <article>
+    <h2>Instructions</h2>
+    <article>
     Click "New Board" to start a new game and track your results.</br>
     Click "Reset Game" to start over (you will lose your results so far).
-  </article>
+    </article>
 
-  <button id = "start">New Board</button>
-  <button id = "reset">Reset Game</button>
+  </br>
+      <button id = "start">New Board</button>
+      <button id = "reset">Reset Game</button>
 
   <div id="message"></div>
 
@@ -42,6 +43,20 @@
         <div id="box9" class="box"></div>
     </div>
     
+  </div>
+
+  <div class="leaderboard">
+      <h2>Leaderboard</h2>
+      <table id="table">
+          <tr>
+              <th>Player 1 (X)</th>
+              <th>Player 2 (O)</th>
+          </tr>
+          <tr>
+              <td id="scoreX">0</td>
+              <td id="scoreO">0</td>
+          </tr>
+        </table>
   </div>
 
   <audio id="jingle" src="./audio/jingle.mp3" loop></audio>

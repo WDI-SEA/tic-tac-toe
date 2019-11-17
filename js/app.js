@@ -1,12 +1,26 @@
 var turn = 0
-var lastPlayed = '';
+var lastPlayed = ''
+var scoreWin = ''
+var scoredO = 0
+var scoredX = 0
 
-const restart = () => {
-    
+const leaderBoard = (scoreId) => {
+    //change scored value based on id
+    //display score valuesv
+    if (scoreId == 'scoreX') {
+        scoredX += 1
+        document.getElementById(scoreId).textContent = scoredX
+    } else {
+        scoredO += 1
+        document.getElementById(scoreId).textContent = scoredO
+    }
+    //keep values for start but clear values for reset
+
+}
+
+const clearBoard = () => {
+    turn = 0
     removeBoxListeners()
-    document.getElementById('reset').addEventListener('click', start)
-    //grab all the boxes from the DOM
-    
     let boxes = document.querySelectorAll('.box')
     
     //loop through each box
@@ -14,7 +28,18 @@ const restart = () => {
         //clear each box
         boxes[i].textContent = ''
     }
+}
 
+const restart = () => {
+    //clear board
+    scoredO = 0
+    scoredX = 0
+    document.getElementById('scoreX').textContent = scoredX
+    document.getElementById('scoreO').textContent = scoredO
+
+    clearBoard()
+    //clear leaderboard and start all over
+    document.getElementById('message').textContent = 'Click New Board to start a new game!'
 }
 
 const endGame = () => {
@@ -26,6 +51,7 @@ const endGame = () => {
 const winner = (str) => {
     endGame()
 
+    document.getElementById('win').volume = '0.2'
     document.getElementById('win').play()
 
     document.getElementById('message').textContent = 'Player ' + str + ' wins!'
@@ -72,16 +98,19 @@ const play = (e) => {
           e.target.innerHTML = `O`
           e.target.setAttribute('entry', 'o')
           lastPlayed = '2 (O)'
+          scoreWin = 'scoreO'
           document.getElementById('message').textContent = 'Player 1 (X), it\'s your turn!'
         } else if (turn == 9) {
             e.target.innerHTML = `X`
             e.target.setAttribute('entry', 'x')
             lastPlayed = '1 (X)'
+            scoreWin = 'scoreX'
             document.getElementById('message').textContent = 'It\'s a draw!'
         } else {
             e.target.innerHTML = `X`
             e.target.setAttribute('entry', 'x')
             lastPlayed = '1 (X)'
+            scoreWin = 'scoreX'
             document.getElementById('message').textContent = 'Player 2 (O), it\'s your turn!'
         }
 
@@ -93,6 +122,7 @@ const play = (e) => {
           if (checkWin()) {
             //you won
             winner(lastPlayed)
+            leaderBoard(scoreWin)
             console.log('winner!')
           }
     }
@@ -118,16 +148,19 @@ const addBoxListeners = () => {
 }
 
 const start = () => {
+    console.log('start')
     //board should be clear
-    document.getElementById('start').removeEventListener('click', start)
+    clearBoard()
+
+    //activate the restart button
+    document.getElementById('reset').addEventListener('click', restart)
+
     //jingle starts playing + pauses other sounds
     document.getElementById('jingle').volume = '0.1'
     document.getElementById('jingle').play()
 
     //message alerts user to pick box
     document.getElementById('message').textContent = 'Welcome! You\'re Player 1 (X), choose a box!'
-    
-    //continues to play
     
     //display leaderboard
 
@@ -138,7 +171,11 @@ const start = () => {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    
+    document.getElementsByTagName('h2')[0].addEventListener('click', () => {
+        console.log("event works!")
+        document.getElementsByTagName('article')[0].classList.toggle('expand')
+    })
+    
     document.getElementById('start').addEventListener('click', start)
-        //activate the restart button
-    document.getElementById('reset').addEventListener('click', restart)
 })

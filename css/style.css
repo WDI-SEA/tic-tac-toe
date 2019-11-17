@@ -1,15 +1,27 @@
 h1 {
   color: rgb(148, 1, 99);
+  margin: 0px;
 }
 
 h2 {
   color: rgb(182, 2, 122);
-  margin: 2px;
+  margin: 10px 2px 2px 2px;
+}
+
+h2:hover {
+  text-decoration: underline;
 }
 
 article {
+  opacity: 0;
+  height: 0px;
+  margin-bottom: 10px;
+}
+
+.expand {
   color: rgb(182, 2, 122);
-  margin: 0px 0px 20px 0px;
+  opacity: 1;
+  height: 30px;
 }
 
 body {
@@ -55,5 +67,27 @@ button:hover {
 }
 
 #message {
-  margin: 10px;
+  margin: 0px;
+}
+
+.leaderboard {
+  display: inline-block;
+  margin: 5px;
+}
+
+table {
+  border: 2px solid rgb(247, 149, 165);
+  border-radius: 10%;
+  padding: 5px;
+}
+
+th {
+  padding: 5px 30px;
+  text-decoration: underline;
+  background: white;
+}
+
+tr {
+  padding: 5px 30px;
+  background: rgb(253, 234, 236);
 }
