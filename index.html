@@ -3,12 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <title>Nick-Tac-Toe</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-  <h1>Hello Front-End</h1>
-
+  <h1>Nick-Tac-Toe</h1>
+  <div id = "gameBoard">
+    <img src="./img/emptyTile.png" alt text = "tile" id = "emptyTile">
+    <img src="./img/emptyTile.png" alt text = "tile" id = "emptyTile">
+    <img src="./img/emptyTile.png" alt text = "tile" id = "emptyTile">
+    <img src="./img/emptyTile.png" alt text = "tile" id = "emptyTile">
+    <img src="./img/emptyTile.png" alt text = "tile" id = "emptyTile">
+    <img src="./img/emptyTile.png" alt text = "tile" id = "emptyTile">
+    <img src="./img/emptyTile.png" alt text = "tile" id = "emptyTile">
+    <img src="./img/emptyTile.png" alt text = "tile" id = "emptyTile">
+    <img src="./img/emptyTile.png" alt text = "tile" id = "emptyTile">
+    <div id = "players">
+    <p id= "player1">Player 1</p> <p id= "player2">Player 2</p>
+    
+    </div>
+    <p id= "turn">Turn: 0</p>
+    <p id= "xScore"></p> <p id= "oScore"></p>
+    <h3 id="message">SECRET WORDS</h3>
+    <button id="start">It's Time to Toe</button>
+  </div>
+  <footer>
+    <br>
+    <p>&hearts; Made by Nick Quandt &hearts;</p>
+  </footer>
+  <audio id="xVictory" src="./sound/xVictory.mp3"></audio>
+  <audio id="oVictory" src="./sound/oVictory.mp3"></audio>
   <script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>
