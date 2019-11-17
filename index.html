@@ -3,12 +3,52 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
-  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Handlee&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="./css/style.css">
+  <title>Tic-Tac-Toe</title>
 </head>
-<body>
-  <h1>Hello Front-End</h1>
+<body background="./img/background.jpg">
+  <h1>Tic-Tac-Toe</h1>
+  
+  <h2>Instructions</h2>
+  <article>
+    Click "New Board" to start a new game and track your results.</br>
+    Click "Reset Game" to start over (you will lose your results so far).
+  </article>
 
-  <script type="text/javascript" src="js/app.js"></script>
+  <button id = "start">New Board</button>
+  <button id = "reset">Reset Game</button>
+
+  <div id="message"></div>
+
+</br>
+  <div id="board">
+
+    <div>
+        <div id="box1" class="box"></div>
+        <div id="box2" class="box"></div>
+        <div id="box3" class="box"></div>
+    </div>
+
+    <div>
+        <div id="box4" class="box"></div>
+        <div id="box5" class="box"></div>
+        <div id="box6" class="box"></div>
+    </div>
+
+    <div>
+        <div id="box7" class="box"></div>
+        <div id="box8" class="box"></div>
+        <div id="box9" class="box"></div>
+    </div>
+    
+  </div>
+
+  <audio id="jingle" src="./audio/jingle.mp3" loop></audio>
+  <audio id="click" src="./audio/click.wav"></audio>
+  <audio id="lose" src="./audio/lose.wav"></audio>
+  <audio id="win" src="./audio/win.wav"></audio>
+  
+  <script type="text/javascript" src="./js/app.js"></script>
 </body>
 </html>
