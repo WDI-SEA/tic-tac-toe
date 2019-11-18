@@ -67,10 +67,10 @@ body {
   font-size: 30px;
 }
 
-.square.x, .square .x {
+.x {
   background-image: url("https://twemoji.maxcdn.com/2/svg/274c.svg");
 }
 
-.square.o {
+.o {
     background-image: url("https://twemoji.maxcdn.com/2/svg/2b55.svg");
 }
