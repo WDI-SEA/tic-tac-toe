@@ -1,3 +1,15 @@
-h1 {
-  color: purple;
+body {
+  /*
+  margin: 0;
+  background-color: #E9EBE7;
+  color: #45484D;
+  font-family: Helvetica, sans-serif;
+  */  
+  /* layout */
+  margin: 0;
+  /* color */
+  background-color: #E9EBE7;
+  color: #45484D;
+  /* font */
+  font-family: Helvetica, sans-serif;
 }
