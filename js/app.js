@@ -4,7 +4,7 @@ console.log('Hello User');
 /*
 DECLARE VARIABLES FOR GAME ELEMENTS
 */
-var isUserX
+var isUserX = true
 var trackTurns = []
 var trackBoxes = ["box0", "box1", "box2", "box3", "box4", "box5", "box6", "box7", "box8"]
 var winX = "X,X,X"
@@ -85,13 +85,41 @@ const clearGame = () => {
 	col3 = ''
 	diag1 = ''
 	diag2 = ''
-	document.getElementById("topmenu").innerHTML = '<h2>Choose One To Start:</h2><button id="playX" class="button">X</button><button id="playO" class="button">O</button>'
+	
 	
 	let allBoxes = document.getElementsByClassName('allboxes')
 	for (i=0; i<allBoxes.length; i++) {
 		allBoxes[i].textContent = '\u00A0'
 		allBoxes[i].removeEventListener("click", clearGame)
 	}
+	document.getElementById("topmenu").innerHTML = '<h2>Choose One To Start:</h2>'
+	var buttonX = document.createElement('button')
+	buttonX.id='playX'
+	buttonX.classList.add('button')
+	buttonX.textContent='X'
+	buttonX.addEventListener('click', () => {	
+		document.getElementById("topmenu").innerHTML = '<h2>TRY TO GET THREE IN A ROW!</h2>'
+		console.log('game started')
+		isUserX = true
+		playGame()
+	})
+	document.getElementById("topmenu").append(buttonX)
+
+
+	var buttonO = document.createElement('button')
+	buttonO.id='playO'
+	buttonO.classList.add('button')
+	buttonO.textContent='O'
+	buttonO.addEventListener('click', () => {	
+		document.getElementById("topmenu").innerHTML = '<h2>TRY TO GET THREE IN A ROW!</h2>'
+		console.log('game started')
+		isUserX = false
+		playGame()
+	})
+	document.getElementById("topmenu").append(buttonO)
+	
+
+
 }
 
 /*
@@ -133,6 +161,8 @@ const playGame = () => {
 /*
 EVENT LISTENERS
 */
+
+
 document.getElementById('playX').addEventListener("click", () => {	
 	document.getElementById("topmenu").innerHTML = '<h2>TRY TO GET THREE IN A ROW!</h2>'
 	console.log('game started')
