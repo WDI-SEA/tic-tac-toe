@@ -1,11 +1,5 @@
 body {
-  /*
-  margin: 0;
-  background-color: #E9EBE7;
-  color: #45484D;
-  font-family: Helvetica, sans-serif;
-  */  
-  /* spacing */
+  /* layout */
   margin: 0;
   /* background */
   background-color: #E9EBE7;
@@ -15,42 +9,18 @@ body {
 }
 
 .container {
-/*
-.container {
+  /* layout */
   width: 1000px;
-  margin: 0 auto;
-}
-*/
-  /* size */
-  width: 1000px;
-  /* spacing */
   margin: 0 auto;
 }
 
 .gameboard {
-/*
-.spots {
-  text-align: center;
-  margin: 50px 0;
-}
-*/
   /* layout */
   text-align: center;
-  /* spacing */
   margin: 50px 0;
 }
 
 .gameboard button {
-  /*
-.spots button {
-  padding: 10px 70px;
-  background-color: white;
-  border: 1px solid #45484D;
-  color: #45484D;
-  font-size: 18px;
-  font-weight: bold;
-}
-  */
   /* spacing */
   padding: 10px 70px;
   /* background */
@@ -63,12 +33,6 @@ body {
 }
 
 .grid {
-/*
-.spots-images {
-  margin: 20px 0;
-  color: white;
-}
-*/
   /* spacing */
   margin: 20px 0;
   /* text */
@@ -76,42 +40,18 @@ body {
 }
 
 .row .square {
-  /* 
-.spots-images .spot {
-  position: relative;
-  display: inline-block;
-  background-size: cover;
-  background-color: #E9EBE7;
-  width: 300px;
-  height: 300px;
-  margin: 15px;
-}
-  */
   /* layout */
   position: relative;
   display: inline-block;
-  /* background */
-  background-size: cover;
-  background-color: #E9EBE7;
-  border: 1px solid #45484D;
-  /* size */
   width: 150px;
   height: 150px;
-  /* spacing */
-  margin: 15px;
+  margin: 10px;
+  /* background */
+  background-size: cover;
+  background-color: rgba(255,101,80,0.2);
 }
 
-.square p {
-  /*
-.spots-images .spot-title {
-  margin: 0;
-  position: absolute;
-  width: 100%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 30px;
-}
+.square span, .square p {
   */
   /* spacing */
   margin: 0;
@@ -127,46 +67,10 @@ body {
   font-size: 30px;
 }
 
-.col1 { /* .london */
-  /*
-.london {
-  background-image: url("../images/london.jpg");
-}
-  */
-  /* background */
-  background-image: 
-    /* london.jpg */
-    url("https://raw.githubusercontent.com/shannonzylstra/css-airbnb/master/img/london.jpg");
-}
-
-.col2 { /* .new-york */
-  /*
-.new-york {
-  background-image: url("../images/new-york.jpg");
-}
-  */
-  /* background */
-  background-image: 
-    /* new-york.jpg */
-    url("https://raw.githubusercontent.com/shannonzylstra/css-airbnb/master/img/new-york.jpg");
-}
-
-.col3 { /* .sonoma */
-  /*
-.sonoma {
-  background-image: url("../images/sonoma.jpg");
-}
-  */
-  /* background */
-  background-image: 
-    /* sonoma.jpg */
-    url("https://raw.githubusercontent.com/shannonzylstra/css-airbnb/master/img/sonoma.jpg");
-}
-
-.square.x {
-  background-image: url("http://srz/img/x-2.png"), url("https://raw.githubusercontent.com/shannonzylstra/css-airbnb/master/img/london.jpg");
+.square.x, .square .x {
+  background-image: url("https://twemoji.maxcdn.com/2/svg/274c.svg");
 }
 
 .square.o {
-  background-image: url("http://srz/img/o-2.png"), url("https://raw.githubusercontent.com/shannonzylstra/css-airbnb/master/img/new-york.jpg");
+    background-image: url("https://twemoji.maxcdn.com/2/svg/2b55.svg");
 }
