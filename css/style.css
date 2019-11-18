@@ -1,69 +1,52 @@
 body {
-  /* layout */
   margin: 0;
-  /* background */
   background-color: #E9EBE7;
-  /* text */
   color: #45484D;
   font-family: Helvetica, sans-serif;
 }
 
 .container {
-  /* layout */
   width: 1000px;
   margin: 0 auto;
 }
 
-.gameboard {
-  /* layout */
+.game {
   text-align: center;
   margin: 50px 0;
 }
 
-.gameboard button {
-  /* spacing */
+.game button {
   padding: 10px 70px;
-  /* background */
   background-color: white;
   border: 1px solid #45484D;
-  /* text */
   color: #45484D;
   font-size: 18px;
   font-weight: bold;
 }
 
 .grid {
-  /* spacing */
   margin: 20px 0;
-  /* text */
   color: white;
 }
 
 .row .square {
-  /* layout */
   position: relative;
   display: inline-block;
   width: 150px;
   height: 150px;
   margin: 10px;
-  /* background */
   background-size: cover;
   background-color: rgba(255,101,80,0.2);
 }
 
-.square span, .square p {
-  /* spacing */
+.square p {
   margin: 0;
-  /* layout */
   position: absolute;
-  /* size */
   width: 100%;
-  /* positioning */
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  /* text */
-  font-size: 30px;
+  font-size: 50px;
 }
 
 .x {
