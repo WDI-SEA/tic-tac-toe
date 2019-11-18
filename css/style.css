@@ -1,3 +1,122 @@
+
+/* color scheme from https://www.canva.com/learn/website-color-schemes/ */
+
+
 h1 {
-  color: purple;
+  font-weight: 800;
+  font-size: 70px;
+  padding: 20px 20px 0 20px;
+}
+
+h2 {
+  font-weight: 400;
+  font-size: 30px;
+  padding: 0;
+  margin: -30px 0 -30px 0;
+}
+
+body {
+background-color: whitesmoke;
+font-family: 'Tomorrow', sans-serif;
+color: whitesmoke;
+}
+
+.gamebox {
+  margin: auto;
+  text-align: center;
+  background-color: #4abdac;
+  max-width: 600px;
+  border-radius: 25px;
+}
+
+.boxholder {
+  margin: 20px 50px 20px 50px;
+  padding: 20px;
+  border: whitesmoke solid 2px;
+  border-radius: 25px;
+  background-color: #f7b733;
+  
+}
+
+.allboxes {
+  display: inline-block;
+  border: 2px whitesmoke solid;
+  margin: 5px 5px 5px 5px;
+  height: 125px;
+  width: 125px;
+  line-height: 125px;
+  font-size: 125px;
+  border-radius: 25px;
+  background-color: #fc4a1a;
+  
+}
+
+button {
+  font-family: 'Tomorrow', sans-serif;
+  color: whitesmoke;
+  font-size: 25px;
+  background-color: #fc4a1a;
+  border: solid whitesmoke 2px;
+  border-radius: 25px;
+  padding: 20px;
+  margin: 20px;
+  line-height: 25px;
+  min-width: 100px;
+}
+
+button:hover {
+  background-color:#AF3514;
+}
+
+#playX, #playO {
+  margin: 0 10px -10px 10px;
+
+}
+
+#playgame {
+  margin-bottom: 5px;
+}
+
+#topmenu {
+  display: inline-block;
+  border: solid 2px whitesmoke;
+  color: #fc4a1a;
+  background-color:  #f7b733;
+  border-radius: 25px;
+  line-height: 100px;
+  min-height: 150px;
+  min-width: 450px;
+  width: 80%;
+  padding: 20px;
+  overflow: hidden;
+}
+
+/* Ticker Effect method from https://code-boxx.com/html-css-news-ticker-horizontal-vertical/ */
+
+@keyframes ticker {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-100%, 0, 0); }
+}
+
+.ticker-wrap {
+  width: 100%;
+  padding-left: 100%;
+  background-color:  #f7b733;
+}
+.ticker-move {
+  display: inline-block;
+  white-space: nowrap;
+  padding-right: 100%;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-name: ticker;
+  animation-duration: 20s;
+}
+.ticker-move:hover{
+  animation-play-state: paused;
+}
+.ticker-item{
+  font-size: 40px;
+  display: inline-block;
+  padding: 0 2rem;
 }

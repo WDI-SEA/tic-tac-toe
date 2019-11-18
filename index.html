@@ -3,11 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <title>Tic Tac Toe!</title>
+  <link href="https://fonts.googleapis.com/css?family=Tomorrow:400,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-  <h1>Hello Front-End</h1>
+  <div class="gamebox">
+    <h1>Tic Tac Toe</h1>
+    <div id="topmenu">
+      <h2>Choose One To Start:</h2>
+      <button id="playX" class="button">X</button>
+      <button id="playO" class="button">O</button>
+    </div>
+
+
+    <div class="boxholder">
+      <div class="allboxes" id="box0">&zwnj;</div>
+      <div class="allboxes" id="box1">&zwnj;</div>
+      <div class="allboxes" id="box2">&zwnj;</div>
+      <br>
+      <div class="allboxes" id="box3">&zwnj;</div>
+      <div class="allboxes" id="box4">&zwnj;</div>
+      <div class="allboxes" id="box5">&zwnj;</div>
+      <br> 
+      <div class="allboxes" id="box6">&zwnj;</div>
+      <div class="allboxes" id="box7">&zwnj;</div>
+      <div class="allboxes" id="box8">&zwnj;</div>
+      <br>
+    </div>
+    <button id="clear" class="button">CLEAR</button>
+  </div>
+  
+  <!-- AUDIO FROM SOUNDBIBLE.COM -->
+  <audio id="click" src='./audio/Click2-Sebastian-759472264.wav'></audio>
+  <audio id="win" src='./audio/Applause-SoundBible.com-151138312.wav'></audio>
+  <audio id="sadTrombone" src='./audio/Sad_Trombone-Joe_Lamb-665429450.wav'></audio>
 
   <script type="text/javascript" src="js/app.js"></script>
 </body>
