@@ -8,84 +8,73 @@ body {
   background-size: 100vw 100vh;
 }
 #menu {
-  width: 100vw;
+  width: 61vw;
   height: 30vh;
-  background-color: orange;
+  background-color: black;
   position: absolute;
   top: 0vh;
+  left: 19.5vw;
   text-align: center;
-  
-  
 }
-#board {
-  width: 91vw;
-  height: 91vh;
-  background-color: #777;
+#timer {
+  color: black;
+  position: relative;
+  font-size: 36px;
+}
+
+#start {
+  font-size: 36px;
   display: inline-block;
-  border: 5px solid black;
+}
+
+
+#board {
+  width: 61vw;
+  height: 61vh;
+  background-color: white;
+  display: inline-block;
+  border: 5px solid white;
   margin-top: 30vh;
   border-radius: 5px;
 } 
 .space {
-
+  width: 30%;
+  height: 30%;
+  display: inline-block;
+  vertical-align: top;
 }
 #topleft {
-  width: 30vw;
-  height: 30vh;
-  display: inline-block;
-  background-color: blue;
+  background-color: lime;
 }
+
 #topmid {
-  width: 30vw;
-  height: 30vh;
-  display: inline-block;
-  background-color: red;
+  background-color: magenta;
 }
+
 #topright {
-  width: 30vw;
-  height: 30vh;
-  display: inline-block;
   background-color: green;
 }
+
 #midleft {
-  width: 30vw;
-  height: 30vh;
-  display: inline-block;
   background-color: yellow;
 }
+
 #midmid {
-  width: 30vw;
-  height: 30vh;
-  display: inline-block;
   background-color: purple;
 }
+
 #midright {
-  width: 30vw;
-  height: 30vh;
-  display: inline-block;
   background-color: turquoise;
 }
+
 #botleft {
-  width: 30vw;
-  height: 30vh;
-  display: inline-block;
   background-color: brown;
 }
-#botright {
-  width: 30vw;
-  height: 30vh;
-  display: inline-block;
-  background-color: 
-}
+
 #botmid {
-  width: 30vw;
-  height: 30vh;
-  display: inline-block;
-  background-color: black;
+  background-color: orange;
 }
+
 #botright {
-  width: 30vw;
-  height: 30vh;
-  display: inline-block;
   background-color: pink;
 }
