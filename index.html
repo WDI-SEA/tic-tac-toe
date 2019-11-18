@@ -1,14 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <title>Tic Tac Toe</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
-<body>
-  <h1>Hello Front-End</h1>
+
+<header>
+  <img src="./img/backround.png">
+  <p>Untitled Tic tAc toE</p>
+</header>
+
+<body class="board">
+
+  <div id="box">
+    <div class=square style="color:grey">
+    </div>
+    <div class=square style="color:grey">
+    </div>
+    <div class=square style="color:grey">
+    </div>
+    <div class=square style="color:grey">
+    </div>
+    <div class=square style="color:grey">
+    </div>
+    <div class=square style="color:grey">
+    </div>
+    <div class=square style="color:grey">
+    </div>
+    <div class=square style="color:grey">
+    </div>
+    <div class=square style="color:grey">
+    </div>
+
+  </div>
+
+
+
+  <div id="character">
+    <h1>Pick the Character</h1>
+
+    <div class="goose">
+      <img src="./img/goose.png" alt="goose" id="goose"><br>
+      <input type="radio" name="character" value="goose"> Goose
+    </div>
+
+    <div class="farmer">
+      <img src="./img/farmer.png" alt="farmer" id="farmer"><br>
+      <input type="radio" name="character" value="farmer"> Farmer
+    </div>
+    <br>
+    <button id="start">Start Game</button>
+  </div>
+
+
+
+  </div>
+  <p id="message"></p>
+
+
+  <audio id="scream" src="./sounds/what.wav"></audio>
+  <audio id="honk" src="./sounds/honk.mp3" loop></audio>
 
   <script type="text/javascript" src="js/app.js"></script>
 </body>
+
 </html>
