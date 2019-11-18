@@ -5,10 +5,52 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Hello Front-End</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <h1>Hello Front-End</h1>
-
+  <h1>Tic-Tac-Toe</h1>
+  <p></p>
+  <div id = "gameBoard">
+    <h2>How To Play</h2>
+    <ul>
+  <!-- <li>Select Game Mode: <br><input type = "radio" name = "gameMode"/><label>2 Player</label><input type = "radio" name = "gameMode"/><label>Player vs. Computer</label> </li> -->
+  <!-- <li>Would you like to be X's or O's? <input type = "radio" name = "playerChoice"/><label>X</label><input type = "radio" name = "playerChoice"/><label>O</label> </li> -->
+  <!--<li>Which player will go first?<input type = "radio" name = "firstPlayer"/><label>X</label><input type = "radio" name = "firstPlayer"/><label>O</label> </li> -->
+      <li>Click "Start Game" to get started. </li>
+        <li>Click "Play Again" to reset the board but keep track of your scores.</li>
+      <li>Click "Start Over" to start a new matchup.</li>
+    </ul>
+    <button id="startButton">Start Game</button>
+   <!-- <button id="startCompButton">PL vs. Comp</button> -->
+    <button id="playAgain">Play Again</button>
+    <div id = "scoreBoard">
+      <h2>SCORE</h2>
+      <p>Games Played: <span id="gamesPlayed"></span></p>
+      <p>Player Turkey: <span id="playerScoreX"></span></p>
+      <p>Player Pie: <span id="playerScoreO"></span></p>
+    </div>
+    <div id = "messageBoard">
+        <p>Can you get 3 in-a-row?</p>
+      </div>
+    <div class="row">
+      <div id="sq1" class="square"></div>
+      <div id="sq2" class="square"></div>
+      <div id="sq3" class="square"></div>
+    </div>
+    <div class="row">
+      <div id="sq4" class="square"></div>
+      <div id="sq5" class="square"></div>
+      <div id="sq6" class="square"></div>
+    </div>
+    <div class="row">
+        <div id="sq7" class="square"></div>
+        <div id="sq8" class="square"></div>
+        <div id="sq9" class="square"></div>
+    </div>
+</div>
   <script type="text/javascript" src="js/app.js"></script>
+<footer>
+  <p>Kennan Salisbury</p>
+</footer>
 </body>
 </html>
