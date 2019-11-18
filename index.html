@@ -3,12 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <title>Tic Tac Toe</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Tomorrow&display=swap" rel="stylesheet">
 </head>
 <body>
-  <h1>Hello Front-End</h1>
+  <h1>Tic-Tac-Toe   ~ XOXO ~ </h1>
 
+  <div class="emoji-button">
+  <button class = "players" id = "player1" style="width:120px; height:80px; length:200px">PLAYER 1 🙋‍♀️ </button>
+  <button class = "players" id = "player2" style="width:120px; height:80px; length:200px">PLAYER 2 🙋‍♂️ </button>
+  </div>
+
+  <div class="message">
+    <p id = "messageX" style= "width:150px; height:50px"></p>
+    <p id = "messageO" style= "width:150px; height:50px"></p>
+  </div>
+
+  <div class="grid-box flex-container flex-column flex-center">
+  <div class = "board flex-container flex-wrap">
+    <div class="box" id="box1"></div>
+    <div class="box" id="box2"></div>
+    <div class="box" id="box3"></div>
+    <div class="box" id="box4"></div>
+    <div class="box" id="box5"></div>
+    <div class="box" id="box6"></div>
+    <div class="box" id="box7"></div>
+    <div class="box" id="box8"></div>
+    <div class="box" id="box9"></div>
+  </div>
+  </div>
+
+  <div class="go">
+  <button id ="start" style="width:330px; height:50px;">GO!</button>
+  </div>
+
+
+  <audio></audio>
+  <audio></audio>
   <script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>
+
+
