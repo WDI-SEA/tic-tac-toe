@@ -162,3 +162,11 @@ body {
     /* sonoma.jpg */
     url("https://raw.githubusercontent.com/shannonzylstra/css-airbnb/master/img/sonoma.jpg");
 }
+
+.square.x {
+  background-image: url("http://srz/img/x-2.png"), url("https://raw.githubusercontent.com/shannonzylstra/css-airbnb/master/img/london.jpg");
+}
+
+.square.o {
+  background-image: url("http://srz/img/o-2.png"), url("https://raw.githubusercontent.com/shannonzylstra/css-airbnb/master/img/new-york.jpg");
+}
