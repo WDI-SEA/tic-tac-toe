@@ -62,7 +62,7 @@ body {
   font-weight: bold;
 }
 
-.row {
+.grid {
 /*
 .spots-images {
   margin: 20px 0;
@@ -93,6 +93,7 @@ body {
   /* background */
   background-size: cover;
   background-color: #E9EBE7;
+  border: 1px solid #45484D;
   /* size */
   width: 150px;
   height: 150px;
