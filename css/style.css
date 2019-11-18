@@ -5,31 +5,159 @@ body {
   color: #45484D;
   font-family: Helvetica, sans-serif;
   */  
-  /* layout */
+  /* spacing */
   margin: 0;
-  /* color */
+  /* background */
   background-color: #E9EBE7;
+  /* text */
   color: #45484D;
-  /* font */
   font-family: Helvetica, sans-serif;
 }
 
 .container {
-  /*
+/*
+.container {
   width: 1000px;
   margin: 0 auto;
-  */
-  /* layout */
+}
+*/
+  /* size */
   width: 1000px;
+  /* spacing */
   margin: 0 auto;
 }
 
 .gameboard {
-  /*
+/*
+.spots {
   text-align: center;
   margin: 50px 0;
-  */
+}
+*/
   /* layout */
   text-align: center;
+  /* spacing */
   margin: 50px 0;
+}
+
+.gameboard button {
+  /*
+.spots button {
+  padding: 10px 70px;
+  background-color: white;
+  border: 1px solid #45484D;
+  color: #45484D;
+  font-size: 18px;
+  font-weight: bold;
+}
+  */
+  /* spacing */
+  padding: 10px 70px;
+  /* background */
+  background-color: white;
+  border: 1px solid #45484D;
+  /* text */
+  color: #45484D;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.row {
+/*
+.spots-images {
+  margin: 20px 0;
+  color: white;
+}
+*/
+  /* spacing */
+  margin: 20px 0;
+  /* text */
+  color: white;
+}
+
+.row .square {
+  /* 
+.spots-images .spot {
+  position: relative;
+  display: inline-block;
+  background-size: cover;
+  background-color: #E9EBE7;
+  width: 300px;
+  height: 300px;
+  margin: 15px;
+}
+  */
+  /* layout */
+  position: relative;
+  display: inline-block;
+  /* background */
+  background-size: cover;
+  background-color: #E9EBE7;
+  /* size */
+  width: 300px;
+  height: 300px;
+  /* spacing */
+  margin: 15px;
+}
+
+.square p {
+  /*
+.spots-images .spot-title {
+  margin: 0;
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 30px;
+}
+  */
+  /* spacing */
+  margin: 0;
+  /* layout */
+  position: absolute;
+  /* size */
+  width: 100%;
+  /* positioning */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* text */
+  font-size: 30px;
+}
+
+.col1 { /* .london */
+  /*
+.london {
+  background-image: url("../images/london.jpg");
+}
+  */
+  /* background */
+  background-image: 
+    /* london.jpg */
+    url("https://raw.githubusercontent.com/shannonzylstra/css-airbnb/master/img/london.jpg");
+}
+
+.col2 { /* .new-york */
+  /*
+.new-york {
+  background-image: url("../images/new-york.jpg");
+}
+  */
+  /* background */
+  background-image: 
+    /* new-york.jpg */
+    url("https://raw.githubusercontent.com/shannonzylstra/css-airbnb/master/img/new-york.jpg");
+}
+
+.col3 { /* .sonoma */
+  /*
+.sonoma {
+  background-image: url("../images/sonoma.jpg");
+}
+  */
+  /* background */
+  background-image: 
+    /* sonoma.jpg */
+    url("https://raw.githubusercontent.com/shannonzylstra/css-airbnb/master/img/sonoma.jpg");
 }
