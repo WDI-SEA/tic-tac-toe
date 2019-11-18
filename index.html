@@ -1,14 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tic Tac Toe</title>
-  <link rel="stylesheet" type="text/css" href="css/style.css">
-</head>
-<body>
-  <h1>Tic Tac Toe</h1>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+  </head>
+  <body>
 
-  <script type="text/javascript" src="js/app.js"></script>
-</body>
+    <!-- DIV.CONTAINER -->
+    <div class="container">
+
+      <!-- SECTION.GAMEBOARD -->
+      <section class="gameboard">
+        <h1>Tic Tac Toe</h1>
+        <div class="grid">
+          <div class="grid-rows">
+            <div class="row row1">
+              <div class="square col1" id="row1col1">
+                <p>(1,1)</p>
+              </div>
+              <div class="square col2" id="row1col2">
+                <p>(1,2)</p>
+              </div>
+              <div class="square col3" id="row1col3">
+                <p>(1,3)</p>
+              </div>
+            </div>
+            <div class="row row2">
+              <div class="square col1" id="row2col1">
+                <p>(2,1)</p>
+              </div>
+              <div class="square col2" id="row2col2">
+                <p>(2,2)</p>
+              </div>
+              <div class="square col3" id="row2col3">
+                <p>(2,3)</p>
+              </div>
+            </div>
+            <div class="row row3">
+              <div class="square col1" id="row3col1">
+                <p>(3,1)</p>
+              </div>
+              <div class="square col2" id="row3col2">
+                <p>(3,2)</p>
+              </div>
+              <div class="square col3" id="row3col3">
+                <p>(3,3)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button>Play again</button>
+      </section>
+
+    </div>
+
+    <!-- SCRIPT -->
+    <script type="text/javascript" src="js/app.js"></script>
+
+  </body>
 </html>
