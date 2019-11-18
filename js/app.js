@@ -3,15 +3,25 @@ var lastPlayed = ''
 var scoreWin = ''
 var scoredO = 0
 var scoredX = 0
+var ai = false
+
+
+const ifWin = () => {
+    if (checkWin()) {
+        //you won
+        winner(lastPlayed)
+        leaderBoard(scoreWin)
+      }
+}
 
 const leaderBoard = (scoreId) => {
     //change scored value based on id
     //display score valuesv
     if (scoreId == 'scoreX') {
-        scoredX += 1
+        scoredX++
         document.getElementById(scoreId).textContent = scoredX
     } else {
-        scoredO += 1
+        scoredO++
         document.getElementById(scoreId).textContent = scoredO
     }
     //keep values for start but clear values for reset
@@ -32,14 +42,21 @@ const clearBoard = () => {
 
 const restart = () => {
     //clear board
+    ai = false
+    document.getElementById('jingle').pause()
     scoredO = 0
     scoredX = 0
     document.getElementById('scoreX').textContent = scoredX
     document.getElementById('scoreO').textContent = scoredO
 
+    document.getElementById('player').style.display = 'inline-block'
+    document.getElementById('computer').style.display = 'inline-block'
+    document.getElementById('start').style.display = 'none'
+    document.getElementById('reset').style.display = 'none'
+
     clearBoard()
     //clear leaderboard and start all over
-    document.getElementById('message').textContent = 'Click New Board to start a new game!'
+    document.getElementById('message').textContent = 'Choose a player mode and then click New Board!'
 }
 
 const endGame = () => {
@@ -54,8 +71,7 @@ const winner = (str) => {
     document.getElementById('win').volume = '0.2'
     document.getElementById('win').play()
 
-    document.getElementById('message').textContent = 'Player ' + str + ' wins!'
-
+    document.getElementById('message').textContent = str + ' wins!'
 }
 
 const areEqual = (a,b,c) => {
@@ -88,43 +104,85 @@ const checkWin = () => {
     return false
 }
 
+const computerPlay = () => {
+
+    turn++
+
+    let boxes = document.querySelectorAll('.box')
+    
+    //loop through each valid box only
+    let validBoxes = []
+
+    for (let i = 0; i < boxes.length; i++) {
+        if (boxes[i].textContent.length < 1) {
+            validBoxes.push(boxes[i])
+        }
+    }
+
+    var randomIndex = Math.floor(Math.random() * validBoxes.length); 
+    var randomBox = validBoxes[randomIndex];
+    randomBox.textContent = 'O'
+    randomBox.setAttribute('entry', 'o')
+    randomBox.removeEventListener('click', play)
+    lastPlayed = 'Computer'
+    scoreWin = 'scoreO'
+    document.getElementById('message').textContent = 'It\'s your turn!'
+
+    ifWin()
+
+}
+
 const play = (e) => {
     //track turns
-    turn += 1
-    console.log(turn)
+    turn++
     
         if (turn % 2 == 0) {
             //add the x or o - depends on turn
           e.target.innerHTML = `O`
           e.target.setAttribute('entry', 'o')
-          lastPlayed = '2 (O)'
+          lastPlayed = 'Player 2 (O)'
           scoreWin = 'scoreO'
           document.getElementById('message').textContent = 'Player 1 (X), it\'s your turn!'
         } else if (turn == 9) {
             e.target.innerHTML = `X`
             e.target.setAttribute('entry', 'x')
-            lastPlayed = '1 (X)'
+            lastPlayed = 'Player 1 (X)'
             scoreWin = 'scoreX'
             document.getElementById('message').textContent = 'It\'s a draw!'
+            if (ai == true) {
+                lastPlayed = 'User'
+                if (checkWin()) {
+                    //you won
+                    winner(lastPlayed)
+                    leaderBoard(scoreWin)
+                }
+            }
         } else {
             e.target.innerHTML = `X`
             e.target.setAttribute('entry', 'x')
-            lastPlayed = '1 (X)'
             scoreWin = 'scoreX'
             document.getElementById('message').textContent = 'Player 2 (O), it\'s your turn!'
+            
+            if (ai == true) {
+                lastPlayed = 'User'
+                if (checkWin()) {
+                    //you won
+                    winner(lastPlayed)
+                    leaderBoard(scoreWin)
+                } else {
+                    setTimeout(computerPlay(), Math.random() * 5000)
+                }
+            } else {
+                lastPlayed = 'Player 1 (X)'
+            }
         }
 
     document.getElementById('click').play()
     e.target.removeEventListener('click', play)
 
     //check win condition
-    if (turn >= 5) {
-          if (checkWin()) {
-            //you won
-            winner(lastPlayed)
-            leaderBoard(scoreWin)
-            console.log('winner!')
-          }
+    if (ai != true) {
+    ifWin()
     }
 }
 
@@ -148,7 +206,6 @@ const addBoxListeners = () => {
 }
 
 const start = () => {
-    console.log('start')
     //board should be clear
     clearBoard()
 
@@ -161,6 +218,9 @@ const start = () => {
 
     //message alerts user to pick box
     document.getElementById('message').textContent = 'Welcome! You\'re Player 1 (X), choose a box!'
+    if (ai == true) {
+        document.getElementById('message').textContent = 'Welcome User! You\'re X, choose a box!'
+    }
     
     //display leaderboard
 
@@ -173,9 +233,33 @@ const start = () => {
 document.addEventListener('DOMContentLoaded', () => {
     
     document.getElementsByTagName('h2')[0].addEventListener('click', () => {
-        console.log("event works!")
         document.getElementsByTagName('article')[0].classList.toggle('expand')
     })
     
-    document.getElementById('start').addEventListener('click', start)
+    document.getElementById('start').style.display = 'none'
+    document.getElementById('reset').style.display = 'none'
+
+    const buttonsDisappear = () => {
+        //hide mode buttons, show start/reset buttons
+        document.getElementById('message').textContent = ''
+        document.getElementById('player').style.display = 'none'
+        document.getElementById('computer').style.display = 'none'
+        document.getElementById('start').style.display = 'inline-block'
+        document.getElementById('reset').style.display = 'inline-block'
+        document.getElementById('start').addEventListener('click', start)
+    }
+    
+    document.getElementById('player').addEventListener('click', () => {
+        document.getElementById('mode1').textContent = 'Player 1 (X)'
+        document.getElementById('mode2').textContent = 'Player 2 (O)'
+        buttonsDisappear()
+
+    })
+
+    document.getElementById('computer').addEventListener('click', () => {
+        ai = true
+        document.getElementById('mode1').textContent = 'User'
+        document.getElementById('mode2').textContent = 'Computer'
+        buttonsDisappear()
+    })
 })
