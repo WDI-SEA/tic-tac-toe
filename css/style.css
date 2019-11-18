@@ -1,3 +1,82 @@
+body {
+  text-align: center;
+  display: inline-flexbox;
+  position: relative;
+  background: #b5b5b5;
+}
+
 h1 {
-  color: purple;
+  font-family: 'Amatic SC', sans-serif;
+  font-size: 60px;
+  color: #A8130B;
+}
+
+h2 {
+  font-family: 'Amatic SC', sans-serif;
+  font-size: 40px;
+  color: #A8130B;
+}
+
+p {
+  font-family: 'Amatic SC', sans-serif;
+  font-size: 40px;
+  color: #A8130B;
+}
+
+#wrapper {
+  max-height: 50%;
+  max-width: 50%;
+  margin: 0 auto;
+  position: relative;
+  text-align: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+#game-board {
+  max-height: 50%;
+  max-width: 50%;
+  margin: 0 auto;
+  text-align: center;
+  display: grid;
+  position: relative;
+  justify-content: center;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-gap: 10px 10px;
+}
+
+.square {
+  background-color: #FFFFFF;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-family: 'Amatic SC', sans-serif;
+  font-size: 50px;
+  min-height: 50px;
+}
+
+.bg1 {
+  background: #000000;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 4;
+  z-index: -1;
+}
+
+#button {
+  font-family: 'Amatic SC', sans-serif;
+  font-size: 50px;
+  text-align: center;
+  position: relative;
+  background-color: #FFFFFF;
+  color: #A8130B;
+  border: 5px solid black;
+  border-radius: 15px;
+  margin: 30px;
 }
