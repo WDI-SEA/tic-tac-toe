@@ -1,14 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <Title>Tic Tac Toe</Title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <link href="https://fonts.googleapis.com/css?family=Tomorrow&display=swap" rel="stylesheet"> 
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  
 </head>
-<body>
-  <h1>Hello Front-End</h1>
-
+<body class="background">
+  <h1>Tic Tac Toe</h1>
+    <table>
+      <tr>
+        <td class="cell" id="0"></td>
+        <td class="cell" id="1"></td>
+        <td class="cell" id="2"></td>
+      </tr>
+      <tr>
+        <td class="cell" id="3"></td>
+        <td class="cell" id="4"></td>
+        <td class="cell" id="5"></td>
+      </tr>
+      <tr>
+        <td class="cell" id="6"></td>
+        <td class="cell" id="7"></td>
+        <td class="cell" id="8"></td>
+      </tr>
+    </table>
+    <div class="endgame">
+      <div class="text"></div>
+    </div>
+    <button onClick="startGame()">Start!</button>
+  <footer class="clearfix">
+    <p class="term"> SEI 28! 2019</p>
+    <p class="message"> <span class="name">General Assembly</span></p>
+  </footer>
   <script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>

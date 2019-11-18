@@ -1,3 +1,70 @@
 h1 {
-  color: purple;
+  font-family: 'tomorrow', sans-serif;
+  color: darkseagreen;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 50px;
+  padding-bottom: 50px;
+}
+body {
+  background-size: 400vw 400vh;
+  background-color: grey;
+  text-align: center;
+}
+td {
+  border: 2px solid #333;
+  height: 125px;
+  width: 150px;
+  /* position: relative; */
+  cursor: pointer;
+  text-align: center;
+  font-family: 'Tomorrow', sans-serif;
+  font-size: 75px;
+  /* margin: 0px 200px 0px 200px; */
+  margin-left: auto;
+  margin-right: auto;
+}
+table {
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+button {
+  font-family: 'Tomorrow', sans-serif;
+  font-size: 35px;
+  position: bottom;
+  border-radius: 5px;
+  color: darkseagreen;
+  margin-left: auto;
+  margin-right: auto;
+  margin: 100px 0px ;
+}
+footer {
+  padding: 0px 20px 0px 20px;
+  background-color: darkseagreen;
+  color: white;
+  font-size: 15px;
+  letter-spacing: .08em;
+  font-weight: 500;
+}
+.message {
+  font-family: 'Tomorrow', sans-serif;
+  float: right;
+}
+.term {
+  font-family: 'Tomorrow', sans-serif;
+  float: left;
+}
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  content: " ";
+  clear: both;
+  height: 0;
+  font-size: 0;
+}
+.name {
+  color: orange;
+  font-weight: 500; 
 }
