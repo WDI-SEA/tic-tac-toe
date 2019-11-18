@@ -15,7 +15,7 @@ let oCounter = 0
 let gameCounter = 0
 let allSquares = ["sq1", "sq2", "sq3", "sq4", "sq5", "sq6", "sq7", "sq8", "sq9"]
 
-//add x or o to square when clicked
+//PLAY CODE FOR 2PL GAME
 const playXO = e => {
     //show play again button
     playAgainButton.style.display = "block"
@@ -41,7 +41,6 @@ const playXO = e => {
     e.target.removeEventListener('click', playXO)
     console.log(trackPlays)
 
-    
     //check win condition
     if (checkWin(trackSquaresX)) {
         winGame('TURKEY', playXO)
@@ -56,6 +55,7 @@ const playXO = e => {
     }
 }
 
+//check to see if 3-in-a-row combination present (2pl and comp)
 const checkWin = (arr) => {
     switch(true) {
         case arr.includes('sq1') && arr.includes('sq2') && arr.includes('sq3'):
@@ -100,6 +100,7 @@ const checkWin = (arr) => {
     //else return false
 }
 
+//win game scenario
 const winGame = (xo, playXOorComp) => {
     messageBoard.textContent = `Player ${xo} wins!`
     removeSquareListeners(playXOorComp)
@@ -107,6 +108,7 @@ const winGame = (xo, playXOorComp) => {
     console.log(`${xo} wins!`)
 }
 
+//tie scenario (2pl and comp)
 const drawGame = (playXOorComp) => {
     messageBoard.textContent = "DRAW"
     removeSquareListeners(playXOorComp)
@@ -114,13 +116,13 @@ const drawGame = (playXOorComp) => {
     console.log(`DRAW`)
 }
 
+//add and remove listen events on squares (2pl and comp)
 const removeSquareListeners = (playXOorComp) => {
     
     for (let i = 0; i < squares.length; i++) {
         squares[i].removeEventListener('click', playXOorComp)
     }
 }
-
 const addSquareListeners = (playXOorComp) => {
     
     for (let i = 0; i < squares.length; i++) {
@@ -129,6 +131,7 @@ const addSquareListeners = (playXOorComp) => {
     }
 }
 
+//reset to original screen with start over button
 const startOver = () => {
     trackPlays = []
     trackSquaresX = []
@@ -154,6 +157,7 @@ const startOver = () => {
     messageBoard.textContent = "WELCOME"
     }
 
+//start game for 2PL
 const startGame = () => {
     trackPlays = []
     trackSquaresX = []
@@ -173,6 +177,7 @@ const startGame = () => {
     scoreBoard.style.display = "block"
 }
 
+//reset board but keep track of score for 2PL game
 const nextGame = () => {
     trackPlays = []
     trackSquaresX = []
@@ -187,6 +192,7 @@ const nextGame = () => {
     playAgainButton.style.display = "block"
 }
 
+//reset board but keep track of score for COMP game
 const nextGameComp = () => {
     trackPlays = []
     trackSquaresX = []
@@ -201,17 +207,8 @@ const nextGameComp = () => {
     playAgainButton.style.display = "block"
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    startButton.addEventListener('click', startGame)
-    startCompButton.addEventListener('click', startCompGame)
-})
-
-
-
-
-//pick random square that hasn't been picked 
+//pick random square that hasn't been picked for computer player
 const chooseRandomSq = () => {
-//math random for index to pull from array with all square numbers, then check if in square tracker array
     let i = Math.floor(Math.random() * 9)
     if (trackSquaresX.includes(allSquares[i]) || trackSquaresO.includes(allSquares[i])) {
         return chooseRandomSq()
@@ -221,7 +218,7 @@ const chooseRandomSq = () => {
     }
 }
 
-
+//check win for COMP
 const didSomeoneWinComp = () =>{
 
     if (checkWin(trackSquaresX)) {
@@ -243,7 +240,7 @@ const didSomeoneWinComp = () =>{
     }
 }
 
-//computer player O
+//code for computer to play
 const playCompO = () => {
         let sqNum = chooseRandomSq()
         document.getElementById(sqNum).classList.add('oImage')
@@ -277,6 +274,7 @@ const playXOComp = e => {
     didSomeoneWinComp()
 }
 
+// start game for Computer game
 const startCompGame = () => {
     trackPlays = []
     trackSquaresX = []
@@ -297,5 +295,7 @@ const startCompGame = () => {
 }
 
 
-
-// startCompButton.addEventListener('click', startCompGame)
+document.addEventListener('DOMContentLoaded', () => {
+    startButton.addEventListener('click', startGame)
+    startCompButton.addEventListener('click', startCompGame)
+})

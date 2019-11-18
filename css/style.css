@@ -74,6 +74,10 @@ button {
   margin: 10px 60px 5px 0;
 }
 
+#scoreBoard p {
+  margin: 5px 0px 5px 40px;
+}
+
 .row {
   max-width: 900px;
   display: flex;
