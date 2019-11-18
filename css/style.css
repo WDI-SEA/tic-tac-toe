@@ -1,3 +1,46 @@
+body {
+  text-align: center;
+
+}
+
 h1 {
   color: purple;
+  font-size: 80px;
 }
+
+p, h1:hover {
+  cursor: default;
+}
+
+.cell {
+  display: inline-block;
+  vertical-align: top;
+  height: 15vh;
+  width: 15vw;
+  text-align: center;
+  font-size: 80px;
+  padding: 0 20px;
+  margin: 0 -2px;
+  border: 1px solid black;
+}
+
+.cell, #start:hover {
+  cursor: pointer;
+}
+
+.row {
+
+}
+
+button {
+  font-size: 20px;
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+
+p {
+  font-size: 20px;
+  background: linear-gradient(top, bottom, white, red)
+}
+
+
