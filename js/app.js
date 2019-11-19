@@ -1,12 +1,13 @@
-let user = "x"
+let user, grid
 
 const addSquareListeners = () => {
-    // console.log('Add square listeners')
     let squares = document.querySelectorAll('.square')
     // Loop through each square
     for (let i = 0; i < squares.length; i++) {        
-        // add event listener for click! 
-        squares[i].addEventListener('click',clickSquare)
+        let square = squares[i]
+        // add 'unclicked' class and event listener for click
+        square.classList.add('unclicked')
+        square.addEventListener('click',clickSquare)
     }
 }
 
@@ -18,12 +19,12 @@ const clickSquare = e => {
     } else {
         user = "x"
     }
+    e.target.removeEventListener('click', clickquare)
 }
 
 const start = () => {
-    console.log('started')
+    console.log('pressed play')
     user = 'x'
-    //squares = document.querySelectorAll('.square')
     addSquareListeners()
 }
 
@@ -31,3 +32,38 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('content was loaded')
     document.getElementById('play').addEventListener('click', start)
 })
+
+/*
+let player, gameboard
+
+const clickSquare = e => {
+}
+
+const removeSquareListeners = () => {
+}
+
+const addSquareListeners = () => {
+}
+
+const clickTurn  = () => {
+}
+
+const checkWin = () => {
+}
+
+const endGame = message => {
+}
+
+const winGame = () => {
+}
+
+const loseGame = () => {
+}
+
+const start = () => {
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('start').addEventListener('click', start)
+})
+*/
