@@ -1,115 +1,125 @@
 
+let cells = document.querySelectorAll('.cell')
+var game = {
+    PlayerOne: 'x',
+    PlayerTwo: 'o',
+    currentPlayer: '',
+    moves: 0
+}
 
+//Function to check for win
+const checkWin = () => {
+    var curPlayer;
 
-//function to remove ability to click any cell (when game is won/tied)
+    if (game.currentPlayer === game.PlayerOne) {
+        curPlayer = game.PlayerOne
+    }
+    else if (game.currentPlayer === game.PlayerTwo) {
+        curPlayer = game.PlayerTwo
+    }
+
+    const winner = () => {
+        document.getElementById('message').textContent = curPlayer + ' WINS!!!'
+        removeCellListeners()
+    }
+
+    if (document.getElementById('c1').textContent === curPlayer && document.getElementById('c2').textContent === curPlayer && document.getElementById('c3').textContent === curPlayer) {
+        return winner()
+    }
+    else if (document.getElementById('c4').textContent === curPlayer && document.getElementById('c5').textContent === curPlayer && document.getElementById('c6').textContent === curPlayer) {
+        return winner()
+    }
+    else if (document.getElementById('c7').textContent === curPlayer && document.getElementById('c8').textContent === curPlayer && document.getElementById('c9').textContent === curPlayer) {
+        return winner()
+    }
+    else if (document.getElementById('c1').textContent === curPlayer && document.getElementById('c4').textContent === curPlayer && document.getElementById('c7').textContent === curPlayer) {
+        return winner()
+    }
+    else if (document.getElementById('c2').textContent === curPlayer && document.getElementById('c5').textContent === curPlayer && document.getElementById('c8').textContent === curPlayer) {
+        return winner()
+    }
+    else if (document.getElementById('c3').textContent === curPlayer && document.getElementById('c6').textContent === curPlayer && document.getElementById('c9').textContent === curPlayer) {
+        return winner()
+    }
+    else if (document.getElementById('c1').textContent === curPlayer && document.getElementById('c5').textContent === curPlayer && document.getElementById('c9').textContent === curPlayer) {
+        return winner()
+    }
+    else if (document.getElementById('c3').textContent === curPlayer && document.getElementById('c5').textContent === curPlayer && document.getElementById('c7').textContent === curPlayer) {
+        return winner()
+    }
+}
+
+//Remove ability to click on cells (when game is won/tied)
 const removeCellListeners = () => {
-    // grab all cells from DOM
-    let cells = document.querySelectorAll('.cell')
-    //prevent clicking cells
     for (let i = 0; i < cells.length; i++) {
         cells[i].removeEventListener('click', placeMarker)
     }
 }
 
-//function to place click listeners for cells
+//Place click listeners for cells
 const addCellListeners = () => {
-    //grab cells from DOM
-    let cellListeners = document.querySelectorAll('.cell')
-
-    //loop through cells and add click listener to allow player to place marker
-    for (let i = 0; i < cellListeners.length; i++) {
-        cellListeners[i].addEventListener('click', placeMarker)
+    for (let i = 0; i < cells.length; i++) {
+        cells[i].addEventListener('click', placeMarker)
     }
 }
 
-//function to place marker (prevent clicking cell again, check for win)
-const placeMarker = (e) =>  {
-    //change cell content from nothing to x
-    e.target.textContent = 'X'
-    
-    removeEventListener('click', placeMarker)
+// Set currentPlayer in game object
+const setCurPlr = (curr) => {
+    game.currentPlayer = curr;
+}
 
-    //draw scenario
-    if (clicks === 8) {
-        document.getElementById('message').textContent = "Cat's Game - Try Again!"
+//Function to place player marker, remove event listener from marked cell, check if the player won/draw, change players, change message
+const placeMarker = (e) => {
+    if (game.currentPlayer === game.PlayerOne) {
+        e.target.textContent=game.PlayerOne;
+        e.target.removeEventListener('click', placeMarker);
+        checkWin()
+        document.getElementById('message').textContent = "Player 2, Go!"
+        setCurPlr(game.PlayerTwo)
+    }
+    else if (game.currentPlayer === game.PlayerTwo) {
+        e.target.textContent=game.PlayerTwo
+        e.target.removeEventListener('click', placeMarker)
+        checkWin()
+        document.getElementById('message').textContent = "Player 1, Go!"
+        setCurPlr(game.PlayerOne)
+    }
+    game.moves++;
+    draw()
+}
+
+//Draw scenario
+const draw = () => {
+    if (game.moves === 9) {
+        document.getElementById('message').textContent=("Cat's Game! Try Again.")
         removeCellListeners()
     }
 }
 
-//keep track off turns
-let clicks = 0
-const turnTracker = () => { 
-    //grab all cells from DOM
-    let turn = document.querySelectorAll('.cell')
-    
-    //increase clicks by 1 when cell clicked
-    addClick = () => {
-        for (let i = 0; i < turn.length; i++) {
-            turn[i].onclick = () => {
-                console.log(clicks)
-                ++clicks
-            }            
-        }
-    }
-
-    addClick(turn)
-    
-}
-
 //start condtions
 const start = () => {
-    //grab all cells from DOM
-    startCell = document.querySelectorAll('.cell')
+    startCell = cells
 
     //starting cells have no content
     for (let i = 0; i < startCell.length; i++) {
         startCell[i].textContent = ''
     }
 
+    //set first player as 'x' and set moves to 0
+    game.currentPlayer = game.PlayerOne
+    game.moves = 0
+
     //button text changes to Restart
     document.getElementById('start').textContent = "Restart Game"
 
+    //Reset message to start message
+    document.getElementById('message').textContent=`Player 1, Go!`
+
     //add event Listeners to the cells once game is started
     addCellListeners()
-
-    //turn on turnTracker at start and reset to 0
-    turnTracker(clicks = 0)
-    markerChange()
-
-    
-    
-    
 }
 
-
-
-//change marker from X to O, and change player message for each turn
-const markerChange = () => {
-
-    if (clicks%2 === 0) {
-        document.getElementsByClassName('cell').textContent = 'x'
-        document.getElementById('message').textContent = "Player 1 - Your Turn"
-    }
-    else {
-        document.getElementsByClassName('cell').textContent = 'o'
-        document.getElementById('message').textContent = "Player 2 - Your Turn"
-    }
-    
-}
-
-//win scenario
-    //create boolean data for each cell - textContent === x or o
-        //if cell 1-3 or 4-6 or 7-9 === true for x = WIN
-        //if cell 1,4,7, or 2,5,8 or 3,6,9 === true for x = WIN
-        //if cell 1,5,9 or 3,5,7 === true for x = WIN
-
-        //if cell 1-3 or 4-6 or 7-9 === true for o = WIN
-        //if cell 1,4,7, or 2,5,8 or 3,6,9 === true for o = WIN
-        //if cell 1,5,9 or 3,5,7 === true for o = WIN
-
-
-//check win senario after each turn
-
+//Add event listener to Start button to begin game on click
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('start').addEventListener('click', start)
 })
