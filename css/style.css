@@ -28,8 +28,34 @@ table {
   border-collapse: collapse;
   margin-left: auto;
   margin-right: auto;
+}
+#players {
+  display: inline-block;
+  width: 55%
+}
+#playerOne {
+  float: left;
+  font-family: 'Tomorrow', sans-serif;
+}
+#oScore {
+  margin: 20px;
+  float: left;
+  font-family: 'Tomorrow', sans-serif;
+}
+#playerTwo {
+  float: right;
+  font-family: 'Tomorrow', sans-serif;
+}
+#xScore {
+  margin: 20px;
+  float: right;
+  font-family: 'Tomorrow', sans-serif;
+}
+#turn {
+  font-family: 'Tomorrow', sans-serif;
   
 }
+
 button {
   font-family: 'Tomorrow', sans-serif;
   font-size: 35px;
