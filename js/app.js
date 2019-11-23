@@ -2,6 +2,21 @@ console.log('Loaded')
 
 let marker = 'x'
 let clicks = 0
+let squares = {
+    x: [],
+    o: []
+}
+
+const wins = [
+    [1,2,3],
+    [4,5,6],
+    [7,8,9],
+    [1,4,7],
+    [2,5,8],
+    [3,6,9],
+    [1,5,9],
+    [3,5,7]]
+
 
 const unclickedSquares = document.getElementsByClassName('square')
 
@@ -14,10 +29,6 @@ const addSquareListeners = e => {
     }
 }
   
-// Add event listener to table
-// const el = document.getElementById("outside");
-// el.addEventListener("click", modifyText, false);
-
 const clickSquare = (event) => {
 
     //clicks += 1
@@ -28,42 +39,80 @@ const clickSquare = (event) => {
     targetSquare.classList.remove("unclicked")
     targetSquare.classList.add("clicked")
 
+    targetSquare.classList.add(`${marker}`)
+
+    let cell = targetSquare.getAttribute('cell')
+
+    squares[marker].push(cell)
+
+    if (squares[marker].length >= 3) {
+        // check against win possibilities
+        // sort squares[marker]
+        squares[marker] = squares[marker].sort()
+        for (let i = 0; i < wins.length; i++) {
+            if (wins[i] == squares[marker]) {
+                alert("Game over! ${marker} wins")
+                break
+            }
+        }
+    }
     /*
-    if {clicks %2 === 0} {
-        marker = 'x'
+    if (cell < 4) {
+        squares[marker][0][cell] = 1
+    } else if (cell <7) {
+        squares[marker][1][cell] = 1
     } else {
-        marker = 'o'
+        squares[marker][2][cell] = 1
+    }
+    if (checkWin(cell, marker)) {
+        alert('Game over!')
     }
     */
-    targetSquare.classList.add(`${marker}`)
+    
     if (marker === 'x') {
         marker = 'o'
-    } else {
+    } else {[]
         marker = 'x'
     }
-
+    targetSquare.removeEventListener('click', clickSquare)
 }
-
-/*
-for (let i = 0; i < unclickedSquares.length; i++) {
-    square = unclickedSquares[i]
-    square.classList.add("unclicked")
-    square.addEventListener('click', 
-        event.target.removeEventListener('click'))
-    alert('Clicked!')
-}
-*/
-
-//console.log(document.getElementsByClassName('unclicked')) {}
 
 addSquareListeners()
 
-/* 
-const playButton = document.getElementById('play')
- */
-// Add a handler for the 'click' event
-/* 
-playButton.addEventListener('click', (event) => {
-    alert('New game!');
-})
- */
+const winningSquares = [
+    [0,1,2],
+
+]
+
+const checkWin = (cellNumber, marker) => {
+    
+    console.log(cellNumber)
+    console.log(`${squares[marker]}`)
+    var squaresToCheck = squares[marker]
+    var sum = 0
+    /*
+    // check rows
+    for (let i = 0; i < 3; i++) {
+        // check rows
+        for (let j = 0; j < 3; j++) {
+            sum += squaresToCheck[i][j]
+        }
+        if (sum === 3) {
+            return true
+        } else {
+            // check columns
+            sum = 0
+            for (let j = 0; j < 3; j++) {
+                sum += squaresToCheck[j][i]
+            }
+            if (sum === 3) {
+                return true
+            } else {
+                // check diagonals
+                return false
+            }
+        }
+        */
+
+}
+
