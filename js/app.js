@@ -14,6 +14,10 @@ let moveCount = 1;
 // tie variable to help determine whether a tie has occurred
 let tieVariable = 0;
 
+let xWins = 0;
+let oWins = 0;
+let tieCount = 0;
+
 // ARRAY
 
 //initializes a boardContents where neither X nor O is selected
@@ -190,6 +194,8 @@ let win = function() {
     document.querySelector(".turnIndicator").innerText = ""
     enableReset();
     document.querySelector(".reset").addEventListener("click", reset);
+    xWins++;
+    document.querySelector(".xWinCount").innerText = xWins;
 };
 
 let lose = function() {
@@ -200,6 +206,8 @@ let lose = function() {
     document.querySelector(".turnIndicator").innerText = ""
     enableReset();
     document.querySelector(".reset").addEventListener("click", reset);
+    oWins++;
+    document.querySelector(".oWinCount").innerText = oWins;
 };
 
 let tie = function() {
@@ -209,6 +217,8 @@ let tie = function() {
     document.querySelector(".turnIndicator").innerText = ""
     enableReset();
     document.querySelector(".reset").addEventListener("click", reset);
+    tieCount++;
+    document.querySelector(".tieCount").innerText = tieCount;
 };
 
 
@@ -220,5 +230,7 @@ let tie = function() {
 document.addEventListener("DOMContentLoaded", function(){
     // placing eventListeners here
     document.querySelector(".gameboard").addEventListener("click", boxClickHandler);
-
+    document.querySelector(".xWinCount").innerText = xWins;
+    document.querySelector(".oWinCount").innerText = oWins;
+    document.querySelector(".tieCount").innerText = tieCount;
 });
