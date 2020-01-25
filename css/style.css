@@ -1,3 +1,35 @@
+* {
+  text-align: center;
+}
+
 h1 {
   color: purple;
+}
+
+.gameboard {
+  margin: 0 auto;
+  width: 320px;
+  height: 320px;
+  margin-bottom: 20px;
+}
+
+.box {
+  border: 2px solid black;
+  width: 100px;
+  height: 100px;
+  float: left;
+  font-size: 100px;
+}
+
+button {
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+.x-selected:after {
+  content: "X";
+}
+
+.o-selected:after {
+  content: "O";
 }
