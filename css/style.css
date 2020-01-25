@@ -3,24 +3,28 @@ html, body {
 	padding: 0;
 	text-align: center;
 }
+
+
 .game-space {
-	margin-top: 100px;
+	background-color: black;
 	border: 1px black solid;
 	width: 600px;
-	height: 609px;
+	height: 630px;
 	display: inline-block;
 }
 .row-0 {
-	border: 1px black solid;
 	height: 200px;
 }
 .row-box {
-	border: 1px black solid;
+	border: 1px white solid;
 	display: inline-block;
 	margin: 0 0;
 	padding: 0 0;
 	height: 200px;
 	width: 32%;
+	vertical-align:top;
+	font-size: 100px;
+	color: white;
 }
 
 

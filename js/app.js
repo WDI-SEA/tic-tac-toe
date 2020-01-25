@@ -42,25 +42,146 @@ let row2 = [
 ];
 var numberOfMoves = 0;
 let gameBoard = [row0,row1,row2];
-console.log(gameBoard);
-console.log(gameBoard[0][1].type);
-
 
 let checkBoxHandler = function(e){
 	let idString = e.target.id;
 	let stringSplit = idString.split("-")
 	let currRow = parseInt(stringSplit[0].slice(3), 10);
-	console.log(currRow);
 	let currColumn = parseInt(stringSplit[1].slice(3), 10);
-	console.log(currColumn);
-	console.log(gameBoard[currRow][currColumn].type);
+	if(!gameBoard[currRow][currColumn].marked)
+		if(numberOfMoves % 2 == 0){
+			gameBoard[currRow][currColumn].type = "X";
+			e.target.innerText = "X";
+			gameBoard[currRow][currColumn].marked = true;
+			numberOfMoves++;
+		} else {
+			gameBoard[currRow][currColumn].type = "O";
+			e.target.innerText = "O";
+			gameBoard[currRow][currColumn].marked = true;
+			numberOfMoves++;
+		}
 
-
-
+	if(numberOfMoves >= 5){
+		checkWin();
+	}
 }
 
 
+let checkWin = function(){
+	let rowWin = checkRowWin();
+	if(rowWin == true){
+		console.log("WINNER");
+	} else {
+		let columnWin = checkColumnWin();
+		if(columnWin == true){
+			console.log("WINNER");
+		} else {
+			let diagWinLeft = checkDiagonalWinLeftToRight();
+			if(diagWinLeft == true){
+				console.log("WINNER");
+			} else {
+				let diaWinRight = checkDiagonalWinRightToLeft();
+				if(diaWinRight == true){
+					console.log("WINNER");
+				}
+			}
+		}
+	}
+}
 
+let checkRowWin = function(){
+	for(let i = 0; i <= 2; i++){
+		let box0 = "";
+		let box1 = "";
+		let box2 = "";
+		for(let j = 0; j <= 2; j++){
+			if(j === 0){
+				box0 = gameBoard[i][j].type;
+			} else if (j === 1){
+				box1 = gameBoard[i][j].type;
+			} else if (j === 2){
+				box2 = gameBoard[i][j].type;
+			}
+		}
+		if((box0 == "X" && box1 == "X") && box2 == "X"){
+			return true;
+		} else if((box0 == "O" && box1 == "O") && box2 == "O"){
+			return true;
+		}
+	}
+	return false;
+}
+let checkColumnWin = function(){
+	for(let i = 0; i <= 2; i++){
+		let box0 = "";
+		let box1 = "";
+		let box2 = "";
+		for(let j = 0; j <= 2; j++){
+			if(j === 0){
+				box0 = gameBoard[j][i].type;
+			} else if (j === 1){
+				box1 = gameBoard[j][i].type;
+			} else if (j === 2){
+				box2 = gameBoard[j][i].type;
+			}
+		}
+		if((box0 == "X" && box1 == "X") && box2 == "X"){
+			return true;
+		} else if((box0 == "O" && box1 == "O") && box2 == "O"){
+			return true;
+		}
+	}
+	return false;
+}
+
+let checkDiagonalWinLeftToRight = function(){
+	let box0 = "";
+	let box1 = "";
+	let box2 = "";
+	for(let i = 0; i <= 2; i++){
+		for(let j = 0; j <= 2; j++){
+			if(i == 0 && j==0){
+				box0 = gameBoard[i][j].type;
+			} else if(i == 1 && j ==1){
+				box1 = gameBoard[i][j].type;
+			} else if(i == 2 && j == 2){
+				box2 = gameBoard[i][j].type;
+			}
+		}
+	}
+
+	if((box0 == "X" && box1 == "X") && box2 == "X"){
+		return true;
+	} else if((box0 == "O" && box1 == "O") && box2 == "O"){
+		return true;
+	}
+	return false;
+}
+
+let checkDiagonalWinRightToLeft = function (){
+	let box0 = "";
+	let box1 = "";
+	let box2 = "";
+	for(let i = 0; i <= 2; i++){
+		for(let j = 0; j <= 2; j++){
+			if(i == 0 && j==2){
+				box0 = gameBoard[i][j].type;
+			} else if(i == 1 && j ==1){
+				box1 = gameBoard[i][j].type;
+			} else if(i == 2 && j == 0){
+				box2 = gameBoard[i][j].type;
+			}
+		}
+	}
+
+	if((box0 == "X" && box1 == "X") && box2 == "X"){
+		return true;
+	} else if((box0 == "O" && box1 == "O") && box2 == "O"){
+		return true;
+	}
+	return false;
+
+}
 
 
 
