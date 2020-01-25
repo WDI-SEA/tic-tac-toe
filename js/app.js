@@ -52,11 +52,11 @@ let boxClickHandler = function(e) {
 };
 
 let updateBoardContentsX = function(selectedBox) {
-    boardContents[selectedBox - 1] = 1
+    boardContents[selectedBox - 1] = 1;
 };
 
 let updateBoardContentsO = function(selectedBox) {
-    boardContents[selectedBox - 1] = 2
+    boardContents[selectedBox - 1] = 2;
 };
 
 
@@ -89,6 +89,9 @@ let checkWin = function() {
     // console.log("right before check win")
     if (moveCount < 5) {
         updateTurn();
+        if (moveCount % 2 == 1) {
+            randomAI();
+        }
     } else if (moveCount >= 5) {
         if (boardContents[0] == 1 && boardContents[1] == 1 && boardContents[2] == 1) {
             win();
@@ -131,7 +134,10 @@ let checkWin = function() {
             checkTie();
         };
     } else {
-        // do nothing
+        if (moveCount % 2 == 1) {
+            randomAI();
+        }
+        // otherwise do nothing
     };
 };
 
@@ -146,6 +152,9 @@ let checkTie = function() {
     // ------------------ updateTurn if no win, lose, or toe -------------
     else {
         updateTurn();
+        if (moveCount % 2 == 1) {
+            randomAI();
+        }
     };
 
 
@@ -169,6 +178,7 @@ let reset = function() {
     disableReset();
     moveCount = 1;
     tieVariable = 0;
+    randomAI();
 };
 
 let enableReset = function() {
@@ -190,7 +200,7 @@ let win = function() {
         // and create event listener for clicking reset button
     tieVariable = 1;
     document.querySelector(".gameboard").removeEventListener("click", boxClickHandler);
-    document.querySelector(".wonLostTied").innerText = "X won the game!"
+    document.querySelector(".wonLostTied").innerText = "X won the game :("
     document.querySelector(".turnIndicator").innerText = ""
     enableReset();
     document.querySelector(".reset").addEventListener("click", reset);
@@ -202,7 +212,7 @@ let lose = function() {
     //should change tie variable to value of 2
     tieVariable = 2;
     document.querySelector(".gameboard").removeEventListener("click", boxClickHandler);
-    document.querySelector(".wonLostTied").innerText = "O won the game! Better luck next time."
+    document.querySelector(".wonLostTied").innerText = "O won the game! :)"
     document.querySelector(".turnIndicator").innerText = ""
     enableReset();
     document.querySelector(".reset").addEventListener("click", reset);
@@ -221,7 +231,19 @@ let tie = function() {
     document.querySelector(".tieCount").innerText = tieCount;
 };
 
-
+let randomAI = function() {
+    let randomBox = Math.floor(Math.random() * 9);
+    if (boardContents[randomBox] == 0) {
+        // console.log(document.getElementsByClassName("box")[randomBox])
+        document.getElementsByClassName("box")[randomBox].classList.add("x-selected");
+        updateBoardContentsX(randomBox + 1);
+        moveCount++;
+        checkWin();
+        console.log(boardContents);
+    } else {
+        randomAI();
+    }
+}
 
 
 // DOM Content Loaded
@@ -233,4 +255,5 @@ document.addEventListener("DOMContentLoaded", function(){
     document.querySelector(".xWinCount").innerText = xWins;
     document.querySelector(".oWinCount").innerText = oWins;
     document.querySelector(".tieCount").innerText = tieCount;
+    randomAI();
 });
