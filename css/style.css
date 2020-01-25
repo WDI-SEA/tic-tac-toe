@@ -3,7 +3,7 @@
 }
 
 h1 {
-  color: purple;
+  color: rgb(199, 23, 23);
   margin: 10px;
 }
 
@@ -37,4 +37,39 @@ button {
 
 .o-selected:after {
   content: "O";
+}
+
+.gameboard div:nth-child(1) {
+  border-top: none;
+  border-left: none;
+}
+
+.gameboard div:nth-child(2) {
+  border-top: none;
+}
+
+.gameboard div:nth-child(3) {
+  border-top: none;
+  border-right: none;
+}
+.gameboard div:nth-child(4) {
+  border-left: none;
+}
+
+.gameboard div:nth-child(6) {
+  border-right: none;
+}
+
+.gameboard div:nth-child(7) {
+  border-bottom: none;
+  border-left: none;
+}
+
+.gameboard div:nth-child(8) {
+  border-bottom: none;
+}
+
+.gameboard div:nth-child(9) {
+  border-bottom: none;
+  border-right: none;
 }

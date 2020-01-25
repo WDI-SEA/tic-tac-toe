@@ -90,7 +90,7 @@ let checkWin = function() {
     if (moveCount < 5) {
         updateTurn();
         if (moveCount % 2 == 1) {
-            randomAI();
+            setTimeout(randomAI, 500);
         }
     } else if (moveCount >= 5) {
         if (boardContents[0] == 1 && boardContents[1] == 1 && boardContents[2] == 1) {
@@ -135,7 +135,7 @@ let checkWin = function() {
         };
     } else {
         if (moveCount % 2 == 1) {
-            randomAI();
+            setTimeout(randomAI, 500);
         }
         // otherwise do nothing
     };
@@ -153,7 +153,7 @@ let checkTie = function() {
     else {
         updateTurn();
         if (moveCount % 2 == 1) {
-            randomAI();
+            setTimeout(randomAI, 500);
         }
     };
 
@@ -255,5 +255,5 @@ document.addEventListener("DOMContentLoaded", function(){
     document.querySelector(".xWinCount").innerText = xWins;
     document.querySelector(".oWinCount").innerText = oWins;
     document.querySelector(".tieCount").innerText = tieCount;
-    randomAI();
+    setTimeout(randomAI, 500);
 });
