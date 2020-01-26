@@ -78,17 +78,19 @@ const resetGameBoard = function() {
 }
 
 const squareClickHandler = function(e) {
-
-    e.target.innerText = currentPlayer.token;
     let squareRow = e.target.getAttribute("data-row");
     let squareCol = e.target.getAttribute("data-col");
-    GAME_SQUARES[squareRow][squareCol] = currentPlayer.token;
 
-    numberOfMoves++;
+    if (GAME_SQUARES[squareRow][squareCol] === 0) {
+        GAME_SQUARES[squareRow][squareCol] = currentPlayer.token;
+        e.target.innerText = currentPlayer.token;
+    
+        numberOfMoves++;
+    
+        checkBoard();
+        switchActivePlayer();
 
-    checkBoard();
-    switchActivePlayer();
-
+    }
 }
 
 const switchActivePlayer = function() {
