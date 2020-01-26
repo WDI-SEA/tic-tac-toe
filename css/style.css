@@ -3,9 +3,10 @@ html, body {
   background: rgb(180, 180, 180);
   margin: 0 auto;
   text-align: center;
+  background: url(../img/xo-bg.png);
 }
 h1 {
-  color: rgb(128, 0, 49);
+  color: #800031;
   font-family: 'Bangers', cursive;
   letter-spacing: 5px;
   font-size: 40px;
@@ -36,7 +37,7 @@ img {
   float: left;
 }
 img:hover {
-  border: 1px solid yellow;
+  border: 1px solid chartreuse;
 }
 .new-line {
   clear: left;
