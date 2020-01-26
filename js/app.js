@@ -44,7 +44,8 @@ let row2 = [
 var numberOfMoves = 0;
 let gameBoard = [row0,row1,row2];
 let gameOver = false;
-let gameAI = false;
+let gameAIRand = false;
+let gameAISmart = false;
 
 let checkBoxHandler = function(e){
 	let idString = e.target.id;
@@ -59,7 +60,7 @@ let checkBoxHandler = function(e){
 			e.target.innerText = "X";
 			gameBoard[currRow][currColumn].marked = true;
 			numberOfMoves++;
-		} else if(!gameAI) {
+		} else if(!gameAIRand || !gameAISmart) {
 			e.target.classList.remove("row-box");
 			e.target.classList.add("player-2");
 			gameBoard[currRow][currColumn].type = "O";
@@ -70,6 +71,14 @@ let checkBoxHandler = function(e){
 
 	if(numberOfMoves >= 5){
 		let win = checkWin();
+		//let testOpen = isMovesLeft();
+		//console.log(testOpen);
+		//let winEval = evaluateWin();
+		//console.log(winEval);
+		if(!(numberOfMoves % 2 == 0)){
+			let checkBestMove = findBestMove();
+			console.log(checkBestMove);
+		}
 		if(win == true){
 			console.log(numberOfMoves);
 			if(numberOfMoves % 2 == 0 && !gameOver){
@@ -86,8 +95,11 @@ let checkBoxHandler = function(e){
 
 		}
 	}
-	if(gameAI && !gameOver){
+	if(gameAIRand && !gameOver){
 		dumbAI();
+	}
+	if (gameAISmart && !gameOver) {
+		smartAI();
 	}
 	if (numberOfMoves > 0 && !gameOver){
 		nextTurnHandler();
@@ -215,6 +227,205 @@ let checkDiagonalWinRightToLeft = function (){
 	return false;
 
 }
+let evaluateWin = function(){
+	let rowWin = evaluateRowWin();
+	if(rowWin == 10){
+		return 10;
+	} else if (rowWin == -10){
+		return -10;
+	} else {
+		let columnWin = evaluateColumnWin();
+		if(columnWin == 10){
+			return 10;
+		} else if (columnWin == -10){
+			return -10;
+		} else {
+			let diagWinLeft = evaluateDiagonalWinLeftToRight();
+			if(diagWinLeft == 10){
+				return 10;
+			} else if(diagWinLeft == -10){
+				return -10;
+			} else {
+				let diaWinRight = evaluateDiagonalWinRightToLeft();
+				if(diaWinRight == 10){
+					return 10;
+				} else if (diaWinRight == -10){
+					return -10;
+				}
+			}
+		}
+	}
+	return 0;
+}
+
+let evaluateRowWin = function(){
+	for(let i = 0; i <= 2; i++){
+		let box0 = "";
+		let box1 = "";
+		let box2 = "";
+		for(let j = 0; j <= 2; j++){
+			if(j === 0){
+				box0 = gameBoard[i][j].type;
+			} else if (j === 1){
+				box1 = gameBoard[i][j].type;
+			} else if (j === 2){
+				box2 = gameBoard[i][j].type;
+			}
+		}
+		if((box0 == "X" && box1 == "X") && box2 == "X"){
+			return 10;
+		} else if((box0 == "O" && box1 == "O") && box2 == "O"){
+			return -10;
+		}
+	}
+	return 0;
+}
+let evaluateColumnWin = function(){
+	for(let i = 0; i <= 2; i++){
+		let box0 = "";
+		let box1 = "";
+		let box2 = "";
+		for(let j = 0; j <= 2; j++){
+			if(j === 0){
+				box0 = gameBoard[j][i].type;
+			} else if (j === 1){
+				box1 = gameBoard[j][i].type;
+			} else if (j === 2){
+				box2 = gameBoard[j][i].type;
+			}
+		}
+		if((box0 == "X" && box1 == "X") && box2 == "X"){
+			return 10;
+		} else if((box0 == "O" && box1 == "O") && box2 == "O"){
+			return -10;
+		}
+	}
+	return 0;
+}
+
+let evaluateDiagonalWinLeftToRight = function(){
+	let box0 = "";
+	let box1 = "";
+	let box2 = "";
+	for(let i = 0; i <= 2; i++){
+		for(let j = 0; j <= 2; j++){
+			if(i == 0 && j==0){
+				box0 = gameBoard[i][j].type;
+			} else if(i == 1 && j ==1){
+				box1 = gameBoard[i][j].type;
+			} else if(i == 2 && j == 2){
+				box2 = gameBoard[i][j].type;
+			}
+		}
+	}
+
+	if((box0 == "X" && box1 == "X") && box2 == "X"){
+		return 10;
+	} else if((box0 == "O" && box1 == "O") && box2 == "O"){
+		return -10;
+	}
+	return 0;
+}
+
+let evaluateDiagonalWinRightToLeft = function (){
+	let box0 = "";
+	let box1 = "";
+	let box2 = "";
+	for(let i = 0; i <= 2; i++){
+		for(let j = 0; j <= 2; j++){
+			if(i == 0 && j==2){
+				box0 = gameBoard[i][j].type;
+			} else if(i == 1 && j ==1){
+				box1 = gameBoard[i][j].type;
+			} else if(i == 2 && j == 0){
+				box2 = gameBoard[i][j].type;
+			}
+		}
+	}
+
+	if((box0 == "X" && box1 == "X") && box2 == "X"){
+		return 10;
+	} else if((box0 == "O" && box1 == "O") && box2 == "O"){
+		return -10;
+	}
+	return 0;
+
+}
+//citation for minimax algorithm:
+//https://www.geeksforgeeks.org/minimax-algorithm-in-game-theory-set-3-tic-tac-toe-ai-finding-optimal-move/
+let minimax = function(depth,isMax){
+	let score = evaluateWin();
+	if(score == 10){
+		return score;
+	}
+	if(score == -10){
+		return score;
+	}
+	let movesLeft = isMovesLeft();
+	if(movesLeft){
+		return 0;
+	}
+	if (isMax){
+		let best = -1000;
+		for(let i = 0; i <= 2; i++){
+			for(let j = 0; j <= 2; j++){
+				if(!gameBoard[i][j].marked){
+					gameBoard[i][j].marked = true;
+					gameBoard[i][j].type = "X";
+					best = Math.max(best, minimax(depth+1,!isMax));
+					gameBoard[i][j].marked = false;
+					gameBoard[i][j].type = "";
+				}
+			}
+		}
+		return best;
+	} else {
+		let best = 1000;
+		for(let i = 0; i <= 2; i++){
+			for(let j = 0; j <= 2; j++){
+				if(!gameBoard[i][j].marked){
+					gameBoard[i][j].marked = true;
+					gameBoard[i][j].type = "O";
+					best = min(best, minimax(depth+1,!isMax));
+					gameBoard[i][j].marked = false;
+					gameBoard[i][j].type = "";
+				}
+			}
+		}
+		return best;			
+	}
+}
+
+let findBestMove = function() {
+	let bestMove = {row: 0, col: 0};
+	let bestVal = -1000;
+	for(let i = 0; i <= 2; i++){
+		for(let j = 0; j <= 2; j++){
+			if(!gameBoard[i][j].marked){
+				gameBoard[i][j].type = "X";
+				gameBoard[i][j].marked = true;
+				let moveVal = minimax(0,false);
+				console.log("i: " + i + " j: " + j);
+				console.log(moveVal);
+				gameBoard[i][j].type = "";
+				gameBoard[i][j].marked = false;
+				if(moveVal > bestVal){
+					bestMove.row = i;
+					bestMove.col = j;
+					bestVal = moveVal;
+				}
+			}
+		}
+	}
+	console.log(numberOfMoves);
+	if((bestVal == 0 && numberOfMoves == 1) && !gameBoard[1][1].marked){
+		bestMove.row = 1;
+		bestMove.col = 1;
+		console.log("go middle");
+	}
+	console.log(bestMove);
+	return bestMove;
+}
 
 let resetHandler = function (){
 	console.log("resetButtonHandler");
@@ -237,6 +448,18 @@ let resetHandler = function (){
 	}
 	nextTurnHandler();
 }
+let isMovesLeft = function(){
+	let openSpace = false;
+	for(let i = 0; i <= 2; i++){
+		for(let j = 0; j <= 2; j++){
+			if(!gameBoard[i][j].marked){
+				openSpace = true;
+			}
+		}
+	}
+	return openSpace;
+
+}
 let startHandler = function (){
 	if(numberOfMoves > 0){
 		alert("game already started");
@@ -256,7 +479,12 @@ let nextTurnHandler = function(){
 let soloPlayHandler = function(){
 	console.log("soloPlayHandler");
 	resetHandler();
-	gameAI = true;
+	gameAIRand = true;
+}
+let soloNeverWinHandler = function(){
+	console.log("soloNeverWinHandler");
+	resetHandler();
+	gameAISmart = true;
 }
 
 let dumbAI = function (){
@@ -297,6 +525,36 @@ let dumbAI = function (){
 		}
 	}
 }
+let smartAI = function(){
+	let bestMove = findBestMove();
+	let selector = `#row${bestMove.row}-box${bestMove.col}`;
+	gameBoard[bestMove.row][bestMove.col].marked = true;
+	gameBoard[bestMove.row][bestMove.col].type = "O";
+	let domBox = document.querySelector(selector);
+	domBox.classList.remove("row-box");
+	domBox.classList.add("player-2");
+	domBox.innerText = "O";
+	numberOfMoves++;
+	if(numberOfMoves >= 5){
+		let win = checkWin();
+		if(win == true){
+			console.log(numberOfMoves);
+			if(numberOfMoves % 2 == 0 && !gameOver){
+				setTimeout(function(){ alert("the computer has won the game"); }, 300);
+			} else {
+				if(!gameOver){
+					setTimeout(function(){ alert("player-1 has won the game"); }, 300);
+				}
+			}
+			gameOver = true;
+		} else if(numberOfMoves == 9) {
+			gameOver = true;
+			setTimeout(function(){ alert("the game is a tie"); }, 300);
+
+		}
+	}
+
+}
 
 
 
@@ -308,5 +566,6 @@ document.addEventListener("DOMContentLoaded", function(){
 	document.querySelector(".row-space").addEventListener("click", checkBoxHandler);
 	document.querySelector(".reset").addEventListener("click", resetHandler);
 	document.querySelector(".solo-play").addEventListener("click", soloPlayHandler);
+	document.querySelector(".solo-hard").addEventListener("click", soloNeverWinHandler);
 
 })
