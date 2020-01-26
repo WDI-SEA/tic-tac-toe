@@ -42,6 +42,7 @@ const setUp = function() {
     getFirstPlayer();
     resetGameBoard();
     gameboard.addEventListener("click", squareClickHandler);
+    gameboard.addEventListener("keypress", squareClickHandler);
 }
 
 const getFirstPlayer = function() {
@@ -90,6 +91,7 @@ const squareClickHandler = function(e) {
         e.target.innerText = currentPlayer.token;
         e.target.style.cursor = "initial";
         e.target.classList.remove("square-hover");
+        e.target.removeAttribute("aria-label");
     
         numberOfMoves++;
     

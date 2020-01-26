@@ -61,8 +61,11 @@ body {
   display: block;
   margin: 0 auto;
   background-color: transparent;
+  color: aquamarine;
   border: 5px solid aquamarine;
   border-radius: 5px;
   padding: 8px 24px;
   font-family: "Uncial Antiqua", cursive;
+  font-weight: 800;
+  font-size: 24px;
 }
