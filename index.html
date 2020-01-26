@@ -6,23 +6,36 @@
   <title>Hello Front-End</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
-<body>
+<body class="page">
+  <audio controls class="music" src="audio/01.24.19Blank3_4InstrumentalFMajSongMassSynthNGuit4GA_SEI.mp3" type="audio/mp3" loop>
+  </audio>
+  <audio class="soundFX" src="" type="audio/wav"></audio>
   <h1>Tic Tac Toe</h1>
   <p class="turnIndicator">It is X's turn.</p>
   <p class="wonLostTied"></p>
   <div class="line"></div>
-  <div class="gameboard">
-    <div class="box" id="1"></div>
-    <div class="box" id="2"></div>
-    <div class="box" id="3"></div>
-    <div class="box" id="4"></div>
-    <div class="box" id="5"></div>
-    <div class="box" id="6"></div>
-    <div class="box" id="7"></div>
-    <div class="box" id="8"></div>
-    <div class="box" id="9"></div>
+  <div class="fullboard">
+    <div class="gameboard">
+      <div class="box" id="1"></div>
+      <div class="box" id="2"></div>
+      <div class="box" id="3"></div>
+      <div class="box" id="4"></div>
+      <div class="box" id="5"></div>
+      <div class="box" id="6"></div>
+      <div class="box" id="7"></div>
+      <div class="box" id="8"></div>
+      <div class="box" id="9"></div>
+    </div>
   </div>
   <button class="reset" disabled>Reset</button>
+  <div class="smartAIDiv">
+    <input class="smartAIButton" type="radio" name="aiSelect" value="smartAI"></input>
+    <p class="smartAI">smartAI</p>
+  </div>
+  <div class="randomAIDiv">
+    <input class="randomAIButton" type="radio" name="aiSelect" value="randomAI" checked></input>
+    <p class="smartAI">randomAI</p>
+  </div>
   <p class="winCountX">X wins: <span class="xWinCount"></span></p>
   <p class="winCountO">O wins: <span class="oWinCount"></span></p>
   <p class="countTies">Ties: <span class="tieCount"></span></p>

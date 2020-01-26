@@ -2,6 +2,12 @@
   text-align: center;
 }
 
+audio {
+  position: absolute;
+  right: 50px;
+  bottom: 50px;
+}
+
 h1 {
   color: rgb(199, 23, 23);
   margin: 10px;
@@ -11,7 +17,7 @@ p {
   margin: 5px;
 }
 
-.gameboard {
+.fullboard, .gameboard {
   margin: 0 auto;
   width: 308px;
   height: 308px;
@@ -29,6 +35,32 @@ p {
 button {
   margin: 0 auto;
   margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+.smartAIDiv, .randomAIDiv {
+  position: absolute;
+  width: 100px;
+  height: 50px;
+}
+
+.smartAIDiv {
+  right: 90px;
+  bottom: 110px;
+}
+
+.randomAIDiv {
+  right: 180px;
+  bottom: 110px;
+}
+
+.startGame {
+  position: absolute;
+  top: 200px;
+  vertical-align: middle;
+  display: table-cell;
+  /* I had trouble centering the button, but found the vertical-align and display solution here:
+  https://www.codecademy.com/forum_questions/50c29d469bc1e14c8b001f64 */
 }
 
 .x-selected:after {
