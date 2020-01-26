@@ -15,6 +15,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 // holds information about the board itself
 let boardData = {
+    dialogIdSelector: "#dialog",
+    dialogClassHidden: "hidden",
+    dialogClassVisible: "visible",
     gamegridIdSelector: "#game-grid",
     resetButtonClassSelector: ".reset",
     tileClassName: "span",
@@ -26,6 +29,8 @@ let resetGameButtonHandler = function() {
     console.log('Reset button clicked');
     // clear the visuals
     resetGameBoard();
+    // initialize new game
+    initGame();
 };
 
 // reset the game
@@ -35,15 +40,13 @@ let resetGameBoard = function() {
     for (let item of gameBoardTiles) {
         item.className = "";
         item.classList.add(boardData.tileClassName);
-    }
-
-    // initialize new game
-    initGame();
+    }    
 }
 
 // initialize/reset game
 let initGame = function() {
     preparePlayerForNewRound();
+    hideDialog();
 };
 
 // some player clicked a tile
@@ -90,8 +93,38 @@ let preparePlayerForNewRound = function() {
     playerContract.currentPlayer = player1;
     // tell playerContract to reset 
     playerContract.resetValues();
-
 };
+
+// handle the end of the game
+let gameEndedHandler = {
+    // win condition is met, what happens next
+    gameEndsWithWinner: function() {
+
+    },
+    // if there's no winner, but every tile is in use
+    gameEndsWithDraw: function() {
+
+    }
+};
+
+let handleWin = function() {
+    console.log(`Handle what happens if a player wins`);
+    showDialog(`Congratiolations, ${playerContract.currentPlayer.name} won this round`);
+};
+
+let hideDialog = function() {
+    let dialog = document.querySelector(boardData.dialogIdSelector);
+    dialog.className = "";
+    dialog.classList.add(boardData.dialogClassHidden)
+}
+
+// show dialog div with a message if the game is over
+let showDialog = function(msg) {
+    let dialog = document.querySelector(boardData.dialogIdSelector);
+    dialog.textContent = msg;
+    dialog.classList.add(boardData.dialogClassVisible);
+}
+
 
 // player relevant objects
 let player1 = {
@@ -123,7 +156,10 @@ let playerContract = {
         // mirror the current state of the board
         this.gameBoardState[clickedElementIndex] = this.currentPlayer.symbol;
         // check for a win condition
-        checkForWin(this.gameBoardState, clickedElementIndex, this.currentPlayer);
+        if (checkForWin(this.gameBoardState, clickedElementIndex, this.currentPlayer)) 
+        { 
+            handleWin();
+        }
         console.log(this.gameBoardState);
     },
     resetValues: function() {
@@ -135,7 +171,7 @@ let playerContract = {
     }
 }
 
-// check if the active player won the game
+// check if the active player won the game (returns boolean)
 let checkForWin = function(gameBoardState, index, player) {
     console.log(`called with ${player.name}, index: ${index} data: ${gameBoardState}`);
     // rowSum represents the sum of a players symbol in that row,
@@ -174,7 +210,7 @@ let checkForWin = function(gameBoardState, index, player) {
     } 
 
     // check if there are three diagonal
-    if (!winConditionMet && index % 2 === 0)
+    if (!winConditionMet && checkDiagonal)
     {
         diagonalIndex = 0;
         // check from top left to bottom right
@@ -206,4 +242,5 @@ let checkForWin = function(gameBoardState, index, player) {
     {
         console.log(`WINNER ${player.name} won the game!`);
     }
+    return winConditionMet;
 }
