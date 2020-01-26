@@ -6,6 +6,7 @@ html, body {
 
 
 .game-space {
+	margin-top: 50px;
 	background-color: black;
 	border: 1px black solid;
 	width: 600px;
@@ -15,16 +16,50 @@ html, body {
 .row-0 {
 	height: 200px;
 }
+.row-1 {
+	height: 200px;
+}
+.row-2 {
+	height: 200px;
+}
+.reset {
+	margin-top: 7px;
+}
 .row-box {
 	border: 1px white solid;
 	display: inline-block;
 	margin: 0 0;
-	padding: 0 0;
 	height: 200px;
 	width: 32%;
-	vertical-align:top;
+	vertical-align:middle;
 	font-size: 100px;
 	color: white;
+}
+.player-1 {
+	border: 1px white solid;
+	display: inline-block;
+	margin: 0 0;
+	height: 200px;
+	width: 32%;
+	line-height: 200px;
+	vertical-align: middle;
+	text-align: center;
+	font-size: 100px;
+	color: #4ad9e0;
+}
+.player-2 {
+	border: 1px white solid;
+	display: inline-block;
+	margin: 0 0;
+	height: 200px;
+	width: 32%;
+	line-height: 200px;
+	vertical-align:middle;
+	font-size: 100px;
+	color: #f50c0c;
+
+}
+
 }
 
 
