@@ -19,6 +19,7 @@ const PLAYER_TWO = {
 };
 
 let gameboard;
+let gameboardSquares;
 let playerOneLabel;
 let playerOneCount;
 let playerTwoLabel;
@@ -30,6 +31,7 @@ let currentPlayer;
 // Hi honey! I love you! <3
 const setUp = function() {
     getFirstPlayer();
+    resetGameBoard();
 }
 
 const getFirstPlayer = function() {
@@ -47,8 +49,13 @@ const getFirstPlayer = function() {
 }
 
 const resetGameBoard = function() {
+    gameboardSquares = document.querySelectorAll(".square");
     for (let i = 0; i < GAME_SQUARES.length; i++) {
         GAME_SQUARES[i] = [0, 0, 0];
+    }
+
+    for (let i = 0; i < gameboardSquares.length; i++) {
+        gameboardSquares[i].innerText = " ";
     }
 }
 
@@ -74,7 +81,6 @@ const switchActivePlayer = function() {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-    console.log("Hello!");
 
     gameboard = document.querySelector("#gameboard");
     playerOneLabel = document.querySelector("#player-one-label");
@@ -84,6 +90,7 @@ document.addEventListener("DOMContentLoaded", function() {
     resetButton = document.querySelector("#reset");
 
     gameboard.addEventListener("click", squareClickHandler);
+    resetButton.addEventListener("click", setUp);
     setUp();
 });
 
