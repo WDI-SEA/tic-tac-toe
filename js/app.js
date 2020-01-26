@@ -142,10 +142,11 @@ let checkForWin = function(gameBoardState, index, player) {
     // colSum represents the sum of a players szmbol in that column,
     // rowIndex defines where to start in the given array for the row and has to be incremented by 1,
     // colIndex defines where to start in the given array for the column ans has to be incremented by 3
-    let rowSum = 0, colSum = 0, rowIndex = 0, colIndex = 0;
+    let rowSum = 0, colSum = 0, rowIndex = 0, colIndex = 0, diagonalSum = 0, diagonalIndex = 0;
     let rowToCheck = Math.floor(index / 3);
     let colToCheck = index % 3;
-
+    let checkDiagonal = (index % 2 === 0);
+    let winConditionMet = false;
     rowIndex = rowToCheck;
     colIndex = colToCheck;
     
@@ -161,13 +162,48 @@ let checkForWin = function(gameBoardState, index, player) {
         if(gameBoardState[colIndex] === player.symbol)
         {
             colSum++;
-        }
+        }        
         // increment values
         rowIndex++;
-        colIndex+=3;
+        colIndex += 3;
     }
+
     if(colSum > 2 || rowSum > 2)
     {
-        console.log(`WINNER ${player.name} won the game!`);
+        winConditionMet = true;
     } 
+
+    // check if there are three diagonal
+    if (!winConditionMet && index % 2 === 0)
+    {
+        diagonalIndex = 0;
+        // check from top left to bottom right
+        for (let i = 0; i < 3; i++)
+        {
+            
+            if(gameBoardState[diagonalIndex] === player.symbol)
+            diagonalSum++; 
+            diagonalIndex += 4;
+        
+        }
+        winConditionMet = (diagonalSum === 3)? true : false;
+        // check from top right to bottom left
+        if (!winConditionMet)
+        {
+            diagonalSum = 0;
+            diagonalIndex = 2;
+            for (let i = 0; i < 3; i++)
+            {
+                
+                if(gameBoardState[diagonalIndex] === player.symbol)
+                diagonalSum++; 
+                diagonalIndex += 2;
+            }
+        }
+        winConditionMet = (diagonalSum === 3)? true : false;
+    }
+    if (winConditionMet)
+    {
+        console.log(`WINNER ${player.name} won the game!`);
+    }
 }
