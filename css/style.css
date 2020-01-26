@@ -18,7 +18,7 @@ and the amazing Grid Garden here: https://cssgridgarden.com/
 and lastly, CSS Tricks helped me fill in the gaps for anything I couldn't figure out how to fix
 including how to make my grid inline: https://css-tricks.com/snippets/css/complete-guide-grid/ ------- */
 
-.game-board {
+.gameboard {
   height: 904px;
   width: 904px;
   border: black 2px solid;
@@ -29,65 +29,72 @@ including how to make my grid inline: https://css-tricks.com/snippets/css/comple
 }
 
 #A {
-  background: url(/Users/monty/Desktop/SEI29/unit1/homework/homework_3/tic-tac-toe/img/A.png) 300px;
+  background: 300px;
   grid-column: 1;
   grid-row: 1;
   /* position: absolute; */
 }
 #B {
-  background: url(/Users/monty/Desktop/SEI29/unit1/homework/homework_3/tic-tac-toe/img/B.png) 300px;
+  background: 300px;
   grid-column: 2;
   grid-row: 1;
   /* position: absolute; */
 }
 #C {
-  background: url(/Users/monty/Desktop/SEI29/unit1/homework/homework_3/tic-tac-toe/img/C.png) 300px;
+  background: 300px;
   grid-column: 3;
   grid-row: 1;
   /* position: absolute; */
 }
 #D {
-  background: url(/Users/monty/Desktop/SEI29/unit1/homework/homework_3/tic-tac-toe/img/D.png) 300px;
+  background: 300px;
   grid-column: 1;
   grid-row: 2;
   /* position: absolute; */
 }
 #E {
-  background: url(/Users/monty/Desktop/SEI29/unit1/homework/homework_3/tic-tac-toe/img/E.png) 300px;
+  background: 300px;
   grid-column: 2;
   grid-row: 2;
   /* position: absolute; */
 }
 #F {
-  background: url(/Users/monty/Desktop/SEI29/unit1/homework/homework_3/tic-tac-toe/img/F.png) 300px;
+  background: 300px;
   grid-column: 3;
   grid-row: 2;
   /* position: absolute; */
 }
 #G {
-  background: url(/Users/monty/Desktop/SEI29/unit1/homework/homework_3/tic-tac-toe/img/G.png) 300px;
+  background: 300px;
   grid-column: 1;
   grid-row: 3;
   /* position: absolute; */
 }
 #H {
-  background: url(/Users/monty/Desktop/SEI29/unit1/homework/homework_3/tic-tac-toe/img/H.png) 300px;
+  background: 300px;
   grid-column: 2;
   grid-row: 3;
   /* position: absolute; */
 }
 #I {
-  background: url(/Users/monty/Desktop/SEI29/unit1/homework/homework_3/tic-tac-toe/img/I.png) 300px;
+  background: 300px;
   grid-column: 3;
   grid-row: 3;
   /* position: absolute; */
+}
+
+.current-player { 
+  font-family: 'Special Elite', sans-serif;
+  font-size: 25px;
+  color: #ededed;
+  margin: 65px 0 45px 0;
 }
 
 .reset {
   background-color: #ac834e;
   font-family: 'Special Elite', cursive;
   font-size: 50px;
-  margin: 75px;
+  margin: 25px 0 100px 0;
   padding: 20px 15px 10px 15px;
   border-radius: 10%;
   border: black 1px solid
