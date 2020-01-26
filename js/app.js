@@ -1,21 +1,44 @@
-
-//let clickedElement;
-
-
-
-
+// wait for the site to be loaded
 window.addEventListener('DOMContentLoaded', (event) => {
     let gameGrid;
     // add click listener to game-grid
-    gameGrid = document.querySelector("#game-grid");
+    gameGrid = document.querySelector(boardData.gamegridIdSelector);
     console.log(gameGrid);
     gameGrid.addEventListener('click', gameGridClickListener);
-    document.querySelector(".reset").addEventListener('click', resetGame);
+
+    // add click listener to reset button
+    document.querySelector(boardData.resetButtonClassSelector).addEventListener('click', resetGameButtonHandler);
+
+    // initialize game
     initGame();
 });
 
-let resetGame = function() {
+// holds information about the board itself
+let boardData = {
+    gamegridIdSelector: "#game-grid",
+    resetButtonClassSelector: ".reset",
+    tileClassName: "span",
+    tileClassSelector: ".span" 
+}
+
+// player clicked reset button
+let resetGameButtonHandler = function() {
     console.log('Reset button clicked');
+    // clear the visuals
+    resetGameBoard();
+};
+
+// reset the game
+let resetGameBoard = function() {
+    // loop through the tiles to clear the visuals 
+    let gameBoardTiles = document.querySelectorAll(boardData.tileClassSelector);
+    for (let item of gameBoardTiles) {
+        item.className = "";
+        item.classList.add(boardData.tileClassName);
+    }
+
+    // initialize new game
+    initGame();
 }
 
 // initialize/reset game
@@ -23,8 +46,8 @@ let initGame = function() {
     playerContract.currentPlayer = player1;
 };
 
+// some player clicked a tile
 let gameGridClickListener = function(event) {
-
     // local variables
     let clickedElement;
     let clickedSpan;
@@ -40,7 +63,7 @@ let gameGridClickListener = function(event) {
     console.log('A relevant div was clicked');
 
     // check if this div is already occupied
-    clickedSpan = event.target.querySelector('.span');
+    clickedSpan = event.target.querySelector(boardData.tileClassSelector);
     if (clickedSpan.classList.length > 1) 
     {
         return;
@@ -57,11 +80,12 @@ let gameGridClickListener = function(event) {
     changeCurrentPlayer();
 };
 
+// passthrough function to maintain readability 
 let changeCurrentPlayer = function() {
     playerContract.changeCurrentPlayer();
 }
 
-
+// player relevant objects
 let player1 = {
     name: "player1"
 };
