@@ -90,24 +90,69 @@ let checkWin = function() {
     if (moveCount < 5) {
         updateTurn();
         if (moveCount % 2 == 1) {
+            document.querySelector(".gameboard").removeEventListener("click", boxClickHandler);
             setTimeout(randomAI, 500);
+        } else if (moveCount % 2 == 0) {
+            document.querySelector(".gameboard").addEventListener("click", boxClickHandler);
+        } else {
+            //do nothing; there has been some kind of error
         }
     } else if (moveCount >= 5) {
         if (boardContents[0] == 1 && boardContents[1] == 1 && boardContents[2] == 1) {
+            document.querySelector(".line").style.borderBottom = "6px solid rgba(194, 20, 20, .9)";
+            document.querySelector(".line").style.top = "112px";
+            document.querySelector(".line").style.transform = "rotate(0deg)";
+            document.querySelector(".line").style.left = "426px";
+            document.querySelector(".line").style.width = "300px";
             win();
         } else if (boardContents[3] == 1 && boardContents[4] == 1 && boardContents[5] == 1) {
+            document.querySelector(".line").style.borderBottom = "6px solid rgba(194, 20, 20, .9)";
+            document.querySelector(".line").style.top = "216px";
+            document.querySelector(".line").style.transform = "rotate(0deg)";
+            document.querySelector(".line").style.left = "426px";
+            document.querySelector(".line").style.width = "300px";
             win();
         } else if (boardContents[6] == 1 && boardContents[7] == 1 && boardContents[8] == 1) {
+            document.querySelector(".line").style.borderBottom = "6px solid rgba(194, 20, 20, .9)";
+            document.querySelector(".line").style.top = "320px";
+            document.querySelector(".line").style.transform = "rotate(0deg)";
+            document.querySelector(".line").style.left = "426px";
+            document.querySelector(".line").style.width = "300px";
             win();
         } else if (boardContents[0] == 1 && boardContents[3] == 1 && boardContents[6] == 1) {
+            document.querySelector(".line").style.borderBottom = "6px solid rgba(194, 20, 20, .9)";
+            document.querySelector(".line").style.top = "222px";
+            document.querySelector(".line").style.transform = "rotate(90deg)";
+            document.querySelector(".line").style.left = "332px";
+            document.querySelector(".line").style.width = "300px";
             win();
         } else if (boardContents[1] == 1 && boardContents[4] == 1 && boardContents[7] == 1) {
+            document.querySelector(".line").style.borderBottom = "6px solid rgba(194, 20, 20, .9)";
+            document.querySelector(".line").style.top = "222px";
+            document.querySelector(".line").style.transform = "rotate(90deg)";
+            document.querySelector(".line").style.left = "436px";
+            document.querySelector(".line").style.width = "300px";
             win();
         } else if (boardContents[2] == 1 && boardContents[5] == 1 && boardContents[8] == 1) {
+            document.querySelector(".line").style.borderBottom = "6px solid rgba(194, 20, 20, .9)";
+            document.querySelector(".line").style.top = "222px";
+            document.querySelector(".line").style.transform = "rotate(90deg)";
+            document.querySelector(".line").style.left = "540px";
+            document.querySelector(".line").style.width = "300px";
             win();
         } else if (boardContents[0] == 1 && boardContents[4] == 1 && boardContents[8] == 1) {
+            document.querySelector(".line").style.borderBottom = "6px solid rgba(194, 20, 20, .9)";
+            document.querySelector(".line").style.top = "213px";
+            document.querySelector(".line").style.transform = "rotate(45deg)";
+            document.querySelector(".line").style.left = "400px";
+            document.querySelector(".line").style.width = "350px";
             win();
         } else if (boardContents[2] == 1 && boardContents[4] == 1 && boardContents[6] == 1) {
+            document.querySelector(".line").style.borderBottom = "6px solid rgba(194, 20, 20, .9)";
+            document.querySelector(".line").style.top = "210px";
+            document.querySelector(".line").style.transform = "rotate(-45deg)";
+            document.querySelector(".line").style.left = "385px";
+            document.querySelector(".line").style.width = "375px";
             win();
 
     // --------------- checking for O winning --------------
@@ -115,28 +160,67 @@ let checkWin = function() {
     // console.log(moveCount)
     // console.log(boardContents)
         } else if (boardContents[0] == 2 && boardContents[1] == 2 && boardContents[2] == 2) {
+            document.querySelector(".line").style.borderBottom = "6px solid rgba(9, 9, 184, .9)";
+            document.querySelector(".line").style.top = "112px";
+            document.querySelector(".line").style.transform = "rotate(0deg)";
+            document.querySelector(".line").style.left = "426px";
+            document.querySelector(".line").style.width = "300px";
             lose();
         } else if (boardContents[3] == 2 && boardContents[4] == 2 && boardContents[5] == 2) {
+            document.querySelector(".line").style.borderBottom = "6px solid rgba(9, 9, 184, .9)";
+            document.querySelector(".line").style.top = "216px";
+            document.querySelector(".line").style.transform = "rotate(0deg)";
+            document.querySelector(".line").style.left = "426px";
+            document.querySelector(".line").style.width = "300px";
             lose();
         } else if (boardContents[6] == 2 && boardContents[7] == 2 && boardContents[8] == 2) {
+            document.querySelector(".line").style.borderBottom = "6px solid rgba(9, 9, 184, .9)";
+            document.querySelector(".line").style.top = "320px";
+            document.querySelector(".line").style.transform = "rotate(0deg)";
+            document.querySelector(".line").style.left = "426px";
+            document.querySelector(".line").style.width = "300px";
             lose();
         } else if (boardContents[0] == 2 && boardContents[3] == 2 && boardContents[6] == 2) {
+            document.querySelector(".line").style.borderBottom = "6px solid rgba(9, 9, 184, .9)";
+            document.querySelector(".line").style.top = "222px";
+            document.querySelector(".line").style.transform = "rotate(90deg)";
+            document.querySelector(".line").style.left = "332px";
+            document.querySelector(".line").style.width = "300px";
             lose();
         } else if (boardContents[1] == 2 && boardContents[4] == 2 && boardContents[7] == 2) {
+            document.querySelector(".line").style.borderBottom = "6px solid rgba(9, 9, 184, .9)";
+            document.querySelector(".line").style.top = "222px";
+            document.querySelector(".line").style.transform = "rotate(90deg)";
+            document.querySelector(".line").style.left = "436px";
+            document.querySelector(".line").style.width = "300px";
             lose();
         } else if (boardContents[2] == 2 && boardContents[5] == 2 && boardContents[8] == 2) {
+            document.querySelector(".line").style.borderBottom = "6px solid rgba(9, 9, 184, .9)";
+            document.querySelector(".line").style.top = "222px";
+            document.querySelector(".line").style.transform = "rotate(90deg)";
+            document.querySelector(".line").style.left = "540px";
+            document.querySelector(".line").style.width = "300px";
             lose();
         } else if (boardContents[0] == 2 && boardContents[4] == 2 && boardContents[8] == 2) {
+            document.querySelector(".line").style.borderBottom = "6px solid rgba(9, 9, 184, .9)";
+            document.querySelector(".line").style.top = "213px";
+            document.querySelector(".line").style.transform = "rotate(45deg)";
+            document.querySelector(".line").style.left = "400px";
+            document.querySelector(".line").style.width = "365px";
             lose();
         } else if (boardContents[2] == 2 && boardContents[4] == 2 && boardContents[6] == 2) {
+            document.querySelector(".line").style.borderBottom = "6px solid rgba(9, 9, 184, .9)";
+            document.querySelector(".line").style.top = "205px";
+            document.querySelector(".line").style.transform = "rotate(-45deg)";
+            document.querySelector(".line").style.left = "402px";
+            document.querySelector(".line").style.width = "350px";
             lose();
         } else {
             checkTie();
         };
     } else {
-        if (moveCount % 2 == 1) {
-            setTimeout(randomAI, 500);
-        }
+        // if (moveCount % 2 == 1) {
+        //     setTimeout(randomAI, 500);
         // otherwise do nothing
     };
 };
@@ -153,7 +237,10 @@ let checkTie = function() {
     else {
         updateTurn();
         if (moveCount % 2 == 1) {
+            document.querySelector(".gameboard").removeEventListener("click", boxClickHandler);
             setTimeout(randomAI, 500);
+        } else {
+            document.querySelector(".gameboard").addEventListener("click", boxClickHandler);
         }
     };
 
@@ -174,11 +261,17 @@ let reset = function() {
             XOClasses[w].classList.remove("o-selected");
         }
     }
-    document.querySelector(".gameboard").addEventListener("click", boxClickHandler);
+    // line below deprecated as AI will always start first as player X
+    // document.querySelector(".gameboard").addEventListener("click", boxClickHandler);
     disableReset();
     moveCount = 1;
     tieVariable = 0;
-    randomAI();
+    document.querySelector(".line").style.borderBottom = "none";
+    document.querySelector(".line").style.top = "0px";
+    document.querySelector(".line").style.transform = "rotate(0deg)";
+    document.querySelector(".line").style.left = "0px";
+    document.querySelector(".line").style.width = "0px";
+    setTimeout(randomAI, 500);
 };
 
 let enableReset = function() {
@@ -239,7 +332,6 @@ let randomAI = function() {
         updateBoardContentsX(randomBox + 1);
         moveCount++;
         checkWin();
-        console.log(boardContents);
     } else {
         randomAI();
     }
@@ -251,7 +343,8 @@ let randomAI = function() {
 
 document.addEventListener("DOMContentLoaded", function(){
     // placing eventListeners here
-    document.querySelector(".gameboard").addEventListener("click", boxClickHandler);
+//event listener here deprecated as AI will start as player X
+    // document.querySelector(".gameboard").addEventListener("click", boxClickHandler);
     document.querySelector(".xWinCount").innerText = xWins;
     document.querySelector(".oWinCount").innerText = oWins;
     document.querySelector(".tieCount").innerText = tieCount;

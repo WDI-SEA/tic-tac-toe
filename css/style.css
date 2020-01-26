@@ -13,8 +13,8 @@ p {
 
 .gameboard {
   margin: 0 auto;
-  width: 320px;
-  height: 320px;
+  width: 308px;
+  height: 308px;
   margin-bottom: 20px;
 }
 
@@ -33,10 +33,17 @@ button {
 
 .x-selected:after {
   content: "X";
+  color: rgb(158, 12, 12);
 }
 
 .o-selected:after {
   content: "O";
+  color: rgb(9, 9, 134);
+}
+
+.line{
+  height: 20px;
+  position: absolute;
 }
 
 .gameboard div:nth-child(1) {
