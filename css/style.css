@@ -6,7 +6,8 @@
 body {
   background-color: #bbb;
 }
-.title {
+
+.title, .end-status {
   text-align: center;
   font-family: "Uncial Antiqua", cursive;
   margin-top: 100px;
