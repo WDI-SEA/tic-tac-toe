@@ -31,11 +31,13 @@ let endStatus;
 
 let currentPlayer;
 let numberOfMoves = 0;
+let gameOver = false;
 
 // Hi honey! I love you! <3
 const setUp = function() {
 
     numberOfMoves = 0;
+    gameOver = false;
     endStatus.innerText = " ";
     getFirstPlayer();
     resetGameBoard();
@@ -74,6 +76,8 @@ const resetGameBoard = function() {
             rowValue = 2;
         }
         gameboardSquares[i].setAttribute("data-row", rowValue);
+        gameboardSquares[i].style.cursor = "pointer";
+        gameboardSquares[i].classList.add("square-hover");
     }
 }
 
@@ -84,6 +88,8 @@ const squareClickHandler = function(e) {
     if (GAME_SQUARES[squareRow][squareCol] === 0) {
         GAME_SQUARES[squareRow][squareCol] = currentPlayer.token;
         e.target.innerText = currentPlayer.token;
+        e.target.style.cursor = "initial";
+        e.target.classList.remove("square-hover");
     
         numberOfMoves++;
     
@@ -110,6 +116,15 @@ const switchActivePlayer = function() {
 
 const checkBoard = function() {
 
+    checkForWinner();
+
+    if (numberOfMoves === MAX_MOVES && !gameOver) {
+        endStatus.innerText = "Tie!";
+    }
+}
+
+const checkForWinner = function() {
+
     let currentPlayerToken = currentPlayer.token;
     
     switch(true) {
@@ -125,13 +140,12 @@ const checkBoard = function() {
             wonRound();
             break;    
     }
-    if (numberOfMoves === MAX_MOVES) {
-        endStatus.innerText = "Tie!";
-    }
+
 }
 
 const wonRound = function() {
     currentPlayer.wins++;
+    gameOver = true;
 
     if (currentPlayer.playerName === "one") {
         playerOneCount.textContent = currentPlayer.wins;

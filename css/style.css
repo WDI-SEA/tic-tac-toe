@@ -53,6 +53,10 @@ body {
   font-family: "Uncial Antiqua", cursive;
 }
 
+.square-hover:hover {
+  background-color: mediumaquamarine;
+}
+
 .reset-btn {
   display: block;
   margin: 0 auto;
