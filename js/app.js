@@ -91,13 +91,13 @@ let checkWin = function() {
         updateTurn();
         if (moveCount % 2 == 1) {
             document.querySelector(".gameboard").removeEventListener("click", boxClickHandler);
-            setTimeout(randomAI, 500);
-        } else if (moveCount % 2 == 0) {
-            document.querySelector(".gameboard").addEventListener("click", boxClickHandler);
+            // deprecated for smartAI function
+            // setTimeout(randomAI, 500);
+            setTimeout(smartAISecondMove, 500);
         } else {
-            //do nothing; there has been some kind of error
+            document.querySelector(".gameboard").addEventListener("click", boxClickHandler);
         }
-    } else if (moveCount >= 5) {
+    } else {
         if (boardContents[0] == 1 && boardContents[1] == 1 && boardContents[2] == 1) {
             document.querySelector(".line").style.borderBottom = "6px solid rgba(194, 20, 20, .9)";
             document.querySelector(".line").style.top = "112px";
@@ -218,10 +218,6 @@ let checkWin = function() {
         } else {
             checkTie();
         };
-    } else {
-        // if (moveCount % 2 == 1) {
-        //     setTimeout(randomAI, 500);
-        // otherwise do nothing
     };
 };
 
@@ -238,7 +234,9 @@ let checkTie = function() {
         updateTurn();
         if (moveCount % 2 == 1) {
             document.querySelector(".gameboard").removeEventListener("click", boxClickHandler);
-            setTimeout(randomAI, 500);
+            setTimeout(smartAIThirdMove, 500);
+            // console.log("right after starting smartAIThirdMove(): nested in checkTie()")
+            // setTimeout(randomAI, 500);
         } else {
             document.querySelector(".gameboard").addEventListener("click", boxClickHandler);
         }
@@ -271,7 +269,8 @@ let reset = function() {
     document.querySelector(".line").style.transform = "rotate(0deg)";
     document.querySelector(".line").style.left = "0px";
     document.querySelector(".line").style.width = "0px";
-    setTimeout(randomAI, 500);
+    // setTimeout(randomAI, 500);
+    setTimeout(smartAIStart, 500);
 };
 
 let enableReset = function() {
@@ -324,7 +323,9 @@ let tie = function() {
     document.querySelector(".tieCount").innerText = tieCount;
 };
 
+// decided not to deprecate as smartAI needs to choose something when a TIE is inevitable
 let randomAI = function() {
+    console.log("randomAI() enacting")
     let randomBox = Math.floor(Math.random() * 9);
     if (boardContents[randomBox] == 0) {
         // console.log(document.getElementsByClassName("box")[randomBox])
@@ -337,6 +338,381 @@ let randomAI = function() {
     }
 }
 
+let smartAIStart = function() {
+    document.getElementsByClassName("box")[4].classList.add("x-selected");
+    updateBoardContentsX(5);
+    moveCount++;
+    checkWin();
+}
+
+let smartAISecondMove = function() {
+    // smartAI will automatically choose center on the first turn; the next choice is to choose one of the four possible corners if available
+        // keep in mind that the O player might choose one of the corners, so the corner must be checked to make sure it has not been chosen yet
+    console.log("Starting smartAISecondMove()")
+    let smartBox = Math.floor(Math.random() * 4);
+    if (smartBox == 0) {
+        if (boardContents[0] == 0) {
+        document.getElementsByClassName("box")[0].classList.add("x-selected");
+        updateBoardContentsX(1);
+        moveCount++;
+        checkWin();
+        } else {
+            //if all four corners are taken, choose something
+            if (boardContents[0] != 0 && boardContents[2] != 0 && boardContents[6] != 0 && boardContents[8] != 0) {
+                // choose random?
+                randomAI();
+            } else {
+                smartAISecondMove();
+            }
+        }
+    } else if (smartBox == 1) {
+        if (boardContents[2] == 0) {
+        document.getElementsByClassName("box")[2].classList.add("x-selected");
+        updateBoardContentsX(3);
+        moveCount++;
+        checkWin();
+        } else {
+            //if all four corners are taken, choose something
+            if (boardContents[0] != 0 && boardContents[2] != 0 && boardContents[6] != 0 && boardContents[8] != 0) {
+                // choose random?
+                randomAI();
+            } else {
+                smartAISecondMove();
+            }
+        }
+    } else if (smartBox == 2) {
+        if (boardContents[6] == 0) {
+        document.getElementsByClassName("box")[6].classList.add("x-selected");
+        updateBoardContentsX(7);
+        moveCount++;
+        checkWin();
+        } else {
+            //if all four corners are taken, choose something
+            if (boardContents[0] != 0 && boardContents[2] != 0 && boardContents[6] != 0 && boardContents[8] != 0) {
+                // choose random?
+                randomAI();
+            } else {
+                smartAISecondMove();
+            }
+        }
+    } else {
+        if (boardContents[8] == 0) {
+        document.getElementsByClassName("box")[8].classList.add("x-selected");
+        updateBoardContentsX(9);
+        moveCount++;
+        checkWin();
+        } else {
+            //if all four corners are taken, choose something
+            if (boardContents[0] != 0 && boardContents[2] != 0 && boardContents[6] != 0 && boardContents[8] != 0) {
+                // choose random?
+                randomAI();
+            } else {
+                smartAISecondMove();
+            }
+        }
+    }
+}
+
+let smartAIThirdMove = function() {
+    console.log("right after starting smartAIThirdMove()")
+    smartAICheckWin1();
+}
+
+let smartAICheckWin1 = function () {
+    //breaking out smartAIThirdMove function
+    // smartAI needs to choose the square to win if available
+    if ((boardContents[0] == 1 && boardContents[1] == 1) || (boardContents[0] == 1 && boardContents[2] == 1) || (boardContents[1] == 1 && boardContents[2] == 1)) {
+        if (boardContents[0] == 2 || boardContents[1] == 2 || boardContents[2] == 2) {
+            //needs to make sure that O does not have the one that is not selected of the set of three
+            smartAICheckWin2();
+        } else {
+            document.getElementsByClassName("box")[0].classList.add("x-selected");
+            document.getElementsByClassName("box")[1].classList.add("x-selected");
+            document.getElementsByClassName("box")[2].classList.add("x-selected");
+            updateBoardContentsX(1);
+            updateBoardContentsX(2);
+            updateBoardContentsX(3);
+            moveCount++;
+            checkWin();
+        }
+    } else {
+        smartAICheckWin2();
+    }
+}
+
+let smartAICheckWin2 = function () {
+    if ((boardContents[3] == 1 && boardContents[4] == 1) || (boardContents[3] == 1 && boardContents[5] == 1) || (boardContents[4] == 1 && boardContents[5] == 1)) {
+        if (boardContents[3] == 2 || boardContents[4] == 2 || boardContents[5] == 2) {
+            //needs to make sure that O does not have the one that is not selected of the set of three
+            smartAICheckWin3();
+        } else {
+            document.getElementsByClassName("box")[3].classList.add("x-selected");
+            document.getElementsByClassName("box")[4].classList.add("x-selected");
+            document.getElementsByClassName("box")[5].classList.add("x-selected");
+            updateBoardContentsX(4);
+            updateBoardContentsX(5);
+            updateBoardContentsX(6);
+            moveCount++;
+            checkWin();
+        }
+    } else {
+        smartAICheckWin3();
+    }
+}
+
+let smartAICheckWin3 = function () {
+    if ((boardContents[6] == 1 && boardContents[7] == 1) || (boardContents[6] == 1 && boardContents[8] == 1) || (boardContents[7] == 1 && boardContents[8] == 1)) {
+        if (boardContents[6] == 2 || boardContents[7] == 2 || boardContents[8] == 2) {
+            //needs to make sure that O does not have the one that is not selected of the set of three
+            smartAICheckWin4();
+        } else {
+            document.getElementsByClassName("box")[6].classList.add("x-selected");
+            document.getElementsByClassName("box")[7].classList.add("x-selected");
+            document.getElementsByClassName("box")[8].classList.add("x-selected");
+            updateBoardContentsX(7);
+            updateBoardContentsX(8);
+            updateBoardContentsX(9);
+            moveCount++;
+            checkWin();
+        }
+    } else {
+        smartAICheckWin4();
+    }
+}
+
+let smartAICheckWin4 = function () {
+    if ((boardContents[0] == 1 && boardContents[3] == 1) || (boardContents[0] == 1 && boardContents[6] == 1) || (boardContents[3] == 1 && boardContents[6] == 1)) {
+        if (boardContents[0] == 2 || boardContents[3] == 2 || boardContents[6] == 2) {
+            //needs to make sure that O does not have the one that is not selected of the set of three
+            smartAICheckWin5();
+        } else {
+            document.getElementsByClassName("box")[0].classList.add("x-selected");
+            document.getElementsByClassName("box")[3].classList.add("x-selected");
+            document.getElementsByClassName("box")[6].classList.add("x-selected");
+            updateBoardContentsX(1);
+            updateBoardContentsX(4);
+            updateBoardContentsX(7);
+            moveCount++;
+            checkWin();
+        }
+    } else {
+        smartAICheckWin5();
+    }
+}
+
+let smartAICheckWin5 = function () {
+    if ((boardContents[1] == 1 && boardContents[4] == 1) || (boardContents[1] == 1 && boardContents[7] == 1) || (boardContents[4] == 1 && boardContents[7] == 1)) {
+        if (boardContents[1] == 2 || boardContents[4] == 2 || boardContents[7] == 2) {
+            //needs to make sure that O does not have the one that is not selected of the set of three
+            smartAICheckWin6();
+        } else {
+            document.getElementsByClassName("box")[1].classList.add("x-selected");
+            document.getElementsByClassName("box")[4].classList.add("x-selected");
+            document.getElementsByClassName("box")[7].classList.add("x-selected");
+            updateBoardContentsX(2);
+            updateBoardContentsX(5);
+            updateBoardContentsX(8);
+            moveCount++;
+            checkWin();
+        }
+    } else {
+        smartAICheckWin6();
+    }
+}
+
+let smartAICheckWin6 = function () {
+    if ((boardContents[2] == 1 && boardContents[5] == 1) || (boardContents[2] == 1 && boardContents[8] == 1) || (boardContents[5] == 1 && boardContents[8] == 1)) {
+        if (boardContents[2] == 2 || boardContents[5] == 2 || boardContents[8] == 2) {
+            //needs to make sure that O does not have the one that is not selected of the set of three
+            smartAICheckWin7();
+        } else {
+            document.getElementsByClassName("box")[2].classList.add("x-selected");
+            document.getElementsByClassName("box")[5].classList.add("x-selected");
+            document.getElementsByClassName("box")[8].classList.add("x-selected");
+            updateBoardContentsX(3);
+            updateBoardContentsX(6);
+            updateBoardContentsX(9);
+            moveCount++;
+            checkWin();
+        }
+    } else {
+        smartAICheckWin7();
+    }
+}
+
+let smartAICheckWin7 = function () {
+    if ((boardContents[0] == 1 && boardContents[4] == 1) || (boardContents[0] == 1 && boardContents[8] == 1) || (boardContents[4] == 1 && boardContents[8] == 1)) {
+        if (boardContents[0] == 2 || boardContents[4] == 2 || boardContents[8] == 2) {
+            //needs to make sure that O does not have the one that is not selected of the set of three
+            smartAICheckWin8();
+        } else {
+            document.getElementsByClassName("box")[0].classList.add("x-selected");
+            document.getElementsByClassName("box")[4].classList.add("x-selected");
+            document.getElementsByClassName("box")[8].classList.add("x-selected");
+            updateBoardContentsX(1);
+            updateBoardContentsX(5);
+            updateBoardContentsX(9);
+            moveCount++;
+            checkWin();
+        }
+    } else {
+        smartAICheckWin8();
+    }
+}
+
+let smartAICheckWin8 = function () {
+    if ((boardContents[2] == 1 && boardContents[4] == 1) || (boardContents[2] == 1 && boardContents[6] == 1) || (boardContents[4] == 1 && boardContents[6] == 1)) {
+        if (boardContents[2] == 2 || boardContents[4] == 2 || boardContents[6] == 2) {
+            //needs to make sure that O does not have the one that is not selected of the set of three
+            smartAICheckLose();
+        } else {
+            document.getElementsByClassName("box")[2].classList.add("x-selected");
+            document.getElementsByClassName("box")[4].classList.add("x-selected");
+            document.getElementsByClassName("box")[6].classList.add("x-selected");
+            updateBoardContentsX(3);
+            updateBoardContentsX(5);
+            updateBoardContentsX(7);
+            moveCount++;
+            checkWin();
+        }
+    } else {
+        smartAICheckLose();
+    }
+}
+
+let smartAICheckLose = function() {
+    //breaking out smartAIThirdMove funciton
+    //AI needs to choose square to prevent O from winning if O is one move away
+    console.log("right after starting smartAICheckLose()")
+    if (boardContents[0] == 2 && boardContents[1] == 2 && boardContents[2] == 0) {
+        document.getElementsByClassName("box")[2].classList.add("x-selected");
+        updateBoardContentsX(3);
+        moveCount++;
+        checkWin();
+    } else if (boardContents[0] == 2 && boardContents[2] == 2 && boardContents[1] == 0) {
+        document.getElementsByClassName("box")[1].classList.add("x-selected");
+        updateBoardContentsX(2);
+        moveCount++;
+        checkWin();
+    } else if (boardContents[1] == 2 && boardContents[2] == 2 && boardContents[0] == 0) {
+        document.getElementsByClassName("box")[0].classList.add("x-selected");
+        updateBoardContentsX(1);
+        moveCount++;
+        checkWin();
+    } else if (boardContents[3] == 2 && boardContents[4] == 2 && boardContents[5] == 0) {
+        document.getElementsByClassName("box")[5].classList.add("x-selected");
+        updateBoardContentsX(6);
+        moveCount++;
+        checkWin();
+    } else if (boardContents[3] == 2 && boardContents[5] == 2 && boardContents[4] == 0) {
+        document.getElementsByClassName("box")[4].classList.add("x-selected");
+        updateBoardContentsX(5);
+        moveCount++;
+        checkWin();
+    } else if (boardContents[4] == 2 && boardContents[5] == 2 && boardContents[3] == 0) {
+        document.getElementsByClassName("box")[3].classList.add("x-selected");
+        updateBoardContentsX(4);
+        moveCount++;
+        checkWin();
+    } else if (boardContents[6] == 2 && boardContents[7] == 2 && boardContents[8] == 0) {
+        document.getElementsByClassName("box")[8].classList.add("x-selected");
+        updateBoardContentsX(9);
+        moveCount++;
+        checkWin();
+    } else if (boardContents[6] == 2 && boardContents[8] == 2 && boardContents[7] == 0) {
+        document.getElementsByClassName("box")[7].classList.add("x-selected");
+        updateBoardContentsX(8);
+        moveCount++;
+        checkWin();
+    } else if (boardContents[7] == 2 && boardContents[8] == 2 && boardContents[6] == 0) {
+        document.getElementsByClassName("box")[6].classList.add("x-selected");
+        updateBoardContentsX(7);
+        moveCount++;
+        checkWin();
+    } else if (boardContents[0] == 2 && boardContents[3] == 2 && boardContents[6] == 0) {
+        document.getElementsByClassName("box")[6].classList.add("x-selected");
+        updateBoardContentsX(7);
+        moveCount++;
+        checkWin();
+    } else if (boardContents[0] == 2 && boardContents[6] == 2 && boardContents[3] == 0) {
+        document.getElementsByClassName("box")[3].classList.add("x-selected");
+        updateBoardContentsX(4);
+        moveCount++;
+        checkWin();
+    } else if (boardContents[3] == 2 && boardContents[6] == 2 && boardContents[0] == 0) {
+        document.getElementsByClassName("box")[0].classList.add("x-selected");
+        updateBoardContentsX(1);
+        moveCount++;
+        checkWin();
+    } else if (boardContents[1] == 2 && boardContents[4] == 2 && boardContents[7] == 0) {
+        document.getElementsByClassName("box")[7].classList.add("x-selected");
+        updateBoardContentsX(8);
+        moveCount++;
+        checkWin();
+    } else if (boardContents[1] == 2 && boardContents[7] == 2 && boardContents[4] == 0) {
+        document.getElementsByClassName("box")[4].classList.add("x-selected");
+        updateBoardContentsX(5);
+        moveCount++;
+        checkWin();
+    } else if (boardContents[4] == 2 && boardContents[7] == 2 && boardContents[1] == 0) {
+        document.getElementsByClassName("box")[1].classList.add("x-selected");
+        updateBoardContentsX(2);
+        moveCount++;
+        checkWin();
+    } else if (boardContents[2] == 2 && boardContents[5] == 2 && boardContents[8] == 0) {
+        document.getElementsByClassName("box")[8].classList.add("x-selected");
+        updateBoardContentsX(9);
+        moveCount++;
+        checkWin();
+    } else if (boardContents[2] == 2 && boardContents[8] == 2 && boardContents[5] == 0) {
+        document.getElementsByClassName("box")[5].classList.add("x-selected");
+        updateBoardContentsX(6);
+        moveCount++;
+        checkWin();
+    } else if (boardContents[5] == 2 && boardContents[8] == 2 && boardContents[2] == 0) {
+        document.getElementsByClassName("box")[2].classList.add("x-selected");
+        updateBoardContentsX(3);
+        moveCount++;
+        checkWin();
+    } else if (boardContents[0] == 2 && boardContents[4] == 2 && boardContents[8] == 0) {
+        document.getElementsByClassName("box")[8].classList.add("x-selected");
+        updateBoardContentsX(9);
+        moveCount++;
+        checkWin();
+    } else if (boardContents[0] == 2 && boardContents[8] == 2 && boardContents[4] == 0) {
+        document.getElementsByClassName("box")[4].classList.add("x-selected");
+        updateBoardContentsX(5);
+        moveCount++;
+        checkWin();
+    } else if (boardContents[4] == 2 && boardContents[8] == 2 && boardContents[0] == 0) {
+        document.getElementsByClassName("box")[0].classList.add("x-selected");
+        updateBoardContentsX(1);
+        moveCount++;
+        checkWin();
+    } else if (boardContents[2] == 2 && boardContents[4] == 2 && boardContents[6] == 0) {
+        document.getElementsByClassName("box")[6].classList.add("x-selected");
+        updateBoardContentsX(7);
+        moveCount++;
+        checkWin();
+    } else if (boardContents[2] == 2 && boardContents[6] == 2 && boardContents[4] == 0) {
+        document.getElementsByClassName("box")[4].classList.add("x-selected");
+        updateBoardContentsX(5);
+        moveCount++;
+        checkWin();
+    } else if (boardContents[4] == 2 && boardContents[6] == 2 && boardContents[2] == 0) {
+        document.getElementsByClassName("box")[2].classList.add("x-selected");
+        updateBoardContentsX(3);
+        moveCount++;
+        checkWin();
+    }
+    // also needs suggestions for if neither X nor O is one move away
+    else {
+        smartAISecondMove();
+    }
+}
+
+
+
 
 // DOM Content Loaded
 
@@ -348,5 +724,7 @@ document.addEventListener("DOMContentLoaded", function(){
     document.querySelector(".xWinCount").innerText = xWins;
     document.querySelector(".oWinCount").innerText = oWins;
     document.querySelector(".tieCount").innerText = tieCount;
-    setTimeout(randomAI, 500);
+    // deprecating in order to set up smartAI
+    // setTimeout(randomAI, 500);
+    setTimeout(smartAIStart, 500);
 });
