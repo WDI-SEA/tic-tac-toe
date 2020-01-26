@@ -34,8 +34,12 @@ let numberOfMoves = 0;
 
 // Hi honey! I love you! <3
 const setUp = function() {
+
+    numberOfMoves = 0;
+    endStatus.innerText = " ";
     getFirstPlayer();
     resetGameBoard();
+    gameboard.addEventListener("click", squareClickHandler);
 }
 
 const getFirstPlayer = function() {
@@ -82,8 +86,8 @@ const squareClickHandler = function(e) {
 
     numberOfMoves++;
 
-    switchActivePlayer();
     checkBoard();
+    switchActivePlayer();
 
 }
 
@@ -103,10 +107,37 @@ const switchActivePlayer = function() {
 }
 
 const checkBoard = function() {
+
+    let currentPlayerToken = currentPlayer.token;
+    
+    switch(true) {
+        case (currentPlayerToken === GAME_SQUARES[0][0] && currentPlayerToken === GAME_SQUARES[0][1] && currentPlayerToken === GAME_SQUARES[0][2]):
+        case (currentPlayerToken === GAME_SQUARES[1][0] && currentPlayerToken === GAME_SQUARES[1][1] && currentPlayerToken === GAME_SQUARES[1][2]):
+        case (currentPlayerToken === GAME_SQUARES[2][0] && currentPlayerToken === GAME_SQUARES[2][1] && currentPlayerToken === GAME_SQUARES[2][2]):
+        case (currentPlayerToken === GAME_SQUARES[0][0] && currentPlayerToken === GAME_SQUARES[1][0] && currentPlayerToken === GAME_SQUARES[2][0]):
+        case (currentPlayerToken === GAME_SQUARES[0][1] && currentPlayerToken === GAME_SQUARES[1][1] && currentPlayerToken === GAME_SQUARES[2][1]):
+        case (currentPlayerToken === GAME_SQUARES[0][2] && currentPlayerToken === GAME_SQUARES[1][2] && currentPlayerToken === GAME_SQUARES[2][2]):
+        case (currentPlayerToken === GAME_SQUARES[0][0] && currentPlayerToken === GAME_SQUARES[1][1] && currentPlayerToken === GAME_SQUARES[2][2]):
+        case (currentPlayerToken === GAME_SQUARES[0][2] && currentPlayerToken === GAME_SQUARES[1][1] && currentPlayerToken === GAME_SQUARES[2][0]):
+            endStatus.innerText = `Winner: ${currentPlayer.playerName}!`;
+            wonRound();
+            break;    
+    }
     if (numberOfMoves === MAX_MOVES) {
         endStatus.innerText = "Tie!";
-        console.log(GAME_SQUARES);
     }
+}
+
+const wonRound = function() {
+    currentPlayer.wins++;
+
+    if (currentPlayer.playerName === "one") {
+        playerOneCount.textContent = currentPlayer.wins;
+    } else {
+        playerTwoCount.textContent = currentPlayer.wins;
+    }
+
+    gameboard.removeEventListener("click", squareClickHandler);
 }
 
 const getDOMElements = function() {
@@ -126,7 +157,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     getDOMElements();
 
-    gameboard.addEventListener("click", squareClickHandler);
     resetButton.addEventListener("click", setUp);
     
     setUp();
