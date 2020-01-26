@@ -18,7 +18,7 @@ let boardData = {
     gamegridIdSelector: "#game-grid",
     resetButtonClassSelector: ".reset",
     tileClassName: "span",
-    tileClassSelector: ".span" 
+    tileClassSelector: ".span"
 }
 
 // player clicked reset button
@@ -43,14 +43,14 @@ let resetGameBoard = function() {
 
 // initialize/reset game
 let initGame = function() {
-    playerContract.currentPlayer = player1;
+    preparePlayerForNewRound();
 };
 
 // some player clicked a tile
 let gameGridClickListener = function(event) {
     // local variables
     let clickedElement;
-    let clickedSpan;
+    let clickedTile;
 
     // what was clicked?
     clickedElement = event.target.id;
@@ -63,8 +63,8 @@ let gameGridClickListener = function(event) {
     console.log('A relevant div was clicked');
 
     // check if this div is already occupied
-    clickedSpan = event.target.querySelector(boardData.tileClassSelector);
-    if (clickedSpan.classList.length > 1) 
+    clickedTile = event.target.querySelector(boardData.tileClassSelector);
+    if (clickedTile.classList.length > 1) 
     {
         return;
     }
@@ -72,9 +72,10 @@ let gameGridClickListener = function(event) {
     console.log('The div is free');
 
     // current playerObject can take over
-    playerContract.setSpan(clickedSpan);
+    playerContract.computeTurn(clickedElement, clickedTile);
+    //playerContract.setSpan(clickedSpan);
     
-    console.log(clickedSpan.classList);
+    console.log(clickedTile.classList);
 
     // next players turn
     changeCurrentPlayer();
@@ -83,21 +84,29 @@ let gameGridClickListener = function(event) {
 // passthrough function to maintain readability 
 let changeCurrentPlayer = function() {
     playerContract.changeCurrentPlayer();
-}
+};
+
+let preparePlayerForNewRound = function() {
+    playerContract.currentPlayer = player1;
+    // tell playerContract to reset 
+    playerContract.resetValues();
+
+};
 
 // player relevant objects
 let player1 = {
-    name: "player1"
+    name: "player1",
+    symbol: "x"
 };
 
 let player2 = {
-    name: "player2"
+    name: "player2",
+    symbol: "o"
 };
+
 let playerContract = {
     currentPlayer: player2,
-    setSpan: function(htmlSpan) {
-        htmlSpan.classList.add(this.currentPlayer.name);
-    },
+    gameBoardState: new Array(9),
     changeCurrentPlayer: function() {
         if (this.currentPlayer === player1) 
         {
@@ -107,5 +116,58 @@ let playerContract = {
         {
             this.currentPlayer = player1;
         }
+    },
+    computeTurn: function(clickedElementIndex, clickedTile) {
+        // change the visual of the clicked tile
+        this.setPlayerTile(clickedTile);
+        // mirror the current state of the board
+        this.gameBoardState[clickedElementIndex] = this.currentPlayer.symbol;
+        // check for a win condition
+        checkForWin(this.gameBoardState, clickedElementIndex, this.currentPlayer);
+        console.log(this.gameBoardState);
+    },
+    resetValues: function() {
+        console.log("resetting playerContract");
+        this.gameBoardState.length = 0;
+    },
+    setPlayerTile: function(clickedTile) {
+        clickedTile.classList.add(this.currentPlayer.name);
     }
+}
+
+// check if the active player won the game
+let checkForWin = function(gameBoardState, index, player) {
+    console.log(`called with ${player.name}, index: ${index} data: ${gameBoardState}`);
+    // rowSum represents the sum of a players symbol in that row,
+    // colSum represents the sum of a players szmbol in that column,
+    // rowIndex defines where to start in the given array for the row and has to be incremented by 1,
+    // colIndex defines where to start in the given array for the column ans has to be incremented by 3
+    let rowSum = 0, colSum = 0, rowIndex = 0, colIndex = 0;
+    let rowToCheck = Math.floor(index / 3);
+    let colToCheck = index % 3;
+
+    rowIndex = rowToCheck;
+    colIndex = colToCheck;
+    
+    console.log(`checking row: ${rowToCheck} and column: ${colToCheck}`);
+
+    // check if there are three in a row / column
+    for (let i = 0; i < 3; i++) 
+    {
+        if(gameBoardState[rowIndex] === player.symbol)
+        {
+            rowSum++;
+        }
+        if(gameBoardState[colIndex] === player.symbol)
+        {
+            colSum++;
+        }
+        // increment values
+        rowIndex++;
+        colIndex+=3;
+    }
+    if(colSum > 2 || rowSum > 2)
+    {
+        console.log(`WINNER ${player.name} won the game!`);
+    } 
 }
