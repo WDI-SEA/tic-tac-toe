@@ -1,3 +1,39 @@
 h1 {
   color: purple;
+  text-align:center;
+  margin: 50px 250px;
+  font-family: sans-serif;
+  padding: 15px;
+  border: 2px purple;
+  background:orange;
+}
+#container {
+  width: 320px;
+  height: 320px;
+  margin: auto;
+  margin-top:125px;
+
+}
+.square {
+  width:100px;
+  height: 100px;
+  padding:0;
+  margin:0;
+  float:left;
+  text-align:center;
+  font-family: sans-serif;
+  font-size: 100px;
+  display:block;
+
+}
+
+#s0, #s1, #s2, #s3, #s4, #s5 {
+  border-bottom: 10px solid rgb(15, 12, 196);
+}
+
+#s2, #s5, #s8, #s1, #s4, #s7 {
+  border-left:10px solid rgb(15, 12, 196);
+}
+.win {
+  color:goldenrod;
 }
