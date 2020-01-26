@@ -1,3 +1,63 @@
-h1 {
-  color: purple;
+* {
+  text-align: center;
+  font-family: sans-serif;
+}
+
+body {
+  background-color: #bbb;
+}
+.title {
+  text-align: center;
+  font-family: "Uncial Antiqua", cursive;
+  margin-top: 100px;
+}
+.game-components {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 36px 0px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.row-middle {
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+}
+
+.square-middle {
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+}
+
+.player-div {
+  min-width: 80px;
+}
+
+.current-player {
+  font-weight: 800;
+  color: aquamarine;
+}
+
+.square {
+  width: 100px;
+  height: 100px;
+  background-color: aquamarine;
+  line-height: 100px;
+  font-weight: 800;
+  font-family: "Uncial Antiqua", cursive;
+}
+
+.reset-btn {
+  display: block;
+  margin: 0 auto;
+  background-color: transparent;
+  border: 5px solid aquamarine;
+  border-radius: 5px;
+  padding: 8px 24px;
+  font-family: "Uncial Antiqua", cursive;
 }

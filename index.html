@@ -3,12 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <title>Tic Tac Toe</title>
+  <link href="https://fonts.googleapis.com/css?family=Uncial+Antiqua&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script type="text/javascript" src="js/app.js"></script>
 </head>
 <body>
-  <h1>Hello Front-End</h1>
-
-  <script type="text/javascript" src="js/app.js"></script>
+  <h1 class="title">Tic Tac Toe</h1>
+  <div class="game-components">
+    <div class="player-div">
+      <p id="player-one-label" class="player-label">Player 1</p>
+      <h2 id="player-one-count" class="player-count-label">0</h2>
+    </div>
+    <div id="gameboard">
+      <div class="row">
+        <div class="square"></div>
+        <div class="square square-middle"></div>
+        <div class="square"></div>
+      </div>
+      <div class="row row-middle">
+        <div class="square"></div>
+        <div class="square square-middle"></div>
+        <div class="square"></div>
+      </div>
+      <div class="row">
+        <div class="square"></div>
+        <div class="square square-middle"></div>
+        <div class="square"></div>
+      </div>
+    </div>
+    <div class="player-div">
+      <p id="player-two-label" class="player-label">Player 2</p>
+      <h2 id="player-two-count" class="player-count-label">0</h2>
+    </div>
+  </div>
+  <button id="reset" class="reset-btn">Reset</button>
 </body>
 </html>
