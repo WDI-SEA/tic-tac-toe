@@ -44,6 +44,7 @@ let row2 = [
 var numberOfMoves = 0;
 let gameBoard = [row0,row1,row2];
 let gameOver = false;
+let gameAI = false;
 
 let checkBoxHandler = function(e){
 	let idString = e.target.id;
@@ -58,7 +59,7 @@ let checkBoxHandler = function(e){
 			e.target.innerText = "X";
 			gameBoard[currRow][currColumn].marked = true;
 			numberOfMoves++;
-		} else {
+		} else if(!gameAI) {
 			e.target.classList.remove("row-box");
 			e.target.classList.add("player-2");
 			gameBoard[currRow][currColumn].type = "O";
@@ -84,6 +85,9 @@ let checkBoxHandler = function(e){
 			setTimeout(function(){ alert("the game is a tie"); }, 300);
 
 		}
+	}
+	if(gameAI && !gameOver){
+		dumbAI();
 	}
 	if (numberOfMoves > 0 && !gameOver){
 		nextTurnHandler();
@@ -249,6 +253,50 @@ let nextTurnHandler = function(){
 	}
 
 }
+let soloPlayHandler = function(){
+	console.log("soloPlayHandler");
+	resetHandler();
+	gameAI = true;
+}
+
+let dumbAI = function (){
+	let foundEmpty = false;
+	while(!foundEmpty){
+		let rand1 = Math.floor(Math.random() * 3);
+		let rand2 = Math.floor(Math.random() * 3);
+		console.log(rand1 + " " + rand2);
+		let selector = `#row${rand1}-box${rand2}`;
+		if(!gameBoard[rand1][rand2].marked){
+			console.log("unmarked");
+			gameBoard[rand1][rand2].marked = true;
+			gameBoard[rand1][rand2].type = "O";
+			let domBox = document.querySelector(selector);
+			domBox.classList.remove("row-box");
+			domBox.classList.add("player-2");
+			domBox.innerText = "O";
+			foundEmpty = true;
+			numberOfMoves++;
+		}
+	}
+	if(numberOfMoves >= 5){
+		let win = checkWin();
+		if(win == true){
+			console.log(numberOfMoves);
+			if(numberOfMoves % 2 == 0 && !gameOver){
+				setTimeout(function(){ alert("the computer has won the game"); }, 300);
+			} else {
+				if(!gameOver){
+					setTimeout(function(){ alert("player-1 has won the game"); }, 300);
+				}
+			}
+			gameOver = true;
+		} else if(numberOfMoves == 9) {
+			gameOver = true;
+			setTimeout(function(){ alert("the game is a tie"); }, 300);
+
+		}
+	}
+}
 
 
 
@@ -259,5 +307,6 @@ document.addEventListener("DOMContentLoaded", function(){
 	document.querySelector(".start-game").addEventListener("click", startHandler);
 	document.querySelector(".row-space").addEventListener("click", checkBoxHandler);
 	document.querySelector(".reset").addEventListener("click", resetHandler);
+	document.querySelector(".solo-play").addEventListener("click", soloPlayHandler);
 
 })

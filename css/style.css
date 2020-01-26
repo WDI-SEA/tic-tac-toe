@@ -3,10 +3,23 @@ html, body {
 	padding: 0;
 	text-align: center;
 }
+button{
+	border-color: white;
+	color: white;
+	background: black;
+	border-radius: 2px;
+}
+body {
+	background: #dfe1e6;
+}
+h1 {
+	margin: 25px 0 0 0;
+	padding: 0 0;
+	font-family: sans-serif;
+}
 
 
 .game-space {
-	margin-top: 50px;
 	background-color: black;
 	border: 1px black solid;
 	width: 600px;
@@ -60,6 +73,5 @@ html, body {
 
 }
 
-}
 
 
