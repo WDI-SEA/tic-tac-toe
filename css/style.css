@@ -1,3 +1,43 @@
+html, body {
+  font-family: 'Roboto', sans-serif;
+  background: rgb(180, 180, 180);
+  margin: 0 auto;
+  text-align: center;
+}
 h1 {
-  color: purple;
+  color: rgb(128, 0, 49);
+  font-family: 'Bangers', cursive;
+  letter-spacing: 5px;
+  font-size: 40px;
+}
+h4 {
+  font-style: italic;
+}
+div {
+  width: 320px;
+  padding: 5px;
+  margin: 5px auto;
+  background: white;
+  border-radius: 10px;
+}
+.gameboard {
+  height: 310px;
+  width: 310px;
+  padding: 10px;
+}
+button {
+  font-family: 'Roboto', sans-serif;
+}
+img {
+  height: 100px;
+  width: 100px;
+  border: 1px solid rgb(128, 0, 49);
+  display: block;
+  float: left;
+}
+img:hover {
+  border: 1px solid yellow;
+}
+.new-line {
+  clear: left;
 }
