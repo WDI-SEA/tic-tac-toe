@@ -1,3 +1,40 @@
-h1 {
-  color: purple;
+
+body {
+  background-image: url();
+}
+.message-board {
+  width: 700px;
+  height: 65px;
+  border: 1px solid black;
+  margin: 30px auto;
+  text-align: center;
+  font-size: 40px;
+  padding: 10px 0px 0px 0px;
+}
+.game-space {
+  width: 464px;
+  height: 464px;
+  border: none;
+  margin: auto;
+  background-color: black;
+}
+
+img {
+  width: 150px;
+  height: 150px;
+  padding: 0;
+  margin: auto;
+  border: 1px solid white;
+  background-color: white;
+}
+.reset-container {
+  margin: auto;
+  width: 160px;
+}
+.reset-button {
+  border: 1px solid black;
+  width: 160px;
+  height: 50px;
+  padding: 0px;
+  margin: 15px 0px 0px 0px;
 }
