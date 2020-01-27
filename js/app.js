@@ -9,6 +9,18 @@ window.addEventListener('DOMContentLoaded', (event) => {
     // add click listener to reset button
     document.querySelector(boardData.resetButtonClassSelector).addEventListener('click', resetGameButtonHandler);
 
+    // set each players score label (span)
+    let scoreSpans = document.querySelectorAll(boardData.scoreClassSelector);
+    for (const iterator of scoreSpans) {
+        if (player1.name === iterator.classList[0])
+        {
+            player1.scoreSpan = iterator;
+        }
+        else
+        {
+            player2.scoreSpan = iterator;
+        }
+    }
     // initialize game
     initGame();
 });
@@ -20,6 +32,7 @@ let boardData = {
     dialogClassVisible: "visible",
     gamegridIdSelector: "#game-grid",
     resetButtonClassSelector: ".reset",
+    scoreClassSelector: ".score",
     tileClassName: "span",
     tileClassSelector: ".span"
 }
@@ -47,10 +60,31 @@ let resetGameBoard = function() {
 let initGame = function() {
     preparePlayerForNewRound();
     hideDialog();
+    gameIsActive.set(true);
 };
+
+let pauseGame = function() {
+    gameIsActive.set(false);
+}
+
+let gameIsActive = {
+    status: false,
+    set: function(value) {
+        this.status = value;
+    },
+    get: function() {
+        return this.status;
+    }
+}
 
 // some player clicked a tile
 let gameGridClickListener = function(event) {
+    if (!gameIsActive.get())
+    {
+        console.log(`game is paused`);
+        return;
+    }
+    console.log(`${gameIsActive.get()}`);   
     // local variables
     let clickedElement;
     let clickedTile;
@@ -99,17 +133,24 @@ let preparePlayerForNewRound = function() {
 let gameEndedHandler = {
     // win condition is met, what happens next
     gameEndsWithWinner: function() {
-
+        pauseGame();
     },
     // if there's no winner, but every tile is in use
     gameEndsWithDraw: function() {
-
+        pauseGame();
     }
 };
 
 let handleWin = function() {
     console.log(`Handle what happens if a player wins`);
     showDialog(`Congratiolations, ${playerContract.currentPlayer.name} won this round`);
+    gameEndedHandler.gameEndsWithWinner();
+};
+
+let handleDraw = function() {
+    console.log(`Handle what happens if there is a tie`);
+    showDialog(`Tie, no player won this round`);
+    gameEndedHandler.gameEndsWithDraw();
 };
 
 let hideDialog = function() {
@@ -129,17 +170,28 @@ let showDialog = function(msg) {
 // player relevant objects
 let player1 = {
     name: "player1",
+    score: 0,
+    scoreSpan: null,
     symbol: "x"
 };
 
 let player2 = {
     name: "player2",
+    score: 0,
+    scoreSpan: null,
     symbol: "o"
 };
 
+let playerScoreUpdater = {
+    update: function(player) {
+        player.scoreSpan.textContent = player.score;
+    }
+};
+ 
 let playerContract = {
     currentPlayer: player2,
     gameBoardState: new Array(9),
+    turns: 0,
     changeCurrentPlayer: function() {
         if (this.currentPlayer === player1) 
         {
@@ -151,6 +203,7 @@ let playerContract = {
         }
     },
     computeTurn: function(clickedElementIndex, clickedTile) {
+        this.turns++;
         // change the visual of the clicked tile
         this.setPlayerTile(clickedTile);
         // mirror the current state of the board
@@ -158,13 +211,20 @@ let playerContract = {
         // check for a win condition
         if (checkForWin(this.gameBoardState, clickedElementIndex, this.currentPlayer)) 
         { 
+            this.currentPlayer.score++;
             handleWin();
+            playerScoreUpdater.update(this.currentPlayer);
+        }
+        else if (this.turns === 9)
+        {
+            handleDraw();
         }
         console.log(this.gameBoardState);
     },
     resetValues: function() {
         console.log("resetting playerContract");
         this.gameBoardState.length = 0;
+        this.turns = 0;
     },
     setPlayerTile: function(clickedTile) {
         clickedTile.classList.add(this.currentPlayer.name);
