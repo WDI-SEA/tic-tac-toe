@@ -1,3 +1,57 @@
 h1 {
   color: purple;
 }
+
+body {
+  text-align: center;
+}
+
+.flex-container {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.board-container {
+  height: 100%;
+  width: 100%;
+}
+
+.board {
+  width: 606px;
+  height: 606px;
+}
+
+.square {
+  width: 200px;
+  height: 200px;
+  border: 1px solid black;
+}
+
+.square:hover {
+  background-color: dimgray;
+}
+
+button {
+  text-align: center;
+  margin: 30px;
+  font-family: sans-serif;
+  font-size: x-large;
+  height: 30px;
+  width: 100px;
+}
+
+button:hover {
+  background-color: cadetblue;
+}
