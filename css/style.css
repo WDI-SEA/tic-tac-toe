@@ -42,3 +42,11 @@ img:hover {
 .new-line {
   clear: left;
 }
+.popup {
+  visibility: hidden;
+  position: absolute;
+  width: 150px;
+  top: 272px;
+  left: 40%;
+  border: 1px solid rgb(128, 0, 49);
+}
