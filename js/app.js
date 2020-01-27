@@ -26,10 +26,12 @@ let playerOneLabel;
 let playerOneCount;
 let playerTwoLabel;
 let playerTwoCount;
+let gameMode;
 let resetButton;
 let endStatus;
 
 let currentPlayer;
+let currentMode;
 let numberOfMoves = 0;
 let gameOver = false;
 
@@ -39,10 +41,9 @@ const setUp = function() {
     numberOfMoves = 0;
     gameOver = false;
     endStatus.innerText = " ";
+    currentMode = gameMode["game mode"].value;
     getFirstPlayer();
     resetGameBoard();
-    gameboard.addEventListener("click", squareClickHandler);
-    gameboard.addEventListener("keypress", squareClickHandler);
 }
 
 const getFirstPlayer = function() {
@@ -57,6 +58,14 @@ const getFirstPlayer = function() {
         playerTwoLabel.classList.add("current-player");
     }
     currentPlayer.isActive = true;
+
+    if (currentPlayer.playerName === PLAYER_ONE.playerName && currentMode === "computer") {
+        gameboard.addEventListener("click", squareClickHandler);
+        gameboard.addEventListener("keypress", squareClickHandler);
+    } else if (currentMode === "pvp") {
+        gameboard.addEventListener("click", squareClickHandler);
+        gameboard.addEventListener("keypress", squareClickHandler);
+    }
 }
 
 const resetGameBoard = function() {
@@ -96,8 +105,10 @@ const squareClickHandler = function(e) {
         numberOfMoves++;
     
         checkBoard();
-        switchActivePlayer();
-
+        
+        if (!gameOver) {
+            switchActivePlayer();
+        }
     }
 }
 
@@ -105,11 +116,23 @@ const switchActivePlayer = function() {
     
     PLAYER_TWO.isActive = !PLAYER_TWO.isActive;
     PLAYER_ONE.isActive = !PLAYER_ONE.isActive;
-    if (currentPlayer.playerName === "one") {
+    
+    if (currentPlayer.playerName === PLAYER_ONE.playerName) {
+
+        if (currentMode === "computer") {
+            gameboard.removeEventListener("click", squareClickHandler);
+            gameboard.removeEventListener("keypress", squareClickHandler);
+        }
+
         currentPlayer = PLAYER_TWO;
         playerOneLabel.classList.remove("current-player");
         playerTwoLabel.classList.add("current-player");
     } else {
+        if (currentMode === "computer") {
+            gameboard.addEventListener("click", squareClickHandler);
+            gameboard.addEventListener("keypress", squareClickHandler);
+        }
+
         currentPlayer = PLAYER_ONE;
         playerTwoLabel.classList.remove("current-player");
         playerOneLabel.classList.add("current-player");
@@ -122,6 +145,13 @@ const checkBoard = function() {
 
     if (numberOfMoves === MAX_MOVES && !gameOver) {
         endStatus.innerText = "Tie!";
+
+        if (currentPlayer.playerName === "one") {
+            playerOneLabel.classList.remove("current-player");
+        } else {
+            playerTwoLabel.classList.remove("current-player");
+        }
+        gameOver = true;
     }
 }
 
@@ -151,11 +181,14 @@ const wonRound = function() {
 
     if (currentPlayer.playerName === "one") {
         playerOneCount.textContent = currentPlayer.wins;
+        playerOneLabel.classList.remove("current-player");
     } else {
         playerTwoCount.textContent = currentPlayer.wins;
+        playerTwoLabel.classList.remove("current-player");
     }
 
     gameboard.removeEventListener("click", squareClickHandler);
+    gameboard.removeEventListener("keyboard", squareClickHandler);
 }
 
 const getDOMElements = function() {
@@ -166,6 +199,7 @@ const getDOMElements = function() {
     playerOneCount = document.querySelector("#player-one-count");
     playerTwoLabel = document.querySelector("#player-two-label");
     playerTwoCount = document.querySelector("#player-two-count");
+    gameMode = document.querySelector(".game-mode");
     resetButton = document.querySelector("#reset");
     endStatus = document.querySelector(".end-status");
 

@@ -57,6 +57,14 @@ body {
   background-color: mediumaquamarine;
 }
 
+.game-mode {
+  margin: 24px;
+}
+
+.game-mode label {
+  margin: 0px 16px 0px 4px;
+}
+
 .reset-btn {
   display: block;
   margin: 0 auto;
