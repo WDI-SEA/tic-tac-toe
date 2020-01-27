@@ -71,6 +71,7 @@ footer {
   margin: 0 auto;
   margin-top: 32px;
   text-align: center;
+  border: 3px solid #2c2c54;
 
 }
 
@@ -93,16 +94,63 @@ footer {
   text-align: center;
   margin 0 auto;
   position: relative;
-  top: 10%;
+  top: 12%;
   
+}
+
+.message {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 48px;
+  margin-top: 32px;
+  padding-top: 32px;
 }
 
 .button {
   display: inline-block;
   text-align: center;
   margin-top: 32px;
+  
 }
 
-#square-1, #square-2, #square-3, #square-4, #square-5, #square-9 {
+.message-box {
+  width: 400px;
+  height: 400px;
+  float: right;
+  background-color: #ff793f;
+  margin-right: 75px;
+  margin-left: 75px;
+  margin-top: 150px;
+  display: inline-block;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 48px;
+  border: 3px solid #2c2c54;
+}
+
+.clicked {
   background-color: yellow;
+}
+
+/* ---------------------------------Psuedo Stuff ------------------------------------------------------ */
+
+button:hover {
+  height: 85px;
+  width: 420px;
+
+}
+
+.message-box:hover {
+  width: 430px;
+  height: 430px;
+}
+
+.span-1:hover {
+  color: red;
+}
+
+.span-2:hover {
+  color: green;
+}
+
+.span-3:hover {
+  color: lightblue;
 }
