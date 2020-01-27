@@ -26,26 +26,43 @@ let playerOneLabel;
 let playerOneCount;
 let playerTwoLabel;
 let playerTwoCount;
+let gameMode;
+let inputs;
+let startButton;
 let resetButton;
 let endStatus;
 
 let currentPlayer;
+let currentMode;
 let numberOfMoves = 0;
 let gameOver = false;
 
-// Hi honey! I love you! <3
 const setUp = function() {
+
+    for (let i = 0; i < inputs.length; i++) {
+        inputs[i].disabled = true;
+    }
 
     numberOfMoves = 0;
     gameOver = false;
     endStatus.innerText = " ";
-    getFirstPlayer();
+    currentMode = gameMode["game mode"].value;
     resetGameBoard();
-    gameboard.addEventListener("click", squareClickHandler);
-    gameboard.addEventListener("keypress", squareClickHandler);
+    getFirstPlayer();
+
+}
+
+const start = function() {
+    playerOneCount.textContent = 0;
+    playerTwoCount.textContent = 0;
+
+    setUp();
 }
 
 const getFirstPlayer = function() {
+
+    playerOneLabel.classList.remove("current-player");
+    playerTwoLabel.classList.remove("current-player");
 
     let randomChance = Math.floor(Math.random() * 2);
 
@@ -56,6 +73,19 @@ const getFirstPlayer = function() {
         currentPlayer = PLAYER_TWO;
         playerTwoLabel.classList.add("current-player");
     }
+
+    if (currentPlayer.playerName === PLAYER_ONE.playerName && currentMode === "computer") {
+        gameboard.addEventListener("click", squareClickHandler);
+        gameboard.addEventListener("keypress", squareClickHandler);
+    } else if (currentPlayer.playerName === PLAYER_TWO.playerName && currentMode === "computer") {
+        console.log("I am first");
+        simpleAITurn();
+    } 
+    else if (currentMode === "pvp") {
+        gameboard.addEventListener("click", squareClickHandler);
+        gameboard.addEventListener("keypress", squareClickHandler);
+    }
+
     currentPlayer.isActive = true;
 }
 
@@ -88,31 +118,77 @@ const squareClickHandler = function(e) {
 
     if (GAME_SQUARES[squareRow][squareCol] === 0) {
         GAME_SQUARES[squareRow][squareCol] = currentPlayer.token;
-        e.target.innerText = currentPlayer.token;
-        e.target.style.cursor = "initial";
-        e.target.classList.remove("square-hover");
-        e.target.removeAttribute("aria-label");
-    
-        numberOfMoves++;
-    
-        checkBoard();
-        switchActivePlayer();
-
+        updateSquare(e.target);
     }
+}
+
+const simpleAITurn = function() {
+    let randomRow = Math.floor(Math.random() * 3);
+    let randomCol = Math.floor(Math.random() * 3);
+
+    while (GAME_SQUARES[randomRow][randomCol] !== 0) {
+        randomRow = Math.floor(Math.random() * 3);
+        randomCol = Math.floor(Math.random() * 3);
+    } 
+
+    GAME_SQUARES[randomRow][randomCol] = currentPlayer.token;
+
+    let selectedSquare;
+    for (let i = 0; i < gameboardSquares.length; i++) {
+        let currentRow = gameboardSquares[i].getAttribute("data-row");
+        let currentCol = gameboardSquares[i].getAttribute("data-col");
+
+        if (randomRow == currentRow && randomCol == currentCol) {
+            selectedSquare = gameboardSquares[i];
+        }
+    }
+
+    updateSquare(selectedSquare);
+}
+
+const updateSquare = function(currentSquare) {
+
+    currentSquare.innerText = currentPlayer.token;
+    currentSquare.style.cursor = "initial";
+    currentSquare.classList.remove("square-hover");
+    currentSquare.removeAttribute("aria-label");
+
+    numberOfMoves++;
+
+    checkBoard();
+    
+    if (!gameOver) {
+        switchActivePlayer();
+    }
+
 }
 
 const switchActivePlayer = function() {
     
     PLAYER_TWO.isActive = !PLAYER_TWO.isActive;
     PLAYER_ONE.isActive = !PLAYER_ONE.isActive;
-    if (currentPlayer.playerName === "one") {
+
+    if (currentPlayer.playerName === PLAYER_ONE.playerName) {
+
         currentPlayer = PLAYER_TWO;
         playerOneLabel.classList.remove("current-player");
         playerTwoLabel.classList.add("current-player");
+
+        if (currentMode === "computer") {
+            gameboard.removeEventListener("click", squareClickHandler);
+            gameboard.removeEventListener("keypress", squareClickHandler);
+            simpleAITurn();
+        }
     } else {
+
         currentPlayer = PLAYER_ONE;
         playerTwoLabel.classList.remove("current-player");
         playerOneLabel.classList.add("current-player");
+
+        if (currentMode === "computer") {
+            gameboard.addEventListener("click", squareClickHandler);
+            gameboard.addEventListener("keypress", squareClickHandler);
+        }
     }
 }
 
@@ -122,6 +198,13 @@ const checkBoard = function() {
 
     if (numberOfMoves === MAX_MOVES && !gameOver) {
         endStatus.innerText = "Tie!";
+
+        if (currentPlayer.playerName === "one") {
+            playerOneLabel.classList.remove("current-player");
+        } else {
+            playerTwoLabel.classList.remove("current-player");
+        }
+        gameOver = true;
     }
 }
 
@@ -151,11 +234,23 @@ const wonRound = function() {
 
     if (currentPlayer.playerName === "one") {
         playerOneCount.textContent = currentPlayer.wins;
+        playerOneLabel.classList.remove("current-player");
     } else {
         playerTwoCount.textContent = currentPlayer.wins;
+        playerTwoLabel.classList.remove("current-player");
     }
 
     gameboard.removeEventListener("click", squareClickHandler);
+    gameboard.removeEventListener("keyboard", squareClickHandler);
+    for (let i = 0; i < gameboardSquares.length; i++) {
+        gameboardSquares[i].classList.remove("square-hover");
+        gameboardSquares[i].removeAttribute("aria-label");
+        gameboardSquares[i].style.cursor = "initial";
+    }
+
+    for (let i = 0; i < inputs.length; i++) {
+        inputs[i].disabled = false;
+    }
 }
 
 const getDOMElements = function() {
@@ -166,6 +261,9 @@ const getDOMElements = function() {
     playerOneCount = document.querySelector("#player-one-count");
     playerTwoLabel = document.querySelector("#player-two-label");
     playerTwoCount = document.querySelector("#player-two-count");
+    gameMode = document.querySelector(".game-mode");
+    inputs = document.querySelectorAll("input");
+    startButton = document.querySelector("#start");
     resetButton = document.querySelector("#reset");
     endStatus = document.querySelector(".end-status");
 
@@ -176,8 +274,9 @@ document.addEventListener("DOMContentLoaded", function() {
     getDOMElements();
 
     resetButton.addEventListener("click", setUp);
-    
-    setUp();
+    resetButton.addEventListener("keyboard", setUp);
+    startButton.addEventListener("click", start);
+    startButton.addEventListener("keyboard", start);
 });
 
 

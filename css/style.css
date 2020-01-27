@@ -57,9 +57,20 @@ body {
   background-color: mediumaquamarine;
 }
 
-.reset-btn {
-  display: block;
+.game-mode {
+  margin: 24px;
+}
+
+.game-mode label {
+  margin: 0px 16px 0px 4px;
+}
+
+.game-controls {
   margin: 0 auto;
+}
+
+.btn {
+  margin: 0px 8px;
   background-color: transparent;
   color: aquamarine;
   border: 5px solid aquamarine;
@@ -70,7 +81,7 @@ body {
   font-size: 24px;
 }
 
-.reset-btn:hover {
+.btn:hover {
   border-color: mediumaquamarine;
   color: mediumaquamarine;
 }
