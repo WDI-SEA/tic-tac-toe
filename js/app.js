@@ -35,19 +35,21 @@ let currentMode;
 let numberOfMoves = 0;
 let gameOver = false;
 
-// Hi honey! I love you! <3
 const setUp = function() {
 
     numberOfMoves = 0;
     gameOver = false;
     endStatus.innerText = " ";
     currentMode = gameMode["game mode"].value;
-    getFirstPlayer();
     resetGameBoard();
+    getFirstPlayer();
 
 }
 
 const getFirstPlayer = function() {
+
+    playerOneLabel.classList.remove("current-player");
+    playerTwoLabel.classList.remove("current-player");
 
     let randomChance = Math.floor(Math.random() * 2);
 
@@ -58,18 +60,20 @@ const getFirstPlayer = function() {
         currentPlayer = PLAYER_TWO;
         playerTwoLabel.classList.add("current-player");
     }
-    currentPlayer.isActive = true;
 
     if (currentPlayer.playerName === PLAYER_ONE.playerName && currentMode === "computer") {
         gameboard.addEventListener("click", squareClickHandler);
         gameboard.addEventListener("keypress", squareClickHandler);
-    } else if (currentPlayer.playerName == PLAYER_TWO && currentMode === "computer") {
+    } else if (currentPlayer.playerName === PLAYER_TWO.playerName && currentMode === "computer") {
+        console.log("I am first");
         simpleAITurn();
     } 
     else if (currentMode === "pvp") {
         gameboard.addEventListener("click", squareClickHandler);
         gameboard.addEventListener("keypress", squareClickHandler);
     }
+
+    currentPlayer.isActive = true;
 }
 
 const resetGameBoard = function() {
@@ -101,18 +105,7 @@ const squareClickHandler = function(e) {
 
     if (GAME_SQUARES[squareRow][squareCol] === 0) {
         GAME_SQUARES[squareRow][squareCol] = currentPlayer.token;
-        e.target.innerText = currentPlayer.token;
-        e.target.style.cursor = "initial";
-        e.target.classList.remove("square-hover");
-        e.target.removeAttribute("aria-label");
-    
-        numberOfMoves++;
-    
-        checkBoard();
-        
-        if (!gameOver) {
-            switchActivePlayer();
-        }
+        updateSquare(e.target);
     }
 }
 
@@ -126,7 +119,6 @@ const simpleAITurn = function() {
     } 
 
     GAME_SQUARES[randomRow][randomCol] = currentPlayer.token;
-    console.log(randomRow, randomCol);
 
     let selectedSquare;
     for (let i = 0; i < gameboardSquares.length; i++) {
@@ -135,23 +127,27 @@ const simpleAITurn = function() {
 
         if (randomRow == currentRow && randomCol == currentCol) {
             selectedSquare = gameboardSquares[i];
-            console.log(selectedSquare);
         }
     }
 
-    selectedSquare.innerText = currentPlayer.token;
-    selectedSquare.style.cursor = "initial";
-    selectedSquare.classList.remove("square-hover");
-    selectedSquare.removeAttribute("aria-label");
+    updateSquare(selectedSquare);
+}
+
+const updateSquare = function(currentSquare) {
+
+    currentSquare.innerText = currentPlayer.token;
+    currentSquare.style.cursor = "initial";
+    currentSquare.classList.remove("square-hover");
+    currentSquare.removeAttribute("aria-label");
 
     numberOfMoves++;
 
     checkBoard();
     
     if (!gameOver) {
-        console.log(currentPlayer);
         switchActivePlayer();
     }
+
 }
 
 const switchActivePlayer = function() {
