@@ -106,9 +106,9 @@ let updateTurn = function() {
 		// (document.   …)
     // the appropriate messages should be something like, “It is X’s turn” or “It is O’s turn”
     if (moveCount % 2 == 1) {
-        turnIndicator = "It is X's turn."
+        document.querySelector(".turnIndicator").innerText = "It is X's turn."
     } else if (moveCount % 2 == 0) {
-        turnIndicator = "It is O's turn."
+        document.querySelector(".turnIndicator").innerText = "It is O's turn."
     } else {
         console.log("There has been an error!")
     }
@@ -299,7 +299,7 @@ let reset = function() {
     // remove .X and .O classes from each cell
     // remove text that displays win, lost, or tie
     wonLostTied.innerText = "";
-    turnIndicator = "It is X's turn.";
+    document.querySelector(".turnIndicator").innerText = "It is X's turn.";
     boardContents = [0, 0, 0, 0, 0, 0, 0, 0, 0];
     let XOClasses = document.querySelectorAll(".box")
     for (w in XOClasses) {
@@ -355,7 +355,7 @@ let win = function() {
     music.loop = false;
     music.play();
     wonLostTied.innerText = "X won :("
-    turnIndicator = ""
+    document.querySelector(".turnIndicator").innerText = ""
     enableReset();
     resetButton.addEventListener("click", reset);
     xWins++;
@@ -371,7 +371,7 @@ let lose = function() {
     music.volume = 1;
     music.play();
     wonLostTied.innerText = "O won! :)"
-    turnIndicator = ""
+    document.querySelector(".turnIndicator").innerText = ""
     enableReset();
     resetButton.addEventListener("click", reset);
     oWins++;
@@ -386,7 +386,7 @@ let tie = function() {
     music.volume = 1;
     music.play();
     wonLostTied.innerText = "X and O tied"
-    turnIndicator = ""
+    document.querySelector(".turnIndicator").innerText = ""
     enableReset();
     resetButton.addEventListener("click", reset);
     tieCount++;
