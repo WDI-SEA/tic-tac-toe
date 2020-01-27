@@ -1,52 +1,50 @@
-console.log('Hello frontend');
-
 /* - - - - - - - - - - Game State/Global Variables - - - - - - - - - */
 
 let squares = {
     first: {
         played: false,
-        catImage: 'img/pink-background.jpeg',
-        dogImage: 'img/grey-background.png'
+        catImage: 'img/catCrown.png',
+        dogImage: 'img/norman.png'
     },
     second: {
         played: false,
-        catImage: 'img/pink-background.jpeg',
-        dogImage: 'img/grey-background.png'
+        catImage: 'img/catCrown.png',
+        dogImage: 'img/norman.png'
     },
     third: {
         played: false,
-        catImage: 'img/pink-background.jpeg',
-        dogImage: 'img/grey-background.png'
+        catImage: 'img/catCrown.png',
+        dogImage: 'img/norman.png'
     },
     forth: {
         played: false,
-        catImage: 'img/pink-background.jpeg',
-        dogImage: 'img/grey-background.png'
+        catImage: 'img/catCrown.png',
+        dogImage: 'img/norman.png'
     },
     fifth: {
         played: false,
-        catImage: 'img/pink-background.jpeg',
-        dogImage: 'img/grey-background.png'
+        catImage: 'img/catCrown.png',
+        dogImage: 'img/norman.png'
     },
     sixth: {
         played: false,
-        catImage: 'img/pink-background.jpeg',
-        dogImage: 'img/grey-background.png'
+        catImage: 'img/catCrown.png',
+        dogImage: 'img/norman.png'
     },
     seventh: {
         played: false,
-        catImage: 'img/pink-background.jpeg',
-        dogImage: 'img/grey-background.png'
+        catImage: 'img/catCrown.png',
+        dogImage: 'img/norman.png'
     },
     eighth: {
         played: false,
-        catImage: 'img/pink-background.jpeg',
-        dogImage: 'img/grey-background.png'
+        catImage: 'img/catCrown.png',
+        dogImage: 'img/norman.png'
     },
     ninth: {
         played: false,
-        catImage: 'img/pink-background.jpeg',
-        dogImage: 'img/grey-background.png'
+        catImage: 'img/catCrown.png',
+        dogImage: 'img/norman.png'
     }
 };
 
@@ -55,22 +53,24 @@ let player;
 
 let catsPlayed = [];
 let dogsPlayed = [];
-let dummyArr = [];
-//workspace junk
-let resetDummyArr = function() {
-    dummyArr = [];
-    dummyArr.push("#first");
-    dummyArr.push("#second");
-    dummyArr.push("#third");
-    dummyArr.push("#forth");
-    dummyArr.push("#fifth");
-    dummyArr.push("#sixth");
-    dummyArr.push("#seventh");
-    dummyArr.push("#eighth");
-    dummyArr.push("#ninth");
+let turnDecider = [];
 
-}
+
 /* - - - - - - - - - - - - - - - - Functions - - - - - - - - - - - - - - - - -*/
+let resetturnDecider = function() {
+    turnDecider = [];
+    turnDecider.push("#first");
+    turnDecider.push("#second");
+    turnDecider.push("#third");
+    turnDecider.push("#forth");
+    turnDecider.push("#fifth");
+    turnDecider.push("#sixth");
+    turnDecider.push("#seventh");
+    turnDecider.push("#eighth");
+    turnDecider.push("#ninth");
+
+};
+
 let gameInit = function() {
     let domSquares = document.querySelector("img");
     let domResetBtn = document.querySelector(".reset");
@@ -79,22 +79,21 @@ let gameInit = function() {
     catsPlayed = [];
     dogsPlayed = [];
    
-    resetDummyArr();
+    resetturnDecider();
+
     //reset squares images
-    
     for (let i = 0; i < 9; i++) { 
-        document.querySelectorAll(`${dummyArr[i]}`)[0].src = `img/white-background.png`;
-            //reset played vs not played
-            //give name??
+        document.querySelectorAll(`${turnDecider[i]}`)[0].src = `img/white-background.png`;
     }
 
     //disable button
     domResetBtn.disabled = true;
     
-}
+};
 
 
 let checkWin = function(currentTurn) {
+    
     if (playerCount >= 4)  {
         if (currentTurn === "dog") {
             switch(true) {
@@ -149,12 +148,14 @@ let checkWin = function(currentTurn) {
                     return true;
             }
         }
-        else {
-            console.log("It's a tie");
+        if (playerCount === 9) {
+            document.querySelector(".game-anouncements").innerText = "Oh no!! Cat's game. Well not that kind of cat... Click reset to play again!"
+            document.querySelector(".reset").disabled = false;
+    
         }
     }
 
-}
+};
 
 let checkPlayer = function() {
     if (playerCount % 2 === 0) {
@@ -164,12 +165,11 @@ let checkPlayer = function() {
     }
     playerCount++;
     return player;
-}
+};
 
 let squareClickHandler = function(e) {
     
     //check if square has been played
-    
     if (!squares[e.target.id].played) {
         console.log(e.target.id);
         squares[e.target.id].played = true;
@@ -181,64 +181,76 @@ let squareClickHandler = function(e) {
         if (turn === "cat") {
             e.target.src = squares[e.target.id].catImage;
             catsPlayed.push(e.target.id);
+            document.querySelector(".game-anouncements").innerText = "You're up Doggo!!"
         } else {
             e.target.src = squares[e.target.id].dogImage;
             dogsPlayed.push(e.target.id);
+            document.querySelector(".game-anouncements").innerText = "Hey Cat, your turn now!!"
+
         }
-        console.log(catsPlayed);
-        console.log(dogsPlayed)
 
         //check if it is a win
         let winState = checkWin(turn);
         if (winState === true) {
-            console.log("The winner is: " + turn + "s!!");
+            document.querySelector(".game-anouncements").innerText = "AND THE " + turn.toUpperCase() + "S TAKE THE GAME!! Hit reset to play again.";
             document.querySelector(".reset").disabled = false;
-            //NEED TO MAKE SQUARES UNCLICKABLE
-            document.querySelectorAll(".game-board").disabled = true;
+            document.querySelector(".game-board").removeEventListener("click", squareClickHandler);
+            
+            let lastPlayer = checkPlayer();
+            if (lastPlayer === "cat") {
+                for (let i = 0; i < 9; i++) { 
+                    document.querySelectorAll(`${turnDecider[i]}`)[0].src = `img/norman.png`;
+                }
+            }
+            else {
+                for (let i = 0; i < 9; i++) { 
+                    document.querySelectorAll(`${turnDecider[i]}`)[0].src = `img/catCrown.png`;
+                }
+            }
         }
     }
 };
 
 let resetTheBoard = function(e) {
-    /*let domSquares = document.querySelector("img");
-    let domResetBtn = document.querySelector(".reset");
-    
-
-    catsPlayed = [];
-    dogsPlayed = [];
-    
-
-    //reset squares images
-    console.log(dummyArr);
-    for (let i = 0; i < 9; i++) { 
-        document.querySelectorAll(`${dummyArr[i]}`)[0].src = `img/white-background.png`;
-        
-            //reset played vs not played
-            //give name??
-    }
-    resetDummyArr();
-    
-    squares[e.target.id].played = false;
-    gameInit();
-    //disable button
-    //domResetBtn.disabled = true;*/
     window.location.reload();
+
 };
 
 
-
-
 document.addEventListener('DOMContentLoaded', function() {
-    // DOM references
-    // do literally everything here
-    let x = 2;
- 
+    document.querySelector(".game-anouncements").innerText = "You're up Doggo!! Click on one of the empty squares to begin!"
 
-        gameInit();
-        document.querySelector(".game-board").addEventListener("click", squareClickHandler);
-        document.querySelector(".reset").addEventListener("click", resetTheBoard);
-    
-    
-
+    gameInit();
+    document.querySelector(".game-board").addEventListener("click", squareClickHandler);
+    document.querySelector(".reset").addEventListener("click", resetTheBoard);
 
 });
+
+// - - - - - - - - - - - - - - - Future things to work on, please ignore - - - - - - - - - - - - //
+        /*let resetTheBoard = function(e) {
+            window.location.reload();
+            
+            let domSquares = document.querySelector("img");
+            let domResetBtn = document.querySelector(".reset");
+            
+        
+            catsPlayed = [];
+            dogsPlayed = [];
+            
+        
+            //reset squares images
+            console.log(turnDecider);
+            for (let i = 0; i < 9; i++) { 
+                document.querySelectorAll(`${turnDecider[i]}`)[0].src = `img/white-background.png`;
+                
+                    //reset played vs not played
+                    //give name??
+            }
+            resetturnDecider();
+            
+            squares[e.target.id].played = false;
+            gameInit();
+            //disable button
+            //domResetBtn.disabled = true;
+           
+        };*/
