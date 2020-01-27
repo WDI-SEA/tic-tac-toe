@@ -16,47 +16,41 @@ var player1 = "X";
 var player2 = "O";
 var count = 0; // keep track of X and O clicks
 
+// Function to start the game
+function initGame() {
+    //adding and removing event listener;
+    for (let box of board) {
+        if (!winner()) {
+            box.addEventListener("click", checkTurn);
+        }
+    }
+};
 
-function myGame() {
+function checkTurn() {
     // Condition to prevent re-clicking on the same box
     if (this.innerHTML !== player1 && this.innerHTML !== player2) {
         //debugger;
         // check who's turn it is
-        if (count % 2 === 0 && count !== 8) {
+        if (count % 2 === 0 && count !== 8) { // player X
             console.log(count);
             count++;
             this.innerHTML = player1;
             turn.innerHTML = player2 + " Turn";
             winner();
-
-
-        } else if (count % 2 !== 0 && count !== 8) {
+        } else if (count % 2 !== 0 && count !== 8) { // player O
             console.log(count);
             count++;
             this.innerHTML = player2;
             turn.innerHTML = player1 + " Turn";
             winner();
 
-        } else if (count % 2 === 0 && count === 8) {
+        } else if (count % 2 === 0 && count === 8) { // check if it's a tie
             this.innerHTML = player2;
             console.log(count);
             turn.innerHTML = "It's a tie "
         }
     }
-    //removeHandler();
 }
-
-
-// Function to start the game
-function initGame() {
-    //adding and removing event listener;
-    for (let box of board) {
-        if (!winner()) {
-            box.addEventListener("click", myGame);
-        }
-    }
-};
-
 
 // Function to find the winner
 function winner() {
@@ -97,7 +91,7 @@ function winningBoxes(box_1, box_2, box_3) {
 };
 
 // function removeHandler() {
-//     document.getElementById("board").removeEventListener("click", initGame);
+//     document.getElementById("board").removeEventListener("click", checkTurn);
 // };
 
 // Function to reset the game board
