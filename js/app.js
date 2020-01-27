@@ -105,9 +105,6 @@ let gameGridClickListener = function(event) {
 
     // check if this div is already occupied
     clickedTile = event.target.querySelector(boardData.tileClassSelector);
-    console.log("#######################");
-    console.log(event.target);
-    console.log("#######################");
     if (clickedTile.classList.length > 1) 
     {
         return;
@@ -205,7 +202,6 @@ let playerScoreUpdater = {
  
 let playerContract = {
     playWithAI: true,
-
     currentPlayer: player2,
     gameBoardState: new Array(9),
     turns: 0,
@@ -341,14 +337,6 @@ let highlightCurrentPlayer = function(player, active) {
     }
 };
 
-// AI 
-let automat = {
-    aiStrategy: simpleStrategy,
-    takeTurn: function() {
-        this.aiStrategy();        
-    }
-};
-
 // very simple AI strategy
 let simpleStrategy = function() {
     for (let i = 0; i < 9; i++) 
@@ -364,5 +352,115 @@ let simpleStrategy = function() {
         }
 };
 
+let miniMaxStrategy = function() {
+    let copyOfGameBoard = [...playerContract.gameBoardState];
+    let fitness = -Infinity;
+    let tile = -9999;
+    // check the next possible tile
+    for (let i = 0; i < 9; i++)
+    {
+        if (copyOfGameBoard[i] !== player1.symbol && copyOfGameBoard[i] !== player2.symbol)
+        {
+            // gameBoard at index i is empty
+            copyOfGameBoard[i] = player2.symbol;
+            let ret = minimax(copyOfGameBoard, i, 0, false);
+            console.log(`Index ${i} has a fitness of ${ret}`)
+            if (ret > fitness)
+            {
+                fitness = ret;
+                tile = i;
+            }
+        }
+    }
+    // play AIs turn
+    if (tile >= 0)
+    {
+        playerContract.computeTurn(
+            tile,
+            document.getElementById(tile).querySelector(boardData.tileClassSelector)
+        );
+    }
+};
 
+let minimax = function(gameBoard, index, level, isAI) {
+    console.log('minimax');
+    let fitness = -Infinity; //-9999;
+    console.log(gameBoard);
+    console.log(`Index is: ${index} level is: ${level}, AI is: ${isAI}`)
+    // base case
+    if(isAI)
+    {
+        if (checkForWin(gameBoard, index, player2)) 
+        {
+            fitness = 1;
+            return 1;
+        }
+    }
+    else 
+    {
+        if (checkForWin(gameBoard, index, player1)) 
+        {
+            fitness = -1;
+            return -1;
+        }
+    } 
+    if (fitness === -Infinity && gameBoard.length === 9)
+    {
+        fitness = 0;
+        return 0;
+    }
+    if (fitness > -Infinity)
+    {
+        return fitness;
+    }
 
+    // simulate next possible turn
+    if( isAI)
+    {
+        let fitness = -Infinity; // -9999;
+        for (let i = 0; i < 9; i++)
+        {
+            if (gameBoard[i] !== player1.symbol && gameBoard[i] !== player2.symbol)
+            {
+                // gameBoard at index i is empty
+                gameBoard[i] = player2.symbol;
+                console.log(`Simulate AI move at index: ${i}`);
+                console.log(gameBoard);
+                let ret = minimax([...gameBoard], i, level + 1, false);
+                if (ret > fitness)
+                {
+                    fitness = ret;
+                }
+            }
+        }
+        return fitness;
+    }
+    else
+    {
+        let fitness = Infinity; // 9999;
+        for (let i = 0; i < 9; i++)
+        {
+            if (gameBoard[i] !== player1.symbol && gameBoard[i] !== player2.symbol)
+            {
+                // gameBoard at index i is empty
+                gameBoard[i] = player1.symbol;
+                console.log(`Simulate Player move at index: ${i}`);
+                console.log(gameBoard);
+                let ret = minimax([...gameBoard], i, level + 1, true);
+                if (ret < fitness)
+                {
+                    fitness = ret;
+                }
+            }
+        }
+        return fitness;
+    }
+}
+
+// AI 
+let automat = {
+    aiStrategy: miniMaxStrategy,
+    takeTurn: function() {
+        this.aiStrategy();        
+    }
+};
