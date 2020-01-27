@@ -359,11 +359,11 @@ let miniMaxStrategy = function() {
     // check the next possible tile
     for (let i = 0; i < 9; i++)
     {
-        if (copyOfGameBoard[i] !== player1.symbol && copyOfGameBoard[i] !== player2.symbol)
+        if ((copyOfGameBoard[i] !== player1.symbol) && (copyOfGameBoard[i] !== player2.symbol))
         {
-            // gameBoard at index i is empty
+            // copyOfGameBoard at index i is empty
             copyOfGameBoard[i] = player2.symbol;
-            let ret = minimax(copyOfGameBoard, i, 0, false);
+            let ret = minimax(copyOfGameBoard, i, 0, true);
             console.log(`Index ${i} has a fitness of ${ret}`)
             if (ret > fitness)
             {
@@ -382,9 +382,30 @@ let miniMaxStrategy = function() {
     }
 };
 
+let isFull = function(gameBoard, start)
+{
+    // base case
+    if (start > 8)
+    {
+        return true;
+    }
+    if ((gameBoard[start] === player1.symbol) || (gameBoard[start] === player2.symbol))
+    {
+        return isFull(gameBoard, start+1);
+    }
+    else
+    {
+        return false;
+    }
+}
+
+let isTie = function(gameBoard) {
+    return (isFull(gameBoard, 0));
+};
+
 let minimax = function(gameBoard, index, level, isAI) {
     console.log('minimax');
-    let fitness = -Infinity; //-9999;
+    let fitness = -Infinity;
     console.log(gameBoard);
     console.log(`Index is: ${index} level is: ${level}, AI is: ${isAI}`)
     // base case
@@ -392,7 +413,6 @@ let minimax = function(gameBoard, index, level, isAI) {
     {
         if (checkForWin(gameBoard, index, player2)) 
         {
-            fitness = 1;
             return 1;
         }
     }
@@ -400,24 +420,18 @@ let minimax = function(gameBoard, index, level, isAI) {
     {
         if (checkForWin(gameBoard, index, player1)) 
         {
-            fitness = -1;
             return -1;
         }
     } 
-    if (fitness === -Infinity && gameBoard.length === 9)
+    if (isTie(gameBoard))
     {
-        fitness = 0;
         return 0;
-    }
-    if (fitness > -Infinity)
-    {
-        return fitness;
     }
 
     // simulate next possible turn
-    if( isAI)
+    if (isAI)
     {
-        let fitness = -Infinity; // -9999;
+        let fitness = -Infinity;
         for (let i = 0; i < 9; i++)
         {
             if (gameBoard[i] !== player1.symbol && gameBoard[i] !== player2.symbol)
@@ -437,7 +451,7 @@ let minimax = function(gameBoard, index, level, isAI) {
     }
     else
     {
-        let fitness = Infinity; // 9999;
+        let fitness = Infinity;
         for (let i = 0; i < 9; i++)
         {
             if (gameBoard[i] !== player1.symbol && gameBoard[i] !== player2.symbol)
