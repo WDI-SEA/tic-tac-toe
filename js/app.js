@@ -44,6 +44,7 @@ const setUp = function() {
     currentMode = gameMode["game mode"].value;
     getFirstPlayer();
     resetGameBoard();
+
 }
 
 const getFirstPlayer = function() {
@@ -62,7 +63,10 @@ const getFirstPlayer = function() {
     if (currentPlayer.playerName === PLAYER_ONE.playerName && currentMode === "computer") {
         gameboard.addEventListener("click", squareClickHandler);
         gameboard.addEventListener("keypress", squareClickHandler);
-    } else if (currentMode === "pvp") {
+    } else if (currentPlayer.playerName == PLAYER_TWO && currentMode === "computer") {
+        simpleAITurn();
+    } 
+    else if (currentMode === "pvp") {
         gameboard.addEventListener("click", squareClickHandler);
         gameboard.addEventListener("keypress", squareClickHandler);
     }
@@ -112,30 +116,70 @@ const squareClickHandler = function(e) {
     }
 }
 
+const simpleAITurn = function() {
+    let randomRow = Math.floor(Math.random() * 3);
+    let randomCol = Math.floor(Math.random() * 3);
+
+    while (GAME_SQUARES[randomRow][randomCol] !== 0) {
+        randomRow = Math.floor(Math.random() * 3);
+        randomCol = Math.floor(Math.random() * 3);
+    } 
+
+    GAME_SQUARES[randomRow][randomCol] = currentPlayer.token;
+    console.log(randomRow, randomCol);
+
+    let selectedSquare;
+    for (let i = 0; i < gameboardSquares.length; i++) {
+        let currentRow = gameboardSquares[i].getAttribute("data-row");
+        let currentCol = gameboardSquares[i].getAttribute("data-col");
+
+        if (randomRow == currentRow && randomCol == currentCol) {
+            selectedSquare = gameboardSquares[i];
+            console.log(selectedSquare);
+        }
+    }
+
+    selectedSquare.innerText = currentPlayer.token;
+    selectedSquare.style.cursor = "initial";
+    selectedSquare.classList.remove("square-hover");
+    selectedSquare.removeAttribute("aria-label");
+
+    numberOfMoves++;
+
+    checkBoard();
+    
+    if (!gameOver) {
+        console.log(currentPlayer);
+        switchActivePlayer();
+    }
+}
+
 const switchActivePlayer = function() {
     
     PLAYER_TWO.isActive = !PLAYER_TWO.isActive;
     PLAYER_ONE.isActive = !PLAYER_ONE.isActive;
-    
-    if (currentPlayer.playerName === PLAYER_ONE.playerName) {
 
-        if (currentMode === "computer") {
-            gameboard.removeEventListener("click", squareClickHandler);
-            gameboard.removeEventListener("keypress", squareClickHandler);
-        }
+    if (currentPlayer.playerName === PLAYER_ONE.playerName) {
 
         currentPlayer = PLAYER_TWO;
         playerOneLabel.classList.remove("current-player");
         playerTwoLabel.classList.add("current-player");
-    } else {
+
         if (currentMode === "computer") {
-            gameboard.addEventListener("click", squareClickHandler);
-            gameboard.addEventListener("keypress", squareClickHandler);
+            gameboard.removeEventListener("click", squareClickHandler);
+            gameboard.removeEventListener("keypress", squareClickHandler);
+            simpleAITurn();
         }
+    } else {
 
         currentPlayer = PLAYER_ONE;
         playerTwoLabel.classList.remove("current-player");
         playerOneLabel.classList.add("current-player");
+
+        if (currentMode === "computer") {
+            gameboard.addEventListener("click", squareClickHandler);
+            gameboard.addEventListener("keypress", squareClickHandler);
+        }
     }
 }
 
