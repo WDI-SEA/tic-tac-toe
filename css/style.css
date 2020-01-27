@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+body {
+  background-color: rgb(244, 245, 224);
+}
+
 audio {
   position: absolute;
   right: 50px;
@@ -22,6 +26,14 @@ p {
   width: 308px;
   height: 308px;
   margin-bottom: 20px;
+}
+
+.wonLostTied {
+  position: absolute;
+  left: 50px;
+  font-size: 50px;
+  bottom: 50px;
+  width: 300px;
 }
 
 .box {

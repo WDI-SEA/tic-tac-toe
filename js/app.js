@@ -18,6 +18,20 @@ let xWins = 0;
 let oWins = 0;
 let tieCount = 0;
 
+let smartAIButton = document.querySelector(".smartAIButton");
+
+let music = document.querySelector(".music");
+
+let soundFX = document.querySelector(".soundFX");
+
+let gameboard = document.querySelector(".gameboard");
+
+let lineStyle = document.querySelector(".line").style;
+
+let wonLostTied = document.querySelector(".wonLostTied");
+
+let resetButton = document.querySelector(".reset");
+
 // ARRAY
 
 //initializes a boardContents where neither X nor O is selected
@@ -26,17 +40,23 @@ let tieCount = 0;
 //when O is selected, the value changes to 2 in this array for the corresponding box
 let boardContents = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 
+
 // FUNCTIONS
 
 let startGameClickHandler = function(e) {
-    setTimeout(smartAIStart, 1500);
+    if (smartAIButton.checked) {
+        setTimeout(smartAIStart, 1500);
+    } else {
+        setTimeout(randomAI, 1500);
+    }
+    smartAIButton.disabled = true;
     document.querySelector(".startGame").removeEventListener("click", startGameClickHandler);
     document.querySelector(".startGame").remove();
 }
 
 let firstClickHandler = function(e) {
-    document.querySelector(".music").volume = 0.6;
-    document.querySelector(".music").play();
+    music.volume = 0.6;
+    music.play();
     document.querySelector(".page").removeEventListener("click", firstClickHandler);
 }
 
@@ -48,16 +68,16 @@ let boxClickHandler = function(e) {
     // mark either an X or an O in the correct box according to the moveCount variable
     if (moveCount % 2 == 1 && !e.target.classList.contains("x-selected") && (!e.target.classList.contains("o-selected"))) {
         //insert .x-selected class into the div with the id of top-left-box
-        document.querySelector(".soundFX").src = "audio/xNoise.wav";
-        document.querySelector(".soundFX").play();
+        soundFX.src = "audio/xNoise.wav";
+        soundFX.play();
         e.target.classList.add("x-selected");
         updateBoardContentsX(e.target.id);
         moveCount++;
         checkWin();
     } else if (moveCount % 2 == 0 && !e.target.classList.contains("x-selected") && (!e.target.classList.contains("o-selected"))) {
         //insert .x-selected class into the div with the id of top-left-box
-        document.querySelector(".soundFX").src = "audio/oNoise.wav";
-        document.querySelector(".soundFX").play();
+        soundFX.src = "audio/oNoise.wav";
+        soundFX.play();
         e.target.classList.add("o-selected");
         updateBoardContentsO(e.target.id);
         moveCount++;
@@ -86,9 +106,9 @@ let updateTurn = function() {
 		// (document.   …)
     // the appropriate messages should be something like, “It is X’s turn” or “It is O’s turn”
     if (moveCount % 2 == 1) {
-        document.querySelector(".turnIndicator").innerText = "It is X's turn."
+        turnIndicator = "It is X's turn."
     } else if (moveCount % 2 == 0) {
-        document.querySelector(".turnIndicator").innerText = "It is O's turn."
+        turnIndicator = "It is O's turn."
     } else {
         console.log("There has been an error!")
     }
@@ -111,69 +131,73 @@ let checkWin = function() {
     if (moveCount < 5) {
         updateTurn();
         if (moveCount % 2 == 1) {
-            document.querySelector(".gameboard").removeEventListener("click", boxClickHandler);
+            gameboard.removeEventListener("click", boxClickHandler);
             // deprecated for smartAI function
             // setTimeout(randomAI, 500);
-            setTimeout(smartAISecondMove, 1000);
+            if (smartAIButton.checked) {
+                setTimeout(smartAISecondMove, 1000);
+            } else {
+                setTimeout(randomAI, 1500);
+            }
         } else {
-            document.querySelector(".gameboard").addEventListener("click", boxClickHandler);
+            gameboard.addEventListener("click", boxClickHandler);
         }
     } else {
         if (boardContents[0] == 1 && boardContents[1] == 1 && boardContents[2] == 1) {
-            document.querySelector(".line").style.borderBottom = "6px solid rgba(194, 20, 20, .9)";
-            document.querySelector(".line").style.top = "112px";
-            document.querySelector(".line").style.transform = "rotate(0deg)";
-            document.querySelector(".line").style.left = "426px";
-            document.querySelector(".line").style.width = "300px";
+            lineStyle.borderBottom = "6px solid rgba(194, 20, 20, .9)";
+            lineStyle.top = "112px";
+            lineStyle.transform = "rotate(0deg)";
+            lineStyle.left = "426px";
+            lineStyle.width = "300px";
             win();
         } else if (boardContents[3] == 1 && boardContents[4] == 1 && boardContents[5] == 1) {
-            document.querySelector(".line").style.borderBottom = "6px solid rgba(194, 20, 20, .9)";
-            document.querySelector(".line").style.top = "216px";
-            document.querySelector(".line").style.transform = "rotate(0deg)";
-            document.querySelector(".line").style.left = "426px";
-            document.querySelector(".line").style.width = "300px";
+            lineStyle.borderBottom = "6px solid rgba(194, 20, 20, .9)";
+            lineStyle.top = "216px";
+            lineStyle.transform = "rotate(0deg)";
+            lineStyle.left = "426px";
+            lineStyle.width = "300px";
             win();
         } else if (boardContents[6] == 1 && boardContents[7] == 1 && boardContents[8] == 1) {
-            document.querySelector(".line").style.borderBottom = "6px solid rgba(194, 20, 20, .9)";
-            document.querySelector(".line").style.top = "320px";
-            document.querySelector(".line").style.transform = "rotate(0deg)";
-            document.querySelector(".line").style.left = "426px";
-            document.querySelector(".line").style.width = "300px";
+            lineStyle.borderBottom = "6px solid rgba(194, 20, 20, .9)";
+            lineStyle.top = "320px";
+            lineStyle.transform = "rotate(0deg)";
+            lineStyle.left = "426px";
+            lineStyle.width = "300px";
             win();
         } else if (boardContents[0] == 1 && boardContents[3] == 1 && boardContents[6] == 1) {
-            document.querySelector(".line").style.borderBottom = "6px solid rgba(194, 20, 20, .9)";
-            document.querySelector(".line").style.top = "222px";
-            document.querySelector(".line").style.transform = "rotate(90deg)";
-            document.querySelector(".line").style.left = "332px";
-            document.querySelector(".line").style.width = "300px";
+            lineStyle.borderBottom = "6px solid rgba(194, 20, 20, .9)";
+            lineStyle.top = "222px";
+            lineStyle.transform = "rotate(90deg)";
+            lineStyle.left = "332px";
+            lineStyle.width = "300px";
             win();
         } else if (boardContents[1] == 1 && boardContents[4] == 1 && boardContents[7] == 1) {
-            document.querySelector(".line").style.borderBottom = "6px solid rgba(194, 20, 20, .9)";
-            document.querySelector(".line").style.top = "222px";
-            document.querySelector(".line").style.transform = "rotate(90deg)";
-            document.querySelector(".line").style.left = "436px";
-            document.querySelector(".line").style.width = "300px";
+            lineStyle.borderBottom = "6px solid rgba(194, 20, 20, .9)";
+            lineStyle.top = "222px";
+            lineStyle.transform = "rotate(90deg)";
+            lineStyle.left = "436px";
+            lineStyle.width = "300px";
             win();
         } else if (boardContents[2] == 1 && boardContents[5] == 1 && boardContents[8] == 1) {
-            document.querySelector(".line").style.borderBottom = "6px solid rgba(194, 20, 20, .9)";
-            document.querySelector(".line").style.top = "222px";
-            document.querySelector(".line").style.transform = "rotate(90deg)";
-            document.querySelector(".line").style.left = "540px";
-            document.querySelector(".line").style.width = "300px";
+            lineStyle.borderBottom = "6px solid rgba(194, 20, 20, .9)";
+            lineStyle.top = "222px";
+            lineStyle.transform = "rotate(90deg)";
+            lineStyle.left = "540px";
+            lineStyle.width = "300px";
             win();
         } else if (boardContents[0] == 1 && boardContents[4] == 1 && boardContents[8] == 1) {
-            document.querySelector(".line").style.borderBottom = "6px solid rgba(194, 20, 20, .9)";
-            document.querySelector(".line").style.top = "213px";
-            document.querySelector(".line").style.transform = "rotate(45deg)";
-            document.querySelector(".line").style.left = "400px";
-            document.querySelector(".line").style.width = "350px";
+            lineStyle.borderBottom = "6px solid rgba(194, 20, 20, .9)";
+            lineStyle.top = "213px";
+            lineStyle.transform = "rotate(45deg)";
+            lineStyle.left = "400px";
+            lineStyle.width = "350px";
             win();
         } else if (boardContents[2] == 1 && boardContents[4] == 1 && boardContents[6] == 1) {
-            document.querySelector(".line").style.borderBottom = "6px solid rgba(194, 20, 20, .9)";
-            document.querySelector(".line").style.top = "210px";
-            document.querySelector(".line").style.transform = "rotate(-45deg)";
-            document.querySelector(".line").style.left = "385px";
-            document.querySelector(".line").style.width = "375px";
+            lineStyle.borderBottom = "6px solid rgba(194, 20, 20, .9)";
+            lineStyle.top = "210px";
+            lineStyle.transform = "rotate(-45deg)";
+            lineStyle.left = "385px";
+            lineStyle.width = "375px";
             win();
 
     // --------------- checking for O winning --------------
@@ -181,60 +205,60 @@ let checkWin = function() {
     // console.log(moveCount)
     // console.log(boardContents)
         } else if (boardContents[0] == 2 && boardContents[1] == 2 && boardContents[2] == 2) {
-            document.querySelector(".line").style.borderBottom = "6px solid rgba(9, 9, 184, .9)";
-            document.querySelector(".line").style.top = "112px";
-            document.querySelector(".line").style.transform = "rotate(0deg)";
-            document.querySelector(".line").style.left = "426px";
-            document.querySelector(".line").style.width = "300px";
+            lineStyle.borderBottom = "6px solid rgba(9, 9, 184, .9)";
+            lineStyle.top = "112px";
+            lineStyle.transform = "rotate(0deg)";
+            lineStyle.left = "426px";
+            lineStyle.width = "300px";
             lose();
         } else if (boardContents[3] == 2 && boardContents[4] == 2 && boardContents[5] == 2) {
-            document.querySelector(".line").style.borderBottom = "6px solid rgba(9, 9, 184, .9)";
-            document.querySelector(".line").style.top = "216px";
-            document.querySelector(".line").style.transform = "rotate(0deg)";
-            document.querySelector(".line").style.left = "426px";
-            document.querySelector(".line").style.width = "300px";
+            lineStyle.borderBottom = "6px solid rgba(9, 9, 184, .9)";
+            lineStyle.top = "216px";
+            lineStyle.transform = "rotate(0deg)";
+            lineStyle.left = "426px";
+            lineStyle.width = "300px";
             lose();
         } else if (boardContents[6] == 2 && boardContents[7] == 2 && boardContents[8] == 2) {
-            document.querySelector(".line").style.borderBottom = "6px solid rgba(9, 9, 184, .9)";
-            document.querySelector(".line").style.top = "320px";
-            document.querySelector(".line").style.transform = "rotate(0deg)";
-            document.querySelector(".line").style.left = "426px";
-            document.querySelector(".line").style.width = "300px";
+            lineStyle.borderBottom = "6px solid rgba(9, 9, 184, .9)";
+            lineStyle.top = "320px";
+            lineStyle.transform = "rotate(0deg)";
+            lineStyle.left = "426px";
+            lineStyle.width = "300px";
             lose();
         } else if (boardContents[0] == 2 && boardContents[3] == 2 && boardContents[6] == 2) {
-            document.querySelector(".line").style.borderBottom = "6px solid rgba(9, 9, 184, .9)";
-            document.querySelector(".line").style.top = "222px";
-            document.querySelector(".line").style.transform = "rotate(90deg)";
-            document.querySelector(".line").style.left = "332px";
-            document.querySelector(".line").style.width = "300px";
+            lineStyle.borderBottom = "6px solid rgba(9, 9, 184, .9)";
+            lineStyle.top = "222px";
+            lineStyle.transform = "rotate(90deg)";
+            lineStyle.left = "332px";
+            lineStyle.width = "300px";
             lose();
         } else if (boardContents[1] == 2 && boardContents[4] == 2 && boardContents[7] == 2) {
-            document.querySelector(".line").style.borderBottom = "6px solid rgba(9, 9, 184, .9)";
-            document.querySelector(".line").style.top = "222px";
-            document.querySelector(".line").style.transform = "rotate(90deg)";
-            document.querySelector(".line").style.left = "436px";
-            document.querySelector(".line").style.width = "300px";
+            lineStyle.borderBottom = "6px solid rgba(9, 9, 184, .9)";
+            lineStyle.top = "222px";
+            lineStyle.transform = "rotate(90deg)";
+            lineStyle.left = "436px";
+            lineStyle.width = "300px";
             lose();
         } else if (boardContents[2] == 2 && boardContents[5] == 2 && boardContents[8] == 2) {
-            document.querySelector(".line").style.borderBottom = "6px solid rgba(9, 9, 184, .9)";
-            document.querySelector(".line").style.top = "222px";
-            document.querySelector(".line").style.transform = "rotate(90deg)";
-            document.querySelector(".line").style.left = "540px";
-            document.querySelector(".line").style.width = "300px";
+            lineStyle.borderBottom = "6px solid rgba(9, 9, 184, .9)";
+            lineStyle.top = "222px";
+            lineStyle.transform = "rotate(90deg)";
+            lineStyle.left = "540px";
+            lineStyle.width = "300px";
             lose();
         } else if (boardContents[0] == 2 && boardContents[4] == 2 && boardContents[8] == 2) {
-            document.querySelector(".line").style.borderBottom = "6px solid rgba(9, 9, 184, .9)";
-            document.querySelector(".line").style.top = "213px";
-            document.querySelector(".line").style.transform = "rotate(45deg)";
-            document.querySelector(".line").style.left = "400px";
-            document.querySelector(".line").style.width = "365px";
+            lineStyle.borderBottom = "6px solid rgba(9, 9, 184, .9)";
+            lineStyle.top = "213px";
+            lineStyle.transform = "rotate(45deg)";
+            lineStyle.left = "400px";
+            lineStyle.width = "365px";
             lose();
         } else if (boardContents[2] == 2 && boardContents[4] == 2 && boardContents[6] == 2) {
-            document.querySelector(".line").style.borderBottom = "6px solid rgba(9, 9, 184, .9)";
-            document.querySelector(".line").style.top = "205px";
-            document.querySelector(".line").style.transform = "rotate(-45deg)";
-            document.querySelector(".line").style.left = "402px";
-            document.querySelector(".line").style.width = "350px";
+            lineStyle.borderBottom = "6px solid rgba(9, 9, 184, .9)";
+            lineStyle.top = "205px";
+            lineStyle.transform = "rotate(-45deg)";
+            lineStyle.left = "402px";
+            lineStyle.width = "350px";
             lose();
         } else {
             checkTie();
@@ -254,12 +278,16 @@ let checkTie = function() {
     else {
         updateTurn();
         if (moveCount % 2 == 1) {
-            document.querySelector(".gameboard").removeEventListener("click", boxClickHandler);
-            setTimeout(smartAIThirdPlusMove, 1000);
+            gameboard.removeEventListener("click", boxClickHandler);
+            if (smartAIButton.checked) {
+                setTimeout(smartAIThirdPlusMove, 1000);
+            } else {
+                setTimeout(randomAI, 1500);
+            }
             // console.log("right after starting smartAIThirdMove(): nested in checkTie()")
             // setTimeout(randomAI, 1000);
         } else {
-            document.querySelector(".gameboard").addEventListener("click", boxClickHandler);
+            gameboard.addEventListener("click", boxClickHandler);
         }
     };
 
@@ -270,8 +298,8 @@ let reset = function() {
     //needs to reset boardContents to its initial value of boardContents = [0, 0, 0, 0, 0, 0, 0, 0, 0]
     // remove .X and .O classes from each cell
     // remove text that displays win, lost, or tie
-    document.querySelector(".wonLostTied").innerText = "";
-    document.querySelector(".turnIndicator").innerText = "It is X's turn.";
+    wonLostTied.innerText = "";
+    turnIndicator = "It is X's turn.";
     boardContents = [0, 0, 0, 0, 0, 0, 0, 0, 0];
     let XOClasses = document.querySelectorAll(".box")
     for (w in XOClasses) {
@@ -281,19 +309,20 @@ let reset = function() {
         }
     }
     // line below deprecated as AI will always start first as player X
-    // document.querySelector(".gameboard").addEventListener("click", boxClickHandler);
+    // gameboard.addEventListener("click", boxClickHandler);
     disableReset();
     moveCount = 1;
     tieVariable = 0;
-    document.querySelector(".line").style.borderBottom = "none";
-    document.querySelector(".line").style.top = "0px";
-    document.querySelector(".line").style.transform = "rotate(0deg)";
-    document.querySelector(".line").style.left = "0px";
-    document.querySelector(".line").style.width = "0px";
-    document.querySelector(".music").type = "audio/mp3";
-    document.querySelector(".music").src = "audio/01.24.19Blank3_4InstrumentalFMajSongMassSynthNGuit4GA_SEI.mp3";
-    document.querySelector(".music").volume = 0.6;
-    document.querySelector(".music").play();
+    lineStyle.borderBottom = "none";
+    lineStyle.top = "0px";
+    lineStyle.transform = "rotate(0deg)";
+    lineStyle.left = "0px";
+    lineStyle.width = "0px";
+    music.type = "audio/mp3";
+    music.src = "audio/01.24.19Blank3_4InstrumentalFMajSongMassSynthNGuit4GA_SEI.mp3";
+    music.volume = 0.6;
+    music.loop = true;
+    music.play();
     // setTimeout(randomAI, 1000);
     // setTimeout(smartAIStart, 1500);
     // using setStart() now so removing automatic play for computer
@@ -302,12 +331,13 @@ let reset = function() {
 
 let enableReset = function() {
     //enables reset button
-    document.querySelector(".reset").disabled = false;
+    resetButton.disabled = false;
+    smartAIButton.disabled = false;
 };
 
 let disableReset = function() {
     //disables reset button
-    document.querySelector(".reset").disabled = true;
+    resetButton.disabled = true;
 }
 
 let win = function() {
@@ -318,15 +348,16 @@ let win = function() {
         // enableReset()
         // and create event listener for clicking reset button
     tieVariable = 1;
-    document.querySelector(".gameboard").removeEventListener("click", boxClickHandler);
-    document.querySelector(".music").type = "audio/mp3";
-    document.querySelector(".music").src = "audio/1.26.2020WeirdTuningSongInstrumental4GA_SEI.mp3";
-    document.querySelector(".music").volume = 1;
-    document.querySelector(".music").play();
-    document.querySelector(".wonLostTied").innerText = "X won the game :("
-    document.querySelector(".turnIndicator").innerText = ""
+    gameboard.removeEventListener("click", boxClickHandler);
+    music.type = "audio/mp3";
+    music.src = "audio/womp-womp.mp3";
+    music.volume = 1;
+    music.loop = false;
+    music.play();
+    wonLostTied.innerText = "X won :("
+    turnIndicator = ""
     enableReset();
-    document.querySelector(".reset").addEventListener("click", reset);
+    resetButton.addEventListener("click", reset);
     xWins++;
     document.querySelector(".xWinCount").innerText = xWins;
 };
@@ -334,42 +365,42 @@ let win = function() {
 let lose = function() {
     //should change tie variable to value of 2
     tieVariable = 2;
-    document.querySelector(".gameboard").removeEventListener("click", boxClickHandler);
-    document.querySelector(".music").type = "audio/wav";
-    document.querySelector(".music").src = "audio/Pre-Teen Telethon The Recess MonkeysCUT.wav";
-    document.querySelector(".music").volume = 1;
-    document.querySelector(".music").play();
-    document.querySelector(".wonLostTied").innerText = "O won the game! :)"
-    document.querySelector(".turnIndicator").innerText = ""
+    gameboard.removeEventListener("click", boxClickHandler);
+    music.type = "audio/wav";
+    music.src = "audio/Pre-Teen Telethon The Recess MonkeysCUT.wav";
+    music.volume = 1;
+    music.play();
+    wonLostTied.innerText = "O won! :)"
+    turnIndicator = ""
     enableReset();
-    document.querySelector(".reset").addEventListener("click", reset);
+    resetButton.addEventListener("click", reset);
     oWins++;
     document.querySelector(".oWinCount").innerText = oWins;
 };
 
 let tie = function() {
     //
-    document.querySelector(".gameboard").removeEventListener("click", boxClickHandler);
-    document.querySelector(".music").type = "audio/wav";
-    document.querySelector(".music").src = "audio/Pre-Teen Telethon The Recess MonkeysCUT.wav";
-    document.querySelector(".music").volume = 1;
-    document.querySelector(".music").play();
-    document.querySelector(".wonLostTied").innerText = "X and O tied"
-    document.querySelector(".turnIndicator").innerText = ""
+    gameboard.removeEventListener("click", boxClickHandler);
+    music.type = "audio/mp3";
+    music.src = "audio/1.26.2020WeirdTuningSongInstrumental4GA_SEI.mp3";
+    music.volume = 1;
+    music.play();
+    wonLostTied.innerText = "X and O tied"
+    turnIndicator = ""
     enableReset();
-    document.querySelector(".reset").addEventListener("click", reset);
+    resetButton.addEventListener("click", reset);
     tieCount++;
     document.querySelector(".tieCount").innerText = tieCount;
 };
 
 // decided not to deprecate as smartAI needs to choose something when a TIE is inevitable
 let randomAI = function() {
-    console.log("randomAI() enacting")
+    // console.log("randomAI() enacting")
     let randomBox = Math.floor(Math.random() * 9);
     if (boardContents[randomBox] == 0) {
         // console.log(document.getElementsByClassName("box")[randomBox])
-        document.querySelector(".soundFX").src = "audio/xNoise.wav";
-        document.querySelector(".soundFX").play();
+        soundFX.src = "audio/xNoise.wav";
+        soundFX.play();
         document.getElementsByClassName("box")[randomBox].classList.add("x-selected");
         updateBoardContentsX(randomBox + 1);
         moveCount++;
@@ -380,8 +411,8 @@ let randomAI = function() {
 }
 
 let smartAIStart = function() {
-    document.querySelector(".soundFX").src = "audio/xNoise.wav";
-    document.querySelector(".soundFX").play();
+    soundFX.src = "audio/xNoise.wav";
+    soundFX.play();
     document.getElementsByClassName("box")[4].classList.add("x-selected");
     updateBoardContentsX(5);
     moveCount++;
@@ -395,8 +426,8 @@ let smartAISecondMove = function() {
     let smartBox = Math.floor(Math.random() * 4);
     if (smartBox == 0) {
         if (boardContents[0] == 0) {
-            document.querySelector(".soundFX").src = "audio/xNoise.wav";
-            document.querySelector(".soundFX").play();
+            soundFX.src = "audio/xNoise.wav";
+            soundFX.play();
             document.getElementsByClassName("box")[0].classList.add("x-selected");
             updateBoardContentsX(1);
             moveCount++;
@@ -412,8 +443,8 @@ let smartAISecondMove = function() {
         }
     } else if (smartBox == 1) {
         if (boardContents[2] == 0) {
-            document.querySelector(".soundFX").src = "audio/xNoise.wav";
-            document.querySelector(".soundFX").play();
+            soundFX.src = "audio/xNoise.wav";
+            soundFX.play();
             document.getElementsByClassName("box")[2].classList.add("x-selected");
             updateBoardContentsX(3);
             moveCount++;
@@ -429,8 +460,8 @@ let smartAISecondMove = function() {
         }
     } else if (smartBox == 2) {
         if (boardContents[6] == 0) {
-            document.querySelector(".soundFX").src = "audio/xNoise.wav";
-            document.querySelector(".soundFX").play();
+            soundFX.src = "audio/xNoise.wav";
+            soundFX.play();
             document.getElementsByClassName("box")[6].classList.add("x-selected");
             updateBoardContentsX(7);
             moveCount++;
@@ -446,8 +477,8 @@ let smartAISecondMove = function() {
         }
     } else {
         if (boardContents[8] == 0) {
-            document.querySelector(".soundFX").src = "audio/xNoise.wav";
-            document.querySelector(".soundFX").play();
+            soundFX.src = "audio/xNoise.wav";
+            soundFX.play();
             document.getElementsByClassName("box")[8].classList.add("x-selected");
             updateBoardContentsX(9);
             moveCount++;
@@ -477,8 +508,8 @@ let smartAICheckWin1 = function () {
             //needs to make sure that O does not have the one that is not selected of the set of three
             smartAICheckWin2();
         } else {
-            document.querySelector(".soundFX").src = "audio/xNoise.wav";
-            document.querySelector(".soundFX").play();
+            soundFX.src = "audio/xNoise.wav";
+            soundFX.play();
             document.getElementsByClassName("box")[0].classList.add("x-selected");
             document.getElementsByClassName("box")[1].classList.add("x-selected");
             document.getElementsByClassName("box")[2].classList.add("x-selected");
@@ -499,8 +530,8 @@ let smartAICheckWin2 = function () {
             //needs to make sure that O does not have the one that is not selected of the set of three
             smartAICheckWin3();
         } else {
-            document.querySelector(".soundFX").src = "audio/xNoise.wav";
-            document.querySelector(".soundFX").play();
+            soundFX.src = "audio/xNoise.wav";
+            soundFX.play();
             document.getElementsByClassName("box")[3].classList.add("x-selected");
             document.getElementsByClassName("box")[4].classList.add("x-selected");
             document.getElementsByClassName("box")[5].classList.add("x-selected");
@@ -521,8 +552,8 @@ let smartAICheckWin3 = function () {
             //needs to make sure that O does not have the one that is not selected of the set of three
             smartAICheckWin4();
         } else {
-            document.querySelector(".soundFX").src = "audio/xNoise.wav";
-            document.querySelector(".soundFX").play();
+            soundFX.src = "audio/xNoise.wav";
+            soundFX.play();
             document.getElementsByClassName("box")[6].classList.add("x-selected");
             document.getElementsByClassName("box")[7].classList.add("x-selected");
             document.getElementsByClassName("box")[8].classList.add("x-selected");
@@ -543,8 +574,8 @@ let smartAICheckWin4 = function () {
             //needs to make sure that O does not have the one that is not selected of the set of three
             smartAICheckWin5();
         } else {
-            document.querySelector(".soundFX").src = "audio/xNoise.wav";
-            document.querySelector(".soundFX").play();
+            soundFX.src = "audio/xNoise.wav";
+            soundFX.play();
             document.getElementsByClassName("box")[0].classList.add("x-selected");
             document.getElementsByClassName("box")[3].classList.add("x-selected");
             document.getElementsByClassName("box")[6].classList.add("x-selected");
@@ -565,8 +596,8 @@ let smartAICheckWin5 = function () {
             //needs to make sure that O does not have the one that is not selected of the set of three
             smartAICheckWin6();
         } else {
-            document.querySelector(".soundFX").src = "audio/xNoise.wav";
-            document.querySelector(".soundFX").play();
+            soundFX.src = "audio/xNoise.wav";
+            soundFX.play();
             document.getElementsByClassName("box")[1].classList.add("x-selected");
             document.getElementsByClassName("box")[4].classList.add("x-selected");
             document.getElementsByClassName("box")[7].classList.add("x-selected");
@@ -587,8 +618,8 @@ let smartAICheckWin6 = function () {
             //needs to make sure that O does not have the one that is not selected of the set of three
             smartAICheckWin7();
         } else {
-            document.querySelector(".soundFX").src = "audio/xNoise.wav";
-            document.querySelector(".soundFX").play();
+            soundFX.src = "audio/xNoise.wav";
+            soundFX.play();
             document.getElementsByClassName("box")[2].classList.add("x-selected");
             document.getElementsByClassName("box")[5].classList.add("x-selected");
             document.getElementsByClassName("box")[8].classList.add("x-selected");
@@ -609,8 +640,8 @@ let smartAICheckWin7 = function () {
             //needs to make sure that O does not have the one that is not selected of the set of three
             smartAICheckWin8();
         } else {
-            document.querySelector(".soundFX").src = "audio/xNoise.wav";
-            document.querySelector(".soundFX").play();
+            soundFX.src = "audio/xNoise.wav";
+            soundFX.play();
             document.getElementsByClassName("box")[0].classList.add("x-selected");
             document.getElementsByClassName("box")[4].classList.add("x-selected");
             document.getElementsByClassName("box")[8].classList.add("x-selected");
@@ -631,8 +662,8 @@ let smartAICheckWin8 = function () {
             //needs to make sure that O does not have the one that is not selected of the set of three
             smartAICheckLose();
         } else {
-            document.querySelector(".soundFX").src = "audio/xNoise.wav";
-            document.querySelector(".soundFX").play();
+            soundFX.src = "audio/xNoise.wav";
+            soundFX.play();
             document.getElementsByClassName("box")[2].classList.add("x-selected");
             document.getElementsByClassName("box")[4].classList.add("x-selected");
             document.getElementsByClassName("box")[6].classList.add("x-selected");
@@ -652,169 +683,169 @@ let smartAICheckLose = function() {
     //AI needs to choose square to prevent O from winning if O is one move away
     console.log("right after starting smartAICheckLose()")
     if (boardContents[0] == 2 && boardContents[1] == 2 && boardContents[2] == 0) {
-        document.querySelector(".soundFX").src = "audio/xNoise.wav";
-        document.querySelector(".soundFX").play();
+        soundFX.src = "audio/xNoise.wav";
+        soundFX.play();
         document.getElementsByClassName("box")[2].classList.add("x-selected");
         updateBoardContentsX(3);
         moveCount++;
         checkWin();
     } else if (boardContents[0] == 2 && boardContents[2] == 2 && boardContents[1] == 0) {
-        document.querySelector(".soundFX").src = "audio/xNoise.wav";
-        document.querySelector(".soundFX").play();
+        soundFX.src = "audio/xNoise.wav";
+        soundFX.play();
         document.getElementsByClassName("box")[1].classList.add("x-selected");
         updateBoardContentsX(2);
         moveCount++;
         checkWin();
     } else if (boardContents[1] == 2 && boardContents[2] == 2 && boardContents[0] == 0) {
-        document.querySelector(".soundFX").src = "audio/xNoise.wav";
-        document.querySelector(".soundFX").play();
+        soundFX.src = "audio/xNoise.wav";
+        soundFX.play();
         document.getElementsByClassName("box")[0].classList.add("x-selected");
         updateBoardContentsX(1);
         moveCount++;
         checkWin();
     } else if (boardContents[3] == 2 && boardContents[4] == 2 && boardContents[5] == 0) {
-        document.querySelector(".soundFX").src = "audio/xNoise.wav";
-        document.querySelector(".soundFX").play();
+        soundFX.src = "audio/xNoise.wav";
+        soundFX.play();
         document.getElementsByClassName("box")[5].classList.add("x-selected");
         updateBoardContentsX(6);
         moveCount++;
         checkWin();
     } else if (boardContents[3] == 2 && boardContents[5] == 2 && boardContents[4] == 0) {
-        document.querySelector(".soundFX").src = "audio/xNoise.wav";
-        document.querySelector(".soundFX").play();
+        soundFX.src = "audio/xNoise.wav";
+        soundFX.play();
         document.getElementsByClassName("box")[4].classList.add("x-selected");
         updateBoardContentsX(5);
         moveCount++;
         checkWin();
     } else if (boardContents[4] == 2 && boardContents[5] == 2 && boardContents[3] == 0) {
-        document.querySelector(".soundFX").src = "audio/xNoise.wav";
-        document.querySelector(".soundFX").play();
+        soundFX.src = "audio/xNoise.wav";
+        soundFX.play();
         document.getElementsByClassName("box")[3].classList.add("x-selected");
         updateBoardContentsX(4);
         moveCount++;
         checkWin();
     } else if (boardContents[6] == 2 && boardContents[7] == 2 && boardContents[8] == 0) {
-        document.querySelector(".soundFX").src = "audio/xNoise.wav";
-        document.querySelector(".soundFX").play();
+        soundFX.src = "audio/xNoise.wav";
+        soundFX.play();
         document.getElementsByClassName("box")[8].classList.add("x-selected");
         updateBoardContentsX(9);
         moveCount++;
         checkWin();
     } else if (boardContents[6] == 2 && boardContents[8] == 2 && boardContents[7] == 0) {
-        document.querySelector(".soundFX").src = "audio/xNoise.wav";
-        document.querySelector(".soundFX").play();
+        soundFX.src = "audio/xNoise.wav";
+        soundFX.play();
         document.getElementsByClassName("box")[7].classList.add("x-selected");
         updateBoardContentsX(8);
         moveCount++;
         checkWin();
     } else if (boardContents[7] == 2 && boardContents[8] == 2 && boardContents[6] == 0) {
-        document.querySelector(".soundFX").src = "audio/xNoise.wav";
-        document.querySelector(".soundFX").play();
+        soundFX.src = "audio/xNoise.wav";
+        soundFX.play();
         document.getElementsByClassName("box")[6].classList.add("x-selected");
         updateBoardContentsX(7);
         moveCount++;
         checkWin();
     } else if (boardContents[0] == 2 && boardContents[3] == 2 && boardContents[6] == 0) {
-        document.querySelector(".soundFX").src = "audio/xNoise.wav";
-        document.querySelector(".soundFX").play();
+        soundFX.src = "audio/xNoise.wav";
+        soundFX.play();
         document.getElementsByClassName("box")[6].classList.add("x-selected");
         updateBoardContentsX(7);
         moveCount++;
         checkWin();
     } else if (boardContents[0] == 2 && boardContents[6] == 2 && boardContents[3] == 0) {
-        document.querySelector(".soundFX").src = "audio/xNoise.wav";
-        document.querySelector(".soundFX").play();
+        soundFX.src = "audio/xNoise.wav";
+        soundFX.play();
         document.getElementsByClassName("box")[3].classList.add("x-selected");
         updateBoardContentsX(4);
         moveCount++;
         checkWin();
     } else if (boardContents[3] == 2 && boardContents[6] == 2 && boardContents[0] == 0) {
-        document.querySelector(".soundFX").src = "audio/xNoise.wav";
-        document.querySelector(".soundFX").play();
+        soundFX.src = "audio/xNoise.wav";
+        soundFX.play();
         document.getElementsByClassName("box")[0].classList.add("x-selected");
         updateBoardContentsX(1);
         moveCount++;
         checkWin();
     } else if (boardContents[1] == 2 && boardContents[4] == 2 && boardContents[7] == 0) {
-        document.querySelector(".soundFX").src = "audio/xNoise.wav";
-        document.querySelector(".soundFX").play();
+        soundFX.src = "audio/xNoise.wav";
+        soundFX.play();
         document.getElementsByClassName("box")[7].classList.add("x-selected");
         updateBoardContentsX(8);
         moveCount++;
         checkWin();
     } else if (boardContents[1] == 2 && boardContents[7] == 2 && boardContents[4] == 0) {
-        document.querySelector(".soundFX").src = "audio/xNoise.wav";
-        document.querySelector(".soundFX").play();
+        soundFX.src = "audio/xNoise.wav";
+        soundFX.play();
         document.getElementsByClassName("box")[4].classList.add("x-selected");
         updateBoardContentsX(5);
         moveCount++;
         checkWin();
     } else if (boardContents[4] == 2 && boardContents[7] == 2 && boardContents[1] == 0) {
-        document.querySelector(".soundFX").src = "audio/xNoise.wav";
-        document.querySelector(".soundFX").play();
+        soundFX.src = "audio/xNoise.wav";
+        soundFX.play();
         document.getElementsByClassName("box")[1].classList.add("x-selected");
         updateBoardContentsX(2);
         moveCount++;
         checkWin();
     } else if (boardContents[2] == 2 && boardContents[5] == 2 && boardContents[8] == 0) {
-        document.querySelector(".soundFX").src = "audio/xNoise.wav";
-        document.querySelector(".soundFX").play();
+        soundFX.src = "audio/xNoise.wav";
+        soundFX.play();
         document.getElementsByClassName("box")[8].classList.add("x-selected");
         updateBoardContentsX(9);
         moveCount++;
         checkWin();
     } else if (boardContents[2] == 2 && boardContents[8] == 2 && boardContents[5] == 0) {
-        document.querySelector(".soundFX").src = "audio/xNoise.wav";
-        document.querySelector(".soundFX").play();
+        soundFX.src = "audio/xNoise.wav";
+        soundFX.play();
         document.getElementsByClassName("box")[5].classList.add("x-selected");
         updateBoardContentsX(6);
         moveCount++;
         checkWin();
     } else if (boardContents[5] == 2 && boardContents[8] == 2 && boardContents[2] == 0) {
-        document.querySelector(".soundFX").src = "audio/xNoise.wav";
-        document.querySelector(".soundFX").play();
+        soundFX.src = "audio/xNoise.wav";
+        soundFX.play();
         document.getElementsByClassName("box")[2].classList.add("x-selected");
         updateBoardContentsX(3);
         moveCount++;
         checkWin();
     } else if (boardContents[0] == 2 && boardContents[4] == 2 && boardContents[8] == 0) {
-        document.querySelector(".soundFX").src = "audio/xNoise.wav";
-        document.querySelector(".soundFX").play();
+        soundFX.src = "audio/xNoise.wav";
+        soundFX.play();
         document.getElementsByClassName("box")[8].classList.add("x-selected");
         updateBoardContentsX(9);
         moveCount++;
         checkWin();
     } else if (boardContents[0] == 2 && boardContents[8] == 2 && boardContents[4] == 0) {
-        document.querySelector(".soundFX").src = "audio/xNoise.wav";
-        document.querySelector(".soundFX").play();
+        soundFX.src = "audio/xNoise.wav";
+        soundFX.play();
         document.getElementsByClassName("box")[4].classList.add("x-selected");
         updateBoardContentsX(5);
         moveCount++;
         checkWin();
     } else if (boardContents[4] == 2 && boardContents[8] == 2 && boardContents[0] == 0) {
-        document.querySelector(".soundFX").src = "audio/xNoise.wav";
-        document.querySelector(".soundFX").play();
+        soundFX.src = "audio/xNoise.wav";
+        soundFX.play();
         document.getElementsByClassName("box")[0].classList.add("x-selected");
         updateBoardContentsX(1);
         moveCount++;
         checkWin();
     } else if (boardContents[2] == 2 && boardContents[4] == 2 && boardContents[6] == 0) {
-        document.querySelector(".soundFX").src = "audio/xNoise.wav";
-        document.querySelector(".soundFX").play();
+        soundFX.src = "audio/xNoise.wav";
+        soundFX.play();
         document.getElementsByClassName("box")[6].classList.add("x-selected");
         updateBoardContentsX(7);
         moveCount++;
         checkWin();
     } else if (boardContents[2] == 2 && boardContents[6] == 2 && boardContents[4] == 0) {
-        document.querySelector(".soundFX").src = "audio/xNoise.wav";
-        document.querySelector(".soundFX").play();
+        soundFX.src = "audio/xNoise.wav";
+        soundFX.play();
         document.getElementsByClassName("box")[4].classList.add("x-selected");
         updateBoardContentsX(5);
         moveCount++;
         checkWin();
     } else if (boardContents[4] == 2 && boardContents[6] == 2 && boardContents[2] == 0) {
-        document.querySelector(".soundFX").src = "audio/xNoise.wav";
-        document.querySelector(".soundFX").play();
+        soundFX.src = "audio/xNoise.wav";
+        soundFX.play();
         document.getElementsByClassName("box")[2].classList.add("x-selected");
         updateBoardContentsX(3);
         moveCount++;
@@ -832,8 +863,8 @@ let setStart = function() {
     startGame.style.fontSize = "50px";
     startGame.innerHTML = "START GAME";
     document.querySelector(".fullboard").appendChild(startGame);
-    document.querySelector(".startGame").addEventListener("click", startGameClickHandler);
-    document.querySelector(".startGame").addEventListener("click", firstClickHandler);
+    startGame.addEventListener("click", startGameClickHandler);
+    startGame.addEventListener("click", firstClickHandler);
 }
 
 
@@ -843,7 +874,7 @@ let setStart = function() {
 document.addEventListener("DOMContentLoaded", function(){
     // placing eventListeners here
 //event listener here deprecated as AI will start as player X
-    // document.querySelector(".gameboard").addEventListener("click", boxClickHandler);
+    // gameboard.addEventListener("click", boxClickHandler);
     document.querySelector(".xWinCount").innerText = xWins;
     document.querySelector(".oWinCount").innerText = oWins;
     document.querySelector(".tieCount").innerText = tieCount;
