@@ -12,7 +12,7 @@ const oState = {
 }
 let squaresLeft = 9;
 let turn = xState;
-let winner = "error";
+let winner = false;
 let domSquares = document.querySelectorAll('img');
 let domPopup = document.querySelector(".popup");
 let domBanner = document.querySelector(".banner");
@@ -68,7 +68,45 @@ let squareClickHandler = function(e) {
 }
 // return who won as a state object else return false
 let checkWin = function() {
-     
+    // build an array of state objects to describe the board
+    let squares = [];
+    for (let i = 0; i < 9; i++) {
+        if (domSquares[i].classList.contains("xState")) {
+            squares[i] = xState;
+        } else if (domSquares[i].classList.contains("oState")) {
+            squares[i] = oState;
+        } else {
+            squares[i] = emptyState;
+        }
+    }
+    // traverse array for matches
+    for (let i = 0; i < 9; i += 3) {
+        // check rows
+        if ((squares[i].state === squares[i+1].state) 
+            && (squares[i+1].state === squares[i+2].state)
+            && (squares[i].state !== "empty")) {
+            return squares[i];
+            // check columns
+        } else {
+            int1 = Math.floor(i/3);
+            int2 = Math.floor(i/3+3);
+            int3 = Math.floor(i/3+6);
+            if ((squares[int1].state == squares[int2].state)
+                && (squares[int2].state == squares[int3].state)
+                && (squares[int1].state !== "empty")) {
+                return squares[int1];
+            }
+        }
+    }
+    // check diagonals: if 0, 4, 8  OR 2, 4, 6 match
+    if (((squares[0].state === squares[4].state)
+         && (squares[4].state === squares[8].state)) 
+    || ((squares[2].state === squares[4].state)
+         && (squares[4].state === squares[6].state))) {
+        if (squares[4].state !== "empty") {
+        return squares[4]; //returns middle square 
+        }
+    }
     return false;
 }
 
