@@ -6,7 +6,9 @@ let turn = 'X';
 
 let win;
 
-let squares = Array.from(document.querySelectorAll('#board div'));
+let mark = "X";
+
+let squares = Array.from(document.querySelectorAll('board'));
 
 const winner = [
     [0, 1, 2],
@@ -21,32 +23,39 @@ const winner = [
 
 
 board = ['X', '', '', '', '', '', '', '', ''];
-document.querySelector('.board').addEventListener('click', handleTurn);
+document.querySelector('.board').addEventListener('click', currentTurn);
 let gameInit = function() {
             
-    function render() {
-        board.forEach(function(mark, index) {
-        console.log(board);
 
-        let move = squares[index].innerText = mark;
+    board.forEach(function(mark, index) {
+    console.log('ugh');
+    squares.findIndex.innerText = mark;
+    document.querySelector('.square').addEventListener('click', currentTurn);
+// ..........kjfnsdkjbvkjwb
+//for (let i = 0; i < 9; i++) {
+    //squares[i].innerText = mark;
+
 });
-};
-render();
-            
-let domResetBtn = document.querySelector('.reset');
+console.log('nothing');
 };
 
-function handleTurn(event) {
+
+
+
+let domResetBtn = document.querySelector('.reset');
+
+function currentTurn(e) {
     let index = squares.findIndex(function(square) {
-    return square === event.target;
+    return squares === e.target;
+    document.querySelector('.square').textContent = "X";
 });
 board[index] = turn;
 turn = turn === 'X' ? 'O' : 'X';
 console.log('hey');
 };
 
-function getWinner(){
-
+function checkWin(){
+    console.log("checking for win");
 }
 
 
