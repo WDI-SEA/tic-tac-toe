@@ -83,7 +83,7 @@ including how to make my grid inline: https://css-tricks.com/snippets/css/comple
   /* position: absolute; */
 }
 
-.current-player { 
+#current-player { 
   font-family: 'Special Elite', sans-serif;
   font-size: 25px;
   color: #ededed;
