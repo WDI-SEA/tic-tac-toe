@@ -105,6 +105,9 @@ let gameGridClickListener = function(event) {
 
     // check if this div is already occupied
     clickedTile = event.target.querySelector(boardData.tileClassSelector);
+    console.log("#######################");
+    console.log(event.target);
+    console.log("#######################");
     if (clickedTile.classList.length > 1) 
     {
         return;
@@ -117,9 +120,6 @@ let gameGridClickListener = function(event) {
     //playerContract.setSpan(clickedSpan);
     
     console.log(clickedTile.classList);
-
-    // next players turn
-    changeCurrentPlayer();
 };
 
 // passthrough function to maintain readability 
@@ -128,7 +128,14 @@ let changeCurrentPlayer = function() {
     if (gameIsActive.get())
     {
         highlightCurrentPlayer(playerContract.currentPlayer, true);
+
+        if (playerContract.currentPlayer === player2 && playerContract.playWithAI)
+        {
+            // AI's turn
+            automat.takeTurn();
+        }
     }
+
 };
 
 let preparePlayerForNewRound = function() {
@@ -197,6 +204,8 @@ let playerScoreUpdater = {
 };
  
 let playerContract = {
+    playWithAI: true,
+
     currentPlayer: player2,
     gameBoardState: new Array(9),
     turns: 0,
@@ -226,6 +235,11 @@ let playerContract = {
         else if (this.turns === 9)
         {
             handleDraw();
+        }
+        else 
+        {
+            // next players turn
+            changeCurrentPlayer();
         }
         console.log(this.gameBoardState);
     },
@@ -326,3 +340,29 @@ let highlightCurrentPlayer = function(player, active) {
         document.querySelector(boardData.currentPlayerIdSelector).className = '';
     }
 };
+
+// AI 
+let automat = {
+    aiStrategy: simpleStrategy,
+    takeTurn: function() {
+        this.aiStrategy();        
+    }
+};
+
+// very simple AI strategy
+let simpleStrategy = function() {
+    for (let i = 0; i < 9; i++) 
+        {
+            if (playerContract.gameBoardState[i] !== player1.symbol && playerContract.gameBoardState[i] !== player2.symbol) 
+            {
+                playerContract.computeTurn(
+                    i,
+                    document.getElementById(i).querySelector(boardData.tileClassSelector)
+                );
+                i = 9;
+            }
+        }
+};
+
+
+
