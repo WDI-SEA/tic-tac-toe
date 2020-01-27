@@ -27,6 +27,8 @@ let playerOneCount;
 let playerTwoLabel;
 let playerTwoCount;
 let gameMode;
+let inputs;
+let startButton;
 let resetButton;
 let endStatus;
 
@@ -37,6 +39,10 @@ let gameOver = false;
 
 const setUp = function() {
 
+    for (let i = 0; i < inputs.length; i++) {
+        inputs[i].disabled = true;
+    }
+
     numberOfMoves = 0;
     gameOver = false;
     endStatus.innerText = " ";
@@ -44,6 +50,13 @@ const setUp = function() {
     resetGameBoard();
     getFirstPlayer();
 
+}
+
+const start = function() {
+    playerOneCount.textContent = 0;
+    playerTwoCount.textContent = 0;
+
+    setUp();
 }
 
 const getFirstPlayer = function() {
@@ -229,6 +242,15 @@ const wonRound = function() {
 
     gameboard.removeEventListener("click", squareClickHandler);
     gameboard.removeEventListener("keyboard", squareClickHandler);
+    for (let i = 0; i < gameboardSquares.length; i++) {
+        gameboardSquares[i].classList.remove("square-hover");
+        gameboardSquares[i].removeAttribute("aria-label");
+        gameboardSquares[i].style.cursor = "initial";
+    }
+
+    for (let i = 0; i < inputs.length; i++) {
+        inputs[i].disabled = false;
+    }
 }
 
 const getDOMElements = function() {
@@ -240,6 +262,8 @@ const getDOMElements = function() {
     playerTwoLabel = document.querySelector("#player-two-label");
     playerTwoCount = document.querySelector("#player-two-count");
     gameMode = document.querySelector(".game-mode");
+    inputs = document.querySelectorAll("input");
+    startButton = document.querySelector("#start");
     resetButton = document.querySelector("#reset");
     endStatus = document.querySelector(".end-status");
 
@@ -250,8 +274,9 @@ document.addEventListener("DOMContentLoaded", function() {
     getDOMElements();
 
     resetButton.addEventListener("click", setUp);
-    
-    setUp();
+    resetButton.addEventListener("keyboard", setUp);
+    startButton.addEventListener("click", start);
+    startButton.addEventListener("keyboard", start);
 });
 
 
