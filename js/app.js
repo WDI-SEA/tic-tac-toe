@@ -52,7 +52,7 @@ let checkBoxHandler = function(e){
 	let stringSplit = idString.split("-")
 	let currRow = parseInt(stringSplit[0].slice(3), 10);
 	let currColumn = parseInt(stringSplit[1].slice(3), 10);
-	if(!gameBoard[currRow][currColumn].marked && !gameOver)
+	if((!gameBoard[currRow][currColumn].marked && !gameOver) && !gameAISmart)
 		if(numberOfMoves % 2 == 0){
 			gameBoard[currRow][currColumn].type = "X";
 			e.target.classList.remove("row-box");
@@ -99,7 +99,17 @@ let checkBoxHandler = function(e){
 		dumbAI();
 	}
 	if (gameAISmart && !gameOver) {
-		smartAI();
+
+		
+		if(numberOfMoves % 2 != 0){
+			gameBoard[currRow][currColumn].type = "O";
+			e.target.classList.remove("row-box");
+			e.target.classList.add("player-2");
+			e.target.innerText = "O";
+			gameBoard[currRow][currColumn].marked = true;
+			numberOfMoves++;
+			setTimeout(function(){ smartAI();}, 100);
+		}
 	}
 	if (numberOfMoves > 0 && !gameOver){
 		nextTurnHandler();
@@ -354,6 +364,7 @@ let evaluateDiagonalWinRightToLeft = function (){
 //citation for minimax algorithm:
 //https://www.geeksforgeeks.org/minimax-algorithm-in-game-theory-set-3-tic-tac-toe-ai-finding-optimal-move/
 let minimax = function(depth,isMax){
+	console.log("depth: " + depth);
 	let score = evaluateWin();
 	if(score == 10){
 		return score;
@@ -362,7 +373,7 @@ let minimax = function(depth,isMax){
 		return score;
 	}
 	let movesLeft = isMovesLeft();
-	if(movesLeft){
+	if(movesLeft == false){
 		return 0;
 	}
 	if (isMax){
@@ -386,7 +397,7 @@ let minimax = function(depth,isMax){
 				if(!gameBoard[i][j].marked){
 					gameBoard[i][j].marked = true;
 					gameBoard[i][j].type = "O";
-					best = min(best, minimax(depth+1,!isMax));
+					best = Math.min(best, minimax(depth+1,!isMax));
 					gameBoard[i][j].marked = false;
 					gameBoard[i][j].type = "";
 				}
@@ -399,33 +410,44 @@ let minimax = function(depth,isMax){
 let findBestMove = function() {
 	let bestMove = {row: 0, col: 0};
 	let bestVal = -1000;
-	for(let i = 0; i <= 2; i++){
-		for(let j = 0; j <= 2; j++){
-			if(!gameBoard[i][j].marked){
-				gameBoard[i][j].type = "X";
-				gameBoard[i][j].marked = true;
-				let moveVal = minimax(0,false);
-				console.log("i: " + i + " j: " + j);
-				console.log(moveVal);
-				gameBoard[i][j].type = "";
-				gameBoard[i][j].marked = false;
-				if(moveVal > bestVal){
-					bestMove.row = i;
-					bestMove.col = j;
-					bestVal = moveVal;
+	if (numberOfMoves == 0){
+		return bestMove;
+	} else {
+		for(let i = 0; i <= 2; i++){
+			for(let j = 0; j <= 2; j++){
+				if(!gameBoard[i][j].marked){
+					gameBoard[i][j].type = "X";
+					gameBoard[i][j].marked = true;
+					let moveVal = minimax(0,false);
+					console.log("i: " + i + " j: " + j);
+					console.log(moveVal);
+					gameBoard[i][j].type = "";
+					gameBoard[i][j].marked = false;
+					if(moveVal >= bestVal){
+						console.log("i:" + i);
+						console.log("j:" + j);
+						bestMove.row = i;
+						bestMove.col = j;
+						bestVal = moveVal;
+						console.log(bestVal)
+					}
 				}
 			}
 		}
+		console.log(numberOfMoves);
+	
+	//if((bestVal == 0 && numberOfMoves == 1) && !gameBoard[1][1].marked){
+	//	bestMove.row = 1;
+	//	bestMove.col = 1;
+	//	console.log("go middle");
+	//}
+	
+		console.log("best");
+		console.log(bestMove);
+		return bestMove;
 	}
-	console.log(numberOfMoves);
-	if((bestVal == 0 && numberOfMoves == 1) && !gameBoard[1][1].marked){
-		bestMove.row = 1;
-		bestMove.col = 1;
-		console.log("go middle");
-	}
-	console.log(bestMove);
-	return bestMove;
 }
+
 
 let resetHandler = function (){
 	console.log("resetButtonHandler");
@@ -468,7 +490,7 @@ let startHandler = function (){
 	}
 }
 let nextTurnHandler = function(){
-	if(numberOfMoves % 2 == 0){
+	if(numberOfMoves % 2 == 0 && !gameOver){
 		setTimeout(function(){ alert("player-1's turn"); }, 300);
 	} else {
 		setTimeout(function(){ alert("player-2's turn"); }, 300);
@@ -485,6 +507,7 @@ let soloNeverWinHandler = function(){
 	console.log("soloNeverWinHandler");
 	resetHandler();
 	gameAISmart = true;
+	smartAI();
 }
 
 let dumbAI = function (){
@@ -529,21 +552,21 @@ let smartAI = function(){
 	let bestMove = findBestMove();
 	let selector = `#row${bestMove.row}-box${bestMove.col}`;
 	gameBoard[bestMove.row][bestMove.col].marked = true;
-	gameBoard[bestMove.row][bestMove.col].type = "O";
+	gameBoard[bestMove.row][bestMove.col].type = "X";
 	let domBox = document.querySelector(selector);
 	domBox.classList.remove("row-box");
-	domBox.classList.add("player-2");
-	domBox.innerText = "O";
+	domBox.classList.add("player-1");
+	domBox.innerText = "X";
 	numberOfMoves++;
 	if(numberOfMoves >= 5){
 		let win = checkWin();
 		if(win == true){
 			console.log(numberOfMoves);
-			if(numberOfMoves % 2 == 0 && !gameOver){
-				setTimeout(function(){ alert("the computer has won the game"); }, 300);
+			if(!(numberOfMoves % 2 == 0) && !gameOver){
+				setTimeout(function(){ alert("computer has won the game"); }, 300);
 			} else {
 				if(!gameOver){
-					setTimeout(function(){ alert("player-1 has won the game"); }, 300);
+					setTimeout(function(){ alert("the player has won the game"); }, 300);
 				}
 			}
 			gameOver = true;
