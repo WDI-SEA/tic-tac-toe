@@ -13,8 +13,6 @@ h1 {
 
 div {
   padding: 7px;
-  
-  
 }
 
 img {
@@ -29,24 +27,19 @@ img {
 
 
 #c1 {
-  height: 150px;
-  
-  
+  height: 150px; 
 }
 
 #i1{
   height: 150px;
-  
 }
 
 #c2 {
   height: 150px;
- 
 }
 
 #c3 {
   height: 150px;
- 
 }
 
 button {
@@ -56,5 +49,4 @@ button {
   background: rgb(61, 141, 207);
   padding: 5px 35px;
   font-family: monospace;
-  
 }
