@@ -1,11 +1,17 @@
 h1 {
-  color: purple;
+  color:rgb(15, 12, 196);
   text-align:center;
-  margin: 50px 250px;
+  margin: 50px 50px auto;
   font-family: sans-serif;
   padding: 15px;
-  border: 2px purple;
   background:orange;
+}
+h4 {
+  font-size: 14px;
+  color: black;
+  text-align: center;
+  margin-top: 100px;
+  margin-bottom:50px;
 }
 #container {
   width: 320px;
@@ -36,4 +42,7 @@ h1 {
 }
 .win {
   color:goldenrod;
+}
+.draw {
+  color: red;
 }
