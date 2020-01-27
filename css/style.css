@@ -69,3 +69,8 @@ body {
   font-weight: 800;
   font-size: 24px;
 }
+
+.reset-btn:hover {
+  border-color: mediumaquamarine;
+  color: mediumaquamarine;
+}
