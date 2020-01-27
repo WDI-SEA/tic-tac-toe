@@ -19,6 +19,12 @@ h1 {
   align-items: center;
 }
 
+#currentPlayer {
+  height: 5vw;
+  width: 5vw;
+  display: inline-block;
+}
+
 #game-grid {
   background-color: burlywood;
   display: inline-block;
@@ -31,7 +37,7 @@ h1 {
 
 #tracker {
   margin-bottom: 5vw;
-  color: white;
+  color: purple;
   font-size: 4vw;
 }
 

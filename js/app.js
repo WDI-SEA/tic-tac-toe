@@ -27,6 +27,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 // holds information about the board itself
 let boardData = {
+    currentPlayerIdSelector: "#currentPlayer",
     dialogIdSelector: "#dialog",
     dialogClassHidden: "hidden",
     dialogClassVisible: "visible",
@@ -61,10 +62,13 @@ let initGame = function() {
     preparePlayerForNewRound();
     hideDialog();
     gameIsActive.set(true);
+    highlightCurrentPlayer(playerContract.currentPlayer, true);
 };
 
 let pauseGame = function() {
     gameIsActive.set(false);
+    console.log("Should deactivate the highlight");
+    highlightCurrentPlayer(null, false);
 }
 
 let gameIsActive = {
@@ -121,6 +125,10 @@ let gameGridClickListener = function(event) {
 // passthrough function to maintain readability 
 let changeCurrentPlayer = function() {
     playerContract.changeCurrentPlayer();
+    if (gameIsActive.get())
+    {
+        highlightCurrentPlayer(playerContract.currentPlayer, true);
+    }
 };
 
 let preparePlayerForNewRound = function() {
@@ -304,3 +312,17 @@ let checkForWin = function(gameBoardState, index, player) {
     }
     return winConditionMet;
 }
+
+// Show who's turn it is
+let highlightCurrentPlayer = function(player, active) {
+    if (active) 
+    {
+        console.log("In active");
+        document.querySelector(boardData.currentPlayerIdSelector).className = player.name;
+    }
+    else
+    {
+        console.log("Inactive");
+        document.querySelector(boardData.currentPlayerIdSelector).className = '';
+    }
+};
