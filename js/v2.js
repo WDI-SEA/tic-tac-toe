@@ -13,6 +13,7 @@ const oState = {
 let squaresLeft = 9;
 let turn = xState;
 let winner = false;
+let squares = [];
 let domSquares = document.querySelectorAll('img');
 let domPopup = document.querySelector(".popup");
 let domBanner = document.querySelector(".banner");
@@ -48,8 +49,9 @@ let squareClickHandler = function(e) {
             if (turn === xState) {
                 e.target.classList.add("xState");
                 turn = oState;
-            } else {
-                e.target.classList.add("oState");
+                // run AI turn
+                buildSquares();
+                Math.random(9);
                 turn = xState;
             }
             domBanner.innerHTML = "<p>Currently " + turn.state + "'s turn</p>";
@@ -66,10 +68,9 @@ let squareClickHandler = function(e) {
         }
     }
 }
-// return who won as a state object else return false
-let checkWin = function() {
-    // build an array of state objects to describe the board
-    let squares = [];
+// build an array of state objects to describe the board
+let buildSquares = function() {
+    squares = [];
     for (let i = 0; i < 9; i++) {
         if (domSquares[i].classList.contains("xState")) {
             squares[i] = xState;
@@ -79,12 +80,16 @@ let checkWin = function() {
             squares[i] = emptyState;
         }
     }
-    // traverse array for matches
+    return squares;
+}
+// return who won as a state object else return false
+let checkWin = function() {
+// traverse array for matches
     for (let i = 0; i < 9; i += 3) {
         // check rows
         if ((squares[i].state === squares[i+1].state) 
-            && (squares[i+1].state === squares[i+2].state)
-            && (squares[i].state !== "empty")) {
+        && (squares[i+1].state === squares[i+2].state)
+        && (squares[i].state !== "empty")) {
             return squares[i];
             // check columns
         } else {

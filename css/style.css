@@ -4,6 +4,7 @@ html, body {
   margin: 0 auto;
   text-align: center;
   background: url(../img/xo-bg.png);
+  height: 1054px;
 }
 h1 {
   color: #800031;
