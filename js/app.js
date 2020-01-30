@@ -1,13 +1,13 @@
 const emptyState = {
-    image: "../tic-tac-toe/img/empty.png",
+    image: "img/empty.png",
     state: "empty"
 }
 const xState = {
-    image: "../tic-tac-toe/img/x.png",
+    image: "img/x.png",
     state: "X"
 }
 const oState = {
-    image: "../tic-tac-toe/img/o.png",
+    image: "img/o.png",
     state: "O"
 }
 let squaresLeft = 9;
