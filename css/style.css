@@ -154,3 +154,8 @@ button:hover {
 .span-3:hover {
   color: lightblue;
 }
+
+.game-container:hover {
+  width: 810px;
+  height: 810px;
+}

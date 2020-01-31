@@ -6,12 +6,10 @@ let gameOn = true;
 
 let arrOfMarks = document.querySelectorAll(".letter");
 
-/*------------------------------ Reset Variable and Function ---------------------------------------*/
+/*------------------------------ Reset Variable  ---------------------------------------*/
 
 var rButton = document.getElementById("r-button");
-rButton.addEventListener("click", function(e) {
-  message.innerText = initialMessage;
-});
+
 
 /* ---------------------------- Variables for Messaging Players ---------------------------------------*/
 
@@ -25,11 +23,10 @@ var tieGameMessage = (message.innerText = '"Cat\'s Game" You are tied!');
 var xTurn = (message.innerText = 'Make A Move "X"');
 var oTurn = (message.innerText = 'Make A Move "O"');
 
-window.onload = function() {
-  message.innerText = 'Always Play To Win \n"X" Goes First';
-};
 
-function checkingSquares(one, two, three) {
+// use following for checkWin func
+
+function checkSquares(one, two, three) {
   if (
     one.innerText === "X" &&
     two.innerText == "X" &&
@@ -47,12 +44,28 @@ function checkingSquares(one, two, three) {
   }
 }
 
+// run this after every click
+
+function checkWin() {
+  checkSquares(document.getElementById('s1'), document.getElementById('s2'), document.getElementById('s3'));
+  checkSquares(document.getElementById('s4'), document.getElementById('s5'), document.getElementById('s6'));
+  checkSquares(document.getElementById('s7'), document.getElementById('s8'), document.getElementById('s9'));  
+  checkSquares(document.getElementById('s1'), document.getElementById('s4'), document.getElementById('s7'));
+  checkSquares(document.getElementById('s2'), document.getElementById('s5'), document.getElementById('s8'));
+  checkSquares(document.getElementById('s3'), document.getElementById('s6'), document.getElementById('s9'));  
+  checkSquares(document.getElementById('s1'), document.getElementById('s5'), document.getElementById('s9'));
+  checkSquares(document.getElementById('s3'), document.getElementById('s5'), document.getElementById('s7'));
+};
+
+
+
+
 document.querySelectorAll(".squares").forEach(square => {
   square.addEventListener("click", function(e) {
     square.style.backgroundColor = "yellow";
     if (message.innerText === initialMessage || message.innerText === xTurn) {
-      player = "O";
       square.firstChild.innerText = "X";
+      player = "O";
       message.innerText = oTurn;
     } else {
       player = "X";
@@ -62,7 +75,7 @@ document.querySelectorAll(".squares").forEach(square => {
   });
 });
 
-var experiment = document.getElementById("square-1").firstChild.innerText;
+// for resetting the Xs and Os
 
 function resetMarks() {
   for (item in arrOfMarks) {
@@ -70,8 +83,37 @@ function resetMarks() {
   }
 }
 
+//reset the color of the squares
+
 function resetColor() {
   for (square in allSquares) {
-    square.backgroundColor = "#ff5252";
+    square.style.backgroundColor = "#ff5252";
   }
 }
+
+
+
+
+// main game functions still being worked on 
+
+function gameOnNow() {
+  window.onload = message.innerText = initialMessage;
+
+
+  rButton.addEventListener("click", function(e) {
+      message.innerText = initialMessage;
+
+  })
+
+ 
+  
+  }
+
+  
+
+
+
+gameOnNow();
+
+console.log(allSquares);
+
