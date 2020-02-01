@@ -58,23 +58,44 @@ function checkWin() {
 };
 
 
+/* ------------------------- This was my original loop solution for the below nodelist -----------------*/
+
+// document.querySelectorAll(".squares").forEach(square => {
+//   square.addEventListener("click", function(e) {
+//     square.style.backgroundColor = "yellow";
+//     if (message.innerText === initialMessage || message.innerText === xTurn) {
+//       square.firstChild.innerText = "X";
+//       player = "O";
+//       message.innerText = oTurn;
+//     } else {
+//       player = "X";
+//       square.firstChild.innerText = "O";
+//       message.innerText = xTurn;
+//     }
+//   });
+// });
+
+/* ------------------------------- New Solution Below -----------------------------------------------*/
 
 
-document.querySelectorAll(".squares").forEach(square => {
-  square.addEventListener("click", function(e) {
-    square.style.backgroundColor = "yellow";
-    if (message.innerText === initialMessage || message.innerText === xTurn) {
-      square.firstChild.innerText = "X";
-      player = "O";
-      message.innerText = oTurn;
-    } else {
-      player = "X";
-      square.firstChild.innerText = "O";
-      message.innerText = xTurn;
-    }
-  });
-});
-
+function setUpSquares() {
+  for (let i = 0; i < allSquares.length; i++) {
+    allSquares[i].addEventListener("click", function(e) {
+      allSquares[i].style.backgroundColor = "yellow";
+      if (message.innerText === initialMessage || message.innerText === xTurn) {
+        document.getElementById("clickX").play();
+        allSquares[i].firstChild.innerText = "X";
+        player = "O";
+        message.innerText = oTurn;
+      } else {
+        player = "X";
+        document.getElementById("clickO").play();
+        allSquares[i].firstChild.innerText = "O";
+        message.innerText = xTurn;
+      }
+    })
+  }
+}
 // for resetting the Xs and Os
 
 function resetMarks() {
@@ -98,6 +119,7 @@ function resetColor() {
 
 function gameOnNow() {
   window.onload = message.innerText = initialMessage;
+  setUpSquares();
 
 
   rButton.addEventListener("click", function(e) {
