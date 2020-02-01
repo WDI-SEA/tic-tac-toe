@@ -78,16 +78,16 @@ document.querySelectorAll(".squares").forEach(square => {
 // for resetting the Xs and Os
 
 function resetMarks() {
-  for (item in arrOfMarks) {
-    item.innerText = "";
+  for (let i = 0; i < arrOfMarks.length; i++) {
+    arrOfMarks[i].innerText = "";
   }
 }
 
 //reset the color of the squares
 
 function resetColor() {
-  for (square in allSquares) {
-    square.style.backgroundColor = "#ff5252";
+  for (let i = 0; i < allSquares.length; i++) {
+    allSquares[i].style.backgroundColor = "#ff5252";
   }
 }
 
@@ -101,6 +101,8 @@ function gameOnNow() {
 
 
   rButton.addEventListener("click", function(e) {
+      resetColor();
+      resetMarks();
       message.innerText = initialMessage;
 
   })
