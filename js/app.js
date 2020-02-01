@@ -1,5 +1,5 @@
 /* ------------------------------Game State / Global Variables -------------------------------------- */
-
+// Now I am on my new branch - finished product. This is where I will complete the entire game.
 let player = "X";
 
 let gameOn = true;
