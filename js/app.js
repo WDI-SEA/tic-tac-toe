@@ -4,24 +4,12 @@ let player = "X";
 
 let gameOn = true;
 
-let arrOfMarks = document.querySelectorAll(".letter");
-
-/*------------------------------ Reset Variable  ---------------------------------------*/
-
-var rButton = document.getElementById("r-button");
+ 
 
 
-/* ---------------------------- Variables for Messaging Players ---------------------------------------*/
 
-var allSquares = document.querySelectorAll(".squares");
-var message = document.getElementById("message-text");
-var initialMessage = (message.innerText =
-  '"Always Play To Win"\n"X" Goes First');
-var winMessageX = (message.innerText = '"X" Wins!!!');
-var winMessageO = (message.innerText = '"O" Wins!!!');
-var tieGameMessage = (message.innerText = '"Cat\'s Game" You are tied!');
-var xTurn = (message.innerText = 'Make A Move "X"');
-var oTurn = (message.innerText = 'Make A Move "O"');
+
+
 
 
 // use following for checkWin func
@@ -47,56 +35,106 @@ function checkSquares(one, two, three) {
 // run this after every click
 
 function checkWin() {
-  checkSquares(document.getElementById('s1'), document.getElementById('s2'), document.getElementById('s3'));
-  checkSquares(document.getElementById('s4'), document.getElementById('s5'), document.getElementById('s6'));
-  checkSquares(document.getElementById('s7'), document.getElementById('s8'), document.getElementById('s9'));  
-  checkSquares(document.getElementById('s1'), document.getElementById('s4'), document.getElementById('s7'));
-  checkSquares(document.getElementById('s2'), document.getElementById('s5'), document.getElementById('s8'));
-  checkSquares(document.getElementById('s3'), document.getElementById('s6'), document.getElementById('s9'));  
-  checkSquares(document.getElementById('s1'), document.getElementById('s5'), document.getElementById('s9'));
-  checkSquares(document.getElementById('s3'), document.getElementById('s5'), document.getElementById('s7'));
-};
+  checkSquares(
+    document.getElementById("s1"),
+    document.getElementById("s2"),
+    document.getElementById("s3")
+  );
+  checkSquares(
+    document.getElementById("s4"),
+    document.getElementById("s5"),
+    document.getElementById("s6")
+  );
+  checkSquares(
+    document.getElementById("s7"),
+    document.getElementById("s8"),
+    document.getElementById("s9")
+  );
+  checkSquares(
+    document.getElementById("s1"),
+    document.getElementById("s4"),
+    document.getElementById("s7")
+  );
+  checkSquares(
+    document.getElementById("s2"),
+    document.getElementById("s5"),
+    document.getElementById("s8")
+  );
+  checkSquares(
+    document.getElementById("s3"),
+    document.getElementById("s6"),
+    document.getElementById("s9")
+  );
+  checkSquares(
+    document.getElementById("s1"),
+    document.getElementById("s5"),
+    document.getElementById("s9")
+  );
+  checkSquares(
+    document.getElementById("s3"),
+    document.getElementById("s5"),
+    document.getElementById("s7")
+  );
+}
 
-
-/* ------------------------- This was my original loop solution for the below nodelist -----------------*/
-
-// document.querySelectorAll(".squares").forEach(square => {
-//   square.addEventListener("click", function(e) {
-//     square.style.backgroundColor = "yellow";
-//     if (message.innerText === initialMessage || message.innerText === xTurn) {
-//       square.firstChild.innerText = "X";
-//       player = "O";
-//       message.innerText = oTurn;
-//     } else {
-//       player = "X";
-//       square.firstChild.innerText = "O";
-//       message.innerText = xTurn;
-//     }
-//   });
-// });
 
 /* ------------------------------- New Solution Below -----------------------------------------------*/
 
 
-function setUpSquares() {
-  for (let i = 0; i < allSquares.length; i++) {
-    allSquares[i].addEventListener("click", function(e) {
-      allSquares[i].style.backgroundColor = "yellow";
-      if (message.innerText === initialMessage || message.innerText === xTurn) {
-        document.getElementById("clickX").play();
-        allSquares[i].firstChild.innerText = "X";
-        player = "O";
-        message.innerText = oTurn;
-      } else {
-        player = "X";
-        document.getElementById("clickO").play();
-        allSquares[i].firstChild.innerText = "O";
-        message.innerText = xTurn;
-      }
-    })
-  }
+
+
+// main game functions still being worked on
+
+function gameOnNow() {
+  
+  setUpSquares();
+
+ 
 }
-// for resetting the Xs and Os
+
+document.addEventListener("DOMContentLoaded", function(e) {
+
+  // These are variables for messaging players
+  // And displaying the Xs and Os
+  const allSquares = document.querySelectorAll(".squares");
+  const message = document.getElementById("message-text");
+  const initialMessage =
+    '"Always Play To Win"\n"X" Goes First';
+  const winMessageX = '"X" Wins!!!';
+  const winMessageO = '"O" Wins!!!';
+  const tieGameMessage = '"Cat\'s Game" You are tied!';
+  const xTurn = 'Make A Move "X"';
+  const oTurn = 'Make A Move "O"';
+
+  // This is the reset button
+  const rButton = document.getElementById("r-button");
+
+  // This is the variable containing all the h1 elements with containing "" or "X" or "O"
+  const arrOfMarks = document.querySelectorAll(".letter");
+
+  // Initial Setup of Squares
+  function setUpSquares() {
+    for (let i = 0; i < allSquares.length; i++) {
+      allSquares[i].addEventListener("click", function(e) {
+        allSquares[i].style.backgroundColor = "yellow";
+        if (message.innerText === initialMessage || message.innerText === xTurn) {
+          // document.getElementById("clickX").play();
+          allSquares[i].firstChild.innerText = "X";
+          player = "O";
+          message.innerText = oTurn;
+        } else {
+          player = "X";
+          // document.getElementById("clickO").play();
+          allSquares[i].firstChild.innerText = "O";
+          message.innerText = xTurn;
+        }
+      });
+    }
+  }
+  // --------------------------Calling setUpSquares Here -----------------------------------------
+  setUpSquares()
+
+  // for resetting the Xs and Os
 
 function resetMarks() {
   for (let i = 0; i < arrOfMarks.length; i++) {
@@ -113,31 +151,18 @@ function resetColor() {
 }
 
 
-
-
-// main game functions still being worked on 
-
-function gameOnNow() {
-  window.onload = message.innerText = initialMessage;
-  setUpSquares();
-
-
+  // adding event listener for reset button
   rButton.addEventListener("click", function(e) {
-      resetColor();
-      resetMarks();
-      message.innerText = initialMessage;
-
-  })
-
+    resetColor();
+    resetMarks();
+    message.innerText = initialMessage;
+  });
  
-  
-  }
+  message.innerText = initialMessage;
 
   
 
 
-
-gameOnNow();
-
-console.log(allSquares);
-
+  // gameOnNow();
+  // console.log(allSquares);
+});
