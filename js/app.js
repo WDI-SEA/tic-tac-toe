@@ -1,32 +1,12 @@
 /* ------------------------------Game State / Global Variables -------------------------------------- */
 // Now I am on my new branch - finished product. This is where I will complete the entire game.
-let player = "X";
 
 let gameOn = true;
 
  
 
-// check for cat's game
-
-
-
-
-
-
-
-
-
-
-// main game functions still being worked on
-
-function gameOnNow() {
-  
-  setUpSquares();
-
- 
-}
-
 document.addEventListener("DOMContentLoaded", function(e) {
+  
 
   // These are variables for messaging players
   // And displaying the Xs and Os
@@ -36,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
     '"Always Play To Win"\n"X" Goes First';
   const winMessageX = '"X" Wins!!!';
   const winMessageO = '"O" Wins!!!';
-  const tieGameMessage = '"Cat\'s Game" You are tied!';
+  const tieGameMessage = '"Cat\'s Game" You are tied!\nReset to Play Again!';
   const xTurn = 'Make A Move "X"';
   const oTurn = 'Make A Move "O"';
 
@@ -46,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
   // This is the variable containing all the h1 elements with containing "" or "X" or "O"
   const arrOfMarks = document.querySelectorAll(".letter");
 
-   // use following for checkWin func
+   // use following for checkWin func - this is function DECLARATION
 
 function checkSquares(one, two, three) {
   if (
@@ -54,19 +34,25 @@ function checkSquares(one, two, three) {
     two.innerText === "X" &&
     three.innerText === "X"
   ) {
-    message.innerText = '"X" Wins!!!';
     gameOn = false;
+    message.innerText = '"X" Wins!!!';
+    one.parentElement.style.backgroundColor = "purple";
+    two.parentElement.style.backgroundColor = "purple";
+    three.parentElement.style.backgroundColor = "purple";
   } else if (
     one.innerText === "O" &&
     two.innerText === "O" &&
     three.innerText === "O"
   ) {
-    message.innerText = '"O" Wins!!!';
     gameOn = false;
+    message.innerText = '"O" Wins!!!';
+    one.parentElement.style.backgroundColor = "green";
+    two.parentElement.style.backgroundColor = "green";
+    three.parentElement.style.backgroundColor = "green";
   }
 }
 
-// run this after every click
+// run this after every click - this is function DECLARATION
 
 function checkWin() {
   checkSquares(
@@ -111,7 +97,27 @@ function checkWin() {
   );
 }
 
-  // Initial Setup of Squares
+// checking background colors
+function checkColors() {
+  for (let i = 0; i < allSquares.length; i++) {
+    if (allSquares[i].style.backgroundColor != "#ff5252")
+    return true;
+  } 
+}
+
+
+// check for cat's game
+
+function catsGame() {
+  if (checkColors() === false) {
+    message.innerText = tieGameMessage;
+  }
+}
+
+
+
+
+  // Initial Setup of Squares - this is function DECLARATION
   function setUpSquares() {
     for (let i = 0; i < allSquares.length; i++) {
       allSquares[i].addEventListener("click", function(e) {
@@ -120,15 +126,14 @@ function checkWin() {
         if (message.innerText === initialMessage || message.innerText === xTurn) {
           // document.getElementById("clickX").play();
           allSquares[i].firstChild.innerText = "X";
-          player = "O";
           message.innerText = oTurn;
         } else {
-          player = "X";
           // document.getElementById("clickO").play();
           allSquares[i].firstChild.innerText = "O";
           message.innerText = xTurn;
         }
         checkWin();
+        catsGame();
       });
     }
   }
