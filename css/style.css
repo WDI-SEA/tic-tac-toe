@@ -1,52 +1,55 @@
-body {
-  background-image: url(https://ak7.picdn.net/shutterstock/videos/1016011177/thumb/1.jpg);
-  text-align: center;
-  align-items: center;
+* {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(89, 173, 179);
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 200px;
+}
 
 h1 {
-  color: rgb(255, 255, 255);
-  font-size: 50px;
-  font-family: monospace;
+  margin-bottom: 20px;
+  font-family: 'Luckiest Guy', cursive;
+  font-size: 60px;
+}
+#whoW {
+  color: rgb(0, 255, 0);
 }
 
-div {
-  padding: 7px;
+.gameB {
+  display: grid;
+  width: 300px;
+  height: 300px;
+  grid-template-columns: auto auto auto;
 }
-
-img {
-  size: 20px;
-  width: 150px;
-  padding: 15px 15px 0px 0px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-
-
-
-#c1 {
-  height: 150px; 
-}
-
-#i1{
-  height: 150px;
-}
-
-#c2 {
-  height: 150px;
-}
-
-#c3 {
-  height: 150px;
+.s {
+  display: flex;
+  width: 100px;
+  height: 100px;
+  align-items: center;
+  justify-content: center;
+  border: 8px solid rgb(89, 173, 179);
+  background-color: rgb(31, 207, 31);
+  font-size: 120px;
+  
 }
 
 button {
-  font-size: 30px;
-  border: 2px solid rgb(120, 228, 98);
+  border: 4px solid black;
   margin-top: 50px;
-  background: rgb(61, 141, 207);
-  padding: 5px 35px;
-  font-family: monospace;
+  margin-left: 50px;
+  padding: 10px 20px;
+  background-color: rgb(31, 207, 31);
+  color: black;
+  font-family: 'Luckiest Guy', cursive;
+}
+
+
+.s:hover {
+  background: grey;
 }
