@@ -23,7 +23,6 @@ let message = document.getElementById('message');
 
 let resetBtn = document.querySelector('.reset');
 
-//resetBtn.addEventListener('click', resetGame);
 
 
 const winner = [
@@ -39,22 +38,7 @@ const winner = [
 
 
 board = [];
-//document.querySelector('.board').addEventListener('click', currentTurn);
-/*let gameInit = function() {
-            
 
-    board.forEach(function(mark, index) {
-    console.log('ugh');
-    squares[index].innerText = mark;
-    document.querySelector('.square').addEventListener('click', currentTurn);
-// ..........kjfnsdkjbvkjwb
-//for (let i = 0; i < 9; i++) {
-    //squares[i].innerText = mark;
-
-});
-console.log('nothing');
-};
-*/
 let current = document.querySelectorAll('.square')
 let gameInit = function() {
     board = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'];
@@ -68,14 +52,7 @@ let gameInit = function() {
 let handleBoardClick = function (event) {
     //console.log(event)
     let index = event.target.id;
-    //     function(square) {
-    //     console.log(event.target);
-    //     console.log(square);
-    //     return square = event.target;
-
-    // });
     
-    //console.log(index);
     if (board[index] !== 'X' && board[index] !== 'O' && board[index] !== 'z') {
     board[index] = turn;
     turn = turn === 'X' ? 'O' : 'X';
@@ -93,8 +70,7 @@ let handleBoardClick = function (event) {
 checkWin();
 console.log(board);
 console.log(squares);
-//console.log(index);
-//render();
+
 }
 let gameOver = function() {
     board = ['z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z'];
@@ -157,32 +133,7 @@ let resetGame = function() {
 
 
 resetBtn.addEventListener('click', resetGame);
-// let addPic = function() {
 
-// }
-
-// let domResetBtn = document.querySelector('.reset');
-
-// function currentTurn(e) {
-//     let index = squares.findIndex(function(square) {
-//     return square === e.target;
-//     square.src = "https://images.squarespace-cdn.com/content/v1/55ece940e4b048d1ed401c11/1450136257542-4DATU4KRB70MDENGJXJX/ke17ZwdGBToddI8pDm48kAf-OpKpNsh_OjjU8JOdDKBZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpwkCFOLgzJj4yIx-vIIEbyWWRd0QUGL6lY_wBICnBy59Ye9GKQq6_hlXZJyaybXpCc/X%3A++The+Unknown"
-// });
-// board[index] = turn;
-// turn = turn === 'X' ? 'O' : 'X';
-// console.log(board);
-// if (turn === 'O') {
-//     document.querySelector('img').src = "https://images.squarespace-cdn.com/content/v1/55ece940e4b048d1ed401c11/1450136257542-4DATU4KRB70MDENGJXJX/ke17ZwdGBToddI8pDm48kAf-OpKpNsh_OjjU8JOdDKBZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpwkCFOLgzJj4yIx-vIIEbyWWRd0QUGL6lY_wBICnBy59Ye9GKQq6_hlXZJyaybXpCc/X%3A++The+Unknown"
-// } else if (turn === 'X') {
-//     document.querySelector('img').src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdZVweA-T9ZNXFmIPD0zFe3ZKnC9s3Ag71WkKy2zIYfW34UMq8&s"
-// }
-// console.log(board);
-// };
-//document.querySelector('.square').textContent = e.target;
-
-// function checkWin(){
-//     console.log("checking for win");
-// }
 
 
 
