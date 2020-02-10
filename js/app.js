@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
     for (let i = 0; i < allSquares.length; i++) {
       allSquares[i].addEventListener("click", function(e) {
         // checking for empty square here
-        if (allSquares[i].firstChild.textContent === "") {
+        if (gameOn === true && allSquares[i].firstChild.textContent === "") {
           // turning background to yellow after click
           allSquares[i].style.backgroundColor = "yellow";
           if (

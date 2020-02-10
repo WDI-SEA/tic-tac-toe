@@ -18,7 +18,7 @@ h1 {
 
 h2 {
   font-family: "Bangers", cursive;
-  font-size: 48px;
+  font-size: 32px;
   color: white;
   letter-spacing: 4px;
   
@@ -54,37 +54,47 @@ footer {
 /*-------------------------------------Classes------------------------------------------------*/
 
 
+
 .game-container {
   background-color: #706fd3;
-  width: 800px;
-  height: 800px;
+  height: 900px;
+  width: 900px;
   margin: 0 auto;
-  margin-top: 32px;
-  text-align: center;
   border: 3px solid #2c2c54;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* align-items: center; */
+
+
   
 }
 
 .row {
-  display: inline-block;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 12px;
   
   
 }
 
 .square-container {
-  text-align: center;
-  margin 0 auto;
+  margin: 0 auto;
   position: relative;
-  top: 12%;
+  top: 100px; 
+  display: flex;
+  flex-direction: column;
+  align-items: space-around;
   
 }
 
 .squares {
-  width: 200px;
-  height: 200px;
+  
+  height: 225px;
+  flex-basis: 225px;
   background-color: #ff5252;
-  float: left;
-  margin-left: 10px;
+  /* float: left;
+  margin-left: 10px; */
   display: flex;
 }
 
@@ -107,21 +117,21 @@ footer {
   display: inline-block;
   text-align: center;
   margin-top: 32px;
+  margin-bottom: 32px;
   
 }
 
 .message-box {
-  width: 400px;
-  height: 400px;
-  float: right;
+  width: 300px;
+  height: 300px;
   background-color: #ff793f;
-  margin-right: 75px;
-  margin-left: 75px;
-  margin-top: 150px;
   display: inline-block;
   font-family: 'Bebas Neue', cursive;
-  font-size: 48px;
+  font-size: 32px;
   border: 3px solid #2c2c54;
+  position: relative;
+  top: 300px;
+  left: 700px;
 }
 
 .clicked {
@@ -130,15 +140,15 @@ footer {
 
 /* ---------------------------------Psuedo Stuff ------------------------------------------------------ */
 
-button:hover {
+ button:hover {
   height: 85px;
   width: 420px;
 
 }
 
 .message-box:hover {
-  width: 430px;
-  height: 430px;
+  height: 310px;
+  width: 310px;
 }
 
 .span-1:hover {
@@ -151,9 +161,4 @@ button:hover {
 
 .span-3:hover {
   color: lightblue;
-}
-
-.game-container:hover {
-  width: 810px;
-  height: 810px;
 }
