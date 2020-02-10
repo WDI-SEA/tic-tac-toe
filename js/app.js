@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
   // This is the variable containing all the h1 elements with containing "" or "X" or "O"
   const arrOfMarks = document.querySelectorAll(".letter");
 
-  // use following for checkWin func - this is function DECLARATION
+  // use following for checkWin func - this is a function DECLARATION
 
   function checkSquares(one, two, three) {
     if (
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
     }
   }
 
-  // run this after every click - this is function DECLARATION
+  // run this after every click - this is a function DECLARATION
 
   function checkWin() {
     checkSquares(
@@ -93,18 +93,13 @@ document.addEventListener("DOMContentLoaded", function(e) {
     );
   }
 
-  // checking background colors
-  // function checkColors() {
-  //   for (let i = 0; i < allSquares.length; i++) {
-  //     if (allSquares[i].style.backgroundColor != "#ff5252") return true;
-  //   }
-  // }
-
-  // check for cat's game
 
   function catsGame() {
     if (clickCounter === 9 && gameOn === true) {
       message.innerText = tieGameMessage;
+      for (let i = 0; i < allSquares.length; i++) {
+        allSquares[i].style.backgroundColor = "#1E90FF";
+      }
     }
   }
 
@@ -112,7 +107,8 @@ document.addEventListener("DOMContentLoaded", function(e) {
   function setUpSquares() {
     for (let i = 0; i < allSquares.length; i++) {
       allSquares[i].addEventListener("click", function(e) {
-        if ((allSquares[i].firstChild.textContent === "")) {
+        // checking for empty square here
+        if (allSquares[i].firstChild.textContent === "") {
           // turning background to yellow after click
           allSquares[i].style.backgroundColor = "yellow";
           if (
@@ -129,6 +125,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
           }
           clickCounter += 1;
           checkWin();
+          // checking against the click counter here 
           catsGame();
         }
       });
@@ -158,10 +155,11 @@ document.addEventListener("DOMContentLoaded", function(e) {
     resetColor();
     resetMarks();
     message.innerText = initialMessage;
+    clickCounter = 0;
+    gameOn = true;
   });
 
   message.innerText = initialMessage;
 
-  // gameOnNow();
-  // console.log(allSquares);
+
 });
