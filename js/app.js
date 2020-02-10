@@ -6,25 +6,59 @@ let gameOn = true;
 
  
 
+// check for cat's game
 
 
 
 
 
 
-// use following for checkWin func
+
+
+
+
+// main game functions still being worked on
+
+function gameOnNow() {
+  
+  setUpSquares();
+
+ 
+}
+
+document.addEventListener("DOMContentLoaded", function(e) {
+
+  // These are variables for messaging players
+  // And displaying the Xs and Os
+  const allSquares = document.querySelectorAll(".squares");
+  const message = document.getElementById("message-text");
+  const initialMessage =
+    '"Always Play To Win"\n"X" Goes First';
+  const winMessageX = '"X" Wins!!!';
+  const winMessageO = '"O" Wins!!!';
+  const tieGameMessage = '"Cat\'s Game" You are tied!';
+  const xTurn = 'Make A Move "X"';
+  const oTurn = 'Make A Move "O"';
+
+  // This is the reset button
+  const rButton = document.getElementById("r-button");
+
+  // This is the variable containing all the h1 elements with containing "" or "X" or "O"
+  const arrOfMarks = document.querySelectorAll(".letter");
+
+   // use following for checkWin func
 
 function checkSquares(one, two, three) {
   if (
     one.innerText === "X" &&
-    two.innerText == "X" &&
+    two.innerText === "X" &&
     three.innerText === "X"
   ) {
-    message.innerText = `"${player}" Wins!!!`;
+    message.innerText = '"X" Wins!!!';
     gameOn = false;
   } else if (
     one.innerText === "O" &&
-    two.innerText == "O" &&
+    two.innerText === "O" &&
     three.innerText === "O"
   ) {
     message.innerText = '"O" Wins!!!';
@@ -77,45 +111,11 @@ function checkWin() {
   );
 }
 
-
-/* ------------------------------- New Solution Below -----------------------------------------------*/
-
-
-
-
-// main game functions still being worked on
-
-function gameOnNow() {
-  
-  setUpSquares();
-
- 
-}
-
-document.addEventListener("DOMContentLoaded", function(e) {
-
-  // These are variables for messaging players
-  // And displaying the Xs and Os
-  const allSquares = document.querySelectorAll(".squares");
-  const message = document.getElementById("message-text");
-  const initialMessage =
-    '"Always Play To Win"\n"X" Goes First';
-  const winMessageX = '"X" Wins!!!';
-  const winMessageO = '"O" Wins!!!';
-  const tieGameMessage = '"Cat\'s Game" You are tied!';
-  const xTurn = 'Make A Move "X"';
-  const oTurn = 'Make A Move "O"';
-
-  // This is the reset button
-  const rButton = document.getElementById("r-button");
-
-  // This is the variable containing all the h1 elements with containing "" or "X" or "O"
-  const arrOfMarks = document.querySelectorAll(".letter");
-
   // Initial Setup of Squares
   function setUpSquares() {
     for (let i = 0; i < allSquares.length; i++) {
       allSquares[i].addEventListener("click", function(e) {
+        // turning background to yellow after click
         allSquares[i].style.backgroundColor = "yellow";
         if (message.innerText === initialMessage || message.innerText === xTurn) {
           // document.getElementById("clickX").play();
@@ -128,6 +128,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
           allSquares[i].firstChild.innerText = "O";
           message.innerText = xTurn;
         }
+        checkWin();
       });
     }
   }
@@ -159,6 +160,9 @@ function resetColor() {
   });
  
   message.innerText = initialMessage;
+
+ 
+
 
   
 
