@@ -18,16 +18,15 @@ h1 {
 
 h2 {
   font-family: "Bangers", cursive;
-  font-size: 48px;
+  font-size: 32px;
   color: white;
   letter-spacing: 4px;
-  line-height: .5;
   
 }
 
 header {
   background-color: #2c2c54;
-  padding: 2px;
+  padding: 1px;
 }
 
 button {
@@ -43,87 +42,93 @@ button {
 
 footer {
   background-color: #2c2c54;
-  padding: 5px;
+  padding: 1px;
   color: white;
   font-family: "Bangers", cursive;
   font-size: 32px;
-  margin-top: 32px;
   letter-spacing: 4px;
+  
+}
 
 
+/*-------------------------------------Classes------------------------------------------------*/
+
+
+
+.game-container {
+  background-color: #706fd3;
+  height: 900px;
+  width: 900px;
+  margin: 0 auto;
+  border: 3px solid #2c2c54;
+
+
+  
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 12px;
+  
+  
+}
+
+.square-container {
+  margin: 0 auto;
+  position: relative;
+  top: 100px; 
+  display: flex;
+  flex-direction: column;
+  align-items: space-around;
+  
+}
+
+.squares {
+  
+  height: 225px;
+  flex-basis: 225px;
+  background-color: #ff5252;
+  display: flex;
 }
 
 .letter {
   font-family: 'Bebas Neue', cursive;
   font-size: 96px;
   text-transform: uppercase;
-  margin-top: 32px;
-  padding: 0;
-  position: relative;
-  top: 10%;
-  text-align: center;
+  margin: auto;
 }
 
-.game-container {
-  background-color: #706fd3;
-  width: 800px;
-  height: 800px;
-  margin: 0 auto;
-  margin-top: 32px;
-  text-align: center;
-  border: 3px solid #2c2c54;
-
-}
-
-.squares {
-  width: 200px;
-  height: 200px;
-  background-color: #ff5252;
-  /* display: inline-block; */
-  float: left;
-  margin-left: 10px;
-}
-
-.row {
-  display: inline-block;
-  
-  
-}
-
-.square-container {
-  text-align: center;
-  margin 0 auto;
-  position: relative;
-  top: 12%;
-  
-}
 
 .message {
   font-family: 'Bebas Neue', cursive;
-  font-size: 48px;
-  margin-top: 32px;
-  padding-top: 32px;
+  font-size: 28px;
+  margin-top: 28px;
+  padding-top: 24px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 .button {
   display: inline-block;
   text-align: center;
   margin-top: 32px;
+  margin-bottom: 32px;
   
 }
 
 .message-box {
-  width: 400px;
-  height: 400px;
-  float: right;
+  width: 250px;
+  height: 250px;
   background-color: #ff793f;
-  margin-right: 75px;
-  margin-left: 75px;
-  margin-top: 150px;
   display: inline-block;
   font-family: 'Bebas Neue', cursive;
-  font-size: 48px;
+  font-size: 28px;
   border: 3px solid #2c2c54;
+  position: relative;
+  top: 270px;
+  left: 650px;
 }
 
 .clicked {
@@ -132,15 +137,15 @@ footer {
 
 /* ---------------------------------Psuedo Stuff ------------------------------------------------------ */
 
-button:hover {
+ button:hover {
   height: 85px;
   width: 420px;
 
 }
 
 .message-box:hover {
-  width: 430px;
-  height: 430px;
+  height: 260px;
+  width: 260px;
 }
 
 .span-1:hover {
@@ -153,9 +158,4 @@ button:hover {
 
 .span-3:hover {
   color: lightblue;
-}
-
-.game-container:hover {
-  width: 810px;
-  height: 810px;
 }

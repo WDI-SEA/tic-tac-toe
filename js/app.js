@@ -1,121 +1,165 @@
 /* ------------------------------Game State / Global Variables -------------------------------------- */
-
-let player = "X";
+// Now I am on my new branch - finished product. This is where I will complete the entire game.
 
 let gameOn = true;
+let clickCounter = 0;
 
-let arrOfMarks = document.querySelectorAll(".letter");
+document.addEventListener("DOMContentLoaded", function(e) {
+  // These are variables for messaging players
+  // And displaying the Xs and Os
+  const allSquares = document.querySelectorAll(".squares");
+  const message = document.getElementById("message-text");
+  const initialMessage = '"Always Play To Win"\n"X" Goes First';
+  const winMessageX = '"X" Wins!!!';
+  const winMessageO = '"O" Wins!!!';
+  const tieGameMessage = '"Cat\'s Game" You are tied!\nReset to Play Again!';
+  const xTurn = 'Make A Move "X"';
+  const oTurn = 'Make A Move "O"';
 
-/*------------------------------ Reset Variable  ---------------------------------------*/
+  // This is the reset button
+  const rButton = document.getElementById("r-button");
 
-var rButton = document.getElementById("r-button");
+  // This is the variable containing all the h1 elements with containing "" or "X" or "O"
+  const arrOfMarks = document.querySelectorAll(".letter");
 
+  // use following for checkWin func - this is a function DECLARATION
 
-/* ---------------------------- Variables for Messaging Players ---------------------------------------*/
-
-var allSquares = document.querySelectorAll(".squares");
-var message = document.getElementById("message-text");
-var initialMessage = (message.innerText =
-  '"Always Play To Win"\n"X" Goes First');
-var winMessageX = (message.innerText = '"X" Wins!!!');
-var winMessageO = (message.innerText = '"O" Wins!!!');
-var tieGameMessage = (message.innerText = '"Cat\'s Game" You are tied!');
-var xTurn = (message.innerText = 'Make A Move "X"');
-var oTurn = (message.innerText = 'Make A Move "O"');
-
-
-// use following for checkWin func
-
-function checkSquares(one, two, three) {
-  if (
-    one.innerText === "X" &&
-    two.innerText == "X" &&
-    three.innerText === "X"
-  ) {
-    message.innerText = `"${player}" Wins!!!`;
-    gameOn = false;
-  } else if (
-    one.innerText === "O" &&
-    two.innerText == "O" &&
-    three.innerText === "O"
-  ) {
-    message.innerText = '"O" Wins!!!';
-    gameOn = false;
-  }
-}
-
-// run this after every click
-
-function checkWin() {
-  checkSquares(document.getElementById('s1'), document.getElementById('s2'), document.getElementById('s3'));
-  checkSquares(document.getElementById('s4'), document.getElementById('s5'), document.getElementById('s6'));
-  checkSquares(document.getElementById('s7'), document.getElementById('s8'), document.getElementById('s9'));  
-  checkSquares(document.getElementById('s1'), document.getElementById('s4'), document.getElementById('s7'));
-  checkSquares(document.getElementById('s2'), document.getElementById('s5'), document.getElementById('s8'));
-  checkSquares(document.getElementById('s3'), document.getElementById('s6'), document.getElementById('s9'));  
-  checkSquares(document.getElementById('s1'), document.getElementById('s5'), document.getElementById('s9'));
-  checkSquares(document.getElementById('s3'), document.getElementById('s5'), document.getElementById('s7'));
-};
-
-
-
-
-document.querySelectorAll(".squares").forEach(square => {
-  square.addEventListener("click", function(e) {
-    square.style.backgroundColor = "yellow";
-    if (message.innerText === initialMessage || message.innerText === xTurn) {
-      square.firstChild.innerText = "X";
-      player = "O";
-      message.innerText = oTurn;
-    } else {
-      player = "X";
-      square.firstChild.innerText = "O";
-      message.innerText = xTurn;
+  function checkSquares(one, two, three) {
+    if (
+      one.innerText === "X" &&
+      two.innerText === "X" &&
+      three.innerText === "X"
+    ) {
+      gameOn = false;
+      message.innerText = '"X" Wins!!!';
+      one.parentElement.style.backgroundColor = "purple";
+      two.parentElement.style.backgroundColor = "purple";
+      three.parentElement.style.backgroundColor = "purple";
+    } else if (
+      one.innerText === "O" &&
+      two.innerText === "O" &&
+      three.innerText === "O"
+    ) {
+      gameOn = false;
+      message.innerText = '"O" Wins!!!';
+      one.parentElement.style.backgroundColor = "green";
+      two.parentElement.style.backgroundColor = "green";
+      three.parentElement.style.backgroundColor = "green";
     }
-  });
-});
-
-// for resetting the Xs and Os
-
-function resetMarks() {
-  for (let i = 0; i < arrOfMarks.length; i++) {
-    arrOfMarks[i].innerText = "";
   }
-}
 
-//reset the color of the squares
+  // run this after every click - this is a function DECLARATION
 
-function resetColor() {
-  for (let i = 0; i < allSquares.length; i++) {
-    allSquares[i].style.backgroundColor = "#ff5252";
+  function checkWin() {
+    checkSquares(
+      document.getElementById("s1"),
+      document.getElementById("s2"),
+      document.getElementById("s3")
+    );
+    checkSquares(
+      document.getElementById("s4"),
+      document.getElementById("s5"),
+      document.getElementById("s6")
+    );
+    checkSquares(
+      document.getElementById("s7"),
+      document.getElementById("s8"),
+      document.getElementById("s9")
+    );
+    checkSquares(
+      document.getElementById("s1"),
+      document.getElementById("s4"),
+      document.getElementById("s7")
+    );
+    checkSquares(
+      document.getElementById("s2"),
+      document.getElementById("s5"),
+      document.getElementById("s8")
+    );
+    checkSquares(
+      document.getElementById("s3"),
+      document.getElementById("s6"),
+      document.getElementById("s9")
+    );
+    checkSquares(
+      document.getElementById("s1"),
+      document.getElementById("s5"),
+      document.getElementById("s9")
+    );
+    checkSquares(
+      document.getElementById("s3"),
+      document.getElementById("s5"),
+      document.getElementById("s7")
+    );
   }
-}
 
 
+  function catsGame() {
+    if (clickCounter === 9 && gameOn === true) {
+      message.innerText = tieGameMessage;
+      for (let i = 0; i < allSquares.length; i++) {
+        allSquares[i].style.backgroundColor = "#1E90FF";
+      }
+    }
+  }
 
+  // Initial Setup of Squares - this is function DECLARATION
+  function setUpSquares() {
+    for (let i = 0; i < allSquares.length; i++) {
+      allSquares[i].addEventListener("click", function(e) {
+        // checking for empty square here
+        if (gameOn === true && allSquares[i].firstChild.textContent === "") {
+          // turning background to yellow after click
+          allSquares[i].style.backgroundColor = "yellow";
+          if (
+            message.innerText === initialMessage ||
+            message.innerText === xTurn
+          ) {
+            // document.getElementById("clickX").play();
+            allSquares[i].firstChild.innerText = "X";
+            message.innerText = oTurn;
+          } else {
+            // document.getElementById("clickO").play();
+            allSquares[i].firstChild.innerText = "O";
+            message.innerText = xTurn;
+          }
+          clickCounter += 1;
+          checkWin();
+          // checking against the click counter here 
+          catsGame();
+        }
+      });
+    }
+  }
+  // --------------------------Calling setUpSquares Here -----------------------------------------
+  setUpSquares();
 
-// main game functions still being worked on 
+  // for resetting the Xs and Os
 
-function gameOnNow() {
-  window.onload = message.innerText = initialMessage;
+  function resetMarks() {
+    for (let i = 0; i < arrOfMarks.length; i++) {
+      arrOfMarks[i].innerText = "";
+    }
+  }
 
+  //reset the color of the squares
 
+  function resetColor() {
+    for (let i = 0; i < allSquares.length; i++) {
+      allSquares[i].style.backgroundColor = "#ff5252";
+    }
+  }
+
+  // adding event listener for reset button
   rButton.addEventListener("click", function(e) {
-      resetColor();
-      resetMarks();
-      message.innerText = initialMessage;
+    resetColor();
+    resetMarks();
+    message.innerText = initialMessage;
+    clickCounter = 0;
+    gameOn = true;
+  });
 
-  })
-
- 
-  
-  }
-
-  
+  message.innerText = initialMessage;
 
 
-
-gameOnNow();
-
-console.log(allSquares);
-
+});
