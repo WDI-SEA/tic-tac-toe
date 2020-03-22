@@ -22,13 +22,26 @@ h2 {
 	padding: 0px 50px 30px 50px;
 	text-decoration: underline;
 }
+h3 {
+	text-align: center;
+	color: #000000;
+}
+div {
+	text-align: center;
+}
 
 #redTitle {
-	color: #b32d00;
+	text-shadow: : #b32d00;
 }
 
 #blueTitle {
-	color: #0052cc;
+	text-shadow: : #0052cc;
+}
+
+#startButton {
+	padding: 25px;
+	border-radius: 15px;
+	background-color: #003300;
 }
 
 #messageWindow {
