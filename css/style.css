@@ -14,8 +14,61 @@ h1 {
   	text-decoration: underline;
 }
 h2 {
+	background-color: #2eb82e;
 	color: #000000;
 	font-size: 1.875em;
+	text-align: center;
 	margin: 0px;
+	padding: 0px 50px 30px 50px;
 	text-decoration: underline;
+}
+
+#redTitle {
+	color: #b32d00;
+}
+
+#blueTitle {
+	color: #0052cc;
+}
+
+#messageWindow {
+	text-align: center;
+	padding: 50px;
+	margin: 0px;
+}
+
+#gameSquare1 {
+	background-color: #b32d00;
+}
+
+#gameSquare2 {
+	background-color: #0052cc;
+}
+
+#gameSquare3 {
+	background-color: #b32d00;
+}
+
+#gameSquare4 {
+	background-color: #0052cc;
+}
+
+#gameSquare5 {
+	background-color: #b32d00;
+}
+
+#gameSquare6 {
+	background-color: #0052cc;
+}
+
+#gameSquare7 {
+	background-color: #b32d00;
+}
+
+#gameSquare8 {
+	background-color: #0052cc;
+}
+
+#gameSquare9 {
+	background-color: #b32d00;
 }
