@@ -1,3 +1,21 @@
+body {
+	font-family: 'Merriweather Sans', sans-serif;
+	font-size: 100%;
+	background-color: #5cd65c;
+	margin: 0px;
+}
 h1 {
-  color: purple;
+	background-color: #2eb82e;
+	padding: 50px;
+	text-align: center;
+	color: #000000;
+  	font-size: 2.5em;
+  	margin: 0px;
+  	text-decoration: underline;
+}
+h2 {
+	color: #000000;
+	font-size: 1.875em;
+	margin: 0px;
+	text-decoration: underline;
 }
