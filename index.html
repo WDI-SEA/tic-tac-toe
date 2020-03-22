@@ -3,12 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <title>Tic Tac Toe</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-  <h1>Hello Front-End</h1>
-
+  <h1>Tic Tac Toe</h1>
+  <!-- 3*3 grid for game -->
+  <div class="game">
+    <div class="board" id="board">
+      <div id="box1" class="box top1"></div>
+      <div id="box2" class="box top2"></div>
+      <div id="box3" class="box top3"></div>
+      <div id="box4" class="box mid1"></div>
+      <div id="box5" class="box mid2"></div>
+      <div id="box6" class="box mid3"></div>
+      <div id="box7" class="box btm1"></div>
+      <div id="box8" class="box btm2"></div>
+      <div id="box9" class="box btm3"></div>
+    </div>
+    <div id="message"></div>
+    <div class="score">
+      <p class="player1">Player 1: <span class="p1">0</span></p>
+      <p class="player2">Player 2: <span class="p2">0</span></p>
+      <p class="tie">Tie: <span class="tieCounter">0</span></p>
+    </div>
+    <button id="reset">Reset</button>
+    <button id="again">Play Again</button>
+  </div>
   <script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>

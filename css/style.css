@@ -1,3 +1,88 @@
+body {
+  background: black;
+}
+.game {
+  width: 50%;
+  margin: 0 auto;
+}
 h1 {
-  color: purple;
+  color: white;
+  text-align: center;
+}
+
+.board {
+background-color: red;
+height: 300px;
+width: 300px;
+display: grid;
+grid-template-rows: repeat(3, 1fr);
+grid-template-columns: repeat(3, 1fr);;
+grid-template-areas: 
+  "top1 top2 top3"
+  "mid1 mid2 mid3"
+  "btm1 btm2 btm3";
+text-align: center;
+margin: 0 auto;
+}
+
+
+.top1 {
+  grid-area: "top1";
+  border-bottom: 2px solid white;
+  border-right: 2px solid white;
+
+}
+
+.top2 {
+  grid-area: "top2";
+  border-bottom: 2px solid white;
+  border-right: 2px solid white;
+}
+
+.top3 {
+  grid-area: "top3";
+  border-bottom: 2px solid white;
+}
+
+.mid1 {
+  grid-area: "mid1";
+  border-bottom: 3px solid white;
+  border-right: 3px solid white;
+
+}
+
+.mid2 {
+  grid-area: "mid2";
+  border-bottom: 3px solid white;
+  border-right: 3px solid white;
+
+}
+
+.mid3 {
+  grid-area: "mid3";
+  border-bottom: 3px solid white;
+
+}
+
+.btm1 {
+  grid-area: "btm1";
+  border-right: 3px solid white;
+
+}
+
+.btm2 {
+  grid-area: "btm2";
+  border-right: 3px solid white;
+
+}
+
+.btm3 {
+  grid-area: "btm3";
+}
+
+.score {
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  
 }
