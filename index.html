@@ -3,11 +3,49 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
-  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <title>Tic-Tac-Toe-Game</title>
+
+
+  <link rel="stylesheet" type="text/css" href="css/style.css" charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css?family=Courier+Prime&display=swap" rel="stylesheet">
+
 </head>
 <body>
-  <h1>Hello Front-End</h1>
+
+  <header>
+  	<h1>Tic-Tac-Toe</h1>
+  	<h2>Can you beat the computer?</h2>
+  </header>
+
+  <div class="intro">
+  	<div class="yourTask">
+  		<p>The year is 2036. Artificial intelligence is leaps and bounds ahead of what it once was in the 2020s, and as a result, robots live alongside human beings, many of whom are cyborgs with biomechatronics. In this new world, Tic-Tac-Toe is the universal law. All crimes, decisions, and contests are decidided with a final game of Tic-Tac-Toe. Robots believe they are smarter than humans and go out of their way to prove it. A foolish robot has challenged you to a game, betting his brand new MetaCorp Roadster for your motorcycle. Teach this node-headed bot a lesson and take his car! Make sure to ride off into the night at speeds above 200mph. </p>
+  	</div>
+  	<div class="advertisement">
+  		<img class="car" src="https://i.pinimg.com/originals/53/ad/92/53ad929213f59c7392bf92605868021f.gif" alt="car ad">
+  	</div>
+
+  </div>	
+
+  <div class="game" id="game">
+  	<div class="gameboard" id="gameboard">
+  		<div class="square" id="square"></div>
+  		<div class="square" id="square"></div>
+  		<div class="square" id="square"></div>
+  		<div class="square" id="square"></div>
+  		<div class="square" id="square"></div>
+  		<div class="square" id="square"></div>
+  		<div class="square" id="square"></div>
+  		<div class="square" id="square"></div>
+  		<div class="square" id="square"></div>
+  		<div class="play" id="play">
+  			<button class="start" id="start">Start Game</button>
+  		</div>
+   	</div>	
+  </div>
+
+  <!-- Audio Files -->
+  <audio id="music" src="./sounds/MACINTOSH PLUS - リサフランク420 _ 現代のコンピュー.mp3">
 
   <script type="text/javascript" src="js/app.js"></script>
 </body>
