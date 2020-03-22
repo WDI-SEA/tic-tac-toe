@@ -37,6 +37,10 @@ h2 {
 	margin: 0px;
 }
 
+.square {
+	padding: 100px;
+}
+
 #gameSquare1 {
 	background-color: #b32d00;
 }
