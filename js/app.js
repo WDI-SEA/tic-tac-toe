@@ -26,42 +26,37 @@ let startButton = document.getElementById('startButton')
 
 const messageToPlayers = () => {
 	if (turnNumber % 2 === 0) {
-		document.getElementById('messageWindow').textContent = "It's Player 2's turn"
-	}
-	else {
 		document.getElementById('messageWindow').textContent = "It's Player 1's turn"
 	}
-	console.log('messageToPlayers')
+	else {
+		document.getElementById('messageWindow').textContent = "It's Player 2's turn"
+	}
 }
 
 const changeSquare = (e) => {
-	console.log('Enter changeSquare')
 	e.target.setAttribute('clicked', 'true')
-//trying to select the element that has been clicked
-	//let flipSquare = document.getElementsByClassName('squares')
-	console.log(e.target.getAttribute('clicked'))
-	//if (e.target.getAttribute('clicked') == 'true') {
-	//	let flip = k
-	//	let oneFlipSquare = flipSquare[flip]
-		console.log('element has been selected')
-		e.target.removeEventListener('click', changeSquare)
-		console.log('has the eventListener been removed?')
-		e.target.setAttribute('claimed', 'true')
-		//set color attribute and background color
-		if (turnNumber % 2 === 0) {
-			e.target.style.backgroundColor = 'firebrick'
-		}
-		else {
-			e.target.style.backgroundColor = 'blue'
-		}
-	//}
+	e.target.removeEventListener('click', changeSquare)
+	e.target.setAttribute('claimed', 'true')
+	if (turnNumber % 2 === 0) {
+		e.target.style.backgroundColor = 'blue'
+		//set O image
+	}
+	else {
+		e.target.style.backgroundColor = 'firebrick'
+		//set X image
+	}
 advanceTurn()
+checkForWin()
+}
+
+const checkForWin = () => {
+	console.log('checkForWin called')
+	console.log()
 }
 
 //advances the turn count when called
 const advanceTurn = () => {
 	turnNumber +=1
-	console.log(turnNumber)
 	messageToPlayers()
 }
 //Sets eventlisteners

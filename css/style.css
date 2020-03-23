@@ -30,6 +30,12 @@ div {
 	text-align: center;
 }
 
+div.square {
+	border: 10px solid black;
+	padding: 100px;
+
+}
+
 #redTitle {
 	text-shadow: : #b32d00;
 }
@@ -50,11 +56,6 @@ div {
 	margin: 0px;
 }
 
-.square {
-	padding: 100px;
-	border-width: 15px;
-	border-color: #000000;
-}
 
 #gameSquare1 {
 	border-color: #000000;
