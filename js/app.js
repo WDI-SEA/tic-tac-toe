@@ -49,10 +49,10 @@ const changeSquare = (e) => {
 		e.target.setAttribute('claimed', 'true')
 		//set color attribute and background color
 		if (turnNumber % 2 === 0) {
-			e.target.style.color = 'firebrick'
+			e.target.style.backgroundColor = 'firebrick'
 		}
 		else {
-			e.target.style.color = 'blue'
+			e.target.style.backgroundColor = 'blue'
 		}
 	//}
 advanceTurn()

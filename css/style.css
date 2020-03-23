@@ -52,40 +52,51 @@ div {
 
 .square {
 	padding: 100px;
+	border-width: 15px;
+	border-color: #000000;
 }
 
 #gameSquare1 {
-	background-color: #b32d00;
+	border-color: #000000;
+	background-color: #33cc33;
 }
 
 #gameSquare2 {
-	background-color: #0052cc;
+	border-color: #000000;
+	background-color: #33cc33;
 }
 
 #gameSquare3 {
-	background-color: #b32d00;
+	border-color: #000000;
+	background-color: #33cc33;
 }
 
 #gameSquare4 {
-	background-color: #0052cc;
+	border-color: #000000;
+	background-color: #33cc33;
 }
 
 #gameSquare5 {
-	background-color: #b32d00;
+	border-color: #000000;
+	background-color: #33cc33;
 }
 
 #gameSquare6 {
-	background-color: #0052cc;
+	border-color: #000000;
+	background-color: #33cc33;
 }
 
 #gameSquare7 {
-	background-color: #b32d00;
+	border-color: #000000;
+	background-color: #33cc33;
 }
 
 #gameSquare8 {
-	background-color: #0052cc;
+	border-color: #000000;
+	background-color: #33cc33;
 }
 
 #gameSquare9 {
-	background-color: #b32d00;
+	border-color: #000000;
+	background-color: #33cc33;
 }
