@@ -31,20 +31,27 @@ const messageToPlayers = () => {
 	console.log('messageToPlayers')
 }
 
-const changeSquare = () => {	
-
+const changeSquare = (e) => {
+	console.log('Enter changeSquare')
+//trying to select the element that has been clicked
+	let divList = document.getElementsByTagName('div')
+	for(let k = 0; k < divList.length; k++) {
+	if (divList[k].getAttribute('clicked') == 'true') {
+		let flip = k
+		let flipSquare = divList[flip]
+		flipSquare.removeEventListener('click', advanceTurn)
+		console.log(flipSquare)
+		flipSquare.removeEventListener('click', changeSquare)
+		flipSquare.setAttribute('claimed', 'true')
+		}
+	}
 	//set color attribute and background color
 	if (turnNumber % 2 === 0) {
-		document.getElementById(id).setAttribute('backgroundColor', '#b32d00')
-		//e.target.style.background-color = red
-	}
+		flipSquare.setAttribute('backgroundColor', '#b32d00')
+		}
 	else {
-		document.getElementById(id).setAttribute('backgroundColor', '#0052cc')
-		//e.target.style.background-color = blue
+		flipSquare.setAttribute('backgroundColor', '#0052cc')
 	}
-	//remove event listener
-	document.getElementById(id).removeEventListener('click', changeSquare)
-	
 }
 
 //advances the turn count when called
@@ -54,13 +61,12 @@ const advanceTurn = () => {
 	messageToPlayers()
 }
 //Sets eventlisteners
-const setEventListeners = () => {
+const setEventListeners = (e) => {
 	for (let i = 0; i < squares.length; i++) {
-		squares[i].addEventListener("click", (e) => {
+		squares[i].addEventListener('click', (e) => {
 		squares[i].setAttribute('clicked', true)
-		//advanceTurn()
-		//changeSquare()
-		console.log(squares[i])
+		advanceTurn()
+		changeSquare()
 		})
 	}
 }
@@ -69,9 +75,8 @@ const setGame = (e) => {
 	for (let j = 0; j < squares.length; j++) {
 	squares[j].setAttribute('clicked', false)
 	squares[j].setAttribute('claimed', false)
-	//console.log(squares[j])
-	setEventListeners()	
-	}	
+	}
+	setEventListeners()		
 }
 
 //Set eventlistener of the start button
