@@ -45,7 +45,6 @@ function startTictactoe()
      //we need the 0 to use as index for the player array
      let gridId =  e.target.getAttribute('id');
      let pIndex = parseInt(gridId.slice(5));
-     console.log('pIndex',pIndex);
 
      if(counter%2== 0){  // push X in the  player array at pIndex
         e.target.textContent = playerX; 
@@ -63,8 +62,7 @@ function startTictactoe()
      }
      counter++;
      e.target.removeEventListener('click',turnhandle);
-     console.log(players);
-     console.log('counter',counter);
+    
 }
 
 
