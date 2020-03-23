@@ -5,6 +5,7 @@ var currentTurn = document.getElementById('currentTurn')
 var curTurn; // Whose turn it currently is
 var xai = false;
 var oai = false;
+var gameRunning = false;
 
 // Setting up the grid of innerHTML
 var allCells = document.getElementsByTagName('td')
@@ -125,6 +126,9 @@ const endGame = (stalemate) => {
 const startGame = () => {
     makeGrid();
     clearBoard();
+    xai = false;
+    oai = false;
+    gameRunning = true;
     var cellCounter = 0;
     for (var i=0; i<3; i++) {
         for(var j=0; j<3; j++) {
@@ -144,9 +148,9 @@ const AImechanics = () => {
     var coord = [,];
     while (!validCoords) {
         console.log('Calculating new solutions...')
-        xCoord = Math.floor(Math.random() *3)
-        yCoord = Math.floor(Math.random() *3)
-        console.log('Checking if',yCoord,xCoord,'is clear')
+        xCoord = Math.floor(Math.random() *3);
+        yCoord = Math.floor(Math.random() *3);
+        console.log('Checking if',yCoord,xCoord,'is clear');
         if(grid[yCoord][xCoord].innerHTML == '') {
             coord[0] = yCoord;
             coord[1] = xCoord;
@@ -156,10 +160,18 @@ const AImechanics = () => {
     var delayedTurn = setTimeout(takeTurn(coord), 2000);
 }
 const activateXAI = () => {
+    if (!gameRunning) {
+        startGame();
+    }
     xai = true;
-    startGame();
     AImechanics();
 }
 const activateOAI = () => {
+    if (!gameRunning) {
+        startGame();
+    }
     oai = true;
+    if (curTurn == 'O') {
+        AImechanics();
+    }
 }
