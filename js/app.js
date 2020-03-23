@@ -1,5 +1,8 @@
 console.log('JS functioning');
 let turnNumber = 0
+let flipSquare = 0
+let red = '#b3200'
+let blue = '#0052cc'
 //The 9 game squares by Id, numbered in order from top left to bottom right
 let gameSquare1 = document.getElementById("gameSquare1")
 let gameSquare2 = document.getElementById("gameSquare2")
@@ -39,18 +42,19 @@ const changeSquare = (e) => {
 	if (divList[k].getAttribute('clicked') == 'true') {
 		let flip = k
 		let flipSquare = divList[flip]
-		flipSquare.removeEventListener('click', advanceTurn)
-		console.log(flipSquare)
-		flipSquare.removeEventListener('click', changeSquare)
+		console.log('element has been selected')
+		flipSquare.removeEventListener('click', (e))
+		console.log('has the eventListener been removed?')
 		flipSquare.setAttribute('claimed', 'true')
+		//set color attribute and background color
+		if (turnNumber % 2 === 0) {
+			flipSquare.setAttribute('backgroundColor', 'firebrick')
+		}
+		else {
+			flipSquare.setAttribute('backgroundColor', 'blue')
 		}
 	}
-	//set color attribute and background color
-	if (turnNumber % 2 === 0) {
-		flipSquare.setAttribute('backgroundColor', '#b32d00')
-		}
-	else {
-		flipSquare.setAttribute('backgroundColor', '#0052cc')
+
 	}
 }
 
