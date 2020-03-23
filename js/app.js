@@ -5,8 +5,11 @@ let box = document.querySelectorAll('.box');
 let reset = document.getElementById('reset');
 let again = document.getElementById('again');
 let message = document.getElementById('message');
+let tieCnt = document.getElementById('tieCounter');
+let p1 = document.getElementsByClassName('p1');
+let p2 = document.getElementsByClassName('p2');
 let score1 = 0;
-let score2 = 0; 
+let score2 = 0;
 let tie = 0;
 
 // function to play each turn
@@ -21,12 +24,11 @@ const playTurn = (e) => {
             e.target.classList.add('p1');
             console.log('turn:' + turn)
         }
-        turn++;
         checkWin();
+        turn++;
     } else {
-        message.textContent='Please pick another square!'
+        message.textContent = 'Please pick another square!'
     }
-    
 }
 
 // Adds event listener to board to start game on click
@@ -44,7 +46,7 @@ const resetBoard = () => {
         box[i].textContent = '';
     }
     resetTurn();
-    message.textContent='';
+    message.textContent = '';
     enableTurn();
 }
 const playAgain = () => {
@@ -57,6 +59,7 @@ const checkWin = () => {
         //horizontal wins
         if ((box[0].textContent !== '') && (box[0].textContent === box[1].textContent) && (box[1].textContent === box[2].textContent)) {
             winGame();
+            console.log(tie)
         } else if ((box[3].textContent !== '') && (box[3].textContent === box[4].textContent) && (box[4].textContent === box[5].textContent)) {
             winGame();
         } else if ((box[6].textContent !== '') && (box[6].textContent === box[7].textContent) && (box[7].textContent === box[8].textContent)) {
@@ -74,14 +77,19 @@ const checkWin = () => {
         } else if ((box[2].textContent !== '') && (box[2].textContent === box[4].textContent) && (box[4].textContent === box[6].textContent)) {
             winGame();
         }  //add tie condition
-        else if ((turn === 9) && (box[i].textContent !== ' ')){
+        else {
+            console.log(tie)
             tieGame();
-        }
+            break;
         }
     }
+}
 const tieGame = () => {
-    message.textContent="It's a tie!";
-    tie+=1;
+    if (turn === 9) {
+        message.textContent = "It's a tie!";
+        tie += 1;
+        tieCnt.textContent = (tie);   
+    } 
 }
 
 
@@ -91,7 +99,7 @@ const endGame = () => {
 }
 
 const winGame = () => {
-    message.textContent='You WIN!!!!'
+    message.textContent = 'You WIN!!!!';
     endGame();
     //TO DO: identify which player won and incerement counter
 }
@@ -102,4 +110,4 @@ reset.addEventListener('click', resetBoard);
 //attaching play again function to button 
 again.addEventListener('click', playAgain)
 
-// TO DO: INCREMENT WIN or TIE CountQueuingStrategy
+

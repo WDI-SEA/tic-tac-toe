@@ -12,7 +12,7 @@ h1 {
 }
 
 .board {
-background-color: red;
+background-color: royalblue;
 height: 300px;
 width: 300px;
 display: grid;
@@ -24,6 +24,7 @@ grid-template-areas:
   "btm1 btm2 btm3";
 text-align: center;
 margin: 0 auto;
+font-size: 70px;
 }
 
 
