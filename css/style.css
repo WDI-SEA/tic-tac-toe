@@ -1,3 +1,38 @@
 h1 {
   color: purple;
 }
+
+.gameBoard {
+  background-color: gray;
+  display: inline-block;
+}
+
+
+.squares {
+  background-color: lightgray;
+  width: 70px;
+  height: 70px;
+  margin: 5px;  
+  padding: 5px;
+
+}
+
+.squares.mid {
+  background-color: blue;
+}
+
+.squares.right {
+  background-color: yellow;
+}
+.alignLeft {
+  display: inline-block;
+}
+.alignMid {
+  display: inline-block;
+}
+.alignRight{
+  display: inline-block;
+}
+resetBtn {
+  
+}
