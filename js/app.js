@@ -54,13 +54,10 @@ function play() {
     // console.log('--->count: ' + count)
     // console.log('--->played squares: ' + playedSquares)
     winChecker()
-    changePlayer() 
     count++
+    changePlayer() 
     } 
-    else {
-        //????
-        moveInvalid = false
-    }
+    
 }
 
 var stats = [
@@ -96,6 +93,7 @@ function moveValidator(){
     if (playedSquares.indexOf(currentSelection) !== -1) {
         alert('square already in play - please try another move')
         moveInvalid = true;
+        console.log(count)
         return;
     }
 }
@@ -107,12 +105,15 @@ function winChecker() {
     if (currentPlayer == 'player1' && stats[0].moveCount > 2 ) {
         if (stats[0].moves[0][1] == stats[0].moves[1][1] && stats[0].moves[1][1] == stats[0].moves[2][1]) {
             alert('winner')
+            return
         }
         if (stats[0].moves[0][0] == stats[0].moves[1][0] && stats[0].moves[1][0] == stats[0].moves[2][0]) {
             alert('winner')
+            return
         }
         if (stats[0].moves[0][0] == stats[0].moves[1][0] && stats[0].moves[1][0] == stats[0].moves[2][0]) {
             alert('winner')
+            return
         }
         for (var i = 0; i < stats[0].moves.length; i++) {
             if (crossedWin1.indexOf(stats[0].moves[i]) !== -1 || crossedWin2.indexOf(stats[0].moves[i] !== -1)) {
@@ -124,4 +125,6 @@ function winChecker() {
 
     }
     //insert player 2 winChecker here
+    
+
 }

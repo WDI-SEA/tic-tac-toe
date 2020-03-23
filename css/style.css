@@ -18,11 +18,11 @@ h1 {
 }
 
 .squares.mid {
-  background-color: blue;
+  background-color: lightgray;
 }
 
 .squares.right {
-  background-color: yellow;
+  background-color: lightgray;
 }
 .alignLeft {
   display: inline-block;
