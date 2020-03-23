@@ -3,11 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
-  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <title>Tic Tac Toe</title>
+  <link rel="stylesheet" type = "text/css" href = "css/style.css">
+  
 </head>
 <body>
-  <h1>Hello Front-End</h1>
+  <h1>Tic Tac Toe</h1>
+<div class="board"> 
+  <div class="row1">
+    <div id="box1" class="block" ></div>
+    <div id="box2" class="block" ></div>
+    <div id="box3" class="block" ></div>
+  </div>
+  <!-- <div class="container">
+    <div class="row row-cols-3">
+      <div class="col">Column</div>
+      <div class="col">Column</div>
+      <div class="col">Column</div>
+    </div>
+  </div> -->
+  <div class="row2">
+    <div id="box4" class="block" ></div>
+    <div id="box5" class="block" ></div>
+    <div id="box6" class="block" ></div>
+  </div>
+  <div class="row3">
+    <div id="box7" class="block" ></div>
+    <div id="box8" class="block" ></div>
+    <div id="box9" class="block" ></div>
+  </div>
+</div>
+
+<h2 id="winner">THIS HARD</h2>
+
+<div>
+<button onclick="reset_board()">Reset Board</button>
+<button id="Play again" value="clear" type="text">Play Again</button>
+</div>
 
   <script type="text/javascript" src="js/app.js"></script>
 </body>
