@@ -1,3 +1,55 @@
-h1 {
-  color: purple;
+body {
+  text-align: center;
+  background-color: darkgray;
 }
+
+h1 {
+  color: black;
+}
+h2 {
+  margin: 0 0 -20px;
+}
+#message {
+  vertical-align: middle;
+  font-size: 40px;
+}
+#reset {
+  vertical-align: top;
+  font-size: 20px;
+  padding: 10px;
+  margin: 10px;
+}
+#ticO, #ticX {
+  opacity: 0;
+}
+
+#imgO, #imgX {
+  padding: 5px;
+}
+
+#tictacX, #tictacO {
+  display: inline-block;
+}
+
+.controlBox2 {
+  display: inline-block;
+}
+
+.playingBox {
+  vertical-align: middle;
+  font-size: 60px;
+  height: 100px;
+  width: 100px;
+  display: inline-block;
+  border: 5px solid black;
+  background-color: white;
+}
+
+#tictacBox {
+  padding: 5px;
+  margin: 10px 0;
+  display: inline-block;
+  background-color: black;
+  border: 2px solid black;
+}
+

@@ -3,12 +3,59 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <title>SUPER TIC-TAC-TOE</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
-<body>
-  <h1>Hello Front-End</h1>
 
-  <script type="text/javascript" src="js/app.js"></script>
+<body>
+
+  <header class=title>
+    <h1>Will's TicTacToe Game</h1>
+  </header>
+
+<div class="instructionBox">
+  <h2 class="instructionTitle">Instructions</h2>
+  <p class="instructionBulk">Click on a box and try to get 3 in a row!</p>
+</div>
+
+<div class="controlBox2">
+  <button type="button" class="controlbutton" id="reset">Reset Game</button>
+</div>
+
+<div class="controlBox">
+  <!-- <button type="button" class="controlbutton" id="start" >Start Game</button> -->
+  <div id="tictacX">
+    <input type="radio" name="tictac" id="ticX" alt="box type x" checked>
+    <label for="ticX"><img src="./img/tictacX.png" id="imgX"></label>
+  </div>
+  <div id="tictacO" id="ticO">
+    <input type="radio" name="tictac" id="ticO" alt="box type O">
+    <label for="ticO"><img src="./img/tictacO.png" id="imgO"></label>
+  </div>
+</div>
+
+
+<div id="tictacBox">
+  <div id="row">
+    <div class="playingBox" id="1tictac1" value="0"></div>
+    <div class="playingBox" id="1tictac2" value="1"></div>
+    <div class="playingBox" id="1tictac3" value="2"></div>
+  </div>
+  <div id="row">
+    <div class="playingBox" id="2tictac1" value="3"></div>
+    <div class="playingBox" id="2tictac2" value="4"></div>
+    <div class="playingBox" id="2tictac3" value="5"></div>
+  </div>
+  <div id="row">
+    <div class="playingBox" id="3tictac1" value="6"></div>
+    <div class="playingBox" id="3tictac2" value="7"></div>
+    <div class="playingBox" id="3tictac3" value="8"></div>
+  </div>
+</div>
+<div id="message"></div>
+
+<footer>&copy General Assembly 2020</footer>
+
+<script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>
