@@ -1,12 +1,21 @@
 
+//We tried to trouble shoot why I am unable to click on an empty 
+//cell to mark a move. I need to re-address my functions. I tried
+//to google my way out of problems over the weekend, but wasn't able
+//to find much that didn't use JQuery or other materials which we 
+//haven't covered yet in the course. I got some good ideas from classmates
+//as to how better to structure my fuctions and code so I can implement
+//the methods we have learned.
+
+
 const player1 = "X"
 const player2 = "O"
 
-let move = 1;
-let turn = true;
+let turn = 1
+let turn = true
 let play_board = ["", "", "", "", "", "", "", "", ""]
 
-const board_container = document.getElementsById("board")
+const board_container = document.getElementsById("gameBoard")
 
 check_board_complete = () => {
     let flag = true;
@@ -18,7 +27,7 @@ check_board_complete = () => {
     board_full = flag
   }
   
-  const check_line = (a, b, c) => {
+  const checkWin = (a, b, c) => {
     return (
       play_board[a] == play_board[b] &&
       play_board[b] == play_board[c] &&
@@ -26,21 +35,21 @@ check_board_complete = () => {
     )
   }
   
-  const check_match = () => {
+  const checkWin = () => {
     for (i = 0; i < 9; i += 3) {
       if (check_line(i, i + 1, i + 2)) {
         return play_board[i]
       }
     }
     for (i = 0; i < 3; i++) {
-      if (check_line(i, i + 3, i + 6)) {
+      if (checkWin(i, i + 3, i + 6)) {
         return play_board[i]
       }
     }
-    if (check_line(0, 4, 8)) {
+    if (checkWin(0, 4, 8)) {
       return play_board[0]
     }
-    if (check_line(2, 4, 6)) {
+    if (checkWin(2, 4, 6)) {
       return play_board[2]
     }
     return ""
@@ -65,9 +74,8 @@ check_board_complete = () => {
   const render_board = () => {
     board_container.innerHTML = ""
     play_board.forEach((e, i) => {
-      board_container.innerHTML += `<div id="block_${i}" class="block" onclick="addPlayer1Move(${i})">${play_board[i]}</div>`
       if (e == player1 || e == player2) {
-        document.getElementById(`#block_${i}`).classList.add("occupied")
+        document.getElementById(`#col-4`).classList.add("occupied")
       }
     })
   }
@@ -78,21 +86,21 @@ check_board_complete = () => {
     check_for_winner()
   }
   
-  const addPlayer1Move = e => {
+  const addPlayer1Move = (e) => {
     if (!board_full && play_board[e] == "") {
       play_board[e] = player1
-      $(this).append("X")
       game_loop()
       addPlayer2Move()
     }
+  }
 
- const addPlayer2Move = e => {
+ const addPlayer2Move = (e) => {
     if (!board_full && play_board[e] == "") {
       play_board[e] = player2
-      $(this).append("O")
+     e.target.getElementsById("col-4").addEventListener("click", player2)
         game_loop()
         addPlayer1Move()
-        }
+    }
   }
   
 
@@ -107,4 +115,3 @@ check_board_complete = () => {
   }
   
   render_board() 
-}
