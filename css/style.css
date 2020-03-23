@@ -30,13 +30,13 @@ div {
 	text-align: center;
 }
 
-.square {
-	border: 10px solid black;
-	padding: 100px;
-
 }
 .col {
-	border: 10px solid black;
+	border: 5px solid black;
+}
+
+.square {
+	border: 5px solid black;
 }
 
 #redTitle {
@@ -61,11 +61,13 @@ div {
 
 
 #gameSquare1 {
+	border: 10px solid black;
 	border-color: #000000;
 	background-color: #33cc33;
 }
 
 #gameSquare2 {
+	border: 10px solid black;
 	border-color: #000000;
 	background-color: #33cc33;
 }
@@ -77,31 +79,37 @@ div {
 }
 
 #gameSquare4 {
+	border: 10px solid black;
 	border-color: #000000;
 	background-color: #33cc33;
 }
 
 #gameSquare5 {
+	border: 10px solid black;
 	border-color: #000000;
 	background-color: #33cc33;
 }
 
 #gameSquare6 {
+	border: 10px solid black;
 	border-color: #000000;
 	background-color: #33cc33;
 }
 
 #gameSquare7 {
+	border: 10px solid black;
 	border-color: #000000;
 	background-color: #33cc33;
 }
 
 #gameSquare8 {
+	border: 10px solid black;
 	border-color: #000000;
 	background-color: #33cc33;
 }
 
 #gameSquare9 {
+	border: 10px solid black;
 	border-color: #000000;
 	background-color: #33cc33;
 }

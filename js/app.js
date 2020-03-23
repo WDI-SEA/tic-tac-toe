@@ -1,8 +1,5 @@
-console.log('JS functioning');
+
 let turnNumber = 0
-let flipSquare = 0
-let red = '#b3200'
-let blue = '#0052cc'
 //The 9 game squares by Id, numbered in order from top left to bottom right
 let gameSquare1 = document.getElementById("gameSquare1")
 let gameSquare2 = document.getElementById("gameSquare2")
@@ -40,12 +37,14 @@ const changeSquare = (e) => {
 	if (turnNumber % 2 === 0) {
 		e.target.style.backgroundColor = 'blue'
 		e.target.setAttribute('claimed', 'blue')
-		//set O image
+		//<img src="https://img.icons8.com/ios-filled/50/000000/o.png"/>
+		e.target.style.backgroundImage = "https://img.icons8.com/ios-filled/50/000000/o.png"
 	}
 	else {
 		e.target.style.backgroundColor = 'firebrick'
 		e.target.setAttribute('claimed', 'red')
-		//set X image
+		//<img src="https://img.icons8.com/ios-filled/50/000000/x.png"/>
+		e.target.style.backgroundImage = "https://img.icons8.com/ios-filled/50/000000/x.png"
 	}
 advanceTurn()
 checkForWin()
