@@ -3,12 +3,61 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <title>tic tac TOOOEEE</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
-<body>
-  <h1>Hello Front-End</h1>
+<body style='text-align: center' class='container'>
+  <!-- Make a Title for the page -->
+  <!-- Add a description for controls and rules: X First, O Second. -->
+  <header>
+      <h3>Let's get ready to</h3>
+      <h1>TIC TAC TOE</h1>
+      <p style='margin: 0 20%'>
+          I don't need to explain the rules. However, I will explain the controls.
+          If you're playing with a friend, then simple click a square to begin.
+          X goes first, and O goes second. Go back and forth until someone wins or it's a draw!
+          If at any point you want to reset the board, just hit the "reset" button and you'll be free to begin again!
+      </p>
+  </header>
+
+  <!-- Build a 3x3 grid for the game. Send an alert if someone/no one wins -->
+  <div class='row'>
+      <div class='col-4'>
+        <h2>Current Turn</h2>
+        <h1 id='currentTurn'></h1>
+      </div>
+      <table id='theTable' class='col-4'>
+          <tr>
+              <td namne='a' id='00'></td>
+              <td namne='a' id='01'></td>
+              <td namne='a' id='02'></td>
+          </tr>
+          <tr>
+              <td namne='b' id='10'></td>
+              <td namne='b' id='11'></td>
+              <td namne='b' id='12'></td>
+          </tr>
+          <tr>
+              <td namne='c' id='20'></td>
+              <td namne='c' id='21'></td>
+              <td namne='c' id='22'></td>
+          </tr>
+      </table>
+  </div>
+
+  <!-- Add two buttons to initiate a computer (random) player -->
+  <div>
+      <input type='button' value='Computer-X' onclick='activateXAI()'>
+      <input type='button' value='Computer-O' onclick='activateOAI()'>
+  </div>
+  
+  <!-- One more button to reset the board and clear computer players -->
+  <div>
+      <input type='button' value='New Game' onclick='startGame()'>
+  </div>
 
   <script type="text/javascript" src="js/app.js"></script>
+  <script type="text/javascript" src="js/sizing.js"></script>
 </body>
 </html>
