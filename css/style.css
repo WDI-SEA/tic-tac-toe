@@ -30,10 +30,13 @@ div {
 	text-align: center;
 }
 
-div.square {
+.square {
 	border: 10px solid black;
 	padding: 100px;
 
+}
+.col {
+	border: 10px solid black;
 }
 
 #redTitle {
@@ -68,6 +71,7 @@ div.square {
 }
 
 #gameSquare3 {
+	border: 10px solid black;
 	border-color: #000000;
 	background-color: #33cc33;
 }

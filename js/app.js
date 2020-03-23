@@ -36,13 +36,15 @@ const messageToPlayers = () => {
 const changeSquare = (e) => {
 	e.target.setAttribute('clicked', 'true')
 	e.target.removeEventListener('click', changeSquare)
-	e.target.setAttribute('claimed', 'true')
+	
 	if (turnNumber % 2 === 0) {
 		e.target.style.backgroundColor = 'blue'
+		e.target.setAttribute('claimed', 'blue')
 		//set O image
 	}
 	else {
 		e.target.style.backgroundColor = 'firebrick'
+		e.target.setAttribute('claimed', 'red')
 		//set X image
 	}
 advanceTurn()
@@ -71,8 +73,8 @@ const setGame = (e) => {
 	squares[j].setAttribute('clicked', 'false')
 	squares[j].setAttribute('claimed', 'false')
 	}
-	setEventListeners()		
-}
+	setEventListeners()
+}	
 
-//Set eventlistener of the start button
+//Set eventlistener of the start butto
 startButton.addEventListener('click', setGame)
