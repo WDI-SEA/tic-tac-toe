@@ -37,15 +37,15 @@ const messageToPlayers = () => {
 const changeSquare = (e) => {
 	console.log('Enter changeSquare')
 //trying to select the element that has been clicked
-	let divList = document.getElementsByTagName('div')
-	for(let k = 0; k < divList.length; k++) {
-	if (divList[k].getAttribute('clicked') == 'true') {
+	let flipSquare = document.getElementsByClassName('squares')
+	for(let k = 0; k < flipSquare.length; k++) {
+	if (e.target.getAttribute('clicked') == 'true') {
 		let flip = k
-		let flipSquare = divList[flip]
+		let oneFlipSquare = flipSquare[flip]
 		console.log('element has been selected')
-		flipSquare.removeEventListener('click', (e))
+		oneFlipSquare.removeEventListener('click', changeSquare)
 		console.log('has the eventListener been removed?')
-		flipSquare.setAttribute('claimed', 'true')
+		oneFlipSquare.setAttribute('claimed', 'true')
 		//set color attribute and background color
 		if (turnNumber % 2 === 0) {
 			flipSquare.setAttribute('backgroundColor', 'firebrick')
