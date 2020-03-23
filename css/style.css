@@ -1,3 +1,47 @@
-h1 {
-  color: purple;
+html,
+
+body {
+  height: 100%;
+  font-family: 'Open Sans', sans-serif;
+  background-color: rgb(25, 151, 46);
+}
+
+.flex-container {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.board-container {
+  height: 100%;
+  width: 100%;
+}
+
+.board {
+  width: 630px;
+}
+
+.square {
+  width: 200px;
+  height: 200px;
+  border: 5px solid black;
+}
+
+.square:hover {
+  background-image: link="https://fillmurray.com/210/210";
+}
+
+div.a {
+  text-align: center;
 }
