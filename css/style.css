@@ -1,3 +1,80 @@
 h1 {
   color: purple;
+  text-align: center;
+  font-size: 55px;
+}
+h2{
+
+  color: purple;
+  text-align: center;
+  font-size: 35px;
+  text-decoration: bold;
+}
+.container {
+   margin: 20px auto;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   flex-wrap: wrap;
+   max-width: 400px;
+   border: 3px solid black; 
+}
+
+
+.item {
+ background: #999;
+ width: 100px;
+ height: 100px;
+ border: 3px solid black;
+ font-size: 80px;
+ text-align: center;
+ /*margin: 1em;  padding: 4em 2em; */
+ text-decoration: none;
+ flex-grow: 1;
+ text-align: center;
+ color: purple;
+}
+.secondDiv, .thirdDiv{
+  display: flex;
+   flex-direction: row;
+   max-width: 400px;
+   justify-content: center;
+   margin: 10px auto;
+   position: relative;
+   height: 60px;
+
+}
+
+.thirdDiv{
+ border: 3px solid purple;
+
+}
+
+.button {
+  background-color:#999;
+  border: none;
+  color: white;
+  padding: 20px 50px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  margin: 5px 10px;
+  cursor: pointer;
+}
+.players{
+  font-size: 25px;
+  margin: 10px 5px;
+  display: inline-block;
+  text-decoration: bold;
+
+}
+#Xscore, #Oscore{
+  background-color: purple ;
+  padding: 5px 15px;
+  color: white;
+}
+
+#reset{
+  background-color: purple ;
 }

@@ -3,12 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <title>Tic Tac Toe</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-  <h1>Hello Front-End</h1>
+  <h1>Tic Tac Toe</h1>
+  
+  <div  class="container">
+    <div id= "grid-0"  class="item"></div>
+    <div id= grid-1 class="item"></div>
+    <div id= grid-2 class="item"></div>
+    <div id= grid-3 class="item"></div>
+    <div id= grid-4 class="item"></div>
+    <div id= grid-5 class="item"></div>
+    <div id= grid-6 class="item"></div>
+    <div id= grid-7 class="item"></div>
+    <div id= grid-8  class="item"></div>
+  </div>
+  <div class= "secondDiv"> 
+    <button id="restart" class="button">Restart</button>
+    <button id="reset" class="button">New Match</button>
+  </div>
+  <div class= "thirdDiv">
+  <p class='players'>Player X: </p>  <p class='players' id="Xscore">0</p> 
+  <p class='players'>Player O: </p>  <p class='players' id="Oscore">0</p> 
+</div>
 
+  <h2 id="result"></h2>
+  <audio id="XWin" src="./sounds/crowdYay.wav"></audio>
+  <audio id="OWin" src="./sounds/victory.mp3"></audio>
   <script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>
