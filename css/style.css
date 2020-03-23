@@ -3,7 +3,7 @@ html,
 body {
   height: 100%;
   font-family: 'Open Sans', sans-serif;
-  background-color: rgb(25, 151, 46);
+  background-color: #ffffff;
 }
 
 .flex-container {
@@ -39,9 +39,9 @@ body {
 }
 
 .square:hover {
-  background-image: link="https://fillmurray.com/210/210";
+  background-image: url("http://www.fillmurray.com/200/200"); 
 }
 
-div.a {
+/* div.a {
   text-align: center;
-}
+} */
