@@ -25,20 +25,22 @@ var winner = document.getElementById("whoW");
    
 
 
-function playerTurn () {
+function playerTurn (e) {
   if (xTurn === true){
       this.innerHTML = "X";
       xTurn = false;
+      e.target.removeEventListener("click", playerTurn)
     } else {
       this.innerHTML = "O";
       xTurn = true;
+      e.target.removeEventListener("click", playerTurn)
     }
     turn = turn + 1;
     winCom();
 };
 
 
-function winCom (){
+function winCom (e){
     if (box1.textContent === "X" && box2.textContent === "X" && box3.textContent === "X"){
     winner.textContent = "X Won";
     winCom = true;
@@ -92,48 +94,8 @@ function winCom (){
         winner.textContent = "No Winner!!"
     }
     
-    removeClick()
-    
 };
 
-function removeClick(){
-
-  if (box1 === "X" || "O" ){
-    document.getElementById("s_1").removeEventListener("click", winCom)
-  }
-
-  else if (box2 === "X" || "O" ){
-  document.getElementById("s_2").removeEventListener("click", winCom)
-  }
-
-  else if (box3 === "X" || "O" ){
-  document.getElementById("s_3").removeEventListener("click", winCom)
-  }
-
-  else if (box4 === "X" || "O" ){
-  document.getElementById("s_4").removeEventListener("click", winCom)
-  }
-
-  else if (box5 === "X" || "O" ){
-  document.getElementById("s_5").removeEventListener("click", winCom)
-  }
-
-  else if (box6 === "X" || "O" ){
-  document.getElementById("s_6").removeEventListener("click", winCom)
-  }
-
-  else if (box7 === "X" || "O" ){
-  document.getElementById("s_7").removeEventListener("click", playerTurn)
-  }
-
-  else if (box8 === "X" || "O" ){
-  document.getElementById("s_8").removeEventListener("click", playerTurn)
-  }
-
-  else if (box9 === "X" || "O" ){
-  document.getElementById("s_9").removeEventListener("click", playerTurn)
-  }
-}
 
 
 
