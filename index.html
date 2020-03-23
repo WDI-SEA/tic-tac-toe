@@ -7,8 +7,36 @@
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-  <h1>Hello Front-End</h1>
+  <h1>Tic Tac Toe</h1>
+  <div class = 'rules'>
+    <p>
+      Player chooses a space to start game. To win player must get 3 x's or 3 o's in a row. <br> first player is always x.
+    </p>
+  </div>
+  <div class="grid-container">
+    <div class="grid-item" id = "0"></div>
+    <div class="grid-item" id = "1"></div>
+    <div class="grid-item" id = "2"></div>
+    <div class="grid-item" id = "3"></div>
+    <div class="grid-item" id = "4"></div>
+    <div class="grid-item" id = "5"></div>
+    <div class="grid-item" id = "6"></div>
+    <div class="grid-item" id = "7"></div>
+    <div class="grid-item" id = "8"></div>
+  </div>
+  <div class = 'buttons'>
+    <button id = 'reset'>Reset</button>
+    <label for="vsFriend">VS Friend</label>
+  <input class = "ruleChange" type="radio" id="vsFriend" default=checked>
+  <label for="vsCpu">VS CPU</label>
+  <input class = "ruleChange" type="radio" id="vsCpu">
+  <button id = 'start'>Start</button>
 
+  </div>
+  <div id = "display">
+
+  </div>
+  <footer></footer>
   <script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>

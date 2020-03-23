@@ -1,3 +1,47 @@
+body {
+  text-align: center;
+}
 h1 {
   color: purple;
+}
+.grid-container {
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-color: #2196F3;
+  width: 275px;
+}
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+  width: 50px;
+  height: 50px;
+}
+.buttons {
+  align-self: center:
+  width: 50%;
+  height: 70px;
+  background-color: lightgrey;
+}
+
+#display {
+  align-self: center:
+  width: 50%;
+  height: 70px;
+  background-color: lightgrey;
+  font-size: 50px;
+  color: black;
+}
+
+.ruleChange {
+  margin: 20px
+}
+
+.reset {
+  margin: 20px;
+  font-size: 30px
 }
