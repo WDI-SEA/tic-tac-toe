@@ -7,8 +7,34 @@
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-  <h1>Hello Front-End</h1>
+  <h1>Battle for Konoha!!!</h1>
 
-  <script type="text/javascript" src="js/app.js"></script>
+  <div id="players">
+  Pain has come to destroy Konoha. Can Naruto stop him?
+  </div>
+  <div id ="textTurn"></div>
+  <button id="start">Start</button> <button id ="reset">Reset</button>
+  <div class = "container">
+	  <div id = "board">
+	  	<div class="gridSet row1 col1 diag1" id ="section-1">
+	  		<img class = "player1" src="#">
+	  		<img class ="player2" src="#">
+	  	</div>
+	  	<div class="gridSet row1 col2" id ="section-2"></div>
+	  	<div class="gridSet row1 col3 diag2" id ="section-3"></div>
+	  	<div class="gridSet row2 col1" id ="section-4"></div>
+	  	<div class="gridSet row2 col2 diag1 diag2" id ="section-5"></div>
+	  	<div class="gridSet row2 col3" id ="section-6"></div>
+	  	<div class="gridSet row3 col1 diag2" id ="section-7"></div>
+	  	<div class="gridSet row3 col2" id ="section-8"></div>
+	  	<div class="gridSet row3 col3 diag1" id ="section-9"></div>
+	  </div>
+ </div>
+ <audio id="battle" src="./sound/s&s.mp3">
+ <audio id="pain-w" src="./sound/20 Girei.mp3">
+ <audio id="pain-s" src="./sound/Pain-win.mp3">
+ <audio id="nar-w" src="./sound/Victory.mp3">
+ <audio id="nar-s" src="./sound/Naruto-win.mp3">	
+ <script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>
