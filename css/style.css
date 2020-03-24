@@ -1,5 +1,5 @@
 body {
-  background: black;
+  background: royalblue;
   color: white;
 }
 .game {
@@ -9,12 +9,13 @@ body {
 h1 {
   color: white;
   text-align: center;
+  font-size: 100px;
 }
 
 .board {
 background-color: royalblue;
-height: 300px;
-width: 300px;
+height: 600px;
+width: 600px;
 display: grid;
 grid-template-rows: repeat(3, 1fr);
 grid-template-columns: repeat(3, 1fr);;
@@ -24,57 +25,59 @@ grid-template-areas:
   "btm1 btm2 btm3";
 text-align: center;
 margin: 0 auto;
-font-size: 70px;
+font-size: 150px;
 }
 
-
+.box {
+  padding-top: 10px;
+}
 .top1 {
   grid-area: "top1";
-  border-bottom: 2px solid white;
-  border-right: 2px solid white;
+  border-bottom:7px solid white;
+  border-right:7px solid white;
 
 }
 
 .top2 {
   grid-area: "top2";
-  border-bottom: 2px solid white;
-  border-right: 2px solid white;
+  border-bottom:7px solid white;
+  border-right:7px solid white;
 }
 
 .top3 {
   grid-area: "top3";
-  border-bottom: 2px solid white;
+  border-bottom:7px solid white;
 }
 
 .mid1 {
   grid-area: "mid1";
-  border-bottom: 3px solid white;
-  border-right: 3px solid white;
+  border-bottom:7px solid white;
+  border-right:7px solid white;
 
 }
 
 .mid2 {
   grid-area: "mid2";
-  border-bottom: 3px solid white;
-  border-right: 3px solid white;
+  border-bottom:7px solid white;
+  border-right:7px solid white;
 
 }
 
 .mid3 {
   grid-area: "mid3";
-  border-bottom: 3px solid white;
+  border-bottom:7px solid white;
 
 }
 
 .btm1 {
   grid-area: "btm1";
-  border-right: 3px solid white;
+  border-right:7px solid white;
 
 }
 
 .btm2 {
   grid-area: "btm2";
-  border-right: 3px solid white;
+  border-right: 7px solid white;
 
 }
 
@@ -87,4 +90,27 @@ font-size: 70px;
   display: flex;
   justify-content: space-between;
   
+}
+#message {
+  padding-top: 20px;
+  text-align: center;
+  font-size: 50px;
+  color: greenyellow;
+}
+.button {
+  text-align: center;
+  background-color: royalblue;
+  font-size: 20px;
+  color: white;
+  padding: 10px;
+  margin: 5px;
+  align-self: center;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.player1, .player2, .score {
+  font-size: 40px;
+}
+.btns {
+  text-align: center;
 }
