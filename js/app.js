@@ -38,14 +38,12 @@ const changeSquare = (e) => {
 		e.target.style.backgroundImage = "url('https://img.icons8.com/ios-filled/50/000000/o.png')"
 		e.target.style.backgroundColor = 'blue'
 		e.target.setAttribute('claimed', 'blue')
-		//<img src="https://img.icons8.com/ios-filled/50/000000/o.png"/>
 		
 	}
 	else {
 		e.target.style.backgroundImage = "url('https://img.icons8.com/ios-filled/50/000000/x.png')"
 		e.target.style.backgroundColor = 'firebrick'
 		e.target.setAttribute('claimed', 'red')
-		//<img src="https://img.icons8.com/ios-filled/50/000000/x.png"/>
 		
 	}
 advanceTurn()
@@ -54,7 +52,7 @@ checkForWin()
 
 const checkForWin = () => {
 	console.log('checkForWin called')
-	console.log()
+		
 }
 
 //advances the turn count when called
