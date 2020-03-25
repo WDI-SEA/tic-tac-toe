@@ -17,13 +17,14 @@ let redSquares = []
 let blueSquares = []
 
 const winningCondition = [
-	{'div#gameSquare1.col', 'div#gameSquare2.col' 'div#gameSquare3.col'}, {'div#gameSquare4.col', 'div#gameSquare5.col', 'div#gameSquare6.col'},
-
-	{'div#gameSquare7.col', 'div#gameSquare8.col', 'div#gameSquare9.col'}, {'div#gameSquare1.col', 'div#gameSquare4.col', 'div#gameSquare7.col'},
-
-	{'div#gameSquare2.col', 'div#gameSquare5.col', 'div#gameSquare8.col'}, {'div#gameSquare3.col', 'div#gameSquare6.col', 'div#gameSquare9.col'},
-
-	{'div#gameSquare1.col', 'div#gameSquare5.col', 'div#gameSquare9.col'}, {'div#gameSquare3.col', 'div#gameSquare5.col', 'div#gameSquare7.col'}
+	['div#gameSquare1.col', 'div#gameSquare2.col', 'div#gameSquare3.col'], 
+	['div#gameSquare4.col', 'div#gameSquare5.col', 'div#gameSquare6.col'],
+	['div#gameSquare7.col', 'div#gameSquare8.col', 'div#gameSquare9.col'], 
+	['div#gameSquare1.col', 'div#gameSquare4.col', 'div#gameSquare7.col'],
+	['div#gameSquare2.col', 'div#gameSquare5.col', 'div#gameSquare8.col'], 
+	['div#gameSquare3.col', 'div#gameSquare6.col', 'div#gameSquare9.col'],
+	['div#gameSquare1.col', 'div#gameSquare5.col', 'div#gameSquare9.col'], 
+	['div#gameSquare3.col', 'div#gameSquare5.col', 'div#gameSquare7.col']
 ]
 
 let messageWindow = document.getElementById('messageWindow')
@@ -63,23 +64,31 @@ checkForWin()
 }
 
 const checkForWin = () => {
-	for (let i = 0; i < blueSquares.length; i++) {
-		if (blueSquares == winningCondition[i]){
-			console.log('Blue WINS!!')
+	if (blueSquares.length > 2){
+		console.log('Blue longer than 2')
+	for(let j = 0; j < blueSquares.length; j++){
+		for (let i = 0; i < winningCondition.length; i++){
+			console.log('Blue Fires')
+			
+
 		}
-		else {
-			console.log('Blue Doesnt Win')
-		}
+
 	}
-	if (let j = 0; j < redSquares.length; j++){
-		if (redSquares == winningCondition[j]){
-			console.log('Red WINS!!')
-		} else {
-			console.log('Red Doesnt Win')
+}
+	if (redSquares.length > 2){
+		console.log('Red longer than 2')
+	for (let k = 0; k < redSquares.length; k++){
+		for (let i = 0; i < winningCondition.length; i++){
+			console.log('Red Fires')
+
+
 		}
 	}
 }
 
+
+}
+	
 const advanceTurn = () => {
 	turnNumber +=1
 	messageToPlayers()
