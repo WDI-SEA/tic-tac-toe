@@ -13,31 +13,37 @@ let gameSquare9 = document.getElementById("gameSquare9")
 let squares = [gameSquare1, gameSquare2, gameSquare3, 
 	gameSquare4, gameSquare5, gameSquare6, gameSquare7, gameSquare8, gameSquare9]
 
-let redSquares = []
-let blueSquares = []
-
 const winningCondition = [
-	['div#gameSquare1.col', 'div#gameSquare2.col', 'div#gameSquare3.col'], 
-	['div#gameSquare4.col', 'div#gameSquare5.col', 'div#gameSquare6.col'],
-	['div#gameSquare7.col', 'div#gameSquare8.col', 'div#gameSquare9.col'], 
-	['div#gameSquare1.col', 'div#gameSquare4.col', 'div#gameSquare7.col'],
-	['div#gameSquare2.col', 'div#gameSquare5.col', 'div#gameSquare8.col'], 
-	['div#gameSquare3.col', 'div#gameSquare6.col', 'div#gameSquare9.col'],
-	['div#gameSquare1.col', 'div#gameSquare5.col', 'div#gameSquare9.col'], 
-	['div#gameSquare3.col', 'div#gameSquare5.col', 'div#gameSquare7.col']
+	[1, 2, 3], 
+	[4, 5, 6],
+	[7, 8, 9], 
+	[1, 4, 7],
+	[2, 5, 8], 
+	[3, 6, 9],
+	[1, 5, 9], 
+	[3, 5, 7]
 ]
 
 let messageWindow = document.getElementById('messageWindow')
 
 let startButton = document.getElementById('startButton')
 
+let declareWinner = document.getElementById('declareWinner')
+
+let blueSquares = []
+let redSquares = []
+
+const announceWinner = () =>{
+
+}
+
 
 const messageToPlayers = () => {
 	if (turnNumber % 2 === 0) {
-		document.getElementById('messageWindow').textContent = "It's Player 1's turn"
+		messageToPlayers.textContent = "It's Player 1's turn"
 	}
 	else {
-		document.getElementById('messageWindow').textContent = "It's Player 2's turn"
+		messageWindow.textContent = "It's Player 2's turn"
 	}
 }
 
@@ -45,49 +51,33 @@ const changeSquare = (e) => {
 	e.target.removeEventListener('click', changeSquare)
 	
 	if (turnNumber % 2 === 0) {
-		e.target.style.backgroundImage = "url('https://img.icons8.com/ios-filled/50/000000/o.png')"
+		//e.target.style.backgroundImage = "url('https://img.icons8.com/ios-filled/50/000000/o.png')"
 		e.target.style.backgroundColor = 'blue'
-		let blue = e.target
+		e.target.textContent = 'O'
+		let blue = e.target.getAttribute('id')
+		let bluePosId = blue.substr(10)
 		blueSquares.push(blue)
-		console.log(blueSquares)
-	}
+		e.target.setAttribute('style', 'O')
+	}	
 	else {
-		e.target.style.backgroundImage = "url('https://img.icons8.com/ios-filled/50/000000/x.png')"
+		//e.target.style.backgroundImage = "url('https://img.icons8.com/ios-filled/50/000000/x.png')"
 		e.target.style.backgroundColor = 'firebrick'
-		let red = e.target
+		e.target.textContent = 'X'
+		let red = e.target.getAttribute('id')
+		let redPosId = red.substr(10)
 		redSquares.push(red)
-		console.log(redSquares)
-		
+		e.target.setAttribute('style', 'X')
 	}
 advanceTurn()
 checkForWin()
 }
 
 const checkForWin = () => {
-	if (blueSquares.length > 2){
-		console.log('Blue longer than 2')
-	for(let j = 0; j < blueSquares.length; j++){
-		for (let i = 0; i < winningCondition.length; i++){
-			console.log('Blue Fires')
-			
+	let boxes = document.getElementById('id')
+	//console.log(boxes)
 
-		}
-
+	
 	}
-}
-	if (redSquares.length > 2){
-		console.log('Red longer than 2')
-	for (let k = 0; k < redSquares.length; k++){
-		for (let i = 0; i < winningCondition.length; i++){
-			console.log('Red Fires')
-
-
-		}
-	}
-}
-
-
-}
 	
 const advanceTurn = () => {
 	turnNumber +=1
