@@ -14,14 +14,14 @@ let squares = [gameSquare1, gameSquare2, gameSquare3,
 	gameSquare4, gameSquare5, gameSquare6, gameSquare7, gameSquare8, gameSquare9]
 
 const winningCondition = [
-	[1, 2, 3], 
-	[4, 5, 6],
-	[7, 8, 9], 
-	[1, 4, 7],
-	[2, 5, 8], 
-	[3, 6, 9],
-	[1, 5, 9], 
-	[3, 5, 7]
+	['1', '2', '3'], 
+	['4', '5', '6'],
+	['7', '8', '9'], 
+	['1', '4', '7'],
+	['2', '5', '8'], 
+	['3', '6', '9'],
+	['1', '5', '9'], 
+	['3', '5', '7']
 ]
 
 let messageWindow = document.getElementById('messageWindow')
@@ -33,9 +33,12 @@ let declareWinner = document.getElementById('declareWinner')
 let blueSquares = []
 let redSquares = []
 
-const announceWinner = () =>{
-
+const announceWinner = (winner) =>{
+	console.log(winner + 'won')
+	declareWinner.textContent = winner + 'Won!'
+	stopEventListeners()
 }
+
 
 
 const messageToPlayers = () => {
@@ -54,39 +57,72 @@ const changeSquare = (e) => {
 		//e.target.style.backgroundImage = "url('https://img.icons8.com/ios-filled/50/000000/o.png')"
 		e.target.style.backgroundColor = 'blue'
 		e.target.textContent = 'O'
-		let blue = e.target.getAttribute('id')
+		let blue = e.target.id
 		let bluePosId = blue.substr(10)
-		blueSquares.push(blue)
-		e.target.setAttribute('style', 'O')
+		blueSquares.push(bluePosId)
 	}	
 	else {
 		//e.target.style.backgroundImage = "url('https://img.icons8.com/ios-filled/50/000000/x.png')"
 		e.target.style.backgroundColor = 'firebrick'
 		e.target.textContent = 'X'
-		let red = e.target.getAttribute('id')
+		let red = e.target.id
 		let redPosId = red.substr(10)
-		redSquares.push(red)
-		e.target.setAttribute('style', 'X')
+		redSquares.push(redPosId)
 	}
-advanceTurn()
-checkForWin()
+	console.log(blueSquares)
+	console.log(redSquares)
+
+	let result = checkForWin()
+	if (result) {
+			announceWinner(result)
+		}
+		else{
+			advanceTurn()
+		}
+
+
 }
 
 const checkForWin = () => {
-	let boxes = document.getElementById('id')
-	//console.log(boxes)
-
-	
+	if (turnNumber % 2 === 0) {
+		for (let i = 0; i < winningCondition.length; i++) {
+			console.log(winningCondition[i])
+			if(blueSquares.includes(winningCondition[i][0]) &&
+				blueSquares.includes(winningCondition[i][1]) &&
+				blueSquares.includes(winningCondition[i][2])){
+				console.log('Blue had winning cond')
+				return 'blue'
+			}
+		}
+	}else {
+		for (let i = 0; i < winningCondition.length; i++) {
+			console.log(winningCondition[i])
+			if(redSquares.includes(winningCondition[i][0]) &&
+				redSquares.includes(winningCondition[i][1]) &&
+				redSquares.includes(winningCondition[i][2])){
+				console.log('Red had winning cond')
+				return 'red'
+			}
+		}
 	}
+	return false
+}
 	
 const advanceTurn = () => {
 	turnNumber +=1
 	messageToPlayers()
 }
 
+
 const setEventListeners = (e) => {
 	for (let i = 0; i < squares.length; i++) {
 		squares[i].addEventListener('click', changeSquare)
+	}
+}
+
+const stopEventListeners = (e) => {
+	for (let i = 0; i < squares.length; i++) {
+		squares[i].removeEventListener('click', changeSquare)
 	}
 }
 	
