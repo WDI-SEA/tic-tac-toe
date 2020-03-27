@@ -21,39 +21,38 @@ h1 {
   align-items: center;
 }
 
-#box1 {
+div[name = "box1"] {
   border-bottom: 3px solid black;
   border-right: 3px solid black;
 }
-#box2 {
-  border-bottom: 3px solid black;
-  border-right: 3px solid black;
-}
-
-#box3 {
-  border-bottom: 3px solid black;
-}
-
-#box4 {
-  border-bottom: 3px solid black;
-  border-right: 3px solid black;
-
-}
-
-#box5 {
+div[name = "box2"] {
   border-bottom: 3px solid black;
   border-right: 3px solid black;
 }
 
-#box6 {
+div[name = "box3"] {
+  border-bottom: 3px solid black;
+}
+
+div[name = "box4"] {
+  border-bottom: 3px solid black;
+  border-right: 3px solid black;
+}
+
+div[name = "box5"] {
+  border-bottom: 3px solid black;
+  border-right: 3px solid black;
+}
+
+div[name = "box6"] {
   border-bottom: 3px solid black;
 
 }
 
-#box7 {
+div[name = "box7"] {
   border-right: 3px solid black;
 }
 
-#box8 {
+div[name = "box8"] {
   border-right: 3px solid black;
 }
