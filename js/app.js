@@ -117,6 +117,9 @@ const checkForWin = () => {
 const advanceTurn = () => {
 	turnNumber +=1
 	messageToPlayers()
+	if(turnNumber == 9){
+		messageWindow.textContent = 'Its a DRAW'
+	}
 }
 
 
