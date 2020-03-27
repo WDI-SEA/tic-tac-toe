@@ -5,74 +5,77 @@ var gameOver = false
 var playedSquares = []
 var moveInvalid = false
 
-//square refs
-// var l1 = document.getElementById('l1')
-// var l2 = document.getElementById('l2')
-// var l3 = document.getElementById('l3')
-// var m1 = document.getElementById('m1')
-// var m2 = document.getElementById('m2')
-// var m3 = document.getElementById('m3')
-// var r1 = document.getElementById('r1')
-// var r2 = document.getElementById('r2')
-// var r3 = document.getElementById('r3')
+
 //event listeners
-document.getElementById('l1').addEventListener('click', play);
-document.getElementById('l2').addEventListener('click', play);
-document.getElementById('l3').addEventListener('click', play);
-document.getElementById('m1').addEventListener('click', play);
-document.getElementById('m2').addEventListener('click', play);
-document.getElementById('m3').addEventListener('click', play);
-document.getElementById('r1').addEventListener('click', play);
-document.getElementById('r2').addEventListener('click', play);
-document.getElementById('r3').addEventListener('click', play);
+document.getElementById('l1').addEventListener('click', startGame);
+document.getElementById('l2').addEventListener('click', startGame);
+document.getElementById('l3').addEventListener('click', startGame);
+document.getElementById('m1').addEventListener('click', startGame);
+document.getElementById('m2').addEventListener('click', startGame);
+document.getElementById('m3').addEventListener('click', startGame);
+document.getElementById('r1').addEventListener('click', startGame);
+document.getElementById('r2').addEventListener('click', startGame);
+document.getElementById('r3').addEventListener('click', startGame);
 
+//scoreboard
+var stats = [
+    {   playerColor: 'red',
+    displayBox: 'Player 1 Go!',
+    moveCount: 0,
+    moves: []
+},
+{
+    playerColor: 'green',
+    displayBox: 'Player 2 Go!',
+    moveCount: 0, 
+    moves: []
+}
+]
 
-//create mark function
-function play() {
+//initiate game
+function startGame() {
     currentSelection = this.id;
     moveValidator()
-    if (moveInvalid !== true) {
+}
+
+function play() {
+    if (moveInvalid == false) {
         playedSquares.push(currentSelection)
         if (currentPlayer == 'player1') {
             document.getElementById(currentSelection).style.backgroundColor = stats[0].playerColor
             stats[0].moveCount += 1
-            // console.log('move count: ' + stats[0].moveCount)
             stats[0].moves.push(currentSelection)
-            // console.log('player moves: ' + stats[0].moves)
-            //check for win
-    }
-    else {
-        currentPlayer == 'player2';
-        document.getElementById(currentSelection).style.backgroundColor = stats[1].playerColor
-        stats[1].moveCount += 1
-        // console.log('move count: ' + stats[1].moveCount)
-        stats[1].moves.push(currentSelection)
-        // console.log('player moves: ' + stats[1].moves)
-    }
-    // console.log('--->current player: ',currentPlayer)
-    // console.log('---> current selection: ' + currentSelection)
-    // console.log('--->count: ' + count)
-    // console.log('--->played squares: ' + playedSquares)
-    winChecker()
-    count++
-    changePlayer() 
-    } 
+            winChecker()
+            count++
+            changePlayer() 
+        }
+        else {
+            currentPlayer == 'player2';
+            document.getElementById(currentSelection).style.backgroundColor = stats[1].playerColor
+            stats[1].moveCount += 1
+            stats[1].moves.push(currentSelection)
+            winChecker()
+            count++
+            changePlayer() 
+        }
     
+    }
 }
 
-var stats = [
-    {   playerColor: 'red',
-        displayBox: 'Player 1 Go!',
-        moveCount: 0,
-        moves: []
-    },
-    {
-        playerColor: 'green',
-        displayBox: 'Player 2 Go!',
-        moveCount: 0, 
-        moves: []
+function moveValidator(){
+    console.log('before mistake: ' + count)
+    if (playedSquares.indexOf(currentSelection) !== -1){
+        moveInvalid = false
+        play()
     }
-]
+    else  {
+        console.log('played squares: ' + playedSquares)
+        moveInvalid = true
+        alert('square already in play - please try another move')
+        console.log('after mistake: ' + count)
+        return;
+    }
+}
 
 function changePlayer() {
     if (gameOver == true) {
@@ -89,14 +92,6 @@ function changePlayer() {
     }
 }
 
-function moveValidator(){
-    if (playedSquares.indexOf(currentSelection) !== -1) {
-        alert('square already in play - please try another move')
-        moveInvalid = true;
-        console.log(count)
-        return;
-    }
-}
 
 
 function winChecker() {
