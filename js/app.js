@@ -30,20 +30,35 @@ let startButton = document.getElementById('startButton')
 
 let declareWinner = document.getElementById('declareWinner')
 
+let resetButton = document.getElementById('reset')
+
 let blueSquares = []
 let redSquares = []
 
-const announceWinner = (winner) =>{
-	console.log(winner + 'won')
-	declareWinner.textContent = winner + 'Won!'
-	stopEventListeners()
+
+const resetGame = (e) => {
+	turnNumber = 0
+	redSquares = []
+	blueSquares = []
+	declareWinner.textContent = ''
+	messageWindow.textContent = ''
+	for (let i = 0; i < squares.length; i++) {
+		squares[i].addEventListener('click', changeSquare)
+		squares[i].style.backgroundColor = '#33cc33'
+		squares[i].style.backgroundImage = ''
+		}
+	resetButton.removeEventListener('click', reset)
 }
 
-
+const announceWinner = (winner) =>{
+	declareWinner.textContent = winner + ' Won!'
+	stopEventListeners()
+	resetButton.addEventListener('click', resetGame)
+}
 
 const messageToPlayers = () => {
 	if (turnNumber % 2 === 0) {
-		messageToPlayers.textContent = "It's Player 1's turn"
+		messageWindow.textContent = "It's Player 1's turn"
 	}
 	else {
 		messageWindow.textContent = "It's Player 2's turn"
@@ -54,60 +69,51 @@ const changeSquare = (e) => {
 	e.target.removeEventListener('click', changeSquare)
 	
 	if (turnNumber % 2 === 0) {
-		//e.target.style.backgroundImage = "url('https://img.icons8.com/ios-filled/50/000000/o.png')"
+		e.target.style.backgroundImage = "url('https://img.icons8.com/ios-filled/50/000000/o.png')"
 		e.target.style.backgroundColor = 'blue'
-		e.target.textContent = 'O'
 		let blue = e.target.id
 		let bluePosId = blue.substr(10)
 		blueSquares.push(bluePosId)
 	}	
 	else {
-		//e.target.style.backgroundImage = "url('https://img.icons8.com/ios-filled/50/000000/x.png')"
+		e.target.style.backgroundImage = "url('https://img.icons8.com/ios-filled/50/000000/x.png')"
 		e.target.style.backgroundColor = 'firebrick'
-		e.target.textContent = 'X'
 		let red = e.target.id
 		let redPosId = red.substr(10)
 		redSquares.push(redPosId)
 	}
-	console.log(blueSquares)
-	console.log(redSquares)
 
 	let result = checkForWin()
 	if (result) {
 			announceWinner(result)
 		}
 		else{
-			advanceTurn()
-		}
-
-
+	}
+	advanceTurn()
 }
 
 const checkForWin = () => {
 	if (turnNumber % 2 === 0) {
 		for (let i = 0; i < winningCondition.length; i++) {
-			console.log(winningCondition[i])
 			if(blueSquares.includes(winningCondition[i][0]) &&
 				blueSquares.includes(winningCondition[i][1]) &&
 				blueSquares.includes(winningCondition[i][2])){
-				console.log('Blue had winning cond')
-				return 'blue'
+				return 'Blue'
 			}
 		}
-	}else {
+	}
+	else {
 		for (let i = 0; i < winningCondition.length; i++) {
-			console.log(winningCondition[i])
 			if(redSquares.includes(winningCondition[i][0]) &&
 				redSquares.includes(winningCondition[i][1]) &&
 				redSquares.includes(winningCondition[i][2])){
-				console.log('Red had winning cond')
-				return 'red'
+				return 'Red'
 			}
 		}
 	}
 	return false
-}
-	
+}	
+
 const advanceTurn = () => {
 	turnNumber +=1
 	messageToPlayers()

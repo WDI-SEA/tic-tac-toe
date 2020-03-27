@@ -9,7 +9,7 @@ h1 {
 	padding: 50px;
 	text-align: center;
 	color: #000000;
-  	font-size: 2.5em;
+  	font-size: 2em;
   	margin: 0px;
   	text-decoration: underline;
 }
@@ -64,7 +64,7 @@ div {
 	border: 10px solid black;
 	border-color: #000000;
 	background-color: #33cc33;
-	background-size: cover;
+	background-size: 100% 12vh;
 }
 
 #gameSquare2 {
