@@ -1,8 +1,8 @@
 						//Variables
-let player1 = 'X'
-let player2 = 'O'
+let player1 = true
+let player2 = false
 
-let board = document.getElementById('gameBoard')
+let board = document.querySelectorAll('.col-4')
 let turn = 0
 let winner = false
 
@@ -13,10 +13,9 @@ const startGame = () => {
 	player1 = true
   	player2 = false
 		for (let i = 0; i < board.length; i++) {
-			document.getElementById('box[i]').addEventListener('click', (e) => {
-			move(i)
-			})
+			board[i].addEventListener('click', move)
 		}
+		console.log(board.length)
 	document.getElementById('startButton').addEventListener('click', reset)
 console.log('Now Im here')
 }
@@ -29,34 +28,35 @@ const draw = () => {
 }
 
 						//Player moves
-const move = (cell) => {
-	if (board[cell].classList.contains('marked') = false) {
+const move = (e) => {
+	console.log('clicked', e.target.id)
 		if (player1 == true) {
       player1 = false
       player2 = true
-			p1Move(cell)
+			p1Move(e)
 			document.getElementById('prompt').textContent = "Player 1 turn"
 		} else {
 			player1 = true
 			player2 = false
-			p2Move(cell)
+			p2Move(e)
 			document.getElementById('prompt').textContent= "Player 2 turn"
 		}
-		checkWin()
-		turn = turn + 1
-		draw()
-		let marked = board[cell]
-		marked.classList.add('marked')
+		// checkWin()
+		// turn = turn + 1
+		// draw()
 	}
+
+const p1Move = (e) => {
+	e.target.textContent = "X"
+	e.target.removeEventListener('click', move)
+	console.log('p1move')
 }
 
-const p1Move = (cell) => {
-	let open = document.getElementById('grid')[cell]
-	open.classList.add("p1mark")
-}
-const p2Move = (cell) => {
-	let open = document.getElementById('grid')[cell]
-	open.classList.add("p2Mark")
+const p2Move = (e) => {
+	e.target.textContent = "O"
+	e.target.removeEventListener('click', move)
+console.log('p2move')
+
 }
 
 						//Win conditions
@@ -80,25 +80,14 @@ const condition = [
 
 						//Reset the board
 const reset = () => {
-	for (i = 0; i < board.length; i++) {
-		let space =  board[i];
-		if (space.classList.contains('p1mark')) {
-			space.classList.remove('p1mark')
-			}
-		else if (space.classList.contains('p2mark')) {
-			space.classList.remove('p2mark')
+
 	startGame()
 		}
-	}
-}
-
+	
 						//Remove marks
 const checkTiles = () => {
 	for (i = 0; i < board.length; i++) {
 		let space =  board[i];
-		if (space.classList.contains('marked') = false) {
-			space.classList.add('marked')
-		}
 	}		
 }	
 
