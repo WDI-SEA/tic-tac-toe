@@ -123,3 +123,76 @@ function winChecker() {
     
 
 }
+
+
+
+function winChecker() {
+    for (var i = 0; i < winCombos.length; i++) {
+        for (var j = 0; j < winCombos[i].length; j++) {
+            if (currentPlayer = 'player1'
+            && scoreBoard[0].moveCount > 2
+            && scoreBoard[0].moves.indexOf(winCombos[i][j]) !== -1
+            && scoreBoard[0].moves.indexOf(winCombos[i][j]) !== -1
+            && scoreBoard[0].moves.indexOf(winCombos[i][j]) !== -1) {
+                document.getElementById('displayBox').textContent = 'Player 1 wins'
+                console.log('player1 wins')
+                gameOver = true
+                return
+            }
+            else {
+                if (currentPlayer = 'player2'
+                && scoreBoard[1].moveCount > 2
+                && scoreBoard[1].moves.indexOf(winCombos[i][j]) !== -1
+                && scoreBoard[1].moves.indexOf(winCombos[i][j]) !== -1
+                && scoreBoard[1].moves.indexOf(winCombos[i][j]) !== -1) {
+                    document.getElementById('displayBox').textContent = 'Player 2 wins'
+                    console.log('player2 wins')
+                    gameOver = true
+                    return
+            }
+        }
+    }
+    if (gameOver == true && playedSquares.length == 9) {
+        document.getElementById('displayBox').textContent = 'T I E  G A M E'
+        return;
+    }
+}
+
+{
+
+
+
+----------------\
+
+function winChecker() {
+    for(var i = 0; i < winCombos.length; i++) {
+        for (var j = 0; j < winCombos.length[i]; j++) {
+            if (currentPlayer == 'player1'
+            && scoreBoard[0].moveCount > 2
+            && scoreBoard[0].moves.indexOf(winCombos[i][j]) !== -1
+            && scoreBoard[0].moves.indexOf(winCombos[i][j]) !== -1
+            && scoreBoard[0].moves.indexOf(winCombos[i][j]) !== -1){
+                // document.getElementById('displayBox').textContent = 'Player 1 wins'
+                console.log('player1 wins')
+                gameOver = true
+                return
+            }
+            else {
+                if (currentPlayer == 'player2'
+                && scoreBoard[1].moveCount > 2
+                && scoreBoard[1].moves.indexOf(winCombos[i][j]) !== -1
+                && scoreBoard[1].moves.indexOf(winCombos[i][j]) !== -1
+                && scoreBoard[1].moves.indexOf(winCombos[i][j]) !== -1){
+                    document.getElementById('displayBox').textContent = 'Player 2 wins'
+                    console.log('player2 wins')
+                    gameOver = true
+                    return
+                }
+            }
+        }
+    }
+    if (gameOver == true && playedSquares.length == 9){
+        document.getElementById('displayBox').textContent = 'T I E  G A M E'
+        return
+    }
+}

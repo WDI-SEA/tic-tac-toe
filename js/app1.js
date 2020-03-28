@@ -5,8 +5,6 @@ var currentSelection = ''
 var gameOver = false 
 var playedSquares = []
 //event listeners
-
-
 document.getElementById('1').addEventListener('click', mark);
 document.getElementById('2').addEventListener('click', mark);
 document.getElementById('3').addEventListener('click', mark);
@@ -17,18 +15,15 @@ document.getElementById('7').addEventListener('click', mark);
 document.getElementById('8').addEventListener('click', mark);
 document.getElementById('9').addEventListener('click', mark);
 
-
+var winCombos = [['1','2','3'],['4','5','6'],['7','8','9'],['1','4','7'],['2','5','8'],['3','6','9'],['1','5','9'],['3','5','7']]
 
 //scoreboard
 var scoreBoard = [
-    {   playerColor: 'red',
-    displayBox: 'Player 1 Go!',
+{
     moveCount: 0,
     moves: []
 },
 {
-    playerColor: 'green',
-    displayBox: 'Player 2 Go!',
     moveCount: 0, 
     moves: []
 }
@@ -36,10 +31,11 @@ var scoreBoard = [
 
 //start game function
 function mark () {
-    console.log(this.id)
     currentSelection = this.id;
 //move validator
     if (playedSquares.indexOf(currentSelection) == -1){
+        playedSquares.push(currentSelection)
+        console.log('current player: ' + currentPlayer)
         play()
     }
     else {
@@ -49,50 +45,68 @@ function mark () {
 
 function play() {
     if (currentPlayer == 'player1') {
-        document.getElementById(currentSelection.toString()).style.backgroundColor = 'green'
+        document.getElementById(currentSelection).style.backgroundColor = 'green'
         scoreBoard[0].moveCount += 1
         scoreBoard[0].moves.push(currentSelection)
-        // winChecker()
+        console.log(currentSelection)
+        console.log(scoreBoard)
+        winChecker()
         count++
-        changePlayer() 
+        changePlayer()
     }
     else {
         currentPlayer == 'player2';
         document.getElementById(currentSelection).style.backgroundColor = 'red'
         scoreBoard[1].moveCount += 1
         scoreBoard[1].moves.push(currentSelection)
-        // winChecker()
+        winChecker()
         count++
         changePlayer() 
     }
 }
 
 function winChecker() {
-    var winCombos = [['1','2','3'],['4','5','6'],['7','8','9'],['1','4','7'],['2','5','8'],['3','6','9'],['1','5','9'],['3','5','7']
-    ]
-    for (var i = 0; i < winCombos.length; i++) {
-        for (var j = 0; j < winCombos[i].length; j++) {
-            if (currentPlayer = 'player1'
-            && scoreBoard[0].stats.indexOf(winCombos[i][j]) !== -1
-            && scoreBoard[0].stats.indexOf(winCombos[i][j]) !== -1
-            && scoreBoard[0].stats.indexOf(winCombos[i][j]) !== -1) {
-                console.log('player1 wins')
+    console.log('checking for a win')
+    for(var i = 0; i < winCombos.length; i++) { // iterating through all wins
+        if (currentPlayer == 'player1'
+            && scoreBoard[0].moveCount > 2
+            && scoreBoard[0].moves.indexOf(winCombos[i][0]) !== -1
+            && scoreBoard[0].moves.indexOf(winCombos[i][1]) !== -1
+            && scoreBoard[0].moves.indexOf(winCombos[i][2]) !== -1){
+            document.getElementById('displayBox').textContent = 'Player 1 wins'
+            console.log('player1 wins')
+            gameOver = true
+            return
+        }
+        else {
+            if (currentPlayer == 'player2'
+            && scoreBoard[1].moveCount > 2
+            && scoreBoard[1].moves.indexOf(winCombos[i][0]) !== -1
+            && scoreBoard[1].moves.indexOf(winCombos[i][1]) !== -1
+            && scoreBoard[1].moves.indexOf(winCombos[i][2]) !== -1){
+                document.getElementById('displayBox').textContent = 'Player 2 wins'
+                console.log('player2 wins')
+                gameOver = true
+                return
             }
         }
+        // stops here
+    }
+    if (gameOver == false && playedSquares.length == 9){
+        console.log('tie game')
+        document.getElementById('displayBox').textContent = 'T I E  G A M E'
+        return
     }
 }
-    
-function changePlayer() {
-    if (gameOver == true) {
-        document.getElementById('displayBox').textContent = currentPlayer + '-T I E  G A M E-'
-        return;
-    }
+
+//change current player & change display box
+function changePlayer(){
     if (count % 2 == 1) {
         currentPlayer = 'player1'
-        document.getElementById('displayBox').textContent = scoreBoard[0].displayBox
+        document.getElementById('displayBox').textContent = 'Player 1 Go!'
     }
-    if (count % 2 == 0) {
+    else{
         currentPlayer = 'player2'
-        document.getElementById('displayBox').textContent = scoreBoard[1].displayBox
+        document.getElementById('displayBox').textContent = 'Player 2 Go!'
     }
 }
