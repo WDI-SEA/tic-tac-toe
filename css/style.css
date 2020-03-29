@@ -1,47 +1,39 @@
-html,
-
-body {
-  height: 100%;
-  font-family: 'Open Sans', sans-serif;
-  background-color: #ffffff;
+td {
+	border:  2px solid #333;
+	height:  100px;
+	width:  100px;
+	text-align:  center;
+	vertical-align:  middle;
+	font-family:  'Times New Roman', Times, serif, cursive, sans-serif;
+	font-size:  80px;
+	cursor: pointer;
 }
 
-.flex-container {
-  display: flex;
+table {
+	border-collapse: collapse;
+	position: absolute;
+	left: 50%;
+	margin-left: -155px;
+	top: 50px;
 }
 
-.flex-column {
-  flex-direction: column;
+table tr:first-child td {
+	border-top: 0;
 }
 
-.flex-wrap {
-  flex-wrap: wrap;
+table tr:last-child td {
+	border-bottom: 0;
 }
 
-.flex-center {
-  justify-content: center;
-  align-items: center;
+table tr td:first-child {
+	border-left: 0;
 }
 
-.board-container {
-  height: 100%;
-  width: 100%;
+table tr td:last-child {
+	border-right: 0;
 }
 
-.board {
-  width: 630px;
+#PLAY {
+	font-size: 80px;
+	text-align: center;
 }
-
-.square {
-  width: 200px;
-  height: 200px;
-  border: 5px solid black;
-}
-
-.square:hover {
-  background-image: url("http://www.fillmurray.com/200/200"); 
-}
-
-/* div.a {
-  text-align: center;
-} */
