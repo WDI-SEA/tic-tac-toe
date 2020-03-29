@@ -14,11 +14,14 @@ h1 {
 }
 
 .col-4 {
+  color: purple;
+  font-family: 'Kaushan Script', cursive;
   border-color: black;
   display: flex;
   width: 100px;
   height: 100px;
   align-items: center;
+  text-align: center;
 }
 
 div[name = "box1"] {

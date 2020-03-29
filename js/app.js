@@ -7,6 +7,7 @@ let turn = 0
 let winner = false
 
 console.log('Started')
+
 						//Start the Game
 const startGame = () => {
 	document.getElementById('prompt').textContent = 'Go Player 1'
@@ -39,11 +40,11 @@ const move = (e) => {
 			player1 = true
 			player2 = false
 			p2Move(e)
-			document.getElementById('prompt').textContent= "Player 2 turn"
+			document.getElementById('prompt').textContent = "Player 2 turn"
 		}
-		// checkWin()
-		// turn = turn + 1
-		// draw()
+		//checkWin()
+		turn = turn + 1
+		draw()
 	}
 
 const p1Move = (e) => {
@@ -72,15 +73,21 @@ const condition = [
 ]
 
 
-//.....
-//.....
-
-
+	const winCon = (board, condtion) => {
+		if (turn >= 3) {
+			for (let i = 0; i < condtion.length; i++) {
+				const [a, b, c] = condtion[i];
+				if (board[a] === board[b] && board[a] === board[c]) {
+					document.getElementById('prompt').textContent = 'Congratulations ' + board[a]
+		} else {	
+		}
+			}
+		}
+	}
 
 
 						//Reset the board
 const reset = () => {
-
 	startGame()
 		}
 	
