@@ -1,8 +1,13 @@
+body {
+  background-color: lightgrey; 
+  text-align: center;
+}
+
 h1 {
-  color: purple;
+  color: rgb(102, 4, 102);
   font-family: 'Kaushan Script', cursive;
   text-align: center;
-
+  text-decoration: underline;
 }
 
 .container {
@@ -14,8 +19,9 @@ h1 {
 }
 
 .col-4 {
-  color: purple;
+  color: rgb(14, 124, 20);
   font-family: 'Kaushan Script', cursive;
+  font-size: 36px;
   border-color: black;
   display: flex;
   width: 100px;

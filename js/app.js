@@ -32,32 +32,31 @@ const draw = () => {
 const move = (e) => {
 	console.log('clicked', e.target.id)
 		if (player1 == true) {
-      player1 = false
-      player2 = true
+     		player1 = false
+      		player2 = true
 			p1Move(e)
-			document.getElementById('prompt').textContent = "Player 1 turn"
+			document.getElementById('prompt').textContent = 'Player 2 turn'
 		} else {
 			player1 = true
 			player2 = false
 			p2Move(e)
-			document.getElementById('prompt').textContent = "Player 2 turn"
+			document.getElementById('prompt').textContent = 'Player 1 turn'
 		}
-		//checkWin()
 		turn = turn + 1
+		winCon(board. condition)
 		draw()
 	}
 
 const p1Move = (e) => {
-	e.target.textContent = "X"
+	e.target.textContent = 'X'
+	e.target.style.textContent = 'center'
 	e.target.removeEventListener('click', move)
-	console.log('p1move')
 }
 
 const p2Move = (e) => {
-	e.target.textContent = "O"
+	e.target.textContent = 'O'
+	e.target.style.textContent = 'center'
 	e.target.removeEventListener('click', move)
-console.log('p2move')
-
 }
 
 						//Win conditions
@@ -73,29 +72,26 @@ const condition = [
 ]
 
 
-	const winCon = (board, condtion) => {
-		if (turn >= 3) {
-			for (let i = 0; i < condtion.length; i++) {
-				const [a, b, c] = condtion[i];
-				if (board[a] === board[b] && board[a] === board[c]) {
-					document.getElementById('prompt').textContent = 'Congratulations ' + board[a]
-		} else {	
-		}
-			}
+const winCon = (board, condtion) => {
+	if (turn >= 3) {
+		for (let i = 0; i < condition.length; i++) {
+			const [a, b, c] = condtion[i];
+			if (board[a] && board[a] === board[b] && board[a] === board[c]) {
+				console.log('winner', move)
+				document.getElementById('prompt').textContent = 'Congratulations, You win!'
+				document.removeEventListener('click', board)
+	} else {	
+		draw()
+	}
 		}
 	}
+}
 
 
 						//Reset the board
 const reset = () => {
 	startGame()
+	board.textContent = ''
 		}
-	
-						//Remove marks
-const checkTiles = () => {
-	for (i = 0; i < board.length; i++) {
-		let space =  board[i];
-	}		
-}	
 
 document.getElementById('startButton').addEventListener('click', startGame)
