@@ -14,6 +14,7 @@ document.getElementById('6').addEventListener('click', mark);
 document.getElementById('7').addEventListener('click', mark);
 document.getElementById('8').addEventListener('click', mark);
 document.getElementById('9').addEventListener('click', mark);
+document.getElementById('resetBtn').addEventListener('click', reset);
 
 var winCombos = [['1','2','3'],['4','5','6'],['7','8','9'],['1','4','7'],['2','5','8'],['3','6','9'],['1','5','9'],['3','5','7']]
 
@@ -35,7 +36,6 @@ function mark () {
 //move validator
     if (playedSquares.indexOf(currentSelection) == -1){
         playedSquares.push(currentSelection)
-        console.log('current player: ' + currentPlayer)
         play()
     }
     else {
@@ -51,8 +51,10 @@ function play() {
         console.log(currentSelection)
         console.log(scoreBoard)
         winChecker()
-        count++
-        changePlayer()
+        if (gameOver == false){
+            count++
+            changePlayer()
+        }
     }
     else {
         currentPlayer == 'player2';
@@ -60,13 +62,14 @@ function play() {
         scoreBoard[1].moveCount += 1
         scoreBoard[1].moves.push(currentSelection)
         winChecker()
-        count++
-        changePlayer() 
+        if (gameOver == false){
+            count++
+            changePlayer()
+        }
     }
 }
 
 function winChecker() {
-    console.log('checking for a win')
     for(var i = 0; i < winCombos.length; i++) { // iterating through all wins
         if (currentPlayer == 'player1'
             && scoreBoard[0].moveCount > 2
@@ -76,7 +79,6 @@ function winChecker() {
             document.getElementById('displayBox').textContent = 'Player 1 wins'
             console.log('player1 wins')
             gameOver = true
-            return
         }
         else {
             if (currentPlayer == 'player2'
@@ -87,7 +89,6 @@ function winChecker() {
                 document.getElementById('displayBox').textContent = 'Player 2 wins'
                 console.log('player2 wins')
                 gameOver = true
-                return
             }
         }
         // stops here
@@ -95,7 +96,8 @@ function winChecker() {
     if (gameOver == false && playedSquares.length == 9){
         console.log('tie game')
         document.getElementById('displayBox').textContent = 'T I E  G A M E'
-        return
+        gameOver = true;
+
     }
 }
 
@@ -109,4 +111,23 @@ function changePlayer(){
         currentPlayer = 'player2'
         document.getElementById('displayBox').textContent = 'Player 2 Go!'
     }
+}
+
+//reset function
+function reset() {
+    scoreBoard[0].movesCount = 0
+    scoreBoard[0].moves = []
+    scoreBoard[1].movesCount = 0
+    scoreBoard[1].moves = []
+    var count = 1
+    var currentPlayer = 'player1'
+    var currentSelection = ''
+    var gameOver = false 
+    var playedSquares = []
+    document.getElementById('displayBox').textContent = 'Player 1 Go'
+    var squares = document.getElementsByClassName('squares')
+    for (var i = 0; i < squares.length; i++) {
+        squares[i].style.backgroundColor = 'lightgray'
+    }
+    
 }
