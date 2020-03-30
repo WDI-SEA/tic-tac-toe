@@ -15,12 +15,10 @@ const winCombos = [
 	['6', '4', '2']
 ];
 
+// How come the game is still functional when the turn variable == any integar?
 let turn = 0;
 
 const cells = document.querySelectorAll('.cell');
-// The cells event listener starts the game, previously a start buttom was clicked
-//document.getElementById('start').addEventListener('click', cells);
-// Below is the working startGame function...comment out cells EventListener to endGame
 document.getElementById('start').addEventListener('click', startGame);
 
 function startGame() {

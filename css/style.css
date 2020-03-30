@@ -33,7 +33,15 @@ table tr td:last-child {
 	border-right: 0;
 }
 
-#PLAY {
+#start {
 	font-size: 80px;
 	text-align: center;
+	position: center;
+	padding-top: 200px;
+}
+
+#endgame {
+	position: relative;
+	padding-top: 20px;
+	color: chartreuse;
 }
