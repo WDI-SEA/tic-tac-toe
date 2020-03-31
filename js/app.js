@@ -33,15 +33,16 @@ const move = (e) => {
 	}
 	turn = turn + 1
 	winCon(board, condition)
-	if (winner) {
-		for (let i = 0; i < board.length; i++) {
-			board[i].removeEventListener('click', move)
+		if (winner) {
+			for (let i = 0; i < board.length; i++) {
+				board[i].removeEventListener('click', move)
+			}
 		}
-	}
 	draw()
 }
 
  //Draw Condition
+ console.log("draw")
  const draw = () => {
 	if (turn == 9 && winner == false ) {
 	document.getElementById('prompt').textContent = 'Tie Game'
