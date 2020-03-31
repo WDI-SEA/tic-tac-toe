@@ -17,14 +17,8 @@ const startGame = () => {
 	document.getElementById('startButton').addEventListener('click', reset)
 }
 
-						//Draw Condition
-const draw = () => {
-	if (turn == 9 && winner == false ) {
-		document.getElementById('prompt').textContent = 'Tie Game'
-	}
-}
 
-						//Player moves
+//Player moves
 const move = (e) => {
 	if (player1 == true) {
 		player1 = false
@@ -60,6 +54,13 @@ const p2Move = (e) => {
 	e.target.style.textContent = 'center'
 	e.target.removeEventListener('click', move)
 }
+
+//Draw Condition
+const draw = () => {
+	if (turn == 9 && winner == false ) {
+	document.getElementById('prompt').textContent = 'Tie Game'
+	}
+	}	
 
 						//Win conditions
 const condition = [
