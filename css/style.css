@@ -30,38 +30,48 @@ h1 {
   text-align: center;
 }
 
-div[name = "box1"] {
+div[id = "box1"] {
   border-bottom: 3px solid black;
   border-right: 3px solid black;
 }
-div[name = "box2"] {
-  border-bottom: 3px solid black;
-  border-right: 3px solid black;
-}
-
-div[name = "box3"] {
-  border-bottom: 3px solid black;
-}
-
-div[name = "box4"] {
+div[id = "box2"] {
   border-bottom: 3px solid black;
   border-right: 3px solid black;
 }
 
-div[name = "box5"] {
+div[id = "box3"] {
+  border-bottom: 3px solid black;
+}
+
+div[id = "box4"] {
   border-bottom: 3px solid black;
   border-right: 3px solid black;
 }
 
-div[name = "box6"] {
+div[id = "box5"] {
   border-bottom: 3px solid black;
-
-}
-
-div[name = "box7"] {
   border-right: 3px solid black;
 }
 
-div[name = "box8"] {
+div[id = "box6"] {
+  border-bottom: 3px solid black;
+}
+
+div[id = "box7"] {
   border-right: 3px solid black;
+}
+
+div[id = "box8"] {
+  border-right: 3px solid black;
+}
+
+button {
+  margin: 6px
+}
+button:hover {
+  background-color: #cdbeec;
+}
+
+button:active {
+  background-color: navy;
 }
