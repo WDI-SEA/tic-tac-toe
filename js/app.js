@@ -96,6 +96,7 @@ const reset = () => {
 		document.getElementById('prompt').textContent = ''
 	}
 	winner = false
+	turn = 0
 	startGame()
 }
 
