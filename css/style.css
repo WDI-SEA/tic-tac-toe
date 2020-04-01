@@ -1,3 +1,42 @@
-h1 {
-  color: purple;
+body {
+  background-color: black;
 }
+
+h1 {
+  color: skyblue;
+}
+
+.board {
+  background-color: white;
+  margin: 0 auto;
+  height: 200px;
+  width: 200px;
+  display: grid;
+  align-content: center; 
+  justify-content: center;
+  grid-template-columns: repeat(3, auto);
+}
+
+.slots {
+  border: 1px solid navy;
+  background-color: skyblue;
+  height: 50px;
+  width: 50px;
+  font-size: 75px; 
+  display:flex;
+  cursor:grab;
+  justify-content:center;
+}
+
+
+.X::before {
+  font-size: 40px;
+  content: 'X';
+}
+
+.O::before {
+  font-size:40px;
+  content: 'O';
+}
+
+/*credit to justin kim walkthrough for referencing pseudo-elements */
