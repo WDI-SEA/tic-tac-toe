@@ -1,3 +1,50 @@
+body {
+  background: #136a8a;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #267871, #136a8a);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #267871, #136a8a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+color: white;
+text-align: center;
+font-family: monospace;
+}
+
 h1 {
-  color: purple;
+  color: whitesmoke;
+  font-family: monospace;
+}
+
+.game-board {
+  border: 3px solid black;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  height: 300px;
+  width: 300px;
+  margin: 0 auto;
+  background-color: lightpink;
+  border-radius: 5px;
+}
+
+.square {
+  flex: 0 0 33%;
+  width: 98px;
+  height: 98px;
+  border: 1px solid black;
+}
+
+#resetBtn {
+  margin: 30px;
+  width: 300px;
+  height: 30px;
+  background-color: #DB7093;
+  border-radius: 5px;
+  font-family: sans-serif;
+}
+
+.cat {
+  background-image: url("./cat-x.png");
+  background-size: cover;
+}
+
+.frog {
+  background-image: url("./frog-o.png");
+  background-size: cover;
 }
