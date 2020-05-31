@@ -6,7 +6,6 @@ console.log('loading...');
 
 ///// VARIABLES AND CONSTANTS /////
 
-//let i; //for const 'cel'
 
 ///// DOM GETS /////
 
@@ -33,7 +32,11 @@ for (let i = 0; i < cels.length; i++) {
 
 for (let i = 0; i < cels.length; i++) {
   cels[i].style.background = "url('img/download.jpeg')"
+  cels[i].textContent = ''
 }
+
+// CHOOSE X OR O ; CHANGES TURNSTATE TO XTURN OR OTURN ; DISABLED WHEN ANY CEL HAS CLASS CLICKED !!!
+
 
 // for (let i = 0; i < cels.length; i++) {
 //   document.getElementById(cels[i].id).addEventListener('click', function (e) {
@@ -61,6 +64,8 @@ for (let i = 0; i < cels.length; i++) {
 // if gameState contains class 'turnO', places o on cel when clicked
 // if gameState contains class 'x' and 'turnO', logs error in console
 // if gameState contains neither class 'x' or 'turnO', logs error in console
+
+//*********************** GAME ADVANCE EVENT HANDLER ****************************
 for (let i = 0; i < cels.length; i++) {
   let cel = cels[i]
 document.getElementById(cel.id).addEventListener('click', function (e) {
@@ -69,6 +74,7 @@ document.getElementById(cel.id).addEventListener('click', function (e) {
   //     console.log('error in onclick, turnState contains both classes turnX and o')
   //   } //impossible. this statement is from an old version
     else if (turnState.classList.contains('turnX') === true) {
+      document.getElementById('header').textContent = "CAT-DOG-LOAF!!"
       writeTurn()
       drawX(cel)
       advanceTurn(cel)
@@ -76,8 +82,9 @@ document.getElementById(cel.id).addEventListener('click', function (e) {
       //checkWin()
     }
     else if (turnState.classList.contains('turnO') === true) {
-    //else if (turnO === true) {
-     // writeTurn()
+      //else if (turnO === true) {
+        // writeTurn()
+        document.getElementById('header').textContent = "CAT-DOG-LOAF!!"
      writeTurn()
       drawO(cel)
       advanceTurn(cel)
@@ -109,16 +116,18 @@ document.getElementById('resetButton').addEventListener('click', function (e) {
 // }
 
 
-// places an X on a cel, 
+// places an X (catloaf) on a cel, 
 function drawX(c) {
-  // c.classList.add('clicked')
-  c.textContent = 'X'
+  c.classList.add('clicked')
+  c.style.background = "url('img/catloaf.jpg')"
+  //c.textContent = 'X'
 }
 
-// places an O on a cel
+// places an O (dogloaf) on a cel
 function drawO(c) {
   c.classList.add('clicked')
-  c.textContent = 'O'
+  c.style.background = "url('img/dogloaf.jpeg')"
+  //c.textContent = 'O'
 }
 
 // if'turnX'is true, removes class'turnX'from turnState and adds class 'turnO' to turnState
@@ -143,10 +152,10 @@ function advanceTurn(c) {
 //displays player turn in h2 'turnDisplay', based on gameSpace class'turnX'or 'turnO'
 function writeTurn(c) {
   if (turnState.classList.contains('turnX') === true) {
-    turnDisplay.textContent = 'Player O\'s turn to go'
+    turnDisplay.textContent = 'Dogloaf! Woof!'
   }
   else if (turnState.classList.contains('turnO') === true) {
-    turnDisplay.textContent = 'player X\'s turn to go'
+    turnDisplay.textContent = 'Catloaf! Choose!'
   }
   else {
     turnDisplay.textContent = "error in writeTurn"
@@ -170,12 +179,26 @@ function writeTurn(c) {
 //     }
 //  }
 
+// SCORE COUNTER !!!
+
 ///// GAME LOGIC /////
+
+// DETERMINES ENDGAME STATE, GAME ENDS IF WIN CONDITION MET OR ALL CELS HAVE CLASS CLICKED !!! RUNS AT GAME ADVANCE ONCLICK
+
+
+
+// MINDLESS COMPUTER PLAYER !!!
+
+
+
+//SKILLED COMPUTER PLAYER !!!
+
 
 
 
 ///// TEST ARGUMENTS /////
 
+// [DONE IN CONSOLE]
 
 ///// QUESTIONS /////
 
