@@ -1,3 +1,59 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(23, 25, 100);
+  text-align: center;
+}
+
 h1 {
   color: purple;
 }
+
+h2 {
+  color: white;
+}
+
+div {
+  width: auto;
+}
+
+
+img {
+  object-fit: contain;
+  width: 100px;
+  height: 100px;
+}
+
+/* CLASSES */
+
+.x {
+  color: rgb(219, 14, 14);
+}
+
+.o {
+  color: rgb(14, 4, 4);
+} 
+
+.gameSpace {
+  width: auto;
+}
+
+.row {
+  /* height: 150px; */
+  /* width: 450px; */
+}
+
+.cel {
+  background-color: rgb(59, 167, 159);
+  height: 100px;
+  width: 100px;
+  display: inline-block;
+  border: 2px dotted white;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-family: 'Times New Roman';
+}
+
+#turnDisplay
+/* height: 50; */
