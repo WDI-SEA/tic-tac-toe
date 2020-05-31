@@ -13,8 +13,8 @@ console.log('loading...');
 let turnDisplay = document.getElementById('turnDisplay'); //h2 with id 'turnDisplay, contains text of who's turn it is
 let turnState = document.getElementById('gameSpace'); //div with id 'gameSpace', contains all rows and cels
 let cels = document.getElementsByClassName('cel'); //array of all class 'cel'
-let turnO = (turnState.className === 'o')  //returns true if turnState contains class 'o' ; doesn''t work for some reason
-let turnX = (turnState.className === 'x') //returns true if turnState contains class 'o' ; doesn't work for ssome reason
+// let turnO = turnState.classList.contains('turnO') //ALWAYS RETURNS TRUE!! WHAT HECK! //returns true if turnState contains class 'turnO' ; doesn''t work for some reason
+// let turnX = turnState.classList.contains('turnX') //ALWAYS RETURNS FALSE!! THIS WAS A FUN ONE! //returns true if turnState contains class 'turnX' ; doesn't work for ssome reason
 //let cel = document.getElementById('1,1')
 
 //const cel = cel[i] //element cel at position i in array cels; i'l'l have to come back to this; should it be written as a function?
@@ -31,6 +31,10 @@ for (let i = 0; i < cels.length; i++) {
   })
 }
 
+for (let i = 0; i < cels.length; i++) {
+  cels[i].style.background = "url('img/download.jpeg')"
+}
+
 // for (let i = 0; i < cels.length; i++) {
 //   document.getElementById(cels[i].id).addEventListener('click', function (e) {
 //     console.log(cels[i])
@@ -44,38 +48,39 @@ for (let i = 0; i < cels.length; i++) {
 //   })
 // }
 
-// when clicked on, adds class 'o' to cel and changes CSS
+// when clicked on, adds class 'turnO' to cel and changes CSS
 // for (let i = 0; i < cels.length; i++) {
 //   const cel = cels[i]
 //   document.getElementById(cel.id).addEventListener('click', function (e) {
-//     cel.classList.add('o');
+//     cel.classList.add('turnO');
 //     cel.style.backgroundColor = "white";
 //   })
 // }
 
 // if gameState contains class 'x', places x on cel when clicked
-// if gameState contains class 'o', places o on cel when clicked
-// if gameState contains class 'x' and 'o', logs error in console
-// if gameState contains neither class 'x' or 'o', logs error in console
+// if gameState contains class 'turnO', places o on cel when clicked
+// if gameState contains class 'x' and 'turnO', logs error in console
+// if gameState contains neither class 'x' or 'turnO', logs error in console
 for (let i = 0; i < cels.length; i++) {
   let cel = cels[i]
 document.getElementById(cel.id).addEventListener('click', function (e) {
   if (cel.classList.contains('clicked') === true) {return}
-  else if ((turnState.className === 'x') && (turnState.className === 'o')) {
-      console.log('error in onclick, turnState contains both classes x and o')
-    } //impossible. this statement is from an old version
-    else if (turnState.className === 'x') {
+  // else if ((turnX === true) && (turnState.classList.contains('turnO') === true)) {
+  //     console.log('error in onclick, turnState contains both classes turnX and o')
+  //   } //impossible. this statement is from an old version
+    else if (turnState.classList.contains('turnX') === true) {
       writeTurn()
       drawX(cel)
       advanceTurn(cel)
-      writeTurn()
+      //writeTurn()
       //checkWin()
     }
-    else if (turnState.className === 'o') {
-      writeTurn()
+    else if (turnState.classList.contains('turnO') === true) {
+    //else if (turnO === true) {
+     // writeTurn()
+     writeTurn()
       drawO(cel)
       advanceTurn(cel)
-      writeTurn()
       //checkWin
     }
     else {
@@ -96,31 +101,38 @@ document.getElementById('resetButton').addEventListener('click', function (e) {
 //   console.log('let\'s go')
 // }
 
+// function toggleX(c) {
+//   {
+//   c.classList.toggle('x')
+//   }
+//   return
+// }
+
+
 // places an X on a cel, 
 function drawX(c) {
   // c.classList.add('clicked')
-  c.textContent = 'x'
+  c.textContent = 'X'
 }
 
 // places an O on a cel
 function drawO(c) {
   c.classList.add('clicked')
-  c.textContent = 'o'
+  c.textContent = 'O'
 }
 
-// if turnX is true, removes class 'x' from turnState and adds class 'o' to turnState
-// if turnO is true, removes class 'o' from turnState and adds class 'x' to turnState
+// if'turnX'is true, removes class'turnX'from turnState and adds class 'turnO' to turnState
+// if turnO is true, removes class 'turnO' from turnState and adds class'turnX'to turnState
 // else logs error to console
 function advanceTurn(c) {
-  if (turnState.classList > 1) {
-    console.log('error in advanceTurn')
-  }
-  else if (turnState.className === 'x') {
-    turnState.className = 'o'
+  if (turnState.classList.contains('turnX') === true) {
+    turnState.classList.remove('turnX')
+    turnState.classList.add('turnO')
     c.classList.add('clicked')
   }
-  else if (turnState.className === 'o') {
-    turnState.className = 'x'
+  else if (turnState.classList.contains('turnO') === true) {
+    turnState.classList.remove('turnO')
+    turnState.classList.add('turnX')
     c.classList.add('clicked')
   }
   else {
@@ -128,35 +140,35 @@ function advanceTurn(c) {
   }
 }
 
-//displays player turn in h2 'turnDisplay', based on gameSpace class 'x' or 'o'
+//displays player turn in h2 'turnDisplay', based on gameSpace class'turnX'or 'turnO'
 function writeTurn(c) {
-  if (turnState.className === 'x') {
-    turnDisplay.textContent = 'Player X\'s turn to go'
+  if (turnState.classList.contains('turnX') === true) {
+    turnDisplay.textContent = 'Player O\'s turn to go'
   }
-  else if (turnState.className === 'o') {
-    turnDisplay.textContent = 'player O\'s turn to go'
+  else if (turnState.classList.contains('turnO') === true) {
+    turnDisplay.textContent = 'player X\'s turn to go'
   }
   else {
-    turnDisplay.textContent = "error in writeTurn, turnState contains neither x or o"
+    turnDisplay.textContent = "error in writeTurn"
   }
 }
 
 // resets game state
 // function initialize() {
-//   turnState.className = 'x'
+//   turnState.className = 'turnX'
 //   for (i = 0; i < cels.length; i++) {
 //     let cel = cels[i]
 //      document.getElementById('test').textContent = 'bub'
 //     }
 //  }
-function initialize() {
-  turnState.className = 'x'
-  writeTurn()
-  for (i = 0; i < cels.length; i++) {
-    let cel = cels[i]
-    cel.style.background = "url('img/download.jpeg')"
-    }
- }
+// function initialize() {
+//   turnState.classList.add = 'turnX'
+//   writeTurn()
+//   for (i = 0; i < cels.length; i++) {
+//     let cel = cels[i]
+//     cel.style.background = "url('img/download.jpeg')"
+//     }
+//  }
 
 ///// GAME LOGIC /////
 
@@ -165,10 +177,14 @@ function initialize() {
 ///// TEST ARGUMENTS /////
 
 
+///// QUESTIONS /////
+
+// let turnO = turnState.classList.contains('turnO') //ALWAYS RETURNS TRUE!! WHAT HECK! //returns true if turnState contains class 'turnO' ; doesn''t work for some reason
+// let turnX = turnState.classList.contains('turnX') //ALWAYS RETURNS FALSE!! THIS WAS A FUN ONE! //returns true if turnState contains class 'turnX' ; doesn't work for ssome reason
 
 
 
 
 
-initialize()
+// initialize()
 console.log('loaded!')
