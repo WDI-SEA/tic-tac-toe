@@ -3,12 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <title>○×ゲーム</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
-<body>
-  <h1>Hello Front-End</h1>
-
-  <script type="text/javascript" src="js/app.js"></script>
-</body>
+  <main>
+    <body>
+      <h1>○×ゲーム</h1>
+      <h2>technology p r o d u c t ° テクノロジー製品</h2>
+      <audio id='musicBG'>
+        <source src='snd/MT140.mp3' type="audio/mp3">
+      </audio>
+      <div>
+        <button type="button" id="startMusic">music ° 音楽</button>
+        <button type="button" id="stopMusic">silence ° 沈黙</button>
+      </div>
+      <div id="boardBG">
+        <!-- <h1>○×ゲーム</h1> -->
+        <div class='row0'>
+          <div id='box00' class="gameBoxes"></div>
+          <div id='box01' class="gameBoxes"></div>
+          <div id='box02' class="gameBoxes"></div>
+        </div>
+        <div class='row1'>
+          <div id='box10' class="gameBoxes"></div>
+          <div id='box11' class="gameBoxes"></div>
+          <div id='box12' class="gameBoxes"></div>
+        </div>
+        <div class='row2'>
+          <div id='box20' class="gameBoxes"></div>
+          <div id='box21' class="gameBoxes"></div>
+          <div id='box22' class="gameBoxes"></div>
+        </div>
+      </div>
+      <div id="info">
+        <div id="infoPic" class="infoBoxes"></div>
+        <div id="infoTextBox" class="infoBoxes">
+          <h3 id="infoText">WIN ° スコア ！</h3>
+        </div>
+      </div>
+      <button type="button" id="reset">again ° 再び</button>
+    <script type="text/javascript" src="js/app.js"></script>
+    </body>
+  </main>
 </html>

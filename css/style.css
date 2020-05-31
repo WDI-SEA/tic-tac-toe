@@ -1,3 +1,155 @@
-h1 {
+* {
+  text-align: center;
+  align-items: center; 
+  margin: 0;
+}
+
+main {
   color: purple;
+}
+
+body {
+  background-image: url("../img/bust2.jpg");
+  background-color: rgb(235,160,235);
+  background-size: cover;
+  background-repeat: no-repeat;
+  
+}
+
+h1 {
+  font-size: 80px;
+  text-shadow: 4px 4px rgb(42, 167, 161 );
+}
+
+button {
+  background-color: purple; /* Green */
+  margin: 5px;
+  color: rgb(42, 167, 161);
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-style: italic;
+}
+
+/* #boardBG {
+width: 100%;
+} */
+
+.row0, .row1, .row2  {
+  display: flex; 
+  height: 100px;
+  width: 300px;
+  margin: 0 auto;
+}
+
+.gameBoxes { 
+  display: inline-block;
+  height: 100px;
+  width: 100px;
+  backdrop-filter: blur(30px);
+  /* background-color: black; */
+}
+
+.gameBoxes:hover {
+  background-color: rgb(235,200,235);
+}
+
+#box00 {
+  border-right: 5px solid white;
+  border-bottom: 5px solid white;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#box01 {
+  border-left: 5px solid white;
+  border-right: 5px solid white;
+  border-bottom: 5px solid white;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#box02 {
+  border-left: 5px solid white;
+  border-bottom: 5px solid white;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#box10 {
+  border-right: 5px solid white;
+  border-top: 5px solid white;
+  border-bottom: 5px solid white;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#box11 {
+  border-left: 5px solid white;
+  border-right: 5px solid white;
+  border-bottom: 5px solid white;
+  border-top: 5px solid white;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
+
+#box12 {
+  border-left: 5px solid white;
+  border-bottom: 5px solid white;
+  border-top: 5px solid white;
+  background-size: contain;
+  background-repeat: no-repeat;
+ 
+}
+
+#box20 {
+  border-right: 5px solid white;
+  border-top: 5px solid white;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#box21 {
+  border-right: 5px solid white;
+  border-left: 5px solid white;
+  border-top: 5px solid white;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#box22 {
+  border-top: 5px solid white;
+  border-left: 5px solid white;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#info {
+  display: flex; 
+  height: 50px;
+  width: 300px;
+  margin: 0 auto;
+}
+
+#infoPic {
+  background-image: url("../img/mac.svg");
+  width: 50px;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.infoBoxes { 
+  display: inline-block;
+  height: 50px;
+  width: 300px;
+  backdrop-filter: blur(30px);
+  /* background-color: black; */
+}
+
+#infoTextBox {
+  text-align: left;
+  font-size: 30px;
 }
