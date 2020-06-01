@@ -1,3 +1,52 @@
-h1 {
-  color: purple;
+* {
+  margin: 0 auto;
+  padding: 0;
+  user-select: none;
 }
+
+body { 
+  background-image: url("https://cdn.pixabay.com/photo/2016/11/29/05/45/astronomy-1867616_960_720.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+h1 {
+  color: #115be4;
+  font-size: 50px;
+  font-family: "Orbitron";
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+div#board {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+
+div[id^="row-"] {clear: both;}
+div[id^="row-"] div {
+  border: 5px solid #115be4;
+  height: 175px;
+  width: 175px;
+  float: left;
+  text-align: center;
+  font-family: "Orbitron";
+  font-size: 150px;
+}
+
+div #row-1 div {
+  border-top: none;
+}
+
+div #row-3 div {
+  border-bottom: none;
+}
+
+div[id^="row-"] div:first-child{border-left: none;}
+div[id^="row-"] div:last-child{border-right: none;}
+
+.reset-button {
+  text-align: center;
+}
+
