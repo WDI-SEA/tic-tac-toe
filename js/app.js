@@ -101,9 +101,11 @@ for (let i = 0; i < cels.length; i++) {
   )
 }
 
-// document.getElementById('resetButton').addEventListener('click', function (e) {
-//   initialize()
-// })
+
+// resets game state
+document.getElementById('resetButton').addEventListener('click', function (e) {
+  initialize()
+})
 
 ///// FUNCTIONS /////
 
@@ -272,6 +274,7 @@ function checkWinState() {
 //array of keys as variables from winData{} // not used
 let winDataKeys = ['r1', 'r2', 'r3', 'r4', 'r5', 'c1', 'c2', 'c3']
 //object representing player win potential (3 in any one key is a win state)
+const winDataStart = { 'r1': 0, 'r2': 0, 'r3': 0, 'r4': 0, 'r5': 0, 'c1': 0, 'c2': 0, 'c3': 0 }
 let winDataX = { 'r1': 0, 'r2': 0, 'r3': 0, 'r4': 0, 'r5': 0, 'c1': 0, 'c2': 0, 'c3': 0 }
 let winDataO = { 'r1': 0, 'r2': 0, 'r3': 0, 'r4': 0, 'r5': 0, 'c1': 0, 'c2': 0, 'c3': 0 }
 // let windata = [1,2,3,4,5,6,7,8]
@@ -357,14 +360,19 @@ function writeTurn(c) {
   }
 }
 
-// resets game state !!!
-// function initialize() {
-//   turnState.className = 'turnX'
-//   for (i = 0; i < cels.length; i++) {
-//     let cel = cels[i]
-//      document.getElementById('test').textContent = 'bub'
-//     }
-//  }
+//INITIALIZE
+// resets game state 
+function initialize() {
+  turnState.className = 'turnX'
+  for (i = 0; i < cels.length; i++) {
+    let cel = cels[i]
+    cel.classList.remove('clicked', 'sideX', 'sideO') //correct!
+    cel.style.background = "" //works
+    winDataX = winDataStart
+    winDataO = winDataStart
+
+  }
+}
 // function initialize() {
 //   turnState.classList.add = 'turnX'
 //   writeTurn()
