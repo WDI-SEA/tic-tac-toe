@@ -17,7 +17,7 @@ let colors = ["#cc2f66", "#8e25a1", "#c4c42d",
   "#d9144f", "#b73ec7", "#f0b837"]
 // let turnO = turnState.classList.contains('turnO') //ALWAYS RETURNS TRUE!! WHAT HECK! //returns true if turnState contains class 'turnO' ; doesn''t work for some reason
 // let turnX = turnState.classList.contains('turnX') //ALWAYS RETURNS FALSE!! THIS WAS A FUN ONE! //returns true if turnState contains class 'turnX' ; doesn't work for ssome reason
-//let cel = document.getElementById('1,1')
+let cel = document.getElementById('1,1')
 
 //const cel = cel[i] //element cel at position i in array cels; i'l'l have to come back to this; should it be written as a function?
 
@@ -230,7 +230,7 @@ function drawX(c) {
 // places an O (dogloaf) on a cel
 function drawO(c) {
   c.classList.add('clicked')
-  c.classList.add('sideO')
+  c.classList.add('sideO') //unused
   c.style.background = "url('img/dogloaf.jpeg')"
   //c.textContent = 'O'
 }
@@ -267,6 +267,13 @@ function checkWinState() {
     return
   }
 }           // that wasn't so bad.
+// function checkWinState() {
+//   if ((winData.r1 >= 3) || (winData.r2 >= 3) || (winData.r3 >= 3) || (winData.r4 >= 3) || (winData.r5 >= 3) || (winData.c1 >= 3) || (winData.c2 >= 3) || (winData.c3 >= 3)) {
+//     //winnerstate
+//   } else {
+//     return
+//   }
+// }           // that wasn't so bad.
 
 
 
@@ -279,7 +286,7 @@ let winDataX = { 'r1': 0, 'r2': 0, 'r3': 0, 'r4': 0, 'r5': 0, 'c1': 0, 'c2': 0, 
 let winDataO = { 'r1': 0, 'r2': 0, 'r3': 0, 'r4': 0, 'r5': 0, 'c1': 0, 'c2': 0, 'c3': 0 }
 // let windata = [1,2,3,4,5,6,7,8]
 // const winDataKeys = ['r1', 'r2', 'r3', 'r4', 'r5', 'c1', 'c2', 'c3']
-
+// Objects.keys(winDataX)[1]
 
 
 
@@ -360,6 +367,8 @@ function writeTurn(c) {
   }
 }
 
+
+
 //INITIALIZE
 // resets game state 
 function initialize() {
@@ -370,6 +379,7 @@ function initialize() {
     cel.style.background = "" //works
     winDataX = winDataStart
     winDataO = winDataStart
+    document.getElementById('turnDisplay').textContent = 'Catloaf! Your turn to choose!'
 
   }
 }
