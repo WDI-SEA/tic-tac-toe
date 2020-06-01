@@ -53,8 +53,9 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function changeTurn() {
+    // If current turn is "X", change to "O". If "O", change to "X".
     currentTurn = currentTurn === "X" ? "O" : "X";
-    gameStatus.innerHTML === `It's ${currentTurn}'s turn to pick`;
+    gameStatus.innerHTML = `It's ${currentTurn}'s turn to pick`;
   }
 
   function checkWin() {
@@ -64,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
       let caseA = boardState[winCombination[0]];
       let caseB = boardState[winCombination[1]];
       let caseC = boardState[winCombination[2]];
-      console.log(caseA, caseB, caseC);
+      // console.log(caseA, caseB, caseC);
       if (caseA === "" || caseB === "" || caseC === "") {
         continue;
       }
@@ -75,6 +76,13 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     if (roundWon) {
       gameStatus.innerText = `Congradulations, ${currentTurn} wins!`;
+      gameOver = true;
+      return;
+    }
+    // If winner was never determined and boardStates contains no empty spaces, it's a draw
+    let roundDraw = !boardState.includes("");
+    if (roundDraw) {
+      gameStatus.innerHTML = "It's a draw!";
       gameOver = true;
       return;
     }
