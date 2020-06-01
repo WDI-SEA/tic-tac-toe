@@ -4,7 +4,6 @@ add sound
 add AI
 */  //  //  //  //  //  //  
 
-
 let boardBG = document.getElementById('boardBG');
 let infoPic = document.getElementById('infoPic');
 let infoText = document.getElementById('infoText');
@@ -23,7 +22,7 @@ let gameMatrix = [ [0, 0, 0],
                    [0, 0, 0],];
 
 // image location and value to update game matrix with when a play is made
-const playerRef= [ ["url('./img/win.svg')", 1],
+const PLAYER_REF = [ ["url('./img/win.svg')", 1],
                    ["url('./img/mac.svg')", 2],];
 
 // check whose turn it is in player ref win = 0 mac = 1
@@ -51,7 +50,7 @@ function init () {
   //reset turn count
   turnCount = 0;
   //reset text to GO + info BG image to windows
-  infoPic.style.backgroundImage = playerRef[currentPlayer][0];
+  infoPic.style.backgroundImage = PLAYER_REF[currentPlayer][0];
   infoText.innerText = "GO ° 行こう！";
   //iterate through matrix to make sure that it is clear and also clear the game box bg imgs
   for(let i=0; i<3;i++){
@@ -111,10 +110,10 @@ function winCheck() {
       //if 1 won, its win95
       if (winner === 0){
         infoText.innerText = "WIN ° スコア ！";
-        infoPic.style.backgroundImage = playerRef[0][0];
+        infoPic.style.backgroundImage = PLAYER_REF[0][0];
       } else if (winner === 1) {
         infoText.innerText = "MAC° スコア ！";
-        infoPic.style.backgroundImage = playerRef[1][0];
+        infoPic.style.backgroundImage = PLAYER_REF[1][0];
       } 
     }
     if (turnCount === 9 && winner === -1){
@@ -138,15 +137,15 @@ function click(e){
       if (gameMatrix[y][x] == 0){
         //increment turnCount
         turnCount++;
-        // update the bg img of the target box with var playerRef at index of currentPlayer
-        document.getElementById(currentSquare).style.backgroundImage = playerRef[currentPlayer][0];
+        // update the bg img of the target box with var PLAYER_REF at index of currentPlayer
+        document.getElementById(currentSquare).style.backgroundImage = PLAYER_REF[currentPlayer][0];
         //update matrix
-        gameMatrix[y][x] = playerRef[currentPlayer][1];
+        gameMatrix[y][x] = PLAYER_REF[currentPlayer][1];
         // check to see if anyone has won the game
         // update the current player
         currentPlayer = (currentPlayer + 1) % 2;
         //update info img
-        infoPic.style.backgroundImage = playerRef[currentPlayer][0];
+        infoPic.style.backgroundImage = PLAYER_REF[currentPlayer][0];
         // check to see if anyone has won the game
         winCheck();
       }
@@ -196,4 +195,17 @@ function arraySumReduce (array, index){
 function kern (text){
   return text.split("").join(" ");
 }
+
+//returns random integer between min and max
+function randomIntInRange(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function isEven(value) {
+	if (value%2 == 0)
+		return true;
+	else
+		return false;
+}
+
 */
