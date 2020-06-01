@@ -159,7 +159,7 @@ init();
 Unused but worth saving functions
 */  //  //  //  //  //  //  
 /* 
-//copmare elements in a array are all the same and return boolean 
+//copmare elements in a array, if are all the same and return boolean 
 function arraySameValue(array){
   let check = false;
   for (let i = 0; i < array.length; i++){
@@ -200,7 +200,7 @@ function kern (text){
 function randomIntInRange(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-
+//checks if value is even and returns true otherwise returns false
 function isEven(value) {
 	if (value%2 == 0)
 		return true;
