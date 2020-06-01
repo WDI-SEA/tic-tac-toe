@@ -1,3 +1,76 @@
-h1 {
-  color: purple;
+html,
+body {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+  max-width: 700px;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 100px;
+}
+
+.grid-box {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+}
+
+#one {
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
+}
+
+#two {
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
+}
+
+#three {
+  border-left: 2px solid black;
+  border-bottom: 2px solid black;
+}
+
+#four {
+  border-top: 2px solid black;
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
+}
+
+#five {
+  border: 2px solid black;
+}
+
+#six {
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  border-left: 2px solid black;
+}
+
+#seven {
+  border-top: 2px solid black;
+  border-right: 2px solid black;
+}
+
+#eight {
+  border-top: 2px solid black;
+  border-right: 2px solid black;
+  border-left: 2px solid black;
+}
+
+#nine {
+  border-top: 2px solid black;
+  border-left: 2px solid black;
 }
