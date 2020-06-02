@@ -18,16 +18,19 @@ let colors = ["#cc2f66", "#8e25a1", "#c4c42d",
 
 //set original game state of each of class 'cel'
 for (let i = 0; i < cels.length; i++) {
-  cels[i].textContent = ''
   cels[i].style.background = "light blue"
+  cels[i].classList.add("clicked")
 }
-
 //array of keys as variables from winData{} // not used
 //let winDataKeys = ['r1', 'r2', 'r3', 'r4', 'r5', 'c1', 'c2', 'c3']
 //object representing player win potential (3 in any one key is a win state)
 const winDataStart = { 'r1': 0, 'r2': 0, 'r3': 0, 'r4': 0, 'r5': 0, 'c1': 0, 'c2': 0, 'c3': 0 }
 let winDataX = { 'r1': 0, 'r2': 0, 'r3': 0, 'r4': 0, 'r5': 0, 'c1': 0, 'c2': 0, 'c3': 0 }
 let winDataO = { 'r1': 0, 'r2': 0, 'r3': 0, 'r4': 0, 'r5': 0, 'c1': 0, 'c2': 0, 'c3': 0 }
+function checkData() {
+  console.log(winDataX)
+  console.log(winDataO)
+}
 
 ///// DOM SETS /////
 
@@ -80,12 +83,12 @@ for (let i = 0; i < cels.length; i++) {
   let cel = cels[i]
   let celCL = cel.classList
   document.getElementById(cel.id).addEventListener('click', function (e) {
-    document.querySelector('body').style.background = colors[i]
     if (cel.classList.contains('clicked') === true) { return }
+    document.querySelector('body').style.background = colors[i]
     document.getElementById('header').style.color = "black"
     document.getElementById('turnDisplay').style.color = "black"
     document.getElementById('header').textContent = "CAT-LOAF X DOGLOAF -- ULTIMATE DEATHMATCH!!!"
-              if (turnState.classList.contains('turnX') === true) {
+    if (turnState.classList.contains('turnX') === true) {
       //writeToWinData(parseLocs(celCL))
       updateWinState(celCL)
       writeTurn()
@@ -114,20 +117,32 @@ document.getElementById('resetButton').addEventListener('click', function (e) {
   initialize()
 })
 
+//RESETWINDATA
+// sets all keys in winDataX and winDataO to 0
+
+function resetWinData(wd) {
+  let keyLength = Object.keys(winDataStart).length
+  for (i = 0; i < keyLength; i++) {
+    wd[Object.keys(winDataStart)[i]] = 0
+  }
+}
+
 //INITIALIZE
 // resets game state 
 function initialize() {
   turnState.className = 'turnX'
   for (i = 0; i < cels.length; i++) {
     let cel = cels[i]
-    cel.classList.remove('clicked', 'sideX', 'sideO') //correct!
-    cel.style.background = "" //works
-    winDataX = winDataStart
-    winDataO = winDataStart
-    document.getElementById('turnDisplay').textContent = 'Catloaf! Your turn to choose!'
-
+    cel.classList.remove('clicked', 'sideX', 'sideO')
+    cel.style.background = ""
   }
+  resetWinData(winDataX)
+  resetWinData(winDataO)
+  checkData()
+  document.getElementById('turnDisplay').textContent = 'Catloaf! Your turn to choose!'
+
 }
+
 
 ///// FUNCTIONS /////
 
@@ -214,14 +229,14 @@ function checkForWin() {
     for (i = 0; i < cels.length; i++) {
       cels[i].classList.add('clicked')
     }
-    turnDisplay.textContent = "CATLOAF IS WINNER!"
+    turnDisplay.textContent = "CATLOAF IS WINNER! <PRESS RESET TO PLAY AGAIN>"
     return
   } else if (Object.values(winDataO).includes(3) === true) {
     console.log('o wins')
     for (i = 0; i < cels.length; i++) {
       cels[i].classList.add('clicked')
     }
-    turnDisplay.textContent = "DOGLOAF IS BEST! LONG LIVE DOGLOAF!"
+    turnDisplay.textContent = "DOGLOAF IS BEST! LONG LIVE DOGLOAF! <PRESS RESET TO PLAY AGAIN>"
     return
   } else {
     return
@@ -261,21 +276,21 @@ function advanceTurn(c) {
 //   }
 // if a cel is clicked/cel.classList.contains 'clicked' = true/ loops on itself while true
 // function checkClickState(cel) {
-  //   if (cel.classList.contains('clicked') === true) {
-    //   return  
-    //   }
-    //   console.log('let\'s go')
+//   if (cel.classList.contains('clicked') === true) {
+//   return  
+//   }
+//   console.log('let\'s go')
 
 
-    // updates object-list winData, ++ to each row or column value for corresponding class that appears in cel clicked on (Call in drawO, drawX)
+// updates object-list winData, ++ to each row or column value for corresponding class that appears in cel clicked on (Call in drawO, drawX)
 
 
 
-    //else {
-      // }
+//else {
+// }
 
 // function toggleX(c) {
-  //   {
+//   {
 //   c.classList.toggle('x')  
 //   }
 //   return
