@@ -10,17 +10,17 @@ let turnDisplay = document.getElementById('turnDisplay'); //h2 with id 'turnDisp
 let turnState = document.getElementById('gameSpace'); //div with id 'gameSpace', contains all rows and cels
 let cels = document.getElementsByClassName('cel'); //array of all class 'cel'
 let colors = ["#cc2f66", "#8e25a1", "#c4c42d",
-  "#e38f29", "#47d111", "#52abba",
-  "#d9144f", "#b73ec7", "#f0b837"]
+"#e38f29", "#47d111", "#52abba",
+"#d9144f", "#b73ec7", "#f0b837"]
+cels[i].style.background = "light blue"
+}
 // let turnO = turnState.classList.contains('turnO') //ALWAYS RETURNS TRUE!! WHAT HECK! //returns true if turnState contains class 'turnO' ; doesn''t work for some reason
 // let turnX = turnState.classList.contains('turnX') //ALWAYS RETURNS FALSE!! THIS WAS A FUN ONE! //returns true if turnState contains class 'turnX' ; doesn't work for ssome reason
 
 
 //set original game state of each of class 'cel'
 for (let i = 0; i < cels.length; i++) {
-  cels[i].textContent = ''
-  cels[i].style.background = "light blue"
-}
+cels[i].textContent = ''
 
 //array of keys as variables from winData{} // not used
 //let winDataKeys = ['r1', 'r2', 'r3', 'r4', 'r5', 'c1', 'c2', 'c3']
@@ -36,17 +36,17 @@ let winDataO = { 'r1': 0, 'r2': 0, 'r3': 0, 'r4': 0, 'r5': 0, 'c1': 0, 'c2': 0, 
 
 //adds an event listener to each cel (for debugging)
 // for (let i = 0; i < cels.length; i++) {
-//   document.getElementById(cels[i].id).addEventListener('click', function (e) {
-//     console.log(cels[i].id)
-//   })
-// }
+  //   document.getElementById(cels[i].id).addEventListener('click', function (e) {
+    //     console.log(cels[i].id)
+    //   })
+    // }
+    
+    
+    // CHOOSE X OR O ; CHANGES TURNSTATE TO XTURN OR OTURN ; DISABLED WHEN ANY CEL HAS CLASS CLICKED !!!
 
-
-// CHOOSE X OR O ; CHANGES TURNSTATE TO XTURN OR OTURN ; DISABLED WHEN ANY CEL HAS CLASS CLICKED !!!
-
-
-// for (let i = 0; i < cels.length; i++) {
-//   document.getElementById(cels[i].id).addEventListener('click', function (e) {
+    
+    // for (let i = 0; i < cels.length; i++) {
+      //   document.getElementById(cels[i].id).addEventListener('click', function (e) {
 //     console.log(cels[i])
 //   })
 // }  //eureka
@@ -54,14 +54,14 @@ let winDataO = { 'r1': 0, 'r2': 0, 'r3': 0, 'r4': 0, 'r5': 0, 'c1': 0, 'c2': 0, 
 // when clicked on, adds class 'x' to cel and changes CSS
 // for (let i = 0; i < cels.length; i++) {
 //   document.getElementById(cels[i].id).addEventListener('click', function (e) {
-//     cels[i].classList.add('x')
-//   })
-// }
-
-// when clicked on, adds class 'turnO' to cel and changes CSS
-// for (let i = 0; i < cels.length; i++) {
-//   const cel = cels[i]
-//   document.getElementById(cel.id).addEventListener('click', function (e) {
+  //     cels[i].classList.add('x')
+  //   })
+  // }
+  
+  // when clicked on, adds class 'turnO' to cel and changes CSS
+  // for (let i = 0; i < cels.length; i++) {
+    //   const cel = cels[i]
+    //   document.getElementById(cel.id).addEventListener('click', function (e) {
 //     cel.classList.add('turnO');
 //     cel.style.backgroundColor = "white";
 //   })
@@ -85,7 +85,7 @@ for (let i = 0; i < cels.length; i++) {
     document.getElementById('header').style.color = "black"
     document.getElementById('turnDisplay').style.color = "black"
     document.getElementById('header').textContent = "CAT-LOAF X DOGLOAF -- ULTIMATE DEATHMATCH!!!"
-              if (turnState.classList.contains('turnX') === true) {
+    else if (turnState.classList.contains('turnX') === true) {
       //writeToWinData(parseLocs(celCL))
       updateWinState(celCL)
       writeTurn()
@@ -157,39 +157,39 @@ function parseLocs(c) {
   return newCL
 }
 
-//WRITETOWINDATA
-//WRITE_TO_WIN_DATA (classlist)
-// accepts classlist and element, then ++ each key in winData with corresponding class in list
-// c.forEach(c => {
-//   (Object.keys(winData))
-//
-function writeToWinData(clist) {
-  if (turnState.classList.contains('turnX')) {
-    for (i = 0; i < clist.length; i++) {
-      //console.log(clist[i])
-      winDataX[clist[i]]++
+ //WRITETOWINDATA
+    //WRITE_TO_WIN_DATA (classlist)
+    // accepts classlist and element, then ++ each key in winData with corresponding class in list
+    // c.forEach(c => {
+    //   (Object.keys(winData))
+    //
+    function writeToWinData(clist) {
+      if (turnState.classList.contains('turnX')) {
+        for (i = 0; i < clist.length; i++) {
+          //console.log(clist[i])
+          winDataX[clist[i]]++
+        }
+      } else if (turnState.classList.contains('turnO')) {
+        for (i = 0; i < clist.length; i++) {
+          //console.log(clist[i])
+          winDataO[clist[i]]++
+        }
+      } else {
+        console.log('error in writeToWinData')
+      }
     }
-  } else if (turnState.classList.contains('turnO')) {
-    for (i = 0; i < clist.length; i++) {
-      //console.log(clist[i])
-      winDataO[clist[i]]++
-    }
-  } else {
-    console.log('error in writeToWinData')
-  }
-}
 
-function writeTurn(c) {
-  if (turnState.classList.contains('turnX') === true) {
-    turnDisplay.textContent = 'It\'s Dogloaf\'s turn! Woof!'
-  }
-  else if (turnState.classList.contains('turnO') === true) {
-    turnDisplay.textContent = 'Catloaf! Your turn to choose!'
-  }
-  else {
-    turnDisplay.textContent = "error in writeTurn"
-  }
-}
+    function writeTurn(c) {
+      if (turnState.classList.contains('turnX') === true) {
+        turnDisplay.textContent = 'It\'s Dogloaf\'s turn! Woof!'
+      }
+      else if (turnState.classList.contains('turnO') === true) {
+        turnDisplay.textContent = 'Catloaf! Your turn to choose!'
+      }
+      else {
+        turnDisplay.textContent = "error in writeTurn"
+      }
+    }
 
 // places an X (catloaf) on a cel, 
 function drawX(c) {
@@ -250,8 +250,6 @@ function advanceTurn(c) {
 
 
 ////////////////////////// CODE GRAVEYARD /////////////////////////////
-
-
 // I almost copped out on using an object argument for this function
 // function checkWinState() {
 //   if ((winData.r1 >= 3) || (winData.r2 >= 3) || (winData.r3 >= 3) || (winData.r4 >= 3) || (winData.r5 >= 3) || (winData.c1 >= 3) || (winData.c2 >= 3) || (winData.c3 >= 3)) {
@@ -265,15 +263,15 @@ function advanceTurn(c) {
     //   return  
     //   }
     //   console.log('let\'s go')
-
-
+    
+    
     // updates object-list winData, ++ to each row or column value for corresponding class that appears in cel clicked on (Call in drawO, drawX)
-
-
-
+    
+    
+    
     //else {
       // }
-
+      
 // function toggleX(c) {
   //   {
 //   c.classList.toggle('x')  
@@ -315,6 +313,12 @@ function advanceTurn(c) {
 // maybe i've been making this too complicated, if statements for days. I may try to rewrite this as a switch()
 
 
+}           // that wasn't so bad.
+// function checkWinState() {
+//   if ((winData.r1 >= 3) || (winData.r2 >= 3) || (winData.r3 >= 3) || (winData.r4 >= 3) || (winData.r5 >= 3) || (winData.c1 >= 3) || (winData.c2 >= 3) || (winData.c3 >= 3)) {
+//     //winnerstate
+//   } else {
+//     return
 //   }
 // }           // that wasn't so bad.
 
