@@ -106,7 +106,7 @@ for (let i = 0; i < cels.length; i++) {
       //declareDraw()
       advanceTurn(cel)
     }
-    console.log('error in onclick')
+    else {console.log('error in onclick')}
   }
   )
 }
@@ -164,9 +164,9 @@ function parseLocs(c) {
   for (i = 0; i < c.length; i++) {
     if (locData.includes(c[i])) {
       newCL.push(c[i])
-    } else {
-      console.log('error, please ignore')
     }
+    //  else {console.log('unresolved ignore condition in parseLocs()')
+    // }
   }
   //console.log(newCL)
   return newCL
@@ -238,9 +238,9 @@ function checkForWin() {
     }
     turnDisplay.textContent = "DOGLOAF IS BEST! LONG LIVE DOGLOAF! <PRESS RESET TO PLAY AGAIN>"
     return
-  } else {
-    return
-  }
+  } else if (document.getElementsByClassName('clicked').length === 9) {
+    turnDisplay.textContent = "Cat's game! (not you, catloaf)"
+  } else {return}
 }
 
 
