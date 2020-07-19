@@ -1,3 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap');
+
+body {
+  margin: 0 auto;
+  font-family: 'Finger Paint', cursive;
+}
 h1 {
-  color: purple;
+  display: flex;
+  color: red;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+.answerBox {
+  display: flex;
+  color: red;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  font-size: 30px;
+  text-align: center;
+}
+.board {
+  margin: 0 auto;
+  height: 450px;
+  width: 450px;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+}
+.cell {
+  border: 5px solid white;
+  background-color: white;
+  width: 150px;
+  height: 150px;
+  margin: 0;
+  padding: 0;
+}
+.cell:hover {
+  background-image: url('https://lh3.googleusercontent.com/proxy/6VAaWdGd99pI2gh0EUgNkPKc9j4UOnGc9W0vnFZLTrgfZNyjLQXxj8Eyr5CTSQXiiU1fgJlfV3m6dXviNLSXyNbZl50PafsTIKaANkQxspnKWQaVNYCbls8XxuwNYmifQFbI90W93UmcSipMBI_cfWQSIuC8vGVPw7BSwJSzbIYZPq8Rxnis62hMarA');
+  background-size: contain;
+}
+.clickedCellOne {
+  background-image: url("../img/x.png");
+  border: none;
+  background-size: contain;
+  background-color: white;
+  width: 150px;
+  height: 150px;
+  margin: 0;
+  padding: 0;
+}
+.clickedCellTwo {
+  background-image: url("../img/o.png");
+  border: none;
+  background-size: contain;
+  background-color: white;
+  width: 150px;
+  height: 150px;
+  margin: 0;
+  padding: 0;
+}
+.playAgain {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.reset {
+  width: 200px;
+  height: 50px;
+  font-size: 30px;
+  margin: 10px;
+  padding: 5px;
+  border: 5px solid black;
+  border-radius: 20px;
+}
+#tl {
+  border-right: 5px solid black;
+  border-bottom: 5px solid black;
+
+  grid-column-start: 1;
+  grid-row-start: 1;
+}
+#tc {
+  border-left: 5px solid black;
+  border-right: 5px solid black;
+  border-bottom: 5px solid black;
+
+  grid-column-start: 2;
+  grid-row-start: 1;
+}
+#tr {
+  border-left: 5px solid black;
+  border-bottom: 5px solid black;
+
+  grid-column-start: 3;
+  grid-row-start: 1;
+}
+#ml {
+  border-top: 5px solid black;
+  border-right: 5px solid black;
+  border-bottom: 5px solid black;
+
+  grid-column-start: 1;
+  grid-row-start: 2;
+}
+#mc {
+  border-top: 5px solid black;
+  border-right: 5px solid black;
+  border-left: 5px solid black;
+  border-bottom: 5px solid black;
+
+  grid-column-start: 2;
+  grid-row-start: 2;
+}
+#mr {
+  border-top: 5px solid black;
+  border-left: 5px solid black;
+  border-bottom: 5px solid black;
+
+  grid-column-start: 3;
+  grid-row-start: 2;
+}
+#bl {
+  border-right: 5px solid black;
+  border-top: 5px solid black;
+
+  grid-column-start: 1;
+  grid-row-start: 3;
+}
+#bc {
+  border-left: 5px solid black;
+  border-right: 5px solid black;
+  border-top: 5px solid black;
+
+  grid-column-start: 2;
+  grid-row-start: 3;
+}
+#br {
+  border-left: 5px solid black;
+  border-top: 5px solid black;
+
+  grid-column-start: 3;
+  grid-row-start: 3;
 }
