@@ -24,7 +24,9 @@ table1.addEventListener('click', event => {
         if (turn % 2 == 0) {
             turn ++;
             evTar.setAttribute('class', 'player1');
+            evTar.toggleAttribute('squares');
             document.getElementById('turn').textContent = `Player 1's turn`;
+            
             
             checkWin();
             
@@ -33,7 +35,9 @@ table1.addEventListener('click', event => {
         } else {
             turn ++;
             evTar.setAttribute('class', 'player2');
+            evTar.toggleAttribute('squares');
             document.getElementById('turn').textContent = `Player 2's turn`;
+            
             checkWin();
             
             
@@ -56,6 +60,8 @@ table1.addEventListener('click', event => {
         let squareSeven = evTar.className;
         let squareEight = evTar.className;
         let squareNine = evTar.className;
+        console.log(squareOne);
+        
         
         if(squareOne == squareTwo && squareOne == squareThree && squareOne != 'squares') {
             winCo = true;
@@ -81,9 +87,10 @@ table1.addEventListener('click', event => {
         if(squareThree == squareFive && squareOne == squareSeven && squareSeven != 'squares') {
             winCo = true;
         }
-        if (winCo = true) {
-            alert(evTar.className + ' Has won!')
-        }
+        
+        
+        
+        
     }
 
 
