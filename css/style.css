@@ -1,3 +1,87 @@
-h1 {
-  color: purple;
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.game {
+  height: 100%;
+  width: 100%;
+  max-height: 1200px;
+  max-width: 800px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+  color: grey;
+}
+
+.game {
+  font-family: 'Roboto', sans-serif;
+}
+
+.grid {
+  height: 500px;
+  width: 500px;
+
+  display: grid;
+  grid-template-columns: auto auto auto;
+  
+  padding: 10px;
+
+  background-color: #ffffff;
+}
+
+.box {
+  height: 166px;
+  width: 166px;
+
+  border: 1px solid grey;
+
+  text-align: center;
+}
+
+.playerX {
+  background-image: url(https://www.iconsdb.com/icons/download/white/x-mark-512.png);
+  background-size: contain;
+  background-color: darkturquoise;
+}
+
+.playerO {
+  background-image: url(https://pngimg.com/uploads/letter_o/letter_o_PNG118.png);
+  background-size: contain;
+  background-color: orange;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: auto auto auto;
+
+  font-weight: bold;
+}
+
+.stats .player {
+  font-size: 25px;
+}
+
+.stats .score {
+  margin-top: 10px;
+
+  font-size: 50px;
+
+  font-weight: initial;
+}
+
+.stat {
+  text-align: center;
+
+  padding: 25px 50px 10px 50px;
+}
+
+hr {
+  width: 500px;
+  margin-bottom: 10px;
 }
