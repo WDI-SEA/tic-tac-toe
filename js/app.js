@@ -3,6 +3,7 @@ let turnCounter = 0;
 let winCounter = [0, 0, 0];
 let isGameActive = true;
 const answerBox = document.querySelector('.answerBox');
+const whosTurn = document.querySelector('.playerTurn');
 // is there already a winnner?
 let winCondition = '';
 // find game board
@@ -30,6 +31,7 @@ function clearBoard() {
     turnCounter = 0;
     winCondition = '';
     answerBox.textContent = 'Have you been wearing your mask?';
+    whosTurn.textContent = 'Your turn Player 1';
     let resetCellsOne = document.querySelectorAll('.clickedCellOne');
     let resetCellsTwo = document.querySelectorAll('.clickedCellTwo');
     resetCellsOne.forEach(element => {
@@ -54,6 +56,8 @@ document.addEventListener('DOMContentLoaded', function() {
         if (isGameActive === true){
         let currentClick = event.target;
         playerTurn = (turnCounter % 2) + 1;
+        // update who's turn
+        whosTurn.textContent = 'Your turn Player ' + playerTurn;
         
         // if cell has not been clicked
         if (currentClick.className === 'cell') {

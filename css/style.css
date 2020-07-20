@@ -20,6 +20,16 @@ h1 {
   font-size: 30px;
   text-align: center;
 }
+.playerTurn {
+  display: flex;
+  color: red;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  margin-bottom: 30px;
+  font-size: 15px;
+  text-align: center;
+}
 .board {
   margin: 0 auto;
   height: 450px;
