@@ -37,7 +37,7 @@ h1 {
   padding: 0;
 }
 .cell:hover {
-  background-image: url('https://lh3.googleusercontent.com/proxy/6VAaWdGd99pI2gh0EUgNkPKc9j4UOnGc9W0vnFZLTrgfZNyjLQXxj8Eyr5CTSQXiiU1fgJlfV3m6dXviNLSXyNbZl50PafsTIKaANkQxspnKWQaVNYCbls8XxuwNYmifQFbI90W93UmcSipMBI_cfWQSIuC8vGVPw7BSwJSzbIYZPq8Rxnis62hMarA');
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRjrltEBElCWXXosiHB3LT43pO_GRT7HKPC3A&usqp=CAU');
   background-size: contain;
 }
 .clickedCellOne {
@@ -73,6 +73,13 @@ h1 {
   padding: 5px;
   border: 5px solid black;
   border-radius: 20px;
+}
+.winCounter {
+  background : rgba(255, 0, 0, 0.397);
+  width: 200px;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 #tl {
   border-right: 5px solid black;
