@@ -1,54 +1,46 @@
-![General Assembly Logo](http://i.imgur.com/ke8USTq.png)
+# Tic-Tac-COVID
+### General Assembly Bootcamp project, week 1
 
-# Tic Tac Toe
+## Technilogies
+* HTML
+* CSS
+* JavaScript
 
-## Objectives
-
+## Assignment
 * Build a tic tac toe game in HTML, CSS, and vanilla JavaScript
 * Use best practices when writing code
 
-This week we have been learning about writing functions, working with loops, and writing conditionals. We also learned about HTML, CSS, and the DOM.
+## Approach
+1. Build HTML structure
+2. Use CSS to style and define element groups
+3. Create JavaScript for functionality
 
-We will be making a Tic Tac Toe game using all of these concepts.
+> I wanted to make it a little fun!
+> In the midst of a pandemic and all,
+> a little laugh can go a long way.
+> Thus, the creation of tic-tac-covid.
 
-## Getting Started
-
-* Fork and clone this repository.
-* Run `npm install` to install dependencies.
-  * `npm start` - start BrowserSync server
-* Before you even start working with JavaScript, construct the gameboard. The gameboard page should include the 3x3 grid (of divs), and at minimum a reset button. Using `id` and `class` on clickable elements will help you wire this up in JavaScript afterwards.
-* The JavaScript portion will be next
-  * Select elements and attach functions via event listeners
-  * You will also need a variable to keep track of moves. This will be used to indicate whether or not to draw an `X` or an `O`
-
-## Requirements
-* A user should be able to click on different squares to make a move.
-* Every click will alternate between marking an `X` and `O`
-* Upon marking of an individual cell, use JavaScript to add a class to each cell to display the separate players.
-* A cell should not be able to be replayed once marked.
-* You should not be able to click remaining empty cells after the game is over.
-* Add a reset button that will clear the contents of the board.
-* Display a message to indicate which turn is about to be played.
-* Detect draw conditions (ties/cat's game) 
-* Detect winner: Stop game and declare the winner if one player ends up getting three in a row. 
-  * Hint: Determine a set of winning combinations. Check those combinations on the board contents after every move.
-
-**Have Fun** - The best way to learn is by playing with code. Let creativity guide you and try some experiments with JS and CSS and see what you can do.
-
-## Bonuses
-
-* Implement your reset button without refreshing the whole page
-* Track player's wins over time
-* Add a simple AI to support one player vs computer mode. In this case, "simple" just means having the computer pick a random empty square.
-* Make your computer seem more human by adding a short time delay between your turn and the computer's turn.
-* Style it up! Get creative, or even make a theme!
-
-## Super Duper Bonus
-
-* Add an AI that can beat you every time with the mini-max algorithm.
-
+## HTML
 ---
+### Nothing special here, used div containers to break out each element group so I could manipulate them individually. I had containers for the gameboard cells, the reset button, the win counter, etc.
 
-## Licensing
-1. All content is licensed under a CC-BY-NC-SA 4.0 license.
-2. All software code is licensed under GNU GPLv3. For commercial use or alternative licensing, please contact legal@ga.co.
+## CSS 
+---
+### Although I am no designer(thus the use of a simple black white and red color scheme), I did take the liberty of replacing the 'O' with a COVID bacteria along with a nervous doctor as the hover image on each game cell. 
+### I used the display grid options to arrange the game board, display flex options to center the rest, to keep the win counter in the corner, I used absolute positioning. 
+### The "X" and "O" images are linked to classes, and are referenced by the JavaScript to create the interactivity of the game.
+
+
+## JavaScript
+---
+### I wanted to take a much more slick approach, but to get to the MVP stage, I sacrificed some of my dreams for a more rudimentary method of defining each element possibly more than I needed to. Rather than look thru an array that is getting updated along with the button I just re-referenced each cell each time a click event went off inside of the board container. I reduced some code by setting my event listner for a click on the board as a whole, rather than each cell individually, as shown below:
+```
+const allCells = document.querySelector('.board');
+
+allCells.addEventListener('click', event => {....};
+```
+### The win conditions were all defined individually by comparing class's of each row/column/diagional, after each click. 
+
+### Reset button simply iterated thru the board div with a forEach command to reset each class to the origional state. This was done so I didn't reset the game win counter while refreshing the board. 
+
+###### Thanks to all of my instructors, classmates, and google for all the help!
