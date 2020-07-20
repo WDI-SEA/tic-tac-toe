@@ -1,14 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang= "en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset= "UTF-8">
+  <meta name= "viewport" content= "width=device-width, initial-scale=1">
   <title>Hello Front-End</title>
-  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel= "stylesheet" type= "text/css" href= "css/style.css">
 </head>
 <body>
-  <h1>Hello Front-End</h1>
-
-  <script type="text/javascript" src="js/app.js"></script>
+  <h1>Tic-Tac-Toe</h1>
+  <div class= "container">
+    <div class= "table">
+      <table>
+        <tr>
+          <td class = "squares" id= "square1"></td>
+          <td class = "squares" id= "square2"></td>
+          <td class = "squares" id= "square3"></td>
+        </tr>
+        <tr>
+          <td class = "squares" id= "square4"></td>
+          <td class = "squares" id= "square5"></td>
+          <td class = "squares" id= "square6"></td>
+        </tr>
+        <tr>
+          <td class = "squares" id= "square7"></td>
+          <td class = "squares" id= "square8"></td>
+          <td class = "squares" id= "square9"></td>
+        </tr>
+      </table>
+    </div>
+    <div class="indicators">
+      <section id = "outcome"></section>
+      <section id = "turn">Turn</section>
+    </div>
+  </div>
+  <div id="button">
+  <button type= "reset">Reset</button>
+  </div>
+  <script type= "text/javascript" src= "app.js"></script>
 </body>
 </html>

@@ -1,3 +1,56 @@
 h1 {
+  display: grid;
   color: purple;
+  justify-content: center;
+}
+
+table {
+  display: grid;
+  justify-content: center;
+}
+
+td {
+  border: solid black 4px;
+  width: 150px;
+  height: 150px;
+}
+
+
+.indicators {
+  display: flex;
+  position: relative;
+  height: 20px;
+  justify-content: center;
+}
+.indicators #player1 {
+  width: 50px;
+}
+
+.indicators #tie {
+  width: 50px;
+}
+.indicators #player2 {
+  width: 50px;
+}
+
+.player1 {
+  background-image: url("data:image/png;base64,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");
+  background-size: contain;
+}
+
+.player2 {
+  background-image: url("https://www.nicepng.com/png/full/800-8004055_video-production-eugene-oregon-ao-films-tic-tac.png");
+  background-size: contain;
+}
+
+.reset {
+  background-image: none;
+}
+
+
+button {
+  width: 100px;
+  height: 20px;
+  margin-top: 25px;
+  justify-content: center;
 }
