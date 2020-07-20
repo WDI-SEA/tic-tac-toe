@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
     grid.addEventListener("mouseover", (e) => {
         var box = e.target
 
-        if (box.className === "grid" || box.className === "box playerX" || box.className === "box playerO") { return }
+        if (box.className === "grid" || box.className === "box playerX" || box.className === "box playerO" || gameWon === true) { return }
     
         if (currentPlayer === "X") {
           box.style.backgroundColor = "DarkTurquoise"
@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // reset the color after a short delay
         setTimeout(function() {
           box.style.backgroundColor = ""
-        }, 500)
+        }, 100)
     })
 
     reset.addEventListener("click", () => {
