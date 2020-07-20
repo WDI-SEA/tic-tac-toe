@@ -62,9 +62,12 @@ In my CSS I included styling to develop an overall theme for my project, I wante
 
 #### JS
 
-##### Box Clicking
 
 My javascript part of the project is the main brain. When the player clicks in the grid div it will take the target box and assign the current player's X or O to the box and prevent the next player from clicking on it. I implemented that feature by utilizing an Event Listener and some conditional code as shown below.
+
+##### Box Clicking
+
+This code snippet is essential in ensuring that I just don't have a grid with a bunch of X and O's, it will trigger the checkForWinner function that will go through all the winning combinations in another checkForMatch function to eventually see if we need to end the game if someone won or they tied. If a player clicks on a box that was already clicked on previously that box was added to the clickedBoxes object with their html id so that I can sort through each one. We also assign the player who clicked that previous box in the event listener.
 
 ```javascript
 grid.addEventListener("click", (e) => {
@@ -94,9 +97,6 @@ grid.addEventListener("click", (e) => {
         }
     })
 ```
-
-This code snippet is essential in ensuring that I just don't have a grid with a bunch of X and O's, it will trigger the checkForWinner function that will go through all the winning combinations in another checkForMatch function to eventually see if we need to end the game if someone won or they tied. If a player clicks on a box that was already clicked on previously that box was added to the clickedBoxes object with their html id so that I can sort through each one. We also assign the player who clicked that previous box in the event listener.
-
 ##### Hover Coloring
 
 This code snippet has need for refining and should be modified to either work entirely in CSS or work in a way that a timeout function is not necessary to revert the coloring of a box that was hovered. This code snippet pretty much takes the current hovered over box from the mouse and colors it with the current player's color and ignoring any box that has been selected. The idea behind this is that it offers another visual clue to the player as it's something they can interact with and choose as their option for a move. If you wanted to try and teach a user the most effective strategies to tic tac toe you could probably utilize this feature by making the best move off the current board be a bright green and orange for an okay move and red for a completely bad move. 
