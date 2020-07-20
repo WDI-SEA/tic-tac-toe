@@ -59,20 +59,20 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
     reset.addEventListener("click", () => {
-        xScore = 0
-        oScore = 0
-        tieScore = 0
-
         gameWon = false
 
-        xScoreBox.innerText = "0"
-        oScoreBox.innerText = "0"
-        tieScoreBox.innerText = "0"
+        let allBoxes = Array.from(grid.children)
+        
+        gameWon = false
 
         currentPlayer = "X"
         currentPlayerBox.innerText = "Current Player: X"
 
-        resetBoard()
+        allBoxes.forEach(box => {
+            box.className = "box"
+        })
+
+        clickedBoxes = {}
     })
 
     checkForWinner = (clickedBoxes) => {
@@ -154,28 +154,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 alert("CAT has Won!");
             }, 0)
         }
-
-        resetBoard()
-    }
-
-    resetBoard = () => {
-
-        console.log("Board reset")
-
-        let allBoxes = Array.from(grid.children)
-        
-        gameWon = false
-
-        console.log("Game Won Status: " + gameWon)
-
-        currentPlayer = "X"
-        currentPlayerBox.innerText = "Current Player: X"
-
-        allBoxes.forEach(box => {
-            box.className = "box"
-        })
-
-        clickedBoxes = {}
     }
 
 })
