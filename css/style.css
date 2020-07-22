@@ -5,8 +5,7 @@ body{
  justify-content: center;
  flex-direction: column;
  align-items: center; 
- background-image: linear-gradient(to left, violet, indigo,
- blue, green, yellow, orange, red);
+ background-image: linear-gradient(to left, rgb(233, 154, 177), violet, indigo, red);
 }
 
 h1{
@@ -27,10 +26,10 @@ h1{
       border: 4px solid blueviolet;
       padding: 10px 20px;
       font-size:20px;
-      color: orange;
-      background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
+      color: rgb(224, 13, 119);
+      background-image: linear-gradient(to left, rgb(233, 154, 177), violet, indigo, red);
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 
-      'Helvetica Neue', sans-serif
+      'Helvetica Neue', sans-serif;
     }
     
     button:hover {
@@ -49,6 +48,8 @@ h1{
       font-size: 3rem;
       font-weight: bold;
       border: 3px solid blueviolet;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif ;
+
     }
     
     .box:hover {
@@ -56,31 +57,84 @@ h1{
     }
     #topLeft:hover{
       background:red;
+      
 
+    }
+    #topLeft{
+      color: violet;
     }
 
     #topCenter:hover{
-      background: rgb(255, 102, 0)
+      background: rgb(255, 102, 0);
     }
+    #topCenter{
+      color: rgb(9, 9, 240);
+    }
+
     #topRight:hover{
       background: orange;
     }
-
+    #topRight{
+      color:rgb(0, 183, 255);
+    }
     #middleLeft:hover{
       background:yellow ;
     }
+    #middleLeft{
+      color:green ;
+
+    }
     #middleCenter:hover{
-      background:yellowgreen ;
+      background:rgb(182, 50, 205) ;
+    }
+    #middleCenter{
+      color: yellowgreen;
     }
     #middleRight:hover{
       background: green;
     }
+    #middleRight{
+      color:yellow;
+    }
     #bottomLeft:hover{
-      background: rgb(0, 183, 255)
+      background: rgb(0, 183, 255);
+    }
+    #bottomLeft{
+      color: orange;
     }
     #bottomCenter:hover{
-      background: rgb(9, 9, 240)
+      background: rgb(9, 9, 240);
+    }
+    #bottomCenter{
+      color: rgb(255, 102, 0);
     }
     #bottomRight:hover{
       background:violet ;
     } 
+    #bottomRight{
+      color: red;
+    }
+    .modal{
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      height: 50vh;
+      width: 50vw;
+      background: linear-gradient(to left, rgb(233, 154, 177), violet, indigo, red);
+      min-width: 300px;
+      min-height: 300px;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      font-size: 30px;
+      text-align: center;
+      color: rgb(136, 182, 45);
+      font-weight: bolder;
+
+
+    }
+    .modal.show{
+      display: flex;
+    }
