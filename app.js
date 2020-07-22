@@ -19,6 +19,8 @@ table1.addEventListener('click', event => {
     let evTar = event.target;
     if (evTar.className =='squares') {
 
+        if (winCo === false) {
+                
         
     
         if (turn % 2 == 0) {
@@ -44,6 +46,11 @@ table1.addEventListener('click', event => {
             draw1();
         };
         
+        } else if (winCo === true) {
+            table1.removeEventListener('click', event => {
+                
+            })
+        }
         
     }
 
@@ -51,16 +58,17 @@ table1.addEventListener('click', event => {
     function checkWin () {
 
         
-        let squareOne = evTar.className;
-        let squareTwo = evTar.className;
-        let squareThree = evTar.className;
-        let squareFour = evTar.className;
-        let squareFive = evTar.className;
-        let squareSix = evTar.className;
-        let squareSeven = evTar.className;
-        let squareEight = evTar.className;
-        let squareNine = evTar.className;
+        let squareOne = document.getElementById('square1').className;
+        let squareTwo = document.getElementById('square2').className;
+        let squareThree = document.getElementById('square3').className;
+        let squareFour = document.getElementById('square4').className;
+        let squareFive = document.getElementById('square5').className;
+        let squareSix = document.getElementById('square6').className;
+        let squareSeven = document.getElementById('square7').className;
+        let squareEight = document.getElementById('square8').className;
+        let squareNine = document.getElementById('square9').className;
         console.log(squareOne);
+        
         
         
         if(squareOne == squareTwo && squareOne == squareThree && squareOne != 'squares') {
@@ -84,13 +92,13 @@ table1.addEventListener('click', event => {
         if(squareThree == squareSix && squareThree == squareNine && squareNine != 'squares') {
             winCo = true;
         }
-        if(squareThree == squareFive && squareOne == squareSeven && squareSeven != 'squares') {
+        if(squareThree == squareFive && squareThree == squareSeven && squareSeven != 'squares') {
             winCo = true;
-        }
+        } 
         
         
-        
-        
+        return winCo;
+      
     }
 
 
