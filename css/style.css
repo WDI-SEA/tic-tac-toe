@@ -1,12 +1,24 @@
+:root {
+  font-family: 'Press Start 2P', cursive;
+  }
+
 body {
   background-image: url('https://st.depositphotos.com/1757583/3326/i/950/depositphotos_33266691-stock-photo-deep-outer-space.jpg');
+  display: grid;
+  justify-content: center;
   
 }
 
 h1 {
-  display: grid;
+  /* display: grid; */
   color: purple;
   justify-content: center;
+  
+}
+
+h1:hover {
+  font-size: 40px;
+  text-shadow: 0 0 20px aqua;
 }
 
 table {
@@ -46,6 +58,14 @@ td {
 .player2 {
   background-image: url("https://www.nasa.gov/sites/default/files/halloween_sun_2014_2k.jpg");
   background-size: contain;
+}
+section {
+  color: white;
+}
+
+.winTurn {
+  font-size: 50px;
+  font-weight: bold;
 }
 
 .reset {
