@@ -1,0 +1,139 @@
+body{
+    display: flex;
+   justify-content: center;
+   flex-direction: column;
+   align-items: center; 
+   background-image: linear-gradient(rgb(51, 22, 22),rgb(44, 1, 1), rgb(78, 2, 2), rgb(82, 0, 0), rgb(107, 3, 3),rgb(100, 5, 5));
+  }
+  
+  h1{
+    font-family: 'Amatic SC', cursive;
+    color: rgba(255, 4, 100, 0.886);
+    }
+    
+  .gameboard {
+      display: grid;
+      width: 600px;
+      height: 600px;
+      grid-template-columns: auto auto auto;
+  
+  }
+    button {
+        outline: none;
+        border: 4px solid blueviolet;
+        padding: 10px 20px;
+        font-size:20px;
+        color: rgb(224, 13, 119);
+        background: violet;
+        font-family: 'Amatic SC', cursive;
+        font-weight: bolder;
+      }
+      
+      button:hover {
+        cursor: pointer;
+        background:rgb(211, 29, 29);
+        color: white;
+        
+      }
+  
+      .box {
+        display: flex;
+        width:200px;
+        height: 200px;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
+        font-weight: bold;
+        border: 10px solid blueviolet;
+        font-family: 'Amatic SC', cursive;
+  
+      }
+      
+      .box:hover {
+        cursor: grabbing;
+      }
+      #topLeft:hover{
+        background:red;
+        
+  
+      }
+      #topLeft{
+        color: rgb(222, 47, 222);
+      }
+  
+      #topCenter:hover{
+        background: rgb(255, 102, 0);
+      }
+      #topCenter{
+        color: rgb(9, 9, 240);
+      }
+  
+      #topRight:hover{
+        background: orange;
+      }
+      #topRight{
+        color:rgb(0, 183, 255);
+      }
+      #middleLeft:hover{
+        background:yellow ;
+      }
+      #middleLeft{
+        color:green ;
+  
+      }
+      #middleCenter:hover{
+        background:rgb(182, 50, 205) ;
+      }
+      #middleCenter{
+        color: yellowgreen;
+      }
+      #middleRight:hover{
+        background: green;
+      }
+      #middleRight{
+        color:yellow;
+      }
+      #bottomLeft:hover{
+        background: rgb(0, 183, 255);
+      }
+      #bottomLeft{
+        color: orange;
+      }
+      #bottomCenter:hover{
+        background: rgb(9, 9, 240);
+      }
+      #bottomCenter{
+        color: rgb(255, 102, 0);
+      }
+      #bottomRight:hover{
+        background:violet ;
+      } 
+      #bottomRight{
+        color: red;
+      }
+      .modal{
+        font-family: 'Amatic SC', cursive;
+        height: 30px;
+        width: 30px;
+        background: linear-gradient( rgb(233, 154, 177), violet, indigo, red);
+        min-width: 300px;
+        min-height: 300px;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+        text-align: center;
+        color: rgb(136, 182, 45);
+        font-weight: bolder;
+        border: 20px solid rgb(212, 0, 255);
+  
+  
+      }
+      .modal.show{
+        display: flex;
+      }
+  

@@ -49,13 +49,19 @@ document.addEventListener("DOMContentLoaded",
       for (let i = 0; i < array.length; i++) {
       
         var win = checkCells(array[i])
-        if (win) {
+        if (win && turnsDone !== 9) {
          // alert("victory");
          toggleClass(modal, "show")
           boxesAreClickable = false;
-          modal.innerHTML= "Player " + win + " won! Do you want to play again?";
+          modal.innerHTML= "Player " + win + " won! Do you want to play again? Click Below!";
           //here you would write to the modal who won
           return win;
+        }else if(!win && turnsDone === 9){
+          modal.innerHTML = "It's a tie! Play again?";
+          toggleClass(modal, "show")
+          boxesAreClickable = false;
+          return win;
+
         }
       }
       return false;
@@ -64,7 +70,7 @@ document.addEventListener("DOMContentLoaded",
 
 
     var boxesAreClickable = true;
-
+    var turnsDone = 0;
 
 
     let currentPlayer = playerX
@@ -80,6 +86,7 @@ document.addEventListener("DOMContentLoaded",
           currentPlayer = playerX;
         }
         box1Clicked = true;
+        turnsDone++;
       }
       checkForVictory()
     }
@@ -96,6 +103,7 @@ document.addEventListener("DOMContentLoaded",
           currentPlayer = playerX;
         }
         box2Clicked = true;
+        turnsDone++;
       }
       checkForVictory()
     }
@@ -110,6 +118,7 @@ document.addEventListener("DOMContentLoaded",
           currentPlayer = playerX;
         }
         box3Clicked = true;
+        turnsDone++;
       }
       checkForVictory()
     }
@@ -124,6 +133,7 @@ document.addEventListener("DOMContentLoaded",
           currentPlayer = playerX;
         }
         box4Clicked = true;
+        turnsDone++;
       }
       checkForVictory()
     }
@@ -138,6 +148,7 @@ document.addEventListener("DOMContentLoaded",
           currentPlayer = playerX;
         }
         box5Clicked = true;
+        turnsDone++;
       }
       checkForVictory()
     }
@@ -152,6 +163,7 @@ document.addEventListener("DOMContentLoaded",
           currentPlayer = playerX;
         }
         box6Clicked = true;
+        turnsDone++;
       }
       checkForVictory()
     }
@@ -166,6 +178,7 @@ document.addEventListener("DOMContentLoaded",
           currentPlayer = playerX;
         }
         box7Clicked = true;
+        turnsDone++;
       }
       checkForVictory()
     }
@@ -180,6 +193,7 @@ document.addEventListener("DOMContentLoaded",
           currentPlayer = playerX;
         }
         box8Clicked = true;
+        turnsDone++;
       }
       checkForVictory()
     }
@@ -194,6 +208,7 @@ document.addEventListener("DOMContentLoaded",
           currentPlayer = playerX;
         }
         box9Clicked = true;
+        turnsDone++;
       }
       checkForVictory()
     }
@@ -214,6 +229,8 @@ document.addEventListener("DOMContentLoaded",
       box7Clicked = false;
       box8Clicked = false;
       box9Clicked = false;
+      turnsDone = 0;
+      modal.innerHTML = "Game Over"
       toggleClass(modal, "show")
       // window.location.reload(false);
     });
