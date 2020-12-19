@@ -59,14 +59,14 @@ function drawBox(player, id, classList) {
             locations = xLocations;
             classList.add('X');
             turn.innerText = "Player O's Turn";
-            turn.style.color = 'blue';
+            turn.style.color = 'orange';
             
         } else { 
             oLocations[i] = 1;
             locations = oLocations; 
             classList.add('O');
             turn.innerText = "Player X's Turn";
-            turn.style.color = 'purple';
+            turn.style.color = 'magenta';
         }
         count += 1;
         checkForWin(player, locations); 
@@ -115,6 +115,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const reset = document.querySelector('#reset').addEventListener('click', function() {
         isGameOver = false;
         count = 0;
+        xLocations = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+        oLocations = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+        turn.innerText = "Player X's Turn";
+        turn.style.color = 'magenta';
         const clearBoxes = boxes.forEach ( function(box) {
             if ( box.classList.contains("X") ) { box.classList.remove("X"); }
             else if ( box.classList.contains("O") ) { box.classList.remove("O"); }

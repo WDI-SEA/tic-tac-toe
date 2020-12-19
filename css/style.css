@@ -1,16 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,900;1,300;1,900&display=swap');
 
 body {
+  background-color: lightgrey;
   font-family: 'Merriweather', serif; 
   text-align: center;
 }
 
 h1 {
-  color: purple;
+  color: rgb(10, 67, 92);
 }
 
 div.container {
-
 }
 
 div.row {
@@ -18,8 +18,9 @@ div.row {
 }
 
 div.box {
+  background-color: lightyellow;
   background-size: cover;
-  border: 2px solid black;
+  border: 2px dashed black;
   display: inline-block;
   height: 200px;
   margin: 5px;
@@ -37,6 +38,11 @@ div.X {
 div.O {
   /* background-image: url("../img/letter_O.jpg"); */
   background-image: url("http://www.pngplay.com/wp-content/uploads/1/Letter-O-PNG.png");
+}
+
+div#turn {
+  font-weight: 900;
+  color: magenta;
 }
 
 div#instructions {
