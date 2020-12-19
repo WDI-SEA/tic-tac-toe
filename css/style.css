@@ -29,17 +29,12 @@ div.box {
 }
 
 div.X {
-  justify-content: center;  /* Centering y-axis */
-  align-items :center; /* Centering x-axis */
   /* background-image: url("../img/letter_X.jpg"); */
   background-image: url("http://www.pngplay.com/wp-content/uploads/1/Letter-X-PNG-Stock-Photo.png");
-
-
+  object-position: center center;
 }
 
 div.O {
-  justify-content: center;  /* Centering y-axis */
-  align-items :center; /* Centering x-axis */
   /* background-image: url("../img/letter_O.jpg"); */
   background-image: url("http://www.pngplay.com/wp-content/uploads/1/Letter-O-PNG.png");
 }
@@ -49,7 +44,6 @@ div#instructions {
   font-style: italic;
 
 }
-
 
 /* Source for X image: http://www.pngplay.com/image/6417 
 Source for O image: http://www.pngplay.com/image/6149 */

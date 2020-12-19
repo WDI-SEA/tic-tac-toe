@@ -1,62 +1,49 @@
-// Question: How do you use multiple font weights for the same font?
-
+// Questions to ask in TA OH:
 // classList only giving me one class name, not both/all.
-
 // Hardcoding box 3 with a class X doesn't do anything?
-
 // Background image not working when trying to use local file. Also not sure how to center it vertically.
-
-// Error on line 74 about 'locations'.
-
 
 let count = 0; 
 let xLocations = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 let oLocations = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 let isGameOver = false;
+const turn = document.getElementById("turn");
+console.log('turn ' + turn.innerText);
 
 function checkForWin(player, locations) { 
-    console.log("Checking for Win");
     if (locations[0]) {
         if (locations[1] && locations[2]) {  // Check top row for win. 
             isGameOver = true;
-            declareWinner(player); // `Player ${player} is the winner!`
-            return 
+            declareWinner(player); // `Player ${player} is the winner!` 
         } else if (locations[4] && locations[8]) { // Top left diagonal. 
             isGameOver = true;
-            declareWinner(player);
-            return 
+            declareWinner(player); 
         } else if (locations[3] && locations[6]) { // First (left) column.
             isGameOver = true;
-            declareWinner(player);
-            return 
+            declareWinner(player); 
         }
     } if (locations[1]) {
         if (locations[4] && locations[7]) { // Second (middle) column.
             isGameOver = true;
-            declareWinner(player);
-            return 
+            declareWinner(player); 
         }
     } if (locations[2]) {
         if (locations[5] && locations[8]) { // Third (right) column.
             isGameOver = true;
-            declareWinner(player);
-            return 
+            declareWinner(player); 
         } else if (locations[4] && locations[6]) { // Top right diagonal.
             isGameOver = true;
-            declareWinner(player);
-            return 
+            declareWinner(player); 
         }
     } if (locations[3]) {
         if (locations[4] && locations[5]) { // Middle row. 
             isGameOver = true;
-            declareWinner(player);
-            return 
+            declareWinner(player); 
         }
     } if (locations[6]) {
         if (locations[7] && locations[8]) { // Bottom row. 
             isGameOver = true;
-            declareWinner(player);
-            return 
+            declareWinner(player); 
         }
     }
 }
@@ -71,22 +58,43 @@ function drawBox(player, id, classList) {
             xLocations[i] = 1;
             locations = xLocations;
             classList.add('X');
+            turn.innerText = "Player O's Turn";
+            turn.style.color = 'blue';
+            
         } else { 
             oLocations[i] = 1;
             locations = oLocations; 
             classList.add('O');
+            turn.innerText = "Player X's Turn";
+            turn.style.color = 'purple';
         }
         count += 1;
-        checkForWin(player, locations); // Could easily duplicate this code into the above use cases, but... DRY code please. 
+        checkForWin(player, locations); 
         if (count >= 9) {
             isGameOver = true;
-            let result = "tie"
-            declareWinner(result);
+            declareWinner("tie");
         }
     }
 }
 
 function declareWinner(result) {
+    console.log("Declaring Winner");
+    // let turnDiv = document.querySelector('.turn');
+    // let resultText = document.createElement('h1');
+    // if (result = "tie") {
+    //     let newText = document.createTextNode("It be a TIE!!!");
+    //     console.log(newText);
+    //     resultText.appendChild(newText);
+    //     // resultText.style.color = "blue";
+    // }
+    // else { // result = 'X' or 'O'
+    //     let newText = document.createTextNode("Player " + result + " is DA WINNER!!!!!");
+    //     console.log(newText);
+    //     resultText.appendChild(newText);
+    //     // resultText.style.color = "blue";
+    // }
+    // console.log('resultText ' + resultText);
+    // turnDiv.appendChild(resultText);
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -95,10 +103,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const boxes = document.querySelectorAll('.box'); // Creates an HTML collection that functions as an array.
     const boxesForEach = boxes.forEach( function(box) {
         box.addEventListener('click', function() {
-            // console.log("Box clicked");
-            console.log('id ' + this.id); // This gives me the id of the div box that was clicked on. 
-            console.log(typeof this.id);
-            console.log('classList ' + this.classList);
             if (count % 2 == 0 && !isGameOver) { // If it's player X's turn and the game isn't over.
                 drawBox('X', this.id, this.classList);
             } else if (!isGameOver) {
@@ -109,6 +113,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     //// If the reset button is clicked. ////
     const reset = document.querySelector('#reset').addEventListener('click', function() {
+        isGameOver = false;
         count = 0;
         const clearBoxes = boxes.forEach ( function(box) {
             if ( box.classList.contains("X") ) { box.classList.remove("X"); }
