@@ -39,20 +39,64 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM has been loaded');
     
     function checkForWin(player, locations) { 
-        for (let i == 0; i < locations.length; i++) {
-            if (i == 0) {
-                if ()
-
+        if (locations[0]) {
+            if (locations[1] && locations[2]) {  // Check top row for win. 
+                isGameOver = true;
+                declareWinner(player); // `Player ${player} is the winner!`
+                return 
+            } else if (locations[4] && locations[8]) { // Top left diagonal. 
+                isGameOver = true;
+                declareWinner(player);
+                return 
+            } else if (locations[3] && locations[6]) { // First (left) column.
+                isGameOver = true;
+                declareWinner(player);
+                return 
             }
+        } if (locations[1]) {
+            if (locations[4] && locations[7]) { // Second (middle) column.
+                isGameOver = true;
+                declareWinner(player);
+                return 
+            }
+        } if (locations[2]) {
+            if (locations[5] && locations[8]) { // Third (right) column.
+                isGameOver = true;
+                declareWinner(player);
+                return 
+            } else if (locations[4] && locations[6]) { // Top right diagonal.
+                isGameOver = true;
+                declareWinner(player);
+                return 
+            }
+
+        } if (locations[3]) {
+            if (locations[4] && locations[5]) { // Middle row. 
+                isGameOver = true;
+                declareWinner(player);
+                return 
+            }
+
+        } if (locations[6]) {
+            if (locations[7] && locations[8]) { // Bottom row. 
+                isGameOver = true;
+                declareWinner(player);
+                return 
+            }
+        } else { return }
+
+    }
             // Check after 'x' moves. Check after 'o' moves. Pass in locations of whoever just moved.
         // row clear
         // column clear
         // diagonal top to bottom clear
         // diagonal bottom to top clear
 
+})
+    
+    function drawBox(player, classList) {
+        return
     }
-    
-    
     
     const boxes = document.querySelectorAll('.box'); // Creates an HTML collection that functions as an array.
     console.log(boxes);
@@ -61,16 +105,17 @@ document.addEventListener('DOMContentLoaded', function() {
         box.addEventListener('click', function() {
             console.log("Box clicked");
             console.log(this.id); // This gives me the id of the div box that was clicked on. 
+            if (count % 2 == 0 && !isGameOver) { // If it's player X's turn and the game isn't over.
+                console.log('this classlist ' + this.classList);
+                drawBox('X', this.classList);
+                return
+            } 
         })
     })
 
     // function for knowing whose turn it is
     // if count%2 === 0 then it's x's turn
     // else then it's o's turn
-
-})
-
-
 
 // How to determine a win in tic-tac-toe, in plain English:
 // You have a winner as soon as you have a row, column, or diagonal that have 3 of the same icon ('x' or'o') in a row. The winner corresponds to the person who got the '3 in a row.'
