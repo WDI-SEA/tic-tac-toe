@@ -78,7 +78,14 @@ function drawBox(player, id, classList) {
 }
 
 function declareWinner(result) {
-    console.log("Declaring Winner");
+    if (result == "tie") {
+        turn.innerText = '🐈 🐈 🐈 It be a TIE!!! (Cat\'s game) 🐈 🐈 🐈';
+        turn.style.color = '#B73239';
+    } else { // result = 'X' or 'O'
+        turn.innerText = '🥳  Player ' + result + ' is DA WINNER!!!  🎉';
+        turn.style.color = '#00994d';
+    }
+    // Was unable to make the below work. 😢 
     // let turnDiv = document.querySelector('.turn');
     // let resultText = document.createElement('h1');
     // if (result = "tie") {
