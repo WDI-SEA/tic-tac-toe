@@ -1,5 +1,4 @@
 /* Good Form */
-@import 'reset.css';
 
-/* Local Styles */
-@import 'tic-tac-toe.css'
+@import 'reset.css';
+@import 'tictactoe.css';

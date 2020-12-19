@@ -1,0 +1,23 @@
+/* Local Styles */
+
+:root {
+  --width: 100px;
+  --height: 100px;
+}
+
+.board {
+  border: 5px solid gold;
+  width: 800px;
+  height: 800px;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+}
+
+[data-feature='ticTacToe'] {}
+
+[data-feature='ticTacToe'] [data-target='cell'] {
+  display: block;
+  width: var(--width);
+  height: var(--height);
+  border: 5px solid black;
+}
