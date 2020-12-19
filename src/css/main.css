@@ -30,3 +30,10 @@ main {
   height: var(--height);
   border: 5px solid black;
 }
+
+[data-feature='ticTacToe'] [data-modification='x'] {
+  background: red;
+}
+[data-feature='ticTacToe'] [data-modification='o'] {
+  background: blue;
+}

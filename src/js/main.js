@@ -1,13 +1,16 @@
 // Get the cells
 const gameCell = document.querySelectorAll(`[data-target='cell']`);
+let whoseTurnIsIt = false; // Initialize turn tracker
 
+function possessionChange() {
+  whoseTurnIsIt = !whoseTurnIsIt; // Change possession of the board by flipping the variable's assignment value to the opposite.
+} 
 
-let whoseTurnIsIt; // Initialize turn tracker
-const gameKeeper = whoseTurnIsIt ? "o" : "x"; // Important! This is how we switch who can claim a free square.
-const possessionChange = () => whoseTurnIsIt = !whoseTurnIsIt; // Change possession of the board by flipping the variable's assignment value to the opposite.
 
 // Functions
 const handleClick = (event) => {
+  const gameKeeper = whoseTurnIsIt ? "o" : "x"; // Important! This is how we switch who can claim a free square.
+
   //// A. marks the cell
   event.target.setAttribute('data-modification', gameKeeper);
   //// B. checks the score
