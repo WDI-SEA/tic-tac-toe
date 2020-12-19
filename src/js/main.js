@@ -2,34 +2,20 @@
 const gameCell = document.querySelectorAll(`[data-target='cell']`);
 
 
-// Decision Algorithm 
-// (current user's turn) =>  "Circle"
-let whoseTurnIsIt;
+let whoseTurnIsIt; // Initalize turn tracker
 const possession = whoseTurnIsIt ? "o" : "x";
 
+// Functions
 const handleClick = (event) => {
-  console.log(event.target);
-};
-
-// Add event listeners to each of them
-gameCell.forEach( cell => {
-  cell.addEventListener('click', handleClick);
-});
-
-// Add click event handler that
   //// A. marks the cell
   //// B. checks the score
   //// C. Switch players
 
+  console.log(event.target);
+};
 
+gameCell.forEach( cell => {
+  cell.addEventListener('click', handleClick, { once: true }); // Add event listeners to each of them
 
-
-
-// (shapeDecider = current user's turn ? o : x) => "shapeDecider = o"
-  // add classes
-
-// Winning Algorithm
-// Whitelist: Construct all the a winning patterns in an array to check against
-
-// Read current user layout selection
-// Check current users layout selection against the winning profile pattern array
+  // TIL the `{ once: true }` is Super helpful for not double-firing click event. It "... indicate[s] that the listener should be invoked at most once after being added. If true, the listener would be automatically removed when invoked." https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
+});
