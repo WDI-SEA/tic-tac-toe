@@ -1,5 +1,6 @@
 body {
-  align-content: center;
+  font-family: 'Merriweather', serif; 
+  text-align: center;
 }
 
 h1 {
@@ -7,7 +8,7 @@ h1 {
 }
 
 div.container {
-  margin: auto;
+
 }
 
 div.row {
@@ -21,4 +22,9 @@ div.box {
   margin: 5px;
   margin-top: 10px;
   width: 200px;
+}
+
+#instructions {
+  line-height: 5px;
+  font-style: italic;
 }
