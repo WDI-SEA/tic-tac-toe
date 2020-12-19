@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,900;1,300;1,900&display=swap');
+
 body {
   font-family: 'Merriweather', serif; 
   text-align: center;
@@ -16,15 +18,38 @@ div.row {
 }
 
 div.box {
+  background-size: cover;
   border: 2px solid black;
   display: inline-block;
   height: 200px;
   margin: 5px;
   margin-top: 10px;
+  object-position: center;
   width: 200px;
 }
 
-#instructions {
+div.X {
+  justify-content: center;  /* Centering y-axis */
+  align-items :center; /* Centering x-axis */
+  /* background-image: url("../img/letter_X.jpg"); */
+  background-image: url("http://www.pngplay.com/wp-content/uploads/1/Letter-X-PNG-Stock-Photo.png");
+
+
+}
+
+div.O {
+  justify-content: center;  /* Centering y-axis */
+  align-items :center; /* Centering x-axis */
+  /* background-image: url("../img/letter_O.jpg"); */
+  background-image: url("http://www.pngplay.com/wp-content/uploads/1/Letter-O-PNG.png");
+}
+
+div#instructions {
   line-height: 5px;
   font-style: italic;
+
 }
+
+
+/* Source for X image: http://www.pngplay.com/image/6417 
+Source for O image: http://www.pngplay.com/image/6149 */
