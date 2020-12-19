@@ -9,8 +9,11 @@
 
 
 // Decision Algorithm 
-  // (current user's turn) =>  "Circle"
-  // (shapeDecider = current user's turn ? o : x) => "shapeDecider = o"
+// (current user's turn) =>  "Circle"
+let whoseTurnIsIt;
+const posession = whoseTurnIsIt ? "o" : "x";
+console.log(`${posession}'s turn`);
+// (shapeDecider = current user's turn ? o : x) => "shapeDecider = o"
   // add classes
 
 // Winning Algorithm
