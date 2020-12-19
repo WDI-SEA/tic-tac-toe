@@ -59,7 +59,7 @@ function drawBox(player, id, classList) {
             locations = xLocations;
             classList.add('X');
             turn.innerText = "Player O's Turn";
-            turn.style.color = 'orange';
+            turn.style.color = 'darkorange';
             
         } else { 
             oLocations[i] = 1;
