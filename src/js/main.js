@@ -5,23 +5,16 @@ const gameCell = document.querySelectorAll(`[data-target='cell']`);
 // Decision Algorithm 
 // (current user's turn) =>  "Circle"
 let whoseTurnIsIt;
-const posession = whoseTurnIsIt ? "o" : "x";
-
+const possession = whoseTurnIsIt ? "o" : "x";
 
 const handleClick = (event) => {
   console.log(event.target);
-}
-
-// function handleClick(event) {
-//   console.log(event.target);
-// }
+};
 
 // Add event listeners to each of them
 gameCell.forEach( cell => {
   cell.addEventListener('click', handleClick);
 });
-
-
 
 // Add click event handler that
   //// A. marks the cell
