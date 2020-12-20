@@ -15,7 +15,6 @@ main {
 }
 
 .board {
-  border: 5px solid gold;
   width: 800px;
   height: 800px;
   display: grid;
@@ -31,9 +30,9 @@ main {
   border: 5px solid black;
 }
 
-[data-feature='ticTacToe'] [data-modification='x'] {
+[data-feature='ticTacToe'] .x {
   background: red;
 }
-[data-feature='ticTacToe'] [data-modification='o'] {
+[data-feature='ticTacToe'] .o {
   background: blue;
 }
