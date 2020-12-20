@@ -7,6 +7,10 @@ const winningCombinations = [
   // Legit copied this solution pattern from Web Dev Simplified // https://www.youtube.com/watch?v=Y-GkMjUZsmM
   [0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]
 ];
+const possibleSpaces = [0, 1, 2, 3, 4, 5, 6, 7, 8]; // The cells someone can click on
+let availableSpaces = possibleSpaces; // Placeholder for a function later that will winnow the possible spaces
+const randomSpace = Math.floor(Math.random() * possibleSpaces.length); // Generate a random space from the list of possible spaces
+
 
 const resetBoard = () => {
  return [...gameBoardCells].map( cell => {
@@ -14,7 +18,6 @@ const resetBoard = () => {
    cell.classList.remove("CROSS")
   });
 };
-
 
 function checkScore(currentTeam) {
   return winningCombinations.some(winningCombo => { // Of the possible winning combinations, is there at least one winning combination claimed by a team? 
@@ -30,7 +33,6 @@ const isDraw = () => { // Determine if there is a draw
 };
 
 const handleClick = (event) => {
-  console.log(`Click`);
   const currentTeam = whoseTurnIsIt ? "NOUGHT" : "CROSS"; // Important! This is how we switch who can claim a free square.
   const nextTeam = !whoseTurnIsIt ? "NOUGHT" : "CROSS";
   event.target.classList.add(currentTeam); // Claim a cell for a team
@@ -39,17 +41,13 @@ const handleClick = (event) => {
     statusBar.innerText = "Win";
     resetBoard();
   } else if (isDraw()) {
-    console.log(`2: Draw`);
     statusBar.innerText = "Draw";
     // End the game
   } else {
     statusBar.innerText = `${nextTeam}'s turn`;
-    console.log(`3: normal play ${currentTeam}`);
     possessionChange(); // Change game board possession control to opponent
   }
 };
-
-// Event Handlers
 
 gameBoardCells.forEach( cell => {
   cell.addEventListener('click', handleClick, { once: true }); // Add event listeners to each of them
