@@ -1,5 +1,5 @@
-const gameCell = document.querySelectorAll(`[data-target='cell']`); // Get all the cells (note:, returns a node list=)
-
+let whoseTurnIsIt = false; // Initialize turn tracker
+const gameCell = document.querySelectorAll(`[data-target='cell']`); // Get all the cells (note:, returns a node list=)]
 const winningCombinations = [
   // Legit copied this solution pattern from Web Dev Simplified // https://www.youtube.com/watch?v=Y-GkMjUZsmM
   [0, 1, 2],
@@ -12,6 +12,7 @@ const winningCombinations = [
   [2, 4, 6]
 ];
 
+// Functions
 function checkScore(currentTeam) {
   //Each `winningCombo` is one of the static winning combinations from the array.
   return winningCombinations.some(winningCombo => { // Of the possible winning combinations, is there at least one winning combination claimed by a team? 
@@ -23,16 +24,13 @@ function checkScore(currentTeam) {
   });
 };
 
-let whoseTurnIsIt = false; // Initialize turn tracker
+const possessionChange= () => whoseTurnIsIt = !whoseTurnIsIt; // Change possession of the board by flipping the variable's assignment value to the opposite.
 
-function possessionChange() {
-  whoseTurnIsIt = !whoseTurnIsIt; // Change possession of the board by flipping the variable's assignment value to the opposite.
-};
-
-// Functions
 const handleClick = (event) => {
   const currentTeam = whoseTurnIsIt ? "o" : "x"; // Important! This is how we switch who can claim a free square.
   event.target.classList.add(currentTeam); // Flag a cell for a team
+  
+  console.log(`Score: ${checkScore(currentTeam)}`); // Check the score
   checkScore(currentTeam);
   possessionChange(); // Change game board possession control to opponent
 };
