@@ -11,10 +11,24 @@ const possibleSpaces = [0, 1, 2, 3, 4, 5, 6, 7, 8]; // The cells someone can cli
 let availableSpaces = possibleSpaces; // Placeholder for a function later that will winnow the possible spaces
 
 
-const handleSyntheticClick = () => { 
+function once(fn, context) { 
+	var result;
+
+	return function() { 
+		if(fn) {
+			result = fn.apply(context || this, arguments);
+			fn = null;
+		}
+
+		return result;
+	};
+}
+
+const handleSyntheticClick = (currentTeam) => { 
   const randomSpace = Math.floor(Math.random() * possibleSpaces.length); // Generate a random space from the list of possible spaces
-  clickSpace(randomSpace);
+  claimSpace(randomSpace, currentTeam);
   console.log(`Robot Click's ${randomSpace}`);
+  return; // Stop the Robot from over-choocing
 };
 
 
@@ -52,23 +66,22 @@ const handleClick = (event) => {
   } else {
     statusBar.innerText = `${nextTeam}'s turn`;
     turnOverPosession(); // Change game board possession control to opponent
-    robotClick();
+    robotClick(currentTeam);
   }
 };
 
 
 
-const robotClick = () => {
+const robotClick = (currentTeam) => {
   setTimeout(() => {
-    handleSyntheticClick()
+    handleSyntheticClick(currentTeam)
   }, 500);
 }
 
-const claimSpace = (space) => {}
 
-const clickSpace = (index) => {
-  gameBoardCells[index].click();
-  claimSpace(index)
+const claimSpace = (index, currentTeam) => {
+  gameBoardCells[index].classList.add(currentTeam);
+  possibleSpaces.pop(index);
 }
 
 gameBoardCells.forEach( cell => {
