@@ -10,6 +10,8 @@ const winningCombinations = [
 const possibleSpaces = [0, 1, 2, 3, 4, 5, 6, 7, 8]; // The cells someone can click on
 let availableSpaces = possibleSpaces; // Placeholder for a function later that will winnow the possible spaces
 
+let singlePlayer = false;
+
 const handleSyntheticClick = (currentTeam) => { 
   const randomSpace = Math.floor(Math.random() * possibleSpaces.length); // Generate a random space from the list of possible spaces
   claimSpace(randomSpace, currentTeam);
@@ -56,7 +58,9 @@ const handleClick = (event) => {
   } else {
     statusBar.innerText = `${nextTeam}'s turn`;
     turnOverPosession(); // Change game board possession control to opponent
-    robotClick(currentTeam);
+    if (singlePlayer) {
+      robotClick(currentTeam);
+    }
   }
 };
 
