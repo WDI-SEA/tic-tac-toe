@@ -47,6 +47,7 @@ body {
 }
 
 [data-feature="ticTacToe"] [data-target="cell"].NOUGHT {
+  /* background: dodgerblue; */
   background-image: url(../images/nought.svg);
 }
 

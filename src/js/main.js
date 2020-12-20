@@ -23,15 +23,13 @@ function checkScore(currentTeam) {
 };
 
 const isDraw = () => { // Determine if there is a draw
-  return [...gameBoardCells].every( cell => cell.classList.contains("NOUGHTS") || cell.classList.contains("CROSSES")) // This is saying: does every cell have either an x or an o => that's a draw
+  return [...gameBoardCells].every( cell => cell.classList.contains("NOUGHT") || cell.classList.contains("CROSS")) // This is saying: does every cell have either an x or an o => that's a draw
 };
 
 const handleClick = (event) => {
-  const currentTeam = whoseTurnIsIt ? "NOUGHTS" : "CROSSES"; // Important! This is how we switch who can claim a free square.
-  let isWin = checkScore(currentTeam); // Just a variable to make the logic more readable.
+  const currentTeam = whoseTurnIsIt ? "NOUGHT" : "CROSS"; // Important! This is how we switch who can claim a free square.
   event.target.classList.add(currentTeam); // Flag a cell for a team
-  
-  if (isWin) {
+  if (checkScore(currentTeam)) {
     console.log(`1: Win`);
     // TODO End the game
   } else if (isDraw()) {
