@@ -14,12 +14,9 @@ const winningCombinations = [
 
 function checkScore(currentTeam) {
   return winningCombinations.some(winningCombo => { // Of the possible winning combinations, is there at least one winning combination claimed by a team? 
-    // ⚠️Note: Each `winningCombo` is one of the possible winning combinations, we are checking to see if every cell that comes back all shares the same class.
+    // ⚠️ Note: Each `winningCombo` is one of the possible winning combinations, we are checking to see if every cell that comes back all shares the same class.
     return winningCombo.every(cell => { // Check to see if every cell in a particular combo shares the same class pattern
-      console.log(gameBoardCells[cell].attributes.class = currentTeam);
-      return gameBoardCells[cell].classList.contains(currentTeam);
-      // Check game board cells to see if they have been claimed by the current team
-      // Every single cell in the winningCombo has an x or an o
+      return gameBoardCells[cell].classList.contains(currentTeam); // Check selected game board cells to see if they have been claimed by the current team
     });
   });
 };
@@ -27,7 +24,7 @@ function checkScore(currentTeam) {
 const possessionChange= () => whoseTurnIsIt = !whoseTurnIsIt; // Change possession of the board by flipping the variable's assignment value to the opposite.
 
 const handleClick = (event) => {
-  const currentTeam = whoseTurnIsIt ? "o" : "x"; // Important! This is how we switch who can claim a free square.
+  const currentTeam = whoseTurnIsIt ? "NOUGHTS" : "CROSSES"; // Important! This is how we switch who can claim a free square.
   event.target.classList.add(currentTeam); // Flag a cell for a team
   
   console.log(`Winner?: ${checkScore(currentTeam)}`); // Check the score

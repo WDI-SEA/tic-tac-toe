@@ -21,8 +21,6 @@ main {
   grid-template-columns: repeat(3, auto);
 }
 
-[data-feature='ticTacToe'] {}
-
 [data-feature='ticTacToe'] [data-target='cell'] {
   display: block;
   width: var(--width);
@@ -30,9 +28,10 @@ main {
   border: 5px solid black;
 }
 
-[data-feature='ticTacToe'] .x {
+[data-feature='ticTacToe'] .CROSSES {
   background: red;
 }
-[data-feature='ticTacToe'] .o {
+
+[data-feature='ticTacToe'] .NOUGHTS {
   background: blue;
 }
