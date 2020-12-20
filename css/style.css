@@ -1,6 +1,5 @@
 .header {
   display: grid;
-  grid-template-column: 300px;
   justify-content: center;
   color: Turquoise;
   font-size: 100px;
@@ -8,10 +7,11 @@
 }
 
 .table {
+  width: 100vw;
+  height: 100vh;
   display: grid;
   grid-template-columns: 90px 90px 90px;
   grid-template-rows: 90px 90px 90px;
-  border: 1px solid black; 
   justify-content: center;
   align-content: center;
 }
@@ -23,3 +23,19 @@
 body {
   margin: 0;
 }
+
+.cell {
+  width: 100px;
+  height: 100px;
+  background-color: black;
+  border: 1px solid white;
+}
+
+.playerX {
+background-image: blue;
+}
+
+.playerO {
+  background-color: green;
+}
+
