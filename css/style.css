@@ -27,15 +27,26 @@ body {
 .cell {
   width: 100px;
   height: 100px;
-  background-color: black;
+  background-color: rebeccapurple;
   border: 1px solid white;
 }
 
 .playerX {
-background-image: blue;
+background-image: url("Unknown-1.png")
 }
 
 .playerO {
-  background-color: green;
+  background-image: url("Unknown.png")
 }
 
+.player {
+  display: grid;
+  justify-content: space-evenly;
+  font-size: 30px;
+}
+
+button {
+  display: grid;
+  position: center;
+  justify-content: center;
+}
