@@ -63,8 +63,14 @@ for (let i=0; i< gameBoard.length; i++) {
         });
 };
 
+//This isn't working correctly... maybe syntax is not entered right?
+const endGame = () => {
+    gameBoard.removeEventListener('click', (e()));
+};
+
 const checkWin = () => {
     if (playerTurn == "X") {
+        let xWin = false
         for (let i=0; i < winningCombinations.length; i++) {
             let match = 0;
             console.log(winningCombinations.i)
@@ -72,9 +78,16 @@ const checkWin = () => {
                 if (playerXTurn.includes(winningCombinations[i][j])) {
                     match++;
                 }
+            } 
+            if (match === 3) {
+                xWin = true
             }
+        } 
+        if (xWin) {
+            endGame();
         }
     } else {
+        let oWin = false;
         for (let i=0; i < winningCombinations.length; i++) {
         let match = 0;
         console.log(winningCombinations.i)
@@ -83,7 +96,13 @@ const checkWin = () => {
                 match++;
                 }
             }
+            if (match === 3) {
+                oWin = true;
+            }
         } 
+        if (oWin) {
+            endGame();
+        }
     }
 }
 
