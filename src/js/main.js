@@ -30,7 +30,9 @@ const isDraw = () => { // Determine if there is a draw
 };
 
 const handleClick = (event) => {
+  console.log(`Click`);
   const currentTeam = whoseTurnIsIt ? "NOUGHT" : "CROSS"; // Important! This is how we switch who can claim a free square.
+  const nextTeam = !whoseTurnIsIt ? "NOUGHT" : "CROSS";
   event.target.classList.add(currentTeam); // Claim a cell for a team
   
   if (checkScore(currentTeam)) {
@@ -41,11 +43,13 @@ const handleClick = (event) => {
     statusBar.innerText = "Draw";
     // End the game
   } else {
-    statusBar.innerText = "Next Turn";
-    console.log(`3: normal play`);
+    statusBar.innerText = `${nextTeam}'s turn`;
+    console.log(`3: normal play ${currentTeam}`);
     possessionChange(); // Change game board possession control to opponent
   }
 };
+
+// Event Handlers
 
 gameBoardCells.forEach( cell => {
   cell.addEventListener('click', handleClick, { once: true }); // Add event listeners to each of them
