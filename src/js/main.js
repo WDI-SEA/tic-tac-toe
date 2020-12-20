@@ -10,25 +10,11 @@ const winningCombinations = [
 const possibleSpaces = [0, 1, 2, 3, 4, 5, 6, 7, 8]; // The cells someone can click on
 let availableSpaces = possibleSpaces; // Placeholder for a function later that will winnow the possible spaces
 
-
-function once(fn, context) { 
-	var result;
-
-	return function() { 
-		if(fn) {
-			result = fn.apply(context || this, arguments);
-			fn = null;
-		}
-
-		return result;
-	};
-}
-
 const handleSyntheticClick = (currentTeam) => { 
   const randomSpace = Math.floor(Math.random() * possibleSpaces.length); // Generate a random space from the list of possible spaces
   claimSpace(randomSpace, currentTeam);
   console.log(`Robot Click's ${randomSpace}`);
-  return; // Stop the Robot from over-choocing
+  return; // Stop the Robot from over-choosing
 };
 
 
@@ -55,7 +41,11 @@ const isDraw = () => { // Determine if there is a draw
 const handleClick = (event) => {
   const currentTeam = whoseTurnIsIt ? "NOUGHT" : "CROSS"; // Important! This is how we switch who can claim a free square.
   const nextTeam = !whoseTurnIsIt ? "NOUGHT" : "CROSS";
+  
+  
   event.target.classList.add(currentTeam); // Claim a cell for a team
+
+  // winnowChoices(possibleChoices.pop(gameBoardCells[index]));
   
   if (checkScore(currentTeam)) {
     statusBar.innerText = "Win";
