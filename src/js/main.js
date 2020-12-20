@@ -1,5 +1,5 @@
 let whoseTurnIsIt = false; // Initialize turn tracker
-const possessionChange = () => whoseTurnIsIt = !whoseTurnIsIt; // Change possession of the board by flipping the variable's assignment value to the opposite.
+const turnOverPosession = () => whoseTurnIsIt = !whoseTurnIsIt; // Change possession of the board by flipping the variable's assignment value to the opposite.
 const gameBoardCells = document.querySelectorAll(`[data-target='cell']`); // Get all the cells (note:, returns a node list=)]
 const statusBar = document.querySelector(`[data-target='status_bar']`);
 const resetButton = document.querySelector(`[data-target='reset']`);
@@ -9,7 +9,13 @@ const winningCombinations = [
 ];
 const possibleSpaces = [0, 1, 2, 3, 4, 5, 6, 7, 8]; // The cells someone can click on
 let availableSpaces = possibleSpaces; // Placeholder for a function later that will winnow the possible spaces
-const randomSpace = Math.floor(Math.random() * possibleSpaces.length); // Generate a random space from the list of possible spaces
+
+
+const handleSyntheticClick = () => { 
+  const randomSpace = Math.floor(Math.random() * possibleSpaces.length); // Generate a random space from the list of possible spaces
+  clickSpace(randomSpace);
+  console.log(`Robot Click's ${randomSpace}`);
+};
 
 
 const resetBoard = () => {
@@ -45,9 +51,25 @@ const handleClick = (event) => {
     // End the game
   } else {
     statusBar.innerText = `${nextTeam}'s turn`;
-    possessionChange(); // Change game board possession control to opponent
+    turnOverPosession(); // Change game board possession control to opponent
+    robotClick();
   }
 };
+
+
+
+const robotClick = () => {
+  setTimeout(() => {
+    handleSyntheticClick()
+  }, 500);
+}
+
+const claimSpace = (space) => {}
+
+const clickSpace = (index) => {
+  gameBoardCells[index].click();
+  claimSpace(index)
+}
 
 gameBoardCells.forEach( cell => {
   cell.addEventListener('click', handleClick, { once: true }); // Add event listeners to each of them
@@ -55,3 +77,4 @@ gameBoardCells.forEach( cell => {
 });
 
 resetButton.addEventListener('click', resetBoard, { once: true });
+
