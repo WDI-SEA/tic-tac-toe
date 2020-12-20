@@ -10,38 +10,34 @@ const winningCombinations = [
   [2, 5, 8],
   [0, 4, 8],
   [2, 4, 6]
-]
+];
 
-function checkScore(gameKeeper) {
-  return winningCombinations.some(combo => { // `.some()` here means => is there at least one winning combination present from the return condition? Each `combo` is one of the static winning combinations from the array.
-    return combo.every(index => { // `.every()`
-      console.log(index);
-      return gameCell[index].classList.contains(gameKeeper) // Check game board cells to see if they have been claimed by the current team
-    })
-  })
-}
+function checkScore(currentTeam) {
+  //Each `winningCombo` is one of the static winning combinations from the array.
+  return winningCombinations.some(winningCombo => { // Of the possible winning combinations, is there at least one winning combination claimed by a team? 
+    return winningCombo.every(cell => { // Check to see if every cell in a particular combo shares the same class pattern
+      return gameCell[cell].classList.contains(currentTeam);
+      // Check game board cells to see if they have been claimed by the current team
+      // Every single cell in the winningCombo has an x or an o
+    });
+  });
+};
 
 let whoseTurnIsIt = false; // Initialize turn tracker
 
 function possessionChange() {
   whoseTurnIsIt = !whoseTurnIsIt; // Change possession of the board by flipping the variable's assignment value to the opposite.
-}
+};
 
 // Functions
 const handleClick = (event) => {
-  const gameKeeper = whoseTurnIsIt ? "o" : "x"; // Important! This is how we switch who can claim a free square.
-
-  //// A. marks the cell
-  event.target.classList.add(gameKeeper);
-
-  //// B. checks the score
-  checkScore(gameKeeper);
-  
+  const currentTeam = whoseTurnIsIt ? "o" : "x"; // Important! This is how we switch who can claim a free square.
+  event.target.classList.add(currentTeam); // Flag a cell for a team
+  checkScore(currentTeam);
   possessionChange(); // Change game board possession control to opponent
 };
 
 gameCell.forEach( cell => {
   cell.addEventListener('click', handleClick, { once: true }); // Add event listeners to each of them
-
   // TIL the `{ once: true }` is Super helpful for not double-firing click event. It "... indicate[s] that the listener should be invoked at most once after being added. If true, the listener would be automatically removed when invoked." https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
 });
