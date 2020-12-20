@@ -1,5 +1,5 @@
 let whoseTurnIsIt = false; // Initialize turn tracker
-const possessionChange= () => whoseTurnIsIt = !whoseTurnIsIt; // Change possession of the board by flipping the variable's assignment value to the opposite.
+const possessionChange = () => whoseTurnIsIt = !whoseTurnIsIt; // Change possession of the board by flipping the variable's assignment value to the opposite.
 const gameBoardCells = document.querySelectorAll(`[data-target='cell']`); // Get all the cells (note:, returns a node list=)]
 const winningCombinations = [
   // Legit copied this solution pattern from Web Dev Simplified // https://www.youtube.com/watch?v=Y-GkMjUZsmM
@@ -27,7 +27,7 @@ const isDraw = () => { // Determine if there is a draw
 };
 
 const handleClick = (event) => {
-  const isWin = checkScore(currentTeam);
+  let isWin = checkScore(currentTeam);
   const currentTeam = whoseTurnIsIt ? "NOUGHTS" : "CROSSES"; // Important! This is how we switch who can claim a free square.
   event.target.classList.add(currentTeam); // Flag a cell for a team
   

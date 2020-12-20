@@ -1,37 +1,73 @@
-/* Good Form */
+/* Resets */
 
-@import 'reset.css';
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
 :root {
-  --width: 100%;
-  --height: 100%;
+  --hoodie: #D6D6D6;
+  --cold: #c7c7c7;
+  --kinder: #ffddb3;
+  --cell-size: 250px;
 }
 
-main {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 100px;
+body {
+  background-color: var(--hoodie);
 }
 
-.board {
-  width: 800px;
-  height: 800px;
+[data-feature="ticTacToe"].lay_grid_3x3 {
   display: grid;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
   grid-template-columns: repeat(3, auto);
 }
 
-[data-feature='ticTacToe'] [data-target='cell'] {
-  display: block;
-  width: var(--width);
-  height: var(--height);
-  border: 5px solid black;
+[data-feature="ticTacToe"][data-selector="board"] {
+  width: 100vw;
+  height: 100vh;
 }
 
-[data-feature='ticTacToe'] .CROSSES {
-  background: red;
+[data-feature="ticTacToe"] [data-target="cell"] {
+  background: var(--cold);
+  width: var(--cell-size);
+  height: var(--cell-size);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  border: 5px solid var(--hoodie);
 }
 
-[data-feature='ticTacToe'] .NOUGHTS {
-  background: blue;
+[data-feature="ticTacToe"] [data-target="cell"].NOUGHT {
+  background-image: url(../images/nought.svg);
+}
+
+[data-feature="ticTacToe"] [data-target="cell"].CROSS {
+  background-image: url(../images/cross.svg);
+}
+
+/* Border Bullshit */
+
+[data-target="cell"]:first-child, [data-target="cell"]:nth-child(2), [data-target="cell"]:nth-child(3) {
+  border-top: none;
+}
+
+[data-target="cell"]:nth-child(3n + 1) {
+  border-left: none;
+}
+
+[data-target="cell"]:nth-child(3n + 3) {
+  border-right: none;
+}
+
+[data-target="cell"]:last-child, [data-target="cell"]:nth-child(8), [data-target="cell"]:nth-child(7) {
+  border-bottom: none;
 }

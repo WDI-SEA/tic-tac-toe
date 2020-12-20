@@ -3,19 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      media="screen"
-      href="./css/main.css"
-    />
+    <link rel="stylesheet" href="./css/main.css" />
     <script src="./js/main.js" defer></script>
     <!-- TIL the `defer` attribute is baller. "This Boolean attribute is set to indicate to a browser that the script is meant to be executed after the document has been parsed, but before firing DOMContentLoaded." https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script-->
     <title>Tic, Tac, Toe</title>
   </head>
   <body>
     <main>
-      <article class="board" data-feature="ticTacToe" data-selector="board">
+      <article
+        class="board lay_grid_3x3"
+        data-feature="ticTacToe"
+        data-selector="board"
+      >
         <section data-target="cell"></section>
         <section data-target="cell"></section>
         <section data-target="cell"></section>
