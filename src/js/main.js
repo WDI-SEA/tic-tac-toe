@@ -13,10 +13,10 @@ const winningCombinations = [
 ]
 
 function checkScore(gameKeeper) {
-  return winningCombinations.some(combo => { // is there at least one winning combination present
-    return combo.every(index => {
+  return winningCombinations.some(combo => { // `.some()` here means => is there at least one winning combination present from the return condition? Each `combo` is one of the static winning combinations from the array.
+    return combo.every(index => { // `.every()`
       console.log(index);
-      return gameCell[index].classList.contains(gameKeeper) // Check to see any winning combinations have been made
+      return gameCell[index].classList.contains(gameKeeper) // Check game board cells to see if they have been claimed by the current team
     })
   })
 }
