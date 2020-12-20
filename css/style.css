@@ -1,7 +1,7 @@
 h1 {
   text-align: center;
 }
-.container {
+#container {
   margin: 0 auto;
   display: grid;
   grid-template-rows: 100px 100px 100px;
@@ -16,9 +16,11 @@ h1 {
   max-height: 100%;
   max-width: 100%;
   background-color: rgb(110, 238, 221);
+  text-align: center;
+  /* line-height: 100%; */
 }
 
-.background{
+/* .background{
   background: purple;
   height: 100%;
   width: 100%;
@@ -27,7 +29,7 @@ h1 {
   grid-column-end: 4;
   grid-row-start: 1;
   grid-row-end: 4;
-  z-index: -1;
+  z-index: -1; */
 }
 input {
   text-align: center;
