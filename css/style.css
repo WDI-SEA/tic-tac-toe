@@ -32,11 +32,11 @@ body {
 }
 
 .playerX {
-background-image: url("Unknown-1.png")
+background-image: url(".img/Unknown-1.png")
 }
 
 .playerO {
-  background-image: url("Unknown.png")
+  background-image: url(".img/Unknown.png")
 }
 
 .player {
