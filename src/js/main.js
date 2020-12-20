@@ -28,7 +28,7 @@ const isDraw = () => { // Determine if there is a draw
 
 const handleClick = (event) => {
   const currentTeam = whoseTurnIsIt ? "NOUGHT" : "CROSS"; // Important! This is how we switch who can claim a free square.
-  event.target.classList.add(currentTeam); // Flag a cell for a team
+  event.target.classList.add(currentTeam); // Claim a cell for a team
   if (checkScore(currentTeam)) {
     console.log(`1: Win`);
     // TODO End the game

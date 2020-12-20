@@ -18,6 +18,7 @@
 
 body {
   background-color: var(--hoodie);
+  background-color: #E0D3DE;
 }
 
 [data-feature="ticTacToe"].lay_grid_3x3 {
@@ -36,6 +37,7 @@ body {
 
 [data-feature="ticTacToe"] [data-target="cell"] {
   background: var(--cold);
+  background: #ECFDFC;
   width: var(--cell-size);
   height: var(--cell-size);
   display: flex;
@@ -44,15 +46,32 @@ body {
   position: relative;
   cursor: pointer;
   border: 5px solid var(--hoodie);
+  border: 5px solid #E0D3DE;
+  background-size: 200px;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: all .25s ease-in-out;
+}
+
+[data-feature="ticTacToe"] [data-target="cell"]:hover {
+  background: #FFFED6;
 }
 
 [data-feature="ticTacToe"] [data-target="cell"].NOUGHT {
   /* background: dodgerblue; */
+  background-size: 200px;
+  background-repeat: no-repeat;
+  background-position: center;
   background-image: url(../images/nought.svg);
+  background-color: transparent;
 }
 
 [data-feature="ticTacToe"] [data-target="cell"].CROSS {
+  background-size: 200px;
+  background-repeat: no-repeat;
+  background-position: center;
   background-image: url(../images/cross.svg);
+  background-color: transparent;
 }
 
 /* Border Bullshit */
