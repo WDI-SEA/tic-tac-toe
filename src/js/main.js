@@ -28,11 +28,13 @@ const handleDraw = () => {
 }
 
 const handleTurn = (singlePlayer, currentTeam, nextTeam) => {
-statusBar.innerText = `${nextTeam}'s turn`;
-    turnOverPosession(); // Change game board possession control to opponent
-    if (singlePlayer) {
-      robotClick(currentTeam);
-    }
+  statusBar.innerText = `${nextTeam}'s turn`;
+  turnOverPosession(); // Change game board possession control to opponent
+  
+  // Turning on the robot
+  if (singlePlayer) {
+    robotClick(currentTeam);
+  }
 }
 
 
@@ -86,15 +88,16 @@ const bindEvents = () => {
     // TIL the `{ once: true }` is Super helpful for not double-firing click event. It "... indicate[s] that the listener should be invoked at most once after being added. If true, the listener would be automatically removed when invoked." https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
   });
 }
+
 bindEvents();
-
-
 resetButton.addEventListener('click', resetBoard);
 
 
 
 // Single Player Mode Stuff
-let singlePlayer = false;
+// TODO Winnow possible spaces after marking (need to do this with humans too)
+let singlePlayer = true; // Robot "On" Switch
+
 const possibleSpaces = [0, 1, 2, 3, 4, 5, 6, 7, 8]; // The cells someone can click on
 let availableSpaces = possibleSpaces; // Placeholder for a function later that will winnow the possible spaces
 
@@ -107,7 +110,6 @@ const robotClick = (currentTeam) => {
 const handleSyntheticClick = (currentTeam) => { 
   const randomSpace = Math.floor(Math.random() * possibleSpaces.length); // Generate a random space from the list of possible spaces
   claimSpace(randomSpace, currentTeam);
-  console.log(`Robot Click's ${randomSpace}`);
   return; // Stop the Robot from over-choosing
 };
 
