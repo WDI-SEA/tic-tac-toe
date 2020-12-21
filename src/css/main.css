@@ -17,6 +17,11 @@
   --cell-size: 250px;
 }
 
+[disabled="true"] {
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
 body {
   background-color: var(--hoodie);
 }
@@ -81,6 +86,7 @@ body {
 }
 
 /* Border Bullshit */
+
 [data-target="cell"]:first-child, [data-target="cell"]:nth-child(2), [data-target="cell"]:nth-child(3) {
   border-top: none;
 }

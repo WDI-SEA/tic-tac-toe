@@ -7,20 +7,24 @@ const winningCombinations = [
   // Legit copied this solution pattern from Web Dev Simplified // https://www.youtube.com/watch?v=Y-GkMjUZsmM
   [0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]
 ];
-const possibleSpaces = [0, 1, 2, 3, 4, 5, 6, 7, 8]; // The cells someone can click on
-let availableSpaces = possibleSpaces; // Placeholder for a function later that will winnow the possible spaces
 
+const disableBoard = () => {gameBoardCells.forEach( cell => {
+  cell.setAttribute("disabled", true)
+})}
 
+const enableBoard = () => {gameBoardCells.forEach( cell => {
+  cell.setAttribute("disabled", false)
+})}
 
 
 const handleWin = () => {
-  // resetBoard();
-    statusBar.innerText = "Win";
+  statusBar.innerText = "Win";
+  disableBoard();
 }
 
 const handleDraw = () => {
-  // resetBoard();
-    statusBar.innerText = "Draw";
+  enalbeBoard();
+  statusBar.innerText = "Draw";
 }
 
 const handleTurn = (singlePlayer, currentTeam, nextTeam) => {
@@ -70,6 +74,7 @@ const handleClick = (event) => {
 
 const markCell = (event, currentTeam) => { // Claim a cell for a team
   event.target.classList.add(currentTeam); 
+  event.target.setAttribute("disabled", true);
 }
 
 
@@ -84,10 +89,12 @@ resetButton.addEventListener('click', resetBoard, { once: true });
 
 // Single Player Mode Stuff
 let singlePlayer = false;
+const possibleSpaces = [0, 1, 2, 3, 4, 5, 6, 7, 8]; // The cells someone can click on
+let availableSpaces = possibleSpaces; // Placeholder for a function later that will winnow the possible spaces
 
 const robotClick = (currentTeam) => {
   setTimeout(() => {
-    handleSyntheticClick(currentTeam)
+    handleSyntheticClick(currentTeam) // Fire a synthetic "click" after a half a second so it doesn't seem so immediate
   }, 500);
 }
 
