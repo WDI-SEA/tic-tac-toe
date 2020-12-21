@@ -4,8 +4,8 @@ const gameBoardCells = document.querySelectorAll(`[data-target='cell']`); // Get
 const statusBar = document.querySelector(`[data-target='status_bar']`);
 const resetButton = document.querySelector(`[data-target='reset']`);
 const winningCombinations = [
-  // Legit copied this solution pattern from Web Dev Simplified // https://www.youtube.com/watch?v=Y-GkMjUZsmM
   [0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]
+  // Legit copied this solution pattern from Web Dev Simplified // https://www.youtube.com/watch?v=Y-GkMjUZsmM
 ];
 
 const disableBoard = () => {gameBoardCells.forEach( cell => {
@@ -18,8 +18,8 @@ const enableBoard = () => {gameBoardCells.forEach( cell => {
 
 
 const handleWin = () => {
-  statusBar.innerText = "Win";
   disableBoard();
+  statusBar.innerText = "Win";
 }
 
 const handleDraw = () => {
@@ -27,12 +27,12 @@ const handleDraw = () => {
   statusBar.innerText = "Draw";
 }
 
-const handleTurn = (singlePlayer, currentTeam, nextTeam) => {
+const handleTurn = (singlePlayerMode, currentTeam, nextTeam) => {
   statusBar.innerText = `${nextTeam}'s turn`;
   turnOverPosession(); // Change game board possession control to opponent
   
-  // Turning on the robot
-  if (singlePlayer) {
+  // Only fires in single player mode
+  if (singlePlayerMode) {
     robotClick(currentTeam);
   }
 }
@@ -64,7 +64,6 @@ const isDraw = () => { // Determine if there is a draw
 const handleClick = (event) => {
   const currentTeam = whoseTurnIsIt ? "NOUGHT" : "CROSS"; // Important! This is how we switch teams
   const nextTeam = !whoseTurnIsIt ? "NOUGHT" : "CROSS"; // The next team
-  
   markCell(event, currentTeam); // Claim a cell for a team
   
   if (checkScore(currentTeam)) {
@@ -72,10 +71,9 @@ const handleClick = (event) => {
   } else if (isDraw()) {
     handleDraw();
   } else {
-    handleTurn(singlePlayer, currentTeam, nextTeam);
+    handleTurn(singlePlayerMode, currentTeam, nextTeam);
   }
 };
-
 
 const markCell = (event, currentTeam) => { // Claim a cell for a team
   event.target.classList.add(currentTeam); 
@@ -94,9 +92,9 @@ resetButton.addEventListener('click', resetBoard);
 
 
 
-// Single Player Mode Stuff
+// Single Player Mode Stuff ///////////////////////////////////////////////////////////////
 // TODO Winnow possible spaces after marking (need to do this with humans too)
-let singlePlayer = true; // Robot "On" Switch
+let singlePlayerMode = false; // Robot "On" Switch
 
 const possibleSpaces = [0, 1, 2, 3, 4, 5, 6, 7, 8]; // The cells someone can click on
 let availableSpaces = possibleSpaces; // Placeholder for a function later that will winnow the possible spaces
@@ -117,3 +115,4 @@ const claimSpace = (index, currentTeam) => {
   gameBoardCells[index].classList.add(currentTeam);
   possibleSpaces.pop(index);
 }
+// Single Player Mode Stuff ///////////////////////////////////////////////////////////////
