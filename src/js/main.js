@@ -37,7 +37,10 @@ statusBar.innerText = `${nextTeam}'s turn`;
 
 
 const resetBoard = () => {
+  bindEvents(); // Re-add the event listeners;
+
  return [...gameBoardCells].map( cell => {
+   cell.setAttribute("disabled", false)
    cell.classList.remove("NOUGHT")
    cell.classList.remove("CROSS")
   });
@@ -77,13 +80,16 @@ const markCell = (event, currentTeam) => { // Claim a cell for a team
   event.target.setAttribute("disabled", true);
 }
 
+const bindEvents = () => {
+  return [...gameBoardCells].map( cell => {
+    cell.addEventListener('click', handleClick, { once: true }); // Add event listeners to each of them
+    // TIL the `{ once: true }` is Super helpful for not double-firing click event. It "... indicate[s] that the listener should be invoked at most once after being added. If true, the listener would be automatically removed when invoked." https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
+  });
+}
+bindEvents();
 
-gameBoardCells.forEach( cell => {
-  cell.addEventListener('click', handleClick, { once: true }); // Add event listeners to each of them
-  // TIL the `{ once: true }` is Super helpful for not double-firing click event. It "... indicate[s] that the listener should be invoked at most once after being added. If true, the listener would be automatically removed when invoked." https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
-});
 
-resetButton.addEventListener('click', resetBoard, { once: true });
+resetButton.addEventListener('click', resetBoard);
 
 
 
