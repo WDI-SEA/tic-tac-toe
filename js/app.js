@@ -4,12 +4,18 @@
     const cellArray = Array.from(cells)
 
     const restartButton = document.querySelector(".restartButton");
+    restartButton.addEventListener('click', ()=> {
+        cells.forEach(cell => cell.value = '')
+    });
 
-    restartButton.addEventListener("click",() => {
-        cellArray.forEach((cells, index => {
-            cells[index] = null;
-        }))
-    })
+
+    // document.querySelector(".restartButton").addEventListener("click", );
+
+    // restartButton.addEventListener("click",() => {
+    //     cellArray.forEach((cells, index => {
+    //         cells[index] = null;
+    //     }))
+    // })
     
 
 // whose turn it is use a if else with === and a for each for the cells clicked
@@ -37,7 +43,27 @@
         }
     
     }
+//  random tries
+    // const statusDisplay = document.querySelector("winningMessage")
+    // letgameActive = true;
+    // let gameState = ["", "", "", "", "", "", "", "", ""]
 
-    const statusDisplay = document.querySelector("winningMessage")
-    letgameActive = true;
-    let gameState = ["", "", "", "", "", "", "", "", ""]
+    // function render() {
+    //     table.forEach(function(mark,index) {
+    //         cells[index].textContent = mark;
+    //     });
+    // };
+
+    // let board;
+    // let turn = "X";
+
+    // document.getElementByClass('table').addEventListener("click", handleTurn);
+
+    // function handleTurn(e) {
+    //     let idx = cells.findIndex(function(cell) {
+    //         return cell === e.target;
+    //     })
+    // }
+
+
+
