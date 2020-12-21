@@ -1,5 +1,5 @@
 let whoseTurnIsIt = false; // Initialize turn tracker
-const turnOverPosession = () => whoseTurnIsIt = !whoseTurnIsIt; // Change possession of the board by flipping the variable's assignment value to the opposite.
+const turnOver = () => whoseTurnIsIt = !whoseTurnIsIt; // Change possession of the board by flipping the variable's assignment value to the opposite.
 const gameBoardCells = document.querySelectorAll(`[data-target='cell']`); // Get all the cells (note:, returns a node list=)]
 const statusBar = document.querySelector(`[data-target='status_bar']`);
 const resetButton = document.querySelector(`[data-target='reset']`);
@@ -29,7 +29,7 @@ const handleDraw = () => {
 
 const handleTurn = (singlePlayerMode, currentTeam, nextTeam) => {
   statusBar.innerText = `${nextTeam}'s turn`;
-  turnOverPosession(); // Change game board possession control to opponent
+  turnOver(); // Change game board possession control to opponent
   
   // Only fires in single player mode
   if (singlePlayerMode) {
@@ -116,3 +116,4 @@ const claimSpace = (index, currentTeam) => {
   possibleSpaces.pop(index);
 }
 // Single Player Mode Stuff ///////////////////////////////////////////////////////////////
+
