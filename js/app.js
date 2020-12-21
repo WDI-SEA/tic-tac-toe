@@ -52,7 +52,20 @@ function checkWin(){
             winCon=true;
             winner="X";
             document.getElementById("winner").innerText=winner +" is the Winner";
+        }else if(document.getElementById("grid1").innerText!==""&&
+        document.getElementById("grid2").innerText!==""&&
+        document.getElementById("grid3").innerText!==""&&
+        document.getElementById("grid4").innerText!==""&&
+        document.getElementById("grid5").innerText!==""&&
+        document.getElementById("grid6").innerText!==""&&
+        document.getElementById("grid7").innerText!==""&&
+        document.getElementById("grid8").innerText!==""&&
+        document.getElementById("grid9").innerText!==""){
+            winCon=true;
+            winner="Nobody";
+            document.getElementById("winner").innerText="Tie";
         }
+
 }
 
 function clearB(){
