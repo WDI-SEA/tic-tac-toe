@@ -1,3 +1,97 @@
-h1 {
-  color: purple;
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: black;
+  display: flex;
+  justify-content: center; 
+}
+
+.container {
+  background-color: lightskyblue;
+  border: 2px double black;
+  width: 750px;
+  height: 600px;
+  margin: 50px;
+  padding: 50px;
+  border-radius: 25px;
+}
+
+.title {
+  text-align: center;
+  font-style: bold;
+  font-size: 45px;
+}
+
+span {
+  color: white;
+}
+
+.status-action {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 40px;
+}
+
+.status {
+  display: flex;
+  border: 1px solid black;
+  border-radius: 15px;
+  margin-top: 25px;
+  font-size: 18px;
+  padding: 15px;
+  color: white;
+  font-style: bold;
+}
+
+.reset {
+  display: flex;
+  background-color: lightskyblue;
+  border: 1px solid black;
+  border-radius: 15px;
+  margin-top: 25px;
+  font-size: 18px;
+  padding: 15px;
+  color: white;
+  font-style: bold;
+  cursor: pointer;
+}
+
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 5px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: black;
+}
+
+.game-grid {
+  display: flex;
+  height: 400px;
+  width: 400px;
+  margin: auto;
+}
+
+.game-cell {
+  background-color: lightskyblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  height: 128px;
+  width: 128px;
+}
+
+.oMoves {
+  background-image: url("../img/TicTacO.png")
+  size: 50px;
+}
+
+.xMoves {
+  background-image: url("../img/TicTacX.jpg");
+  size: 50px;
 }
