@@ -1,5 +1,6 @@
 *{
   text-align: center;
+  
 }
 h1 {
   color: purple;
@@ -9,12 +10,10 @@ h1 {
 
 .gameBoard{
   display: inline-grid;
- 
+  margin-bottom: 60px;
   
-  grid-template-rows: 200px 200px 200px ;
-  grid-template-columns: 200px 200px 200px ;
-  
-  
+  grid-template-rows: 200px 200px ;
+  grid-template-columns: 200px 200px 200px;
   line-height: 140px;
   font-size: 100px;
 }
@@ -73,10 +72,20 @@ h1 {
   border: 1px solid black;
 }
 #winner{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+  height: 200px;
+  line-height: 180px;
+  font-size: 100px;
+  color: white;
   background-color: red;
-  justify-content: center;
-  position: relative;
+  justify-items: center;
   border: 1px solid black;
-  width:70%;
-
+  
+}
+#turn{
+  font-size: 100px;
+  
 }

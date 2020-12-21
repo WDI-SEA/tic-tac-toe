@@ -3,75 +3,10 @@ console.log('Hello frontend');
 var ticMark="O"
 var winCon=false;
 var winner="";
-//document.getElementById("grid1").innerHTML= "OK";
-//placeO();
 
-
-
-/*
-function placeO(grid){
-    if(ticMark==="X"){
-        if(document.getElementById("grid1").innerText===""){
-            document.getElementById("grid1").innerText = ticMark;
-            ticMark="O";
-        } else if(document.getElementById("grid2").innerText===""){
-            document.getElementById("grid2").innerText = ticMark;
-            ticMark="O";
-        } else if(document.getElementById("grid3").innerText===""){
-            document.getElementById("grid3").innerText = ticMark;
-            ticMark="O";
-        }else if(document.getElementById("grid4").innerText===""){
-            document.getElementById("grid4").innerText = ticMark;
-            ticMark="O";
-        }else if(document.getElementById("grid5").innerText===""){
-            document.getElementById("grid5").innerText = ticMark;
-            ticMark="O";
-        }else if(document.getElementById("grid6").innerText===""){
-            document.getElementById("grid6").innerText = ticMark;
-            ticMark="O";
-        }else if(document.getElementById("grid7").innerText===""){
-            document.getElementById("grid7").innerText = ticMark;
-            ticMark="O";
-        }else if(document.getElementById("grid8").innerText===""){
-            document.getElementById("grid8").innerText = ticMark;
-            ticMark="O";
-        }else if(document.getElementById("grid9").innerText===""){
-            document.getElementById("grid9").innerText = ticMark;
-            ticMark="O";
-        }
-    }else if(ticMark==="O"){
-        if(document.getElementById("grid1").innerText===""){
-            document.getElementById("grid1").innerText = ticMark;
-            ticMark="X";
-        } else if(document.getElementById("grid2").innerText===""){
-            document.getElementById("grid2").innerText = ticMark;
-            ticMark="X";
-        } else if(document.getElementById("grid3").innerText===""){
-            document.getElementById("grid3").innerText = ticMark;
-            ticMark="X";
-        }else if(document.getElementById("grid4").innerText===""){
-            document.getElementById("grid4").innerText = ticMark;
-            ticMark="X";
-        }else if(document.getElementById("grid5").innerText===""){
-            document.getElementById("grid5").innerText = ticMark;
-            ticMark="X";
-        }else if(document.getElementById("grid6").innerText===""){
-            document.getElementById("grid6").innerText = ticMark;
-            ticMark="X";
-        }else if(document.getElementById("grid7").innerText===""){
-            document.getElementById("grid7").innerText = ticMark;
-            ticMark="X";
-        }else if(document.getElementById("grid8").innerText===""){
-            document.getElementById("grid8").innerText = ticMark;
-            ticMark="X";
-        }else if(document.getElementById("grid9").innerText===""){
-            document.getElementById("grid9").innerText = ticMark;
-            ticMark="X";
-        }
-    }
-}
-*/
 var grid;
+
+
 function placeO(grid){
     if(!winCon){
         if(ticMark==="X"){
@@ -86,7 +21,9 @@ function placeO(grid){
             }
         }
         checkWin();
+        
     }
+    document.getElementById("turn").innerText=ticMark+"'s Turn";
     
 }
 
@@ -116,4 +53,22 @@ function checkWin(){
             winner="X";
             document.getElementById("winner").innerText=winner +" is the Winner";
         }
+}
+
+function clearB(){
+    document.getElementById("grid1").innerText="";
+    document.getElementById("grid2").innerText="";
+    document.getElementById("grid3").innerText="";
+    document.getElementById("grid4").innerText="";
+    document.getElementById("grid5").innerText="";
+    document.getElementById("grid6").innerText="";
+    document.getElementById("grid7").innerText="";
+    document.getElementById("grid8").innerText="";
+    document.getElementById("grid9").innerText="";
+    winCon=false;
+    winner="";
+    ticMark="O";
+    document.getElementById("winner").innerText="";
+    document.getElementById("turn").innerText="O's Turn";
+
 }
