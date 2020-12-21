@@ -41,7 +41,14 @@
             cells[indicator].classList.add("PlayerO")
             currentPlayer = "PlayerX"
         }
-    
+        
+    }
+
+    function checkForWin() {
+        const choices = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
+        const index = Math.floor(Math.random() * 3);
+        
+        if ((choices[index] === "1" && choices[index] === "2" && choices[index] === "3")
     }
 //  random tries
     // const statusDisplay = document.querySelector("winningMessage")
