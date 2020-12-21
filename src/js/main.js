@@ -10,14 +10,26 @@ const winningCombinations = [
 const possibleSpaces = [0, 1, 2, 3, 4, 5, 6, 7, 8]; // The cells someone can click on
 let availableSpaces = possibleSpaces; // Placeholder for a function later that will winnow the possible spaces
 
-let singlePlayer = false;
 
-const handleSyntheticClick = (currentTeam) => { 
-  const randomSpace = Math.floor(Math.random() * possibleSpaces.length); // Generate a random space from the list of possible spaces
-  claimSpace(randomSpace, currentTeam);
-  console.log(`Robot Click's ${randomSpace}`);
-  return; // Stop the Robot from over-choosing
-};
+
+
+const handleWin = () => {
+  // resetBoard();
+    statusBar.innerText = "Win";
+}
+
+const handleDraw = () => {
+  // resetBoard();
+    statusBar.innerText = "Draw";
+}
+
+const handleTurn = (singlePlayer, currentTeam, nextTeam) => {
+statusBar.innerText = `${nextTeam}'s turn`;
+    turnOverPosession(); // Change game board possession control to opponent
+    if (singlePlayer) {
+      robotClick(currentTeam);
+    }
+}
 
 
 const resetBoard = () => {
@@ -41,42 +53,25 @@ const isDraw = () => { // Determine if there is a draw
 };
 
 const handleClick = (event) => {
-  const currentTeam = whoseTurnIsIt ? "NOUGHT" : "CROSS"; // Important! This is how we switch who can claim a free square.
-  const nextTeam = !whoseTurnIsIt ? "NOUGHT" : "CROSS";
+  const currentTeam = whoseTurnIsIt ? "NOUGHT" : "CROSS"; // Important! This is how we switch teams
+  const nextTeam = !whoseTurnIsIt ? "NOUGHT" : "CROSS"; // The next team
   
-  
-  event.target.classList.add(currentTeam); // Claim a cell for a team
-
-  // winnowChoices(possibleChoices.pop(gameBoardCells[index]));
+  markCell(event, currentTeam); // Claim a cell for a team
   
   if (checkScore(currentTeam)) {
-    statusBar.innerText = "Win";
-    resetBoard();
+    handleWin();
   } else if (isDraw()) {
-    statusBar.innerText = "Draw";
-    // End the game
+    handleDraw();
   } else {
-    statusBar.innerText = `${nextTeam}'s turn`;
-    turnOverPosession(); // Change game board possession control to opponent
-    if (singlePlayer) {
-      robotClick(currentTeam);
-    }
+    handleTurn(singlePlayer, currentTeam, nextTeam);
   }
 };
 
 
-
-const robotClick = (currentTeam) => {
-  setTimeout(() => {
-    handleSyntheticClick(currentTeam)
-  }, 500);
+const markCell = (event, currentTeam) => { // Claim a cell for a team
+  event.target.classList.add(currentTeam); 
 }
 
-
-const claimSpace = (index, currentTeam) => {
-  gameBoardCells[index].classList.add(currentTeam);
-  possibleSpaces.pop(index);
-}
 
 gameBoardCells.forEach( cell => {
   cell.addEventListener('click', handleClick, { once: true }); // Add event listeners to each of them
@@ -85,3 +80,25 @@ gameBoardCells.forEach( cell => {
 
 resetButton.addEventListener('click', resetBoard, { once: true });
 
+
+
+// Single Player Mode Stuff
+let singlePlayer = false;
+
+const robotClick = (currentTeam) => {
+  setTimeout(() => {
+    handleSyntheticClick(currentTeam)
+  }, 500);
+}
+
+const handleSyntheticClick = (currentTeam) => { 
+  const randomSpace = Math.floor(Math.random() * possibleSpaces.length); // Generate a random space from the list of possible spaces
+  claimSpace(randomSpace, currentTeam);
+  console.log(`Robot Click's ${randomSpace}`);
+  return; // Stop the Robot from over-choosing
+};
+
+const claimSpace = (index, currentTeam) => {
+  gameBoardCells[index].classList.add(currentTeam);
+  possibleSpaces.pop(index);
+}
