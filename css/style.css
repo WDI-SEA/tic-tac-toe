@@ -8,45 +8,39 @@
 
 .table {
   width: 100vw;
-  height: 100vh;
   display: grid;
-  grid-template-columns: 90px 90px 90px;
-  grid-template-rows: 90px 90px 90px;
+  grid-template-columns: 150px 150px 150px;
+  grid-template-rows: 150px 150px 150px;
   justify-content: center;
   align-content: center;
 }
 
 .restartButton {
   position: center;
-}
+  display: grid;
+  position: center;
+  justify-content: center;
+  width: 100vw;
+  margin-top: 50px;
+    
+  }
 
-body {
-  margin: 0;
-}
 
 .cell {
-  width: 100px;
-  height: 100px;
   background-color: rebeccapurple;
   border: 1px solid white;
 }
 
-.playerX {
-background-image: url(".img/Unknown-1.png")
+.PlayerX {
+background-image: url('https://lh3.googleusercontent.com/proxy/uUvK7CBqKfaIqSlXweIxZRKXtFshrtGqiVTO8ngp_OD4AxiLFgOeb0ahzJw-uqr7eifyd7338N1jVcvHhykzDWYH977eupFt');
 }
 
-.playerO {
-  background-image: url(".img/Unknown.png")
+.PlayerO {
+background-image: url('https://lh3.googleusercontent.com/proxy/gCsW7astDrCpI9cSzSEr3yJ7bDdzCPXIc7Mt-9xCmzqIo8NP6VrtYk7vXhvRS0ap91yX2_gW50ZeO_0g');
 }
 
 .player {
   display: grid;
   justify-content: space-evenly;
   font-size: 30px;
-}
-
-button {
-  display: grid;
-  position: center;
-  justify-content: center;
 }
