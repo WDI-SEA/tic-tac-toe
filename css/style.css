@@ -1,3 +1,82 @@
+*{
+  text-align: center;
+}
 h1 {
   color: purple;
+}
+
+
+
+.gameBoard{
+  display: inline-grid;
+ 
+  
+  grid-template-rows: 200px 200px 200px ;
+  grid-template-columns: 200px 200px 200px ;
+  
+  
+  line-height: 140px;
+  font-size: 100px;
+}
+#grid1{
+  background-color: aqua;
+  height:150px;
+  grid-column: 1/1;
+  border: 1px solid black;
+}
+#grid2{
+  background-color: aqua;
+  height:150px;
+  grid-column: 2/2;
+  border: 1px solid black;
+}
+#grid3{
+  background-color: aqua;
+  height:150px;
+  grid-column: 3/3;
+  border: 1px solid black;
+}
+#grid4{
+  background-color: aqua;
+  height:150px;
+  grid-column: 4/4;
+  border: 1px solid black;
+}
+#grid5{
+  background-color: aqua;
+  height:150px;
+  grid-column: 5/6;
+  border: 1px solid black;
+}
+#grid6{
+  background-color: aqua;
+  height:150px;
+  grid-column: 6/6;
+  border: 1px solid black;
+}
+#grid7{
+  background-color: aqua;
+  height:150px;
+  grid-column: 7/7;
+  border: 1px solid black;
+}
+#grid8{
+  background-color: aqua;
+  height:150px;
+  grid-column: 8/8;
+  border: 1px solid black;
+}
+#grid9{
+  background-color: aqua;
+  height:150px;
+  grid-column: 9/9;
+  border: 1px solid black;
+}
+#winner{
+  background-color: red;
+  justify-content: center;
+  position: relative;
+  border: 1px solid black;
+  width:70%;
+
 }
