@@ -49,6 +49,7 @@ let playerOTurn = []
 for (let i=0; i< gameBoard.length; i++) {
     gameBoard[i].addEventListener('click', (e) => {
         console.log(e.target); 
+        checkWin();
         if (playerTurn == "X") {
             e.target.innerText = "X";
             playerXTurn.push(e.target.id);
@@ -65,7 +66,7 @@ for (let i=0; i< gameBoard.length; i++) {
 
 //This isn't working correctly... maybe syntax is not entered right?
 const endGame = () => {
-    gameBoard.removeEventListener('click', (e()));
+    gameBoard.removeEventListener('click');
 };
 
 const checkWin = () => {
@@ -80,29 +81,32 @@ const checkWin = () => {
                 }
             } 
             if (match === 3) {
-                xWin = true
+                xWin = true;
+                endGame();
+                console.log("x wins");
             }
         } 
-        if (xWin) {
-            endGame();
-        }
-    } else {
+        // if (xWin) {
+        //     endGame();
+        
+    } else if (playerTurn == 'O') {
         let oWin = false;
         for (let i=0; i < winningCombinations.length; i++) {
         let match = 0;
         console.log(winningCombinations.i)
         for (let j=0; j < winningCombinations[i].length; j++) {
             if (playerXTurn.includes(winningCombinations[i][j])) {
-                match++;
+                    match++;
                 }
             }
             if (match === 3) {
                 oWin = true;
+                endGame();
+                console.log('o wins');
             }
         } 
-        if (oWin) {
-            endGame();
-        }
+        // if (oWin) {
+        //     endGame();
     }
 }
 
