@@ -4,7 +4,7 @@
     const cellArray = Array.from(cells)
 
     const restartButton = document.querySelector(".restartButton");
-    restartButton.addEventListener('click', ()=> {
+    restartButton.addEventListener('click', ()=> { 
         cells.forEach(cell => cell.value = '')
     });
 
@@ -32,10 +32,14 @@
         
     
         const indicator = cellArray.indexOf(e.target)
+        console.log(indicator)
         playerDisplay.innerHTML = currentPlayer
 
         if(currentPlayer === "PlayerX") {
             cells[indicator].classList.add("PlayerX")
+            let clickedCell = e.target.id
+            console.log(clickedCell)
+            // clickedCell.removeEventListener("click", clickOutcome)
             currentPlayer = "PlayerO"
         } else {
             cells[indicator].classList.add("PlayerO")
@@ -44,17 +48,29 @@
         
     }
 
-    function checkForWin() {
-        const choices = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
-        const index = Math.floor(Math.random() * 3);
+    // function cellClicked() {
+    // //     let i;
+    // //     for ()
         
-        if ((choices[index] === "1" && choices[index] === "2" && choices[index] === "3")
-    }
+
+    //     // if cell has a class of player x or player o
+    //     if cells = ("PlayerX || PlayerO)
+    //     then // make it unclickable
+    // }
+
+    // // function checkForWin() {
+    //     const choices = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
+    //     const index = Math.floor(Math.random() * 3);
+        
+    //     if ((choices[index] === "1" && choices[index] === "2" && choices[index] === "3")
+    // }
+
+
 //  random tries
     // const statusDisplay = document.querySelector("winningMessage")
     // letgameActive = true;
     // let gameState = ["", "", "", "", "", "", "", "", ""]
-
+// function checkForWin( // choices.index w/ math.floor or math.random
     // function render() {
     //     table.forEach(function(mark,index) {
     //         cells[index].textContent = mark;
