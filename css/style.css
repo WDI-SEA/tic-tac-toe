@@ -1,3 +1,154 @@
-h1 {
-  color: purple;
+body,
+html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.game-board {
+    width: 500px;
+    height: 500px;
+    display: grid;
+}
+
+.game-area {
+    width: fit-content;
+    height: fit-content;
+    padding: 50px;
+    box-shadow: 0px 0px 14px 2px rgba(30, 44, 103, 0.75);
+    border-radius: 25px;
+    background-color: rgba(141, 143, 145, 0.468);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.tile {
+    max-width: 170px;
+    min-width: 170px;
+    max-height: 170px;
+    min-height: 170px;
+    border-width: thick !important;
+}
+
+#a {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+#b {
+    grid-column: 2;
+    grid-row: 1;
+    border-right: solid;
+    border-left: solid;
+}
+
+#c {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+#d {
+    grid-column: 1;
+    grid-row: 2;
+    border-top: solid;
+    border-bottom: solid;
+}
+
+#e {
+    grid-column: 2;
+    grid-row: 2;
+    border: solid;
+}
+
+#f {
+    grid-column: 3;
+    grid-row: 2;
+    border-top: solid;
+    border-bottom: solid;
+}
+
+#g {
+    grid-column: 1;
+    grid-row: 3;
+}
+
+#h {
+    grid-column: 2;
+    grid-row: 3;
+    border-right: solid;
+    border-left: solid;
+}
+
+#i {
+    grid-column: 3;
+    grid-row: 3;
+}
+
+.title {
+    width: 100%;
+    text-align: center;
+    font-size: 80px;
+    font-family: Arial, Helvetica, sans-serif;
+    color:rgb(35, 88, 129)
+}
+
+button {
+    background-color: rgba(141, 143, 145, 0.468);
+    color: rgb(49, 75, 223);
+    border: 2px solid #2a78ee;
+    padding: 5px 10px 5px 10px;
+    border-radius: 7px;
+    outline: none;
+    height: 40px;
+    position: relative;
+    top: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+    top: 2px;
+}
+
+.info {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-around;
+    border: inset thick;
+    border-radius: 10px;
+}
+
+circle {
+    stroke: #167072;
+    stroke-linecap: round;
+    stroke-dasharray: 1000;
+    transform-origin: 50% 50%;
+    transform: scale(.65);
+    animation: dash .65s ease-in-out forwards;
+}
+
+.path {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 0;
+}
+
+.path.line {
+    stroke-dashoffset: 1000;
+    animation: dash 0.65s ease-in-out forwards;
+}
+
+.second {
+    animation-delay: 0.15s !important;
+}
+
+@keyframes dash {
+    0% {
+        stroke-dashoffset: 1000;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
 }
