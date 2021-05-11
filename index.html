@@ -1,14 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
-  <link rel="stylesheet" type="text/css" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!--adding defer in script/ defer moves JS to bottom of HTML-->
+    <script type="text/javascript" src="js/app.js"defer></script>
+    <title>Tic tac toe</title>
+</head>
+    <style>
+       /* select entire body */
+        *::after, *::before {
+        box-sizing: border-box;
+        }
+
+        :root {
+            --cell-size: 100px;
+            --mark-size: calc(var(--cell-size) * .9);
+        }
+
+        body {
+            margin: 0 auto;
+            background-image: url(XO.jpg);
+            background-color: #cccccc;
+            height: 700px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            /* need to fix background image and h1 text so they dont push game board to bottom of page */
+            /* backgrond continues to grow with browser window- game box */
+        }
+
+        h1 {
+        color: rgb(160, 34, 34);
+        text-align: center;
+        font-size: 4rem;
+        background-color:black
+        }
+
+        .board {
+            width: 300px;
+            height: 400px;
+            margin: 0 auto;
+            display: grid;
+            position: center;
+            justify-content: center;
+            align-content: center;
+            grid-template-columns: repeat(3, auto);
+            justify-items: center;
+            align-content: center;
+            grid-template-columns: repeat(3, auto);
+        }
+
+        .cell {
+            width: 100px;
+            height: 100px;;
+            border: 3px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            cursor: pointer;
+            background-color: white;
+        }
+
+        /* creating the x & O icons, added not allowed to stop the change of a cell element */
+        .cell.x,
+        .cell.circle {
+            cursor: not-allowed;
+        }
+
+        .cell.x::before,
+        .cell.x::after,
+        .cell.circle::before {
+            background-color: rgb(160, 34, 34);
+        }
+
+        /* hover color */
+        .board.x .cell:not(.x):not(.circle):hover::before,
+        .board.x .cell:not(.x):not(.circle):hover::after,
+        .board.circle  .cell:not(.x):not(.circle):hover::before {
+            background-color:rgb(126, 69, 69);
+        }
+
+        .cell.x::before,
+        .cell.x::after,
+        /* hover effect for elements */
+        .board.x .cell:not(.x):not(.circle):hover::before,
+        .board.x .cell:not(.x):not(.circle):hover::after {
+            /* content left empty to help render before and after */
+            content: '';
+            position: absolute;
+            /* 15% of heit of X */
+            width: calc(var(--mark-size) * .15);
+            height: var(--mark-size);
+        }
+
+        .cell.x::before,
+        .board.x .cell:not(.x):not(.circle):hover::before {
+            transform: rotate(45deg);
+        }
+
+        .cell.x::after,
+        .board.x .cell:not(.x):not(.circle):hover::after  {
+            transform: rotate(-45deg);
+        }
+        /* repeat for circle */
+
+        .cell.circle::before,
+        .cell.circle::after,
+        .board.circle .cell:not(.x):not(.circle):hover::before,
+        .board.circle .cell:not(.x):not(.circle):hover::after { 
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+        }
+        .cell.circle::before,
+        .board.circle .cell:not(.x):not(.circle):hover::before {
+            width: var(--mark-size);
+            height: var(--mark-size);
+        }
+
+        .cell.circle::after,
+        .board.circle .cell:not(.x):not(.circle):hover::after {
+            width: calc(var(--mark-size) * .7);
+            height: calc(var(--mark-size) * .7);
+            background-color: white;
+        }
+        /* style rematch button */
+        /* fix background color to seperate text after win */
+        .You-Are-The-Winner {
+            display: none;
+            position: fixed;
+            top: 5;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            /* rgba witth transparancey */
+            background-color: rgba(0, 0, 0, -9);
+            /* win message is at botom of page/ not centering over game board? */
+            justify-content: initial;
+            align-items: center;
+            color: rgb(160, 34, 34);
+            font-size: 8rem;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            /* text shadow not working? */
+            text-shadow: 3px solid black ;
+            flex-direction: column;
+        }
+
+        .You-Are-The-Winner button {
+            font-size: 3rem;
+            background-color: white;
+            border: 3px solid black;
+            padding: .25em .5em;
+            cursor: pointer;
+        }
+        /* hover effect for rematch  button */
+        .You-Are-The-Winner button:hover {
+            background-color: black;
+            color: white;
+            border-color: white;
+        }
+        .You-Are-The-Winner.show {
+            display: flex;
+        }
+        /* player1/player2 button styling */
+        </style>
 </head>
 <body>
-  <h1>Hello Front-End</h1>
-
-  <script type="text/javascript" src="js/app.js"></script>
+    
+    <h1>Tic Tac Toe</h1>
+<!-- use data cell to select in js so I can use class for css " -->
+    <div class="board" id="board">
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+    </div>
+    <form class="You-Are-The-Winner" id="YouAreTheWinner">
+        <div data-You-Are-The-WINNER-text></div>
+        <button id="rematchButton">Rematch!</button>
+    </form>
+    <!-- create player1/player2 buttons -->
 </body>
 </html>
