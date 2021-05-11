@@ -6,9 +6,11 @@ body {
 }
 h1 {
     font-size: 48px;
-    background: white;
     margin-top: 40px;
 
+}
+span {
+    background: white;
 }
 
 #main {
@@ -19,7 +21,7 @@ h1 {
 #displayTurn  {
     font-size: 30px;
     text-align: center;
-    font: white;
+    color: white;
     font-style: bold;
     padding-bottom: 30px;
 }
@@ -27,7 +29,7 @@ h1 {
 #displayResults {
     font-size: 30px;
     text-align: center;
-    font: white;
+    color: white;
     font-style: bold;
     padding-top: 20px;
 }
