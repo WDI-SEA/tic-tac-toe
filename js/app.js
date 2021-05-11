@@ -1,4 +1,4 @@
-// DOM Content Loaded event listener
+
 window.addEventListener("DOMContentLoaded", () => {
     // Capture DOM elements from page to store as vars
     let displayResults = document.getElementById("displayResults")
