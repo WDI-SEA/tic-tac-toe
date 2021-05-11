@@ -1,154 +1,73 @@
-body,
-html {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+body {
+    margin: 0 auto;
+    background-image: url("https://images.pexels.com/photos/3441727/pexels-photo-3441727.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260") ;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+h1 {
+    font-size: 48px;
+    background: white;
+    margin-top: 40px;
+
 }
 
-.game-board {
-    width: 500px;
-    height: 500px;
-    display: grid;
-}
-
-.game-area {
-    width: fit-content;
-    height: fit-content;
-    padding: 50px;
-    box-shadow: 0px 0px 14px 2px rgba(30, 44, 103, 0.75);
-    border-radius: 25px;
-    background-color: rgba(141, 143, 145, 0.468);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.tile {
-    max-width: 170px;
-    min-width: 170px;
-    max-height: 170px;
-    min-height: 170px;
-    border-width: thick !important;
-}
-
-#a {
-    grid-column: 1;
-    grid-row: 1;
-}
-
-#b {
-    grid-column: 2;
-    grid-row: 1;
-    border-right: solid;
-    border-left: solid;
-}
-
-#c {
-    grid-column: 3;
-    grid-row: 1;
-}
-
-#d {
-    grid-column: 1;
-    grid-row: 2;
-    border-top: solid;
-    border-bottom: solid;
-}
-
-#e {
-    grid-column: 2;
-    grid-row: 2;
-    border: solid;
-}
-
-#f {
-    grid-column: 3;
-    grid-row: 2;
-    border-top: solid;
-    border-bottom: solid;
-}
-
-#g {
-    grid-column: 1;
-    grid-row: 3;
-}
-
-#h {
-    grid-column: 2;
-    grid-row: 3;
-    border-right: solid;
-    border-left: solid;
-}
-
-#i {
-    grid-column: 3;
-    grid-row: 3;
-}
-
-.title {
-    width: 100%;
+#main {
     text-align: center;
-    font-size: 80px;
-    font-family: Arial, Helvetica, sans-serif;
-    color:rgb(35, 88, 129)
+    margin: 0 auto;
 }
 
-button {
-    background-color: rgba(141, 143, 145, 0.468);
-    color: rgb(49, 75, 223);
-    border: 2px solid #2a78ee;
-    padding: 5px 10px 5px 10px;
-    border-radius: 7px;
-    outline: none;
-    height: 40px;
-    position: relative;
-    top: 10px;
-    font-family: Arial, Helvetica, sans-serif;
+#displayTurn  {
+    font-size: 30px;
+    text-align: center;
+    font: white;
+    font-style: bold;
+    padding-bottom: 30px;
 }
 
-p {
-    font-family: Arial, Helvetica, sans-serif;
-    position: relative;
-    top: 2px;
+#displayResults {
+    font-size: 30px;
+    text-align: center;
+    font: white;
+    font-style: bold;
+    padding-top: 20px;
 }
 
-.info {
-    margin-top: 50px;
-    display: flex;
-    justify-content: space-around;
-    border: inset thick;
-    border-radius: 10px;
+.container {
+    margin: 0 auto;
+    border-color: 12px solid black;
+    width: 300px;
+    height: 300px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    background-color: rgb(255, 255, 255, .1);
+    
+}
+.gameboard {
+    border-color: 12px solid black;
+}
+.gameTile {
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    font-size: 48px;
+    text-align: center;
 }
 
-circle {
-    stroke: #167072;
-    stroke-linecap: round;
-    stroke-dasharray: 1000;
-    transform-origin: 50% 50%;
-    transform: scale(.65);
-    animation: dash .65s ease-in-out forwards;
+.gameTile:hover {
+    background-color: rgba(244, 253, 65, 0.708);
 }
 
-.path {
-    stroke-dasharray: 1000;
-    stroke-dashoffset: 0;
+#reset {
+    margin-top: 35px;
+    
+
 }
 
-.path.line {
-    stroke-dashoffset: 1000;
-    animation: dash 0.65s ease-in-out forwards;
+.playedB {
+    color: rgb(12, 55, 199);
 }
 
-.second {
-    animation-delay: 0.15s !important;
-}
-
-@keyframes dash {
-    0% {
-        stroke-dashoffset: 1000;
-    }
-    100% {
-        stroke-dashoffset: 0;
-    }
+.playedA {
+    color: rgb(12, 145, 41);
 }

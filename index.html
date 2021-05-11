@@ -5,28 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Tassi's Tic-Tac-Toe</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script src="js/app.js"></script>
 </head>
 <body>
-  <h1 class="title">Tic Tac Toe</h1>
-    <div class="game-area">
-        <div class="game-board">
-            <div class="tile" id="a"></div>
-            <div class="tile" id="b"></div>
-            <div class="tile" id="c"></div>
-            <div class="tile" id="d"></div>
-            <div class="tile" id="e"></div>
-            <div class="tile" id="f"></div>
-            <div class="tile" id="g"></div>
-            <div class="tile" id="h"></div>
-            <div class="tile" id="i"></div>
-        </div>
-        <div class="info">
-            <button class="reset" onclick="reset()">Reset</button>
-            <p class="winner"></p>
-            <p class="turn">X's Turn</p>
-        </div>
-    </div>
-    <script src="js/app.js"></script>
+  <div id="main">
+      <h1> 🇧🇷 Score TIC TAC GOAL 🇦🇷</h1>
+      <div id="displayTurn"></div>
+      <div id="gameboard" class="container">
+          <div id="topL" class="gameTile"></div>
+          <div id="topM" class="gameTile"></div>
+          <div id="topR" class="gameTile"></div>
+          <div id="midL" class="gameTile"></div>
+          <div id="midM" class="gameTile"></div>
+          <div id="midR" class="gameTile"></div>
+          <div id="botL" class="gameTile"></div>
+          <div id="botM" class="gameTile"></div>
+          <div id="botR" class="gameTile"></div>
+      </div>
+      <button id="reset">New Game</button>
+      <div id="displayResults"></div>
+  </div>
 </body>
 </html>
-
